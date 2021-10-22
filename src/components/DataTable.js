@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 // import PropTypes from "prop-types";
-// import clsx from "clsx";
-// import { lighten, makeStyles } from "@material-ui/core/styles";
+import clsx from 'clsx'
+import { lighten, makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
-// import TableCell from "@material-ui/core/TableCell";
+import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
-// import TableHead from "@material-ui/core/TableHead";
-// import TablePagination from "@material-ui/core/TablePagination";
-// import TableRow from "@material-ui/core/TableRow";
-// import TableSortLabel from "@material-ui/core/TableSortLabel";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Typography from "@material-ui/core/Typography";
+import TableHead from '@material-ui/core/TableHead'
+import TablePagination from '@material-ui/core/TablePagination'
+import TableRow from '@material-ui/core/TableRow'
+import TableSortLabel from '@material-ui/core/TableSortLabel'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Checkbox from '@material-ui/core/Checkbox'
 import dayjs from 'dayjs'
@@ -30,10 +30,10 @@ const RowActions = ({
 }) => {
   return (
     <div>
-      {customActions &&
+      {/* {customActions &&
         customActions.map((customAction) => {
           return customAction.component(row)
-        })}
+        })} */}
       {handleDetails && (
         <Tooltip key={'details'} title='Details' placement='top'>
           <Button
@@ -122,72 +122,72 @@ function stableSort(array, comparator) {
   })
   return stabilizedThis.map((el) => el[0])
 }
-// function EnhancedTableHead({
-//   classes,
-//   onSelectAllClick,
-//   order,
-//   orderBy,
-//   numSelected,
-//   rowCount,
-//   onRequestSort,
-//   dataColumns,
-//   handleMultiSelect,
-//   ...props
-// }) {
-//   const createSortHandler = (property) => (event) => {
-//     onRequestSort(event, property)
-//   }
-//   return (
-//     <TableHead>
-//       <tr style={{ position: 'relative' }}>
-//         <td>
-//           <div>#</div>
-//         </td>
-//         <CustomDivider />
-//         {handleMultiSelect && (
-//           <td padding='checkbox'>
-//             <Checkbox
-//               indeterminate={numSelected > 0 && numSelected < rowCount}
-//               checked={rowCount > 0 && numSelected === rowCount}
-//               onChange={onSelectAllClick}
-//               inputProps={{ 'aria-label': 'select all desserts' }}
-//             />
-//           </td>
-//         )}
+function EnhancedTableHead({
+  classes,
+  onSelectAllClick,
+  order,
+  orderBy,
+  numSelected,
+  rowCount,
+  onRequestSort,
+  dataColumns,
+  handleMultiSelect,
+  ...props
+}) {
+  const createSortHandler = (property) => (event) => {
+    onRequestSort(event, property)
+  }
+  return (
+    <TableHead>
+      <tr style={{ position: 'relative' }}>
+        <TableCell>
+          <div>#</div>
+        </TableCell>
+        <CustomDivider />
+        {handleMultiSelect && (
+          <TableCell padding='checkbox'>
+            <Checkbox
+              indeterminate={numSelected > 0 && numSelected < rowCount}
+              checked={rowCount > 0 && numSelected === rowCount}
+              onChange={onSelectAllClick}
+              inputProps={{ 'aria-label': 'select all desserts' }}
+            />
+          </TableCell>
+        )}
 
-//         {dataColumns.map((headCell, i) => (
-//           <React.Fragment key={i}>
-//             <td
-//               // align={headCell.type !== "String" ? "right" : "left"}
-//               // padding={headCell.disablePadding ? "none" : "default"}
-//               sortDirection={orderBy === headCell.id ? order : false}
-//             >
-//               <TableSortLabel
-//                 active={orderBy === headCell.id}
-//                 direction={orderBy === headCell.id ? order : 'asc'}
-//                 onClick={createSortHandler(headCell.id)}
-//               >
-//                 {headCell.label}
-//                 {orderBy === headCell.id ? (
-//                   <span className={classes.visuallyHidden}>
-//                     {order === 'desc'
-//                       ? 'sorted descending'
-//                       : 'sorted ascending'}
-//                   </span>
-//                 ) : null}
-//               </TableSortLabel>
-//             </td>
-//             <CustomDivider />
-//           </React.Fragment>
-//         ))}
-//         <CustomDivider />
-//         <td align='center' key={'actionsHeader'}>
-//           Actions
-//         </td>
-//       </tr>
-//     </TableHead>
-//   )
-// }
+        {dataColumns.map((headCell, i) => (
+          <React.Fragment key={i}>
+            <TableCell
+              // align={headCell.type !== "String" ? "right" : "left"}
+              // padding={headCell.disablePadding ? "none" : "default"}
+              sortDirection={orderBy === headCell.id ? order : false}
+            >
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : 'asc'}
+                onClick={createSortHandler(headCell.id)}
+              >
+                {headCell.label}
+                {orderBy === headCell.id ? (
+                  <span className={classes.visuallyHidden}>
+                    {order === 'desc'
+                      ? 'sorted descending'
+                      : 'sorted ascending'}
+                  </span>
+                ) : null}
+              </TableSortLabel>
+            </TableCell>
+            <CustomDivider />
+          </React.Fragment>
+        ))}
+        <CustomDivider />
+        <TableCell align='center' key={'actionsHeader'}>
+          Actions
+        </TableCell>
+      </tr>
+    </TableHead>
+  )
+}
 // EnhancedTableHead.propTypes = {
 //   classes: PropTypes.object.isRequired,
 //   numSelected: PropTypes.number.isRequired,
@@ -197,295 +197,295 @@ function stableSort(array, comparator) {
 //   orderBy: PropTypes.string.isRequired,
 //   rowCount: PropTypes.number.isRequired
 // }
-// const useToolbarStyles = makeStyles((theme) => ({
-//   root: {
-//     paddingLeft: theme.spacing(2),
-//     paddingRight: theme.spacing(1),
-//     backgroundColor: 'red'
-//   },
-//   highlight:
-//     theme.palette.type === 'light'
-//       ? {
-//           color: theme.palette.secondary.main,
-//           backgroundColor: lighten(theme.palette.secondary.light, 0.85)
-//         }
-//       : {
-//           color: theme.palette.text.primary,
-//           backgroundColor: theme.palette.secondary.dark
-//         },
-//   title: {
-//     flex: '1 1 100%'
-//   }
-// }))
-// const EnhancedTableToolbar = ({ tableTitle, children, ...props }) => {
-//   const classes = useToolbarStyles()
-//   const { numSelected } = props
+const useToolbarStyles = makeStyles((theme) => ({
+  root: {
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(1)
+    // backgroundColor: 'red'
+  },
+  highlight:
+    theme.palette.type === 'light'
+      ? {
+          color: theme.palette.secondary.main,
+          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
+        }
+      : {
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.secondary.dark
+        },
+  title: {
+    flex: '1 1 100%'
+  }
+}))
+const EnhancedTableToolbar = ({ tableTitle, children, ...props }) => {
+  const classes = useToolbarStyles()
+  const { numSelected } = props
 
-//   return (
-//     <Toolbar
-//       className={clsx(classes.root, {
-//         [classes.highlight]: numSelected > 0
-//       })}
-//     >
-//       {numSelected > 0 ? (
-//         <Typography
-//           className={classes.title}
-//           color='inherit'
-//           variant='subtitle1'
-//           component='div'
-//         >
-//           {numSelected} selected
-//         </Typography>
-//       ) : (
-//         <Typography
-//           className={classes.title}
-//           variant='h6'
-//           id='tableTitle'
-//           component='div'
-//         >
-//           {tableTitle}
-//         </Typography>
-//       )}
-//       {children}
-//     </Toolbar>
-//   )
-// }
+  return (
+    <Toolbar
+      className={clsx(classes.root, {
+        [classes.highlight]: numSelected > 0
+      })}
+    >
+      {numSelected > 0 ? (
+        <Typography
+          className={classes.title}
+          color='inherit'
+          variant='subtitle1'
+          component='div'
+        >
+          {numSelected} selected
+        </Typography>
+      ) : (
+        <Typography
+          className={classes.title}
+          variant='h6'
+          id='tableTitle'
+          component='div'
+        >
+          {tableTitle}
+        </Typography>
+      )}
+      {children}
+    </Toolbar>
+  )
+}
 // EnhancedTableToolbar.propTypes = {
 //   numSelected: PropTypes.number.isRequired
 // }
 
-// const DataTable = ({
-//   tableTitle,
-//   rowPath,
-//   rowData,
-//   dataColumns,
-//   handleRowClick,
-//   detailsHandler,
-//   editHandler,
-//   deleteHandler,
-//   customActions,
-//   handleMultiSelect,
-//   children,
-//   ...props
-// }) => {
-//   const [order, setOrder] = useState("asc");
-//   const [orderBy, setOrderBy] = useState("");
-//   const [selected, setSelected] = useState([]);
-//   const [page, setPage] = useState(props.page ?? 0);
-//   const [rowsPerPage, setRowsPerPage] = useState(props.rowsPerPage ?? 25);
+const DataTable = ({
+  tableTitle,
+  rowPath,
+  rowData,
+  dataColumns,
+  handleRowClick,
+  detailsHandler,
+  editHandler,
+  deleteHandler,
+  customActions,
+  handleMultiSelect,
+  children,
+  ...props
+}) => {
+  const [order, setOrder] = useState('asc')
+  const [orderBy, setOrderBy] = useState('')
+  const [selected, setSelected] = useState([])
+  const [page, setPage] = useState(props.page ?? 0)
+  const [rowsPerPage, setRowsPerPage] = useState(props.rowsPerPage ?? 25)
 
-//   const handleRequestSort = (event, property) => {
-//     // console.log('handleRequestSort event: ', event, ' property: ', property)
-//     const isAsc = orderBy === property && order === "asc";
-//     setOrder(isAsc ? "desc" : "asc");
-//     setOrderBy(property);
-//   };
-//   const handleSelectAllClick = (event, row) => {
-//     if (event.target.checked) {
-//       const newSelecteds = rowData.map((n) => n);
-//       setSelected(newSelecteds);
-//       if (handleMultiSelect) {
-//         handleMultiSelect(event, row, newSelecteds);
-//       }
-//       return;
-//     }
-//     setSelected([]);
-//     if (handleMultiSelect) {
-//       handleMultiSelect(event, row, []);
-//     }
-//   };
-//   const handleClick = (event, row) => {
-//     const selectedIndex = selected.map((value) => value._id).indexOf(row._id);
-//     let newSelected = [];
+  const handleRequestSort = (event, property) => {
+    // console.log('handleRequestSort event: ', event, ' property: ', property)
+    const isAsc = orderBy === property && order === 'asc'
+    setOrder(isAsc ? 'desc' : 'asc')
+    setOrderBy(property)
+  }
+  const handleSelectAllClick = (event, row) => {
+    if (event.target.checked) {
+      const newSelecteds = rowData.map((n) => n)
+      setSelected(newSelecteds)
+      if (handleMultiSelect) {
+        handleMultiSelect(event, row, newSelecteds)
+      }
+      return
+    }
+    setSelected([])
+    if (handleMultiSelect) {
+      handleMultiSelect(event, row, [])
+    }
+  }
+  const handleClick = (event, row) => {
+    const selectedIndex = selected.map((value) => value._id).indexOf(row._id)
+    let newSelected = []
 
-//     if (selectedIndex === -1) {
-//       newSelected = newSelected.concat(selected, row);
-//     } else if (selectedIndex === 0) {
-//       newSelected = newSelected.concat(selected.slice(1));
-//     } else if (selectedIndex === selected.length - 1) {
-//       newSelected = newSelected.concat(selected.slice(0, -1));
-//     } else if (selectedIndex > 0) {
-//       newSelected = newSelected.concat(
-//         selected.slice(0, selectedIndex),
-//         selected.slice(selectedIndex + 1)
-//       );
-//     }
-//     setSelected(newSelected);
-//     if (handleMultiSelect) {
-//       handleMultiSelect(event, row, newSelected);
-//     }
-//   };
-//   const handleChangePage = (event, newPage) => {
-//     setPage(newPage);
-//   };
-//   const handleChangeRowsPerPage = (event) => {
-//     setRowsPerPage(parseInt(event.target.value, 10));
-//     setPage(0);
-//   };
-//   const isSelected = (id) => {
-//     selected.map((value) => value._id).indexOf(id) !== -1;
-//   };
-//   return (
-//     <div>
-//       <CssBaseline />
-//       <Paper>
-//         {/* <EnhancedTableToolbar
-//           tableTitle={tableTitle}
-//           numSelected={selected.length}
-//           children={children}
-//         /> */}
-//         <TableContainer>
-//           <Table
-//             aria-labelledby="tableTitle"
-//             size={"medium"}
-//             aria-label="enhanced table"
-//           >
-//             {/* <EnhancedTableHead
-//               numSelected={selected.length}
-//               order={order}
-//               orderBy={orderBy}
-//               onSelectAllClick={(event, row) =>
-//                 handleSelectAllClick(event, row)
-//               }
-//               onRequestSort={handleRequestSort}
-//               rowCount={rowData.length}
-//               dataColumns={dataColumns}
-//               handleMultiSelect={handleMultiSelect}
-//             /> */}
-//             <TableBody>
-//               {stableSort(rowData, getComparator(order, orderBy))
-//                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-//                 .map((row, index) => {
-//                   const isItemSelected = isSelected(row._id);
-//                   const labelId = `enhanced-table-checkbox-${index}`;
-//                   let itemIndex = page * rowsPerPage + (index + 1);
+    if (selectedIndex === -1) {
+      newSelected = newSelected.concat(selected, row)
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(selected.slice(1))
+    } else if (selectedIndex === selected.length - 1) {
+      newSelected = newSelected.concat(selected.slice(0, -1))
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1)
+      )
+    }
+    setSelected(newSelected)
+    if (handleMultiSelect) {
+      handleMultiSelect(event, row, newSelected)
+    }
+  }
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage)
+  }
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(0)
+  }
+  const isSelected = (id) => {
+    selected.map((value) => value._id).indexOf(id) !== -1
+  }
+  return (
+    <div>
+      <CssBaseline />
+      <Paper>
+        <EnhancedTableToolbar
+          tableTitle={tableTitle}
+          numSelected={selected.length}
+          children={children}
+        />
+        <TableContainer>
+          <Table
+            aria-labelledby='tableTitle'
+            size={'medium'}
+            aria-label='enhanced table'
+          >
+            <EnhancedTableHead
+              numSelected={selected.length}
+              order={order}
+              orderBy={orderBy}
+              onSelectAllClick={(event, row) =>
+                handleSelectAllClick(event, row)
+              }
+              onRequestSort={handleRequestSort}
+              rowCount={rowData.length}
+              dataColumns={dataColumns}
+              handleMultiSelect={handleMultiSelect}
+            />
+            <TableBody>
+              {stableSort(rowData, getComparator(order, orderBy))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  const isItemSelected = isSelected(row._id)
+                  const labelId = `enhanced-table-checkbox-${index}`
+                  let itemIndex = page * rowsPerPage + (index + 1)
 
-//                   return (
-//                     <tr
-//                       hover
-//                       onClick={(event) => {
-//                         handleMultiSelect
-//                           ? handleClick(event, row)
-//                           : console.log("multiSelect is Deactivated");
-//                         handleRowClick
-//                           ? handleRowClick(event, row)
-//                           : console.log("handleRowClick is not implemented");
-//                       }}
-//                       role="checkbox"
-//                       aria-checked={isItemSelected}
-//                       tabIndex={-1}
-//                       key={row._id}
-//                       selected={isItemSelected}
-//                       style={{ position: "relative" }}
-//                     >
-//                       <td>
-//                         <div>{itemIndex}</div>
-//                       </td>
-//                       <CustomDivider />
-//                       {handleMultiSelect && (
-//                         <>
-//                           <td key={"checkbox"} padding="checkbox">
-//                             <Checkbox
-//                               checked={isItemSelected}
-//                               inputProps={{ "aria-labelledby": labelId }}
-//                             />
-//                           </td>
-//                           <CustomDivider />
-//                         </>
-//                       )}
+                  return (
+                    <tr
+                      hover
+                      onClick={(event) => {
+                        handleMultiSelect
+                          ? handleClick(event, row)
+                          : console.log('multiSelect is Deactivated')
+                        handleRowClick
+                          ? handleRowClick(event, row)
+                          : console.log('handleRowClick is not implemented')
+                      }}
+                      role='checkbox'
+                      aria-checked={isItemSelected}
+                      tabIndex={-1}
+                      key={row._id}
+                      selected={isItemSelected}
+                      style={{ position: 'relative' }}
+                    >
+                      <TableCell>
+                        <div>{itemIndex}</div>
+                      </TableCell>
+                      <CustomDivider />
+                      {handleMultiSelect && (
+                        <>
+                          <TableCell key={'checkbox'} padding='checkbox'>
+                            <Checkbox
+                              checked={isItemSelected}
+                              inputProps={{ 'aria-labelledby': labelId }}
+                            />
+                          </TableCell>
+                          <CustomDivider />
+                        </>
+                      )}
 
-//                       {dataColumns.map((rk, j) => {
-//                         if (rk.type === "Array") {
-//                           return (
-//                             <React.Fragment
-//                               key={JSON.stringify(row[rk.property]) + "" + j}
-//                             >
-//                               <td>{row[rk.property]?.length}</td>
-//                               <CustomDivider />
-//                             </React.Fragment>
-//                           );
-//                         } else if (rk.type === "Date") {
-//                           return (
-//                             <React.Fragment
-//                               key={JSON.stringify(row[rk.property]) + "" + j}
-//                             >
-//                               <td>
-//                                 {row[rk.property]
-//                                   ? dayjs(Number(row[rk.property])).format(
-//                                       "DD/MM/YYYY hh:mm A"
-//                                     )
-//                                   : "N/A"}
-//                               </td>
-//                               <CustomDivider />
-//                             </React.Fragment>
-//                           );
-//                         } else if (rk.type === "Property") {
-//                           return (
-//                             <React.Fragment key={j}>
-//                               <td
-//                                 key={JSON.stringify(row[rk.property]) + "" + j}
-//                               >
-//                                 {row[rk.property]
-//                                   ? row[rk.property][rk.nestedProperty]
-//                                   : "N/A"}
-//                               </td>
-//                               <CustomDivider />
-//                             </React.Fragment>
-//                           );
-//                         } else {
-//                           return (
-//                             <React.Fragment
-//                               key={JSON.stringify(row[rk.property]) + "" + j}
-//                             >
-//                               <td>{row[rk.property]}</td>
-//                               <CustomDivider />
-//                             </React.Fragment>
-//                           );
-//                         }
-//                       })}
-//                       <CustomDivider />
+                      {dataColumns.map((rk, j) => {
+                        if (rk.type === 'Array') {
+                          return (
+                            <React.Fragment
+                              key={JSON.stringify(row[rk.property]) + '' + j}
+                            >
+                              <TableCell>{row[rk.property]?.length}</TableCell>
+                              <CustomDivider />
+                            </React.Fragment>
+                          )
+                        } else if (rk.type === 'Date') {
+                          return (
+                            <React.Fragment
+                              key={JSON.stringify(row[rk.property]) + '' + j}
+                            >
+                              <TableCell>
+                                {row[rk.property]
+                                  ? dayjs(Number(row[rk.property])).format(
+                                      'DD/MM/YYYY hh:mm A'
+                                    )
+                                  : 'N/A'}
+                              </TableCell>
+                              <CustomDivider />
+                            </React.Fragment>
+                          )
+                        } else if (rk.type === 'Property') {
+                          return (
+                            <React.Fragment key={j}>
+                              <TableCell
+                                key={JSON.stringify(row[rk.property]) + '' + j}
+                              >
+                                {row[rk.property]
+                                  ? row[rk.property][rk.nestedProperty]
+                                  : 'N/A'}
+                              </TableCell>
+                              <CustomDivider />
+                            </React.Fragment>
+                          )
+                        } else {
+                          return (
+                            <React.Fragment
+                              key={JSON.stringify(row[rk.property]) + '' + j}
+                            >
+                              <TableCell>{row[rk.property]}</TableCell>
+                              <CustomDivider />
+                            </React.Fragment>
+                          )
+                        }
+                      })}
+                      <CustomDivider />
 
-//                       {
-//                         <td
-//                           key={"actions"}
-//                           align="center"
-//                           // style={{ backgroundColor: "red" }}
-//                           width={"20%"}
-//                         >
-//                           <RowActions
-//                             row={row}
-//                             handleDetails={
-//                               detailsHandler ? () => detailsHandler(row) : null
-//                             }
-//                             handleEdit={
-//                               editHandler ? () => editHandler(row) : null
-//                             }
-//                             handleDelete={
-//                               deleteHandler ? () => deleteHandler(row) : null
-//                             }
-//                             customActions={customActions}
-//                           />
-//                         </td>
-//                       }
-//                     </tr>
-//                   );
-//                 })}
-//             </TableBody>
-//           </Table>
-//         </TableContainer>
-//         {/* <TablePagination
-//           rowsPerPageOptions={[5, 10, 25, 50]}
-//           component='div'
-//           count={rowData.length}
-//           rowsPerPage={rowsPerPage}
-//           page={page}
-//           onPageChange={handleChangePage}
-//           onRowsPerPageChange={handleChangeRowsPerPage}
-//         /> */}
-//       </Paper>
-//     </div>
-//   );
-// };
+                      {
+                        <TableCell
+                          key={'actions'}
+                          align='center'
+                          // style={{ backgroundColor: "red" }}
+                          width={'20%'}
+                        >
+                          <RowActions
+                            row={row}
+                            handleDetails={
+                              detailsHandler ? () => detailsHandler(row) : null
+                            }
+                            handleEdit={
+                              editHandler ? () => editHandler(row) : null
+                            }
+                            handleDelete={
+                              deleteHandler ? () => deleteHandler(row) : null
+                            }
+                            customActions={customActions}
+                          />
+                        </TableCell>
+                      }
+                    </tr>
+                  )
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25, 50]}
+          component='div'
+          count={rowData.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+    </div>
+  )
+}
 const NewTable = () => {
   return (
     <div>
@@ -499,7 +499,7 @@ const NewTable = () => {
           >
             <TableBody>
               <React.Fragment>
-                <td>something here</td>
+                <TableCell>something here</TableCell>
                 <CustomDivider />
               </React.Fragment>
             </TableBody>
@@ -510,4 +510,4 @@ const NewTable = () => {
   )
 }
 
-export { NewTable }
+export { NewTable, DataTable }
