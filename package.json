@@ -1,6 +1,6 @@
 {
   "name": "@sikka/tawila",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Custom Data Tables",
   "author": "sikka-software",
   "license": "MIT",
@@ -25,7 +25,6 @@
   },
   "peerDependencies": {
     "react": "^16.0.0"
-    
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
