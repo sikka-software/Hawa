@@ -2,7 +2,9 @@
 
 > Custom Table Component
 
-[![NPM](https://img.shields.io/npm/v/tawila.svg)](https://www.npmjs.com/package/@sikka/tawila) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@sikka/tawila.svg)](https://www.npmjs.com/package/@sikka/tawila)
+[![NPM](https://img.shields.io/npm/dt/@sikka/tawila.svg)](https://www.npmjs.com/package/@sikka/tawila)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -24,6 +26,7 @@ class Example extends Component {
       <CustomTable
         rowKeys={
           [
+            // array of objects
             // documenting in progress
           ]
         }
