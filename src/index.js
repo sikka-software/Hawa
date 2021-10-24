@@ -1,3 +1,3 @@
-import { DataTable, NewTable } from './components/DataTable'
+import Loah from './components/Loah'
 
-export { NewTable, DataTable }
+export default Loah

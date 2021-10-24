@@ -1,23 +1,23 @@
-# Tawila
+# Loah | لوح
 
 > Custom Table Component
 
-[![NPM](https://img.shields.io/npm/v/@sikka/tawila.svg)](https://www.npmjs.com/package/@sikka/tawila)
-[![NPM](https://img.shields.io/npm/dt/@sikka/tawila.svg)](https://www.npmjs.com/package/@sikka/tawila)
+[![NPM](https://img.shields.io/npm/v/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
+[![NPM](https://img.shields.io/npm/dt/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @sikka/tawila
+npm install --save @sikka/loah
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react'
-import { CustomTable } from '@sikka/tawila'
-import '@sikka/tawila/dist/index.css' //Still in progress
+import { CustomTable } from '@sikka/loah'
+import '@sikka/loah/dist/index.css' //Still in progress
 
 const Example = () => {
   return (
@@ -38,8 +38,8 @@ To contribute, clone this github repository and run the development server on th
 - clone repository
 
 ```bash
-git clone git@github.com:sikka-software/tawila.git
-cd tawila
+git clone git@github.com:sikka-software/loah.git
+cd loah
 ```
 
 - run development server
@@ -54,7 +54,7 @@ npm run start
 ## TESTING
 
 ```bash
-git clone git@github.com:sikka-software/tawila.git
+git clone git@github.com:sikka-software/loah.git
 cd example
 npm run start
 

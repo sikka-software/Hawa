@@ -1,48 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { DataTable } from 'tawila'
-import 'tawila/dist/index.css'
+import Loah from 'loah'
+import 'loah/dist/index.css'
+import Icon0 from '@material-ui/icons/AddLocation'
+import Icon1 from '@material-ui/icons/Assistant'
+import Icon2 from '@material-ui/icons/BlockOutlined'
 
 const App = () => {
+  const [expand, setExpand] = useState(false)
+
   return (
     <div>
-      <DataTable
-        tableTitle={'Usokokokers'}
-        
-        rowData={[
-          { name: '1212', age: '1232', location: '23125' },
-          { name: '1212', age: '1232', location: '23125' },
-          { name: '1212', age: '1232', location: '23125' }
-        ]}
-        handleRowClick={(event, row) => console.log('clicking row: ', row)}
-        detailsHandler={(row) => console.log('open details row: ', row)}
-        editHandler={(row) => console.log('editing row: ', row)}
-        deleteHandler={(row) => console.log('deleting row: ', row)}
-        customActions={[
+      <div>LOAH COMPONENT</div>
+      <Loah
+        handleExpand={() => setExpand(!expand)}
+        expanded={expand}
+        bgColor='red'
+        buttonsColor='white'
+        direction='right'
+        buttons={[
           {
-            component: (row) => {
-              return <div>Custom Button</div>
-            }
-          }
-        ]}
-        dataColumns={[
-          {
-            id: 'name',
-            label: 'Name',
-            property: 'name',
-            type: 'String'
+            name: 'something',
+            icon: <Icon0 />
           },
           {
-            id: 'age',
-            label: 'Date Joined',
-            property: 'age',
-            type: 'String'
+            name: 'something',
+            icon: <Icon1 />
           },
           {
-            id: 'location',
-            label: 'Plan',
-            property: 'location',
-            type: 'String'
+            name: 'something',
+            icon: <Icon2 />
           }
         ]}
       />

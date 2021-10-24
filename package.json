@@ -1,10 +1,13 @@
 {
-  "name": "@sikka/tawila",
-  "version": "1.4.2",
-  "description": "Custom Data Tables",
-  "author": "sikka-software",
+  "name": "@sikka/loah",
+  "version": "1.0.0",
+  "description": "Custom App Bar",
+  "author": "Zakher Masri",
   "license": "MIT",
-  "repository": "sikka-software/tawila",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sikka-software/loah.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -54,5 +57,12 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "dayjs": "^1.10.7"
+  },
+  "bugs": {
+    "url": "https://github.com/sikka-software/loah/issues"
+  },
+  "homepage": "https://github.com/sikka-software/loah#readme",
+  "directories": {
+    "example": "example"
   }
 }
