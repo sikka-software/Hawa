@@ -15,30 +15,49 @@ npm install --save @sikka/tawila
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
+import React from 'react'
 import { CustomTable } from '@sikka/tawila'
-import 'tawila/dist/index.css' //Still in progress
+import '@sikka/tawila/dist/index.css' //Still in progress
 
-class Example extends Component {
-  render() {
-    return (
-      <CustomTable
-        rowKeys={
-          [
-            // array of objects
-            // documenting in progress
-          ]
-        }
-        dataColumns={
-          [
-            // documenting in progress
-          ]
-        }
-      />
-    )
-  }
+const Example = () => {
+  return (
+    <CustomTable
+      // array of objects
+      rowData={[]}
+      // keys for columns
+      dataColumns={[]}
+    />
+  )
 }
+```
+
+## Contributing
+
+To contribute, clone this github repository and run the development server on the `/example` folder
+
+- clone repository
+
+```bash
+git clone git@github.com:sikka-software/tawila.git
+cd tawila
+```
+
+- run development server
+
+```bash
+npm run start
+```
+
+- edit index.js
+
+
+## TESTING
+
+```bash
+git clone git@github.com:sikka-software/tawila.git
+cd example
+npm run start
+
 ```
 
 ## License

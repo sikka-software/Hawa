@@ -59,12 +59,7 @@ const RowActions = ({
             color='primary'
             variant='contained'
             size='small'
-            style={{
-              margin: 5,
-              //   backgroundColor: 'blue',
-              boxShadow: 'none',
-              color: 'white'
-            }}
+            style={{ margin: 5, boxShadow: 'none', color: 'white' }}
           >
             Edit
           </Button>
@@ -201,7 +196,6 @@ const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1)
-    // backgroundColor: 'red'
   },
   highlight:
     theme.palette.type === 'light'
@@ -275,7 +269,6 @@ const DataTable = ({
   const [rowsPerPage, setRowsPerPage] = useState(props.rowsPerPage ?? 25)
 
   const handleRequestSort = (event, property) => {
-    // console.log('handleRequestSort event: ', event, ' property: ', property)
     const isAsc = orderBy === property && order === 'asc'
     setOrder(isAsc ? 'desc' : 'asc')
     setOrderBy(property)
@@ -444,24 +437,16 @@ const DataTable = ({
                         }
                       })}
                       <CustomDivider />
-
                       {
-                        <TableCell
-                          key={'actions'}
-                          align='center'
-                          // style={{ backgroundColor: "red" }}
-                          width={'20%'}
-                        >
+                        <TableCell key={'actions'} align='center' width={'20%'}>
                           <RowActions
                             row={row}
                             handleDetails={
-                              detailsHandler ? () => detailsHandler(row) : null
+                              detailsHandler ?? (() => detailsHandler(row))
                             }
-                            handleEdit={
-                              editHandler ? () => editHandler(row) : null
-                            }
+                            handleEdit={editHandler ?? (() => editHandler(row))}
                             handleDelete={
-                              deleteHandler ? () => deleteHandler(row) : null
+                              deleteHandler ?? (() => deleteHandler(row))
                             }
                             customActions={customActions}
                           />

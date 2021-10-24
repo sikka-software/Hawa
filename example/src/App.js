@@ -7,7 +7,8 @@ const App = () => {
   return (
     <div>
       <DataTable
-        title={'Users'}
+        tableTitle={'Usokokokers'}
+        
         rowData={[
           { name: '1212', age: '1232', location: '23125' },
           { name: '1212', age: '1232', location: '23125' },
