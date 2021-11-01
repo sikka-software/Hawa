@@ -1,3 +1,1 @@
-import Loah from './components/Loah'
-
-export default Loah
+export * from "./components/Loah";
