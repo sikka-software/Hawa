@@ -15,17 +15,48 @@ npm install --save @sikka/loah
 ## Usage
 
 ```jsx
-import React from 'react'
-import { CustomTable } from '@sikka/loah'
+import React, {useState} from 'react'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Loah } from '@sikka/loah'
 import '@sikka/loah/dist/index.css' //Still in progress
 
+const buttons= [
+  {
+    name : "button1",
+    icon : <AccountCircleIcon />
+  },
+  {
+    name : "button2",
+    icon : <AccountCircleIcon />
+  },
+  {
+    name : "button3",
+    icon : <AccountCircleIcon />
+  },
+]
+
 const Example = () => {
+  const [expand, setExpand] = useState(false)
   return (
-    <CustomTable
-      // array of objects
-      rowData={[]}
-      // keys for columns
-      dataColumns={[]}
+    <Loah
+      expanded={expand} // boolean
+      handleExpand = {() => {  // function 
+        // Your code goes here
+        setExpand(!expand)
+      }}
+      
+      
+      // navbar's background color
+      bgColor={"red"}
+      
+      // navbar button's color
+      buttonsColor={"blue"}
+      
+      // navbar's direction it could be "left", "right", "top" or "buttom"
+      direction={"right"}
+      
+      // navbar's elament
+      buttons={buttons}
     />
   )
 }
@@ -33,30 +64,68 @@ const Example = () => {
 
 ## Contributing
 
-To contribute, clone this github repository and run the development server on the `/example` folder
+To contribute, clone this github repository and run the development server
 
 - clone repository
 
 ```bash
 git clone git@github.com:sikka-software/loah.git
 cd loah
+npm install
 ```
 
-- run development server
-
-```bash
-npm run start
-```
-
-- edit index.js
 
 
 ## TESTING
 
+
+- Run development server
+
 ```bash
 git clone git@github.com:sikka-software/loah.git
-cd example
-npm run start
+cd loah
+npm install
+npm run storybook
+```
+
+- Edit ***loah/src/stories/Loah.stories.js*** file
+
+- Add your custom testing component in **Loah.stories.js** file
+
+```jsx
+import React, { useState } from "react";
+import { storiesOf } from "@storybook/react";
+import { Loah } from "../components/Loah/Loah";
+
+const stories = storiesOf("App Test", module);
+
+// Your code goes here
+
+stories.add("App", () => {
+  const [expand, setExpand] = useState(false);
+
+  const buttons = [
+    {
+      name: "something",
+    },
+    {
+      name: "something",
+    },
+    {
+      name: "something",
+    },
+  ];
+
+  return (
+    <Loah
+      expended={expand}
+      handleExpand={() => setExpand(!expand)}
+      bgColor={"red"}
+      direction={"right"}
+      buttons={buttons}
+    />
+  );
+});
 
 ```
 
