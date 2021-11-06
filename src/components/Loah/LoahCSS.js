@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ExpandIcon from "@material-ui/icons/ArrowBackIos";
 
-export const Loah = (props) => {
+export const LoahCSS = (props) => {
   let directionStyle = {
     backgroundColor: props.bgColor,
     color: props.buttonsColor,
