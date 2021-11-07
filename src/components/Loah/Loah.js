@@ -1,21 +1,45 @@
 import { motion } from "framer-motion";
 import ExpandIcon from "@material-ui/icons/ArrowBackIos";
-
+import tinycolor from "tinycolor2";
+import { useState } from "react";
 export const Loah = (props) => {
+  const [expand, setExpand] = useState(false);
+  let rootStyle = {
+    zIndex: 10,
+    fontFamily: "Roboto",
+    fontWeight: 600
+  };
   let directionStyle = {
-    backgroundColor: props.bgColor,
+    backgroundColor: props.bgColor ?? tinycolor("lightgrey"),
+    color: tinycolor(props.buttonsColor),
+    position: "absolute",
+    overflow: "hidden",
+    zIndex: 10
+  };
+  let tabPanelStyle = {
     color: props.buttonsColor,
     position: "absolute",
     overflow: "hidden",
     zIndex: 10
   };
-
-  let tabPanelStyle = {
-    // backgroundColor: props.bgColor,
-    color: props.buttonsColor,
-    position: "absolute",
-    overflow: "hidden",
-    zIndex: 10
+  let expandButtonStyle = {
+    height: 60,
+    width: 60,
+    zIndex: 10,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+    paddingLeft: 5
+  };
+  let itemIconStyle = {
+    height: 60,
+    width: 60,
+    padding: 0,
+    zIndex: 10,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   };
   switch (props.direction) {
     case "right":
@@ -34,7 +58,6 @@ export const Loah = (props) => {
         top: 0,
         right: 0,
         zIndex: 9,
-        backgroundColor: "orange",
         width: 0,
         overflow: "hidden"
       };
@@ -76,111 +99,118 @@ export const Loah = (props) => {
       };
   }
   return (
-    <div style={{ zIndex: 10 }}>
+    <div style={rootStyle}>
       <motion.div
-        style={directionStyle}
-        animate={props.expended ? { width: 200 } : { width: 60 }}
+        initial={directionStyle}
+        transition={{
+          stiffness: 100
+        }}
+        animate={expand ? { width: 200 } : { width: 60 }}
       >
-        <div
-          // onClick={props.handleExpand}
-          onClick={props.handleExpand}
+        <motion.div
           id="expandButton"
-          style={{
-            // backgroundColor: 'blue',
-            height: 60,
-            width: 60,
-            zIndex: 10,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-            paddingLeft: 5,
-            
-          }}
+          initial={expandButtonStyle}
+          animate={expand ? { rotate: "180deg" } : {}}
+          onClick={() => setExpand(!expand)}
         >
           <ExpandIcon />
-        </div>
-        {props.buttons?.map((btn, k) => {
-          return (
-            <div
-              key={k}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                // backgroundColor: "green",
-                
-                height: 60,
-                width: "100%",
-                zIndex: 10
-                // justifyContent: 'center',
-                // alignItems: 'center'
-                // outline: "1px solid black"
-              }}
-            >
-              {btn.icon ? (
-                <div
-                  style={{
-                    // backgroundColor: "green",
-                    height: 60,
-                    width: 60,
-                    zIndex: 10,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                    // outline: "1px solid black"
-                  }}
-                >
-                  {btn.icon}
-                </div>
-              ) : null}
-              {props.expended ? (
-                <motion.div
-                  onClick={() => console.log("clicking ", btn.name)}
-                  style={{
-                    // backgroundColor: "yellow",
-                    // margin: 5
-                    cursor: "pointer",
-                    color: "green",
-                    height: "auto",
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    padding: 20,
-                    color: props.textColor,
-                    // justifyContent:'center'
-                    // textAlign: 'center'
-                  }}
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={
-                    props.expended
-                      ? { opacity: 1, width: "90%" }
-                      : { opacity: 0, width: 0 }
-                  }
-                >
-                  {btn.name}
-                </motion.div>
-              ) : null}
-            </div>
-          );
-        })}
+        </motion.div>
 
-        {props.expended && props.footer ? (
+        <div
+          style={{
+            height: "100%"
+            // overflow: expand ? "scroll" : "hidden"
+          }}
+        >
+          {props.buttons?.map((btn, k) => {
+            return (
+              <motion.div
+                onClick={btn.action}
+                key={k}
+                initial={{
+                  display: "flex",
+                  flexDirection: "row",
+                  height: 60,
+                  width: "100%",
+                  zIndex: 10,
+                  backgroundColor: props.bgColor
+                    ? tinycolor(props.bgColor)
+                    : tinycolor("lightgrey")
+                }}
+                animate={
+                  props.activeItem === btn.slug
+                    ? { backgroundColor: tinycolor(props.bgColor).lighten(60) }
+                    : {}
+                }
+                whileHover={
+                  props.activeItem === btn.slug
+                    ? {
+                        backgroundColor: tinycolor(props.bgColor).lighten(60)
+                      }
+                    : {
+                        backgroundColor: tinycolor(props.bgColor).lighten(75)
+                      }
+                }
+              >
+                {btn.icon ? (
+                  <motion.div
+                    style={itemIconStyle}
+                    initial={{
+                      height: 60,
+                      width: 60
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100
+                    }}
+                    animate={{ width: 60 }}
+                  >
+                    {btn.icon}
+                  </motion.div>
+                ) : null}
+                {expand ? (
+                  <motion.div
+                    style={{
+                      cursor: "pointer",
+                      height: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      padding: 20,
+                      color: tinycolor(props.textColor) ?? tinycolor("black")
+                    }}
+                    transition={{ delay: k * 0.05, bounce: 0 }}
+                    initial={{ opacity: 0, x: 100, padding: 20 }}
+                    animate={
+                      expand
+                        ? {
+                            opacity: 1,
+                            x: 0,
+                            padding: btn.icon ? 0 : 20
+                          }
+                        : { opacity: 0 }
+                    }
+                  >
+                    {btn.name}
+                  </motion.div>
+                ) : null}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {expand && props.footer ? (
           <motion.div
             style={{
               bottom: 0,
               position: "absolute",
-              // backgroundColor: "blue",
               width: "100%",
               paddingTop: 10,
               paddingBottom: 10,
               textAlign: "center"
-              // color: "white"
             }}
             initial={{ opacity: 0, width: 0 }}
             animate={
-              props.expended
-                ? { opacity: 1, width: "100%" }
-                : { opacity: 0, width: 0 }
+              expand ? { opacity: 1, width: "100%" } : { opacity: 0, width: 0 }
             }
           >
             {props.footer}
@@ -189,9 +219,9 @@ export const Loah = (props) => {
       </motion.div>
       <motion.div
         initial={{ ...tabPanelStyle }}
-        animate={props.expended ? { width: 300 } : { width: 0 }}
+        animate={expand ? { width: 300 } : { width: 0 }}
       >
-        {props.expended && props.content ? <div>tab content</div> : null}
+        {expand && props.content ? <div>tab content</div> : null}
       </motion.div>
     </div>
   );

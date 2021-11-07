@@ -37,5 +37,8 @@
     "@material-ui/icons": "^4.11.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "dependencies": {
+    "tinycolor2": "^1.4.2"
   }
 }
