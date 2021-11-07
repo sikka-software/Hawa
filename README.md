@@ -12,6 +12,19 @@
 npm install --save @sikka/loah
 ```
 
+
+## Props
+| Prop          | Type     | Default         | Purpose                         |
+| --------------|:--------:|:---------------:| -------------------------------:|
+| buttons       | Array    | empty array []  | The list of buttons             |
+| bgColor       | String   | 'lightgrey'     | The background color of the bar |
+| textColor     | String   | 'black'         |                                 |
+| direction     | String   |  'right'        |                                 |
+| showAvatar    | Boolean  |  false          |                                 |
+| versionLabel  | String   | empty string "" |                                 |
+| activeItem    | String   | empty string "" | The slug name of the current selected item
+
+
 ## Usage
 
 ```jsx
@@ -23,34 +36,19 @@ import '@sikka/loah/dist/index.css' //Still in progress
 const buttons= [
   {
     name : "button1",
-    icon : <AccountCircleIcon />
+    icon : <AccountCircleIcon />,
+    action: () => {
+      //Do something when button1 is clicked
+    }
   },
-  {
-    name : "button2",
-    icon : <AccountCircleIcon />
-  },
-  {
-    name : "button3",
-    icon : <AccountCircleIcon />
-  },
+  // {name: String, icon: Component, action: Function}
 ]
 
 const Example = () => {
-  const [expand, setExpand] = useState(false)
   return (
     <Loah
-      expanded={expand} // boolean
-      handleExpand = {() => {  // function 
-        // Your code goes here
-        setExpand(!expand)
-      }}
-      
-      
-      // navbar's background color
       bgColor={"red"}
-      
-      // navbar button's color
-      buttonsColor={"blue"}
+      textColor={"blue"}
       
       // navbar's direction it could be "left", "right", "top" or "buttom"
       direction={"right"}
