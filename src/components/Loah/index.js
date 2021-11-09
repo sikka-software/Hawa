@@ -1,1 +1,1 @@
-export * from './Loah';
+export * from './Loah.jsx';
