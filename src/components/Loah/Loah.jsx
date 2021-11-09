@@ -11,7 +11,7 @@ export const Loah = (props) => {
     fontWeight: 600
   };
   let directionStyle = {
-    backgroundColor: props.bgColor ?? tinycolor("lightgrey"),
+    backgroundColor: props.bgColor || tinycolor("lightgrey"),
     color: tinycolor(props.buttonsColor),
     position: "absolute",
     overflow: "hidden",
@@ -123,7 +123,7 @@ export const Loah = (props) => {
             // overflow: expand ? "scroll" : "hidden"
           }}
         >
-          {props.buttons?.map((btn, k) => {
+          {props.buttons ? props.buttons.map((btn, k) => {
             return (
               <motion.div
                 onClick={btn.action}
@@ -177,7 +177,81 @@ export const Loah = (props) => {
                       display: "flex",
                       alignItems: "center",
                       padding: 20,
-                      color: tinycolor(props.textColor) ?? tinycolor("black")
+                      color: tinycolor(props.textColor) || tinycolor("black")
+                    }}
+                    transition={{ delay: k * 0.05, bounce: 0 }}
+                    initial={{ opacity: 0, x: 100, padding: 20 }}
+                    animate={
+                      expand
+                        ? {
+                            opacity: 1,
+                            x: 0,
+                            padding: btn.icon ? 0 : 20
+                          }
+                        : { opacity: 0 }
+                    }
+                  >
+                    {btn.name}
+                  </motion.div>
+                ) : null}
+              </motion.div>
+            )
+          }) : null}
+          {/* {props.buttons?.map((btn, k) => {
+            return (
+              <motion.div
+                onClick={btn.action}
+                key={k}
+                initial={{
+                  display: "flex",
+                  flexDirection: "row",
+                  height: 60,
+                  width: "100%",
+                  zIndex: 10,
+                  backgroundColor: props.bgColor
+                    ? tinycolor(props.bgColor)
+                    : tinycolor("lightgrey")
+                }}
+                animate={
+                  props.activeItem === btn.slug
+                    ? { backgroundColor: tinycolor(props.bgColor).lighten(60) }
+                    : {}
+                }
+                whileHover={
+                  props.activeItem === btn.slug
+                    ? {
+                        backgroundColor: tinycolor(props.bgColor).lighten(60)
+                      }
+                    : {
+                        backgroundColor: tinycolor(props.bgColor).lighten(75)
+                      }
+                }
+              >
+                {btn.icon ? (
+                  <motion.div
+                    style={itemIconStyle}
+                    initial={{
+                      height: 60,
+                      width: 60
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100
+                    }}
+                    animate={{ width: 60 }}
+                  >
+                    {btn.icon}
+                  </motion.div>
+                ) : null}
+                {expand ? (
+                  <motion.div
+                    style={{
+                      cursor: "pointer",
+                      height: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      padding: 20,
+                      color: tinycolor(props.textColor) || tinycolor("black")
                     }}
                     transition={{ delay: k * 0.05, bounce: 0 }}
                     initial={{ opacity: 0, x: 100, padding: 20 }}
@@ -196,7 +270,7 @@ export const Loah = (props) => {
                 ) : null}
               </motion.div>
             );
-          })}
+          })} */}
         </div>
 
         {expand && props.footer ? (
