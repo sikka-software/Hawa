@@ -1,3 +1,1 @@
-import Loah from "./components/Loah";
-
-export { Loah };
+export * from "./components/Loah";

@@ -1,6 +1,6 @@
 # Loah | لوح
 
-> Custom Table Component
+> Custom App Navigation Component
 
 [![NPM](https://img.shields.io/npm/v/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
 [![NPM](https://img.shields.io/npm/dt/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
@@ -48,9 +48,7 @@ const Example = () => {
     <Loah
       bgColor={"red"}
       textColor={"blue"}
-      // navbar's direction it could be "left", "right", "top" or "buttom"
       direction={"right"}
-      // navbar's elament
       buttons={buttons}
     />
   )

@@ -1,3 +1,1 @@
-import { Loah } from "./Loah";
-
-export default Loah;
+export * from './Loah';
