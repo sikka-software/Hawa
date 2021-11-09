@@ -12,34 +12,33 @@
 npm install --save @sikka/loah
 ```
 
-
 ## Props
-| Prop          | Type     | Default         | Purpose                         |
-| --------------|:--------:|:---------------:| -------------------------------:|
-| buttons       | Array    | empty array []  | The list of buttons             |
-| bgColor       | String   | 'lightgrey'     | The background color of the bar |
-| textColor     | String   | 'black'         |                                 |
-| direction     | String   |  'right'        |                                 |
-| showAvatar    | Boolean  |  false          |                                 |
-| versionLabel  | String   | empty string "" |                                 |
-| activeItem    | String   | empty string "" | The slug name of the current selected item
 
+| Prop         |  Type   |     Default     |                                    Purpose |
+| ------------ | :-----: | :-------------: | -----------------------------------------: |
+| buttons      |  Array  | empty array []  |                        The list of buttons |
+| bgColor      | String  |   'lightgrey'   |            The background color of the bar |
+| textColor    | String  |     'black'     |                                            |
+| direction    | String  |     'right'     |                                            |
+| showAvatar   | Boolean |      false      |                                            |
+| versionLabel | String  | empty string "" |                                            |
+| activeItem   | String  | empty string "" | The slug name of the current selected item |
 
 ## Usage
 
 ```jsx
-import React, {useState} from 'react'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Loah } from '@sikka/loah'
-import '@sikka/loah/dist/index.css' //Still in progress
+import React, { useState } from "react"
+import AccountCircleIcon from "@mui/icons-material/AccountCircle"
+import { Loah } from "@sikka/loah"
+import "@sikka/loah/dist/index.css" //Still in progress
 
-const buttons= [
+const buttons = [
   {
-    name : "button1",
-    icon : <AccountCircleIcon />,
+    name: "button1",
+    icon: <AccountCircleIcon />,
     action: () => {
       //Do something when button1 is clicked
-    }
+    },
   },
   // {name: String, icon: Component, action: Function}
 ]
@@ -49,10 +48,8 @@ const Example = () => {
     <Loah
       bgColor={"red"}
       textColor={"blue"}
-      
       // navbar's direction it could be "left", "right", "top" or "buttom"
       direction={"right"}
-      
       // navbar's elament
       buttons={buttons}
     />
@@ -72,10 +69,7 @@ cd loah
 npm install
 ```
 
-
-
 ## TESTING
-
 
 - Run development server
 
@@ -86,21 +80,21 @@ npm install
 npm run storybook
 ```
 
-- Edit ***loah/src/stories/Loah.stories.js*** file
+- Edit **_loah/src/stories/Loah.stories.js_** file
 
 - Add your custom testing component in **Loah.stories.js** file
 
 ```jsx
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-import { Loah } from "../components/Loah/Loah";
+import React, { useState } from "react"
+import { storiesOf } from "@storybook/react"
+import { Loah } from "../components/Loah/Loah"
 
-const stories = storiesOf("App Test", module);
+const stories = storiesOf("App Test", module)
 
 // Your code goes here
 
 stories.add("App", () => {
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState(false)
 
   const buttons = [
     {
@@ -112,7 +106,7 @@ stories.add("App", () => {
     {
       name: "something",
     },
-  ];
+  ]
 
   return (
     <Loah
@@ -122,11 +116,12 @@ stories.add("App", () => {
       direction={"right"}
       buttons={buttons}
     />
-  );
-});
-
+  )
+})
 ```
 
 ## License
+
+<!-- https://github.com/react-component/drawer  -->
 
 MIT © [SIKKA SOFTWARE](https://sikka.sa)

@@ -1,2 +1,3 @@
-export * from './Loah';
-export * from './LoahCSS';
+import { Loah } from "./Loah";
+
+export default Loah;
