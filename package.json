@@ -1,6 +1,6 @@
 {
   "name": "@sikka/loah",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Custom App Bar",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
