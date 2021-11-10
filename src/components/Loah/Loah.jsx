@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ExpandIcon from "@material-ui/icons/ArrowBackIos";
+// import ExpandIcon from "@material-ui/icons/ArrowBackIos";
 import tinycolor from "tinycolor2";
 import { useState } from "react";
 
@@ -114,7 +114,8 @@ export const Loah = (props) => {
           animate={expand ? { rotate: "180deg" } : {}}
           onClick={() => setExpand(!expand)}
         >
-          <ExpandIcon />
+          {/* <ExpandIcon /> */}
+          EXPAND
         </motion.div>
 
         <div
