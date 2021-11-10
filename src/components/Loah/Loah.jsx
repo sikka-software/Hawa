@@ -3,6 +3,18 @@ import { motion } from "framer-motion"
 import tinycolor from "tinycolor2"
 import { useState } from "react"
 
+function ArrowIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256.1 421.6"
+      {...props}
+    >
+      <path d="M242.8 77.3c17.7-17.7 17.7-46.4 0-64.1s-46.4-17.7-64.1 0L13.2 178.8c-17.7 17.7-17.7 46.4 0 64.1l165.5 165.5c17.7 17.7 46.4 17.7 64.1 0 17.7-17.7 17.7-46.4 0-64.1L109.3 210.8 242.8 77.3z" />
+    </svg>
+  )
+}
+
 export const Loah = (props) => {
   const [expand, setExpand] = useState(false)
   let rootStyle = {
@@ -30,8 +42,9 @@ export const Loah = (props) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    // backgroundColor: "red",
     position: "relative",
-    paddingLeft: 5,
+    // paddingLeft: 5,
   }
   let itemIconStyle = {
     height: 60,
@@ -115,7 +128,7 @@ export const Loah = (props) => {
           onClick={() => setExpand(!expand)}
         >
           {/* <ExpandIcon /> */}
-          EXP
+          {props.expandIcon ? props.expandIcon : <ArrowIcon height={20} />}
         </motion.div>
 
         <div

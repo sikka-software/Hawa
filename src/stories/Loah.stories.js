@@ -19,7 +19,7 @@ stories.add("Light", () => {
       // icon: <AddAlertIcon />,
       slug: "users",
       action: () => setCurrentPage("users")
-    },
+    }
     // {
     //   name: "Menus",
     //   icon: <AllInbox />,
@@ -63,10 +63,12 @@ stories.add("Light", () => {
   return (
     <Loah
       activeItem={currentPage}
+      // expandIcon={"🔵"}
       // bgColor={"red"}
       // textColor={"yellow"}
       // showAvatar={true}
-      // versionLabel={"v2.12.11"}
+      // content={"test"}
+      footer={"v2.12.11"}
       // direction={"right"}
       buttons={buttons}
     />

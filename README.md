@@ -95,15 +95,9 @@ stories.add("App", () => {
   const [expand, setExpand] = useState(false)
 
   const buttons = [
-    {
-      name: "something",
-    },
-    {
-      name: "something",
-    },
-    {
-      name: "something",
-    },
+    { name: "something" },
+    { name: "something" },
+    { name: "something" },
   ]
 
   return (
@@ -116,6 +110,14 @@ stories.add("App", () => {
     />
   )
 })
+```
+
+## Publishing (Admin)
+
+```bash
+npm version [major | minor | patch]
+npm run build-lib
+npm publish --access public
 ```
 
 ## License
