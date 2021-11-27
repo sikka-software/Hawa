@@ -1,7 +1,7 @@
 {
-  "name": "@sikka/loah",
+  "name": "@sikka/hawa",
   "version": "1.2.6",
-  "description": "Custom App Bar",
+  "description": "UI Kit",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {

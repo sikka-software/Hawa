@@ -1,15 +1,15 @@
-# Loah | لوح
+# Hawa | هواء
 
 > Custom App Navigation Component
 
-[![NPM](https://img.shields.io/npm/v/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
-[![NPM](https://img.shields.io/npm/dt/@sikka/loah.svg)](https://www.npmjs.com/package/@sikka/loah)
+[![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg)](https://www.npmjs.com/package/@sikka/hawa)
+[![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg)](https://www.npmjs.com/package/@sikka/hawa)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @sikka/loah
+npm install --save @sikka/hawa
 ```
 
 ## Props
@@ -29,8 +29,8 @@ npm install --save @sikka/loah
 ```jsx
 import React, { useState } from "react"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
-import { Loah } from "@sikka/loah"
-import "@sikka/loah/dist/index.css" //Still in progress
+import { Button } from "@sikka/hawa"
+import "@sikka/hawa/dist/index.css" //Still in progress
 
 const buttons = [
   {
@@ -45,7 +45,7 @@ const buttons = [
 
 const Example = () => {
   return (
-    <Loah
+    <Hawa
       bgColor={"red"}
       textColor={"blue"}
       direction={"right"}
@@ -62,8 +62,8 @@ To contribute, clone this github repository and run the development server
 - clone repository
 
 ```bash
-git clone git@github.com:sikka-software/loah.git
-cd loah
+git clone git@github.com:sikka-software/hawa.git
+cd hawa
 npm install
 ```
 
@@ -72,20 +72,20 @@ npm install
 - Run development server
 
 ```bash
-git clone git@github.com:sikka-software/loah.git
-cd loah
+git clone git@github.com:sikka-software/hawa.git
+cd hawa
 npm install
 npm run storybook
 ```
 
-- Edit **_loah/src/stories/Loah.stories.js_** file
+- Edit **Hawa/src/stories/Hawa.stories.js_** file
 
-- Add your custom testing component in **Loah.stories.js** file
+- Add your custom testing component in **Hawa.stories.js** file
 
 ```jsx
 import React, { useState } from "react"
 import { storiesOf } from "@storybook/react"
-import { Loah } from "../components/Loah/Loah"
+import { Hawa } from "../components/Hawa/Hawa"
 
 const stories = storiesOf("App Test", module)
 
@@ -101,7 +101,7 @@ stories.add("App", () => {
   ]
 
   return (
-    <Loah
+    <Hawa
       expended={expand}
       handleExpand={() => setExpand(!expand)}
       bgColor={"red"}

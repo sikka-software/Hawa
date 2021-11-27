@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
-import { Loah } from "../components/Loah/Loah";
+import { Hawa } from "../components/Hawa/Hawa";
 // import AddAlertIcon from "@material-ui/icons/AddAlert";
 // import AllInbox from "@material-ui/icons/AllInbox";
 // import Assignment from "@material-ui/icons/Assignment";
@@ -9,7 +9,7 @@ import { Loah } from "../components/Loah/Loah";
 // import Class from "@material-ui/icons/Class";
 // import Bolt from "@material-ui/icons/Dvr";
 
-const stories = storiesOf("Loah", module);
+const stories = storiesOf("Hawa", module);
 
 stories.add("Light", () => {
   const [currentPage, setCurrentPage] = useState("books");
@@ -61,7 +61,7 @@ stories.add("Light", () => {
   ];
 
   return (
-    <Loah
+    <Hawa
       activeItem={currentPage}
       // expandIcon={"🔵"}
       // bgColor={"red"}
@@ -76,8 +76,8 @@ stories.add("Light", () => {
 });
 
 // export default {
-//   title: "Loah",
-//   component: Loah,
+//   title: "Hawa",
+//   component: Hawa,
 //   argTypes: {
 //     direction: {
 //       options: ["top", "bottom", "right", "left"],
