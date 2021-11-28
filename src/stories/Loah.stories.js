@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
 import { Hawa } from "../components/Hawa/Hawa";
-// import AddAlertIcon from "@material-ui/icons/AddAlert";
-// import AllInbox from "@material-ui/icons/AllInbox";
-// import Assignment from "@material-ui/icons/Assignment";
-// import Assessment from "@material-ui/icons/Assessment";
-// import Ballot from "@material-ui/icons/Ballot";
-// import Class from "@material-ui/icons/Class";
-// import Bolt from "@material-ui/icons/Dvr";
+import { StyledCheckbox } from "../components/Hawa/Checkbox/Checkbox";
+import { AutoCompleteField } from "../components/Hawa/AutoCompleteField/AutoCompleteField";
+import { StyledInputLabel } from "../components/Hawa/InputLabel/StyledInputLabel";
+import { StyledTextField } from "../components/Hawa/TextField/TextField";
+import { FormProvider, useForm } from "react-hook-form";
+import "../styles.css";
 
 const stories = storiesOf("Hawa", module);
 
@@ -75,6 +74,60 @@ stories.add("Light", () => {
   );
 });
 
+stories.add("StyledCheckBox", () => {
+  const methods = useForm();
+  return (
+    <FormProvider {...methods}>
+      <StyledCheckbox
+        name="test"
+        defaultValue={"Sikka"}
+        rules={{ required: true }}
+        label="Soon ?"
+        shouldUnregister={true}
+      />
+    </FormProvider>
+  );
+});
+
+stories.add("AutoCompleteField", () => {
+  const methods = useForm();
+  return (
+    <FormProvider {...methods}>
+      <AutoCompleteField
+        name="autocomplete"
+        rules={{ required: true }}
+        shouldUnregister={true}
+        label="autoComplete"
+        options={[]}
+        renderInput={() => (
+          <div>
+            <h2>Sikka</h2>
+            <h2>Sikka</h2>
+            <h2>Sikka</h2>
+          </div>
+        )}
+      />
+    </FormProvider>
+  );
+});
+
+stories.add("StyledInputLabel", () => {
+  return <StyledInputLabel label={"input label"} multiLang={true} />;
+});
+
+stories.add("StyledTextField", () => {
+  const methods = useForm();
+  return (
+    <FormProvider {...methods}>
+      <StyledTextField
+        name="textfield"
+        shouldUnregister={true}
+        inputLabel={"text field"}
+        placeholder={"test"}
+      />
+    </FormProvider>
+  );
+});
 // export default {
 //   title: "Hawa",
 //   component: Hawa,
