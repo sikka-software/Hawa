@@ -16,6 +16,14 @@ export const StyledTextField = (props) => {
           {inputLabel ? <StyledInputLabel label={inputLabel} /> : null}
           <TextField
             fullWidth={true}
+            style={{
+              color: "white",
+              backgroundColor: props.bgColor || "white",
+              borderRadius : props.bdRadius || 10,
+              borderBottom : "none",
+              border : "none",
+              width : "100%",
+            }}
             helperText={helperText}
             type={props.type ? props.type : "text"}
             placeholder={props.placeholder}
@@ -30,7 +38,6 @@ export const StyledTextField = (props) => {
                 : {}
             }
             InputProps={{
-              className: "theme_form_input",
               disableUnderline: true,
               onWheelCapture: (e) => e.target.blur()
             }}

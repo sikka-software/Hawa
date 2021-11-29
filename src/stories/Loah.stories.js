@@ -4,6 +4,7 @@ import { Hawa } from "../components/Hawa/Hawa";
 import { StyledCheckbox } from "../components/Hawa/Checkbox/Checkbox";
 import { AutoCompleteField } from "../components/Hawa/AutoCompleteField/AutoCompleteField";
 import { StyledInputLabel } from "../components/Hawa/InputLabel/StyledInputLabel";
+import { StyledTextArea } from "../components/Hawa/TextArea/TextArea";
 import { StyledTextField } from "../components/Hawa/TextField/TextField";
 import { FormProvider, useForm } from "react-hook-form";
 import "../styles.css";
@@ -74,67 +75,79 @@ stories.add("Light", () => {
   );
 });
 
-stories.add("StyledCheckBox", () => {
+export default {
+  title: "test",
+  component: [StyledCheckBox, StyledTextFieldT, StyledTextAreaT],
+  argTypes : {
+    resize : {
+      options: ['vertical', 'horizontal', "both"],
+      control: { type: 'radio' },
+    }
+  }
+};
+
+/****************************/
+// STYLED CHECKBOX TEMPLATE
+const StyledCheckBoxTemplate = (args) => {
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <StyledCheckbox
-        name="test"
-        defaultValue={"Sikka"}
-        rules={{ required: true }}
-        label="Soon ?"
-        shouldUnregister={true}
-      />
+      <StyledCheckbox {...args} />
     </FormProvider>
   );
-});
+};
+export const StyledCheckBox = StyledCheckBoxTemplate.bind({});
+StyledCheckBox.args = {
+  name: "checkbox",
+  label: "CheckBox",
+  color: "blue",
+  rules: { required: true },
+  defaultValue: true
+};
+/****************************/
 
-stories.add("AutoCompleteField", () => {
+/****************************/
+// STYLED TextField TEMPLATE
+const StyledTextFieldTemplate = (args) => {
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <AutoCompleteField
-        name="autocomplete"
-        rules={{ required: true }}
-        shouldUnregister={true}
-        label="autoComplete"
-        options={[]}
-        renderInput={() => (
-          <div>
-            <h2>Sikka</h2>
-            <h2>Sikka</h2>
-            <h2>Sikka</h2>
-          </div>
-        )}
-      />
+      <StyledTextField {...args} />
     </FormProvider>
   );
-});
+};
 
-stories.add("StyledInputLabel", () => {
-  return <StyledInputLabel label={"input label"} multiLang={true} />;
-});
+export const StyledTextFieldT = StyledTextFieldTemplate.bind({});
+StyledTextFieldT.args = {
+  name: "styledtextfield",
+  inputLabel: "Label",
+  bdRadius: 12,
+  bgColor: "lightgray",
+  helperText: "This is HelperText",
+  type: "text",
+  placeholder: "exemple ..."
+};
+/****************************/
 
-stories.add("StyledTextField", () => {
+/****************************/
+// STYLED TextField TEMPLATE
+const StyledTextAreaTemplete = (args) => {
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <StyledTextField
-        name="textfield"
-        shouldUnregister={true}
-        inputLabel={"text field"}
-        placeholder={"test"}
-      />
+      <StyledTextArea {...args} />
     </FormProvider>
   );
-});
-// export default {
-//   title: "Hawa",
-//   component: Hawa,
-//   argTypes: {
-//     direction: {
-//       options: ["top", "bottom", "right", "left"],
-//       control: { type: "radio" },
-//     },
-//   },
-// };
+};
+
+export const StyledTextAreaT = StyledTextAreaTemplete.bind({});
+StyledTextAreaT.args = {
+  name: "textarea",
+  inputLabel: "styledTextArea",
+  bgColor : "lightgray",
+  bdRadius: 12,
+  rules: { required: "This is required" },
+  shouldUnregister: true,
+  resize : "vertical"
+};
+/****************************/

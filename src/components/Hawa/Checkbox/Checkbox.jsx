@@ -2,6 +2,7 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import PropTypes from 'prop-types';
 
 export const StyledCheckbox = (props) => {
   const { control } = useFormContext();
@@ -12,7 +13,8 @@ export const StyledCheckbox = (props) => {
       <Controller
         render={({ field }) => (
           <FormControlLabel
-            control={<Checkbox />}
+            control={<Checkbox style={{color : props.color || null}} />}
+            
             {...props}
             {...field}
             checked={field.value}
@@ -27,3 +29,5 @@ export const StyledCheckbox = (props) => {
     </React.Fragment>
   );
 }
+
+console.log(StyledCheckbox.prototype)

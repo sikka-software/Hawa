@@ -3,7 +3,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import {StyledInputLabel} from "../InputLabel";
 import styles from "../../../styles.css"
 
-const TextArea = (props) => {
+export const StyledTextArea = (props) => {
   const { control } = useFormContext();
   const { name, rules, shouldUnregister, inputLabel, helperText } = props;
 
@@ -13,7 +13,18 @@ const TextArea = (props) => {
         <label>
           {inputLabel ? <StyledInputLabel label={inputLabel} /> : null}
           <textarea
-            className={styles.form_textarea}
+            style={{
+              color : "black",
+              backgroundColor : props.bgColor || "white",
+              borderRadius : props.bdRadius || 10,
+              borderBottom : "none",
+              border : "none",
+              width : "100%",
+              padding : 0,
+              margin : 0,
+              marginBottom : 0,
+              resize : props.resize || "vertical"
+            }}
             value={field.value ?? ""}
             {...field}
           />
@@ -27,4 +38,3 @@ const TextArea = (props) => {
   );
 };
 
-export default StyledTextArea;
