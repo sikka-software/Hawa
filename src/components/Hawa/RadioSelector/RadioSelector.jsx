@@ -1,6 +1,5 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import "../../../styles.css"
 
 const MuiRadioSelector = ({ props, handleClick, handleChange, value, defaultValue }) => {
   value = value || defaultValue;

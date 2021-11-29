@@ -2,7 +2,6 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { Controller, useFormContext } from "react-hook-form";
 import {StyledInputLabel} from "../InputLabel";
-import styles from "../../../styles.css"
 
 export const StyledTextField = (props) => {
   const { control } = useFormContext();
