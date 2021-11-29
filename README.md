@@ -1,6 +1,6 @@
 # Hawa | هواء
 
-> Custom App Navigation Component
+> UI Kit for web apps and websites.
 
 [![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg)](https://www.npmjs.com/package/@sikka/hawa)
 [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg)](https://www.npmjs.com/package/@sikka/hawa)
@@ -12,11 +12,11 @@
 npm install --save @sikka/hawa
 ```
 
-## Props
+## Components
 
 | Prop         |  Type   |     Default     |                                    Purpose |
 | ------------ | :-----: | :-------------: | -----------------------------------------: |
-| buttons      |  Array  | empty array []  |                        The list of buttons |
+| TextField      |  Array  | empty array []  |                        The list of buttons |
 | bgColor      | String  |   'lightgrey'   |            The background color of the bar |
 | textColor    | String  |     'black'     |                                            |
 | direction    | String  |     'right'     |                                            |
@@ -27,32 +27,9 @@ npm install --save @sikka/hawa
 ## Usage
 
 ```jsx
-import React, { useState } from "react"
-import AccountCircleIcon from "@mui/icons-material/AccountCircle"
-import { Button } from "@sikka/hawa"
-import "@sikka/hawa/dist/index.css" //Still in progress
 
-const buttons = [
-  {
-    name: "button1",
-    icon: <AccountCircleIcon />,
-    action: () => {
-      //Do something when button1 is clicked
-    },
-  },
-  // {name: String, icon: Component, action: Function}
-]
+//example coming soon inshallah
 
-const Example = () => {
-  return (
-    <Hawa
-      bgColor={"red"}
-      textColor={"blue"}
-      direction={"right"}
-      buttons={buttons}
-    />
-  )
-}
 ```
 
 ## Contributing
@@ -83,33 +60,9 @@ npm run storybook
 - Add your custom testing component in **Hawa.stories.js** file
 
 ```jsx
-import React, { useState } from "react"
-import { storiesOf } from "@storybook/react"
-import { Hawa } from "../components/Hawa/Hawa"
 
-const stories = storiesOf("App Test", module)
+//example coming soon inshallah
 
-// Your code goes here
-
-stories.add("App", () => {
-  const [expand, setExpand] = useState(false)
-
-  const buttons = [
-    { name: "something" },
-    { name: "something" },
-    { name: "something" },
-  ]
-
-  return (
-    <Hawa
-      expended={expand}
-      handleExpand={() => setExpand(!expand)}
-      bgColor={"red"}
-      direction={"right"}
-      buttons={buttons}
-    />
-  )
-})
 ```
 
 ## Publishing (Admin)
