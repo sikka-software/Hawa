@@ -1,38 +1,52 @@
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import React from "react"
+import { Controller, useFormContext } from "react-hook-form"
 
-const MuiRadioSelector = ({ props, handleClick, handleChange, value, defaultValue }) => {
-  value = value || defaultValue;
+const MuiRadioSelector = ({
+  props,
+  handleClick,
+  handleChange,
+  value,
+  defaultValue,
+}) => {
+  value = value || defaultValue
   return (
-    <div className={styles.radio_selector_container}>
+    <div
+      style={{
+        backgroundColor: "white",
+        display: "flex",
+        flexDirection: "row",
+        borderRadius: props.bdRadius || 10,
+        marginBottom: 10,
+      }}
+    >
       {props.options.map((option) => {
         return (
           <div
             key={option.label}
             className="radio_option"
             onClick={() => {
-              if(handleChange){
-                handleChange(option.label);
+              if (handleChange) {
+                handleChange(option.label)
               }
-              handleClick(option.label);
+              handleClick(option.label)
             }}
             style={
               value.toLowerCase() === option.label.toLowerCase()
-                ? { backgroundColor: "var(--blue)", color: "var(--light)" }
+                ? { backgroundColor: props.bgSelectedColor || "blue", color: props.textSelectedColor || "lightgray" }
                 : null
             }
           >
             {option.text}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export const RadioSelector = (props) => {
-  const { control } = useFormContext();
-  const { name, defaultValue, rules, shouldUnregister } = props;
+export const StyledRadioSelector = (props) => {
+  const { control } = useFormContext()
+  const { name, defaultValue, rules, shouldUnregister } = props
 
   return (
     <React.Fragment>
@@ -53,5 +67,5 @@ export const RadioSelector = (props) => {
         shouldUnregister={shouldUnregister}
       />
     </React.Fragment>
-  );
+  )
 }
