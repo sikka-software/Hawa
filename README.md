@@ -18,16 +18,22 @@
 
 # Features
 - [ ] Change borders and margin, padding in one place
-- [ ] Drag and drop tool to create a layout of windows
+- [ ] Drag and drop tool to create a layout of boxes
 
 
-## Windows
-Most components will live inside **windows**. Windows can show anything. It can show a video, image, form, iFrame, etc. Wndows make out the layout of your website or application. Windows can be arranged in different layouts
+## Boxes
+Most components will live inside **boxes**. Windows can show anything. It can show a video, image, form, iFrame, etc. Boxes make out the layout of your website or application. Boxes can be arranged in different layouts
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/46135573/143972102-0c104239-b8f6-4a7b-9aad-54f6d91a8906.png" alt="layout-types" />
 </p>
 
+Points
+- The content inside each box can be scrollable (vertical/horizontal/Both) with one prop
+- you can control the spacing of the content inside each box with one prop
+- you can also control the spacing of all the box in the layout
+- some boxes can float (animation of open and close modal)
+- some boxes can go full screen (animation to transition)
 
 
 ## Install
@@ -40,6 +46,8 @@ npm install --save @sikka/hawa
 
 ## Components
 
+- [ ] Layout
+- [ ] Box
 - [ ] TextField
 - [ ] TextArea
 - [ ] Radio Selector
