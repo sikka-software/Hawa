@@ -90,7 +90,7 @@ npm run storybook
 
 - Add your custom testing component in **Hawa.stories.js** file
 
-- Or you can preview without running developement server. [See Preview](https://sikka-software.github.io/Hawa/storybook-static/)
+- Or you can preview without running development server. [See Preview](https://sikka-software.github.io/Hawa/storybook-static/)
 
 ```jsx
 
