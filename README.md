@@ -85,6 +85,7 @@ cd hawa
 npm install
 npm run storybook
 ```
+- Or you can preview without running developement server. [See Preview] (https://sikka-software.github.io/Hawa/storybook-static/)
 
 - Edit **Hawa/src/stories/Hawa.stories.js_** file
 
