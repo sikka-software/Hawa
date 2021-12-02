@@ -85,11 +85,12 @@ cd hawa
 npm install
 npm run storybook
 ```
-- Or you can preview without running developement server. [See Preview] (https://sikka-software.github.io/Hawa/storybook-static/)
 
 - Edit **Hawa/src/stories/Hawa.stories.js_** file
 
 - Add your custom testing component in **Hawa.stories.js** file
+
+- Or you can preview without running developement server. [See Preview](https://sikka-software.github.io/Hawa/storybook-static/)
 
 ```jsx
 
