@@ -8,9 +8,9 @@ import { StyledTextArea } from "../components/Hawa/TextArea/TextArea";
 import { StyledTextField } from "../components/Hawa/TextField/TextField";
 import { StyledRadioSelector } from "../components/Hawa/RadioSelector";
 import { FormProvider, useForm } from "react-hook-form";
-import "../styles.css"
+import "../styles.css";
 
-const stories = storiesOf("Hawa", module);
+const stories = storiesOf("InputLabel", module);
 
 stories.add("Light", () => {
   const [currentPage, setCurrentPage] = useState("books");
@@ -21,64 +21,19 @@ stories.add("Light", () => {
       slug: "users",
       action: () => setCurrentPage("users")
     }
-    // {
-    //   name: "Menus",
-    //   icon: <AllInbox />,
-    //   slug: "menus",
-    //   action: () => setCurrentPage("menus")
-    // },
-    // {
-    //   name: "Books",
-    //   icon: <Assignment />,
-    //   slug: "books",
-    //   action: () => setCurrentPage("books")
-    // },
-    // {
-    //   name: "Items",
-    //   icon: <Assessment />,
-    //   slug: "items",
-    //   action: () => setCurrentPage("items")
-    // },
-    // {
-    //   name: "Add Alert",
-    //   icon: <Ballot />,
-    //   slug: "alert",
-    //   action: () => setCurrentPage("alert")
-    // },
-    // {
-    //   name: "Coins",
-    //   icon: <Class />,
-    //   slug: "coins",
-    //   action: () => setCurrentPage("coins")
-    // },
-
-    // {
-    //   name: "Tokens",
-    //   slug: "tokens",
-    //   icon: <Bolt />,
-    //   action: () => setCurrentPage("tokens")
-    // },
-    // { name: "Repos" }
   ];
 
-  return (
-    <Hawa
-      activeItem={currentPage}
-      // expandIcon={"🔵"}
-      // bgColor={"red"}
-      // textColor={"yellow"}
-      // showAvatar={true}
-      // content={"test"}
-      footer={"v2.12.11"}
-      // direction={"right"}
-      buttons={buttons}
-    />
-  );
+  return <Hawa activeItem={currentPage} buttons={buttons} />;
 });
 
 export default {
   title: "test",
-  component: [StyledCheckBox, StyledTextFieldT, StyledTextAreaT, StyledRadioSeletorT],
+  component: [
+    StyledCheckBox,
+    StyledTextFieldT,
+    StyledTextAreaT,
+    StyledRadioSeletorT
+  ],
   argTypes: {
     resize: {
       options: ["vertical", "horizontal", "both"],
@@ -128,30 +83,6 @@ StyledTextFieldT.args = {
   type: "text",
   placeholder: "exemple ..."
 };
-/****************************/
-
-/****************************/
-// STYLED TextField TEMPLATE
-const StyledTextAreaTemplete = (args) => {
-  const methods = useForm();
-  return (
-    <FormProvider {...methods}>
-      <StyledTextArea {...args} />
-    </FormProvider>
-  );
-};
-
-export const StyledTextAreaT = StyledTextAreaTemplete.bind({});
-StyledTextAreaT.args = {
-  name: "textarea",
-  inputLabel: "styledTextArea",
-  bgColor: "lightgray",
-  bdRadius: 12,
-  rules: { required: "This is required" },
-  shouldUnregister: true,
-  resize: "vertical"
-};
-/****************************/
 
 /****************************/
 // Radio Selector Template
@@ -174,10 +105,10 @@ StyledRadioSeletorT.args = {
     { text: "Option 2", label: "option2" },
     { text: "Option 3", label: "option3" }
   ],
-  selectedColor : "blue",
-  bdRadius : 12,
-  defaultValue:  "option2",
+  selectedColor: "blue",
+  bdRadius: 12,
+  defaultValue: "option2",
   bgSelectedColor: "red",
-  textSelectedColor: "black",
+  textSelectedColor: "black"
 };
 /****************************/

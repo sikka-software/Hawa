@@ -32,7 +32,10 @@ const MuiRadioSelector = ({
             }}
             style={
               value.toLowerCase() === option.label.toLowerCase()
-                ? { backgroundColor: props.bgSelectedColor || "blue", color: props.textSelectedColor || "lightgray" }
+                ? {
+                    backgroundColor: props.bgSelectedColor || "blue",
+                    color: props.textSelectedColor || "lightgray",
+                  }
                 : null
             }
           >
