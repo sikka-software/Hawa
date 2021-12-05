@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { StyledInputLabel } from "../components/Hawa/InputLabel/StyledInputLabel";
-import { StyledTextArea } from "../components/Hawa/TextArea/TextArea";
+import React from "react";
 import { StyledTextField } from "../components/Hawa/TextField/TextField";
 import "../styles.css";
 
+const Template = (args) => {
+  return <StyledTextField {...args} />;
+};
+
 export default {
   title: "TextField",
-  component: StyledTextField,
+  component: Light,
   argsTypes: {
     defaultValue: {
       control: { type: "text" }
@@ -38,12 +40,17 @@ export default {
   }
 };
 
-const Template = (args) => {
-  return <StyledTextField {...args} />;
-};
+export const Light = Template.bind({});
+export const Dark = Template.bind({});
 
-export const StyledCheckBox = Template.bind({});
-StyledCheckBox.args = {
+Light.args = {
+  placeholder: "Exemple ...",
+  defaultValue: "This is default value",
+  inputLabel: "Text Field",
+  bgColor: "lightgray",
+  padding: 10
+};
+Dark.args = {
   placeholder: "Exemple ...",
   defaultValue: "This is default value",
   inputLabel: "Text Field",

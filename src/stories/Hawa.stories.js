@@ -12,7 +12,7 @@ import "../styles.css";
 
 const stories = storiesOf("Hawa", module);
 
-stories.add("Light", () => {
+stories.add("Global Variables", () => {
   const [currentPage, setCurrentPage] = useState("books");
   const buttons = [
     {
