@@ -1,14 +1,9 @@
 import React from "react"
-import { Controller, useFormContext } from "react-hook-form"
+import { useState } from "react"
 
-const MuiRadioSelector = ({
-  props,
-  handleClick,
-  handleChange,
-  value,
-  defaultValue,
-}) => {
-  value = value || defaultValue
+const MuiRadioSelector = ({ props, defaultValue }) => {
+  const [options, setOptions] = useState(props.options)
+  const [value, setValue] = useState(defaultValue)
   return (
     <div
       style={{
@@ -19,19 +14,19 @@ const MuiRadioSelector = ({
         marginBottom: 10,
       }}
     >
-      {props.options.map((option) => {
+      {options.map((o) => {
         return (
           <div
-            key={option.label}
+            key={o.label}
             className="radio_option"
             onClick={() => {
-              if (handleChange) {
-                handleChange(option.label)
+              setValue(o.label)
+              if (props.handleChange) {
+                props.handleChange()
               }
-              handleClick(option.label)
             }}
             style={
-              value.toLowerCase() === option.label.toLowerCase()
+              value.toLowerCase() === o.label.toLowerCase()
                 ? {
                     backgroundColor: props.bgSelectedColor || "blue",
                     color: props.textSelectedColor || "lightgray",
@@ -39,7 +34,7 @@ const MuiRadioSelector = ({
                 : null
             }
           >
-            {option.text}
+            {o.text}
           </div>
         )
       })}
@@ -48,26 +43,14 @@ const MuiRadioSelector = ({
 }
 
 export const StyledRadioSelector = (props) => {
-  const { control } = useFormContext()
-  const { name, defaultValue, rules, shouldUnregister } = props
-
   return (
     <React.Fragment>
-      <Controller
-        render={({ field: { onChange, value } }) => (
-          <MuiRadioSelector
-            props={props}
-            value={value}
-            handleClick={onChange}
-            handleChange={props.onChange}
-            defaultValue={defaultValue}
-          />
-        )}
-        name={name}
-        rules={rules}
-        control={control}
-        defaultValue={defaultValue}
-        shouldUnregister={shouldUnregister}
+      <MuiRadioSelector
+        props={props}
+        value={props.value}
+        handleClick={props.onChange}
+        handleChange={props.onChange}
+        defaultValue={props.defaultValue}
       />
     </React.Fragment>
   )

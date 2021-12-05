@@ -10,117 +10,32 @@ import { StyledRadioSelector } from "../components/Hawa/RadioSelector";
 import { FormProvider, useForm } from "react-hook-form";
 import "../styles.css";
 
-const stories = storiesOf("Checkbox", module);
+// const stories = storiesOf("Checkbox", module);
 
-stories.add("Light", () => {
-  const [currentPage, setCurrentPage] = useState("books");
-  const buttons = [
-    {
-      name: "Users",
-      // icon: <AddAlertIcon />,
-      slug: "users",
-      action: () => setCurrentPage("users")
-    }
-  ];
+// stories.add("Light", () => {
+//   return <StyledCheckbox color={"gray"} defaultValue={true} />;
+// });
 
-  return (
-    <Hawa
-      activeItem={currentPage}
-      // expandIcon={"🔵"}
-      // bgColor={"red"}
-      // textColor={"yellow"}
-      // showAvatar={true}
-      // content={"test"}
-      footer={"v2.12.11"}
-      // direction={"right"}
-      buttons={buttons}
-    />
-  );
-});
+const Template = (args) => {
+  return <StyledCheckbox {...args} />;
+};
+
+export const StyledCheckBox = Template.bind({});
+StyledCheckBox.args = {
+  color: "gray",
+  defaultValue: false,
+};
 
 export default {
-  title: "test",
-  component: [
-    StyledCheckBox,
-    StyledTextFieldT,
-    StyledTextAreaT,
-    StyledRadioSeletorT
-  ],
-  argTypes: {
-    resize: {
-      options: ["vertical", "horizontal", "both"],
+  title: "Checkbox",
+  component: StyledCheckbox,
+  argsTypes: {
+    defaultValue: {
+      options: [true, false],
       control: { type: "radio" }
     }
+  },
+  args: {
+    defaultValue: true
   }
 };
-
-/****************************/
-// STYLED CHECKBOX TEMPLATE
-const StyledCheckBoxTemplate = (args) => {
-  const methods = useForm();
-  return (
-    <FormProvider {...methods}>
-      <StyledCheckbox {...args} />
-    </FormProvider>
-  );
-};
-export const StyledCheckBox = StyledCheckBoxTemplate.bind({});
-StyledCheckBox.args = {
-  name: "checkbox",
-  label: "CheckBox",
-  color: "blue",
-  rules: { required: true },
-  defaultValue: true
-};
-/****************************/
-
-/****************************/
-// STYLED TextField TEMPLATE
-const StyledTextFieldTemplate = (args) => {
-  const methods = useForm();
-  return (
-    <FormProvider {...methods}>
-      <StyledTextField {...args} />
-    </FormProvider>
-  );
-};
-
-export const StyledTextFieldT = StyledTextFieldTemplate.bind({});
-StyledTextFieldT.args = {
-  name: "styledtextfield",
-  inputLabel: "Label",
-  bdRadius: 12,
-  bgColor: "lightgray",
-  helperText: "This is HelperText",
-  type: "text",
-  placeholder: "exemple ..."
-};
-
-/****************************/
-// Radio Selector Template
-const styledRadioSelectorTempalte = (args) => {
-  const methods = useForm();
-
-  return (
-    <FormProvider {...methods}>
-      <StyledRadioSelector {...args} />
-    </FormProvider>
-  );
-};
-
-export const StyledRadioSeletorT = styledRadioSelectorTempalte.bind({});
-StyledRadioSeletorT.args = {
-  name: "Radio Selector",
-  shouldUnregister: true,
-  options: [
-    { text: "Option 1", label: "option1" },
-    { text: "Option 2", label: "option2" },
-    { text: "Option 3", label: "option3" }
-  ],
-  selectedColor: "blue",
-  bdRadius: 12,
-  defaultValue: "option2",
-  bgSelectedColor: "red",
-  textSelectedColor: "black"
-};
-/****************************/
