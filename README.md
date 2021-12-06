@@ -98,6 +98,12 @@ npm run storybook
 
 ```
 
+## Deployment
+
+```bash
+npm run build-storybook
+```
+
 ## Publishing (Admin)
 
 ```bash
