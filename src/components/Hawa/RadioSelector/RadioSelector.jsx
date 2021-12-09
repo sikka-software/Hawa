@@ -2,10 +2,9 @@ import React, { useState, useContext } from "react";
 import { ThemeProvider } from "../HawaProvider";
 
 export const StyledRadioSelector = (props) => {
-  const [options, setOptions] = useState(props.options);
   const [value, setValue] = useState(props.defaultValue);
   const theme = useContext(ThemeProvider);
-  console.log("theme is ", theme);
+
   return (
     <div
       style={{
@@ -13,11 +12,11 @@ export const StyledRadioSelector = (props) => {
         display: "flex",
         flexDirection: "row",
         margin: theme.margins,
-        // padding: theme.paddings,
+        padding: theme.paddings,
         marginBottom: 10
       }}
     >
-      {options.map((o) => {
+      {props.options.map((o) => {
         return (
           <div
             key={o.label}

@@ -1,10 +1,22 @@
 import React from "react";
 import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
-import "../styles.css";
 import CastIcon from "@material-ui/icons/Cast";
+import { HawaProvider } from "../components/Hawa/HawaProvider";
 
-const Template = (args) => <AdaptiveButton {...args} />;
-
+const Template = (args) => {
+  const theme = {
+    borderRadius: 20,
+    primaryColor: "green",
+    secondaryColor: "red",
+    // margins: "10px",
+    paddings: 10
+  };
+  return (
+    <HawaProvider theme={theme}>
+      <AdaptiveButton {...args} />{" "}
+    </HawaProvider>
+  );
+};
 export default {
   title: "Components/AdaptiveButton",
   component: AdaptiveButton,
@@ -31,8 +43,10 @@ Light.args = {
   showText: true,
   buttonLabel: "test",
   borderRadius: 5,
-  icon: <CastIcon />
-  // buttonColor: "#f9f9f9"
+  icon: <CastIcon />,
+  textColor: "#000000",
+
+  buttonColor: "#f9f9f9"
 
   // placeholder: "Example ...",
   // defaultValue: "This is default value",
@@ -45,7 +59,9 @@ Dark.args = {
   showText: true,
   buttonLabel: "test",
   borderRadius: 5,
-  buttonColor: "#c0c0c0"
+  buttonColor: "#878787",
+  textColor: "#ffffff",
+  icon: <CastIcon />
 
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
@@ -58,7 +74,9 @@ Danger.args = {
   buttonLabel: "test",
   borderRadius: 5,
   buttonColor: "#c0c0c0",
-  danger: true
+  danger: true,
+  icon: <CastIcon />
+
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",

@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import { motion } from "framer-motion";
+import { ThemeProvider } from "../HawaProvider";
 
 const AdaptiveButton = (props) => {
+  const { showText, buttonColor, borderRadius, textColor } = props;
+  const theme = useContext(ThemeProvider);
+
   const screenSize = {
     width: 1500,
     height: 200
@@ -11,19 +15,20 @@ const AdaptiveButton = (props) => {
   const [tooltip, setTooltip] = useState(false);
   const [hovered, setHovered] = useState(false);
   //full button
-  if (props.showText) {
+  if (showText) {
     return (
       <motion.div
         transition={{ duration: 0.2 }}
         initial={{
-          backgroundColor: props.buttonColor,
-          borderRadius: props.borderRadius,
-
+          // direction: "rtl",
+          backgroundColor: buttonColor,
+          color: textColor,
+          borderRadius: theme.borderRadius,
           width: "fit-content"
         }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: props.borderRadius
+          borderRadius: borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         onMouseEnter={() => setHovered(true)}
@@ -52,8 +57,8 @@ const AdaptiveButton = (props) => {
           color={props.danger ? "secondary" : "primary"}
           onClick={props.handleClick}
           style={{
+            borderRadius: borderRadius,
             padding: 10,
-
             color: hovered
               ? "#ffffff"
               : props.danger
@@ -79,12 +84,12 @@ const AdaptiveButton = (props) => {
         initial={{
           width: "fit-content",
           backgroundColor: props.buttonColor,
-          borderRadius: props.borderRadius
+          borderRadius: borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: props.borderRadius
+          borderRadius: borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -168,14 +173,14 @@ const AdaptiveButton = (props) => {
         initial={{
           width: "fit-content",
           backgroundColor: props.buttonColor,
-          borderRadius: props.borderRadius,
+          borderRadius: borderRadius,
           // padding: 5,
           margin: 5
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: props.borderRadius
+          borderRadius: borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
