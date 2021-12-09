@@ -15,7 +15,7 @@ function ArrowIcon(props) {
   )
 }
 
-export const Hawa = (props) => {
+export const Loah = (props) => {
   const [expand, setExpand] = useState(false)
   let rootStyle = {
     zIndex: 10,

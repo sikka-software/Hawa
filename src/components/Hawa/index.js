@@ -6,6 +6,6 @@ export * from "./RadioBox";
 export * from "./RadioSelector";
 export * from "./Row";
 export * from "./SelectedField";
-export * from "./TabPaned";
+export * from "./TabPanel";
 export * from "./TextArea";
 export * from "./TextField";

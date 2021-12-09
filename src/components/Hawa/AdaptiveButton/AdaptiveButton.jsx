@@ -1,50 +1,49 @@
-import React, { useState } from "react"
-import Button from "@material-ui/core/Button"
-import Tooltip from "@material-ui/core/Tooltip"
-import { motion } from "framer-motion"
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+import { motion } from "framer-motion";
 
 const AdaptiveButton = (props) => {
   const screenSize = {
     width: 1500,
-    height: 200,
-  }
-  const [tooltip, setTooltip] = useState(false)
-  const [hovered, setHovered] = useState(false)
+    height: 200
+  };
+  const [tooltip, setTooltip] = useState(false);
+  const [hovered, setHovered] = useState(false);
   //full button
   if (props.showText && screenSize.width > 1250) {
     return (
       <motion.div
         transition={{ duration: 0.2 }}
         initial={{
-          backgroundColor: props.background,
-          borderRadius: "var(--borderR)",
+          backgroundColor: props.buttonColor,
+          borderRadius: props.borderRadius,
           padding: 5,
           margin: 5,
+          width: "auto"
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
-          backgroundColor: "var(--blue)",
-          borderRadius: "var(--borderR)",
-          // color: "var(--light)"
-          // color: "red"
+          backgroundColor: props.hoverColor,
+          borderRadius: props.borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseDown={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseUp={() => {
-          setHovered(false)
-          setTooltip(true)
+          setHovered(false);
+          setTooltip(true);
         }}
         onMouseOver={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseOut={() => {
-          setHovered(false)
+          setHovered(false);
           // setTooltip(true);
         }}
       >
@@ -52,7 +51,7 @@ const AdaptiveButton = (props) => {
           disabled={props.disabled}
           // size="small"
           disableRipple
-          aria-label={props.text}
+          aria-label={props.buttonLabel}
           color={props.danger ? "secondary" : "primary"}
           onClick={props.handleClick}
           style={{
@@ -60,49 +59,48 @@ const AdaptiveButton = (props) => {
               ? "#ffffff"
               : props.danger
               ? "#f50057"
-              : "var(--blue)",
+              : "var(--blue)"
           }}
         >
           {props.icon}
-          <span style={{ marginLeft: 5 }}>{props.text}</span>
+          <span style={{ marginLeft: 5 }}>{props.buttonLabel}</span>
         </Button>
       </motion.div>
-    )
-  } else if (props.textOnly) {
+    );
+  } else if (props.buttonLabelOnly) {
     return (
       <motion.div
         transition={{
-          duration: 0.2,
+          duration: 0.2
         }}
         initial={{
-          backgroundColor: props.background,
-          borderRadius: "var(--borderR)",
+          width: "auto",
+          backgroundColor: props.buttonColor,
+          borderRadius: props.borderRadius,
           padding: 5,
-          margin: 5,
+          margin: 5
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
-          backgroundColor: "var(--blue)",
-          borderRadius: "var(--borderR)",
-          // color: "var(--light)"
-          // color: "red"
+          backgroundColor: props.hoverColor,
+          borderRadius: props.borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseDown={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseUp={() => {
-          setHovered(false)
-          setTooltip(true)
+          setHovered(false);
+          setTooltip(true);
         }}
         onMouseOver={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseOut={() => {
-          setHovered(false)
+          setHovered(false);
           // setTooltip(true);
         }}
       >
@@ -120,7 +118,7 @@ const AdaptiveButton = (props) => {
                     fontWeight: 800,
                     padding: 10,
                     paddingBottom: 5,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   {props.hintTitle}
@@ -130,7 +128,7 @@ const AdaptiveButton = (props) => {
                     fontSize: 13,
                     fontWeight: 100,
                     padding: 10,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   {props.hintContent}
@@ -143,7 +141,7 @@ const AdaptiveButton = (props) => {
             disabled={props.disabled}
             size="small"
             disableRipple
-            aria-label={props.text}
+            aria-label={props.buttonLabel}
             onClick={props.handleClick}
             color={props.danger ? "secondary" : "primary"}
             style={{
@@ -151,50 +149,49 @@ const AdaptiveButton = (props) => {
                 ? "#ffffff"
                 : props.danger
                 ? "#f50057"
-                : "var(--blue)",
+                : "var(--blue)"
             }}
           >
-            {props.text}
+            {props.buttonLabel}
           </Button>
         </Tooltip>
       </motion.div>
-    )
+    );
   } else {
     //icon only
     return (
       <motion.div
         transition={{
-          duration: 0.2,
+          duration: 0.2
         }}
         initial={{
-          backgroundColor: props.background,
-          borderRadius: "var(--borderR)",
+          width: "auto",
+          backgroundColor: props.buttonColor,
+          borderRadius: props.borderRadius,
           padding: 5,
-          margin: 5,
+          margin: 5
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
-          backgroundColor: "var(--blue)",
-          borderRadius: "var(--borderR)",
-          // color: "var(--light)"
-          // color: "red"
+          backgroundColor: props.hoverColor,
+          borderRadius: props.borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseDown={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseUp={() => {
-          setHovered(false)
-          setTooltip(true)
+          setHovered(false);
+          setTooltip(true);
         }}
         onMouseOver={() => {
-          setHovered(true)
-          setTooltip(true)
+          setHovered(true);
+          setTooltip(true);
         }}
         onMouseOut={() => {
-          setHovered(false)
+          setHovered(false);
           // setTooltip(true);
         }}
       >
@@ -212,7 +209,7 @@ const AdaptiveButton = (props) => {
                     fontWeight: 800,
                     padding: 10,
                     paddingBottom: 5,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   {props.hintTitle}
@@ -222,7 +219,7 @@ const AdaptiveButton = (props) => {
                     fontSize: 13,
                     fontWeight: 100,
                     padding: 10,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   {props.hintContent}
@@ -235,7 +232,7 @@ const AdaptiveButton = (props) => {
             disabled={props.disabled}
             size="small"
             disableRipple
-            aria-label={props.text}
+            aria-label={props.buttonLabel}
             onClick={props.handleClick}
             color={props.danger ? "secondary" : "primary"}
             style={{
@@ -243,15 +240,15 @@ const AdaptiveButton = (props) => {
                 ? "#ffffff"
                 : props.danger
                 ? "#f50057"
-                : "var(--blue)",
+                : "var(--blue)"
             }}
           >
             {props.icon}
           </Button>
         </Tooltip>
       </motion.div>
-    )
+    );
   }
-}
+};
 
-export default AdaptiveButton
+export default AdaptiveButton;

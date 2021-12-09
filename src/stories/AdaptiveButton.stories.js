@@ -2,16 +2,17 @@ import React from "react";
 import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
 import "../styles.css";
 
-const Template = (args) => {
-  return <AdaptiveButton {...args} />;
-};
+const Template = (args) => <AdaptiveButton {...args} />;
 
 export default {
   title: "Adaptive Button",
-  component: Light,
+  component: AdaptiveButton,
   argsTypes: {
-    defaultValue: {
+    buttonLabel: {
       control: { type: "text" }
+    },
+    borderRadius: {
+      contol: { type: "number" }
     },
     value: {
       control: { type: "text" }
@@ -19,8 +20,8 @@ export default {
     inputLabel: {
       control: { type: "text" }
     },
-    bdRadius: {
-      contol: { type: "number" }
+    buttonColor: {
+      contol: { type: "color" }
     },
     placeholder: {
       control: { type: "text" }
@@ -34,30 +35,32 @@ export default {
     }
   },
   args: {
-    bdRadius: 15,
-    defaultValue: "Test",
-    type: "date"
+    // type: "text",
+    buttonLabel: "Test",
+    borderRadius: 15,
+    buttonColor: "#f9f9f9"
   }
 };
 
 export const Light = Template.bind({});
-export const Dark = Template.bind({});
-
 Light.args = {
   text: "test",
   showText: true,
-  placeholder: "Example ...",
-  defaultValue: "This is default value",
-  inputLabel: "Text Field",
-  bgColor: "lightgray",
-  padding: 10
+  borderRadius: 5
+  // placeholder: "Example ...",
+  // defaultValue: "This is default value",
+  // inputLabel: "Text Field",
+  // padding: 10
 };
+
+export const Dark = Template.bind({});
 Dark.args = {
   showText: true,
   text: "test",
-  placeholder: "Exemple ...",
-  defaultValue: "This is default value",
-  inputLabel: "Text Field",
-  bgColor: "lightgray",
-  padding: 10
+  borderRadius: 5
+
+  // placeholder: "Exemple ...",
+  // defaultValue: "This is default value",
+  // inputLabel: "Text Field",
+  // padding: 10
 };
