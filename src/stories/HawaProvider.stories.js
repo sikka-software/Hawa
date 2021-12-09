@@ -16,6 +16,7 @@ const Template = (args) => {
     </HawaProvider>
   );
 };
+
 export default {
   title: "Globals/HawaProvider",
   component: HawaProvider
