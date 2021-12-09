@@ -2,7 +2,7 @@
   "semi": false,
   "overrides": [
     {
-      "files": "*.js",
+      "files": ["*.jsx", "*.js"],
       "options": {
         "arrowParens": "always",
         "bracketSpacing": true,
