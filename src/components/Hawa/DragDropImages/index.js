@@ -1,1 +1,1 @@
-export * from "./Checkbox.jsx";
+export * from "./DragDropImages.jsx";

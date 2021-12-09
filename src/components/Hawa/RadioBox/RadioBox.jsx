@@ -26,4 +26,4 @@ export const StyledRadioBox = (props) => {
       />
     </React.Fragment>
   );
-}
+};

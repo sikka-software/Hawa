@@ -1,6 +1,6 @@
 import InputLabel from "@material-ui/core/InputLabel";
 
-export const  StyledInputLabel = (props) => {
+export const StyledInputLabel = (props) => {
   return (
     <InputLabel
       style={{
@@ -33,4 +33,3 @@ export const  StyledInputLabel = (props) => {
     </InputLabel>
   );
 };
-

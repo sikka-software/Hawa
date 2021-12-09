@@ -1,10 +1,10 @@
-import React from "react"
-import { Controller, useFormContext } from "react-hook-form"
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 // import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export const AutoCompleteField = (props) => {
-  const { control } = useFormContext()
-  const { name, rules, shouldUnregister } = props
+  const { control } = useFormContext();
+  const { name, rules, shouldUnregister } = props;
 
   return (
     <React.Fragment>
@@ -25,9 +25,9 @@ export const AutoCompleteField = (props) => {
             //   {...props}
             //   className={"theme_form_input"}
             // />
-          )
+          );
         }}
       />
     </React.Fragment>
-  )
-}
+  );
+};

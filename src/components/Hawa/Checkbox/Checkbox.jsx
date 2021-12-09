@@ -1,10 +1,10 @@
-import React from "react"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Checkbox from "@material-ui/core/Checkbox"
-import PropTypes from "prop-types"
+import React from "react";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import PropTypes from "prop-types";
 
 export const StyledCheckbox = (props) => {
-  console.log("props : ", props)
+  console.log("props : ", props);
   return (
     <React.Fragment>
       <FormControlLabel
@@ -16,5 +16,5 @@ export const StyledCheckbox = (props) => {
         }
       />
     </React.Fragment>
-  )
-}
+  );
+};

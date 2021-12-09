@@ -10,7 +10,7 @@ const defaultValue = {
 
 export const ThemeProvider = createContext(defaultValue);
 
-export const HawaProvider = ({theme, ...props}) => {
+export const HawaProvider = ({ theme, ...props }) => {
   return (
     <ThemeProvider.Provider value={theme || defaultValue}>
       {props.children}

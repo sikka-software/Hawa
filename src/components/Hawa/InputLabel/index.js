@@ -1,1 +1,1 @@
-export * from "./StyledInputLabel.jsx"
+export * from "./StyledInputLabel.jsx";

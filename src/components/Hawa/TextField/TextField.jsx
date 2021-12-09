@@ -1,6 +1,6 @@
-import React from "react"
-import TextField from "@material-ui/core/TextField"
-import { StyledInputLabel } from "../InputLabel"
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import { StyledInputLabel } from "../InputLabel";
 
 export const StyledTextField = (props) => {
   return (
@@ -13,9 +13,9 @@ export const StyledTextField = (props) => {
           backgroundColor: props.bgColor || "white",
           borderRadius: props.bdRadius || 10,
           borderBottom: "none",
-          padding : props.padding || 5,
+          padding: props.padding || 5,
           border: "none",
-          width: "100%",
+          width: "100%"
         }}
         helperText={props.helperText}
         type={props.type ? props.type : "text"}
@@ -26,16 +26,16 @@ export const StyledTextField = (props) => {
                 inputMode: "numeric",
                 min: "0",
                 max: "9999999",
-                step: "0.01",
+                step: "0.01"
               }
             : {}
         }
         InputProps={{
           disableUnderline: true,
-          onWheelCapture: (e) => e.target.blur(),
+          onWheelCapture: (e) => e.target.blur()
         }}
         value={props.value ? props.value : null}
       />
     </div>
-  )
-}
+  );
+};
