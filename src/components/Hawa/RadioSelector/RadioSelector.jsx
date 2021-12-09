@@ -1,17 +1,21 @@
-import React from "react"
-import { useState } from "react"
+import React, { useState, useContext } from "react";
+import { ThemeProvider } from "../HawaProvider";
 
 const MuiRadioSelector = ({ props, defaultValue }) => {
-  const [options, setOptions] = useState(props.options)
-  const [value, setValue] = useState(defaultValue)
+  const [options, setOptions] = useState(props.options);
+  const [value, setValue] = useState(defaultValue);
+  const  theme  = useContext(ThemeProvider);
+  console.log(theme);
   return (
     <div
       style={{
         backgroundColor: "white",
         display: "flex",
         flexDirection: "row",
-        borderRadius: props.bdRadius || 10,
-        marginBottom: 10,
+        borderRadius: theme.borderRadius || props.bdRadius || 10,
+        margin : theme.margins,
+        padding : theme.paddings,
+        marginBottom: 10
       }}
     >
       {options.map((o) => {
@@ -20,27 +24,27 @@ const MuiRadioSelector = ({ props, defaultValue }) => {
             key={o.label}
             className="radio_option"
             onClick={() => {
-              setValue(o.label)
+              setValue(o.label);
               if (props.handleChange) {
-                props.handleChange()
+                props.handleChange();
               }
             }}
             style={
               value.toLowerCase() === o.label.toLowerCase()
                 ? {
-                    backgroundColor: props.bgSelectedColor || "blue",
-                    color: props.textSelectedColor || "lightgray",
+                    backgroundColor: theme.primaryColor || props.bgSelectedColor || "blue",
+                    color: props.textSelectedColor || "lightgray"
                   }
                 : null
             }
           >
             {o.text}
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 export const StyledRadioSelector = (props) => {
   return (
@@ -53,5 +57,5 @@ export const StyledRadioSelector = (props) => {
         defaultValue={props.defaultValue}
       />
     </React.Fragment>
-  )
-}
+  );
+};
