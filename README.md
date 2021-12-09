@@ -20,6 +20,19 @@
 - [ ] Change borders and margin, padding in one place
 - [ ] Drag and drop tool to create a layout of boxes
 
+## Components
+- [ ] Layout
+- [ ] Box
+
+- [ ] TextField
+- [ ] TextArea
+- [ ] Radio Selector
+- [ ] PasswordField
+- [ ] Autocomplete
+- [ ] Tabs
+- [ ] Alert Notifications
+- [ ] Badges
+
 
 ## Boxes
 Most components will live inside **boxes**. Windows can show anything. It can show a video, image, form, iFrame, etc. Boxes make out the layout of your website or application. Boxes can be arranged in different layouts
@@ -43,17 +56,6 @@ Points
 npm install --save @sikka/hawa
 
 ```
-
-## Components
-
-- [ ] Layout
-- [ ] Box
-- [ ] TextField
-- [ ] TextArea
-- [ ] Radio Selector
-- [ ] PasswordField
-- [ ] Autocomplete
-- [ ] Tabs
 
 ## Usage
 

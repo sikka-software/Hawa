@@ -3,11 +3,11 @@ import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import { motion } from "framer-motion";
 import { ThemeProvider } from "../HawaProvider";
+import { StyledTooltip } from "../StyledTooltip";
 
 const AdaptiveButton = (props) => {
   const { showText, buttonColor, borderRadius, textColor } = props;
   const theme = useContext(ThemeProvider);
-
   const screenSize = {
     width: 1500,
     height: 200
@@ -28,7 +28,7 @@ const AdaptiveButton = (props) => {
         }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: borderRadius
+          borderRadius: theme.borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         onMouseEnter={() => setHovered(true)}
@@ -57,7 +57,7 @@ const AdaptiveButton = (props) => {
           color={props.danger ? "secondary" : "primary"}
           onClick={props.handleClick}
           style={{
-            borderRadius: borderRadius,
+            borderRadius: theme.borderRadius,
             padding: 10,
             color: hovered
               ? "#ffffff"
@@ -78,18 +78,16 @@ const AdaptiveButton = (props) => {
   } else if (props.buttonLabelOnly) {
     return (
       <motion.div
-        transition={{
-          duration: 0.2
-        }}
+        transition={{ duration: 0.2 }}
         initial={{
           width: "fit-content",
           backgroundColor: props.buttonColor,
-          borderRadius: borderRadius
+          borderRadius: theme.borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: borderRadius
+          borderRadius: theme.borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -152,7 +150,6 @@ const AdaptiveButton = (props) => {
             color={props.danger ? "secondary" : "primary"}
             style={{
               padding: 10,
-
               color: hovered
                 ? "#ffffff"
                 : props.danger
@@ -173,14 +170,14 @@ const AdaptiveButton = (props) => {
         initial={{
           width: "fit-content",
           backgroundColor: props.buttonColor,
-          borderRadius: borderRadius,
+          borderRadius: theme.borderRadius,
           // padding: 5,
           margin: 5
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
-          borderRadius: borderRadius
+          borderRadius: theme.borderRadius
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -201,7 +198,27 @@ const AdaptiveButton = (props) => {
           // setTooltip(true);
         }}
       >
-        <Tooltip
+        <StyledTooltip hintTitle="Example" hintContent="More explaination here">
+          <Button
+            disabled={props.disabled}
+            size="small"
+            disableRipple
+            aria-label={props.buttonLabel}
+            onClick={props.handleClick}
+            color={props.danger ? "secondary" : "primary"}
+            style={{
+              padding: 10,
+              color: hovered
+                ? "#ffffff"
+                : props.danger
+                ? "#f50057"
+                : "var(--blue)"
+            }}
+          >
+            {props.icon}
+          </Button>
+        </StyledTooltip>
+        {/* <Tooltip
           placement={screenSize.width > 400 ? "bottom-center" : "top-center"}
           enterTouchDelay={100}
           title={
@@ -234,25 +251,8 @@ const AdaptiveButton = (props) => {
             )
           }
         >
-          <Button
-            disabled={props.disabled}
-            size="small"
-            disableRipple
-            aria-label={props.buttonLabel}
-            onClick={props.handleClick}
-            color={props.danger ? "secondary" : "primary"}
-            style={{
-              padding: 10,
-              color: hovered
-                ? "#ffffff"
-                : props.danger
-                ? "#f50057"
-                : "var(--blue)"
-            }}
-          >
-            {props.icon}
-          </Button>
-        </Tooltip>
+
+        </Tooltip> */}
       </motion.div>
     );
   }
