@@ -7,7 +7,7 @@ const Template = (args) => {
 };
 
 export default {
-  title: "TextField",
+  title: "Components/TextField",
   component: Light,
   argsTypes: {
     defaultValue: {

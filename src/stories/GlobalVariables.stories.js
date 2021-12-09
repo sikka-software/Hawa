@@ -10,10 +10,18 @@ import { StyledRadioSelector } from "../components/Hawa/RadioSelector";
 import { FormProvider, useForm } from "react-hook-form";
 import "../styles.css";
 
-const stories = storiesOf("InputLabel", module);
+const stories = storiesOf("Test", module);
 
+stories.add("Global Variables", () => {
+  return <div>test</div>;
+});
+
+export const GlobalVariables = (args) => {
+  //   const methods = useForm();
+  return <div>test</div>;
+};
 export default {
-  title: "Components/InputLabel",
+  title: "GlobalVariables",
   component: [
     StyledCheckBox,
     StyledTextFieldT,
@@ -40,7 +48,7 @@ export default {
 // };
 // export const StyledCheckBox = StyledCheckBoxTemplate.bind({});
 // StyledCheckBox.args = {
-//   name: "Components/InputLabel",
+//   name: "checkbox",
 //   label: "CheckBox",
 //   color: "blue",
 //   rules: { required: true },
@@ -61,7 +69,7 @@ export default {
 
 // export const StyledTextFieldT = StyledTextFieldTemplate.bind({});
 // StyledTextFieldT.args = {
-//   name: "Components/InputLabel",
+//   name: "styledtextfield",
 //   inputLabel: "Label",
 //   bdRadius: 12,
 //   bgColor: "lightgray",
@@ -84,7 +92,7 @@ export default {
 
 // export const StyledRadioSeletorT = styledRadioSelectorTempalte.bind({});
 // StyledRadioSeletorT.args = {
-//   name: "Components/InputLabel",
+//   name: "Radio Selector",
 //   shouldUnregister: true,
 //   options: [
 //     { text: "Option 1", label: "option1" },

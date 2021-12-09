@@ -6,7 +6,7 @@ const Template = (args) => {
   return <StyledRadioSelector {...args} />;
 };
 export default {
-  title: "Radio Selector",
+  title: "Components/RadioSelector",
   component: Light,
   argTypes: {
     options: {

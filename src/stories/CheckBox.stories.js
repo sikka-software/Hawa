@@ -7,7 +7,7 @@ const Template = (args) => {
 };
 
 export default {
-  title: "Checkbox",
+  title: "Components/Checkbox",
   component: Light,
   argsTypes: {
     defaultValue: {

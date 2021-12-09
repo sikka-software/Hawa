@@ -20,14 +20,14 @@ const AdaptiveButton = (props) => {
           borderRadius: props.borderRadius,
           padding: 5,
           margin: 5,
-          width: "auto"
+          width: "fit-content"
         }}
-        whileTap={{ scale: 1.2 }}
+        // whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
           borderRadius: props.borderRadius
         }}
-        whileTap={{ scale: 1.2 }}
+        // whileTap={{ scale: 1.2 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseDown={() => {
@@ -49,7 +49,6 @@ const AdaptiveButton = (props) => {
       >
         <Button
           disabled={props.disabled}
-          // size="small"
           disableRipple
           aria-label={props.buttonLabel}
           color={props.danger ? "secondary" : "primary"}
@@ -63,7 +62,7 @@ const AdaptiveButton = (props) => {
           }}
         >
           {props.icon}
-          <span style={{ marginLeft: 5 }}>{props.buttonLabel}</span>
+          <span>{props.buttonLabel}</span>
         </Button>
       </motion.div>
     );
@@ -161,9 +160,7 @@ const AdaptiveButton = (props) => {
     //icon only
     return (
       <motion.div
-        transition={{
-          duration: 0.2
-        }}
+        transition={{ duration: 0.2 }}
         initial={{
           width: "auto",
           backgroundColor: props.buttonColor,
