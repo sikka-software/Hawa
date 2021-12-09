@@ -11,23 +11,21 @@ const AdaptiveButton = (props) => {
   const [tooltip, setTooltip] = useState(false);
   const [hovered, setHovered] = useState(false);
   //full button
-  if (props.showText && screenSize.width > 1250) {
+  if (props.showText) {
     return (
       <motion.div
         transition={{ duration: 0.2 }}
         initial={{
           backgroundColor: props.buttonColor,
           borderRadius: props.borderRadius,
-          padding: 5,
-          margin: 5,
+
           width: "fit-content"
         }}
-        // whileTap={{ scale: 1.2 }}
         whileHover={{
           backgroundColor: props.hoverColor,
           borderRadius: props.borderRadius
         }}
-        // whileTap={{ scale: 1.2 }}
+        whileTap={{ scale: 1.2 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseDown={() => {
@@ -54,6 +52,8 @@ const AdaptiveButton = (props) => {
           color={props.danger ? "secondary" : "primary"}
           onClick={props.handleClick}
           style={{
+            padding: 10,
+
             color: hovered
               ? "#ffffff"
               : props.danger
@@ -62,9 +62,11 @@ const AdaptiveButton = (props) => {
           }}
         >
           {props.icon}
-          <span style={{ marginLeft: props.icon ? 5 : 0 }}>
-            {props.buttonLabel}
-          </span>
+          {props.showText ? (
+            <span style={{ marginLeft: props.icon ? 5 : 0 }}>
+              {props.buttonLabel}
+            </span>
+          ) : null}
         </Button>
       </motion.div>
     );
@@ -75,11 +77,9 @@ const AdaptiveButton = (props) => {
           duration: 0.2
         }}
         initial={{
-          width: "auto",
+          width: "fit-content",
           backgroundColor: props.buttonColor,
-          borderRadius: props.borderRadius,
-          padding: 5,
-          margin: 5
+          borderRadius: props.borderRadius
         }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
@@ -146,6 +146,8 @@ const AdaptiveButton = (props) => {
             onClick={props.handleClick}
             color={props.danger ? "secondary" : "primary"}
             style={{
+              padding: 10,
+
               color: hovered
                 ? "#ffffff"
                 : props.danger
@@ -164,10 +166,10 @@ const AdaptiveButton = (props) => {
       <motion.div
         transition={{ duration: 0.2 }}
         initial={{
-          width: "auto",
+          width: "fit-content",
           backgroundColor: props.buttonColor,
           borderRadius: props.borderRadius,
-          padding: 5,
+          // padding: 5,
           margin: 5
         }}
         whileTap={{ scale: 1.2 }}
@@ -235,6 +237,7 @@ const AdaptiveButton = (props) => {
             onClick={props.handleClick}
             color={props.danger ? "secondary" : "primary"}
             style={{
+              padding: 10,
               color: hovered
                 ? "#ffffff"
                 : props.danger

@@ -1,20 +1,19 @@
 import React, { useState, useContext } from "react";
 import { ThemeProvider } from "../HawaProvider";
 
-const MuiRadioSelector = ({ props, defaultValue }) => {
+export const StyledRadioSelector = (props) => {
   const [options, setOptions] = useState(props.options);
-  const [value, setValue] = useState(defaultValue);
-  const  theme  = useContext(ThemeProvider);
-  console.log(theme);
+  const [value, setValue] = useState(props.defaultValue);
+  const theme = useContext(ThemeProvider);
+  console.log("theme is ", theme);
   return (
     <div
       style={{
         backgroundColor: "white",
         display: "flex",
         flexDirection: "row",
-        borderRadius: theme.borderRadius || props.bdRadius || 10,
-        margin : theme.margins,
-        padding : theme.paddings,
+        margin: theme.margins,
+        // padding: theme.paddings,
         marginBottom: 10
       }}
     >
@@ -32,10 +31,16 @@ const MuiRadioSelector = ({ props, defaultValue }) => {
             style={
               value.toLowerCase() === o.label.toLowerCase()
                 ? {
-                    backgroundColor: theme.primaryColor || props.bgSelectedColor || "blue",
+                    borderRadius: theme.borderRadius,
+                    padding: theme.paddings,
+                    backgroundColor:
+                      theme.primaryColor || props.bgSelectedColor || "blue",
                     color: props.textSelectedColor || "lightgray"
                   }
-                : null
+                : {
+                    borderRadius: theme.borderRadius,
+                    padding: theme.paddings
+                  }
             }
           >
             {o.text}
@@ -43,19 +48,5 @@ const MuiRadioSelector = ({ props, defaultValue }) => {
         );
       })}
     </div>
-  );
-};
-
-export const StyledRadioSelector = (props) => {
-  return (
-    <React.Fragment>
-      <MuiRadioSelector
-        props={props}
-        value={props.value}
-        handleClick={props.onChange}
-        handleChange={props.onChange}
-        defaultValue={props.defaultValue}
-      />
-    </React.Fragment>
   );
 };
