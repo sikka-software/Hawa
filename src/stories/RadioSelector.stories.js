@@ -1,9 +1,21 @@
 import React from "react";
 import { StyledRadioSelector } from "../components/Hawa/RadioSelector";
+import { HawaProvider } from "../components/Hawa/HawaProvider";
 import "../styles.css";
 
 const Template = (args) => {
-  return <StyledRadioSelector {...args} />;
+  const theme = {
+    borderRadius: "10px",
+    primaryColor: "red",
+    secondaryColor: "white",
+    margins: "10px",
+    paddings: "5px"
+  };
+  return (
+    <HawaProvider  theme={theme}>
+      <StyledRadioSelector {...args} />
+    </HawaProvider>
+  );
 };
 export default {
   title: "Radio Selector",
