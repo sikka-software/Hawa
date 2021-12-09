@@ -62,7 +62,9 @@ const AdaptiveButton = (props) => {
           }}
         >
           {props.icon}
-          <span>{props.buttonLabel}</span>
+          <span style={{ marginLeft: props.icon ? 5 : 0 }}>
+            {props.buttonLabel}
+          </span>
         </Button>
       </motion.div>
     );
