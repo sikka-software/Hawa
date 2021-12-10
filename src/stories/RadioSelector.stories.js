@@ -46,7 +46,7 @@ Light.args = {
   borderRadius: 12,
   defaultValue: "option2",
   bgSelectedColor: "red",
-  textSelectedColor: "black",
+  textSelectedColor: "white",
   handleChange: () => {
     console.log("handleChange goes here");
   }

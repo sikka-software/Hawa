@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { getToken } from "../token";
 import { useDropzone } from "react-dropzone";
 import useTranslation from "next-translate/useTranslation";
@@ -52,18 +52,18 @@ const DragDropItemImage = ({
         }
       ]);
       try {
-        await axios.post(
-          `${process.env.NEXT_PUBLIC_QAWAIM_API_URL}/deleteImages`,
-          {
-            deletedFiles: [
-              {
-                img_url: acceptedFiles[file]?.img_url,
-                _id: acceptedFiles[file]?._id
-              }
-            ],
-            itemId: itemId
-          }
-        );
+        // await axios.post(
+        //   `${process.env.NEXT_PUBLIC_QAWAIM_API_URL}/deleteImages`,
+        //   {
+        //     deletedFiles: [
+        //       {
+        //         img_url: acceptedFiles[file]?.img_url,
+        //         _id: acceptedFiles[file]?._id
+        //       }
+        //     ],
+        //     itemId: itemId
+        //   }
+        // );
         refetchSingleMenu();
         acceptedFiles.splice(file, 1);
         setFiles(acceptedFiles);

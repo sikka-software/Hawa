@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { getTextColor } from "../../../util";
 
 const AdaptiveButton = (props) => {
-  const { showText, buttonColor, borderRadius, textColor } = props;
+  const { showText } = props;
   const theme = useContext(ThemeProvider);
   const screenSize = {
     width: 1500,

@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
 const defaultValue = {
-  borderRadius: "10px",
+  borderRadius: 10,
   primaryColor: "blue",
   secondaryColor: "grey",
-  margins: "10px",
-  paddings: "5px"
+  margins: 10,
+  paddings: 5
 };
 
 export const ThemeProvider = createContext(defaultValue);
