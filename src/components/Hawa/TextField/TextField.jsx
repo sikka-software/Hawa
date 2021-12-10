@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { StyledInputLabel } from "../InputLabel";
-
+import PropTypes from "prop-types";
 export const StyledTextField = (props) => {
   return (
     <div>
@@ -39,3 +39,12 @@ export const StyledTextField = (props) => {
     </div>
   );
 };
+
+StyledTextField.propTypes = {
+  type: PropTypes.oneOf(["text", "number",]),
+  helperText: PropTypes.string
+};
+
+// StyledTextField.defaultProps = {
+//   type: "text"
+// };

@@ -8,36 +8,26 @@ const Template = (args) => {
 
 export default {
   title: "Components/TextField",
-  component: Light,
+  component: StyledTextField,
   argsTypes: {
-    defaultValue: {
-      control: { type: "text" }
-    },
-    value: {
-      control: { type: "text" }
-    },
-    inputLabel: {
-      control: { type: "text" }
-    },
-    bdRadius: {
-      contol: { type: "number" }
-    },
-    placeholder: {
-      control: { type: "text" }
-    },
     type: {
+      name: "type",
+      type: { name: "string", required: true },
       options: ["text", "number", "date"],
-      control: { type: "radio" }
-    },
-    padding: {
-      type: "number"
+      control: { type: "radio" },
+      defaultValue: "text",
+      description: "Styled Text Field",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "Hello" }
+      }
     }
-  },
-  args: {
-    bdRadius: 15,
-    defaultValue: "Test",
-    type: "date"
   }
+  // args: {
+  //   bdRadius: 15,
+  //   defaultValue: "Test",
+  //   type: "date"
+  // }
 };
 
 export const Light = Template.bind({});
@@ -45,10 +35,11 @@ export const Dark = Template.bind({});
 
 Light.args = {
   placeholder: "Exemple ...",
-  defaultValue: "This is default value",
+  defaultValue: "This isko default value",
   inputLabel: "Text Field",
   bgColor: "lightgray",
   padding: 10
+  // type: "number"
 };
 Dark.args = {
   placeholder: "Exemple ...",

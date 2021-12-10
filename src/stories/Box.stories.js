@@ -1,18 +1,23 @@
 import React from "react";
 import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
+import { Box } from "../components/Hawa/Box";
 import { HawaProvider } from "../components/Hawa/HawaProvider";
 
 const Template = (args) => {
   const theme = {
-    borderRadius: 20,
+    borderRadius: 10,
     primaryColor: "green",
     secondaryColor: "red",
     // margins: "10px",
-    paddings: 10
+    paperColors: "#c6c6c6",
+    paddings: 10,
+    margins: 10
   };
   return (
     <HawaProvider theme={theme}>
-      <div>In progress</div> <div>this is a box</div>{" "}
+      <Box>Box 1</Box>
+      <Box>Box 2</Box>
+      <Box>Box 3</Box>
     </HawaProvider>
   );
 };
