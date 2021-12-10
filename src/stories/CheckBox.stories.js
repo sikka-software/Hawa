@@ -16,7 +16,8 @@ export default {
     }
   },
   args: {
-    defaultValue: true
+    defaultValue: true,
+    disabled: true
   }
 };
 

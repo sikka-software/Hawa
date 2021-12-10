@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
 import { StyledInputLabel } from "../InputLabel";
 import PropTypes from "prop-types";
+import { ThemeProvider } from "../HawaProvider";
+
 export const StyledTextField = (props) => {
+  const theme = useContext(ThemeProvider);
+
   return (
     <div>
       {props.inputLabel ? <StyledInputLabel label={props.inputLabel} /> : null}
@@ -10,7 +14,7 @@ export const StyledTextField = (props) => {
         fullWidth={true}
         style={{
           color: "white",
-          backgroundColor: props.bgColor || "white",
+          backgroundColor: theme.inputColor,
           borderRadius: props.bdRadius || 10,
           borderBottom: "none",
           padding: props.padding || 5,
@@ -41,7 +45,7 @@ export const StyledTextField = (props) => {
 };
 
 StyledTextField.propTypes = {
-  type: PropTypes.oneOf(["text", "number",]),
+  type: PropTypes.oneOf(["text", "number"]),
   helperText: PropTypes.string
 };
 

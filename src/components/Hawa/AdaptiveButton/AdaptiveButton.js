@@ -20,11 +20,6 @@ const AdaptiveButton = (props) => {
   if (showText) {
     return (
       <motion.div
-        initial={{
-          // backgroundColor: theme.primaryColor,
-          borderRadius: theme.borderRadius,
-          width: "fit-content"
-        }}
         transition={{ duration: 0.2 }}
         whileTap={{ scale: 1.2 }}
         whileHover={{
@@ -47,11 +42,9 @@ const AdaptiveButton = (props) => {
           onClick={props.handleClick}
           style={{
             backgroundColor: theme.primaryColor,
-
             borderRadius: theme.borderRadius,
             padding: theme.paddings,
             color: getTextColor(theme.primaryColor)
-
             // color: hovered
             //   ? "#ffffff"
             //   : props.danger
