@@ -16,19 +16,19 @@ export const StyledRadioSelector = (props) => {
         marginBottom: 10
       }}
     >
-      {props.options.map((o) => {
+      {props.options.map((singleOption) => {
         return (
           <div
-            key={o.label}
+            key={singleOption.label}
             className="radio_option"
             onClick={() => {
-              setValue(o.label);
+              setValue(singleOption.label);
               if (props.handleChange) {
                 props.handleChange();
               }
             }}
             style={
-              value.toLowerCase() === o.label.toLowerCase()
+              value.toLowerCase() === singleOption.label.toLowerCase()
                 ? {
                     borderRadius: theme.borderRadius,
                     padding: theme.paddings,
@@ -42,7 +42,7 @@ export const StyledRadioSelector = (props) => {
                   }
             }
           >
-            {o.text}
+            {singleOption.text}
           </div>
         );
       })}

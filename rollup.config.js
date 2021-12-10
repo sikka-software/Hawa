@@ -9,21 +9,11 @@ export default [
   {
     input: "src/index.js",
     output: [
-      {
-        file: "dist/index.js",
-        format: "cjs"
-      },
-      {
-        file: "dist/index.es.js",
-        format: "es",
-        exports: "named"
-      }
+      { file: "dist/index.js", format: "cjs" },
+      { file: "dist/index.es.js", format: "es", exports: "named" }
     ],
     plugins: [
-      postcss({
-        plugins: [],
-        minimize: true
-      }),
+      postcss({ plugins: [], minimize: true }),
       babel({
         exclude: "node_modules/**",
         presets: [
