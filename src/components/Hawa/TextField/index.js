@@ -1,1 +1,1 @@
-export * from "./TextField.jsx";
+export * from "./TextField.js";

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeProvider } from "../HawaProvider";
 
-export const Box = (props) => {
+export const SignUpForm = (props) => {
   const theme = useContext(ThemeProvider);
   return (
     <div

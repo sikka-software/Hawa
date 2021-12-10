@@ -1,6 +1,5 @@
 import React from "react";
-import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
-import CastIcon from "@material-ui/icons/Cast";
+import { SignInForm } from "../components/Hawa/AuthForms/SignInForm";
 import { HawaProvider } from "../components/Hawa/HawaProvider";
 
 const Template = (args) => {
@@ -13,13 +12,13 @@ const Template = (args) => {
   };
   return (
     <HawaProvider theme={theme}>
-      <AdaptiveButton {...args} />
+      <SignInForm {...args} />
     </HawaProvider>
   );
 };
 export default {
   title: "Blocks/AuthForms",
-  component: AdaptiveButton,
+  component: SignInForm,
   argsTypes: {
     viaGoogle: { control: "boolean" },
     viaGithub: { control: "boolean" },
@@ -37,29 +36,8 @@ SignIn.args = {
   viaFacebook: true
 };
 export const SignUp = Template.bind({});
-SignUp.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  icon: <CastIcon />,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
-};
+SignUp.args = {};
 export const ResetPassword = Template.bind({});
-ResetPassword.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  icon: <CastIcon />,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
-};
+ResetPassword.args = {};
 export const NewPassword = Template.bind({});
-NewPassword.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  icon: <CastIcon />,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
-};
+NewPassword.args = {};
