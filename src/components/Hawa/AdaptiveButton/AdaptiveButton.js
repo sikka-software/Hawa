@@ -4,6 +4,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { motion } from "framer-motion";
 import { ThemeProvider } from "../HawaProvider";
 import { StyledTooltip } from "../StyledTooltip";
+import PropTypes from "prop-types";
+import { getTextColor } from "../../../util";
 
 const AdaptiveButton = (props) => {
   const { showText, buttonColor, borderRadius, textColor } = props;
@@ -18,52 +20,43 @@ const AdaptiveButton = (props) => {
   if (showText) {
     return (
       <motion.div
-        transition={{ duration: 0.2 }}
         initial={{
-          // direction: "rtl",
-          backgroundColor: buttonColor,
-          color: textColor,
+          // backgroundColor: theme.primaryColor,
           borderRadius: theme.borderRadius,
           width: "fit-content"
         }}
-        whileHover={{
-          backgroundColor: props.hoverColor,
-          borderRadius: theme.borderRadius
-        }}
+        transition={{ duration: 0.2 }}
         whileTap={{ scale: 1.2 }}
+        whileHover={{
+          // backgroundColor: props.hoverColor,
+          borderRadius: theme.borderRadius,
+          color: "red"
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onMouseDown={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseUp={() => {
-          setHovered(false);
-          setTooltip(true);
-        }}
-        onMouseOver={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseOut={() => {
-          setHovered(false);
-          // setTooltip(true);
-        }}
+        onMouseDown={() => setHovered(true)}
+        onMouseUp={() => setHovered(false)}
+        onMouseOver={() => setHovered(true)}
+        onMouseOut={() => setHovered(false)}
       >
         <Button
-          disabled={props.disabled}
           disableRipple
+          disabled={props.disabled}
           aria-label={props.buttonLabel}
           color={props.danger ? "secondary" : "primary"}
           onClick={props.handleClick}
           style={{
+            backgroundColor: theme.primaryColor,
+
             borderRadius: theme.borderRadius,
-            padding: 10,
-            color: hovered
-              ? "#ffffff"
-              : props.danger
-              ? "#f50057"
-              : "var(--blue)"
+            padding: theme.paddings,
+            color: getTextColor(theme.primaryColor)
+
+            // color: hovered
+            //   ? "#ffffff"
+            //   : props.danger
+            //   ? "#f50057"
+            //   : "var(--blue)"
           }}
         >
           {props.icon}
@@ -256,6 +249,13 @@ const AdaptiveButton = (props) => {
       </motion.div>
     );
   }
+};
+
+AdaptiveButton.propTypes = {
+  buttonLabel: PropTypes.string,
+  danger: PropTypes.bool,
+  disabled: PropTypes.bool,
+  showText: PropTypes.bool
 };
 
 export default AdaptiveButton;

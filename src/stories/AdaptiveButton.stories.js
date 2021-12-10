@@ -5,15 +5,15 @@ import { HawaProvider } from "../components/Hawa/HawaProvider";
 
 const Template = (args) => {
   const theme = {
-    borderRadius: 20,
-    primaryColor: "green",
+    borderRadius: 10,
+    primaryColor: "#004fff",
     secondaryColor: "red",
     // margins: "10px",
     paddings: 10
   };
   return (
     <HawaProvider theme={theme}>
-      <AdaptiveButton {...args} />{" "}
+      <AdaptiveButton {...args} />
     </HawaProvider>
   );
 };
@@ -45,9 +45,7 @@ Light.args = {
   borderRadius: 5,
   icon: <CastIcon />,
   textColor: "#000000",
-
   buttonColor: "#f9f9f9"
-
   // placeholder: "Example ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",
@@ -62,7 +60,6 @@ Dark.args = {
   buttonColor: "#878787",
   textColor: "#ffffff",
   icon: <CastIcon />
-
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",
@@ -76,7 +73,6 @@ Danger.args = {
   buttonColor: "#c0c0c0",
   danger: true,
   icon: <CastIcon />
-
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",

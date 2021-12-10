@@ -1,1 +1,1 @@
-export * from "./AdaptiveButton.jsx";
+export * from "./AdaptiveButton.js";

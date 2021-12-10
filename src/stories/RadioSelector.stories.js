@@ -35,7 +35,6 @@ export default {
 };
 
 export const Light = Template.bind({});
-export const Dark = Template.bind({});
 
 Light.args = {
   options: [
@@ -52,6 +51,7 @@ Light.args = {
     console.log("handleChange goes here");
   }
 };
+export const Dark = Template.bind({});
 Dark.args = {
   options: [
     { text: "Option 1", label: "option1" },

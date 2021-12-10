@@ -1,10 +1,6 @@
-<!-- ![Hawa | هواء](https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png) -->
-
 <p align="center">
   <img src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png" alt="Hawa | هواء" />
 </p>
-
-
 
 # Hawa | هواء
 
@@ -12,42 +8,77 @@
 [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg)](https://www.npmjs.com/package/@sikka/hawa)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> Opinionated UI Kit for web apps and websites. 
+> Opinionated UI Kit for web apps and websites.
 
 # Concept
 
-# Features
-- [ ] Change borders and margin, padding in one place
-- [ ] Drag and drop tool to create a layout of boxes
+### Components
 
-## Components
-- [ ] Layout
-- [ ] Box
+The smallest elements of this UI kit are the typical low-level components. Examples of components:
 
-- [ ] TextField
-- [ ] TextArea
-- [ ] Radio Selector
-- [ ] PasswordField
-- [ ] Autocomplete
-- [ ] Tabs
-- [ ] Alert Notifications
-- [ ] Badges
+- InputField
+- Checkboxes
+- Modal
+- Drag-Drop Image(s)
+- Button
+- etc ...
 
+### Blocks
 
-## Boxes
-Most components will live inside **boxes**. Windows can show anything. It can show a video, image, form, iFrame, etc. Boxes make out the layout of your website or application. Boxes can be arranged in different layouts
+Blocks are commonly used collection of components. Examples of blocks:
+
+- Sign-In
+- Sign-Up
+- Reset Password
+- SaaS Pricing Plans
+- Payment Methods Block (to list saved methods)
+- Account Block (to edit account info)
+- etc ...
+
+### Boxes
+
+Most components and blocks will live inside **boxes**. Windows can show anything. It can show a video, image, form, iFrame, etc. Boxes make out the layout of your website or application. Boxes can be arranged in different layouts
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/46135573/143972102-0c104239-b8f6-4a7b-9aad-54f6d91a8906.png" alt="layout-types" />
 </p>
 
 Points
+
 - The content inside each box can be scrollable (vertical/horizontal/Both) with one prop
 - you can control the spacing of the content inside each box with one prop
 - you can also control the spacing of all the box in the layout
 - some boxes can float (animation of open and close modal)
 - some boxes can go full screen (animation to transition)
 
+### Utilities
+
+[x] **getTextColor(bgColor)**
+determine if text should be black or white based on the contrast of `bgColor`
+
+[ ] **darkenColor(color,percent)**
+darken a given `color` by a given `percent`
+
+[ ] **lightenColor(color,percent)**
+lighten a given `color` by a given `percent`
+
+# Features
+
+- [ ] Change borders and margin, padding in one place
+- [ ] Drag and drop tool to create a layout of boxes
+
+## Components
+
+- [ ] Layout
+- [ ] Box
+- [ ] TextField
+- [ ] TextArea
+- [ ] Radio Selector
+- [ ] PasswordField
+- [ ] Autocomplete
+- [ ] Tabs
+- [ ] Alerts
+- [ ] Badges
 
 ## Install
 
@@ -60,9 +91,7 @@ npm install --save @sikka/hawa
 ## Usage
 
 ```jsx
-
 //example coming soon inshallah
-
 ```
 
 ## Contributing
@@ -88,16 +117,14 @@ npm install
 npm run storybook
 ```
 
-- Edit **Hawa/src/stories/Hawa.stories.js_** file
+- Edit **Hawa/src/stories/Hawa.stories.js\_** file
 
 - Add your custom testing component in **Hawa.stories.js** file
 
 - Or you can preview without running development server. [See Preview](https://sikka-software.github.io/Hawa/storybook-static/)
 
 ```jsx
-
 //example coming soon inshallah
-
 ```
 
 ## Deployment
