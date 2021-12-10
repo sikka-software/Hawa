@@ -15,7 +15,9 @@ const Template = (args) => {
   };
   return (
     <HawaProvider theme={theme}>
-      <StyledAlert text="teshht" />
+      <StyledAlert text="This is a warning" type="warning" />
+      <StyledAlert text="This is a regular notification" type="notification" />
+      <StyledAlert text="This is a danger alert" type="danger" />
     </HawaProvider>
   );
 };
@@ -29,20 +31,11 @@ export default {
   component: StyledAlert
 };
 
-export const Light = Template.bind({});
-Light.args = {
+export const Default = Template.bind({});
+Default.args = {
   showText: true,
   buttonLabel: "test",
   borderRadius: 5,
   textColor: "#000000",
   buttonColor: "#f9f9f9"
-};
-
-export const Dark = Template.bind({});
-Dark.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  buttonColor: "#878787",
-  textColor: "#ffffff"
 };

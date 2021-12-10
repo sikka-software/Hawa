@@ -53,13 +53,13 @@ Points
 
 ### Utilities
 
-[x] **getTextColor(bgColor)**
+- [x] **getTextColor(bgColor)**
 determine if text should be black or white based on the contrast of `bgColor`
 
-[ ] **darkenColor(color,percent)**
+- [ ] **darkenColor(color,percent)**
 darken a given `color` by a given `percent`
 
-[ ] **lightenColor(color,percent)**
+- [ ] **lightenColor(color,percent)**
 lighten a given `color` by a given `percent`
 
 # Features

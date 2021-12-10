@@ -25,8 +25,9 @@ export const Light = Template.bind({});
 export const Dark = Template.bind({});
 
 Light.args = {
-  color: "gray",
-  defaultValue: false
+  color: "red",
+  defaultValue: false,
+  label: "test"
 };
 Dark.args = {
   color: "gray",

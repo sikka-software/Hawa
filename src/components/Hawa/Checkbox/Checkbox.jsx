@@ -8,6 +8,7 @@ export const StyledCheckbox = (props) => {
   return (
     <React.Fragment>
       <FormControlLabel
+        label={props.label}
         control={
           <Checkbox
             style={{ color: props.color || null }}
