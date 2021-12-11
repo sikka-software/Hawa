@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTextField } from "../components/Hawa/TextField/TextField";
+import { StyledTextField } from "../components";
 import "../styles.css";
 
 const Template = (args) => {

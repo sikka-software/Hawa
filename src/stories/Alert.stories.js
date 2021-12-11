@@ -1,7 +1,7 @@
 import React from "react";
 
-import { HawaProvider } from "../components/Hawa/HawaProvider";
-import { StyledAlert } from "../components/Hawa/StyledAlert/StyledAlert";
+// import { HawaProvider } from "../components/HawaProvider";
+import { StyledAlert, HawaProvider } from "../components";
 
 const Template = (args) => {
   const theme = {

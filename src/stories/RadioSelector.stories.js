@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledRadioSelector } from "../components/Hawa/RadioSelector";
-import { HawaProvider } from "../components/Hawa/HawaProvider";
+import { StyledRadioSelector } from "../components";
+import { HawaProvider } from "../components";
 import "../styles.css";
 
 const Template = (args) => {

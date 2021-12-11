@@ -1,7 +1,8 @@
 import React from "react";
-import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
+// import AdaptiveButton from "../components";
 import CastIcon from "@material-ui/icons/Cast";
-import { HawaProvider } from "../components/Hawa/HawaProvider";
+import { HawaProvider } from "../components/HawaProvider";
+import { AdaptiveButton } from "../components";
 
 const Template = (args) => {
   const theme = {

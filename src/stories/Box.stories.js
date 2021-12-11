@@ -1,7 +1,6 @@
 import React from "react";
-import AdaptiveButton from "../components/Hawa/AdaptiveButton/AdaptiveButton";
-import { Box } from "../components/Hawa/Box";
-import { HawaProvider } from "../components/Hawa/HawaProvider";
+import { Box } from "../layout";
+import { HawaProvider, AdaptiveButton } from "../components";
 
 const Template = (args) => {
   const theme = {

@@ -1,9 +1,11 @@
 import React from "react";
-import { NewPasswordForm } from "../components/Hawa/AuthForms/NewPasswordForm";
-import { ResetPasswordForm } from "../components/Hawa/AuthForms/ResetPasswordForm";
-import { SignInForm } from "../components/Hawa/AuthForms/SignInForm";
-import { SignUpForm } from "../components/Hawa/AuthForms/SignUpForm";
-import { HawaProvider } from "../components/Hawa/HawaProvider";
+import {
+  NewPasswordForm,
+  ResetPasswordForm,
+  SignInForm,
+  SignUpForm
+} from "../blocks/AuthForms";
+import { HawaProvider } from "../components";
 
 export default {
   title: "Blocks/AuthForms",

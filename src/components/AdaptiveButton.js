@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import { motion } from "framer-motion";
-import { ThemeProvider } from "../HawaProvider";
-import { StyledTooltip } from "../StyledTooltip";
 import PropTypes from "prop-types";
-import { getTextColor } from "../../../util";
+import { ThemeProvider } from "./HawaProvider";
+import { StyledTooltip } from "./StyledTooltip";
+import { getTextColor } from "../util";
 
-const AdaptiveButton = (props) => {
+export const AdaptiveButton = (props) => {
   const { showText } = props;
   const theme = useContext(ThemeProvider);
   const screenSize = {
@@ -250,5 +250,3 @@ AdaptiveButton.propTypes = {
   disabled: PropTypes.bool,
   showText: PropTypes.bool
 };
-
-export default AdaptiveButton;

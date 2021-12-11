@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { ThemeProvider } from "../HawaProvider";
-import { StyledInputLabel } from "../InputLabel";
-import { StyledTextField } from "../TextField";
-
-export const SignUpForm = (props) => {
+import { ThemeProvider } from "../../components/HawaProvider";
+import { StyledTextField, StyledInputLabel } from "../../components";
+export const NewPasswordForm = (props) => {
   const theme = useContext(ThemeProvider);
   return (
     <div
@@ -14,12 +12,10 @@ export const SignUpForm = (props) => {
         margin: theme.margins
       }}
     >
-      <StyledInputLabel label="Email" />
-      <StyledTextField type="text" />
       <StyledInputLabel label="Password" />
-      <StyledTextField type="text" />
+      <StyledTextField type="password" />
       <StyledInputLabel label="Confirm Password" />
-      <StyledTextField type="text" />
+      <StyledTextField type="password" />
       {props.children}
     </div>
   );

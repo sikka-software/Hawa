@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledCheckbox } from "../components/Hawa/Checkbox/Checkbox";
+import { StyledCheckbox } from "../components";
 import "../styles.css";
 
 const Template = (args) => {

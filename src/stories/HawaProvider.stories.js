@@ -1,6 +1,6 @@
 import React from "react";
 import CastIcon from "@material-ui/icons/Cast";
-import { HawaProvider } from "../components/Hawa/HawaProvider";
+import { HawaProvider } from "../components";
 
 const Template = (args) => {
   const theme = {

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { ThemeProvider } from "../HawaProvider";
+import { ThemeProvider } from "./HawaProvider";
 
 export const StyledRadioSelector = (props) => {
   const [value, setValue] = useState(props.defaultValue);

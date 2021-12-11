@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
-import { StyledInputLabel } from "../InputLabel";
+import { StyledInputLabel } from "../components";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "../HawaProvider";
+import { ThemeProvider } from "../components/HawaProvider";
 
 export const StyledTextField = (props) => {
   const theme = useContext(ThemeProvider);
