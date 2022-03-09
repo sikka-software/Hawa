@@ -7,9 +7,10 @@ export const Box = (props) => {
     <div
       style={{
         backgroundColor: theme.paperColors,
+        color: theme.textColors,
         padding: theme.paddings,
-        borderRadius: theme.borderRadius,
-        margin: theme.margins
+        margin: theme.margins,
+        borderRadius: theme.borderRadius
       }}
     >
       {props.children}

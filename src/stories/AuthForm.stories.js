@@ -24,7 +24,8 @@ const theme = {
   primaryColor: "green",
   secondaryColor: "red",
   inputColor: "lightGrey",
-  paddings: 10
+  paddings: 10,
+  paperColors: 'blue'
 };
 
 const SignInTemplate = (args) => {
