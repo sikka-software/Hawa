@@ -6,7 +6,7 @@ export const Box = (props) => {
   return (
     <div
       style={{
-        backgroundColor: theme.paperColors,
+        backgroundColor: theme.layoutColor,
         color: theme.textColors,
         padding: theme.paddings,
         margin: theme.margins,
