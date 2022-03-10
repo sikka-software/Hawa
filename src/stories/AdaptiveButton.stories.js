@@ -1,8 +1,7 @@
 import React from "react";
-// import AdaptiveButton from "../components";
 import CastIcon from "@material-ui/icons/Cast";
-import { HawaProvider } from "../components/HawaProvider";
-import { AdaptiveButton } from "../components";
+import { HawaProvider } from "../themes/HawaProvider";
+import { AdaptiveButton } from "../ui";
 
 const Template = (args) => {
   const theme = {
@@ -19,7 +18,7 @@ const Template = (args) => {
   );
 };
 export default {
-  title: "Components/AdaptiveButton",
+  title: "UI/AdaptiveButton",
   component: AdaptiveButton,
   argsTypes: {
     buttonLabel: { control: "text" },

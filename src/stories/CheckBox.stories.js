@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledCheckbox } from "../components";
+import { StyledCheckbox } from "../ui";
 import "../styles.css";
 
 const Template = (args) => {
@@ -7,7 +7,7 @@ const Template = (args) => {
 };
 
 export default {
-  title: "Components/Checkbox",
+  title: "UI/Checkbox",
   component: Light,
   argsTypes: {
     defaultValue: {

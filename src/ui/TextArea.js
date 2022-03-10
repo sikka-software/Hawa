@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { StyledInputLabel } from "../components";
+import { StyledInputLabel } from "../ui";
 
 export const StyledTextArea = (props) => {
   const { control } = useFormContext();

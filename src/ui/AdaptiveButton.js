@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "./HawaProvider";
+import { ThemeProvider } from "../themes/HawaProvider";
 import { StyledTooltip } from "./StyledTooltip";
 import { getTextColor } from "../util";
 
@@ -101,30 +101,30 @@ export const AdaptiveButton = (props) => {
             props.hint ? (
               props.hint
             ) : (
-              <div>
-                <div
-                  style={{
-                    fontSize: 20,
-                    fontWeight: 800,
-                    padding: 10,
-                    paddingBottom: 5,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintTitle}
+                <div>
+                  <div
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 800,
+                      padding: 10,
+                      paddingBottom: 5,
+                      textAlign: "center"
+                    }}
+                  >
+                    {props.hintTitle}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 100,
+                      padding: 10,
+                      textAlign: "center"
+                    }}
+                  >
+                    {props.hintContent}
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 100,
-                    padding: 10,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintContent}
-                </div>
-              </div>
-            )
+              )
           }
         >
           <Button
@@ -139,8 +139,8 @@ export const AdaptiveButton = (props) => {
               color: hovered
                 ? "#ffffff"
                 : props.danger
-                ? "#f50057"
-                : "var(--blue)"
+                  ? "#f50057"
+                  : "var(--blue)"
             }}
           >
             {props.buttonLabel}
@@ -197,8 +197,8 @@ export const AdaptiveButton = (props) => {
               color: hovered
                 ? "#ffffff"
                 : props.danger
-                ? "#f50057"
-                : "var(--blue)"
+                  ? "#f50057"
+                  : "var(--blue)"
             }}
           >
             {props.icon}

@@ -1,7 +1,7 @@
 import React from "react";
 
-// import { HawaProvider } from "../components/HawaProvider";
-import { StyledAlert, HawaProvider } from "../components";
+import { HawaProvider } from "../themes/HawaProvider";
+import { StyledAlert } from "../ui";
 
 const Template = (args) => {
   const theme = {
@@ -27,7 +27,7 @@ const Template = (args) => {
 //notice (blue)
 
 export default {
-  title: "Components/Alert",
+  title: "UI/Alert",
   component: StyledAlert
 };
 

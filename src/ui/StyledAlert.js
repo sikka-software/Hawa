@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeProvider } from "./HawaProvider";
+import { ThemeProvider } from "../themes/HawaProvider";
 
 export const StyledAlert = (props) => {
   const theme = useContext(ThemeProvider);

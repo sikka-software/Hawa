@@ -1,16 +1,22 @@
 import React, { useContext } from "react";
-import { ThemeProvider } from "../components/HawaProvider";
+import { ThemeProvider } from "../themes/HawaProvider";
 
 export const Box = (props) => {
   const theme = useContext(ThemeProvider);
   return (
     <div
       style={{
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+
         backgroundColor: theme.layoutColor,
-        color: theme.textColors,
+        color: theme.textColor,
         padding: theme.paddings,
         margin: theme.margins,
-        borderRadius: theme.borderRadius
+        borderRadius: theme.borderRadius,
+        maxWidth: props.maxWidth
       }}
     >
       {props.children}

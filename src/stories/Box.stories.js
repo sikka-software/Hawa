@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "../layout";
-import { HawaProvider, defaultTheme } from "../components";
+import { HawaProvider, defaultTheme } from "../themes/HawaProvider";
 const theme = {
   // paperColors: "#c6c6c6",
   // paperColors: "blue",
@@ -18,7 +18,7 @@ const theme = {
 
 const Template = (args) => {
   return (
-    <HawaProvider size="large" theme={{ ...theme, ...args.theme }}>
+    <HawaProvider size={args.size} theme={{ ...defaultTheme, ...args.theme }}>
       <Box>Box 1</Box>
       <Box><div style={{ backgroundColor: 'white', padding: 10 }}>testing box in box</div></Box>
       <Box>Box 3</Box>
@@ -41,6 +41,7 @@ export default {
 
 export const Normal = Template.bind({});
 Normal.args = {
+  size: 'large',
   showText: true,
   buttonLabel: "test",
   borderRadius: 5,
@@ -50,10 +51,11 @@ Normal.args = {
 };
 export const Compact = Template.bind({});
 Compact.args = {
+  size: 'small',
   showText: true,
   buttonLabel: "test",
   theme: {
-    borderRadius: 15,
+    borderRadius: 5,
     paddings: theme.paddings / 2,
     textColor: "#000000",
     buttonColor: "#f9f9f9",

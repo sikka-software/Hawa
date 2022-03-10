@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTextField } from "../components";
+import { StyledTextField } from "../ui";
 import "../styles.css";
 
 const Template = (args) => {

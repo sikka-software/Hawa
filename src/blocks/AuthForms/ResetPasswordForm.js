@@ -1,20 +1,14 @@
 import React, { useContext } from "react";
-import { ThemeProvider } from "../../components/HawaProvider";
-import { StyledTextField, StyledInputLabel } from "../../components";
+import { Box } from "../../layout";
+import { ThemeProvider } from "../../themes/HawaProvider";
+import { StyledTextField, StyledInputLabel } from "../../ui";
 export const ResetPasswordForm = (props) => {
   const theme = useContext(ThemeProvider);
   return (
-    <div
-      style={{
-        backgroundColor: theme.paperColors,
-        padding: theme.paddings,
-        borderRadius: theme.borderRadius,
-        margin: theme.margins
-      }}
-    >
+    <Box maxWidth={400} >
       <StyledInputLabel label="Email" />
       <StyledTextField type="text" />
       {props.children}
-    </div>
+    </Box>
   );
 };

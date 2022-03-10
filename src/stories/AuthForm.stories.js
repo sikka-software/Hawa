@@ -5,7 +5,7 @@ import {
   SignInForm,
   SignUpForm
 } from "../blocks/AuthForms";
-import { HawaProvider } from "../components";
+import { defaultTheme, HawaProvider } from "../themes/HawaProvider";
 
 export default {
   title: "Blocks/AuthForms",
@@ -30,7 +30,7 @@ const theme = {
 
 const SignInTemplate = (args) => {
   return (
-    <HawaProvider theme={theme}>
+    <HawaProvider theme={{ ...defaultTheme }}>
       <SignInForm {...args} />
     </HawaProvider>
   );
@@ -46,7 +46,7 @@ SignIn.args = {
 
 const SignUpTemplate = (args) => {
   return (
-    <HawaProvider theme={theme}>
+    <HawaProvider theme={{ ...defaultTheme }}>
       <SignUpForm {...args} />
     </HawaProvider>
   );
@@ -61,7 +61,7 @@ SignUp.args = {
 
 const ResetPasswordTemplate = (args) => {
   return (
-    <HawaProvider theme={theme}>
+    <HawaProvider theme={{ ...defaultTheme }}>
       <ResetPasswordForm {...args} />
     </HawaProvider>
   );
@@ -70,7 +70,7 @@ export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {};
 const NewPasswordTemplate = (args) => {
   return (
-    <HawaProvider theme={theme}>
+    <HawaProvider theme={{ ...defaultTheme }}>
       <NewPasswordForm {...args} />
     </HawaProvider>
   );
