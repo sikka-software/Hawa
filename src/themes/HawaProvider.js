@@ -10,8 +10,8 @@ export const defaultTheme = {
   layoutColor: '#d3d4d9', //Colors of boxes and cards
   textColor: 'black', //Colors of text everywhere
   inputColor: 'white', //Color of input fields
-  lightBackground: 'red',//
-  darkBackground: 'orange',
+  lightBackground: '#FBF5F3',//
+  darkBackground: '#0F0E0E',
   margins: 10, paddings: 10
 
 };
