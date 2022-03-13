@@ -9,8 +9,8 @@ export default [
   {
     input: "src/index.js",
     output: [
-      { file: "dist/index.js", format: "cjs" },
-      { file: "dist/index.es.js", format: "es", exports: "named" }
+      { file: "lib/index.js", format: "cjs" },
+      { file: "es/index.es.js", format: "es", exports: "named" }
     ],
     plugins: [
       postcss({ plugins: [], minimize: true }),

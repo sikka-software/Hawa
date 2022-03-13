@@ -1,1 +1,2 @@
-export * from "./components/Hawa";
+export * from "./blocks";
+//export * from "./components/Hawa";
