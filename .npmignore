@@ -1,2 +1,4 @@
 /.storybook
 /node_modules
+/es
+/lib
