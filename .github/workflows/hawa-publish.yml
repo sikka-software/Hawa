@@ -38,6 +38,8 @@ jobs:
          else 
           npm install
          fi
+      - run: npm run build-lib
+      - run: npm run build:styles
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
