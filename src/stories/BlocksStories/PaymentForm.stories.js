@@ -1,11 +1,11 @@
 import React from "react";
 import {
   UserProfile
-} from "../blocks/Account";
-import { defaultTheme, HawaProvider } from "../themes/HawaProvider";
+} from "../../blocks/Account";
+import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
-  title: "Blocks/UserProfile",
+  title: "Blocks/PaymentForm",
   component: UserProfile,
   argsTypes: {
     viaGoogle: { control: "boolean" },

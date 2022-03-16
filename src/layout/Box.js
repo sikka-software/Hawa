@@ -6,15 +6,15 @@ export const Box = (props) => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
+        display: "flex",
+        flexDirection: "column",
         // justifyContent: 'center',
         // alignItems: 'center',
 
-        backgroundColor: theme.layoutColor,
+        backgroundColor: props.noColor ? "none" : theme.layoutColor,
         color: theme.textColor,
-        padding: theme.paddings,
-        margin: theme.margins,
+        padding: props.noPadding ? 0 : theme.paddings,
+        margin: props.noMargin ? 0 : theme.margins,
         borderRadius: theme.borderRadius,
         maxWidth: props.maxWidth
       }}

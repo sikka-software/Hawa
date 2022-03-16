@@ -4,8 +4,8 @@ import {
   ResetPasswordForm,
   SignInForm,
   SignUpForm
-} from "../blocks/AuthForms";
-import { defaultTheme, HawaProvider } from "../themes/HawaProvider";
+} from "../../blocks/AuthForms";
+import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
   title: "Blocks/AuthForms",
@@ -25,13 +25,18 @@ const theme = {
   secondaryColor: "red",
   inputColor: "lightGrey",
   paddings: 10,
-  paperColors: 'blue'
+  paperColors: "blue"
 };
 
 const SignInTemplate = (args) => {
+  console.log("arr ", args);
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <SignInForm {...args} />
+      <SignInForm
+        {...args}
+        viaGoogle={args.viaGoogle}
+        googleButtonLabel={"Sign in with Google"}
+      />
     </HawaProvider>
   );
 };
@@ -47,7 +52,11 @@ SignIn.args = {
 const SignUpTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <SignUpForm {...args} />
+      <SignUpForm
+        viaGoogle={args.viaGoogle}
+        googleButtonLabel={"Sign up with Google"}
+        {...args}
+      />
     </HawaProvider>
   );
 };

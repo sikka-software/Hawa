@@ -5,7 +5,8 @@ export const defaultTheme = {
   borderRadius: 10,
   primaryColor: "blue",
   secondaryColor: "grey",
-  primaryActionColor: '#f72585', //Colors of the buttons 
+  // primaryActionColor: '#f72585', //Colors of the buttons 
+  primaryActionColor: 'grey', //Colors of the buttons 
   secondaryActionColor: '#4cc9f0', //Colors of the buttons 
   layoutColor: '#d3d4d9', //Colors of boxes and cards
   textColor: 'black', //Colors of text everywhere
