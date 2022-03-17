@@ -9,13 +9,13 @@ import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
   title: "Blocks/AuthForms",
-  component: SignInForm,
-  argsTypes: {
-    viaGoogle: { control: "boolean" },
-    viaGithub: { control: "boolean" },
-    viaTwitter: { control: "boolean" }
-  },
-  args: {}
+  component: [SignInForm, SignUpForm, NewPasswordForm, NewPasswordForm],
+  argTypes: {
+    theme: {
+      options: ["primary", "secondary", "custom"],
+      control: { type: "select" }
+    }
+  }
 };
 
 const SignInTemplate = (args) => {
@@ -23,7 +23,7 @@ const SignInTemplate = (args) => {
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignInForm
         {...args}
-        theme="primary"
+        theme={args.theme}
         handleSignIn={() => console.log("singing in via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}
@@ -43,7 +43,8 @@ export const SignIn = SignInTemplate.bind({});
 SignIn.args = {
   viaGoogle: true,
   viaGithub: true,
-  viaTwitter: true
+  viaTwitter: true,
+  theme: "primary"
 };
 
 const SignUpTemplate = (args) => {
@@ -51,7 +52,7 @@ const SignUpTemplate = (args) => {
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignUpForm
         {...args}
-        theme="secondary"
+        theme={args.theme}
         handleSignUp={() => console.log("singing up via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign up with Google"}
@@ -70,24 +71,29 @@ export const SignUp = SignUpTemplate.bind({});
 SignUp.args = {
   viaGoogle: true,
   viaGithub: true,
-  viaTwitter: true
+  viaTwitter: true,
+  theme: "primary"
 };
 
 const ResetPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <ResetPasswordForm theme="secondary" {...args} />
+      <ResetPasswordForm theme={args.theme} {...args} />
     </HawaProvider>
   );
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
-ResetPassword.args = {};
+ResetPassword.args = {
+  theme: "primary"
+};
 const NewPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <NewPasswordForm theme="secondary" {...args} />
+      <NewPasswordForm theme={args.theme} {...args} />
     </HawaProvider>
   );
 };
 export const NewPassword = NewPasswordTemplate.bind({});
-NewPassword.args = {};
+NewPassword.args = {
+  theme: "primary"
+};

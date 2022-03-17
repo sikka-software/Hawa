@@ -1,25 +1,21 @@
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-
+import React from "react";
 import "../styles.css";
-
-const stories = storiesOf("Test", module);
-
-stories.add("Global Variables", () => {
-  return <div>test</div>;
-});
 
 export const GlobalVariables = (args) => {
   //   const methods = useForm();
-  return <div>test</div>;
+  return <div>TESTING COMPONENT</div>;
+};
+export const AnotherComponent = (args) => {
+  //   const methods = useForm();
+  return <div>TESTING COMPONENT</div>;
 };
 export default {
-  title: "GlobalVariables",
+  title: "TestTitle",
   component: [],
   argTypes: {
     resize: {
       options: ["vertical", "horizontal", "both"],
-      control: { type: "radio" }
+      control: { type: "select" }
     }
   }
 };

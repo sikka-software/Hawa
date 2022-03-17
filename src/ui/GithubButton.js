@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
 import Button from "@mui/material/Button";
+import { styled, alpha } from "@mui/material/styles";
+
 import GitHubIcon from "@mui/icons-material/GitHub";
+
 export const GithubButton = (props) => {
   const theme = useContext(ThemeProvider);
   let buttonStyle = {};
@@ -18,9 +21,9 @@ export const GithubButton = (props) => {
       alignItems: "center",
       justifyContent: "center",
       padding: 0,
-      marginTop: theme.layout[currentTheme].margin,
+      marginTop: theme.actionButton[currentTheme].margin,
       border: props.outlined ? "2px solid black" : "none",
-      borderRadius: theme.layout[currentTheme].borderRadius,
+      borderRadius: theme.actionButton[currentTheme].borderRadius,
       backgroundColor: "white",
       "&:hover": {
         backgroundColor: "red"
@@ -42,8 +45,32 @@ export const GithubButton = (props) => {
       }
     };
   }
+
+  const StyledButton = styled(Button)(({ theme }) => {
+    return {
+      // "label + &": {
+      //   marginTop: theme.spacing(3)
+      // },
+
+      borderRadius: 4,
+      position: "relative",
+      border: "1px solid #ced4da",
+      fontSize: 16,
+      // width: "auto",
+      padding: "10px 12px",
+      ...buttonStyle,
+      "&:focus": {
+        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        borderColor: theme.palette.primary.main
+      }
+    };
+  });
+
   return (
-    <Button style={buttonStyle} onClick={props.handleClick}>
+    <StyledButton
+      //  style={buttonStyle}
+      onClick={props.handleClick}
+    >
       <GitHubIcon />
       <div style={{ width: 10 }} />
       <p
@@ -58,7 +85,6 @@ export const GithubButton = (props) => {
       >
         {props.buttonText}
       </p>
-    </Button>
+    </StyledButton>
   );
 };
-

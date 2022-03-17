@@ -1,9 +1,13 @@
 import React from "react";
 import { Box } from "../../layout";
-import { HawaTextField, HawaInputLabel, ActionButton } from "../../ui";
-import GithubButton from "../../ui/GithubButton";
-import GoogleButton from "../../ui/GoogleButton";
-import TwitterButton from "../../ui/TwitterButton";
+import {
+  HawaTextField,
+  ActionButton,
+  GoogleButton,
+  GithubButton,
+  TwitterButton
+} from "../../ui";
+import PropTypes from "prop-types";
 
 export const SignUpForm = (props) => {
   return (
@@ -53,4 +57,12 @@ export const SignUpForm = (props) => {
       )}
     </Box>
   );
+};
+
+SignUpForm.propTypes = {
+  theme: PropTypes.oneOf(["secondary", "primary"])
+  // buttonLabel: PropTypes.string,
+  // danger: PropTypes.bool,
+  // disabled: PropTypes.bool,
+  // showText: PropTypes.bool
 };
