@@ -1,9 +1,9 @@
 import useTranslation from "next-translate/useTranslation";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { makeStyles } from "@material-ui/core/styles";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
+import { makeStyles } from "@mui/material/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {

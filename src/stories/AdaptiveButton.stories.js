@@ -1,5 +1,5 @@
 import React from "react";
-import CastIcon from "@material-ui/icons/Cast";
+import CastIcon from "@mui/icons-material/Cast";
 import { HawaProvider } from "../themes/HawaProvider";
 import { AdaptiveButton } from "../ui";
 

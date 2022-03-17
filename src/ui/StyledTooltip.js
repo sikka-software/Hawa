@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 export const StyledTooltip = (props) => {
   const screenSize = {

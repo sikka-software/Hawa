@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
-export const GoogleButton = (props) => {
+export const TwitterButton = (props) => {
   const theme = useContext(ThemeProvider);
   let buttonStyle = {};
 
@@ -42,7 +43,7 @@ export const GoogleButton = (props) => {
   }
   return (
     <div style={buttonStyle} onClick={props.handleClick}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+      <TwitterIcon />
       <div style={{ width: 10 }} />
       <p
         style={{
@@ -59,4 +60,3 @@ export const GoogleButton = (props) => {
     </div>
   );
 };
-

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
-
-export const GoogleButton = (props) => {
+import Button from "@mui/material/Button";
+import GitHubIcon from "@mui/icons-material/GitHub";
+export const GithubButton = (props) => {
   const theme = useContext(ThemeProvider);
   let buttonStyle = {};
 
@@ -16,6 +17,7 @@ export const GoogleButton = (props) => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
+      padding: 0,
       marginTop: theme.layout[currentTheme].margin,
       border: props.outlined ? "2px solid black" : "none",
       borderRadius: theme.layout[currentTheme].borderRadius,
@@ -41,8 +43,8 @@ export const GoogleButton = (props) => {
     };
   }
   return (
-    <div style={buttonStyle} onClick={props.handleClick}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+    <Button style={buttonStyle} onClick={props.handleClick}>
+      <GitHubIcon />
       <div style={{ width: 10 }} />
       <p
         style={{
@@ -56,7 +58,7 @@ export const GoogleButton = (props) => {
       >
         {props.buttonText}
       </p>
-    </div>
+    </Button>
   );
 };
 

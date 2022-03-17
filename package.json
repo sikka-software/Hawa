@@ -44,16 +44,19 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "*",
-    "prop-types": "^15.7.2",
-    "react-hook-form": "^7.20.4",
-    "react-transition-group": "^4.4.2",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
     "crypto-js": "^4.1.1",
     "next-scripts": "^0.3.4",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^7.20.4",
+    "react-transition-group": "^4.4.2",
     "tinycolor2": "^1.4.2"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.5.1"
   }
 }

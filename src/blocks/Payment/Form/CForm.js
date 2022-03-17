@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import sha256 from "crypto-js/sha256";
-import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import useTranslation from "next-translate/useTranslation";
 import axios from "axios";
 
@@ -137,10 +137,8 @@ export default function CForm({
     onUpdateState("isCardFlipped", false);
   };
 
-  const handlePayfortForm = (e) => {
-    
-  };
-  
+  const handlePayfortForm = (e) => {};
+
   // NOTE: Currently the cursor on the card number field gets reset if we remove a number, the code bellow was used
   // in class components, need to transform this to work with functional components.
   // getSnapshotBeforeUpdate() {
@@ -307,7 +305,12 @@ export default function CForm({
                 />
               )}
           </form>
-          <Button variant="contained" color="primary" fullWidth onClick={handlePayfortForm}>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={handlePayfortForm}
+          >
             {loading ? (
               <CircularProgress
                 variant="indeterminate"
@@ -323,4 +326,3 @@ export default function CForm({
     </div>
   );
 }
-

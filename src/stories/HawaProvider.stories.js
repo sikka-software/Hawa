@@ -1,5 +1,4 @@
 import React from "react";
-import CastIcon from "@material-ui/icons/Cast";
 import { HawaProvider } from "../themes/HawaProvider";
 
 const Template = (args) => {

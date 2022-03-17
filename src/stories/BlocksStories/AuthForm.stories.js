@@ -13,29 +13,27 @@ export default {
   argsTypes: {
     viaGoogle: { control: "boolean" },
     viaGithub: { control: "boolean" },
-    viaTwitter: { control: "boolean" },
-    viaFacebook: { control: "boolean" }
+    viaTwitter: { control: "boolean" }
   },
   args: {}
 };
 
-const theme = {
-  borderRadius: 20,
-  primaryColor: "green",
-  secondaryColor: "red",
-  inputColor: "lightGrey",
-  paddings: 10,
-  paperColors: "blue"
-};
-
 const SignInTemplate = (args) => {
-  console.log("arr ", args);
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignInForm
         {...args}
+        theme="primary"
+        handleSignIn={() => console.log("singing in via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}
+        handleGoogleSignIn={() => console.log("signing in via google")}
+        viaGithub={args.viaGithub}
+        githubButtonLabel={"Sign in with Github"}
+        handleGithubSignIn={() => console.log("signing in via github")}
+        viaTwitter={args.viaTwitter}
+        twitterButtonLabel={"Sign in with Twitter"}
+        handleTwitterSignIn={() => console.log("signing in via Twitter")}
       />
     </HawaProvider>
   );
@@ -45,17 +43,25 @@ export const SignIn = SignInTemplate.bind({});
 SignIn.args = {
   viaGoogle: true,
   viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
+  viaTwitter: true
 };
 
 const SignUpTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignUpForm
+        {...args}
+        theme="secondary"
+        handleSignUp={() => console.log("singing up via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign up with Google"}
-        {...args}
+        handleGoogleSignUp={() => console.log("signing up via google")}
+        viaGithub={args.viaGithub}
+        githubButtonLabel={"Sign up with Github"}
+        handleGithubSignUp={() => console.log("signing up via github")}
+        viaTwitter={args.viaTwitter}
+        twitterButtonLabel={"Sign up with Twitter"}
+        handleTwitterSignUp={() => console.log("signing up via Twitter")}
       />
     </HawaProvider>
   );
@@ -64,14 +70,13 @@ export const SignUp = SignUpTemplate.bind({});
 SignUp.args = {
   viaGoogle: true,
   viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
+  viaTwitter: true
 };
 
 const ResetPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <ResetPasswordForm {...args} />
+      <ResetPasswordForm theme="secondary" {...args} />
     </HawaProvider>
   );
 };
@@ -80,7 +85,7 @@ ResetPassword.args = {};
 const NewPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <NewPasswordForm {...args} />
+      <NewPasswordForm theme="secondary" {...args} />
     </HawaProvider>
   );
 };

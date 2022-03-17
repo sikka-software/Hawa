@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
 
 const PaymentMethod = (props) => {
   const { t } = useTranslation("common");

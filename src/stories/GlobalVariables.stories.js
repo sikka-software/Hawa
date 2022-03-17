@@ -15,12 +15,7 @@ export const GlobalVariables = (args) => {
 };
 export default {
   title: "GlobalVariables",
-  component: [
-    StyledCheckBox,
-    StyledTextFieldT,
-    StyledTextAreaT,
-    StyledRadioSeletorT
-  ],
+  component: [],
   argTypes: {
     resize: {
       options: ["vertical", "horizontal", "both"],

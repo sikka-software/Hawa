@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { getToken } from "../token";
 import { useDropzone } from "react-dropzone";
 import useTranslation from "next-translate/useTranslation";
-import Badge from "@material-ui/core/Badge";
-import CloseIcon from "@material-ui/icons/Close";
+import Badge from "@mui/material/Badge";
+import CloseIcon from "@mui/icons-material/Close";
 import styles from "../styles/Theme.module.css";
 
 const thumbsContainer = {

@@ -1,16 +1,24 @@
 import React, { useContext } from "react";
 import { Box } from "../../layout";
 import { ThemeProvider } from "../../themes/HawaProvider";
-import { StyledTextField, StyledInputLabel, ActionButton } from "../../ui";
+import { ActionButton, HawaTextField, HawaInputLabel } from "../../ui";
 export const NewPasswordForm = (props) => {
   const theme = useContext(ThemeProvider);
   return (
-    <Box maxWidth={400}>
-      <StyledInputLabel label="Password" />
-      <StyledTextField type="password" />
-      <StyledInputLabel label="Confirm Password" />
-      <StyledTextField type="password" />
-      <ActionButton last text="Reset Password" />
+    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
+      <Box themeType={props.theme} noMargin>
+        <HawaTextField
+          themeType={props.theme}
+          type="password"
+          inputLabel="Password"
+        />
+        <HawaTextField
+          themeType={props.theme}
+          type="password"
+          inputLabel="Confirm Password"
+        />
+        <ActionButton themeType={props.theme} last text="Reset Password" />
+      </Box>
     </Box>
   );
 };
