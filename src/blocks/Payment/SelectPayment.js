@@ -26,7 +26,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.walletLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleWallet}
           />
         )}
         {props.viaCreditCard && (
@@ -34,7 +34,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.visaMasterLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleCreditCard}
           />
         )}
         {props.viaMada && (
@@ -42,7 +42,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.madaLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleMada}
           />
         )}
 
@@ -51,7 +51,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.stcPayLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleSTCPay}
           />
         )}
         {props.viaPayPal && (
@@ -59,7 +59,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.paypalLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handlePayPal}
           />
         )}
         {props.viaGooglePay && (
@@ -67,7 +67,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.googlePayLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleGooglePay}
           />
         )}
 
@@ -76,7 +76,7 @@ export const SelectPayment = (props) => {
             themeType={props.theme}
             outlined
             buttonText={props.applePayLabel}
-            handleClick={props.handleGoogleSignIn}
+            handleClick={props.handleApplePay}
           />
         )}
       </Box>
@@ -90,5 +90,6 @@ HawaTextField.propTypes = {
   viaGooglePay: PropTypes.bool,
   viaSTCPay: PropTypes.bool,
   viaCreditCard: PropTypes.bool,
-  viaPayPal: PropTypes.bool
+  viaPayPal: PropTypes.bool,
+  handleApplePay: PropTypes.func
 };

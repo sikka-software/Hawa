@@ -35,12 +35,93 @@ export const PaymentSelection = (args) => {
         {...args}
         theme={args.theme}
         walletLabel="Wallet Balance"
+        handleWallet={() => console.log("paying via wallet")}
         visaMasterLabel="Credit Card"
+        handleCreditCard={() => console.log("paying via Credit Card")}
         madaLabel="Mada"
+        handleMada={() => console.log("paying via Mada")}
         paypalLabel="PayPal"
+        handlePayPal={() => console.log("paying via PayPal")}
         applePayLabel="Apple Pay"
+        handleApplePay={() => console.log("paying via Apple Pay")}
         googlePayLabel="Google Pay"
+        handleGooglePay={() => console.log("paying via Google Pay")}
         stcPayLabel="STC Pay"
+        handleSTCPay={() => console.log("paying via STC Pay")}
+      />
+    </HawaProvider>
+  );
+};
+
+export const PayViaWallet = (args) => {
+  return (
+    <HawaProvider theme={{ ...defaultTheme }}>
+      <SelectPayment
+        {...args}
+        theme={args.theme}
+        walletLabel="Wallet Balance"
+        handleWallet={() => console.log("paying via wallet")}
+        visaMasterLabel="Credit Card"
+        handleCreditCard={() => console.log("paying via Credit Card")}
+        madaLabel="Mada"
+        handleMada={() => console.log("paying via Mada")}
+        paypalLabel="PayPal"
+        handlePayPal={() => console.log("paying via PayPal")}
+        applePayLabel="Apple Pay"
+        handleApplePay={() => console.log("paying via Apple Pay")}
+        googlePayLabel="Google Pay"
+        handleGooglePay={() => console.log("paying via Google Pay")}
+        stcPayLabel="STC Pay"
+        handleSTCPay={() => console.log("paying via STC Pay")}
+      />
+    </HawaProvider>
+  );
+};
+export const CreditCardForm = (args) => {
+  return (
+    <HawaProvider theme={{ ...defaultTheme }}>
+      <SelectPayment
+        {...args}
+        theme={args.theme}
+        walletLabel="Wallet Balance"
+        handleWallet={() => console.log("paying via wallet")}
+        visaMasterLabel="Credit Card"
+        handleCreditCard={() => console.log("paying via Credit Card")}
+        madaLabel="Mada"
+        handleMada={() => console.log("paying via Mada")}
+        paypalLabel="PayPal"
+        handlePayPal={() => console.log("paying via PayPal")}
+        applePayLabel="Apple Pay"
+        handleApplePay={() => console.log("paying via Apple Pay")}
+        googlePayLabel="Google Pay"
+        handleGooglePay={() => console.log("paying via Google Pay")}
+        stcPayLabel="STC Pay"
+        handleSTCPay={() => console.log("paying via STC Pay")}
+      />
+    </HawaProvider>
+  );
+};
+
+export const ChargeWallet = (args) => {
+  return (
+    <HawaProvider theme={{ ...defaultTheme }}>
+      <SelectPayment
+        {...args}
+        theme={args.theme}
+        walletLabel="Wallet Balance"
+        handleWallet={() => console.log("paying via wallet")}
+        visaMasterLabel="Credit Card"
+        handleCreditCard={() => console.log("paying via Credit Card")}
+        madaLabel="Mada"
+        handleMada={() => console.log("paying via Mada")}
+        paypalLabel="PayPal"
+        handlePayPal={() => console.log("paying via PayPal")}
+        applePayLabel="Apple Pay"
+        handleApplePay={() => console.log("paying via Apple Pay")}
+        googlePayLabel="Google Pay"
+        handleGooglePay={() => console.log("paying via Google Pay")}
+        stcPayLabel="STC Pay"
+        handleSTCPay={() => console.log("paying via STC Pay")}
       />
     </HawaProvider>
   );
