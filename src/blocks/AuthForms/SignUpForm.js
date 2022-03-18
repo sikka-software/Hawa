@@ -5,7 +5,8 @@ import {
   ActionButton,
   GoogleButton,
   GithubButton,
-  TwitterButton
+  TwitterButton,
+  HawaAlert
 } from "../../ui";
 import PropTypes from "prop-types";
 
@@ -13,6 +14,13 @@ export const SignUpForm = (props) => {
   return (
     <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
       <Box themeType={props.theme} noMargin>
+        {props.error && (
+          <HawaAlert
+            themeType={props.theme}
+            text="This is a sign in alert"
+            severity="error"
+          />
+        )}
         <HawaTextField themeType={props.theme} type="text" inputLabel="Email" />
         <HawaTextField
           themeType={props.theme}

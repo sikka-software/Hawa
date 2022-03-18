@@ -13,12 +13,36 @@ export const defaultTheme = {
   inputColor: "white", //Color of input fields
   lightBackground: "#FBF5F3", //
   darkBackground: "#0F0E0E",
+  testcolor: "green",
   margins: 10,
   paddings: 10,
   allBorderRadius: 10,
   typography: {
-    primary: { color: "black", fontSize: 20 },
+    primary: { color: "black" },
     secondary: { color: "white" }
+  },
+  logoButton: {
+    primary: {
+      borderRadius: 10,
+      backgroundColor: "#f90900",
+
+      padding: 10,
+      border: "1px solid #ced4da",
+      height: 50,
+      "&:focus": {
+        borderColor: "green"
+      }
+    },
+    secondary: {
+      borderRadius: 10,
+      backgroundColor: "#f90900",
+      padding: 10,
+      border: "1px solid #ced4da",
+      height: 50,
+      "&:focus": {
+        borderColor: "green"
+      }
+    }
   },
   actionButton: {
     primary: {
@@ -26,7 +50,13 @@ export const defaultTheme = {
       backgroundColor: "#f90900",
       color: "white",
       margin: 10,
-      padding: 10
+      padding: 10,
+      border: "1px solid #ced4da",
+      fontSize: 16,
+      height: 50,
+      "&:focus": {
+        borderColor: "red"
+      }
     },
     secondary: {
       borderRadius: 10,
@@ -60,7 +90,12 @@ export const defaultTheme = {
       flexDirection: "column",
       alignItems: "flex-start",
       justifyContent: "flex-start",
-      borderRadius: 10
+      borderRadius: 10,
+      "&:focus": {
+        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        // borderColor: theme.palette.primary.main
+        borderColor: "#f90900"
+      }
     },
     secondary: {
       backgroundColor: "white",
@@ -72,8 +107,17 @@ export const defaultTheme = {
     }
   },
   alerts: {
-    primary: { marginTop: 10, marginBottom: 10, padding: 10, borderRadius: 10 },
-    secondary: {}
+    primary: {
+      //  marginTop: 10,
+      marginBottom: 10,
+      padding: 10,
+      borderRadius: 10
+    },
+    secondary: {
+      marginBottom: 10,
+      padding: 10,
+      borderRadius: 10
+    }
   }
 };
 

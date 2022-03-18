@@ -18,7 +18,6 @@ export const HawaAlert = (props) => {
     };
   } else {
     alertStyle = {
-      marginTop: 10,
       marginBottom: 10
     };
   }

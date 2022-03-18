@@ -23,8 +23,8 @@ const SignInTemplate = (args) => {
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignInForm
         {...args}
-        // theme={args.theme}
-        theme={"primary"}
+        error={args.showError}
+        theme={args.theme}
         handleSignIn={() => console.log("singing in via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}
@@ -45,6 +45,7 @@ SignIn.args = {
   viaGoogle: true,
   viaGithub: true,
   viaTwitter: true,
+  showError: false,
   theme: "primary"
 };
 
@@ -54,6 +55,7 @@ const SignUpTemplate = (args) => {
       <SignUpForm
         {...args}
         theme={args.theme}
+        error={args.showError}
         handleSignUp={() => console.log("singing up via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign up with Google"}
@@ -73,28 +75,31 @@ SignUp.args = {
   viaGoogle: true,
   viaGithub: true,
   viaTwitter: true,
+  showError: false,
   theme: "primary"
 };
 
 const ResetPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <ResetPasswordForm theme={args.theme} {...args} />
+      <ResetPasswordForm error={args.showError} theme={args.theme} {...args} />
     </HawaProvider>
   );
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
-  theme: "primary"
+  theme: "primary",
+  showError: false
 };
 const NewPasswordTemplate = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <NewPasswordForm theme={args.theme} {...args} />
+      <NewPasswordForm error={args.showError} theme={args.theme} {...args} />
     </HawaProvider>
   );
 };
 export const NewPassword = NewPasswordTemplate.bind({});
 NewPassword.args = {
-  theme: "primary"
+  theme: "primary",
+  showError: false
 };

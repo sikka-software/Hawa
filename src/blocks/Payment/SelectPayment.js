@@ -1,10 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Box } from "../../layout";
 import {
   HawaTextField,
-  ActionButton,
-  GoogleButton,
-  TwitterButton,
-  GithubButton,
   VisaMasterButton,
   MadaButton,
   STCPayButton,
@@ -14,8 +12,6 @@ import {
   WalletButton,
   HawaTypography
 } from "../../ui";
-import { Box } from "../../layout";
-import PropTypes from "prop-types";
 
 export const SelectPayment = (props) => {
   return (
@@ -26,24 +22,24 @@ export const SelectPayment = (props) => {
         </HawaTypography>
         {props.viaWallet && (
           <WalletButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.walletLabel}
-            handleClick={props.handleWallet}
+            onClick={props.handleWallet}
           />
         )}
         {props.viaCreditCard && (
           <VisaMasterButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.visaMasterLabel}
             handleClick={props.handleCreditCard}
           />
         )}
         {props.viaMada && (
           <MadaButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.madaLabel}
             handleClick={props.handleMada}
           />
@@ -51,24 +47,24 @@ export const SelectPayment = (props) => {
 
         {props.viaSTCPay && (
           <STCPayButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.stcPayLabel}
             handleClick={props.handleSTCPay}
           />
         )}
         {props.viaPayPal && (
           <PayPalButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.paypalLabel}
             handleClick={props.handlePayPal}
           />
         )}
         {props.viaGooglePay && (
           <GooglePayButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.googlePayLabel}
             handleClick={props.handleGooglePay}
           />
@@ -76,8 +72,8 @@ export const SelectPayment = (props) => {
 
         {props.viaApplePay && (
           <ApplePayButton
-            themeType={props.theme}
             outlined
+            themeType={props.theme}
             buttonText={props.applePayLabel}
             handleClick={props.handleApplePay}
           />

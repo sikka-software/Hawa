@@ -42,8 +42,9 @@ export const HawaTextField = (props) => {
         ]),
 
         "&:focus": {
-          boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-          borderColor: theme.palette.primary.main
+          // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+          // borderColor: theme.palette.primary.main
+          // borderColor: theme.actionButton[currentTheme]?.backgroundColor
         },
         borderRadius: 4,
         position: "relative",

@@ -13,11 +13,13 @@ export const SignInForm = (props) => {
   return (
     <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
       <Box themeType={props.theme} noMargin>
-        <HawaAlert
-          themeType={props.theme}
-          text="This is an info alert"
-          severity="error"
-        />
+        {props.error && (
+          <HawaAlert
+            themeType={props.theme}
+            text="This is a sign in alert"
+            severity="error"
+          />
+        )}
         <HawaTextField themeType={props.theme} type="text" inputLabel="Email" />
 
         <HawaTextField
