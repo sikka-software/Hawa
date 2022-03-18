@@ -1,46 +1,47 @@
 import React from "react";
-import {
-  UserProfile
-} from "../../blocks/Account";
+import { SelectPayment } from "../../blocks/Payment";
 import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
   title: "Blocks/PaymentForm",
-  component: UserProfile,
-  argsTypes: {
-    viaGoogle: { control: "boolean" },
-    viaGithub: { control: "boolean" },
-    viaTwitter: { control: "boolean" },
-    viaFacebook: { control: "boolean" }
+  component: SelectPayment,
+  argTypes: {
+    theme: {
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
+    },
+    viaWallet: { control: "boolean" },
+    viaApplePay: { control: "boolean" },
+    viaGooglePay: { control: "boolean" },
+    viaSTCPay: { control: "boolean" },
+    viaCreditCard: { control: "boolean" },
+    viaPayPal: { control: "boolean" }
   },
-  args: {}
+  args: {
+    theme: "primary",
+    viaWallet: true,
+    viaApplePay: true,
+    viaGooglePay: true,
+    viaSTCPay: true,
+    viaCreditCard: true,
+    viaPayPal: true
+  }
 };
 
-const theme = {
-  ...defaultTheme,
-  paddings: 20
-};
-
-const UserProfileTemplate = (args) => {
+export const PaymentSelection = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme, ...theme }}>
-      <UserProfile {...args} />
+    <HawaProvider theme={{ ...defaultTheme }}>
+      <SelectPayment
+        {...args}
+        theme={args.theme}
+        walletLabel="Wallet Balance"
+        visaMasterLabel="Credit Card"
+        madaLabel="Mada"
+        paypalLabel="PayPal"
+        applePayLabel="Apple Pay"
+        googlePayLabel="Google Pay"
+        stcPayLabel="STC Pay"
+      />
     </HawaProvider>
   );
 };
-
-export const Success = UserProfileTemplate.bind({});
-Success.args = {
-  viaGoogle: true,
-  viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
-};
-export const Failed = UserProfileTemplate.bind({});
-Failed.args = {
-  viaGoogle: true,
-  viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
-};
-
