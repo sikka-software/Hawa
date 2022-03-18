@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
+import { styled, darken } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 
 export const GoogleButton = (props) => {
   const theme = useContext(ThemeProvider);
@@ -21,7 +23,7 @@ export const GoogleButton = (props) => {
       borderRadius: theme.layout[currentTheme].borderRadius,
       backgroundColor: "white",
       "&:hover": {
-        backgroundColor: "red"
+        backgroundColor: darken("#ffffff", 0.1)
       }
     };
   } else {
@@ -36,12 +38,32 @@ export const GoogleButton = (props) => {
       borderRadius: 0,
       backgroundColor: "white",
       "&:hover": {
-        backgroundColor: "red"
+        backgroundColor: darken("#ffffff", 0.1)
       }
     };
   }
+  const StyledButton = styled(Button)(({ theme }) => {
+    return {
+      // "label + &": {
+      //   marginTop: theme.spacing(3)
+      // },
+
+      borderRadius: 4,
+      position: "relative",
+      border: "1px solid #ced4da",
+      fontSize: 16,
+      // width: "auto",
+      height: 50,
+      // padding: "10px 12px",
+      ...buttonStyle,
+      "&:focus": {
+        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        borderColor: theme.palette.primary.main
+      }
+    };
+  });
   return (
-    <div style={buttonStyle} onClick={props.handleClick}>
+    <StyledButton onClick={props.handleClick}>
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
       <div style={{ width: 10 }} />
       <p
@@ -56,7 +78,6 @@ export const GoogleButton = (props) => {
       >
         {props.buttonText}
       </p>
-    </div>
+    </StyledButton>
   );
 };
-

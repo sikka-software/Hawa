@@ -12,7 +12,7 @@ export default {
   component: [SignInForm, SignUpForm, NewPasswordForm, NewPasswordForm],
   argTypes: {
     theme: {
-      options: ["primary", "secondary", "custom"],
+      options: ["primary", "secondary", "default"],
       control: { type: "select" }
     }
   }

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
 import Button from "@mui/material/Button";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, darken } from "@mui/material/styles";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -26,7 +26,7 @@ export const GithubButton = (props) => {
       borderRadius: theme.actionButton[currentTheme].borderRadius,
       backgroundColor: "white",
       "&:hover": {
-        backgroundColor: "red"
+        backgroundColor: darken("#ffffff", 0.1)
       }
     };
   } else {
@@ -41,7 +41,7 @@ export const GithubButton = (props) => {
       borderRadius: 0,
       backgroundColor: "white",
       "&:hover": {
-        backgroundColor: "red"
+        backgroundColor: darken("#ffffff", 0.1)
       }
     };
   }
@@ -57,10 +57,11 @@ export const GithubButton = (props) => {
       border: "1px solid #ced4da",
       fontSize: 16,
       // width: "auto",
-      padding: "10px 12px",
+      height: 50,
+      // padding: "10px 12px",
       ...buttonStyle,
       "&:focus": {
-        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
         borderColor: theme.palette.primary.main
       }
     };

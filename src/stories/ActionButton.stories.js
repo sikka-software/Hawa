@@ -4,18 +4,9 @@ import { defaultTheme, HawaProvider } from "../themes/HawaProvider";
 import { ActionButton } from "../ui";
 
 const Template = (args) => {
-  const theme = {
-    borderRadius: 10,
-    primaryColor: "green",
-    secondaryColor: "red",
-    // margins: "10px",
-    paperColors: "#c6c6c6",
-    paddings: 10,
-    margins: 10
-  };
   return (
-    <HawaProvider theme={{ ...defaultTheme, ...args.theme }}>
-      <ActionButton secondary={args.secondary} text='here' />
+    <HawaProvider theme={{ ...defaultTheme }}>
+      <ActionButton themeType={args.theme} text={args.buttonLabel} />
     </HawaProvider>
   );
 };
@@ -26,24 +17,37 @@ const Template = (args) => {
 
 export default {
   title: "UI/ActionButton",
-  component: ActionButton
+  component: ActionButton,
+  argTypes: {
+    theme: {
+      description: "overwritten description",
+      table: {
+        type: {
+          summary: "something short"
+        },
+        defaultValue: { summary: "Hello" }
+      },
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
+    }
+  }
 };
 
+Template.args = {
+  showText: true,
+  buttonLabel: "test",
+  theme: "primary"
+};
 export const Primary = Template.bind({});
 Primary.args = {
   showText: true,
   buttonLabel: "test",
-  borderRadius: 5,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
+  theme: "primary"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  secondary: true,
   showText: true,
   buttonLabel: "test",
-  borderRadius: 5,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9",
+  theme: "secondary"
 };
