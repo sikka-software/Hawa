@@ -1,15 +1,15 @@
 import React from "react";
-import { StyledTextField, ActionButton } from "../../ui";
-import { Box } from '../../layout'
+import { HawaTextField, ActionButton } from "../../ui";
+import { Box } from "../../layout";
 
 export const UserSettings = (props) => {
-    return (
-        <Box maxWidth={400}>
-            <StyledTextField type="text" inputLabel="First Name" />
-            <StyledTextField type="text" inputLabel="Last Name" />
-            <StyledTextField type="email" inputLabel="Email" />
-            <StyledTextField type="password" inputLabel="Password" />
-            <ActionButton last text="Update Account" />
-        </Box>
-    );
+  return (
+    <Box maxWidth={400}>
+      <HawaTextField type="text" inputLabel="First Name" />
+      <HawaTextField type="text" inputLabel="Last Name" />
+      <HawaTextField type="email" inputLabel="Email" />
+      <HawaTextField type="password" inputLabel="Password" />
+      <ActionButton last text="Update Account" />
+    </Box>
+  );
 };
