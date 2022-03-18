@@ -13,3 +13,4 @@
 // exports.PaymentMethod = _PaymentMethod.default;
 
 export * from "./SelectPayment";
+export * from "./CreditCardForm";

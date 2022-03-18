@@ -1,10 +1,10 @@
 import React from "react";
-import { SelectPayment } from "../../blocks/Payment";
+import { SelectPayment, CreditCardForm } from "../../blocks/Payment";
 import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
-  title: "Blocks/PaymentForm",
-  component: SelectPayment,
+  title: "Blocks/PaymentBlocks",
+  component: [SelectPayment, CreditCardForm],
   argTypes: {
     theme: {
       options: ["primary", "secondary", "default"],
@@ -77,27 +77,10 @@ export const PayViaWallet = (args) => {
     </HawaProvider>
   );
 };
-export const CreditCardForm = (args) => {
+export const PayViaCreditCard = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <SelectPayment
-        {...args}
-        theme={args.theme}
-        walletLabel="Wallet Balance"
-        handleWallet={() => console.log("paying via wallet")}
-        visaMasterLabel="Credit Card"
-        handleCreditCard={() => console.log("paying via Credit Card")}
-        madaLabel="Mada"
-        handleMada={() => console.log("paying via Mada")}
-        paypalLabel="PayPal"
-        handlePayPal={() => console.log("paying via PayPal")}
-        applePayLabel="Apple Pay"
-        handleApplePay={() => console.log("paying via Apple Pay")}
-        googlePayLabel="Google Pay"
-        handleGooglePay={() => console.log("paying via Google Pay")}
-        stcPayLabel="STC Pay"
-        handleSTCPay={() => console.log("paying via STC Pay")}
-      />
+      <CreditCardForm />
     </HawaProvider>
   );
 };

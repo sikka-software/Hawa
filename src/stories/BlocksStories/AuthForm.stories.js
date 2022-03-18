@@ -8,7 +8,7 @@ import {
 import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
-  title: "Blocks/AuthForms",
+  title: "Blocks/AuthBlocks",
   component: [SignInForm, SignUpForm, NewPasswordForm, NewPasswordForm],
   argTypes: {
     theme: {
