@@ -23,7 +23,8 @@ const SignInTemplate = (args) => {
     <HawaProvider theme={{ ...defaultTheme }}>
       <SignInForm
         {...args}
-        theme={args.theme}
+        // theme={args.theme}
+        theme={"primary"}
         handleSignIn={() => console.log("singing in via email")}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}

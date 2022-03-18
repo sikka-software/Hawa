@@ -1,7 +1,7 @@
 import React from "react";
 
-import { defaultTheme, HawaProvider } from "../themes/HawaProvider";
-import { ActionButton } from "../ui";
+import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
+import { ActionButton } from "../../ui";
 
 const Template = (args) => {
   return (

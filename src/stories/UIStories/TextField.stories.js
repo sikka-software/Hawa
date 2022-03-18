@@ -1,13 +1,12 @@
 import React from "react";
-import { StyledTextField } from "../ui";
-import "../styles.css";
+import { StyledTextField } from "../../ui";
 
 const Template = (args) => {
   return <StyledTextField {...args} />;
 };
 
 export default {
-  title: "Components/TextField",
+  title: "UI/TextField",
   component: StyledTextField,
   argsTypes: {
     type: {

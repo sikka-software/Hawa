@@ -1,7 +1,7 @@
 import React from "react";
 import CastIcon from "@mui/icons-material/Cast";
-import { HawaProvider } from "../themes/HawaProvider";
-import { AdaptiveButton } from "../ui";
+import { HawaProvider } from "../../themes/HawaProvider";
+import { AdaptiveButton } from "../../ui";
 
 const Template = (args) => {
   const theme = {

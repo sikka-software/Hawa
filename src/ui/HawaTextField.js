@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-// import TextField from "@mui/material/TextField";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
 import { HawaInputLabel } from "./HawaInputLabel";
-// import InputLabel from "@mui/material/InputLabel";
 
 export const HawaTextField = (props) => {
   const theme = useContext(ThemeProvider);
@@ -30,7 +28,7 @@ export const HawaTextField = (props) => {
     };
   }
 
-  const BootstrapInput = styled(InputBase)(({ theme }) => {
+  const StyledTextField = styled(InputBase)(({ theme }) => {
     return {
       // "label + &": {
       //   marginTop: theme.spacing(3)
@@ -59,60 +57,17 @@ export const HawaTextField = (props) => {
   });
 
   return (
-    // <FormControl variant="standard">
     <>
       {props.inputLabel ? (
         <HawaInputLabel themeType={props.themeType} label={props.inputLabel} />
       ) : null}
-      {/* <InputLabel shrink htmlFor="bootstrap-input">
-        {props.inputLabel}
-      </InputLabel> */}
-      {/* <div>ss</div> */}
-      <BootstrapInput fullWidth aria-label="dws" />
+
+      <StyledTextField fullWidth {...props} />
     </>
   );
-  // return (
-  //   <div>
-  //     {props.inputLabel ? (
-  //       <HawaInputLabel themeType={props.themeType} label={props.inputLabel} />
-  //     ) : null}
-  //     <TextField
-  //       fullWidth
-  //       style={textFieldStyle}
-  //       helperText={props.helperText}
-  //       type={props.type ? props.type : "text"}
-  //       placeholder={props.placeholder}
-  //       inputProps={
-  //         props.type === "number"
-  //           ? {
-  //               inputMode: "numeric",
-  //               min: "0",
-  //               max: "9999999",
-  //               step: "0.01"
-  //             }
-  //           : {}
-  //       }
-  //       InputProps={{
-  //         style: {
-  //           ...textFieldStyle
-  //           // // height: 50
-  //           // padding: 0
-  //         },
-
-  //         disableUnderline: true,
-  //         onWheelCapture: (e) => e.target.blur()
-  //       }}
-  //       value={props.value ? props.value : null}
-  //     />
-  //   </div>
-  // );
 };
 
 HawaTextField.propTypes = {
   type: PropTypes.oneOf(["text", "number"]),
   helperText: PropTypes.string
 };
-
-// StyledTextField.defaultProps = {
-//   type: "text"
-// };

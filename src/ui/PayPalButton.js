@@ -74,7 +74,7 @@ export const PayPalButton = (props) => {
     >
       <img
         src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/paypal.png"
-        height={30}
+        height={25}
       />{" "}
       <div style={{ width: 10 }} />
       <p

@@ -11,7 +11,8 @@ import {
   PayPalButton,
   GooglePayButton,
   ApplePayButton,
-  WalletButton
+  WalletButton,
+  HawaTypography
 } from "../../ui";
 import { Box } from "../../layout";
 import PropTypes from "prop-types";
@@ -20,7 +21,9 @@ export const SelectPayment = (props) => {
   return (
     <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
       <Box themeType={props.theme} noMargin>
-        <div>Choose Payment</div>
+        <HawaTypography themeType={props.theme} align="center">
+          Choose Payment
+        </HawaTypography>
         {props.viaWallet && (
           <WalletButton
             themeType={props.theme}

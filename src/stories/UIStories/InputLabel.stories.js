@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/react";
 
-import "../styles.css";
 
 const stories = storiesOf("InputLabel", module);
 

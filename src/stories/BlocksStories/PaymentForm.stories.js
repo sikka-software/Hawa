@@ -1,5 +1,10 @@
 import React from "react";
-import { SelectPayment, CreditCardForm } from "../../blocks/Payment";
+import {
+  SelectPayment,
+  CreditCardForm,
+  ChargeWalletForm,
+  PayWithWallet
+} from "../../blocks/Payment";
 import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
@@ -56,24 +61,7 @@ export const PaymentSelection = (args) => {
 export const PayViaWallet = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme }}>
-      <SelectPayment
-        {...args}
-        theme={args.theme}
-        walletLabel="Wallet Balance"
-        handleWallet={() => console.log("paying via wallet")}
-        visaMasterLabel="Credit Card"
-        handleCreditCard={() => console.log("paying via Credit Card")}
-        madaLabel="Mada"
-        handleMada={() => console.log("paying via Mada")}
-        paypalLabel="PayPal"
-        handlePayPal={() => console.log("paying via PayPal")}
-        applePayLabel="Apple Pay"
-        handleApplePay={() => console.log("paying via Apple Pay")}
-        googlePayLabel="Google Pay"
-        handleGooglePay={() => console.log("paying via Google Pay")}
-        stcPayLabel="STC Pay"
-        handleSTCPay={() => console.log("paying via STC Pay")}
-      />
+      <PayWithWallet theme={args.theme} />
     </HawaProvider>
   );
 };
@@ -86,26 +74,9 @@ export const PayViaCreditCard = (args) => {
 };
 
 export const ChargeWallet = (args) => {
-  return (
-    <HawaProvider theme={{ ...defaultTheme }}>
-      <SelectPayment
-        {...args}
-        theme={args.theme}
-        walletLabel="Wallet Balance"
-        handleWallet={() => console.log("paying via wallet")}
-        visaMasterLabel="Credit Card"
-        handleCreditCard={() => console.log("paying via Credit Card")}
-        madaLabel="Mada"
-        handleMada={() => console.log("paying via Mada")}
-        paypalLabel="PayPal"
-        handlePayPal={() => console.log("paying via PayPal")}
-        applePayLabel="Apple Pay"
-        handleApplePay={() => console.log("paying via Apple Pay")}
-        googlePayLabel="Google Pay"
-        handleGooglePay={() => console.log("paying via Google Pay")}
-        stcPayLabel="STC Pay"
-        handleSTCPay={() => console.log("paying via STC Pay")}
-      />
-    </HawaProvider>
-  );
+  return <ChargeWalletForm theme={args.theme} currency="SAR" />;
 };
+
+// ChargeWallet.args = {
+//   theme: "secondary"
+// };

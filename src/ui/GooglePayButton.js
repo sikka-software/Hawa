@@ -74,7 +74,7 @@ export const GooglePayButton = (props) => {
     >
       <img
         src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/google-pay.png"
-        height={30}
+        height={20}
       />{" "}
       <div style={{ width: 10 }} />
       <p

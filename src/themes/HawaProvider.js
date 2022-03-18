@@ -16,6 +16,10 @@ export const defaultTheme = {
   margins: 10,
   paddings: 10,
   allBorderRadius: 10,
+  typography: {
+    primary: { color: "black", fontSize: 20 },
+    secondary: { color: "white" }
+  },
   actionButton: {
     primary: {
       borderRadius: 10,
@@ -66,6 +70,10 @@ export const defaultTheme = {
       justifyContent: "flex-start",
       borderRadius: 10
     }
+  },
+  alerts: {
+    primary: { marginTop: 10, marginBottom: 10, padding: 10, borderRadius: 10 },
+    secondary: {}
   }
 };
 

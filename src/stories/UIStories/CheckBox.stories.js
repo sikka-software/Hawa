@@ -1,6 +1,5 @@
 import React from "react";
-import { StyledCheckbox } from "../ui";
-import "../styles.css";
+import { StyledCheckbox } from "../../ui";
 
 const Template = (args) => {
   return <StyledCheckbox {...args} />;
