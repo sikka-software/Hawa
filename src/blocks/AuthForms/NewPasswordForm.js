@@ -52,12 +52,7 @@ export const NewPasswordForm = (props) => {
           />
         )}
         <FormProvider {...methods}>
-          <form
-            autoComplete="off"
-            id="menu-form"
-            // className={styles.item_create_form}
-            onSubmit={handleSubmit(handleNewPassword)}
-          >
+          <form onSubmit={handleSubmit(props.handleNewPassword)}>
             <HawaTextField
               name="password"
               themeType={props.theme}
@@ -65,12 +60,20 @@ export const NewPasswordForm = (props) => {
               inputLabel="Password"
               onChange={(e) => setNewPassword(e.target.value)}
               value={newPassword}
+              rules={{
+                required: "Password is rquired"
+              }}
+              helperText={errors.password?.message}
             />
             <HawaTextField
               themeType={props.theme}
-              name="confimr-password"
+              name="confirmPassword"
               type="password"
               inputLabel="Confirm Password"
+              rules={{
+                required: "Password is rquired"
+              }}
+              helperText={errors.confirmPassword?.message}
             />
             <ActionButton
               fullWidth

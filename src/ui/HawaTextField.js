@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import InputBase from "@mui/material/InputBase";
+import Typography from "@mui/material/Typography";
 import { styled, alpha } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
@@ -93,7 +94,9 @@ export const HawaTextField = (props) => {
             // {...field}
             {...register(props.name)}
           />
-          <span style={{ margin: 5, color: "red" }}>{props.helperText}</span>
+          <Typography variant="caption" style={{ margin: 5, color: "red" }}>
+            {props.helperText}
+          </Typography>
         </>
       )}
       name={props.name}
