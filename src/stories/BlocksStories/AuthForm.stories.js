@@ -25,7 +25,7 @@ const SignInTemplate = (args) => {
         {...args}
         error={args.showError}
         theme={args.theme}
-        handleSignIn={() => console.log("singing in via email")}
+        handleSignIn={(e) => console.log("singing in via email", e)}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}
         handleGoogleSignIn={() => console.log("signing in via google")}

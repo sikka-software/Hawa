@@ -8,8 +8,21 @@ import {
   HawaAlert
 } from "../../ui";
 import { Box } from "../../layout";
+import { FormProvider, useForm } from "react-hook-form";
+import { TextField } from "@mui/material";
 
 export const SignInForm = (props) => {
+  const methods = useForm();
+  const {
+    formState: { errors },
+    handleSubmit,
+    getValues,
+    register,
+    watch,
+    reset,
+    setValue
+  } = methods;
+
   return (
     <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
       <Box themeType={props.theme} noMargin>
@@ -20,19 +33,45 @@ export const SignInForm = (props) => {
             severity="error"
           />
         )}
-        <HawaTextField themeType={props.theme} type="text" inputLabel="Email" />
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(props.handleSignIn)}>
+            <HawaTextField
+              type="text"
+              name="email"
+              inputLabel="Email"
+              placeholder="Email"
+              themeType={props.theme}
+              rules={{
+                required: "Email is required",
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: "Invalid email address"
+                }
+              }}
+              helperText={errors.email?.message}
+            />
 
-        <HawaTextField
-          themeType={props.theme}
-          type="text"
-          inputLabel="Password"
-        />
-        <ActionButton
-          last
-          text={"Sign In"}
-          themeType={props.theme}
-          onClick={props.handleSignIn}
-        />
+            <HawaTextField
+              name="password"
+              placeholder="Password"
+              themeType={props.theme}
+              type="password"
+              inputLabel="Password"
+              rules={{
+                required: "Password is rquired"
+              }}
+              helperText={errors.password?.message}
+            />
+            <ActionButton
+              type="submit"
+              fullWidth
+              last={"true"}
+              text={"Sign In"}
+              themeType={props.theme}
+            />
+          </form>
+        </FormProvider>
       </Box>
       {props.viaGoogle && (
         <GoogleButton

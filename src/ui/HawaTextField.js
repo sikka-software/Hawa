@@ -7,7 +7,7 @@ import { HawaInputLabel } from "./HawaInputLabel";
 import { Controller, useFormContext } from "react-hook-form";
 
 export const HawaTextField = (props) => {
-  const { register } = useFormContext();
+  const { control, register } = useFormContext();
 
   const theme = useContext(ThemeProvider);
   const currentTheme = Object.keys(theme.actionButton).find(
@@ -50,11 +50,12 @@ export const HawaTextField = (props) => {
           // borderColor: theme.actionButton[currentTheme]?.backgroundColor
         },
         borderRadius: 4,
-        position: "relative",
+        // position: "relative",
         border: "1px solid #ced4da",
         fontSize: 16,
         // width: "auto",
         padding: "10px 12px",
+        marginBottom: props.helperText ? 5 : 0,
         ...textFieldStyle
       }
     };
@@ -62,11 +63,6 @@ export const HawaTextField = (props) => {
 
   return (
     <Controller
-      name={props.name}
-      rules={props.rules}
-      // control={control}
-      {...register(props.name)}
-      shouldUnregister={props.shouldUnregister}
       render={({ field }) => (
         <>
           {props.inputLabel && (
@@ -78,34 +74,37 @@ export const HawaTextField = (props) => {
 
           <StyledTextField
             fullWidth={true}
-            helperText={props.helperText}
+            // helperText={props.helperText}
             type={props.type ?? "text"}
-            placeholder={props.placeholder}
-            inputProps={
-              props.type === "number"
-                ? {
-                    inputMode: "numeric",
-                    min: "0",
-                    max: "9999999",
-                    step: "0.01"
-                  }
-                : {}
-            }
-            InputProps={{
-              // className: styles.theme_form_input,
-              disableUnderline: true,
-              onWheelCapture: (e) => e.target.blur()
-            }}
-            {...field}
-            value={field.value && ""}
+            // placeholder={props.placeholder}
+            // inputProps={
+            //   props.type === "number"
+            //     ? {
+            //         inputMode: "numeric",
+            //         min: "0",
+            //         max: "9999999",
+            //         step: "0.01"
+            //       }
+            //     : {}
+            // }
+            defaultValue={props.defaultValue && ""}
+            value={props.value && ""}
+            {...props}
+            // {...field}
+            {...register(props.name)}
           />
+          <span style={{ margin: 5, color: "red" }}>{props.helperText}</span>
         </>
       )}
+      name={props.name}
+      rules={props.rules}
+      control={control}
+      shouldUnregister={props.shouldUnregister}
     />
   );
 };
 
 HawaTextField.propTypes = {
-  type: PropTypes.oneOf(["text", "number"]),
+  type: PropTypes.oneOf(["text", "number", "password"]),
   helperText: PropTypes.string
 };
