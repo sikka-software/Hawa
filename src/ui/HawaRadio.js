@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
 
-export const StyledRadioSelector = (props) => {
+export const HawaRadio = (props) => {
   const [value, setValue] = useState(props.defaultValue);
   const theme = useContext(ThemeProvider);
 

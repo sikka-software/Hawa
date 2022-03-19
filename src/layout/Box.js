@@ -5,7 +5,6 @@ export const Box = (props) => {
   const theme = useContext(ThemeProvider);
   let boxStyle = {};
 
-  console.log(Object.keys(theme.actionButton));
   let currentTheme = Object.keys(theme.actionButton).find(
     (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
   );

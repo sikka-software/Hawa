@@ -3,7 +3,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 // import PropTypes from "prop-types";
 
-export const StyledCheckbox = (props) => {
+export const HawaCheckbox = (props) => {
   console.log("props : ", props);
   return (
     <React.Fragment>

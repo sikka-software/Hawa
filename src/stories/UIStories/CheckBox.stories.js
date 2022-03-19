@@ -1,13 +1,13 @@
 import React from "react";
-import { StyledCheckbox } from "../../ui";
+import { HawaCheckbox } from "../../ui";
 
 const Template = (args) => {
-  return <StyledCheckbox {...args} />;
+  return <HawaCheckbox {...args} />;
 };
 
 export default {
   title: "UI/Checkbox",
-  component: Light,
+  component: HawaCheckbox,
   argsTypes: {
     defaultValue: {
       options: [true, false],

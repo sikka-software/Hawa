@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledRadioSelector } from "../../ui";
 import { HawaProvider } from "../../themes/HawaProvider";
+import { HawaRadio } from "../../ui";
 
 const Template = (args) => {
   const theme = {
@@ -12,13 +12,13 @@ const Template = (args) => {
   };
   return (
     <HawaProvider theme={theme}>
-      <StyledRadioSelector {...args} />
+      <HawaRadio {...args} />
     </HawaProvider>
   );
 };
 export default {
   title: "UI/RadioSelector",
-  component: Light,
+  component: HawaRadio,
   argTypes: {
     options: {
       control: "array"

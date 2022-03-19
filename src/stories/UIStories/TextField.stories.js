@@ -1,13 +1,13 @@
 import React from "react";
-import { StyledTextField } from "../../ui";
+import { HawaTextField } from "../../ui";
 
 const Template = (args) => {
-  return <StyledTextField {...args} />;
+  return <HawaTextField {...args} />;
 };
 
 export default {
   title: "UI/TextField",
-  component: StyledTextField,
+  component: HawaTextField,
   argsTypes: {
     type: {
       name: "type",

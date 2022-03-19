@@ -4,8 +4,11 @@ import { styled, alpha } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
 import { HawaInputLabel } from "./HawaInputLabel";
+import { Controller, useFormContext } from "react-hook-form";
 
 export const HawaTextField = (props) => {
+  const { register } = useFormContext();
+
   const theme = useContext(ThemeProvider);
   const currentTheme = Object.keys(theme.actionButton).find(
     (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
@@ -58,13 +61,47 @@ export const HawaTextField = (props) => {
   });
 
   return (
-    <>
-      {props.inputLabel ? (
-        <HawaInputLabel themeType={props.themeType} label={props.inputLabel} />
-      ) : null}
+    <Controller
+      name={props.name}
+      rules={props.rules}
+      // control={control}
+      {...register(props.name)}
+      shouldUnregister={props.shouldUnregister}
+      render={({ field }) => (
+        <>
+          {props.inputLabel && (
+            <HawaInputLabel
+              themeType={props.themeType}
+              label={props.inputLabel}
+            />
+          )}
 
-      <StyledTextField fullWidth {...props} />
-    </>
+          <StyledTextField
+            fullWidth={true}
+            helperText={props.helperText}
+            type={props.type ?? "text"}
+            placeholder={props.placeholder}
+            inputProps={
+              props.type === "number"
+                ? {
+                    inputMode: "numeric",
+                    min: "0",
+                    max: "9999999",
+                    step: "0.01"
+                  }
+                : {}
+            }
+            InputProps={{
+              // className: styles.theme_form_input,
+              disableUnderline: true,
+              onWheelCapture: (e) => e.target.blur()
+            }}
+            {...field}
+            value={field.value && ""}
+          />
+        </>
+      )}
+    />
   );
 };
 

@@ -6,7 +6,6 @@ export const HawaInputLabel = (props) => {
   const theme = useContext(ThemeProvider);
   let labelStyle = {};
 
-  console.log(Object.keys(theme.actionButton));
   let currentTheme = Object.keys(theme.actionButton).find(
     (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
   );

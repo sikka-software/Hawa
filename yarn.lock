@@ -12021,10 +12021,10 @@
     "react-fast-compare" "^3.2.0"
     "shallowequal" "^1.1.0"
 
-"react-hook-form@^7.20.4":
-  "integrity" "sha512-Nvy6TnNMlBoR+qS8FpA8lrqtGJ4uoi/MRYEgMEdBMY0HwHVuC7wB1sk6wTjg7FjOUt7QqMAP2W/vOhTWbKrtkQ=="
-  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.20.4.tgz"
-  "version" "7.20.4"
+"react-hook-form@^7.28.0":
+  "integrity" "sha512-mmLpT86BkMGPr0r6ca8zxV0WH4Y1FW5MKs7Rq1+uHLVeeg5pSWbF5Z/qLCnM5vPVblHNM6lRBRRotnfEAf0ALA=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.28.0.tgz"
+  "version" "7.28.0"
 
 "react-inspector@^5.1.0":
   "integrity" "sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg=="
