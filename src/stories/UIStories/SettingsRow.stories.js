@@ -24,13 +24,23 @@ export default {
 
 const HawaSettingsRowTemplate = (args) => {
   return (
-    // <HawaProvider theme={{ ...defaultTheme }}>
-    <HawaSettingsRow />
-    // </HawaProvider>
+    <HawaProvider themeName={args.theme}>
+      <HawaSettingsRow settingsType="checkbox" />
+    </HawaProvider>
   );
 };
 
-export const Default = HawaSettingsRowTemplate.bind({});
-Default.args = {
+export const Checkbox = HawaSettingsRowTemplate.bind({});
+Checkbox.args = {
+  theme: "primary"
+};
+export const TextFieldSettings = (args) => {
+  return (
+    <HawaProvider themeName={args.theme}>
+      <HawaSettingsRow settingsType="text" />
+    </HawaProvider>
+  );
+};
+TextFieldSettings.args = {
   theme: "primary"
 };

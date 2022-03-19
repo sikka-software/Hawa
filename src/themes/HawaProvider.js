@@ -117,7 +117,6 @@ export const defaultTheme = {
   },
   alerts: {
     primary: {
-      //  marginTop: 10,
       marginBottom: 10,
       padding: 10,
       borderRadius: 10
@@ -125,6 +124,24 @@ export const defaultTheme = {
     secondary: {
       marginBottom: 10,
       padding: 10,
+      borderRadius: 10
+    }
+  },
+  settingsRow: {
+    primary: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: "red",
+      margin: 0,
+      padding: 10,
+      borderRadius: 10
+    },
+    secondary: {
+      backgroundColor: "blue",
+      margin: 0,
+      padding: 5,
       borderRadius: 10
     }
   }
