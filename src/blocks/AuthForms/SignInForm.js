@@ -9,18 +9,16 @@ import {
 } from "../../ui";
 import { Box } from "../../layout";
 import { FormProvider, useForm } from "react-hook-form";
-import { TextField } from "@mui/material";
+
+import InputAdornment from "@mui/material/InputAdornment";
+import EmailIcon from "@mui/icons-material/MailOutline";
+import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 
 export const SignInForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit,
-    getValues,
-    register,
-    watch,
-    reset,
-    setValue
+    handleSubmit
   } = methods;
 
   return (
@@ -39,8 +37,13 @@ export const SignInForm = (props) => {
               type="text"
               name="email"
               inputLabel="Email"
-              placeholder="Email"
+              placeholder="Enter your email"
               themeType={props.theme}
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              }
               rules={{
                 required: "Email is required",
                 pattern: {
@@ -54,10 +57,15 @@ export const SignInForm = (props) => {
 
             <HawaTextField
               name="password"
-              placeholder="Password"
+              placeholder="Enter password"
               themeType={props.theme}
               type="password"
               inputLabel="Password"
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
               rules={{
                 required: "Password is rquired"
               }}
@@ -76,14 +84,12 @@ export const SignInForm = (props) => {
       {props.viaGoogle && (
         <GoogleButton
           themeType={props.theme}
-          outlined
           buttonText={props.googleButtonLabel}
           handleClick={props.handleGoogleSignIn}
         />
       )}
       {props.viaGithub && (
         <GithubButton
-          outlined
           themeType={props.theme}
           buttonText={props.githubButtonLabel}
           handleClick={props.handleGithubSignIn}
@@ -91,7 +97,6 @@ export const SignInForm = (props) => {
       )}
       {props.viaTwitter && (
         <TwitterButton
-          outlined
           themeType={props.theme}
           buttonText={props.twitterButtonLabel}
           handleClick={props.handleTwitterSignIn}

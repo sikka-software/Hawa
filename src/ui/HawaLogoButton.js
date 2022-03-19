@@ -12,11 +12,7 @@ export const HawaLogoButton = (props) => {
   if (currentTheme) {
     buttonStyle = {
       ...theme.logoButton[currentTheme],
-      //   marginTop: theme.actionButton[currentTheme].margin,
-      border: props.outlined ? "2px solid black" : "none",
-      //   borderRadius: theme.actionButton[currentTheme].borderRadius,
       backgroundColor: "white",
-      //   height: 50,
       "&:hover": {
         backgroundColor: darken("#ffffff", 0.1)
       }
@@ -29,10 +25,9 @@ export const HawaLogoButton = (props) => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      marginTop: theme.logoButton[currentTheme]?.margin,
-      border: props.outlined ? "2px solid black" : "none",
-      //   borderRadius: 0,
+      marginTop: 10,
       height: 50,
+      border: "1px solid #ced4da",
       backgroundColor: "white",
       "&:hover": {
         backgroundColor: darken("#ffffff", 0.1)

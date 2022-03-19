@@ -25,7 +25,8 @@ export const defaultTheme = {
     primary: {
       borderRadius: 10,
       backgroundColor: "#f90900",
-
+      // margin: 10,
+      marginTop: 10,
       padding: 10,
       border: "1px solid #ced4da",
       height: 50,
@@ -36,6 +37,7 @@ export const defaultTheme = {
     secondary: {
       borderRadius: 10,
       backgroundColor: "#f90900",
+      marginTop: 10,
       padding: 10,
       border: "1px solid #ced4da",
       height: 50,
@@ -86,23 +88,30 @@ export const defaultTheme = {
   inputFields: {
     primary: {
       backgroundColor: "white",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      justifyContent: "flex-start",
+
       borderRadius: 10,
+
       "&:focus": {
         // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-        // borderColor: theme.palette.primary.main
-        borderColor: "#f90900"
+        borderColor: "red",
+        borderWidth: 1,
+        border: "1px solid black"
+        // borderColor: HawaTheme.inputFields[currentTheme]?.backgroundColor
+      },
+
+      "&:hover": {
+        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        borderColor: "red",
+        borderWidth: 1,
+        // backgroundColor: "green",
+        border: "1px solid black"
+
+        // borderColor: HawaTheme.inputFields[currentTheme]?.backgroundColor
       }
     },
     secondary: {
       backgroundColor: "white",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      justifyContent: "flex-start",
+
       borderRadius: 10
     }
   },

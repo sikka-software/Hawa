@@ -24,7 +24,6 @@ export const PayWithWallet = (props) => {
         {props.viaWallet && (
           <WalletButton
             themeType={props.theme}
-            outlined
             buttonText={props.walletLabel}
             handleClick={props.handleWallet}
           />

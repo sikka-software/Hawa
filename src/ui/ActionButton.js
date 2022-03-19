@@ -27,7 +27,8 @@ export const ActionButton = (props) => {
       backgroundColor: "black",
       color: "white",
       padding: 10,
-      marginTop: props.last ? 10 * 2 : 0
+      marginTop: props.last ? 10 * 2 : 0,
+      borderRadius: 0
     };
   }
 

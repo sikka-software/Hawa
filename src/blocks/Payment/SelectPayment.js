@@ -22,7 +22,6 @@ export const SelectPayment = (props) => {
         </HawaTypography>
         {props.viaWallet && (
           <WalletButton
-            outlined
             themeType={props.theme}
             buttonText={props.walletLabel}
             onClick={props.handleWallet}
@@ -30,7 +29,6 @@ export const SelectPayment = (props) => {
         )}
         {props.viaCreditCard && (
           <VisaMasterButton
-            outlined
             themeType={props.theme}
             buttonText={props.visaMasterLabel}
             handleClick={props.handleCreditCard}
@@ -38,16 +36,13 @@ export const SelectPayment = (props) => {
         )}
         {props.viaMada && (
           <MadaButton
-            outlined
             themeType={props.theme}
             buttonText={props.madaLabel}
             handleClick={props.handleMada}
           />
         )}
-
         {props.viaSTCPay && (
           <STCPayButton
-            outlined
             themeType={props.theme}
             buttonText={props.stcPayLabel}
             handleClick={props.handleSTCPay}
@@ -55,7 +50,6 @@ export const SelectPayment = (props) => {
         )}
         {props.viaPayPal && (
           <PayPalButton
-            outlined
             themeType={props.theme}
             buttonText={props.paypalLabel}
             handleClick={props.handlePayPal}
@@ -63,16 +57,13 @@ export const SelectPayment = (props) => {
         )}
         {props.viaGooglePay && (
           <GooglePayButton
-            outlined
             themeType={props.theme}
             buttonText={props.googlePayLabel}
             handleClick={props.handleGooglePay}
           />
         )}
-
         {props.viaApplePay && (
           <ApplePayButton
-            outlined
             themeType={props.theme}
             buttonText={props.applePayLabel}
             handleClick={props.handleApplePay}

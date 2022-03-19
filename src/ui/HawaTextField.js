@@ -7,28 +7,27 @@ import { ThemeProvider } from "../themes/HawaProvider";
 import { HawaInputLabel } from "./HawaInputLabel";
 import { Controller, useFormContext } from "react-hook-form";
 
+import { InputAdornment, TextField } from "@mui/material";
+import { MailOutline } from "@mui/icons-material";
+
 export const HawaTextField = (props) => {
   const { control, register } = useFormContext();
 
-  const theme = useContext(ThemeProvider);
-  const currentTheme = Object.keys(theme.actionButton).find(
+  const HawaTheme = useContext(ThemeProvider);
+  const currentTheme = Object.keys(HawaTheme.actionButton).find(
     (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
   );
   let textFieldStyle = {};
 
   if (currentTheme) {
     textFieldStyle = {
-      ...theme.inputFields[currentTheme],
-      margin: props.last ? 0 : theme.inputFields[currentTheme].margin,
-      marginTop: props.last ? theme.inputFields[currentTheme].margin * 2 : 0
+      ...HawaTheme.inputFields[currentTheme],
+      margin: props.last ? 0 : HawaTheme.inputFields[currentTheme].margin,
+      marginTop: props.last ? HawaTheme.inputFields[currentTheme].margin * 2 : 0
     };
   } else {
     textFieldStyle = {
-      backgroundColor: "white",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      justifyContent: "flex-start"
+      backgroundColor: "white"
     };
   }
 
@@ -38,27 +37,26 @@ export const HawaTextField = (props) => {
       //   marginTop: theme.spacing(3)
       // },
       "& .MuiInputBase-input": {
-        backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+        // backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
         transition: theme.transitions.create([
           "border-color",
           "background-color",
           "box-shadow"
-        ]),
+        ])
 
-        "&:focus": {
-          // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-          // borderColor: theme.palette.primary.main
-          // borderColor: theme.actionButton[currentTheme]?.backgroundColor
-        },
-        borderRadius: 4,
-        // position: "relative",
-        border: "1px solid #ced4da",
-        fontSize: 16,
-        // width: "auto",
-        padding: "10px 12px",
-        marginBottom: props.helperText ? 5 : 0,
-        ...textFieldStyle
-      }
+        // backgroundColor: "red"
+      },
+
+      // position: "relative",
+      border: "1px solid #ced4da",
+      fontSize: 16,
+      // width: "auto",
+      padding: "10px 12px",
+      marginBottom: props.helperText ? 5 : 0,
+      paddingLeft: 10,
+      paddingRight: 10,
+      ...textFieldStyle
+      // backgroundColor: "green"
     };
   });
 
@@ -88,13 +86,17 @@ export const HawaTextField = (props) => {
             //       }
             //     : {}
             // }
+
             defaultValue={props.defaultValue && ""}
             value={props.value && ""}
             {...props}
             // {...field}
             {...register(props.name)}
           />
-          <Typography variant="caption" style={{ margin: 5, color: "red" }}>
+          <Typography
+            variant="caption"
+            style={{ margin: 5, marginBottom: 0, color: "red" }}
+          >
             {props.helperText}
           </Typography>
         </>

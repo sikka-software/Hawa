@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box } from "../../layout";
-import { ThemeProvider } from "../../themes/HawaProvider";
 import { ActionButton, HawaTextField, HawaAlert } from "../../ui";
 import { FormProvider, useForm } from "react-hook-form";
+import InputAdornment from "@mui/material/InputAdornment";
+import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 
 export const NewPasswordForm = (props) => {
   const [newPassword, setNewPassword] = useState("");
@@ -57,9 +58,15 @@ export const NewPasswordForm = (props) => {
               name="password"
               themeType={props.theme}
               type="password"
-              inputLabel="Password"
+              inputLabel="Choose new password"
+              placeholder="Enter password"
               onChange={(e) => setNewPassword(e.target.value)}
               value={newPassword}
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
               rules={{
                 required: "Password is rquired"
               }}
@@ -69,7 +76,13 @@ export const NewPasswordForm = (props) => {
               themeType={props.theme}
               name="confirmPassword"
               type="password"
-              inputLabel="Confirm Password"
+              placeholder="Confirm Password"
+              inputLabel="Confirm"
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
               rules={{
                 required: "Password is rquired"
               }}

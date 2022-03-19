@@ -25,6 +25,7 @@ export default {
   args: {
     theme: "primary",
     viaWallet: true,
+    viaMada: true,
     viaApplePay: true,
     viaGooglePay: true,
     viaSTCPay: true,

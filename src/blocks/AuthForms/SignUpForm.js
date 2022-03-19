@@ -11,6 +11,11 @@ import {
 import PropTypes from "prop-types";
 import { FormProvider, useForm } from "react-hook-form";
 
+import PersonIcon from "@mui/icons-material/PermIdentityOutlined";
+import InputAdornment from "@mui/material/InputAdornment";
+import EmailIcon from "@mui/icons-material/MailOutline";
+import PasswordIcon from "@mui/icons-material/HttpsOutlined";
+
 export const SignUpForm = (props) => {
   const methods = useForm();
   const {
@@ -36,13 +41,35 @@ export const SignUpForm = (props) => {
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handleSignUp)}>
             <HawaTextField
+              name="fullName"
+              placeholder="Fulan AlFulani"
+              themeType={props.theme}
+              type="text"
+              inputLabel="Full Name"
+              startAdornment={
+                <InputAdornment position="start">
+                  <PersonIcon />
+                </InputAdornment>
+              }
+              rules={{
+                required: "Full name rquired"
+              }}
+              helperText={errors.fullName?.message}
+            />
+
+            <HawaTextField
               themeType={props.theme}
               type="text"
               inputLabel="Email"
-              placeholder="Email"
+              placeholder="Enter your email"
               name="email"
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              }
               rules={{
-                required: "Email is required",
+                required: "Email required",
                 pattern: {
                   value:
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -53,26 +80,25 @@ export const SignUpForm = (props) => {
             />
             <HawaTextField
               name="password"
-              placeholder="Password"
+              placeholder="Minimum 8 characters"
               themeType={props.theme}
               type="password"
               inputLabel="Password"
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
               rules={{
-                required: "Password is rquired"
+                required: "Password rquired",
+                minLength: {
+                  value: 8,
+                  message: "Password too short"
+                }
               }}
               helperText={errors.password?.message}
             />
-            <HawaTextField
-              name="confirmPassword"
-              placeholder="Password"
-              themeType={props.theme}
-              type="password"
-              inputLabel="Confirm Password"
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.confirmPassword?.message}
-            />
+
             <ActionButton
               fullWidth
               type="submit"
@@ -85,7 +111,6 @@ export const SignUpForm = (props) => {
       </Box>
       {props.viaGoogle && (
         <GoogleButton
-          outlined
           themeType={props.theme}
           buttonText={props.googleButtonLabel}
           handleClick={props.handleGoogleSignIn}
@@ -93,7 +118,6 @@ export const SignUpForm = (props) => {
       )}
       {props.viaGithub && (
         <GithubButton
-          outlined
           themeType={props.theme}
           buttonText={props.githubButtonLabel}
           handleClick={props.handleGithubSignUp}
@@ -101,7 +125,6 @@ export const SignUpForm = (props) => {
       )}
       {props.viaTwitter && (
         <TwitterButton
-          outlined
           themeType={props.theme}
           buttonText={props.twitterButtonLabel}
           handleClick={props.handleTwitterSignIn}

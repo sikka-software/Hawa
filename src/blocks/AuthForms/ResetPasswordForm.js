@@ -2,6 +2,8 @@ import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Box } from "../../layout";
 import { HawaTextField, ActionButton, HawaAlert } from "../../ui";
+import InputAdornment from "@mui/material/InputAdornment";
+import EmailIcon from "@mui/icons-material/MailOutline";
 
 export const ResetPasswordForm = (props) => {
   const methods = useForm();
@@ -30,7 +32,13 @@ export const ResetPasswordForm = (props) => {
               type="text"
               name="email"
               inputLabel="Email"
+              placeholder="Enter your email"
               themeType={props.theme}
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              }
               rules={{
                 required: "Email is required",
                 pattern: {
