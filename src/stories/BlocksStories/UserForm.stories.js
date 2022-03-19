@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  UserProfile
-} from "../../blocks/Account";
+import { UserProfile } from "../../blocks/Account";
 import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 
 export default {
-  title: "Blocks/UserProfile",
+  title: "Blocks/UserBlocks",
   component: UserProfile,
   argsTypes: {
     viaGoogle: { control: "boolean" },
@@ -21,7 +19,7 @@ const theme = {
   paddings: 20
 };
 
-const UserProfileTemplate = (args) => {
+export const UserAccount = (args) => {
   return (
     <HawaProvider theme={{ ...defaultTheme, ...theme }}>
       <UserProfile {...args} />
@@ -29,18 +27,22 @@ const UserProfileTemplate = (args) => {
   );
 };
 
-export const Success = UserProfileTemplate.bind({});
-Success.args = {
+UserAccount.args = {
   viaGoogle: true,
   viaGithub: true,
   viaTwitter: true,
   viaFacebook: true
 };
-export const Failed = UserProfileTemplate.bind({});
-Failed.args = {
+export const UserSettings = (args) => {
+  return (
+    <HawaProvider theme={{ ...defaultTheme, ...theme }}>
+      <UserProfile {...args} />
+    </HawaProvider>
+  );
+};
+UserSettings.args = {
   viaGoogle: true,
   viaGithub: true,
   viaTwitter: true,
   viaFacebook: true
 };
-

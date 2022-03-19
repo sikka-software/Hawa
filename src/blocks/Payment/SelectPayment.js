@@ -18,7 +18,7 @@ export const SelectPayment = (props) => {
     <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
       <Box themeType={props.theme} noMargin>
         <HawaTypography themeType={props.theme} align="center">
-          Choose Payment
+          Choose Payment Method
         </HawaTypography>
         {props.viaWallet && (
           <WalletButton
