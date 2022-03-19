@@ -4,10 +4,10 @@ import { Box } from "../../layout";
 
 export const PayWithWallet = (props) => {
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         <div>Wallet Balance</div>
-        <ActionButton text="Pay now" themeType={props.theme} />
+        <ActionButton text="Pay now" />
       </Box>
     </Box>
   );

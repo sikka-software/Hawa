@@ -43,20 +43,15 @@ export const NewPasswordForm = (props) => {
     // }
   };
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         {props.error && (
-          <HawaAlert
-            themeType={props.theme}
-            text="This is a new password alert"
-            severity="error"
-          />
+          <HawaAlert text="This is a new password alert" severity="error" />
         )}
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handleNewPassword)}>
             <HawaTextField
               name="password"
-              themeType={props.theme}
               type="password"
               inputLabel="Choose new password"
               placeholder="Enter password"
@@ -73,7 +68,6 @@ export const NewPasswordForm = (props) => {
               helperText={errors.password?.message}
             />
             <HawaTextField
-              themeType={props.theme}
               name="confirmPassword"
               type="password"
               placeholder="Confirm Password"
@@ -88,13 +82,7 @@ export const NewPasswordForm = (props) => {
               }}
               helperText={errors.confirmPassword?.message}
             />
-            <ActionButton
-              fullWidth
-              type="submit"
-              themeType={props.theme}
-              last
-              text="Reset Password"
-            />
+            <ActionButton fullWidth type="submit" last text="Reset Password" />
           </form>
         </FormProvider>
       </Box>

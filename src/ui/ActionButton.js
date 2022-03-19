@@ -4,20 +4,22 @@ import { ThemeProvider } from "../themes/HawaProvider";
 import { styled, darken } from "@mui/material/styles";
 
 export const ActionButton = (props) => {
-  const theme = useContext(ThemeProvider);
-  const currentTheme = Object.keys(theme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
+  const currentTheme = Object.keys(hawaTheme.actionButton).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   let actionButtonStyle = {};
 
   if (currentTheme) {
     actionButtonStyle = {
-      ...theme.actionButton[currentTheme],
-      margin: props.last ? 0 : theme.actionButton[currentTheme].margin,
-      marginTop: props.last ? theme.actionButton[currentTheme].margin * 2 : 0,
+      ...hawaTheme.actionButton[currentTheme],
+      margin: props.last ? 0 : hawaTheme.actionButton[currentTheme].margin,
+      marginTop: props.last
+        ? hawaTheme.actionButton[currentTheme].margin * 2
+        : 0,
       "&:hover": {
         backgroundColor: darken(
-          theme.actionButton[currentTheme]?.backgroundColor,
+          hawaTheme.actionButton[currentTheme]?.backgroundColor,
           0.1
         )
       }

@@ -5,13 +5,12 @@ import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 export default {
   title: "Blocks/UserBlocks",
   component: UserProfile,
-  argsTypes: {
-    viaGoogle: { control: "boolean" },
-    viaGithub: { control: "boolean" },
-    viaTwitter: { control: "boolean" },
-    viaFacebook: { control: "boolean" }
-  },
-  args: {}
+  argTypes: {
+    theme: {
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
+    }
+  }
 };
 
 const theme = {
@@ -28,10 +27,7 @@ export const UserAccount = (args) => {
 };
 
 UserAccount.args = {
-  viaGoogle: true,
-  viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
+  theme: "primary"
 };
 export const UserSettings = (args) => {
   return (
@@ -41,8 +37,5 @@ export const UserSettings = (args) => {
   );
 };
 UserSettings.args = {
-  viaGoogle: true,
-  viaGithub: true,
-  viaTwitter: true,
-  viaFacebook: true
+  theme: "primary"
 };

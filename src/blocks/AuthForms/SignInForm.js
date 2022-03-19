@@ -22,14 +22,10 @@ export const SignInForm = (props) => {
   } = methods;
 
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         {props.error && (
-          <HawaAlert
-            themeType={props.theme}
-            text="This is a sign in alert"
-            severity="error"
-          />
+          <HawaAlert text="This is a sign in alert" severity="error" />
         )}
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handleSignIn)}>
@@ -38,7 +34,6 @@ export const SignInForm = (props) => {
               name="email"
               inputLabel="Email"
               placeholder="Enter your email"
-              themeType={props.theme}
               startAdornment={
                 <InputAdornment position="start">
                   <EmailIcon />
@@ -58,7 +53,6 @@ export const SignInForm = (props) => {
             <HawaTextField
               name="password"
               placeholder="Enter password"
-              themeType={props.theme}
               type="password"
               inputLabel="Password"
               startAdornment={
@@ -76,28 +70,24 @@ export const SignInForm = (props) => {
               fullWidth
               last={"true"}
               text={"Sign In"}
-              themeType={props.theme}
             />
           </form>
         </FormProvider>
       </Box>
       {props.viaGoogle && (
         <GoogleButton
-          themeType={props.theme}
           buttonText={props.googleButtonLabel}
           handleClick={props.handleGoogleSignIn}
         />
       )}
       {props.viaGithub && (
         <GithubButton
-          themeType={props.theme}
           buttonText={props.githubButtonLabel}
           handleClick={props.handleGithubSignIn}
         />
       )}
       {props.viaTwitter && (
         <TwitterButton
-          themeType={props.theme}
           buttonText={props.twitterButtonLabel}
           handleClick={props.handleTwitterSignIn}
         />

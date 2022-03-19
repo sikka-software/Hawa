@@ -4,14 +4,14 @@ import { styled, darken } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
 export const HawaLogoButton = (props) => {
-  const theme = useContext(ThemeProvider);
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
   let buttonStyle = {};
-  let currentTheme = Object.keys(theme.logoButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  let currentTheme = Object.keys(hawaTheme.logoButton).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   if (currentTheme) {
     buttonStyle = {
-      ...theme.logoButton[currentTheme],
+      ...hawaTheme.logoButton[currentTheme],
       backgroundColor: "white",
       "&:hover": {
         backgroundColor: darken("#ffffff", 0.1)

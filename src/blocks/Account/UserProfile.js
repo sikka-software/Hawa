@@ -11,8 +11,8 @@ export const UserProfile = (props) => {
   } = methods;
 
   return (
-    <Box themeType={props.theme} maxWidth={400} noMargin>
-      <Box themeType={props.theme} noMargin noColor>
+    <Box maxWidth={400} noMargin>
+      <Box noMargin noColor>
         <FormProvider {...methods}>
           <form>
             <HawaTextField
@@ -20,11 +20,40 @@ export const UserProfile = (props) => {
               name="fullName"
               inputLabel="Full Name"
               placeholder="Fulan AlFulani"
-              themeType={props.theme}
               rules={{
                 required: "Email is required"
               }}
               helperText={errors.fullName?.message}
+            />
+            <HawaTextField
+              type="text"
+              name="email"
+              inputLabel="New Email"
+              placeholder="Enter your new email"
+              rules={{
+                required: "Email is required"
+              }}
+              helperText={errors.email?.message}
+            />
+            <HawaTextField
+              type="password"
+              name="password"
+              inputLabel="New password"
+              placeholder="Enter your new password"
+              rules={{
+                required: "Email is required"
+              }}
+              helperText={errors.password?.message}
+            />
+            <HawaTextField
+              type="password"
+              name="confirmPassword"
+              inputLabel="Confirm new password"
+              placeholder="Confirm new password"
+              rules={{
+                required: "Email is required"
+              }}
+              helperText={errors.confirmPassword?.message}
             />
 
             <ActionButton fullWidth last text="Update Account" />

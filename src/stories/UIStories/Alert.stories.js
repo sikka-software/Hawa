@@ -5,28 +5,15 @@ import { HawaAlert } from "../../ui";
 
 const Template = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <HawaAlert
-        themeType={args.theme}
         title="What?"
         text="This is a success alert"
         severity="success"
       />
-      <HawaAlert
-        themeType={args.theme}
-        text="This is an info alert"
-        severity="info"
-      />
-      <HawaAlert
-        themeType={args.theme}
-        text="This is a warning alert"
-        severity="warning"
-      />
-      <HawaAlert
-        themeType={args.theme}
-        text="This is an error alert"
-        severity="error"
-      />
+      <HawaAlert text="This is an info alert" severity="info" />
+      <HawaAlert text="This is a warning alert" severity="warning" />
+      <HawaAlert text="This is an error alert" severity="error" />
     </HawaProvider>
   );
 };

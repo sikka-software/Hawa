@@ -15,56 +15,47 @@ import {
 
 export const SelectPayment = (props) => {
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
-        <HawaTypography themeType={props.theme} align="center">
-          Choose Payment Method
-        </HawaTypography>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
+        <HawaTypography align="center">Choose Payment Method</HawaTypography>
         {props.viaWallet && (
           <WalletButton
-            themeType={props.theme}
             buttonText={props.walletLabel}
             onClick={props.handleWallet}
           />
         )}
         {props.viaCreditCard && (
           <VisaMasterButton
-            themeType={props.theme}
             buttonText={props.visaMasterLabel}
             handleClick={props.handleCreditCard}
           />
         )}
         {props.viaMada && (
           <MadaButton
-            themeType={props.theme}
             buttonText={props.madaLabel}
             handleClick={props.handleMada}
           />
         )}
         {props.viaSTCPay && (
           <STCPayButton
-            themeType={props.theme}
             buttonText={props.stcPayLabel}
             handleClick={props.handleSTCPay}
           />
         )}
         {props.viaPayPal && (
           <PayPalButton
-            themeType={props.theme}
             buttonText={props.paypalLabel}
             handleClick={props.handlePayPal}
           />
         )}
         {props.viaGooglePay && (
           <GooglePayButton
-            themeType={props.theme}
             buttonText={props.googlePayLabel}
             handleClick={props.handleGooglePay}
           />
         )}
         {props.viaApplePay && (
           <ApplePayButton
-            themeType={props.theme}
             buttonText={props.applePayLabel}
             handleClick={props.handleApplePay}
           />

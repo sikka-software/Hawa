@@ -29,21 +29,16 @@ export const SignUpForm = (props) => {
   } = methods;
 
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         {props.error && (
-          <HawaAlert
-            themeType={props.theme}
-            text="This is a sign in alert"
-            severity="error"
-          />
+          <HawaAlert text="This is a sign in alert" severity="error" />
         )}
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handleSignUp)}>
             <HawaTextField
               name="fullName"
               placeholder="Fulan AlFulani"
-              themeType={props.theme}
               type="text"
               inputLabel="Full Name"
               startAdornment={
@@ -58,7 +53,6 @@ export const SignUpForm = (props) => {
             />
 
             <HawaTextField
-              themeType={props.theme}
               type="text"
               inputLabel="Email"
               placeholder="Enter your email"
@@ -81,7 +75,6 @@ export const SignUpForm = (props) => {
             <HawaTextField
               name="password"
               placeholder="Minimum 8 characters"
-              themeType={props.theme}
               type="password"
               inputLabel="Password"
               startAdornment={
@@ -99,33 +92,24 @@ export const SignUpForm = (props) => {
               helperText={errors.password?.message}
             />
 
-            <ActionButton
-              fullWidth
-              type="submit"
-              text="Sign Up"
-              last
-              themeType={props.theme}
-            />
+            <ActionButton fullWidth type="submit" text="Sign Up" last />
           </form>
         </FormProvider>
       </Box>
       {props.viaGoogle && (
         <GoogleButton
-          themeType={props.theme}
           buttonText={props.googleButtonLabel}
           handleClick={props.handleGoogleSignIn}
         />
       )}
       {props.viaGithub && (
         <GithubButton
-          themeType={props.theme}
           buttonText={props.githubButtonLabel}
           handleClick={props.handleGithubSignUp}
         />
       )}
       {props.viaTwitter && (
         <TwitterButton
-          themeType={props.theme}
           buttonText={props.twitterButtonLabel}
           handleClick={props.handleTwitterSignIn}
         />

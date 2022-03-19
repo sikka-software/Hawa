@@ -5,8 +5,8 @@ import { ActionButton } from "../../ui";
 
 const Template = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
-      <ActionButton themeType={args.theme} text={args.buttonLabel} />
+    <HawaProvider themeName={args.theme}>
+      <ActionButton text={args.buttonLabel} />
     </HawaProvider>
   );
 };

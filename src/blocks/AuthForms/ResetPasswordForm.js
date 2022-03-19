@@ -17,14 +17,10 @@ export const ResetPasswordForm = (props) => {
     setValue
   } = methods;
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         {props.error && (
-          <HawaAlert
-            themeType={props.theme}
-            text="This is a reset password alert"
-            severity="error"
-          />
+          <HawaAlert text="This is a reset password alert" severity="error" />
         )}
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handleResetPassword)}>
@@ -33,7 +29,6 @@ export const ResetPasswordForm = (props) => {
               name="email"
               inputLabel="Email"
               placeholder="Enter your email"
-              themeType={props.theme}
               startAdornment={
                 <InputAdornment position="start">
                   <EmailIcon />
@@ -49,13 +44,7 @@ export const ResetPasswordForm = (props) => {
               }}
               helperText={errors.email?.message}
             />
-            <ActionButton
-              fullWidth
-              themeType={props.theme}
-              last
-              type="submit"
-              text="Reset Password"
-            />
+            <ActionButton fullWidth last type="submit" text="Reset Password" />
           </form>
         </FormProvider>{" "}
       </Box>

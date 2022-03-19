@@ -20,11 +20,10 @@ export default {
 
 const SignInTemplate = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <SignInForm
         {...args}
         error={args.showError}
-        theme={args.theme}
         handleSignIn={(e) => console.log("singing in via email", e)}
         viaGoogle={args.viaGoogle}
         googleButtonLabel={"Sign in with Google"}
@@ -51,10 +50,9 @@ SignIn.args = {
 
 const SignUpTemplate = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <SignUpForm
         {...args}
-        theme={args.theme}
         error={args.showError}
         handleSignUp={() => console.log("singing up via email")}
         viaGoogle={args.viaGoogle}
@@ -81,7 +79,7 @@ SignUp.args = {
 
 const ResetPasswordTemplate = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <ResetPasswordForm error={args.showError} theme={args.theme} {...args} />
     </HawaProvider>
   );
@@ -93,7 +91,7 @@ ResetPassword.args = {
 };
 const NewPasswordTemplate = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <NewPasswordForm error={args.showError} theme={args.theme} {...args} />
     </HawaProvider>
   );

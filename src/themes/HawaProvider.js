@@ -133,6 +133,7 @@ export const defaultTheme = {
 export const ThemeProvider = createContext(defaultTheme);
 
 export const HawaProvider = ({ theme, ...props }) => {
+  console.log("theme is ", theme);
   if (props.size === "large") {
     theme = {
       ...theme,
@@ -141,7 +142,9 @@ export const HawaProvider = ({ theme, ...props }) => {
     };
   }
   return (
-    <ThemeProvider.Provider value={theme || defaultTheme}>
+    <ThemeProvider.Provider
+      value={{ hawaTheme: defaultTheme, themeName: props.themeName }}
+    >
       {props.children}
     </ThemeProvider.Provider>
   );

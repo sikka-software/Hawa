@@ -5,7 +5,7 @@ export * from "./HawaRadio";
 // export * from "./RadioSelector";
 // export * from "./Row";
 // export * from "./SelectedField";
-// export * from "./TabPanel";
+export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
 export * from "./HawaButton";
 export * from "./HawaTextField";

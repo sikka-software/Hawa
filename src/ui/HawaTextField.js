@@ -13,17 +13,17 @@ import { MailOutline } from "@mui/icons-material";
 export const HawaTextField = (props) => {
   const { control, register } = useFormContext();
 
-  const HawaTheme = useContext(ThemeProvider);
-  const currentTheme = Object.keys(HawaTheme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
+  const currentTheme = Object.keys(hawaTheme.inputFields).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   let textFieldStyle = {};
 
   if (currentTheme) {
     textFieldStyle = {
-      ...HawaTheme.inputFields[currentTheme],
-      margin: props.last ? 0 : HawaTheme.inputFields[currentTheme].margin,
-      marginTop: props.last ? HawaTheme.inputFields[currentTheme].margin * 2 : 0
+      ...hawaTheme.inputFields[currentTheme],
+      margin: props.last ? 0 : hawaTheme.inputFields[currentTheme].margin,
+      marginTop: props.last ? hawaTheme.inputFields[currentTheme].margin * 2 : 0
     };
   } else {
     textFieldStyle = {
@@ -64,12 +64,7 @@ export const HawaTextField = (props) => {
     <Controller
       render={({ field }) => (
         <>
-          {props.inputLabel && (
-            <HawaInputLabel
-              themeType={props.themeType}
-              label={props.inputLabel}
-            />
-          )}
+          {props.inputLabel && <HawaInputLabel label={props.inputLabel} />}
 
           <StyledTextField
             fullWidth={true}

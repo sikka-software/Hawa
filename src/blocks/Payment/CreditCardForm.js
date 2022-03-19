@@ -11,14 +11,13 @@ export const CreditCardForm = (props) => {
   } = methods;
 
   return (
-    <Box themeType={props.theme} maxWidth={400} noColor noMargin noPadding>
-      <Box themeType={props.theme} noMargin>
+    <Box maxWidth={400} noColor noMargin noPadding>
+      <Box noMargin>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(props.handle)}>
             <HawaTextField
               name="password"
               placeholder="Enter password"
-              themeType={props.theme}
               type="password"
               inputLabel="Password"
               // startAdornment={
@@ -35,7 +34,6 @@ export const CreditCardForm = (props) => {
             <HawaTextField
               name="password"
               placeholder="Enter password"
-              themeType={props.theme}
               type="password"
               inputLabel="Password"
               // startAdornment={
@@ -52,7 +50,6 @@ export const CreditCardForm = (props) => {
               last
               fullWidth
               text={"Sign In"}
-              themeType={props.theme}
               onClick={props.handleSignIn}
             />
           </form>

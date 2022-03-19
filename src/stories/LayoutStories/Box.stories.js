@@ -7,14 +7,14 @@ const theme = {
 
 const Template = (args) => {
   return (
-    <HawaProvider size={args.size} theme={{ ...defaultTheme, ...args.theme }}>
-      <Box themeType="primary">Box 1</Box>
-      <Box themeType="secondary">
+    <HawaProvider size={args.size} themeName={"secondary"}>
+      <Box>Box 1</Box>
+      <Box>
         <div style={{ backgroundColor: "white", padding: 10, color: "black" }}>
           testing box in box
         </div>
       </Box>
-      <Box themeType="secondary">Box 3</Box>
+      <Box>Box 3</Box>
     </HawaProvider>
   );
 };

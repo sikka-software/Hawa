@@ -2,22 +2,22 @@ import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
 
 export const Box = (props) => {
-  const theme = useContext(ThemeProvider);
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
   let boxStyle = {};
 
-  let currentTheme = Object.keys(theme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  let currentTheme = Object.keys(hawaTheme.layout).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   if (currentTheme) {
     boxStyle = {
       display: "flex",
       flexDirection: "column",
-      ...theme.layout[currentTheme],
+      ...hawaTheme.layout[currentTheme],
       backgroundColor: props.noColor
         ? "none"
-        : theme.layout[currentTheme].backgroundColor,
-      padding: props.noPadding ? 0 : theme.layout[currentTheme].padding,
-      margin: props.noMargin ? 0 : theme.layout[currentTheme].margin,
+        : hawaTheme.layout[currentTheme].backgroundColor,
+      padding: props.noPadding ? 0 : hawaTheme.layout[currentTheme].padding,
+      margin: props.noMargin ? 0 : hawaTheme.layout[currentTheme].margin,
       maxWidth: props.maxWidth
     };
   } else {

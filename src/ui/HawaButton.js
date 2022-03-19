@@ -4,19 +4,19 @@ import { styled, darken } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
 export const HawaButton = (props) => {
-  const theme = useContext(ThemeProvider);
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
   let buttonStyle = {};
-  let currentTheme = Object.keys(theme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  let currentTheme = Object.keys(hawaTheme.actionButton).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   if (currentTheme) {
     buttonStyle = {
-      ...theme.actionButton[currentTheme],
+      ...hawaTheme.actionButton[currentTheme],
       //   marginTop: theme.actionButton[currentTheme].margin,
       border: props.outlined ? "2px solid black" : "none",
       //   borderRadius: theme.actionButton[currentTheme].borderRadius,
       backgroundColor: "white",
-    //   height: 50,
+      //   height: 50,
       "&:hover": {
         backgroundColor: darken("#ffffff", 0.1)
       }
@@ -29,7 +29,7 @@ export const HawaButton = (props) => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      marginTop: theme.actionButton[currentTheme]?.margin,
+      marginTop: hawaTheme.actionButton[currentTheme]?.margin,
       border: props.outlined ? "2px solid black" : "none",
       borderRadius: 0,
       //backgroundColor: "white",

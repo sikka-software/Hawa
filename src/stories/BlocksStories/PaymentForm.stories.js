@@ -36,10 +36,9 @@ export default {
 
 export const PaymentSelection = (args) => {
   return (
-    <HawaProvider theme={{ ...defaultTheme }}>
+    <HawaProvider themeName={args.theme}>
       <SelectPayment
         {...args}
-        theme={args.theme}
         walletLabel="Wallet Balance"
         handleWallet={() => console.log("paying via wallet")}
         visaMasterLabel="Credit Card"
@@ -75,9 +74,13 @@ export const PayViaCreditCard = (args) => {
 };
 
 export const ChargeWallet = (args) => {
-  return <ChargeWalletForm theme={args.theme} currency="SAR" />;
+  return (
+    <HawaProvider themeName={args.theme}>
+      <ChargeWalletForm currency="SAR" />
+    </HawaProvider>
+  );
 };
 
-// ChargeWallet.args = {
-//   theme: "secondary"
-// };
+ChargeWallet.args = {
+  theme: "secondary"
+};

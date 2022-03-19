@@ -6,15 +6,15 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 
 export const HawaAlert = (props) => {
-  const theme = useContext(ThemeProvider);
-  const currentTheme = Object.keys(theme.alerts).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
+  const currentTheme = Object.keys(hawaTheme.alerts).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   let alertStyle = {};
 
   if (currentTheme) {
     alertStyle = {
-      ...theme.alerts[currentTheme]
+      ...hawaTheme.alerts[currentTheme]
     };
   } else {
     alertStyle = {
@@ -29,7 +29,7 @@ export const HawaAlert = (props) => {
   });
 
   return (
-    <StyledAlert themeType={props.themeType} {...props}>
+    <StyledAlert {...props}>
       {props.title && <AlertTitle>{props.title}</AlertTitle>}
       {props.text}
     </StyledAlert>

@@ -3,18 +3,18 @@ import { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
 
 export const HawaInputLabel = (props) => {
-  const theme = useContext(ThemeProvider);
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
   let labelStyle = {};
 
-  let currentTheme = Object.keys(theme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  let currentTheme = Object.keys(hawaTheme.actionButton).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   if (currentTheme) {
     labelStyle = {
       margin: 15,
       marginRight: 5,
       marginLeft: 5,
-      color: theme.layout[currentTheme].color
+      color: hawaTheme.layout[currentTheme].color
     };
   } else {
     labelStyle = {

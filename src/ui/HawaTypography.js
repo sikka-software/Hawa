@@ -5,14 +5,14 @@ import { ThemeProvider } from "../themes/HawaProvider";
 import Typography from "@mui/material/Typography";
 
 export const HawaTypography = (props) => {
-  const theme = useContext(ThemeProvider);
-  const currentTheme = Object.keys(theme.actionButton).find(
-    (themeName) => themeName.toLowerCase() === props.themeType?.toLowerCase()
+  const { hawaTheme, themeName } = useContext(ThemeProvider);
+  const currentTheme = Object.keys(hawaTheme.typography).find(
+    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   );
   let typographyStyle = {};
 
   if (currentTheme) {
-    typographyStyle = { ...theme.typography[currentTheme] };
+    typographyStyle = { ...hawaTheme.typography[currentTheme] };
   } else {
     typographyStyle = {
       color: "black"
