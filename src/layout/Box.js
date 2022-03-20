@@ -11,7 +11,7 @@ export const Box = (props) => {
   if (currentTheme) {
     boxStyle = {
       display: "flex",
-      flexDirection: "column",
+      flexDirection: props.horizontal ? "row" : "column",
       ...hawaTheme.layout[currentTheme],
       backgroundColor: props.noColor
         ? "none"
@@ -23,7 +23,7 @@ export const Box = (props) => {
   } else {
     boxStyle = {
       display: "flex",
-      flexDirection: "column",
+      flexDirection: props.horizontal ? "row" : "column",
       color: "white",
       marginTop: props.last ? 10 * 2 : 0,
       backgroundColor: props.noColor ? "none" : "lightGrey",

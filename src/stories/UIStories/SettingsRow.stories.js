@@ -15,32 +15,50 @@ export default {
     theme: {
       options: ["primary", "secondary", "default"],
       control: { type: "select" }
+    },
+    type: {
+      options: ["checkbox", "text", "default"],
+      control: { type: "select" }
     }
   },
   args: {
-    theme: "primary"
+    theme: "primary",
+    type: "checkbox"
   }
 };
 
 const HawaSettingsRowTemplate = (args) => {
   return (
     <HawaProvider themeName={args.theme}>
-      <HawaSettingsRow settingsType="checkbox" />
+      <HawaSettingsRow settingsType={args.type} />
     </HawaProvider>
   );
 };
 
 export const Checkbox = HawaSettingsRowTemplate.bind({});
 Checkbox.args = {
-  theme: "primary"
+  theme: "primary",
+  type: "checkbox"
 };
-export const TextFieldSettings = (args) => {
+export const Text = (args) => {
   return (
     <HawaProvider themeName={args.theme}>
-      <HawaSettingsRow settingsType="text" />
+      <HawaSettingsRow settingsType={args.type} />
     </HawaProvider>
   );
 };
-TextFieldSettings.args = {
-  theme: "primary"
+Text.args = {
+  theme: "primary",
+  type: "text"
+};
+export const Radio = (args) => {
+  return (
+    <HawaProvider themeName={args.theme}>
+      <HawaSettingsRow settingsType={args.type} />
+    </HawaProvider>
+  );
+};
+Radio.args = {
+  theme: "primary",
+  type: "radio"
 };

@@ -1,7 +1,12 @@
 import { createContext } from "react";
 
 //make the text color of the action buttons different from the text color of the layout
+let allPrimaryBG = "#f90900";
+let allPrimaryAction = "#B20D30";
 export const defaultTheme = {
+  allPrimaryBG: "#f90900",
+  allPrimaryAction: "#138A36",
+  allBorderRadius: 10,
   borderRadius: 10,
   primaryColor: "blue",
   secondaryColor: "grey",
@@ -16,7 +21,6 @@ export const defaultTheme = {
   testcolor: "green",
   margins: 10,
   paddings: 10,
-  allBorderRadius: 10,
   typography: {
     primary: { color: "black" },
     secondary: { color: "white" }
@@ -24,14 +28,14 @@ export const defaultTheme = {
   logoButton: {
     primary: {
       borderRadius: 10,
-      backgroundColor: "#f90900",
+      backgroundColor: allPrimaryAction,
       // margin: 10,
       marginTop: 10,
       padding: 10,
       border: "1px solid #ced4da",
       height: 50,
       "&:focus": {
-        borderColor: "green"
+        borderColor: allPrimaryAction
       }
     },
     secondary: {
@@ -49,7 +53,8 @@ export const defaultTheme = {
   actionButton: {
     primary: {
       borderRadius: 10,
-      backgroundColor: "#f90900",
+      // backgroundColor: "#f90900",
+      backgroundColor: allPrimaryAction,
       color: "white",
       margin: 10,
       padding: 10,
@@ -88,25 +93,16 @@ export const defaultTheme = {
   inputFields: {
     primary: {
       backgroundColor: "white",
-
       borderRadius: 10,
-
       "&:focus": {
-        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
         borderColor: "red",
         borderWidth: 1,
         border: "1px solid black"
-        // borderColor: HawaTheme.inputFields[currentTheme]?.backgroundColor
       },
-
       "&:hover": {
-        // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
         borderColor: "red",
         borderWidth: 1,
-        // backgroundColor: "green",
         border: "1px solid black"
-
-        // borderColor: HawaTheme.inputFields[currentTheme]?.backgroundColor
       }
     },
     secondary: {
@@ -133,15 +129,29 @@ export const defaultTheme = {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "red",
+      backgroundColor: "#F5F5F5",
       margin: 0,
       padding: 10,
       borderRadius: 10
     },
     secondary: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
       backgroundColor: "blue",
       margin: 0,
       padding: 5,
+      borderRadius: 10
+    }
+  },
+  radioSelector: {
+    primary: {
+      padding: 10,
+      borderRadius: 10
+    },
+    secondary: {
+      padding: 10,
       borderRadius: 10
     }
   }

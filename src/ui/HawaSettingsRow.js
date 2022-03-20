@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
 import { Box } from "../layout";
-import { Checkbox } from "@mui/material";
-import { HawaTextField } from "./HawaTextField";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
 
 export const HawaSettingsRow = (props) => {
   const { hawaTheme, themeName } = useContext(ThemeProvider);
@@ -21,6 +21,13 @@ export const HawaSettingsRow = (props) => {
     };
   } else {
     settingsRowStyle = {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: "#F5F5F5",
+      margin: 0,
+
       backgroundColor: "lightGrey",
       color: "black",
       padding: 10
@@ -36,21 +43,21 @@ export const HawaSettingsRow = (props) => {
       )}
       {props.settingsType === "text" && (
         <div style={{ ...settingsRowStyle }}>
-          Checkbox Label{" "}
-          <HawaTextField
-            name="password"
-            placeholder="Enter password"
-            type="password"
-            inputLabel="Password"
-            // startAdornment={
-            //   <InputAdornment position="start">
-            //     <PasswordIcon />
-            //   </InputAdornment>
-            // }
-            rules={{
-              required: "Password is rquired"
+          Text Label{" "}
+          <TextField
+            InputProps={{
+              style: {
+                ...hawaTheme.inputFields[currentTheme],
+                // borderRadius: 0,
+                // padding: 0,
+                // backgroundColor: "white",
+                height: 40
+              }
             }}
-            // helperText={errors.password?.message}
+            style={{
+              padding: 0
+            }}
+            placeholder="test"
           />
         </div>
       )}

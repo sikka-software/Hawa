@@ -2,50 +2,39 @@ import React from "react";
 import { HawaProvider } from "../../themes/HawaProvider";
 import { HawaRadio } from "../../ui";
 
-const Template = (args) => {
-  const theme = {
-    borderRadius: 5,
-    primaryColor: "green",
-    secondaryColor: "red",
-    // margins: "10px",
-    paddings: 10
-  };
-  return (
-    <HawaProvider theme={theme}>
-      <HawaRadio {...args} />
-    </HawaProvider>
-  );
-};
 export default {
   title: "UI/RadioSelector",
   component: HawaRadio,
   argTypes: {
-    options: {
-      control: "array"
+    theme: {
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
     }
   },
   args: {
-    options: [
-      { text: "Option 1", label: "option1" },
-      { text: "Option 2", label: "option2" },
-      { text: "Option 3", label: "option3" }
-    ]
+    theme: "primary"
   }
 };
 
+const Template = (args) => {
+  return (
+    <HawaProvider themeName={args.theme}>
+      <HawaRadio
+        defaultValue="option1"
+        options={[
+          { text: "Option 1", label: "option1" },
+          { text: "Option 2", label: "option2" },
+          { text: "Option 3", label: "option3" }
+        ]}
+      />
+    </HawaProvider>
+  );
+};
 export const Light = Template.bind({});
 
 Light.args = {
-  options: [
-    { text: "Option 1", label: "option1" },
-    { text: "Option 2", label: "option2" },
-    { text: "Option 3", label: "option3" }
-  ],
-  selectedColor: "blue",
-  borderRadius: 12,
-  defaultValue: "option2",
-  bgSelectedColor: "red",
-  textSelectedColor: "white",
+  theme: "primary",
+
   handleChange: () => {
     console.log("handleChange goes here");
   }
@@ -57,11 +46,7 @@ Dark.args = {
     { text: "Option 2", label: "option2" },
     { text: "Option 3", label: "option3" }
   ],
-  selectedColor: "blue",
-  borderRadius: 12,
   defaultValue: "option2",
-  bgSelectedColor: "blue",
-  textSelectedColor: "white",
   handleChange: () => {
     console.log("handleChange goes here");
   }
