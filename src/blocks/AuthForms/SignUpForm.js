@@ -6,7 +6,8 @@ import {
   GoogleButton,
   GithubButton,
   TwitterButton,
-  HawaAlert
+  HawaAlert,
+  HawaTypography
 } from "../../ui";
 import PropTypes from "prop-types";
 import { FormProvider, useForm } from "react-hook-form";
@@ -96,6 +97,26 @@ export const SignUpForm = (props) => {
           </form>
         </FormProvider>
       </Box>
+      <HawaTypography
+        style={{
+          marginTop: 5,
+          // width: "max-content",
+          textAlign: "center",
+          padding: 5
+        }}
+      >
+        Existing user?{" "}
+        <span
+          onClick={() => console.log("res")}
+          style={{
+            cursor: "pointer",
+            color: "blue",
+            textAlign: "center"
+          }}
+        >
+          Sign in
+        </span>
+      </HawaTypography>
       {props.viaGoogle && (
         <GoogleButton
           buttonText={props.googleButtonLabel}
