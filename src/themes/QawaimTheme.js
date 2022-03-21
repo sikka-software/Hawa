@@ -162,6 +162,13 @@ import { createTheme } from "@mui/system";
 export const QawaimTheme = createTheme({
   components: {
     MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          fontSize: "1rem"
+        }
+      },
       variants: [
         {
           props: { variant: "withLogo" },

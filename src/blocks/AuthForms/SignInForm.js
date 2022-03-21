@@ -31,19 +31,19 @@ export const SignInForm = (props) => {
             <HawaTextField
               type="text"
               name="email"
-              inputLabel="Email"
-              placeholder="Enter your email"
+              inputLabel={props.texts.emailLabel}
+              placeholder={props.texts.emailPlaceholder}
               startAdornment={
                 <InputAdornment position="start">
                   <EmailIcon />
                 </InputAdornment>
               }
               rules={{
-                required: "Email is required",
+                required: props.texts.emailRequired,
                 pattern: {
                   value:
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "Invalid email address"
+                  message: props.texts.emailInvalidText
                 }
               }}
               helperText={errors.email?.message}
@@ -51,16 +51,16 @@ export const SignInForm = (props) => {
 
             <HawaTextField
               name="password"
-              placeholder="Enter password"
+              placeholder={props.texts.passwordPlaceholder}
               type="password"
-              inputLabel="Password"
+              inputLabel={props.texts.passwordLabel}
               startAdornment={
                 <InputAdornment position="start">
                   <PasswordIcon />
                 </InputAdornment>
               }
               rules={{
-                required: "Password is rquired"
+                required: props.texts.passwordRequired
               }}
               helperText={errors.password?.message}
             />
@@ -71,15 +71,15 @@ export const SignInForm = (props) => {
                 width: "max-content",
                 padding: 5
               }}
-              onClick={() => console.log("res")}
+              onClick={props.handleForgotPassword}
             >
-              Forgot password?
+              {props.texts.forgotPasswordText}
             </HawaTypography>
             <ActionButton
               type="submit"
               fullWidth
               last={"true"}
-              text={"Sign In"}
+              text={props.texts.signInText}
             />
           </form>
         </FormProvider>
@@ -92,37 +92,37 @@ export const SignInForm = (props) => {
           padding: 5
         }}
       >
-        New user?{" "}
+        {props.texts.newUserText}{" "}
         <span
-          onClick={() => console.log("res")}
+          onClick={props.handleRouteToSignUp}
           style={{
             cursor: "pointer",
             color: "blue",
             textAlign: "center"
           }}
         >
-          Sign up
+          {props.texts.signUpText}
         </span>
       </HawaTypography>
       {props.viaGoogle && (
         <HawaLogoButton
           logo="google"
-          buttonText={props.googleButtonLabel}
-          handleClick={props.handleGoogleSignIn}
+          buttonText={props.texts.googleButtonLabel}
+          onClick={props.handleGoogleSignIn}
         />
       )}
       {props.viaGithub && (
         <HawaLogoButton
           logo="github"
-          buttonText={props.githubButtonLabel}
-          handleClick={props.handleGithubSignIn}
+          buttonText={props.texts.githubButtonLabel}
+          onClick={props.handleGithubSignIn}
         />
       )}
       {props.viaTwitter && (
         <HawaLogoButton
           logo="twitter"
-          buttonText={props.twitterButtonLabel}
-          handleClick={props.handleTwitterSignIn}
+          buttonText={props.texts.twitterButtonLabel}
+          onClick={props.handleTwitterSignIn}
         />
       )}
     </Box>

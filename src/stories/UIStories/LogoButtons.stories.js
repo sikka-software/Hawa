@@ -1,5 +1,6 @@
 import React from "react";
-import { HawaProvider } from "../../themes/HawaProvider";
+// import { QawaimTheme } from "../../themes/QawaimTheme";
+// import { HawaProvider } from "../../themes/HawaProvider";
 import { ActionButton, HawaLogoButton } from "../../ui";
 
 export default {
@@ -19,12 +20,9 @@ export default {
     theme: "primary"
   }
 };
+
 const Template = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <HawaLogoButton logo={args.logo} buttonText={args.buttonLabel} />
-    </HawaProvider>
-  );
+  return <HawaLogoButton logo={args.logo} buttonText={args.buttonLabel} />;
 };
 
 export const Google = Template.bind({});

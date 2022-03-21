@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@mui/material";
 import React from "react";
 import {
   NewPasswordForm,
@@ -5,7 +6,7 @@ import {
   SignInForm,
   SignUpForm
 } from "../../blocks/AuthForms";
-import { HawaProvider } from "../../themes/HawaProvider";
+import { HawaProvider, TestTheme } from "../../themes/HawaProvider";
 
 export default {
   title: "Blocks/AuthBlocks",
@@ -24,16 +25,31 @@ const SignInTemplate = (args) => {
       <SignInForm
         {...args}
         error={args.showError}
+        texts={{
+          emailLabel: "Email",
+          emailPlaceholder: "Enter your email",
+          emailRequiredText: "Email is required",
+          emailInvalidText: "Invalid email address",
+          passwordLabel: "Password",
+          passwordPlaceholder: "Enter password",
+          passwordRequiredText: "Password is required",
+          forgotPasswordText: "Forgot password?",
+          newUserText: "New user?",
+          signUpText: "Sign up",
+          signInText: "Sign in",
+          googleButtonLabel: "Sign in with Google",
+          githubButtonLabel: "Sign in with Github",
+          twitterButtonLabel: "Sign in with Twitter"
+        }}
         handleSignIn={(e) => console.log("singing in via email", e)}
-        viaGoogle={args.viaGoogle}
-        googleButtonLabel={"Sign in with Google"}
+        handleForgotPassword={() => console.log("user forgot password")}
         handleGoogleSignIn={() => console.log("signing in via google")}
-        viaGithub={args.viaGithub}
-        githubButtonLabel={"Sign in with Github"}
         handleGithubSignIn={() => console.log("signing in via github")}
-        viaTwitter={args.viaTwitter}
-        twitterButtonLabel={"Sign in with Twitter"}
         handleTwitterSignIn={() => console.log("signing in via Twitter")}
+        handleRouteToSignUp={() => console.log("switching to sign up")}
+        viaGoogle={args.viaGoogle}
+        viaGithub={args.viaGithub}
+        viaTwitter={args.viaTwitter}
       />
     </HawaProvider>
   );
@@ -50,22 +66,39 @@ SignIn.args = {
 
 const SignUpTemplate = (args) => {
   return (
-    <HawaProvider themeName={args.theme}>
+    <ThemeProvider theme={TestTheme}>
       <SignUpForm
-        {...args}
-        error={args.showError}
-        handleSignUp={() => console.log("singing up via email")}
-        viaGoogle={args.viaGoogle}
-        googleButtonLabel={"Sign up with Google"}
-        handleGoogleSignUp={() => console.log("signing up via google")}
-        viaGithub={args.viaGithub}
-        githubButtonLabel={"Sign up with Github"}
-        handleGithubSignUp={() => console.log("signing up via github")}
-        viaTwitter={args.viaTwitter}
-        twitterButtonLabel={"Sign up with Twitter"}
-        handleTwitterSignUp={() => console.log("signing up via Twitter")}
+        // {...args}
+        // texts={{
+        //   fullNameLabel: "Full Name",
+        //   fullNamePlaceholder: "Fulan AlFulani",
+        //   emailLabel: "Email",
+        //   emailPlaceholder: "Enter your email",
+        //   emailRequiredText: "Email is required",
+        //   emailInvalidText: "Invalid email address",
+        //   passwordLabel: "Password",
+        //   passwordPlaceholder: "Minimum 8 characters",
+        //   passwordRequiredText: "Password is required",
+        //   passwordTooShortText: "Password too short",
+        //   forgotPasswordText: "Forgot password?",
+        //   newUserText: "New user?",
+        //   signUpText: "Sign up",
+        //   signInText: "Sign in",
+        //   googleButtonLabel: "Sign in with Google",
+        //   githubButtonLabel: "Sign in with Github",
+        //   twitterButtonLabel: "Sign in with Twitter"
+        // }}
+        // error={args.showError}
+        // viaGoogle={args.viaGoogle}
+        // viaGithub={args.viaGithub}
+        // viaTwitter={args.viaTwitter}
+        // handleSignUp={() => console.log("singing up via email")}
+        // handleGoogleSignUp={() => console.log("signing up via google")}
+        // handleGithubSignUp={() => console.log("signing up via github")}
+        // handleTwitterSignUp={() => console.log("signing up via Twitter")}
+        // handleRouteToSignIn={() => console.log("switching to sign in")}
       />
-    </HawaProvider>
+    </ThemeProvider>
   );
 };
 export const SignUp = SignUpTemplate.bind({});
@@ -80,7 +113,12 @@ SignUp.args = {
 const ResetPasswordTemplate = (args) => {
   return (
     <HawaProvider themeName={args.theme}>
-      <ResetPasswordForm error={args.showError} theme={args.theme} {...args} />
+      <ResetPasswordForm
+        error={args.showError}
+        theme={args.theme}
+        {...args}
+        handleResetPassword={() => console.log("resetting password")}
+      />
     </HawaProvider>
   );
 };

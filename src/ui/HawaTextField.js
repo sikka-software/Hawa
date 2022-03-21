@@ -1,69 +1,101 @@
 import React, { useContext } from "react";
-import InputBase from "@mui/material/InputBase";
+// import InputBase from "@mui/material/InputBase";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
-import PropTypes from "prop-types";
-import { ThemeProvider } from "../themes/HawaProvider";
+// import { styled } from "@mui/material/styles";
+// import PropTypes from "prop-types";
+// import { ThemeProvider } from "../themes/HawaProvider";
 import { HawaInputLabel } from "./HawaInputLabel";
 import { Controller, useFormContext } from "react-hook-form";
+import { InputLabel, TextField } from "@mui/material";
 
 export const HawaTextField = (props) => {
   const { control, register } = useFormContext();
 
-  const { hawaTheme, themeName } = useContext(ThemeProvider);
-  const currentTheme = Object.keys(hawaTheme.inputFields).find(
-    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
-  );
-  let textFieldStyle = {};
+  // const { hawaTheme, themeName } = useContext(ThemeProvider);
+  // const currentTheme = Object.keys(hawaTheme.inputFields).find(
+  //   (tName) => tName.toLowerCase() === themeName?.toLowerCase()
+  // );
+  // let textFieldStyle = {};
 
-  if (currentTheme) {
-    textFieldStyle = {
-      ...hawaTheme.inputFields[currentTheme],
-      margin: props.last ? 0 : hawaTheme.inputFields[currentTheme].margin,
-      marginTop: props.last ? hawaTheme.inputFields[currentTheme].margin * 2 : 0
-    };
-  } else {
-    textFieldStyle = {
-      backgroundColor: "white"
-    };
-  }
+  // if (currentTheme) {
+  //   textFieldStyle = {
+  //     ...hawaTheme.inputFields[currentTheme],
+  //     margin: props.last ? 0 : hawaTheme.inputFields[currentTheme].margin,
+  //     marginTop: props.last
+  //       ? hawaTheme.inputFields[currentTheme].margin * 2
+  //       : 0,
+  //   };
+  // } else {
+  //   textFieldStyle = {
+  //     backgroundColor: "white"
+  //   };
+  // }
 
-  const StyledTextField = styled(InputBase)(({ theme }) => {
-    return {
-      // "label + &": {
-      //   marginTop: theme.spacing(3)
-      // },
-      "& .MuiInputBase-input": {
-        // backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
-        transition: theme.transitions.create([
-          "border-color",
-          "background-color",
-          "box-shadow"
-        ])
+  // const StyledTextField = styled(InputBase)(({ theme }) => {
+  //   return {
+  //     // "& .MuiInputBase-input": {
+  //     //   // border: "1px solid #ced4da",
+  //     //   fontSize: 16,
+  //     //   // padding: "10px 12px",
+  //     //   marginBottom: props.helperText ? 5 : 0,
+  //     //   // paddingLeft: 10,
+  //     //   // paddingRight: 10,
+  //     //   ...textFieldStyle
+  //     // },
+  //     // "& .MuiInputBase-root": {
+  //     //   border: "1px solid #ced4da",
+  //     //   fontSize: 16,
+  //     //   // width: "auto",
+  //     //   // padding: "10px 12px",
+  //     //   marginBottom: props.helperText ? 5 : 0,
+  //     //   // paddingLeft: 10,
+  //     //   // paddingRight: 10,
 
-        // backgroundColor: "red"
-      },
+  //     //   // ...textFieldStyle,
+  //     //   backgroundColor: "blue"
+  //     //   // "&:focus": {
+  //     //   //   borderColor: "red",
+  //     //   //   borderWidth: 1,
+  //     //   //   outline: "1px solid black",
+  //     //   //   backgroundColor: "red"
+  //     //   // }
+  //     //   // "& input:valid + fieldset": {
+  //     //   //   borderColor: "green",
+  //     //   //   borderWidth: 2
+  //     //   // },
+  //     //   // "& input:invalid + fieldset": {
+  //     //   //   borderColor: "red",
+  //     //   //   borderWidth: 2
+  //     //   // },
+  //     //   // "& input:valid:focus + fieldset": {
+  //     //   //   borderLeftWidth: 6,
+  //     //   //   padding: "4px !important" // override inline-style
+  //     //   // }
+  //     // },
 
-      // position: "relative",
-      border: "1px solid #ced4da",
-      fontSize: 16,
-      // width: "auto",
-      padding: "10px 12px",
-      marginBottom: props.helperText ? 5 : 0,
-      paddingLeft: 10,
-      paddingRight: 10,
-      ...textFieldStyle
-      // backgroundColor: "green"
-    };
-  });
+  //     // "&:hover": {
+  //     //   borderColor: "red",
+  //     //   borderWidth: 1,
+  //     //   outline: "1px solid black"
+  //     // },
+
+  //     // paddingLeft: 10,
+  //     // paddingRight: 10,
+  //     // border: "none"
+
+  //     // position: "relative",
+  //     // backgroundColor: "green"
+  //     ...textFieldStyle
+  //   };
+  // });
 
   return (
     <Controller
       render={({ field }) => (
         <>
-          {props.inputLabel && <HawaInputLabel label={props.inputLabel} />}
+          {props.inputLabel && <InputLabel label={props.inputLabel} />}
 
-          <StyledTextField
+          <TextField
             fullWidth={true}
             // helperText={props.helperText}
             type={props.type ?? "text"}
@@ -101,7 +133,7 @@ export const HawaTextField = (props) => {
   );
 };
 
-HawaTextField.propTypes = {
-  type: PropTypes.oneOf(["text", "number", "password"]),
-  helperText: PropTypes.string
-};
+// HawaTextField.propTypes = {
+//   type: PropTypes.oneOf(["text", "number", "password"]),
+//   helperText: PropTypes.string
+// };
