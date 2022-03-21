@@ -1710,7 +1710,7 @@
     "lodash" "^4.17.21"
     "ts-dedent" "^2.0.0"
 
-"@storybook/addon-docs@6.4.19":
+"@storybook/addon-docs@^6.4.19", "@storybook/addon-docs@6.4.19":
   "integrity" "sha512-OEPyx/5ZXmZOPqIAWoPjlIP8Q/YfNjAmBosA8tmA8t5KCSiq/vpLcAvQhxqK6n0wk/B8Xp67Z8RpLfXjU8R3tw=="
   "resolved" "https://registry.npmjs.org/@storybook/addon-docs/-/addon-docs-6.4.19.tgz"
   "version" "6.4.19"
