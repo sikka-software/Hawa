@@ -87,7 +87,8 @@ const ResetPasswordTemplate = (args) => {
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
   theme: "primary",
-  showError: false
+  showError: false,
+  sent: false
 };
 const NewPasswordTemplate = (args) => {
   return (
@@ -99,5 +100,6 @@ const NewPasswordTemplate = (args) => {
 export const NewPassword = NewPasswordTemplate.bind({});
 NewPassword.args = {
   theme: "primary",
-  showError: false
+  showError: false,
+  passwordChanged: false
 };

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Box } from "../../layout";
-import { ActionButton, HawaTextField, HawaAlert } from "../../ui";
+import {
+  ActionButton,
+  HawaTextField,
+  HawaAlert,
+  HawaTypography
+} from "../../ui";
 import { FormProvider, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
@@ -48,43 +53,54 @@ export const NewPasswordForm = (props) => {
         {props.error && (
           <HawaAlert text="This is a new password alert" severity="error" />
         )}
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(props.handleNewPassword)}>
-            <HawaTextField
-              name="password"
-              type="password"
-              inputLabel="Choose new password"
-              placeholder="Enter password"
-              onChange={(e) => setNewPassword(e.target.value)}
-              value={newPassword}
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.password?.message}
-            />
-            <HawaTextField
-              name="confirmPassword"
-              type="password"
-              placeholder="Confirm Password"
-              inputLabel="Confirm"
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.confirmPassword?.message}
-            />
-            <ActionButton fullWidth type="submit" last text="Reset Password" />
-          </form>
-        </FormProvider>
+        {props.passwordChanged ? (
+          <HawaTypography style={{ textAlign: "center", margin: 5 }}>
+            Your password has been changed, you'll be redirected to sign in page
+          </HawaTypography>
+        ) : (
+          <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(props.handleNewPassword)}>
+              <HawaTextField
+                name="password"
+                type="password"
+                inputLabel="Choose new password"
+                placeholder="Enter password"
+                onChange={(e) => setNewPassword(e.target.value)}
+                value={newPassword}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <PasswordIcon />
+                  </InputAdornment>
+                }
+                rules={{
+                  required: "Password is rquired"
+                }}
+                helperText={errors.password?.message}
+              />
+              <HawaTextField
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                inputLabel="Confirm"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <PasswordIcon />
+                  </InputAdornment>
+                }
+                rules={{
+                  required: "Password is rquired"
+                }}
+                helperText={errors.confirmPassword?.message}
+              />
+              <ActionButton
+                fullWidth
+                type="submit"
+                last
+                text="Reset Password"
+              />
+            </form>
+          </FormProvider>
+        )}
       </Box>
     </Box>
   );
