@@ -14,7 +14,7 @@ export const HawaInputLabel = (props) => {
       margin: 15,
       marginRight: 5,
       marginLeft: 5,
-      color: hawaTheme.layout[currentTheme].color
+      color: hawaTheme?.layout[currentTheme].color
     };
   } else {
     labelStyle = {

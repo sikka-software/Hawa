@@ -55,12 +55,12 @@ export const HawaRadio = (props) => {
                   ? currentTheme
                     ? hawaTheme.actionButton[currentTheme]?.backgroundColor
                     : "black"
-                  : hawaTheme.layout[currentTheme]?.backgroundColor,
+                  : hawaTheme?.layout[currentTheme]?.backgroundColor,
               color:
                 value.toLowerCase() === singleOption.label.toLowerCase()
                   ? hawaTheme.actionButton[currentTheme]?.color
                   : currentTheme
-                  ? hawaTheme.layout[currentTheme]?.color
+                  ? hawaTheme?.layout[currentTheme]?.color
                   : "black"
             }}
           >

@@ -12,12 +12,12 @@ export const Box = (props) => {
     boxStyle = {
       display: "flex",
       flexDirection: props.horizontal ? "row" : "column",
-      ...hawaTheme.layout[currentTheme],
+      ...hawaTheme?.layout[currentTheme],
       backgroundColor: props.noColor
         ? "none"
         : hawaTheme.layout[currentTheme].backgroundColor,
-      padding: props.noPadding ? 0 : hawaTheme.layout[currentTheme].padding,
-      margin: props.noMargin ? 0 : hawaTheme.layout[currentTheme].margin,
+      padding: props.noPadding ? 0 : hawaTheme?.layout[currentTheme].padding,
+      margin: props.noMargin ? 0 : hawaTheme?.layout[currentTheme].margin,
       maxWidth: props.maxWidth
     };
   } else {
