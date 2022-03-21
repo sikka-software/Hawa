@@ -3,22 +3,8 @@ import CastIcon from "@mui/icons-material/Cast";
 import { HawaProvider } from "../../themes/HawaProvider";
 import { AdaptiveButton } from "../../ui";
 
-const Template = (args) => {
-  const theme = {
-    borderRadius: 10,
-    primaryColor: "#004fff",
-    secondaryColor: "red",
-    // margins: "10px",
-    paddings: 10
-  };
-  return (
-    <HawaProvider theme={theme}>
-      <AdaptiveButton {...args} />
-    </HawaProvider>
-  );
-};
 export default {
-  title: "UI/AdaptiveButton",
+  title: "Elements/Buttons/AdaptiveButton",
   component: AdaptiveButton,
   argsTypes: {
     buttonLabel: { control: "text" },
@@ -26,40 +12,53 @@ export default {
     buttonColor: { control: "color" },
     padding: { control: "number" },
     hintTitle: { control: "text" },
-    hintContent: { control: "text" }
+    hintContent: { control: "text" },
+    theme: {
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
+    }
   },
   args: {
-    // type: "text",
-    // buttonLabel: "Test"
-    // borderRadius: 15,
     hintTitle: "test",
     hintContent: "more test",
-    buttonColor: "#f9f9f9"
+    buttonColor: "#f9f9f9",
+    theme: "primary"
   }
 };
 
-export const Light = Template.bind({});
-Light.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  icon: <CastIcon />,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
+const Template = (args) => {
+  return (
+    <HawaProvider themeName={args.theme}>
+      <AdaptiveButton {...args} />
+    </HawaProvider>
+  );
+};
+
+export const FullButton = Template.bind({});
+FullButton.args = {
+  // showText: true,
+  // buttonLabel: "test",
+  // borderRadius: 5,
+  // icon: <CastIcon />,
+  // textColor: "#000000",
+  // buttonColor: "#f9f9f9",
+  theme: "primary"
   // placeholder: "Example ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",
   // padding: 10
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  buttonColor: "#878787",
-  textColor: "#ffffff",
-  icon: <CastIcon />
+export const IconOnly = Template.bind({});
+IconOnly.args = {
+  // showText: true,
+  // buttonLabel: "test",
+  // borderRadius: 5,
+  // buttonColor: "#878787",
+  // textColor: "#ffffff",
+  // icon: <CastIcon />,
+  theme: "primary"
+
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",
@@ -67,12 +66,14 @@ Dark.args = {
 };
 export const Danger = Template.bind({});
 Danger.args = {
-  showText: true,
-  buttonLabel: "test",
-  borderRadius: 5,
-  buttonColor: "#c0c0c0",
-  danger: true,
-  icon: <CastIcon />
+  // showText: true,
+  // buttonLabel: "test",
+  // borderRadius: 5,
+  // buttonColor: "#c0c0c0",
+  // danger: true,
+  // icon: <CastIcon />,
+  theme: "primary"
+
   // placeholder: "Exemple ...",
   // defaultValue: "This is default value",
   // inputLabel: "Text Field",

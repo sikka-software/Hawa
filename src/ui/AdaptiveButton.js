@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
 import { StyledTooltip } from "./StyledTooltip";
@@ -19,81 +18,35 @@ export const AdaptiveButton = (props) => {
   //full button
   if (showText) {
     return (
-      <motion.div
-        transition={{ duration: 0.2 }}
-        whileTap={{ scale: 1.2 }}
-        whileHover={{
-          // backgroundColor: props.hoverColor,
+      <Button
+        disableRipple
+        disabled={props.disabled}
+        aria-label={props.buttonLabel}
+        color={props.danger ? "secondary" : "primary"}
+        onClick={props.handleClick}
+        style={{
+          backgroundColor: theme.primaryColor,
           borderRadius: theme.borderRadius,
-          color: "red"
+          padding: theme.paddings,
+          color: getTextColor(theme.primaryColor)
+          // color: hovered
+          //   ? "#ffffff"
+          //   : props.danger
+          //   ? "#f50057"
+          //   : "var(--blue)"
         }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseDown={() => setHovered(true)}
-        onMouseUp={() => setHovered(false)}
-        onMouseOver={() => setHovered(true)}
-        onMouseOut={() => setHovered(false)}
       >
-        <Button
-          disableRipple
-          disabled={props.disabled}
-          aria-label={props.buttonLabel}
-          color={props.danger ? "secondary" : "primary"}
-          onClick={props.handleClick}
-          style={{
-            backgroundColor: theme.primaryColor,
-            borderRadius: theme.borderRadius,
-            padding: theme.paddings,
-            color: getTextColor(theme.primaryColor)
-            // color: hovered
-            //   ? "#ffffff"
-            //   : props.danger
-            //   ? "#f50057"
-            //   : "var(--blue)"
-          }}
-        >
-          {props.icon}
-          {props.showText ? (
-            <span style={{ marginLeft: props.icon ? 5 : 0 }}>
-              {props.buttonLabel}
-            </span>
-          ) : null}
-        </Button>
-      </motion.div>
+        {props.icon}
+        {props.showText ? (
+          <span style={{ marginLeft: props.icon ? 5 : 0 }}>
+            {props.buttonLabel}
+          </span>
+        ) : null}
+      </Button>
     );
   } else if (props.buttonLabelOnly) {
     return (
-      <motion.div
-        transition={{ duration: 0.2 }}
-        initial={{
-          width: "fit-content",
-          backgroundColor: props.buttonColor,
-          borderRadius: theme.borderRadius
-        }}
-        whileTap={{ scale: 1.2 }}
-        whileHover={{
-          backgroundColor: props.hoverColor,
-          borderRadius: theme.borderRadius
-        }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseDown={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseUp={() => {
-          setHovered(false);
-          setTooltip(true);
-        }}
-        onMouseOver={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseOut={() => {
-          setHovered(false);
-          // setTooltip(true);
-        }}
-      >
+      <>
         <Tooltip
           placement={screenSize.width > 400 ? "bottom-center" : "top-center"}
           enterTouchDelay={100}
@@ -146,100 +99,31 @@ export const AdaptiveButton = (props) => {
             {props.buttonLabel}
           </Button>
         </Tooltip>
-      </motion.div>
+      </>
     );
   } else {
     //icon only
     return (
-      <motion.div
-        transition={{ duration: 0.2 }}
-        initial={{
-          width: "fit-content",
-          backgroundColor: props.buttonColor,
-          borderRadius: theme.borderRadius,
-          // padding: 5,
-          margin: 5
-        }}
-        whileTap={{ scale: 1.2 }}
-        whileHover={{
-          backgroundColor: props.hoverColor,
-          borderRadius: theme.borderRadius
-        }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseDown={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseUp={() => {
-          setHovered(false);
-          setTooltip(true);
-        }}
-        onMouseOver={() => {
-          setHovered(true);
-          setTooltip(true);
-        }}
-        onMouseOut={() => {
-          setHovered(false);
-          // setTooltip(true);
-        }}
-      >
-        <StyledTooltip hintTitle="Example" hintContent="More explaination here">
-          <Button
-            disabled={props.disabled}
-            size="small"
-            disableRipple
-            aria-label={props.buttonLabel}
-            onClick={props.handleClick}
-            color={props.danger ? "secondary" : "primary"}
-            style={{
-              padding: 10,
-              color: hovered
-                ? "#ffffff"
-                : props.danger
-                ? "#f50057"
-                : "var(--blue)"
-            }}
-          >
-            {props.icon}
-          </Button>
-        </StyledTooltip>
-        {/* <Tooltip
-          placement={screenSize.width > 400 ? "bottom-center" : "top-center"}
-          enterTouchDelay={100}
-          title={
-            props.hint ? (
-              props.hint
-            ) : (
-              <div>
-                <div
-                  style={{
-                    fontSize: 20,
-                    fontWeight: 800,
-                    padding: 10,
-                    paddingBottom: 5,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintTitle}
-                </div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 100,
-                    padding: 10,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintContent}
-                </div>
-              </div>
-            )
-          }
+      <StyledTooltip hintTitle="Example" hintContent="More explaination here">
+        <Button
+          disabled={props.disabled}
+          size="small"
+          disableRipple
+          aria-label={props.buttonLabel}
+          onClick={props.handleClick}
+          color={props.danger ? "secondary" : "primary"}
+          style={{
+            padding: 10,
+            color: hovered
+              ? "#ffffff"
+              : props.danger
+              ? "#f50057"
+              : "var(--blue)"
+          }}
         >
-
-        </Tooltip> */}
-      </motion.div>
+          {props.icon}
+        </Button>
+      </StyledTooltip>
     );
   }
 };

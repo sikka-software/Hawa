@@ -10,7 +10,8 @@ import {
   GooglePayButton,
   ApplePayButton,
   WalletButton,
-  HawaTypography
+  HawaTypography,
+  HawaLogoButton
 } from "../../ui";
 
 export const SelectPayment = (props) => {
@@ -19,43 +20,50 @@ export const SelectPayment = (props) => {
       <Box noMargin>
         <HawaTypography align="center">Choose Payment Method</HawaTypography>
         {props.viaWallet && (
-          <WalletButton
+          <HawaLogoButton
+            logo="wallet"
             buttonText={props.walletLabel}
             onClick={props.handleWallet}
           />
         )}
         {props.viaCreditCard && (
-          <VisaMasterButton
+          <HawaLogoButton
+            logo="visa/master"
             buttonText={props.visaMasterLabel}
             handleClick={props.handleCreditCard}
           />
         )}
         {props.viaMada && (
-          <MadaButton
+          <HawaLogoButton
+            logo="mada"
             buttonText={props.madaLabel}
             handleClick={props.handleMada}
           />
         )}
         {props.viaSTCPay && (
-          <STCPayButton
+          <HawaLogoButton
+            logo="stcpay"
             buttonText={props.stcPayLabel}
             handleClick={props.handleSTCPay}
           />
         )}
         {props.viaPayPal && (
-          <PayPalButton
+          <HawaLogoButton
+            logo="paypal"
             buttonText={props.paypalLabel}
             handleClick={props.handlePayPal}
           />
         )}
         {props.viaGooglePay && (
-          <GooglePayButton
+          <HawaLogoButton
+            logo="googlepay"
             buttonText={props.googlePayLabel}
             handleClick={props.handleGooglePay}
           />
         )}
         {props.viaApplePay && (
-          <ApplePayButton
+          <HawaLogoButton
+            logo="applepay"
             buttonText={props.applePayLabel}
             handleClick={props.handleApplePay}
           />

@@ -35,9 +35,7 @@ export const ActionButton = (props) => {
   }
 
   const StyledButton = styled(Button)(({ theme }) => {
-    return {
-      ...actionButtonStyle
-    };
+    return { ...actionButtonStyle };
   });
   return <StyledButton {...props}>{props.text}</StyledButton>;
 };

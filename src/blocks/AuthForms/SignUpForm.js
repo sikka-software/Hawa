@@ -3,11 +3,11 @@ import { Box } from "../../layout";
 import {
   HawaTextField,
   ActionButton,
-  GoogleButton,
   GithubButton,
   TwitterButton,
   HawaAlert,
-  HawaTypography
+  HawaTypography,
+  HawaLogoButton
 } from "../../ui";
 import PropTypes from "prop-types";
 import { FormProvider, useForm } from "react-hook-form";
@@ -118,19 +118,22 @@ export const SignUpForm = (props) => {
         </span>
       </HawaTypography>
       {props.viaGoogle && (
-        <GoogleButton
+        <HawaLogoButton
+          logo="google"
           buttonText={props.googleButtonLabel}
           handleClick={props.handleGoogleSignIn}
         />
       )}
       {props.viaGithub && (
-        <GithubButton
+        <HawaLogoButton
+          logo="github"
           buttonText={props.githubButtonLabel}
-          handleClick={props.handleGithubSignUp}
+          handleClick={props.handleGithubSignIn}
         />
       )}
       {props.viaTwitter && (
-        <TwitterButton
+        <HawaLogoButton
+          logo="twitter"
           buttonText={props.twitterButtonLabel}
           handleClick={props.handleTwitterSignIn}
         />

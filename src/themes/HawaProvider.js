@@ -31,7 +31,9 @@ export const defaultTheme = {
       backgroundColor: allPrimaryAction,
       // margin: 10,
       marginTop: 10,
-      padding: 10,
+      padding: 30,
+      paddingTop: 0,
+      paddingBottom: 0,
       border: "1px solid #ced4da",
       height: 50,
       "&:focus": {

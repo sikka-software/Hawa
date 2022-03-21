@@ -5,7 +5,7 @@ import {
   SignInForm,
   SignUpForm
 } from "../../blocks/AuthForms";
-import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
+import { HawaProvider } from "../../themes/HawaProvider";
 
 export default {
   title: "Blocks/AuthBlocks",

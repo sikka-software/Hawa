@@ -1,36 +1,23 @@
 import React from "react";
-
-import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
+import { HawaProvider } from "../../themes/HawaProvider";
 import { ActionButton } from "../../ui";
 
+export default {
+  title: "Elements/Buttons/ActionButton",
+  component: ActionButton,
+  argTypes: {
+    theme: {
+      options: ["primary", "secondary", "default"],
+      control: { type: "select" }
+    }
+  }
+};
 const Template = (args) => {
   return (
     <HawaProvider themeName={args.theme}>
       <ActionButton text={args.buttonLabel} />
     </HawaProvider>
   );
-};
-//types:
-//error (red)
-//warning (red)
-//notice (blue)
-
-export default {
-  title: "UI/ActionButton",
-  component: ActionButton,
-  argTypes: {
-    theme: {
-      description: "overwritten description",
-      table: {
-        type: {
-          summary: "something short"
-        },
-        defaultValue: { summary: "Hello" }
-      },
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
-    }
-  }
 };
 
 Template.args = {
@@ -50,4 +37,10 @@ Secondary.args = {
   showText: true,
   buttonLabel: "test",
   theme: "secondary"
+};
+export const Default = Template.bind({});
+Default.args = {
+  showText: true,
+  buttonLabel: "test",
+  theme: "default"
 };
