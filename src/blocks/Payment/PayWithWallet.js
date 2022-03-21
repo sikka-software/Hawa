@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionButton, WalletButton } from "../../ui";
+import { ActionButton } from "../../ui";
 import { Box } from "../../layout";
 
 export const PayWithWallet = (props) => {

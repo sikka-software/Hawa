@@ -3,8 +3,6 @@ import { Box } from "../../layout";
 import {
   HawaTextField,
   ActionButton,
-  GithubButton,
-  TwitterButton,
   HawaAlert,
   HawaTypography,
   HawaLogoButton

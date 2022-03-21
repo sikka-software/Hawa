@@ -1,18 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box } from "../../layout";
-import {
-  HawaTextField,
-  VisaMasterButton,
-  MadaButton,
-  STCPayButton,
-  PayPalButton,
-  GooglePayButton,
-  ApplePayButton,
-  WalletButton,
-  HawaTypography,
-  HawaLogoButton
-} from "../../ui";
+import { HawaTextField, HawaTypography, HawaLogoButton } from "../../ui";
 
 export const SelectPayment = (props) => {
   return (

@@ -2,8 +2,6 @@ import React from "react";
 import {
   HawaTextField,
   ActionButton,
-  TwitterButton,
-  GithubButton,
   HawaAlert,
   HawaTypography,
   HawaLogoButton
