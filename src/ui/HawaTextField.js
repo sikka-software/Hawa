@@ -1,14 +1,11 @@
 import React, { useContext } from "react";
 import InputBase from "@mui/material/InputBase";
 import Typography from "@mui/material/Typography";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "../themes/HawaProvider";
 import { HawaInputLabel } from "./HawaInputLabel";
 import { Controller, useFormContext } from "react-hook-form";
-
-import { InputAdornment, TextField } from "@mui/material";
-import { MailOutline } from "@mui/icons-material";
 
 export const HawaTextField = (props) => {
   const { control, register } = useFormContext();

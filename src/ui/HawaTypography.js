@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { styled, alpha } from "@mui/material/styles";
-import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
 import { ThemeProvider } from "../themes/HawaProvider";
 import Typography from "@mui/material/Typography";
 

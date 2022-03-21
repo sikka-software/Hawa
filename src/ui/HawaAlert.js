@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeProvider } from "../themes/HawaProvider";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
