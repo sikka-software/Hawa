@@ -22,6 +22,7 @@ export const defaultTheme = {
   margins: 10,
   paddings: 10,
   typography: {
+    fontFamily: ["IBMPlex"].join(","),
     primary: { color: "black" },
     secondary: { color: "white" }
   },
@@ -44,7 +45,9 @@ export const defaultTheme = {
       borderRadius: 10,
       backgroundColor: "#f90900",
       marginTop: 10,
-      padding: 10,
+      padding: 30,
+      paddingTop: 0,
+      paddingBottom: 0,
       border: "1px solid #ced4da",
       height: 50,
       "&:focus": {

@@ -5,7 +5,7 @@ import { ThemeProvider } from "../themes/HawaProvider";
 import { Box } from "../layout";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
-
+import { HawaTypography } from "./HawaTypography";
 export const HawaSettingsRow = (props) => {
   const { hawaTheme, themeName } = useContext(ThemeProvider);
   const currentTheme = Object.keys(hawaTheme.settingsRow).find(
@@ -38,7 +38,7 @@ export const HawaSettingsRow = (props) => {
     <Box noColor>
       {props.settingsType === "checkbox" && (
         <div style={{ ...settingsRowStyle }}>
-          Checkbox Label <Checkbox />
+          <HawaTypography>Checkbox Label</HawaTypography> <Checkbox />
         </div>
       )}
       {props.settingsType === "text" && (
