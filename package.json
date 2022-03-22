@@ -6,8 +6,8 @@
   "module": "es/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "start-storybook -p 6006",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006 -s public",
+    "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook",
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles"

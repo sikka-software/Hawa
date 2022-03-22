@@ -5,6 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 
@@ -63,26 +64,28 @@ export const SignInForm = (props) => {
             }}
             helperText={errors.password?.message}
           />
-          <HawaTypography
+          <Typography
             style={{
               cursor: "pointer",
               marginTop: 5,
               width: "max-content",
+              fontSize: 15,
               padding: 5
             }}
             onClick={props.handleForgotPassword}
           >
             {props.texts.forgotPasswordText}
-          </HawaTypography>
+          </Typography>
           <Button type="submit" fullWidth variant="last">
             {props.texts.signInText}
           </Button>
         </form>
       </FormProvider>
-      <HawaTypography
+      <Typography
+        variant="subtitle2"
         style={{
+          // fontSize: 15,
           marginTop: 5,
-          // width: "max-content",
           textAlign: "center",
           padding: 5
         }}
@@ -98,7 +101,7 @@ export const SignInForm = (props) => {
         >
           {props.texts.signUpText}
         </span>
-      </HawaTypography>
+      </Typography>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {props.viaGoogle && (
           <HawaLogoButton

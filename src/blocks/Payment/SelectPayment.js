@@ -19,42 +19,42 @@ export const SelectPayment = (props) => {
         <HawaLogoButton
           logo="visa/master"
           buttonText={props.visaMasterLabel}
-          handleClick={props.handleCreditCard}
+          onClick={props.handleCreditCard}
         />
       )}
       {props.viaMada && (
         <HawaLogoButton
           logo="mada"
           buttonText={props.madaLabel}
-          handleClick={props.handleMada}
+          onClick={props.handleMada}
         />
       )}
       {props.viaSTCPay && (
         <HawaLogoButton
           logo="stcpay"
           buttonText={props.stcPayLabel}
-          handleClick={props.handleSTCPay}
+          onClick={props.handleSTCPay}
         />
       )}
       {props.viaPayPal && (
         <HawaLogoButton
           logo="paypal"
           buttonText={props.paypalLabel}
-          handleClick={props.handlePayPal}
+          onClick={props.handlePayPal}
         />
       )}
       {props.viaGooglePay && (
         <HawaLogoButton
           logo="googlepay"
           buttonText={props.googlePayLabel}
-          handleClick={props.handleGooglePay}
+          onClick={props.handleGooglePay}
         />
       )}
       {props.viaApplePay && (
         <HawaLogoButton
           logo="applepay"
           buttonText={props.applePayLabel}
-          handleClick={props.handleApplePay}
+          onClick={props.handleApplePay}
         />
       )}
     </Container>

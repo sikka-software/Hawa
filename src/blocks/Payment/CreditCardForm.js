@@ -2,6 +2,7 @@ import React from "react";
 import { HawaTextField, ActionButton } from "../../ui";
 import { Box } from "../../layout";
 import { FormProvider, useForm } from "react-hook-form";
+import { Button, Container } from "@mui/material";
 
 export const CreditCardForm = (props) => {
   const methods = useForm();
@@ -11,50 +12,54 @@ export const CreditCardForm = (props) => {
   } = methods;
 
   return (
-    <Box maxWidth={400} noColor noMargin noPadding>
-      <Box noMargin>
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(props.handle)}>
-            <HawaTextField
-              name="password"
-              placeholder="Enter password"
-              type="password"
-              inputLabel="Password"
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <PasswordIcon />
-              //   </InputAdornment>
-              // }
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.password?.message}
-            />
+    <Container maxWidth="xs">
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(props.handle)}>
+          <HawaTextField
+            fullWidth
+            name="password"
+            placeholder="Enter password"
+            type="number"
+            label="Card Number"
+            // startAdornment={
+            //   <InputAdornment position="start">
+            //     <PasswordIcon />
+            //   </InputAdornment>
+            // }
+            rules={{
+              required: "Password is rquired"
+            }}
+            helperText={errors.password?.message}
+          />
 
-            <HawaTextField
-              name="password"
-              placeholder="Enter password"
-              type="password"
-              inputLabel="Password"
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <PasswordIcon />
-              //   </InputAdornment>
-              // }
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.password?.message}
-            />
-            <ActionButton
-              last
-              fullWidth
-              text={"Sign In"}
-              onClick={props.handleSignIn}
-            />
-          </form>
-        </FormProvider>
-      </Box>
-    </Box>
+          <HawaTextField
+            fullWidth
+            name="password"
+            placeholder="Enter password"
+            type="password"
+            label="Name On Card"
+            // startAdornment={
+            //   <InputAdornment position="start">
+            //     <PasswordIcon />
+            //   </InputAdornment>
+            // }
+            rules={{
+              required: "Password is rquired"
+            }}
+            helperText={errors.password?.message}
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="last"
+            onClick={props.handlePayWithCreditCard}
+          >
+            {/* {props.texts.signInText} */}
+            {"Pay with Credit Card"}
+          </Button>
+        </form>
+      </FormProvider>
+    </Container>
   );
 };

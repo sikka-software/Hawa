@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { HawaTextField, ActionButton, HawaTypography } from "../../ui";
-import { Box } from "../../layout";
+import { HawaTextField } from "../../ui";
 import { FormProvider, useForm } from "react-hook-form";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export const ChargeWalletForm = (props) => {
   const [walletAmount, setWalletAmount] = useState(0);
@@ -12,42 +14,43 @@ export const ChargeWalletForm = (props) => {
   } = methods;
 
   return (
-    <Box maxWidth={400} noColor noMargin noPadding>
-      <Box noMargin>
-        <HawaTypography variant="h2" align="center">
-          {Number(walletAmount).toLocaleString("en")}{" "}
-          <span style={{ fontSize: 20, letterSpacing: 1 }}>
-            {props.currency}
-          </span>
-        </HawaTypography>
-        <FormProvider {...methods}>
-          <form
-            onChange={(e) => {
-              e.preventDefault();
-              setWalletAmount(methods.getValues().amount);
+    <Container maxWidth="xs">
+      <Typography align="center" variant="h1">
+        {Number(walletAmount).toLocaleString("en") || "0"}
+        <Typography>{props.currency || "SAR"}</Typography>
+      </Typography>
+      <FormProvider {...methods}>
+        <form
+          onChange={(e) => {
+            e.preventDefault();
+            setWalletAmount(methods.getValues().amount);
+          }}
+          style={{ marginTop: 10 }}
+          onSubmit={handleSubmit(props.handleChargeWallet)}
+        >
+          <HawaTextField
+            fullWidth
+            name="amount"
+            placeholder="Enter amount"
+            type="number"
+            value={walletAmount}
+            rules={{
+              required: "Password is rquired"
             }}
-            style={{ marginTop: 10 }}
-            onSubmit={handleSubmit(props.handleChargeWallet)}
+            helperText={errors.amount?.message}
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="last"
+            onClick={props.handleSignIn}
           >
-            <HawaTextField
-              name="amount"
-              placeholder="Enter amount"
-              type="number"
-              value={walletAmount}
-              rules={{
-                required: "Password is rquired"
-              }}
-              helperText={errors.amount?.message}
-            />
-            <ActionButton
-              last
-              fullWidth
-              text={"Charge Wallet"} //move this to props
-              onClick={props.handleSignIn}
-            />
-          </form>
-        </FormProvider>
-      </Box>
-    </Box>
+            {/* {props.texts.signInText} */}
+            {"Charge Wallet"}
+          </Button>
+        </form>
+      </FormProvider>
+    </Container>
   );
 };

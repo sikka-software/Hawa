@@ -138,7 +138,7 @@ const defaultTheme = createTheme({
             backgroundColor: "white",
             marginTop: 10,
             padding: 10,
-            height: 40,
+            height: 50,
             borderRadius: allBorderRadius
           }
         }
