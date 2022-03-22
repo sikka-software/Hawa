@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  SelectPayment,
-  CreditCardForm,
-  ChargeWalletForm,
-  PayWithWallet
-} from "../../blocks/Payment";
+import { SelectPayment } from "../../../blocks/Payment";
 
 export default {
-  title: "Blocks/PaymentBlocks",
-  component: [SelectPayment, CreditCardForm],
+  title: "Blocks/Payment/Payment Selection",
+  component: [SelectPayment],
   argTypes: {
     theme: {
       options: ["primary", "secondary", "default"],
@@ -33,7 +28,7 @@ export default {
   }
 };
 
-export const PaymentSelection = (args) => {
+const PaymentSelectionTemplate = (args) => {
   return (
     <SelectPayment
       {...args}
@@ -54,18 +49,12 @@ export const PaymentSelection = (args) => {
     />
   );
 };
-
-export const PayViaWallet = (args) => {
-  return <PayWithWallet theme={args.theme} />;
-};
-export const PayViaCreditCard = (args) => {
-  return <CreditCardForm />;
-};
-
-export const ChargeWallet = (args) => {
-  return <ChargeWalletForm currency="SAR" />;
-};
-
-ChargeWallet.args = {
-  theme: "secondary"
+export const PaymentSelection = PaymentSelectionTemplate.bind({});
+PaymentSelection.args = {
+  viaGoogle: true,
+  viaGithub: true,
+  viaTwitter: true,
+  showError: false,
+  errorTitle: "Error",
+  errorText: "Something went wrong"
 };

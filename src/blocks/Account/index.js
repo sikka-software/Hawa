@@ -1,2 +1,2 @@
-export * from "./UserProfile.js";
-export * from "./UserSettings.js";
+export * from "./UserProfileForm.js";
+export * from "./UserSettingsForm.js";

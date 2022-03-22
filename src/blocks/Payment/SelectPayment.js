@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "../../layout";
 import { HawaTextField, HawaTypography, HawaLogoButton } from "../../ui";
 import { Container } from "@mui/material";
 
 export const SelectPayment = (props) => {
   return (
-    <Container maxWidth="xs" >
+    <Container maxWidth="xs">
       <HawaTypography align="center">Choose Payment Method</HawaTypography>
       {props.viaWallet && (
         <HawaLogoButton

@@ -19,11 +19,11 @@ export default {
   component: <Box />,
   parameters: {
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: theme.lightBackground },
-        { name: "dark", value: theme.darkBackground }
-      ]
+      default: "light"
+      // values: [
+      //   { name: "light", value: theme.lightBackground },
+      //   { name: "dark", value: theme.darkBackground }
+      // ]
     }
   }
 };
@@ -41,10 +41,5 @@ export const Compact = Template.bind({});
 Compact.args = {
   size: "small",
   showText: true,
-  buttonLabel: "test",
-  theme: {
-    // paddings: theme.paddings / 2,
-    textColor: "#000000",
-    buttonColor: "#f9f9f9"
-  }
+  buttonLabel: "test"
 };

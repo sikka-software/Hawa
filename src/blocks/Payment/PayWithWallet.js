@@ -17,7 +17,7 @@ export const PayWithWallet = (props) => {
         variant="last"
         onClick={props.handlePayWithWallet}
       >
-        {"Pay Wallet"}
+        {"Pay Now"}
       </Button>
     </Container>
   );

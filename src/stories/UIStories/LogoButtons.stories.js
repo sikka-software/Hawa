@@ -1,86 +1,73 @@
+import { Container } from "@mui/material";
 import React from "react";
 import { ActionButton, HawaLogoButton } from "../../ui";
 
 export default {
   title: "Elements/Buttons/LogoButtons",
-  component: ActionButton,
+  component: HawaLogoButton,
   argTypes: {
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
+    buttonLabel: {
+      control: "text",
+      description: "The text next to the logo"
     },
-    buttonLabel: { control: "text" },
-    logo: { control: "text" }
-  },
-  args: {
-    buttonLabel: "test",
-    logo: "google",
-    theme: "primary"
+    logo: {
+      control: "select",
+      options: [
+        "google",
+        "twitter",
+        "github",
+        "paypal",
+        "applepay",
+        "googlepay",
+        "stcpay",
+        "mada",
+        "visa/master"
+      ],
+      description: "a brand name that will display the logo accordingly",
+      table: {
+        type: {
+          summary: "Examples",
+          detail: "google, twitter, github, paypal, applepay, googlepay"
+        }
+      }
+    }
   }
 };
 
 const Template = (args) => {
-  return <HawaLogoButton logo={args.logo} buttonText={args.buttonLabel} />;
+  return (
+    <Container maxWidth="xs" variant="plain">
+      <HawaLogoButton logo={args.logo} buttonText={args.buttonLabel} />
+    </Container>
+  );
 };
 
 export const Google = Template.bind({});
-Google.args = {
-  buttonLabel: "Sign in via Google",
-  logo: "google",
-  theme: "primary"
-};
+Google.args = { buttonLabel: "Sign in via Google", logo: "google" };
 
 export const Twitter = Template.bind({});
-Twitter.args = {
-  buttonLabel: "Sign in via Twitter",
-  logo: "twitter",
-  theme: "primary"
-};
+Twitter.args = { buttonLabel: "Sign in via Twitter", logo: "twitter" };
+
 export const Github = Template.bind({});
-Github.args = {
-  buttonLabel: "Sign in via Github",
-  logo: "github",
-  theme: "primary"
-};
+Github.args = { buttonLabel: "Sign in via Github", logo: "github" };
+
 export const WalletPay = Template.bind({});
-WalletPay.args = {
-  buttonLabel: "Pay with Wallet",
-  logo: "wallet",
-  theme: "primary"
-};
+WalletPay.args = { buttonLabel: "Pay with Wallet", logo: "wallet" };
+
 export const GooglePay = Template.bind({});
-GooglePay.args = {
-  buttonLabel: "Google Pay",
-  logo: "googlepay",
-  theme: "primary"
-};
+GooglePay.args = { buttonLabel: "Google Pay", logo: "googlepay" };
+
 export const ApplePay = Template.bind({});
-ApplePay.args = {
-  buttonLabel: "Apple Pay",
-  logo: "applepay",
-  theme: "primary"
-};
+ApplePay.args = { buttonLabel: "Apple Pay", logo: "applepay" };
+
 export const STCPay = Template.bind({});
-STCPay.args = {
-  buttonLabel: "STC Pay",
-  logo: "stcpay",
-  theme: "primary"
-};
+STCPay.args = { buttonLabel: "STC Pay", logo: "stcpay" };
+
 export const VisaMasterPay = Template.bind({});
-VisaMasterPay.args = {
-  buttonLabel: "Visa / Mastercard",
-  logo: "visa/master",
-  theme: "primary"
-};
+VisaMasterPay.args = { buttonLabel: "Visa / Mastercard", logo: "visa/master" };
+
 export const PayPal = Template.bind({});
-PayPal.args = {
-  buttonLabel: "PayPal",
-  logo: "paypal",
-  theme: "primary"
-};
+PayPal.args = { buttonLabel: "PayPal", logo: "paypal" };
+
 export const Mada = Template.bind({});
-Mada.args = {
-  buttonLabel: "Mada",
-  logo: "mada",
-  theme: "primary"
-};
+Mada.args = { buttonLabel: "Mada", logo: "mada" };

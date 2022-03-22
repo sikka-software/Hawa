@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { darken } from "@mui/material";
+
 const getTextColor = (backColor) => {
   let rgbText = hexToRgb(backColor);
   let slicedRGBText = rgbText.slice(4, -1);
@@ -11,7 +12,6 @@ const getTextColor = (backColor) => {
     return "#ffffff";
   }
 };
-
 let allBorderRadius = 10;
 let primaryActionColor = "#4062bb";
 let primaryLayoutColor = "#E0E7F5";
@@ -32,18 +32,13 @@ const defaultTheme = createTheme({
       variants: [
         {
           props: { variant: "hawa" },
-          style: {
-            width: "100%"
-          }
+          style: { width: "100%" }
         }
       ]
     },
     MuiInputBase: {
       styleOverrides: {
-        root: {
-          backgroundColor: "lightblue",
-          borderRadius: allBorderRadius
-        }
+        root: { backgroundColor: "lightblue", borderRadius: allBorderRadius }
       }
     },
     MuiInput: {
@@ -52,17 +47,12 @@ const defaultTheme = createTheme({
           backgroundColor: "white",
           padding: 10,
           borderRadius: allBorderRadius
-          // marginBottom: 10
         }
       }
     },
     MuiTextField: {
       styleOverrides: {
-        root: {
-          // backgroundColor: "white",
-          borderRadius: allBorderRadius,
-          marginTop: 10
-        }
+        root: { borderRadius: allBorderRadius, marginTop: 10 }
       },
       variants: [
         {
@@ -97,19 +87,19 @@ const defaultTheme = createTheme({
           }
         },
         {
+          props: { variant: "plain" },
+          style: { background: "none" }
+        },
+        {
           props: { variant: "dashed", color: "secondary" },
-          style: {
-            border: `4px dashed red`
-          }
+          style: { border: `4px dashed red` }
         }
       ]
     },
     MuiButton: {
       styleOverrides: {
         root: { textTransform: "uppercase" },
-        contained: {
-          backgroundColor: primaryActionColor
-        }
+        contained: { backgroundColor: primaryActionColor }
       },
       variants: [
         {
@@ -131,10 +121,7 @@ const defaultTheme = createTheme({
           style: {
             textTransform: "none",
             border: `1px solid ${darken(primaryActionColor, 0.1)}`,
-            // border: `1px solid ${primaryActionColor}`,
-            // backgroundColor: "red",
             fontSize: "2rem",
-            // color: "blue",
             backgroundColor: "white",
             marginTop: 10,
             padding: 10,
@@ -143,9 +130,16 @@ const defaultTheme = createTheme({
           }
         }
       ]
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          borderRadius: allBorderRadius
+        }
+      }
     }
   }
-}); // or your custom theme
+});
 
 const withThemeProvider = (Story, context) => {
   return (
@@ -165,6 +159,21 @@ export const parameters = {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/
+    }
+  },
+  options: {
+    storySort: {
+      order: [
+        "Blocks",
+        [
+          "Auth",
+          ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
+          "Account",
+          ["User Profile", "User Settings"],
+          "Payment",
+          ["Payment Selection", "User Settings"]
+        ]
+      ]
     }
   }
 };

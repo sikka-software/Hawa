@@ -1,11 +1,10 @@
 import React from "react";
-import { HawaInputLabel, ActionButton, HawaTextField } from "../../ui";
-import { Box } from "../../layout";
+import { HawaTextField } from "../../ui";
 import { FormProvider, useForm } from "react-hook-form";
 import Container from "@mui/material/Container";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 
-export const UserProfile = (props) => {
+export const UserProfileForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
@@ -26,6 +25,17 @@ export const UserProfile = (props) => {
               required: "Email is required"
             }}
             helperText={errors.fullName?.message}
+          />
+          <HawaTextField
+            fullWidth
+            type="text"
+            name="fullName"
+            label="Phone Number"
+            placeholder="+966"
+            rules={{
+              required: "Email is required"
+            }}
+            // helperText={errors.fullName?.message}
           />
           <HawaTextField
             fullWidth
