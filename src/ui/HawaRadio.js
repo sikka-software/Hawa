@@ -1,64 +1,30 @@
-import { Typography } from "@mui/material";
-import React from "react";
-import { Box } from "../layout";
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
 export const HawaRadio = (props) => {
-  // if (currentTheme) {
-  //   radioSelectorStyle = {
-  //     ...hawaTheme.radioSelector[currentTheme],
-  //     "-moz-user-select": "-moz-none",
-  //     "-khtml-user-select": "none",
-  //     "-webkit-user-select": "none",
-  //     "-ms-user-select": "none",
-  //     "user-select": "none"
-  //   };
-  // } else {
-  //   radioSelectorStyle = {
-  //     display: "flex",
-  //     flexDirection: "row",
-  //     justifyContent: "space-between",
-  //     alignItems: "center",
-  //     backgroundColor: "#F5F5F5",
-  //     margin: 0,
-
-  //     backgroundColor: "lightGrey",
-  //     color: "black",
-  //     padding: 10
-  //   };
-  // }
-
+  const [value, setValue] = useState(props.defaultValue);
   return (
-    <Box horizontal maxWidth={"fit-content"}>
-      {props.options.map((singleOption) => {
+    <Container variant="selection">
+      {props.options.map((singleOption, i) => {
         return (
-          <div
-            key={singleOption.label}
+          <Button
+            key={i}
             onClick={() => {
-              setValue(singleOption.label);
-              if (props.handleChange) {
-                props.handleChange();
-              }
+              props.handleChange(singleOption.value);
+              setValue(singleOption.value);
             }}
-            style={{
-              ...radioSelectorStyle,
-              backgroundColor:
-                value.toLowerCase() === singleOption.label.toLowerCase()
-                  ? currentTheme
-                    ? hawaTheme.actionButton[currentTheme]?.backgroundColor
-                    : "black"
-                  : hawaTheme?.layout[currentTheme]?.backgroundColor,
-              color:
-                value.toLowerCase() === singleOption.label.toLowerCase()
-                  ? hawaTheme.actionButton[currentTheme]?.color
-                  : currentTheme
-                  ? hawaTheme?.layout[currentTheme]?.color
-                  : "black"
-            }}
+            fullWidth
+            variant={
+              value?.toLowerCase() === singleOption.value?.toLowerCase()
+                ? "selected"
+                : "unselected"
+            }
           >
-            <Typography>{singleOption.text}</Typography>
-          </div>
+            {singleOption.label}
+          </Button>
         );
       })}
-    </Box>
+    </Container>
   );
 };

@@ -73,6 +73,8 @@ const defaultTheme = createTheme({
           flexDirection: "column",
           backgroundColor: primaryLayoutColor,
           borderRadius: allBorderRadius,
+          paddingLeft: 20,
+          paddingRight: 20,
           padding: 20
         }
       },
@@ -93,6 +95,19 @@ const defaultTheme = createTheme({
         {
           props: { variant: "dashed", color: "secondary" },
           style: { border: `4px dashed red` }
+        },
+        {
+          props: { variant: "selection" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingLeft: "10px !important",
+            paddingRight: "10px !important",
+            padding: 10
+          }
         }
       ]
     },
@@ -126,6 +141,40 @@ const defaultTheme = createTheme({
             marginTop: 10,
             padding: 10,
             height: 50,
+            borderRadius: allBorderRadius
+          }
+        },
+        {
+          props: { variant: "selected" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            backgroundColor: primaryActionColor,
+            justifyContent: "space-between",
+            alignItems: "center",
+            // padding: 15,
+            margin: 0,
+            color: "white",
+            borderRadius: allBorderRadius,
+            "&:hover": {
+              backgroundColor: darken(primaryActionColor, 0.5),
+              color: "white"
+            }
+          }
+        },
+        {
+          props: { variant: "unselected" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            // backgroundColor: primaryActionColor,
+            background: "none",
+            justifyContent: "space-between",
+            alignItems: "center",
+            // padding: 15,
+            margin: 0,
             borderRadius: allBorderRadius
           }
         }
