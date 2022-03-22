@@ -2,23 +2,35 @@ import React from "react";
 import { HawaRadio } from "../../ui";
 
 export default {
-  title: "Elements/Selections/Radio Selector",
+  title: "Elements/Selections/Panel Tabs",
   component: [HawaRadio],
-  argTypes: {},
-  args: {}
+  argTypes: {
+    options: {
+      control: "array",
+      description: "An array of objects containing the option label and value",
+      table: {
+        type: {
+          summary: "Object Example",
+          detail: "{label: 'Option 1', value: 'option1'}"
+        }
+      }
+    }
+  },
+  args: {
+    options: 3
+  }
 };
 
-export const RadioSelector = (args) => {
+export const PanelTabs = (args) => {
+  let allOptions = Array.from({ length: args.options }, (v, i) => {
+    return { label: `Option ${i}`, value: `option${i}` };
+  });
   return (
     <HawaRadio
       {...args}
       handleChange={(e) => console.log("changing to ", e)}
       defaultValue="option1"
-      options={[
-        { label: "Option 1", value: "option1" },
-        { label: "Option 2", value: "option2" },
-        { label: "Option 3", value: "option3" }
-      ]}
+      options={allOptions}
     />
   );
 };

@@ -5,37 +5,19 @@ import { Box } from "../layout";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import { HawaTypography } from "./HawaTypography";
+import { Container } from "@mui/material";
+import { HawaTextField } from "./HawaTextField";
+import { HawaRadio } from "./HawaRadio";
 export const HawaSettingsRow = (props) => {
-
-
   return (
-    <Box noColor>
-      {props.settingsType === "checkbox" && (
-        <div style={{ ...settingsRowStyle }}>
-          <HawaTypography>Checkbox Label</HawaTypography> <Checkbox />
-        </div>
+    <Container variant="settingsRow">
+      <HawaTypography>{props.settingsLabel}</HawaTypography>
+      {props.settingsType === "checkbox" && <Checkbox {...props} />}
+      {props.settingsType === "text" && <HawaTextField {...props} />}
+      {props.settingsType === "radio" && (
+        <HawaRadio location="inSettings" {...props} />
       )}
-      {props.settingsType === "text" && (
-        <div style={{ ...settingsRowStyle }}>
-          Text Label{" "}
-          <TextField
-            InputProps={{
-              style: {
-                ...hawaTheme.inputFields[currentTheme],
-                // borderRadius: 0,
-                // padding: 0,
-                // backgroundColor: "white",
-                height: 40
-              }
-            }}
-            style={{
-              padding: 0
-            }}
-            placeholder="test"
-          />
-        </div>
-      )}
-    </Box>
+    </Container>
   );
 };
 

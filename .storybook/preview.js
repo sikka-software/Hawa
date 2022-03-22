@@ -97,16 +97,51 @@ const defaultTheme = createTheme({
           style: { border: `4px dashed red` }
         },
         {
-          props: { variant: "selection" },
+          props: { variant: "panelTabs" },
           style: {
             display: "flex",
             flexDirection: "row",
             width: "fit-content",
             justifyContent: "space-between",
+            backgroundColor: primaryLayoutColor,
             alignItems: "center",
             paddingLeft: "10px !important",
             paddingRight: "10px !important",
             padding: 10
+          }
+        },
+        {
+          props: { variant: "inSettings" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            // justifyContent: "space-between",
+            height: 50,
+            marginRight: 0,
+            backgroundColor: "white",
+            padding:5,
+            // alignItems: "center",
+            paddingLeft: "5px !important",
+            paddingRight: "5px !important",
+            // padding: 10
+          }
+        },
+        {
+          props: { variant: "settingsRow" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            borderRadius: allBorderRadius,
+            // width: "fit-content",
+            backgroundColor: primaryLayoutColor,
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: 70,
+            marginTop: 10,
+            paddingLeft: "20px !important",
+            paddingRight: "10px !important"
+            // padding: 10
           }
         }
       ]

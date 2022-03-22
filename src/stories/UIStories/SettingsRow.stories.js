@@ -9,43 +9,45 @@ import { HawaSettingsRow } from "../../ui";
 
 export default {
   title: "UI/SettingsRow",
-  component: [SelectPayment, CreditCardForm],
+  component: [HawaSettingsRow],
   argTypes: {
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
-    },
-    type: {
-      options: ["checkbox", "text", "default"],
+    settingsType: {
+      options: ["checkbox", "text", "radio"],
       control: { type: "select" }
     }
-  },
-  args: {
-    theme: "primary",
-    type: "checkbox"
   }
 };
 
-const HawaSettingsRowTemplate = (args) => {
-  return <HawaSettingsRow settingsType={args.type} />;
+export const CheckboxSettings = (args) => <HawaSettingsRow {...args} />;
+CheckboxSettings.args = {
+  settingsType: "checkbox",
+  settingsLabel: "Text Settings"
+};
+export const TextSettings = (args) => (
+  <HawaSettingsRow placeholder="Text here" {...args} />
+);
+
+TextSettings.args = {
+  settingsType: "text",
+  settingsLabel: "Text Settings"
+};
+export const RadioSettings = (args) => {
+  let allOptions = Array.from({ length: args.options }, (v, i) => {
+    return { label: `Option ${i}`, value: `option${i}` };
+  });
+  return (
+    <HawaSettingsRow
+      settingsType={args.settingsType}
+      settingsLabel={args.settingsLabel}
+      handleChange={(e) => console.log("changing to ", e)}
+      defaultValue="option1"
+      options={allOptions}
+    />
+  );
 };
 
-export const Checkbox = HawaSettingsRowTemplate.bind({});
-Checkbox.args = {
-  theme: "primary",
-  type: "checkbox"
-};
-export const Text = (args) => {
-  return <HawaSettingsRow settingsType={args.type} />;
-};
-Text.args = {
-  theme: "primary",
-  type: "text"
-};
-export const Radio = (args) => {
-  return <HawaSettingsRow settingsType={args.type} />;
-};
-Radio.args = {
-  theme: "primary",
-  type: "radio"
+RadioSettings.args = {
+  options: 3,
+  settingsType: "radio",
+  settingsLabel: "Radio Settings"
 };
