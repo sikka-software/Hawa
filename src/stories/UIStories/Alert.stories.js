@@ -1,11 +1,10 @@
 import React from "react";
 
-import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 import { HawaAlert } from "../../ui";
 
 const Template = (args) => {
   return (
-    <HawaProvider themeName={args.theme}>
+    <>
       <HawaAlert
         title="What?"
         text="This is a success alert"
@@ -14,7 +13,7 @@ const Template = (args) => {
       <HawaAlert text="This is an info alert" severity="info" />
       <HawaAlert text="This is a warning alert" severity="warning" />
       <HawaAlert text="This is an error alert" severity="error" />
-    </HawaProvider>
+    </>
   );
 };
 //types:

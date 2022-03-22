@@ -5,7 +5,6 @@ import {
   ChargeWalletForm,
   PayWithWallet
 } from "../../blocks/Payment";
-import { defaultTheme, HawaProvider } from "../../themes/HawaProvider";
 import { HawaSettingsRow } from "../../ui";
 
 export default {
@@ -28,11 +27,7 @@ export default {
 };
 
 const HawaSettingsRowTemplate = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <HawaSettingsRow settingsType={args.type} />
-    </HawaProvider>
-  );
+  return <HawaSettingsRow settingsType={args.type} />;
 };
 
 export const Checkbox = HawaSettingsRowTemplate.bind({});
@@ -41,22 +36,14 @@ Checkbox.args = {
   type: "checkbox"
 };
 export const Text = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <HawaSettingsRow settingsType={args.type} />
-    </HawaProvider>
-  );
+  return <HawaSettingsRow settingsType={args.type} />;
 };
 Text.args = {
   theme: "primary",
   type: "text"
 };
 export const Radio = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <HawaSettingsRow settingsType={args.type} />
-    </HawaProvider>
-  );
+  return <HawaSettingsRow settingsType={args.type} />;
 };
 Radio.args = {
   theme: "primary",

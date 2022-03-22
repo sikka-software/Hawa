@@ -1,9 +1,6 @@
 import InputLabel from "@mui/material/InputLabel";
-// import { useContext } from "react";
-// import { ThemeProvider } from "../themes/HawaProvider";
 
 export const HawaInputLabel = (props) => {
-  // const { hawaTheme, themeName } = useContext(ThemeProvider);
   // let labelStyle = {};
 
   // let currentTheme = Object.keys(hawaTheme.actionButton).find(

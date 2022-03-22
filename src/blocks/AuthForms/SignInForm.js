@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  HawaTextField,
-  ActionButton,
-  HawaAlert,
-  HawaTypography,
-  HawaLogoButton
-} from "../../ui";
-import { Box } from "../../layout";
+import { HawaTextField, HawaTypography, HawaLogoButton } from "../../ui";
 import { FormProvider, useForm } from "react-hook-form";
-
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 export const SignInForm = (props) => {
   const methods = useForm();
@@ -21,69 +16,69 @@ export const SignInForm = (props) => {
   } = methods;
 
   return (
-    <Box maxWidth={400} noColor noMargin noPadding>
-      <Box noMargin>
-        {props.error && (
-          <HawaAlert text="This is a sign in alert" severity="error" />
-        )}
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(props.handleSignIn)}>
-            <HawaTextField
-              type="text"
-              name="email"
-              inputLabel={props.texts.emailLabel}
-              placeholder={props.texts.emailPlaceholder}
-              startAdornment={
-                <InputAdornment position="start">
-                  <EmailIcon />
-                </InputAdornment>
+    <Container maxWidth="xs" variant="auth">
+      {props.error && (
+        <Alert severity="error">
+          {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
+          {props.errorText}
+        </Alert>
+      )}
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(props.handleSignIn)}>
+          <HawaTextField
+            fullWidth
+            type="text"
+            name="email"
+            label={props.texts.emailLabel}
+            placeholder={props.texts.emailPlaceholder}
+            startAdornment={
+              <InputAdornment position="start">
+                <EmailIcon />
+              </InputAdornment>
+            }
+            rules={{
+              required: props.texts.emailRequired,
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: props.texts.emailInvalidText
               }
-              rules={{
-                required: props.texts.emailRequired,
-                pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: props.texts.emailInvalidText
-                }
-              }}
-              helperText={errors.email?.message}
-            />
+            }}
+            helperText={errors.email?.message}
+          />
 
-            <HawaTextField
-              name="password"
-              placeholder={props.texts.passwordPlaceholder}
-              type="password"
-              inputLabel={props.texts.passwordLabel}
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
-              rules={{
-                required: props.texts.passwordRequired
-              }}
-              helperText={errors.password?.message}
-            />
-            <HawaTypography
-              style={{
-                cursor: "pointer",
-                marginTop: 5,
-                width: "max-content",
-                padding: 5
-              }}
-              onClick={props.handleForgotPassword}
-            >
-              {props.texts.forgotPasswordText}
-            </HawaTypography>
-            <ActionButton
-              type="submit"
-              fullWidth
-              last={"true"}
-              text={props.texts.signInText}
-            />
-          </form>
-        </FormProvider>
-      </Box>
+          <HawaTextField
+            fullWidth
+            name="password"
+            placeholder={props.texts.passwordPlaceholder}
+            type="password"
+            label={props.texts.passwordLabel}
+            startAdornment={
+              <InputAdornment position="start">
+                <PasswordIcon />
+              </InputAdornment>
+            }
+            rules={{
+              required: props.texts.passwordRequired
+            }}
+            helperText={errors.password?.message}
+          />
+          <HawaTypography
+            style={{
+              cursor: "pointer",
+              marginTop: 5,
+              width: "max-content",
+              padding: 5
+            }}
+            onClick={props.handleForgotPassword}
+          >
+            {props.texts.forgotPasswordText}
+          </HawaTypography>
+          <Button type="submit" fullWidth variant="last">
+            {props.texts.signInText}
+          </Button>
+        </form>
+      </FormProvider>
       <HawaTypography
         style={{
           marginTop: 5,
@@ -104,27 +99,29 @@ export const SignInForm = (props) => {
           {props.texts.signUpText}
         </span>
       </HawaTypography>
-      {props.viaGoogle && (
-        <HawaLogoButton
-          logo="google"
-          buttonText={props.texts.googleButtonLabel}
-          onClick={props.handleGoogleSignIn}
-        />
-      )}
-      {props.viaGithub && (
-        <HawaLogoButton
-          logo="github"
-          buttonText={props.texts.githubButtonLabel}
-          onClick={props.handleGithubSignIn}
-        />
-      )}
-      {props.viaTwitter && (
-        <HawaLogoButton
-          logo="twitter"
-          buttonText={props.texts.twitterButtonLabel}
-          onClick={props.handleTwitterSignIn}
-        />
-      )}
-    </Box>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {props.viaGoogle && (
+          <HawaLogoButton
+            logo="google"
+            buttonText={props.texts.googleButtonLabel}
+            onClick={props.handleGoogleSignIn}
+          />
+        )}
+        {props.viaGithub && (
+          <HawaLogoButton
+            logo="github"
+            buttonText={props.texts.githubButtonLabel}
+            onClick={props.handleGithubSignIn}
+          />
+        )}
+        {props.viaTwitter && (
+          <HawaLogoButton
+            logo="twitter"
+            buttonText={props.texts.twitterButtonLabel}
+            onClick={props.handleTwitterSignIn}
+          />
+        )}
+      </div>
+    </Container>
   );
 };

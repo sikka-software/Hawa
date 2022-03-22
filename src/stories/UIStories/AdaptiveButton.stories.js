@@ -1,6 +1,5 @@
 import React from "react";
 import CastIcon from "@mui/icons-material/Cast";
-import { HawaProvider } from "../../themes/HawaProvider";
 import { AdaptiveButton } from "../../ui";
 
 export default {
@@ -27,11 +26,7 @@ export default {
 };
 
 const Template = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <AdaptiveButton {...args} />
-    </HawaProvider>
-  );
+  return <AdaptiveButton {...args} />;
 };
 
 export const FullButton = Template.bind({});

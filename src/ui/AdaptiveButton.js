@@ -1,18 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "../themes/HawaProvider";
 import { StyledTooltip } from "./StyledTooltip";
 import { getTextColor } from "../util";
 
 export const AdaptiveButton = (props) => {
   const { showText } = props;
-  const theme = useContext(ThemeProvider);
-  const screenSize = {
-    width: 1500,
-    height: 200
-  };
+
   const [tooltip, setTooltip] = useState(false);
   const [hovered, setHovered] = useState(false);
   //full button
@@ -26,7 +21,7 @@ export const AdaptiveButton = (props) => {
         onClick={props.handleClick}
         style={{
           backgroundColor: theme.primaryColor,
-          borderRadius: theme.borderRadius,
+          // borderRadius: theme.borderRadius,
           padding: theme.paddings,
           color: getTextColor(theme.primaryColor)
           // color: hovered

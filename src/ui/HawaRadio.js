@@ -1,40 +1,31 @@
 import { Typography } from "@mui/material";
-import React, { useState, useContext } from "react";
+import React from "react";
 import { Box } from "../layout";
-import { ThemeProvider } from "../themes/HawaProvider";
 
 export const HawaRadio = (props) => {
-  const [value, setValue] = useState(props.defaultValue);
+  // if (currentTheme) {
+  //   radioSelectorStyle = {
+  //     ...hawaTheme.radioSelector[currentTheme],
+  //     "-moz-user-select": "-moz-none",
+  //     "-khtml-user-select": "none",
+  //     "-webkit-user-select": "none",
+  //     "-ms-user-select": "none",
+  //     "user-select": "none"
+  //   };
+  // } else {
+  //   radioSelectorStyle = {
+  //     display: "flex",
+  //     flexDirection: "row",
+  //     justifyContent: "space-between",
+  //     alignItems: "center",
+  //     backgroundColor: "#F5F5F5",
+  //     margin: 0,
 
-  const { hawaTheme, themeName } = useContext(ThemeProvider);
-  const currentTheme = Object.keys(hawaTheme.radioSelector).find(
-    (tName) => tName.toLowerCase() === themeName?.toLowerCase()
-  );
-  let radioSelectorStyle = {};
-
-  if (currentTheme) {
-    radioSelectorStyle = {
-      ...hawaTheme.radioSelector[currentTheme],
-      "-moz-user-select": "-moz-none",
-      "-khtml-user-select": "none",
-      "-webkit-user-select": "none",
-      "-ms-user-select": "none",
-      "user-select": "none"
-    };
-  } else {
-    radioSelectorStyle = {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      backgroundColor: "#F5F5F5",
-      margin: 0,
-
-      backgroundColor: "lightGrey",
-      color: "black",
-      padding: 10
-    };
-  }
+  //     backgroundColor: "lightGrey",
+  //     color: "black",
+  //     padding: 10
+  //   };
+  // }
 
   return (
     <Box horizontal maxWidth={"fit-content"}>

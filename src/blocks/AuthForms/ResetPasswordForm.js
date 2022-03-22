@@ -9,6 +9,8 @@ import {
 } from "../../ui";
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
 export const ResetPasswordForm = (props) => {
   const methods = useForm();
@@ -22,48 +24,47 @@ export const ResetPasswordForm = (props) => {
     setValue
   } = methods;
   return (
-    <Box maxWidth={400} noColor noMargin noPadding>
-      <Box noMargin>
-        {props.error && (
-          <HawaAlert text="This is a reset password alert" severity="error" />
-        )}
-        {!props.sent ? (
-          <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(props.handleResetPassword)}>
-              <HawaTextField
-                type="text"
-                name="email"
-                inputLabel="Email"
-                placeholder="Enter your email"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <EmailIcon />
-                  </InputAdornment>
+    <Container maxWidth="xs" variant="auth">
+      {props.error && (
+        <Alert severity="error">
+          {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
+          {props.errorText}
+        </Alert>
+      )}
+      {!props.sent ? (
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(props.handleResetPassword)}>
+            <HawaTextField
+              fullWidth
+              type="text"
+              name="email"
+              label={props.texts.emailLabel}
+              placeholder={props.texts.emailPlaceholder}
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              }
+              rules={{
+                required: props.texts.emailRequiredText,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: props.texts.emailInvalidText
                 }
-                rules={{
-                  required: "Email is required",
-                  pattern: {
-                    value:
-                      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: "Invalid email address"
-                  }
-                }}
-                helperText={errors.email?.message}
-              />
-              <ActionButton
-                fullWidth
-                last
-                type="submit"
-                text="Reset Password"
-              />
-            </form>
-          </FormProvider>
-        ) : (
-          <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-            An link was sent to your email to reset the password.
-          </HawaTypography>
-        )}
-      </Box>
-    </Box>
+              }}
+              helperText={errors.email?.message}
+            />
+            <Button type="submit" fullWidth variant="last">
+              {props.texts.resetPassword}
+            </Button>
+          </form>
+        </FormProvider>
+      ) : (
+        <HawaTypography style={{ textAlign: "center", margin: 5 }}>
+          An link was sent to your email to reset the password.
+        </HawaTypography>
+      )}
+    </Container>
   );
 };

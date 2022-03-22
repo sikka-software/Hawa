@@ -3,7 +3,7 @@ export const Row = (props) => {
     <div
       style={{
         backgroundColor: "var(--light)",
-        borderRadius: "var(--borderR)",
+        // borderRadius: "var(--borderR)",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",

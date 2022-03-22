@@ -1,10 +1,7 @@
 import Button from "@mui/material/Button";
-// import { useContext } from "react";
-// import { ThemeProvider } from "../themes/HawaProvider";
 // import { styled, darken } from "@mui/material/styles";
 
 export const ActionButton = (props) => {
-  // const { hawaTheme, themeName } = useContext(ThemeProvider);
   // const currentTheme = Object.keys(hawaTheme.actionButton).find(
   //   (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   // );

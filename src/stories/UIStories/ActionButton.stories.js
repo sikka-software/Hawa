@@ -1,5 +1,4 @@
 import React from "react";
-import { HawaProvider } from "../../themes/HawaProvider";
 import { ActionButton } from "../../ui";
 
 export default {
@@ -13,11 +12,7 @@ export default {
   }
 };
 const Template = (args) => {
-  return (
-    <HawaProvider themeName={args.theme}>
-      <ActionButton text={args.buttonLabel} />
-    </HawaProvider>
-  );
+  return <ActionButton text={args.buttonLabel} />;
 };
 
 Template.args = {

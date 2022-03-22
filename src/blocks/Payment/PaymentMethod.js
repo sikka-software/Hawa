@@ -78,7 +78,6 @@ const PaymentMethodButton = (props) => {
         padding: 20,
         width: "90%",
         margin: 10,
-        borderRadius: "var(--borderR)"
       }}
       onClick={(e) => props.handlePaymentMethod(e, props.methodCode)}
     >

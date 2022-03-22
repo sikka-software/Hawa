@@ -1,6 +1,4 @@
 import React from "react";
-// import { QawaimTheme } from "../../themes/QawaimTheme";
-// import { HawaProvider } from "../../themes/HawaProvider";
 import { ActionButton, HawaLogoButton } from "../../ui";
 
 export default {

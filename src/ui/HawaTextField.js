@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 // import InputBase from "@mui/material/InputBase";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 // import { styled } from "@mui/material/styles";
 // import PropTypes from "prop-types";
-// import { ThemeProvider } from "../themes/HawaProvider";
-import { HawaInputLabel } from "./HawaInputLabel";
-import { Controller, useFormContext } from "react-hook-form";
-import { InputLabel, TextField } from "@mui/material";
+// import { HawaInputLabel } from "./HawaInputLabel";
+// import { Controller, useFormContext } from "react-hook-form";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
 
 export const HawaTextField = (props) => {
-  const { control, register } = useFormContext();
+  // const { control, register } = useFormContext();
 
-  // const { hawaTheme, themeName } = useContext(ThemeProvider);
   // const currentTheme = Object.keys(hawaTheme.inputFields).find(
   //   (tName) => tName.toLowerCase() === themeName?.toLowerCase()
   // );
@@ -90,46 +89,68 @@ export const HawaTextField = (props) => {
   // });
 
   return (
-    <Controller
-      render={({ field }) => (
-        <>
-          {props.inputLabel && <InputLabel label={props.inputLabel} />}
+    <>
+      <InputLabel>{props.label}</InputLabel>
+      <Input disableUnderline {...props} />
+    </>
+    // <FormControl variant="hawa" style={{ marginTop: 10 }}>
 
-          <TextField
-            fullWidth={true}
-            // helperText={props.helperText}
-            type={props.type ?? "text"}
-            // placeholder={props.placeholder}
-            // inputProps={
-            //   props.type === "number"
-            //     ? {
-            //         inputMode: "numeric",
-            //         min: "0",
-            //         max: "9999999",
-            //         step: "0.01"
-            //       }
-            //     : {}
-            // }
+    // </FormControl>
+    // <TextField
+    //   fullWidth
+    //   type="text"
+    //   // inputProps={{
+    //   //   shrink: true
+    //   // }}
+    //   // InputProps={{
+    //   //   disableUnderline: true,
+    //   //   shrink: true
+    //   // }}
+    //   InputLabelProps={{
+    //     shrink: true
+    //   }}
+    //   {...props}
+    // />
+    // <Controller
+    //   render={({ field }) => (
+    //     <>
+    //       {props.inputLabel && <InputLabel label={props.inputLabel} />}
 
-            defaultValue={props.defaultValue && ""}
-            value={props.value && ""}
-            {...props}
-            // {...field}
-            {...register(props.name)}
-          />
-          <Typography
-            variant="caption"
-            style={{ margin: 5, marginBottom: 0, color: "red" }}
-          >
-            {props.helperText}
-          </Typography>
-        </>
-      )}
-      name={props.name}
-      rules={props.rules}
-      control={control}
-      shouldUnregister={props.shouldUnregister}
-    />
+    //       <TextField
+    //         fullWidth={true}
+    //         // helperText={props.helperText}
+    //         type={props.type ?? "text"}
+    //         // placeholder={props.placeholder}
+    //         // inputProps={
+    //         //   props.type === "number"
+    //         //     ? {
+    //         //         inputMode: "numeric",
+    //         //         min: "0",
+    //         //         max: "9999999",
+    //         //         step: "0.01"
+    //         //       }
+    //         //     : {}
+    //         // }
+
+    //         defaultValue={props.defaultValue && ""}
+    //         value={props.value && ""}
+    //         {...props}
+    //         // {...field}
+    //         {...register(props.name)}
+    //       />
+    //       <Typography
+    //         variant="caption"
+    //         style={{ margin: 5, marginBottom: 0, color: "red" }}
+    //       >
+    //         {props.helperText}
+    //       </Typography>
+    //     </>
+    //   )}
+    //   name={props.name}
+    //   rules={props.rules}
+    //   control={control}
+    //   shouldUnregister={props.shouldUnregister}
+    // />
   );
 };
 

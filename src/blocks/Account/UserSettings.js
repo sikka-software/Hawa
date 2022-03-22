@@ -1,4 +1,3 @@
-import React from "react";
 import { HawaTextField, ActionButton } from "../../ui";
 import { Box } from "../../layout";
 

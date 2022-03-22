@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import { ThemeProvider } from "../themes/HawaProvider";
+import React from "react";
 
 export const Box = (props) => {
-  // const { hawaTheme, themeName } = useContext(ThemeProvider);
   // let boxStyle = {};
 
   // let currentTheme = Object.keys(hawaTheme.layout).find(
@@ -30,7 +28,6 @@ export const Box = (props) => {
   //     padding: props.noPadding ? 0 : 10,
   //     margin: props.noMargin ? 0 : 10,
   //     maxWidth: props.maxWidth,
-  //     borderRadius: 0
   //   };
   // }
 

@@ -15,7 +15,7 @@ export const HawaTextArea = (props) => {
             style={{
               color: "black",
               backgroundColor: props.bgColor || "white",
-              borderRadius: props.bdRadius || 10,
+              // borderRadius: props.bdRadius || 10,
               borderBottom: "none",
               border: "none",
               width: "100%",

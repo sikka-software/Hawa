@@ -1,5 +1,4 @@
 import React from "react";
-import { HawaProvider } from "../../themes/HawaProvider";
 import { HawaRadio } from "../../ui";
 
 export default {
@@ -18,7 +17,6 @@ export default {
 
 const Template = (args) => {
   return (
-    <HawaProvider themeName={args.theme}>
       <HawaRadio
         defaultValue="option1"
         options={[
@@ -27,7 +25,6 @@ const Template = (args) => {
           { text: "Option 3", label: "option3" }
         ]}
       />
-    </HawaProvider>
   );
 };
 export const Light = Template.bind({});

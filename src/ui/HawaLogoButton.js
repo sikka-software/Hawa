@@ -1,50 +1,12 @@
-import React, { useContext } from "react";
-import { ThemeProvider } from "../themes/HawaProvider";
-import { styled, darken } from "@mui/material/styles";
+import React from "react";
+// import { styled, darken } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { Typography } from "@mui/material";
 
 export const HawaLogoButton = (props) => {
-  // const { hawaTheme, themeName } = useContext(ThemeProvider);
-  // let buttonStyle = {};
-  // let currentTheme = Object.keys(hawaTheme.logoButton).find(
-  //   (tName) => tName.toLowerCase() === themeName?.toLowerCase()
-  // );
-  // if (currentTheme) {
-  //   buttonStyle = {
-  //     ...hawaTheme.logoButton[currentTheme],
-  //     backgroundColor: "white",
-  //     "&:hover": {
-  //       backgroundColor: darken("#ffffff", 0.1)
-  //     }
-  //   };
-  // } else {
-  //   // Default theme
-  //   buttonStyle = {
-  //     cursor: "pointer",
-  //     display: "flex",
-  //     flexDirection: "row",
-  //     alignItems: "center",
-  //     justifyContent: "center",
-  //     marginTop: 10,
-  //     height: 50,
-  //     padding: 30,
-  //     paddingTop: 0,
-  //     paddingBottom: 0,
-  //     border: "1px solid #ced4da",
-  //     backgroundColor: "white",
-  //     "&:hover": {
-  //       backgroundColor: darken("#ffffff", 0.1)
-  //     }
-  //   };
-  // }
-  // const StyledButton = styled(Button)(({ theme }) => {
-  //   return {
-  //     ...buttonStyle
-  //   };
-  // });
   let logoElement = "";
   switch (props.logo?.toLowerCase()) {
     case "google":
@@ -121,7 +83,7 @@ export const HawaLogoButton = (props) => {
     <Button {...props} variant="withLogo">
       {logoElement}
       <div style={{ width: 10 }} />
-      <p
+      <Typography
         style={{
           color: "black",
           fontSize: 14,
@@ -132,7 +94,7 @@ export const HawaLogoButton = (props) => {
         }}
       >
         {props.buttonText}
-      </p>
+      </Typography>
     </Button>
   );
 };

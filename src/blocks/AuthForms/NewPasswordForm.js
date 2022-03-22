@@ -9,99 +9,71 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 export const NewPasswordForm = (props) => {
   const [newPassword, setNewPassword] = useState("");
-  const [confirmNewPassword, setConfirmNewPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(true);
-
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit,
-    getValues,
-    register,
-    watch,
-    reset,
-    setValue
+    handleSubmit
   } = methods;
 
-  const handleNewPassword = (e) => {
-    e.preventDefault();
-    console.log("submitting fom", e.target);
-    // setLoading(true);
-    // e.preventDefault();
-    // if (newPassword == "" || confirmNewPassword == "") {
-    //   setLoading(false);
-    //   return;
-    // }
-    // if (newPassword != confirmNewPassword) {
-    //   setError(true);
-    //   setLoading(false);
-    //   // setErrorMessage(t("password-no-match"));
-    //   return;
-    // }
-    // if (newPassword == confirmNewPassword) {
-    //   //mutation to reset password here
-    // }
-  };
   return (
-    <Box maxWidth={400} noColor noMargin noPadding>
-      <Box noMargin>
-        {props.error && (
-          <HawaAlert text="This is a new password alert" severity="error" />
-        )}
-        {props.passwordChanged ? (
-          <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-            Your password has been changed, you'll be redirected to sign in page
-          </HawaTypography>
-        ) : (
-          <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(props.handleNewPassword)}>
-              <HawaTextField
-                name="password"
-                type="password"
-                inputLabel="Choose new password"
-                placeholder="Enter password"
-                onChange={(e) => setNewPassword(e.target.value)}
-                value={newPassword}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <PasswordIcon />
-                  </InputAdornment>
-                }
-                rules={{
-                  required: "Password is rquired"
-                }}
-                helperText={errors.password?.message}
-              />
-              <HawaTextField
-                name="confirmPassword"
-                type="password"
-                placeholder="Confirm Password"
-                inputLabel="Confirm"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <PasswordIcon />
-                  </InputAdornment>
-                }
-                rules={{
-                  required: "Password is rquired"
-                }}
-                helperText={errors.confirmPassword?.message}
-              />
-              <ActionButton
-                fullWidth
-                type="submit"
-                last
-                text="Reset Password"
-              />
-            </form>
-          </FormProvider>
-        )}
-      </Box>
-    </Box>
+    <Container maxWidth="xs" variant="auth">
+      {props.error && (
+        <HawaAlert text="This is a new password alert" severity="error" />
+      )}
+      {props.passwordChanged ? (
+        <HawaTypography style={{ textAlign: "center", margin: 5 }}>
+          Your password has been changed, you'll be redirected to sign in page
+        </HawaTypography>
+      ) : (
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(props.handleNewPassword)}>
+            <HawaTextField
+              fullWidth
+              name="password"
+              type="password"
+              label={props.texts.passwordLabel}
+              placeholder={props.texts.passwordPlaceholder}
+              onChange={(e) => setNewPassword(e.target.value)}
+              value={newPassword}
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
+              rules={{
+                required: props.texts.passwordRequiredText
+              }}
+              helperText={errors.password?.message}
+            />
+            <HawaTextField
+              fullWidth
+              name="confirmPassword"
+              type="password"
+              placeholder={props.texts.confirmPasswordPlaceholder}
+              label={props.texts.confirmPasswordLabel}
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
+              rules={{
+                required: "Password is rquired"
+              }}
+              helperText={errors.confirmPassword?.message}
+            />
+
+            <Button type="submit" fullWidth variant="last">
+              {props.texts.updatePassword}
+            </Button>
+          </form>
+        </FormProvider>
+      )}
+    </Container>
   );
 };
