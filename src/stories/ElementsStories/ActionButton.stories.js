@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionButton } from "../../ui";
+import { ActionButton } from "../../elements";
 
 export default {
   title: "Elements/Buttons/ActionButton",

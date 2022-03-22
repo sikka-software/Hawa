@@ -1,6 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
-import { darken } from "@mui/material";
+import { darken, lighten } from "@mui/material";
 
 const getTextColor = (backColor) => {
   let rgbText = hexToRgb(backColor);
@@ -120,10 +120,10 @@ const defaultTheme = createTheme({
             height: 50,
             marginRight: 0,
             backgroundColor: "white",
-            padding:5,
+            padding: 5,
             // alignItems: "center",
             paddingLeft: "5px !important",
-            paddingRight: "5px !important",
+            paddingRight: "5px !important"
             // padding: 10
           }
         },
@@ -134,7 +134,7 @@ const defaultTheme = createTheme({
             flexDirection: "row",
             borderRadius: allBorderRadius,
             // width: "fit-content",
-            backgroundColor: primaryLayoutColor,
+            backgroundColor: lighten(primaryLayoutColor, 0.4),
             justifyContent: "space-between",
             alignItems: "center",
             height: 70,
@@ -261,3 +261,4 @@ export const parameters = {
     }
   }
 };
+

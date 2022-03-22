@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import { ActionButton, HawaLogoButton } from "../../ui";
+import { ActionButton, HawaLogoButton } from "../../elements";
 
 export default {
   title: "Elements/Buttons/LogoButtons",

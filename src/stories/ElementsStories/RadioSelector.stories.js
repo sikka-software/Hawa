@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaRadio } from "../../ui";
+import { HawaRadio } from "../../elements";
 
 export default {
   title: "Elements/Selections/Panel Tabs",

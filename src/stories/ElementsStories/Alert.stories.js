@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HawaAlert } from "../../ui";
+import { HawaAlert } from "../../elements";
 
 const Template = (args) => {
   return (

@@ -1,22 +1,13 @@
+import { Container } from "@mui/material";
 import React from "react";
 import { Box } from "../../layout";
 
 const Template = (args) => {
-  return (
-    <>
-      <Box>Box 1</Box>
-      <Box>
-        <div style={{ backgroundColor: "white", padding: 10, color: "black" }}>
-          testing box in box
-        </div>
-      </Box>
-      <Box>Box 3</Box>
-    </>
-  );
+  return <Container variant="auth">test</Container>;
 };
 export default {
-  title: "Layout/Box",
-  component: <Box />,
+  title: "Layout/Container",
+  component: <Container />,
   parameters: {
     backgrounds: {
       default: "light"

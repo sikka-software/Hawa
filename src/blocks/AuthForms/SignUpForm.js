@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton } from "../../ui";
+import { HawaTextField, HawaLogoButton } from "../../elements";
 import PropTypes from "prop-types";
 import { FormProvider, useForm } from "react-hook-form";
 import PersonIcon from "@mui/icons-material/PermIdentityOutlined";

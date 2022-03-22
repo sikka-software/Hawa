@@ -1,6 +1,6 @@
 import React from "react";
 import CastIcon from "@mui/icons-material/Cast";
-import { AdaptiveButton } from "../../ui";
+import { AdaptiveButton } from "../../elements";
 
 export default {
   title: "Elements/Buttons/AdaptiveButton",

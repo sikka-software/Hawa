@@ -1,15 +1,25 @@
 import React from "react";
-import {
-  SelectPayment,
-  CreditCardForm,
-  ChargeWalletForm,
-  PayWithWallet
-} from "../../blocks/Payment";
-import { HawaSettingsRow } from "../../ui";
+import { HawaSettingsRow } from "../../elements";
 
 export default {
-  title: "UI/SettingsRow",
+  title: "Elements/Settings/Row",
   component: [HawaSettingsRow],
+  parameters: {
+    backgrounds: {
+      default: 'twitter',
+      values: [
+        {
+          name: 'light',
+          value: '#00aced',
+        },
+        {
+          name: 'dark',
+          value: '#3b5998',
+        },
+      ],
+    },
+  //   backgrounds: [{ name: "dark background", value: "#000", default: true }]
+  },
   argTypes: {
     settingsType: {
       options: ["checkbox", "text", "radio"],

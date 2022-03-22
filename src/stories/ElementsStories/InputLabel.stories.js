@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/react";
-import { HawaInputLabel } from "../../ui";
+import { HawaInputLabel } from "../../elements";
 
 export default {
   title: "Components/InputLabel",

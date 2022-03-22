@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaTextField } from "../../ui";
+import { HawaTextField } from "../../elements";
 
 const Template = (args) => {
   return <HawaTextField {...args} />;
