@@ -5,9 +5,7 @@ import Container from "@mui/material/Container";
 export const HawaRadio = (props) => {
   const [value, setValue] = useState(props.defaultValue);
   return (
-    <Container
-      variant={props.location === "inSettings" ? "inSettings" : "panelTabs"}
-    >
+    <Container variant={props.location || "panelTabs"}>
       {props.options.map((singleOption, i) => {
         return (
           <Button

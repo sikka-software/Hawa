@@ -89,12 +89,23 @@ const defaultTheme = createTheme({
           props: { variant: "plain" },
           style: { background: "none" }
         },
-        {
-          props: { variant: "dashed", color: "secondary" },
-          style: { border: `4px dashed red` }
-        },
+
         {
           props: { variant: "panelTabs" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            justifyContent: "space-between",
+            backgroundColor: primaryLayoutColor,
+            alignItems: "center",
+            paddingLeft: "10px !important",
+            paddingRight: "10px !important",
+            padding: 10
+          }
+        },
+        {
+          props: { variant: "pricingTabs" },
           style: {
             display: "flex",
             flexDirection: "row",
@@ -125,6 +136,24 @@ const defaultTheme = createTheme({
           }
         },
         {
+          props: { variant: "inPricing" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "fit-content",
+            margin: 0,
+            height: 50,
+            marginRight: 0,
+            marginLeft: 0,
+            backgroundColor: primaryLayoutColor,
+            padding: 5,
+            paddingLeft: "5px !important",
+            paddingRight: "5px !important"
+          }
+        },
+        {
           props: { variant: "settingsRow" },
           style: {
             display: "flex",
@@ -142,7 +171,7 @@ const defaultTheme = createTheme({
           }
         },
         {
-          props: { variant: "price-card" },
+          props: { variant: "plan-card" },
           style: {
             display: "flex",
             flexDirection: "column",
@@ -163,7 +192,42 @@ const defaultTheme = createTheme({
           }
         },
         {
-          props: { variant: "price-header" },
+          props: { variant: "selected-plan-card" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            border: `1px solid ${primaryActionColor}`,
+            // width: "fit-content",
+            backgroundColor: lighten(primaryActionColor, 0.4),
+            // justifyContent: "space-between",
+            // alignItems: "flex-start",
+            margin: 10,
+            // height: 70,
+            width: 300,
+            // marginTop: 10,
+            paddingLeft: "0px !important",
+            paddingRight: "0px !important",
+            // padding: 10
+            padding: 0
+          }
+        },
+        {
+          props: { variant: "plan-header" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+            border: `1px solid ${primaryLayoutColor}`,
+            backgroundColor: "white",
+            margin: 0,
+            padding: 20
+          }
+        },
+        {
+          props: { variant: "selected-plan-header" },
           style: {
             display: "flex",
             flexDirection: "column",
@@ -183,6 +247,9 @@ const defaultTheme = createTheme({
             flexDirection: "row",
             maxWidth: "max-content",
             width: "fit-content",
+            padding: 0,
+            paddingLeft: "0px !important",
+            paddingRight: "0px !important"
             // borderRadius: allBorderRadius,
             // borderBottomLeftRadius: 0,
             // borderBottomRightRadius: 0,

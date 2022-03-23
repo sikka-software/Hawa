@@ -2,12 +2,12 @@ import React from "react";
 import { PricingPlans } from "../../../blocks/Pricing/PricingPlans";
 
 export default {
-  title: "Blocks/Pricing/Landing",
+  title: "Blocks/Pricing/In Billing",
   component: [PricingPlans],
   argTypes: {}
 };
 
-export const Landing = (args) => {
+export const InBilling = (args) => {
   return (
     <PricingPlans
       {...args}
@@ -24,10 +24,11 @@ export const Landing = (args) => {
         {
           title: "Intro",
           subtitle: "For beginners",
+          selectedPlan: true,
           price: 10,
           currency: "SAR",
           cycleText: "Monthly",
-          buttonText: "Select Plan",
+          buttonText: "Current Plan",
           features: ["one", "two", "three"]
         },
         {

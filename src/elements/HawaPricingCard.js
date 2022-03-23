@@ -6,10 +6,10 @@ export const HawaPricingCard = (props) => {
   return (
     <Container
       maxWidth="xs"
-      variant="price-card"
+      variant={props.selectedPlan ? "selected-plan-card" : "plan-card"}
       style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
     >
-      <Container variant="price-header">
+      <Container variant="plan-header">
         <Typography variant="h3" fontWeight={500}>
           {props.title}
         </Typography>
@@ -73,7 +73,9 @@ export const HawaPricingCard = (props) => {
         </Typography>
       </Container>
 
-      <div style={{ padding: 20 }}>
+      <div
+        style={{ padding: 20, color: props.selectedPlan ? "white" : "black" }}
+      >
         {props.features?.map((feature) => {
           return (
             <div
@@ -102,7 +104,10 @@ export const HawaPricingCard = (props) => {
           );
         })}
       </div>
-      <Button variant="contained" style={{ margin: 20 }}>
+      <Button
+        variant={props.selectedPlan ? "outlined" : "contained"}
+        style={{ margin: 20 }}
+      >
         {props.buttonText}
       </Button>
     </Container>

@@ -2,12 +2,12 @@ import React from "react";
 import { PricingPlans } from "../../../blocks/Pricing/PricingPlans";
 
 export default {
-  title: "Blocks/Pricing/Landing",
+  title: "Blocks/Pricing/In Landing",
   component: [PricingPlans],
   argTypes: {}
 };
 
-export const Landing = (args) => {
+export const InLanding = (args) => {
   return (
     <PricingPlans
       {...args}
