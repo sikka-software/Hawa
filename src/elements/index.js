@@ -2,7 +2,7 @@ export * from "./AdaptiveButton";
 export * from "./ActionButton";
 export * from "./HawaCheckbox";
 export * from "./HawaRadio";
-export * from "./PricingCard";
+export * from "./HawaCard";
 export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
 export * from "./HawaButton";

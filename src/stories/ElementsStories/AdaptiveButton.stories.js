@@ -1,27 +1,34 @@
+import { Class } from "@mui/icons-material";
 import React from "react";
-import CastIcon from "@mui/icons-material/Cast";
 import { AdaptiveButton } from "../../elements";
 
 export default {
   title: "Elements/Buttons/AdaptiveButton",
   component: AdaptiveButton,
-  argsTypes: {
-    buttonLabel: { control: "text" },
-    borderRadius: { control: "number" },
-    buttonColor: { control: "color" },
-    padding: { control: "number" },
-    hintTitle: { control: "text" },
-    hintContent: { control: "text" },
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
+  argTypes: {
+    buttonText: {
+      control: "text",
+      description: "The button text",
+      table: {
+        defaultValue: { summary: "Click" }
+      }
+    },
+    showText: {
+      control: "boolean",
+      // default: true,
+      description: "Boolean to show or hide the text",
+      table: {
+        defaultValue: { summary: true },
+        type: {
+          summary: "Use Case",
+          detail:
+            "Set this property to true in large screen and false on mobile"
+        }
+      }
     }
   },
   args: {
-    hintTitle: "test",
-    hintContent: "more test",
-    buttonColor: "#f9f9f9",
-    theme: "primary"
+    buttonText: "Click"
   }
 };
 
@@ -31,46 +38,14 @@ const Template = (args) => {
 
 export const FullButton = Template.bind({});
 FullButton.args = {
-  // showText: true,
-  // buttonLabel: "test",
-  // borderRadius: 5,
-  // icon: <CastIcon />,
-  // textColor: "#000000",
-  // buttonColor: "#f9f9f9",
-  theme: "primary"
-  // placeholder: "Example ...",
-  // defaultValue: "This is default value",
-  // inputLabel: "Text Field",
-  // padding: 10
+  showText: true,
+  // buttonText: "Full Button",
+  icon: <Class />
 };
 
 export const IconOnly = Template.bind({});
 IconOnly.args = {
-  // showText: true,
-  // buttonLabel: "test",
-  // borderRadius: 5,
-  // buttonColor: "#878787",
-  // textColor: "#ffffff",
-  // icon: <CastIcon />,
-  theme: "primary"
-
-  // placeholder: "Exemple ...",
-  // defaultValue: "This is default value",
-  // inputLabel: "Text Field",
-  // padding: 10
-};
-export const Danger = Template.bind({});
-Danger.args = {
-  // showText: true,
-  // buttonLabel: "test",
-  // borderRadius: 5,
-  // buttonColor: "#c0c0c0",
-  // danger: true,
-  // icon: <CastIcon />,
-  theme: "primary"
-
-  // placeholder: "Exemple ...",
-  // defaultValue: "This is default value",
-  // inputLabel: "Text Field",
-  // padding: 10
+  showText: false,
+  icon: <Class />,
+  buttonText: "test"
 };

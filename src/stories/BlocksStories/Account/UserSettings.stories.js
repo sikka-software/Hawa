@@ -16,7 +16,11 @@ export const UserSettings = (args) => {
   return (
     <UserSettingsForm {...args}>
       <HawaSettingsRow settingsType="checkbox" settingsLabel="Hide Watermark" />
-      <HawaSettingsRow settingsType="text" settingsLabel="Custom Handle" />
+      <HawaSettingsRow
+        settingsType="text"
+        placeholder="Your handle"
+        settingsLabel="Custom Handle"
+      />
       <HawaSettingsRow
         handleChange={(e) => console.log("changing to ", e)}
         settingsType="radio"
@@ -36,6 +40,11 @@ export const UserSettings = (args) => {
           { value: "ar", label: "Arabic" }
         ]}
         settingsLabel="Language"
+      />
+        <HawaSettingsRow
+        settingsType="boolean"
+        placeholder="Your handle"
+        settingsLabel="Show Analytics"
       />
     </UserSettingsForm>
   );

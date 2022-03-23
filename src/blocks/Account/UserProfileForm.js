@@ -7,12 +7,11 @@ import Button from "@mui/material/Button";
 export const UserProfileForm = (props) => {
   const methods = useForm();
   const {
-    formState: { errors },
-    handleSubmit
+    formState: { errors }
   } = methods;
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="sm">
       <FormProvider {...methods}>
         <form>
           <HawaTextField

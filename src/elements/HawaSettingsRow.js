@@ -1,13 +1,12 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import { Box } from "../layout";
 import Checkbox from "@mui/material/Checkbox";
-import TextField from "@mui/material/TextField";
 import { HawaTypography } from "./HawaTypography";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import { HawaTextField } from "./HawaTextField";
 import { HawaRadio } from "./HawaRadio";
+import { HawaSwitch } from "./HawaSwitch";
 export const HawaSettingsRow = (props) => {
   return (
     <Container variant="settingsRow">
@@ -17,6 +16,7 @@ export const HawaSettingsRow = (props) => {
       {props.settingsType === "radio" && (
         <HawaRadio location="inSettings" {...props} />
       )}
+      {props.settingsType === "boolean" && <HawaSwitch {...props} />}
     </Container>
   );
 };

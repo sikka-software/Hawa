@@ -6,126 +6,27 @@ import { StyledTooltip } from "./StyledTooltip";
 import { getTextColor } from "../util";
 
 export const AdaptiveButton = (props) => {
-  const { showText } = props;
-
-  const [tooltip, setTooltip] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  //full button
-  if (showText) {
+  if (props.showText) {
     return (
-      <Button
-        disableRipple
-        disabled={props.disabled}
-        aria-label={props.buttonLabel}
-        color={props.danger ? "secondary" : "primary"}
-        onClick={props.handleClick}
-        style={{
-          backgroundColor: theme.primaryColor,
-          // borderRadius: theme.borderRadius,
-          padding: theme.paddings,
-          color: getTextColor(theme.primaryColor)
-          // color: hovered
-          //   ? "#ffffff"
-          //   : props.danger
-          //   ? "#f50057"
-          //   : "var(--blue)"
-        }}
-      >
+      <Button variant="adaptive-dark" onClick={props.onClick}>
         {props.icon}
-        {props.showText ? (
-          <span style={{ marginLeft: props.icon ? 5 : 0 }}>
-            {props.buttonLabel}
-          </span>
-        ) : null}
+        <div style={{ width: 10 }} />
+        {props.buttonText}
       </Button>
-    );
-  } else if (props.buttonLabelOnly) {
-    return (
-      <>
-        <Tooltip
-          placement={screenSize.width > 400 ? "bottom-center" : "top-center"}
-          enterTouchDelay={100}
-          title={
-            props.hint ? (
-              props.hint
-            ) : (
-              <div>
-                <div
-                  style={{
-                    fontSize: 20,
-                    fontWeight: 800,
-                    padding: 10,
-                    paddingBottom: 5,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintTitle}
-                </div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 100,
-                    padding: 10,
-                    textAlign: "center"
-                  }}
-                >
-                  {props.hintContent}
-                </div>
-              </div>
-            )
-          }
-        >
-          <Button
-            disabled={props.disabled}
-            size="small"
-            disableRipple
-            aria-label={props.buttonLabel}
-            onClick={props.handleClick}
-            color={props.danger ? "secondary" : "primary"}
-            style={{
-              padding: 10,
-              color: hovered
-                ? "#ffffff"
-                : props.danger
-                ? "#f50057"
-                : "var(--blue)"
-            }}
-          >
-            {props.buttonLabel}
-          </Button>
-        </Tooltip>
-      </>
     );
   } else {
     //icon only
     return (
-      <StyledTooltip hintTitle="Example" hintContent="More explaination here">
-        <Button
-          disabled={props.disabled}
-          size="small"
-          disableRipple
-          aria-label={props.buttonLabel}
-          onClick={props.handleClick}
-          color={props.danger ? "secondary" : "primary"}
-          style={{
-            padding: 10,
-            color: hovered
-              ? "#ffffff"
-              : props.danger
-              ? "#f50057"
-              : "var(--blue)"
-          }}
-        >
+      <Tooltip title={props.buttonText} placement="top">
+        <Button variant="adaptive-dark" onClick={props.onClick}>
           {props.icon}
         </Button>
-      </StyledTooltip>
+      </Tooltip>
     );
   }
 };
 
 AdaptiveButton.propTypes = {
-  buttonLabel: PropTypes.string,
-  danger: PropTypes.bool,
-  disabled: PropTypes.bool,
+  buttonText: PropTypes.string,
   showText: PropTypes.bool
 };

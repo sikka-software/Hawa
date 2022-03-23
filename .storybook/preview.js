@@ -2,22 +2,17 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { darken, lighten } from "@mui/material";
 
-const getTextColor = (backColor) => {
-  let rgbText = hexToRgb(backColor);
-  let slicedRGBText = rgbText.slice(4, -1);
-  let rgbArray = slicedRGBText.split(",");
-  if (rgbArray[0] * 0.299 + rgbArray[1] * 0.587 + rgbArray[2] * 0.114 > 186) {
-    return "#000000";
-  } else {
-    return "#ffffff";
-  }
-};
 let allBorderRadius = 10;
-let primaryActionColor = "#4062bb";
+let primaryActionColor = "#994133";
 let primaryLayoutColor = "#E0E7F5";
-// let primaryActionTextColor = getTextColor(primaryActionColor);
 let primaryActionTextColor = "#ffffff";
+
 const defaultTheme = createTheme({
+  palette: {
+    primary: {
+      main: primaryActionColor
+    }
+  },
   components: {
     MuiInputLabel: {
       styleOverrides: {
@@ -143,12 +138,51 @@ const defaultTheme = createTheme({
             paddingRight: "10px !important"
             // padding: 10
           }
+        },
+        {
+          props: { variant: "price-card" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            border: `1px solid ${primaryLayoutColor}`,
+            // width: "fit-content",
+            backgroundColor: lighten(primaryLayoutColor, 0.4),
+            // justifyContent: "space-between",
+            // alignItems: "flex-start",
+            // height: 70,
+            width: 300,
+            // marginTop: 10,
+            paddingLeft: "0px !important",
+            paddingRight: "0px !important",
+            // padding: 10
+            padding: 0
+          }
+        },
+        {
+          props: { variant: "price-header" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+            border: `1px solid ${primaryLayoutColor}`,
+            backgroundColor: "white",
+            margin: 0,
+            padding: 20
+          }
         }
       ]
     },
     MuiButton: {
       styleOverrides: {
-        root: { textTransform: "uppercase" },
+        root: {
+          textTransform: "uppercase",
+          borderRadius: allBorderRadius,
+          boxShadow: "none",
+          "&:hover": { boxShadow: "none" }
+        },
         contained: { backgroundColor: primaryActionColor }
       },
       variants: [
@@ -212,8 +246,61 @@ const defaultTheme = createTheme({
             margin: 0,
             borderRadius: allBorderRadius
           }
+        },
+        {
+          props: { variant: "adaptive-dark" },
+          style: {
+            backgroundColor: primaryActionColor,
+            height: 40,
+            // width: 40,
+            color: primaryActionTextColor,
+            margin: 0,
+            borderRadius: allBorderRadius,
+            "&:hover": {
+              backgroundColor: darken(primaryActionColor, 0.4)
+            }
+          }
+        },
+        {
+          props: { variant: "adaptive-light" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "fit-content",
+            backgroundColor: primaryActionColor,
+            height: 50,
+            color: primaryActionTextColor,
+            // background: "none",
+            justifyContent: "space-between",
+            alignItems: "center",
+            // padding: 15,
+            margin: 0,
+            borderRadius: allBorderRadius,
+            "&:hover": {
+              backgroundColor: darken(primaryActionColor, 0.4)
+            }
+          }
         }
       ]
+    },
+    MuiSwitch: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "green",
+          display: "flex",
+          flexDirection: "row",
+          // justifyContent: "center",
+          alignItems: "center"
+        },
+        track: {
+          backgroundColor: "grey",
+          height: 20,
+          borderRadius: allBorderRadius
+        },
+        thumb: {
+          borderRadius: allBorderRadius
+        }
+      }
     },
     MuiAlert: {
       styleOverrides: {
@@ -261,4 +348,3 @@ export const parameters = {
     }
   }
 };
-
