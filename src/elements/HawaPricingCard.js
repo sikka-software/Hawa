@@ -3,27 +3,42 @@ import Container from "@mui/material/Container";
 import { Button, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlined";
 export const HawaPricingCard = (props) => {
+  let isArabic = props.lang === "ar";
+  let cycleTextsArabic = {
+    monthly: "شهرياً",
+    "3-months": "كل 3 أشهر",
+    "6-months": "كل 6 أشهر",
+    annually: "سنوياً"
+  };
+  let cycleTextsEnglish = {
+    monthly: "Monthly",
+    "3-months": "3 Months",
+    "6-months": "6 Months",
+    annually: "Annually"
+  };
+  let currencyMapping = {
+    usd: isArabic ? "دولار" : "$",
+    sar: isArabic ? "ريال" : "SAR"
+  };
+  let featuresMapping = isArabic ? props.features_ar : props.features;
   return (
     <Container
       maxWidth="xs"
       variant={props.selectedPlan ? "selected-plan-card" : "plan-card"}
-      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
+      style={{ direction: isArabic ? "rtl" : "ltr" }}
     >
       <Container variant="plan-header">
         <Typography variant="h3" fontWeight={500}>
-          {props.title}
+          {isArabic ? props.title_ar : props.title}
         </Typography>
-        <Typography variant="caption">{props.subtitle}</Typography>
+        <Typography variant="caption">
+          {isArabic ? props.subtitle_ar : props.subtitle}
+        </Typography>
         <br />
         <Typography
           variant="h4"
           fontWeight={500}
-          style={{
-            display: "flex",
-            // flexDirection: "column",
-            alignItems: "center"
-            // justifyContent: props.lang === "ar" ? "" : "center"
-          }}
+          style={{ display: "flex", alignItems: "center" }}
         >
           {props.lang === "ar" ? (
             <div
@@ -32,16 +47,20 @@ export const HawaPricingCard = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center"
-                // alignItems: "center"
               }}
             >
               <div style={{ display: "flex", flexDirection: "row" }}>
                 {props.price}
                 <div style={{ width: 5 }} />
-                <Typography>{props.currency}</Typography>
+                {/* <Typography>{props.currency?.toUpperCase()}</Typography> */}
+                <Typography>
+                  {currencyMapping[props.currency?.toLowerCase()]}
+                </Typography>
               </div>
               <Typography style={{ fontSize: 14, margin: 5 }}>
-                {props.cycleText}
+                {isArabic
+                  ? cycleTextsArabic[props.cycleText]
+                  : cycleTextsEnglish[props.cycleText]}
               </Typography>
             </div>
           ) : (
@@ -51,32 +70,30 @@ export const HawaPricingCard = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center"
-                // alignItems: "center"
               }}
             >
               <div style={{ display: "flex", flexDirection: "row" }}>
-                <Typography>{props.currency}</Typography>
+                <Typography>
+                  {currencyMapping[props.currency?.toLowerCase()]}
+                </Typography>
+                {/* <Typography>{props.currency?.toUpperCase()}</Typography> */}
                 <div style={{ width: 5 }} />
                 {props.price}
               </div>
               <Typography style={{ fontSize: 14, margin: 5 }}>
-                {props.cycleText}
+                {props.lang === "ar"
+                  ? cycleTextsArabic[props.cycleText]
+                  : cycleTextsEnglish[props.cycleText]}
               </Typography>
             </div>
           )}
-          {/* {props.lang === "ar" ? null : (
-            <Typography style={{ fontSize: 14, margin: 5 }}>
-              {" / "}
-              {props.cycleText}
-            </Typography>
-          )} */}
         </Typography>
       </Container>
 
       <div
         style={{ padding: 20, color: props.selectedPlan ? "white" : "black" }}
       >
-        {props.features?.map((feature) => {
+        {featuresMapping?.map((feature) => {
           return (
             <div
               style={{
@@ -105,6 +122,7 @@ export const HawaPricingCard = (props) => {
         })}
       </div>
       <Button
+        onClick={props.selectPlan}
         variant={props.selectedPlan ? "outlined" : "contained"}
         style={{ margin: 20 }}
       >

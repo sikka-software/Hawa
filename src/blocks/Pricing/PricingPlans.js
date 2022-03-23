@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import { HawaPricingCard, HawaRadio } from "../../elements";
 
 export const PricingPlans = (props) => {
+  const [currentCurrency, setCurrentCurrency] = useState("sar");
+  const [currentCycle, setCurrentCycle] = useState("monthly");
   return (
     <Container style={{ width: "fit-content" }} variant="plain">
       <div
@@ -10,26 +12,27 @@ export const PricingPlans = (props) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-
           marginBottom: 10
         }}
       >
         <HawaRadio
           location="inPricing"
-          handleChange={(e) => console.log("changing to ", e)}
-          defaultValue="usd"
+          handleChange={(e) => setCurrentCycle(e)}
+          defaultValue="monthly"
           options={[
-            { label: `Monthly`, value: `usd` },
+            { label: `Monthly`, value: `monthly` },
             { label: `3 Months`, value: `3-months` },
             { label: `6 Months`, value: `6-months` },
-            { label: `Annually`, value: `annual` }
+            { label: `Annually`, value: `annually` }
           ]}
         />
 
         <HawaRadio
           location="inPricing"
-          handleChange={(e) => console.log("changing to ", e)}
-          defaultValue="usd"
+          handleChange={(e) => {
+            setCurrentCurrency(e);
+          }}
+          defaultValue="sar"
           options={[
             { label: `USD`, value: `usd` },
             { label: `SAR`, value: `sar` }
@@ -39,7 +42,14 @@ export const PricingPlans = (props) => {
 
       <Container variant="pricing">
         {props.plans.map((plan) => {
-          return <HawaPricingCard lang={props.lang} {...plan} />;
+          return (
+            <HawaPricingCard
+              lang={props.lang}
+              {...plan}
+              currency={currentCurrency}
+              cycleText={currentCycle}
+            />
+          );
         })}
       </Container>
     </Container>

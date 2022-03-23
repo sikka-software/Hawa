@@ -183,7 +183,8 @@ const defaultTheme = createTheme({
             // alignItems: "flex-start",
             margin: 10,
             // height: 70,
-            width: 300,
+            width: 250,
+            maxWidth: 200,
             // marginTop: 10,
             paddingLeft: "0px !important",
             paddingRight: "0px !important",
@@ -204,7 +205,8 @@ const defaultTheme = createTheme({
             // alignItems: "flex-start",
             margin: 10,
             // height: 70,
-            width: 300,
+            width: 250,
+            maxWidth: 200,
             // marginTop: 10,
             paddingLeft: "0px !important",
             paddingRight: "0px !important",
@@ -258,9 +260,27 @@ const defaultTheme = createTheme({
             // margin: 0,
             // padding: 20
           }
+        },
+        {
+          props: { variant: "appbar" },
+          style: {
+            boxShadow: "none",
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "none !important",
+            background: "none !important",
+            padding: "0px !important",
+            paddingRight: "20px !important",
+            paddingLeft: "20px !important"
+            // borderRadius: allBorderRadius,
+            // paddingLeft: 20,
+            // paddingRight: 20,
+            // padding: 20
+          }
         }
       ]
     },
+
     MuiButton: {
       styleOverrides: {
         root: {
@@ -394,6 +414,90 @@ const defaultTheme = createTheme({
           borderRadius: allBorderRadius
         }
       }
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "red",
+          margin: 5,
+          borderRadius: allBorderRadius,
+          "&:hover": {
+            backgroundColor: primaryActionColor,
+            color: "white"
+          }
+        }
+      },
+      variants: [
+        {
+          props: { variant: "clicked" },
+          style: {
+            backgroundColor: primaryActionColor,
+            color: "white"
+          }
+        }
+      ]
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "red",
+          // color: "white",
+          // height: 60
+        }
+      },
+      variants: [
+        {
+          props: { variant: "appbar" },
+          style: {
+            color: "black",
+            height: 60,
+            backgroundColor: "white",
+            // backgroundColor: "red",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            padding: 0
+
+            // background: "none",
+            // color: primaryActionTextColor,
+            // padding: 10,
+            // marginTop: 20,
+            // borderRadius: allBorderRadius
+            // "&:hover": {
+            //   backgroundColor: darken(primaryActionColor, 0.5),
+            //   color: "white"
+            // }
+          }
+        }
+      ]
+    },
+
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+          // background: "none",
+          color: "black"
+        }
+      },
+      variants: [
+        {
+          props: { variant: "appbar" },
+          style: {
+            color: "black",
+            // height: 60,
+            background: "none",
+            color: primaryActionTextColor
+            // padding: 10,
+            // marginTop: 20,
+            // borderRadius: allBorderRadius
+            // "&:hover": {
+            //   backgroundColor: darken(primaryActionColor, 0.5),
+            //   color: "white"
+            // }
+          }
+        }
+      ]
     }
   }
 });
