@@ -1,27 +1,91 @@
-import { Container } from "@mui/material";
 import React from "react";
-import { HawaCard } from "../../elements";
+import { HawaPricingCard } from "../../elements";
 
 export default {
   title: "Elements/Cards/Pricing",
-  component: [HawaCard],
+  component: [HawaPricingCard],
   argTypes: {
-    buttonLabel: {
+    title: {
       control: "text",
-      description: "The text next to the logo"
+      description: "The title of the pricing package"
+    },
+    subtitle: {
+      control: "text",
+      description: "The subtitle of the pricing package"
+    },
+    price: {
+      control: "number",
+      description: "The price of the pricing package"
+    },
+    currency: {
+      control: "text",
+      description: "The currency of the price",
+      table: {
+        type: {
+          summary: "Examples",
+          detail: "$, SAR, ريال, دولار"
+        }
+      }
+    },
+    cycleText: {
+      control: "text",
+      description: "The cycle period of the payment",
+      table: {
+        type: {
+          summary: "Examples",
+          detail: "Monthly, Annually, Quarterly, Every 3 Months, Every 6 Months"
+        }
+      }
+    },
+    features: {
+      control: "array",
+      description: "An Array of strings for the package features"
+    },
+    lang: {
+      control: "text",
+      description: "The language of the card to change the direction",
+      table: {
+        type: {
+          summary: "Options",
+          detail: "ar, en"
+        }
+      }
+    },
+    buttonText: {
+      control: "text",
+      description: "The text of the button"
     }
+  },
+  args: {
+    title: "Pro",
+    subtitle: "For small businesses",
+    price: 300,
+    currency: "$",
+    cycleText: "Monthly",
+    buttonText: "Select Plan"
   }
 };
 
-export const Pricing = (args) => {
+export const LTR = (args) => {
   return (
-    <HawaCard
-      title="Pro"
-      subtitle="For small business"
-      price="300"
-      currency="SAR"
-      cycleText="Every 6 months"
+    <HawaPricingCard
+      {...args}
       features={["Unlimited Menus", "Unlimited Items", "Custom Handle"]}
+    />
+  );
+};
+
+export const RTL = (args) => {
+  return (
+    <HawaPricingCard
+      lang="ar"
+      title="الإحترافي"
+      subtitle="للمنشئات الصغيرة"
+      price="300"
+      currency="ريال"
+      cycleText="كل 6 أشهر"
+      buttonText="إختر الباقة"
+      features={["قوائم لا محدودة", "عناصر لا محدودة", "أسم مخصص"]}
     />
   );
 };

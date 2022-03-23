@@ -8,6 +8,8 @@ let primaryLayoutColor = "#E0E7F5";
 let primaryActionTextColor = "#ffffff";
 
 const defaultTheme = createTheme({
+  // typography: { fontFamily: ["IBMPlex"].join(",") },
+
   palette: {
     primary: {
       main: primaryActionColor
@@ -150,6 +152,7 @@ const defaultTheme = createTheme({
             backgroundColor: lighten(primaryLayoutColor, 0.4),
             // justifyContent: "space-between",
             // alignItems: "flex-start",
+            margin: 10,
             // height: 70,
             width: 300,
             // marginTop: 10,
@@ -171,6 +174,22 @@ const defaultTheme = createTheme({
             backgroundColor: "white",
             margin: 0,
             padding: 20
+          }
+        },
+        {
+          props: { variant: "pricing" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            maxWidth: "max-content",
+            width: "fit-content",
+            // borderRadius: allBorderRadius,
+            // borderBottomLeftRadius: 0,
+            // borderBottomRightRadius: 0,
+            // border: `1px solid ${primaryLayoutColor}`,
+            // backgroundColor: "white"
+            // margin: 0,
+            // padding: 20
           }
         }
       ]
