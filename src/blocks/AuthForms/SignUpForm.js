@@ -1,7 +1,7 @@
 import React from "react";
 import { HawaTextField, HawaLogoButton } from "../../elements";
 import PropTypes from "prop-types";
-import { FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import PersonIcon from "@mui/icons-material/PermIdentityOutlined";
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
@@ -16,7 +16,8 @@ export const SignUpForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    control
   } = methods;
 
   return (
@@ -32,32 +33,47 @@ export const SignUpForm = (props) => {
         )} */}
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleSignUp)}>
-          <HawaTextField
-            fullWidth
-            type="text"
-            label={props.texts.fullNameLabel}
+          <Controller
+            control={control}
             name="fullName"
-            placeholder={props.texts.fullNamePlaceholder}
-            inputLabel={props.texts.fullNameLabel}
-            startAdornment={
-              <InputAdornment position="start">
-                <PersonIcon />
-              </InputAdornment>
-            }
-            helperText={errors.fullName?.message}
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                type="text"
+                value={field.value ?? ""}
+                label={props.texts.fullNameLabel}
+                placeholder={props.texts.fullNamePlaceholder}
+                helperText={errors.fullName?.message}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                }
+              />
+            )}
+            rules={{
+              required: props.texts.fullNameRequiredText
+            }}
           />
 
-          <HawaTextField
-            fullWidth
-            type="text"
-            label={props.texts.emailLabel}
-            placeholder={props.texts.emailPlaceholder}
+          <Controller
+            control={control}
             name="email"
-            startAdornment={
-              <InputAdornment position="start">
-                <EmailIcon />
-              </InputAdornment>
-            }
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                type="text"
+                value={field.value ?? ""}
+                label={props.texts.emailLabel}
+                helperText={errors.email?.message}
+                placeholder={props.texts.emailPlaceholder}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                }
+              />
+            )}
             rules={{
               required: props.texts.emailRequiredText,
               pattern: {
@@ -66,27 +82,28 @@ export const SignUpForm = (props) => {
                 message: props.texts.emailInvalidText
               }
             }}
-            helperText={errors.email?.message}
           />
-          <HawaTextField
-            fullWidth
+          <Controller
+            control={control}
             name="password"
-            placeholder={props.texts.passwordPlaceholder}
-            type="password"
-            label={props.texts.passwordLabel}
-            startAdornment={
-              <InputAdornment position="start">
-                <PasswordIcon />
-              </InputAdornment>
-            }
-            rules={{
-              required: props.texts.passwordRequiredText,
-              minLength: {
-                value: 8,
-                message: props.texts.passwordTooShortText
-              }
-            }}
-            helperText={errors.password?.message}
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                type="password"
+                defaultValue={field.value ?? ""}
+                value={field.value ?? ""}
+                label={props.texts.passwordLabel}
+                placeholder={props.texts.passwordPlaceholder}
+                helperText={errors.password?.message}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <PasswordIcon />
+                  </InputAdornment>
+                }
+                {...field}
+              />
+            )}
+            rules={{ required: props.texts.passwordRequiredText }}
           />
 
           <Button fullWidth variant="last" type="submit">

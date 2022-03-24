@@ -6,10 +6,8 @@ let allBorderRadius = 10;
 let primaryActionColor = "#994133";
 let primaryLayoutColor = "#E0E7F5";
 let primaryActionTextColor = "#ffffff";
-
+let mainFont = "Roboto";
 const defaultTheme = createTheme({
-  // typography: { fontFamily: ["IBMPlex"].join(",") },
-
   palette: {
     primary: {
       main: primaryActionColor
@@ -33,9 +31,30 @@ const defaultTheme = createTheme({
         }
       ]
     },
+    MuiTypography: {
+      styleOverrides: {},
+      variants: [
+        {
+          props: {
+            variant: "validation"
+          },
+          style: {
+            textAlign: "start",
+            whiteSpace: "nowrap",
+            fontFamily: mainFont,
+            color: "red",
+            fontSize: 13,
+            marginTop: 0
+          }
+        }
+      ]
+    },
     MuiInputBase: {
       styleOverrides: {
-        root: { backgroundColor: "lightblue", borderRadius: allBorderRadius }
+        root: {
+          backgroundColor: "lightblue",
+          borderRadius: allBorderRadius
+        }
       }
     },
     MuiInput: {

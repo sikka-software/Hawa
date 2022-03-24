@@ -1,30 +1,35 @@
 import React, { useState } from "react";
-import { Box } from "../../layout";
-import {
-  ActionButton,
-  HawaTextField,
-  HawaAlert,
-  HawaTypography
-} from "../../elements";
-import { FormProvider, useForm } from "react-hook-form";
+import { HawaTextField, HawaAlert, HawaTypography } from "../../elements";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
 
 export const NewPasswordForm = (props) => {
   const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [matchError, setMatchError] = useState(false);
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    control
   } = methods;
+
+  const handleSubmission = (e) => {
+    console.log("handling subb", e);
+    if (e.password === e.confirmPassword) {
+      props.handleNewPassword();
+    } else {
+      setMatchError(true);
+    }
+  };
 
   return (
     <Container maxWidth="xs" variant="auth">
-      {props.error && (
-        <HawaAlert text="This is a new password alert" severity="error" />
+      {matchError && (
+        <HawaAlert text={props.texts.passwordMatchError} severity="error" />
       )}
       {props.passwordChanged ? (
         <HawaTypography style={{ textAlign: "center", margin: 5 }}>
@@ -32,40 +37,54 @@ export const NewPasswordForm = (props) => {
         </HawaTypography>
       ) : (
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(props.handleNewPassword)}>
-            <HawaTextField
-              fullWidth
+          <form onSubmit={handleSubmit(handleSubmission)}>
+            <Controller
+              control={control}
               name="password"
-              type="password"
-              label={props.texts.passwordLabel}
-              placeholder={props.texts.passwordPlaceholder}
-              onChange={(e) => setNewPassword(e.target.value)}
-              value={newPassword}
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="password"
+                  value={field.value ?? ""}
+                  label={props.texts.passwordLabel}
+                  placeholder={props.texts.passwordPlaceholder}
+                  // onChange={(e) => setNewPassword(e.target.value)}
+                  helperText={errors.password?.message}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <PasswordIcon />
+                    </InputAdornment>
+                  }
+                  {...field}
+                />
+              )}
               rules={{
                 required: props.texts.passwordRequiredText
               }}
-              helperText={errors.password?.message}
             />
-            <HawaTextField
-              fullWidth
+            <Controller
+              control={control}
               name="confirmPassword"
-              type="password"
-              placeholder={props.texts.confirmPasswordPlaceholder}
-              label={props.texts.confirmPasswordLabel}
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="password"
+                  value={field.value ?? ""}
+                  label={props.texts.confirmPasswordLabel}
+                  placeholder={props.texts.confirmPasswordPlaceholder}
+                  // onChange={(e) => setConfirmPassword(e.target.value)}
+                  helperText={errors.confirmPassword?.message}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <PasswordIcon />
+                    </InputAdornment>
+                  }
+                  {...field}
+                />
+              )}
               rules={{
-                required: "Password is rquired"
+                required: props.texts.confirmPasswordRequiredText
               }}
-              helperText={errors.confirmPassword?.message}
             />
 
             <Button type="submit" fullWidth variant="last">

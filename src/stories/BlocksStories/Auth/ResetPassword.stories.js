@@ -5,7 +5,6 @@ export default {
   title: "Blocks/Auth/Reset Password",
   component: [ResetPasswordForm],
   argTypes: {
-   
     showError: {
       default: false,
       control: "boolean",
@@ -48,7 +47,7 @@ const ResetPasswordTemplate = (args) => {
         twitterButtonLabel: "Sign in with Twitter"
       }}
       {...args}
-      handleResetPassword={() => console.log("resetting password")}
+      handleResetPassword={(e) => console.log("resetting password,", e)}
     />
   );
 };

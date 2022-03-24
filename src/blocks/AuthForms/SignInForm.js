@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { HawaTextField, HawaLogoButton } from "../../elements";
-import { FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
@@ -14,7 +14,9 @@ export const SignInForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    register,
+    control
   } = methods;
 
   return (
@@ -25,63 +27,74 @@ export const SignInForm = (props) => {
           {props.errorText}
         </Alert>
       )}
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(props.handleSignIn)}>
-          <HawaTextField
-            fullWidth
-            type="text"
-            name="email"
-            label={props.texts.emailLabel}
-            placeholder={props.texts.emailPlaceholder}
-            startAdornment={
-              <InputAdornment position="start">
-                <EmailIcon />
-              </InputAdornment>
-            }
-            rules={{
-              required: props.texts.emailRequired,
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: props.texts.emailInvalidText
+      <form onSubmit={handleSubmit(props.handleSignIn)}>
+        <Controller
+          control={control}
+          name="email"
+          render={({ field }) => (
+            <HawaTextField
+              fullWidth
+              type="text"
+              value={field.value ?? ""}
+              label={props.texts.emailLabel}
+              helperText={errors.email?.message}
+              placeholder={props.texts.emailPlaceholder}
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
               }
-            }}
-            helperText={errors.email?.message}
-          />
-
-          <HawaTextField
-            fullWidth
-            name="password"
-            placeholder={props.texts.passwordPlaceholder}
-            type="password"
-            label={props.texts.passwordLabel}
-            startAdornment={
-              <InputAdornment position="start">
-                <PasswordIcon />
-              </InputAdornment>
+              {...field}
+            />
+          )}
+          rules={{
+            required: props.texts.emailRequiredText,
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: props.texts.emailInvalidText
             }
-            rules={{
-              required: props.texts.passwordRequired
-            }}
-            helperText={errors.password?.message}
-          />
-          <Typography
-            style={{
-              cursor: "pointer",
-              marginTop: 5,
-              width: "max-content",
-              fontSize: 15,
-              padding: 5
-            }}
-            onClick={props.handleForgotPassword}
-          >
-            {props.texts.forgotPasswordText}
-          </Typography>
-          <Button type="submit" fullWidth variant="last">
-            {props.texts.signInText}
-          </Button>
-        </form>
-      </FormProvider>
+          }}
+        />
+
+        <Controller
+          control={control}
+          name="password"
+          render={({ field }) => (
+            <HawaTextField
+              fullWidth
+              type="password"
+              defaultValue={field.value ?? ""}
+              value={field.value ?? ""}
+              label={props.texts.passwordLabel}
+              placeholder={props.texts.passwordPlaceholder}
+              helperText={errors.password?.message}
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon />
+                </InputAdornment>
+              }
+              {...field}
+            />
+          )}
+          rules={{ required: props.texts.passwordRequiredText }}
+        />
+        <Typography
+          style={{
+            cursor: "pointer",
+            marginTop: 5,
+            width: "max-content",
+            fontSize: 15,
+            padding: 5
+          }}
+          onClick={props.handleForgotPassword}
+        >
+          {props.texts.forgotPasswordText}
+        </Typography>
+        <Button type="submit" fullWidth variant="last">
+          {props.texts.signInText}
+        </Button>
+      </form>
       <Typography
         variant="subtitle2"
         style={{ marginTop: 5, textAlign: "center", padding: 5 }}

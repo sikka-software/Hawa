@@ -51,6 +51,7 @@ const SignUpTemplate = (args) => {
       texts={{
         fullNameLabel: "Full Name",
         fullNamePlaceholder: "Fulan AlFulani",
+        fullNameRequiredText: "Full Name is required",
         emailLabel: "Email",
         emailPlaceholder: "Enter your email",
         emailRequiredText: "Email is required",

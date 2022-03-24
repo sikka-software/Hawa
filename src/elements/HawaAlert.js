@@ -27,7 +27,7 @@ export const HawaAlert = (props) => {
   // });
 
   return (
-    <Alert>
+    <Alert {...props}>
       {props.title && <AlertTitle>{props.title}</AlertTitle>}
       {props.text}
     </Alert>

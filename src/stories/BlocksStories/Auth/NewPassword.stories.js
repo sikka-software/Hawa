@@ -5,7 +5,6 @@ export default {
   title: "Blocks/Auth/New Password",
   component: [NewPasswordForm],
   argTypes: {
-  
     showError: {
       default: false,
       control: "boolean",
@@ -41,6 +40,8 @@ const NewPasswordTemplate = (args) => {
         passwordLabel: "Choose new password",
         confirmPasswordPlaceholder: "Confirm password",
         confirmPasswordLabel: "Confirm",
+        confirmPasswordRequiredText: "Confirmation is required",
+        passwordMatchError: "Password doesn't match",
         forgotPasswordText: "Forgot password?",
         newUserText: "New user?",
         signUpText: "Sign up",
