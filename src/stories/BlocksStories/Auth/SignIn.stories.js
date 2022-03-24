@@ -5,6 +5,13 @@ export default {
   title: "Blocks/Auth/Sign In",
   component: [SignInForm],
   argTypes: {
+    lang: {
+      default: true,
+      control: "select",
+      options: ["ar", "en"],
+      description: "The language of the form",
+      table: { defaultValue: { summary: "en" } }
+    },
     viaGoogle: {
       default: true,
       control: "boolean",
@@ -85,5 +92,6 @@ SignIn.args = {
   viaTwitter: true,
   showError: false,
   errorTitle: "Error",
-  errorText: "Something went wrong"
+  errorText: "Something went wrong",
+  lang: "ar"
 };

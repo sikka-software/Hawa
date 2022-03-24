@@ -21,7 +21,11 @@ export const SignUpForm = (props) => {
   } = methods;
 
   return (
-    <Container maxWidth="xs" variant="auth">
+    <Container
+      maxWidth="xs"
+      variant="auth"
+      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
+    >
       {props.error && (
         <Alert severity="error">
           {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}

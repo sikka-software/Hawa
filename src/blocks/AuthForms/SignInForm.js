@@ -20,7 +20,11 @@ export const SignInForm = (props) => {
   } = methods;
 
   return (
-    <Container maxWidth="xs" variant="auth">
+    <Container
+      maxWidth="xs"
+      variant="auth"
+      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
+    >
       {props.error && (
         <Alert severity="error">
           {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
@@ -45,6 +49,12 @@ export const SignInForm = (props) => {
                 </InputAdornment>
               }
               {...field}
+              style={{
+                // backgroundColor: "red",
+                // paddingRight: 20,
+                // padding: "100px !important"
+                // paddingLeft: 20
+              }}
             />
           )}
           rules={{

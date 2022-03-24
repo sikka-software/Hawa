@@ -5,6 +5,13 @@ export default {
   title: "Blocks/Auth/Sign Up",
   component: [SignUpForm],
   argTypes: {
+    lang: {
+      default: true,
+      control: "select",
+      options: ["ar", "en"],
+      description: "The language of the form",
+      table: { defaultValue: { summary: "en" } }
+    },
     viaGoogle: {
       default: true,
       control: "boolean",

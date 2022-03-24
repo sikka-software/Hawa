@@ -49,39 +49,28 @@ const defaultTheme = createTheme({
         }
       ]
     },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "lightblue",
-          borderRadius: allBorderRadius
-        }
-      }
-    },
     MuiInput: {
       styleOverrides: {
         root: {
           backgroundColor: "white",
-          padding: 10,
+          // backgroundColor: "red",
+          paddingRight: 10,
+          paddingLeft: 10,
           borderRadius: allBorderRadius
+          // border: "2px solid blue"
+        },
+        input: {
+          // backgroundColor: "yellow",
+          margin: 0,
+          border: "none",
+          padding: 10,
+          "&:focus": {
+            border: "none"
+          }
         }
       }
     },
-    MuiTextField: {
-      styleOverrides: {
-        root: { borderRadius: allBorderRadius, marginTop: 10 }
-      },
-      variants: [
-        {
-          props: { variant: "hawa" },
-          style: {
-            backgroundColor: primaryLayoutColor,
-            fontSize: "2rem",
-            padding: 30,
-            borderRadius: allBorderRadius
-          }
-        }
-      ]
-    },
+
     MuiContainer: {
       styleOverrides: {
         root: {
@@ -100,7 +89,7 @@ const defaultTheme = createTheme({
           style: {
             backgroundColor: primaryLayoutColor,
             fontSize: "2rem",
-            padding: 30,
+            padding: 20,
             borderRadius: allBorderRadius
           }
         },
