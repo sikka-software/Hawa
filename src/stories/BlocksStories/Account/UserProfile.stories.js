@@ -8,7 +8,31 @@ export default {
 };
 
 const ProfileTemplate = (args) => {
-  return <UserProfileForm {...args} />;
+  return (
+    <UserProfileForm
+      {...args}
+      handleUpdateProfile={(e) => console.log("updating profile", e)}
+      texts={{
+        fullNameLabel: "Full Name",
+        fullNamePlaceholder: "Fulan AlFulani",
+        fullNameRequiredText: "Full Name is required",
+        emailLabel: "Email",
+        emailPlaceholder: "Enter your email",
+        emailRequiredText: "Email is required",
+        emailInvalidText: "Invalid email address",
+        passwordPlaceholder: "Minimum 8 characters",
+        passwordRequiredText: "Password is required",
+        passwordTooShortText: "Password too short",
+
+        updatePassword: "Update Password",
+        passwordLabel: "Choose new password",
+        confirmPasswordPlaceholder: "Confirm password",
+        confirmPasswordLabel: "Confirm",
+        confirmPasswordRequiredText: "Confirmation is required",
+        passwordMatchError: "Password doesn't match"
+      }}
+    />
+  );
 };
 export const UserProfile = ProfileTemplate.bind({});
 UserProfile.args = {

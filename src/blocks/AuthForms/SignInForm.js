@@ -49,12 +49,6 @@ export const SignInForm = (props) => {
                 </InputAdornment>
               }
               {...field}
-              style={{
-                // backgroundColor: "red",
-                // paddingRight: 20,
-                // padding: "100px !important"
-                // paddingLeft: 20
-              }}
             />
           )}
           rules={{
