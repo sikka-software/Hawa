@@ -24,7 +24,12 @@ export default {
 };
 
 export const ChargeWallet = (args) => {
-  return <ChargeWalletForm {...args} />;
+  return (
+    <ChargeWalletForm
+      handleChargeWallet={(e) => console.log("amount is ", e)}
+      {...args}
+    />
+  );
 };
 
 ChargeWallet.args = { currency: "SAR" };

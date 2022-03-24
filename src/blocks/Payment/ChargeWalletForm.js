@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HawaTextField } from "../../elements";
-import { FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -10,34 +10,43 @@ export const ChargeWalletForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    control
   } = methods;
 
   return (
     <Container maxWidth="xs">
-      <Typography align="center" variant="h1">
+      <Typography align="center" variant="h2" fontWeight={500}>
         {Number(walletAmount).toLocaleString("en") || "0"}
         <Typography>{props.currency || "SAR"}</Typography>
       </Typography>
       <FormProvider {...methods}>
-        <form
-          onChange={(e) => {
-            e.preventDefault();
-            setWalletAmount(methods.getValues().amount);
-          }}
-          style={{ marginTop: 10 }}
-          onSubmit={handleSubmit(props.handleChargeWallet)}
-        >
-          <HawaTextField
-            fullWidth
+        <form onSubmit={handleSubmit(props.handleChargeWallet)}>
+          <Controller
+            control={control}
             name="amount"
-            placeholder="Enter amount"
-            type="number"
-            value={walletAmount}
-            rules={{
-              required: "Password is rquired"
-            }}
-            helperText={errors.amount?.message}
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                placeholder="Enter amount"
+                type="number"
+                value={field.value ?? ""}
+                // helperText={errors.amount?.message}
+                {...field}
+                inputProps={{
+                  inputMode: "numeric",
+                  min: "0",
+                  max: "9999999",
+                  step: "0.01"
+                }}
+                onChange={(e) => {
+                  // e.preventDefault();
+                  field.onChange(parseFloat(e.target.value));
+                  console.log("e", e.target.value);
+                  setWalletAmount(e.target.value);
+                }}
+              />
+            )}
           />
 
           <Button
