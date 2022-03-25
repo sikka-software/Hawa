@@ -38,6 +38,7 @@ jobs:
          else 
           npm install
          fi
+      - run: npm run build-storybook
       - run: npm run build-lib
       - run: npm run build:styles
       - run: npm publish
