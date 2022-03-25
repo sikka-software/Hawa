@@ -124,7 +124,7 @@ export const SignUpForm = (props) => {
           padding: 5
         }}
       >
-        Existing user?{" "}
+        {props.texts.existingUserText}{" "}
         <span
           onClick={props.handleRouteToSignIn}
           style={{

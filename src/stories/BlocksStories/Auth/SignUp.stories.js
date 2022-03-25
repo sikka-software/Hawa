@@ -71,6 +71,7 @@ const SignUpTemplate = (args) => {
         newUserText: "New user?",
         signUpText: "Sign up",
         signInText: "Sign in",
+        existingUserText: "Existing User?",
         googleButtonLabel: "Sign in with Google",
         githubButtonLabel: "Sign in with Github",
         twitterButtonLabel: "Sign in with Twitter"
