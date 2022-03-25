@@ -37,7 +37,7 @@ export const UserProfileForm = (props) => {
             render={({ field }) => (
               <HawaTextField
                 fullWidth
-                type="number"
+                type="tel"
                 label="Phone Number"
                 placeholder="+966"
                 {...field}

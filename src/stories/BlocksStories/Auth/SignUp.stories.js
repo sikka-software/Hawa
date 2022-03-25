@@ -95,5 +95,6 @@ SignUp.args = {
   viaTwitter: true,
   showError: false,
   errorTitle: "Error",
-  errorText: "Something went wrong"
+  errorText: "Something went wrong",
+  lang: "en"
 };

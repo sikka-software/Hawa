@@ -43,7 +43,7 @@ export default {
 export const CheckboxSettings = (args) => <HawaSettingsRow {...args} />;
 CheckboxSettings.args = {
   settingsType: "checkbox",
-  settingsLabel: "Text Settings"
+  settingsLabel: "Checkbox Settings"
 };
 export const TextSettings = (args) => (
   <HawaSettingsRow placeholder="Text here" {...args} />
@@ -52,6 +52,14 @@ export const TextSettings = (args) => (
 TextSettings.args = {
   settingsType: "text",
   settingsLabel: "Text Settings"
+};
+export const BooleanSettings = (args) => (
+  <HawaSettingsRow placeholder="Text here" {...args} />
+);
+
+BooleanSettings.args = {
+  settingsType: "boolean",
+  settingsLabel: "Boolean Settings"
 };
 export const RadioSettings = (args) => {
   let allOptions = Array.from({ length: args.options }, (v, i) => {

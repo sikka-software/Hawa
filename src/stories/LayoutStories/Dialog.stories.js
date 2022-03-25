@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { HawaAppBar } from "../../elements";
 import { HawaDialog } from "../../layout";
 
 export default {

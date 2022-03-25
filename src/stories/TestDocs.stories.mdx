@@ -4,16 +4,15 @@ import { Canvas, Meta, Story } from "@storybook/addon-docs"
 
 <!-- // import { HawaTypography } from "../../elements" -->
 
-<Meta title="Test/Boga" />
+<Meta title="Test/Docs Test" />
 
-<!-- // export const Template = (args) => <HawaTypography>tetet</HawaTypography> -->
+export const Template = (args) => <div>test</div>
 
 # Checkbox
 
 With `MDX`, we can define a story for `Checkbox` right in the middle of our
 Markdown documentation.
 
-<!--
 <Canvas>
   <Story
     name="Unchecked"
@@ -22,23 +21,4 @@ Markdown documentation.
     }}>
     {Template.bind({})}
    </Story>
-
-  <Story
-    name="Checked"
-    args={{
-      label: 'Unchecked',
-      checked: true,
-    }}>
-    {Template.bind({})}
-   </Story>
-
-  <Story
-    name="Secondary"
-    args={{
-      label: 'Secondary',
-      checked: true,
-      appearance: 'secondary',
-    }}>
-    {Template.bind({})}
-   </Story>
-</Canvas> -->
+</Canvas>

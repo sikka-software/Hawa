@@ -1,10 +1,15 @@
 import React from "react";
-import { HawaTextField, ActionButton } from "../../elements";
+import {
+  HawaTextField,
+  ActionButton,
+  HawaTypography,
+  HawaTable
+} from "../../elements";
 import { Box } from "../../layout";
 import { FormProvider, useForm } from "react-hook-form";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 
-export const CreditCardForm = (props) => {
+export const CheckoutForm = (props) => {
   const methods = useForm();
   const {
     formState: { errors },
@@ -13,6 +18,33 @@ export const CreditCardForm = (props) => {
 
   return (
     <Container maxWidth="xs">
+      <Typography
+        align="center"
+        variant="h4"
+        fontWeight={400}
+        style={{ marginBottom: 10 }}
+      >
+        Order Details
+      </Typography>
+      <HawaTable
+        columns={["Product", "Price"]}
+        rows={[
+          ["Logo Design", "1,200 SAR"],
+          ["Website Design", "1,500 SAR"],
+          ["Website Development", "900 SAR"],
+          ["Hosting", "200 SAR"],
+          ["Social Media Management", "700 SAR"]
+        ]}
+        end={["Total", "5,330 SAR"]}
+      />
+      <Typography
+        align="center"
+        variant="h4"
+        fontWeight={400}
+        style={{ marginTop: 10 }}
+      >
+        Billing Address
+      </Typography>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handle)}>
           <HawaTextField

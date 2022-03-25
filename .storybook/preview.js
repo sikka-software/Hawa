@@ -117,7 +117,20 @@ const defaultTheme = createTheme({
             // backgroundColor: "blue"
           }
         }
-      }
+      },
+      variants: [
+        {
+          props: { variant: "unscrollable" },
+          style: {
+            backgroundColor: "red",
+            "&:-webkit-inner-spin-button": {
+              "-webkit-appearance": "none",
+              "-moz-appearance": "none",
+              appearance: "none"
+            }
+          }
+        }
+      ]
     },
     MuiDialog: {
       styleOverrides: {

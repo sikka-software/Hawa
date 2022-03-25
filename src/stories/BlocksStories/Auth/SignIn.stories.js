@@ -93,5 +93,5 @@ SignIn.args = {
   showError: false,
   errorTitle: "Error",
   errorText: "Something went wrong",
-  lang: "ar"
+  lang: "en"
 };

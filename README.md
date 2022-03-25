@@ -71,14 +71,8 @@ lighten a given `color` by a given `percent`
 ## Components
 
 - [ ] Layout
-- [ ] Box
-- [ ] TextField
 - [ ] TextArea
-- [ ] Radio Selector
-- [ ] PasswordField
 - [ ] Autocomplete
-- [ ] Tabs
-- [ ] Alerts
 - [ ] Badges
 
 ## Install
@@ -143,7 +137,5 @@ npm publish --access public
 ```
 
 ## License
-
-<!-- https://github.com/react-component/drawer  -->
 
 MIT © [SIKKA SOFTWARE](https://sikka.sa)
