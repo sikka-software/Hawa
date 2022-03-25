@@ -90,6 +90,7 @@ const defaultTheme = createTheme({
             backgroundColor: primaryLayoutColor,
             fontSize: "2rem",
             padding: 20,
+            margin: 10,
             borderRadius: allBorderRadius
           }
         },
