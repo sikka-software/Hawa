@@ -16,6 +16,42 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "white",
+          // width: "max-content",
+          width: "100%",
+          borderRadius: allBorderRadius,
+          margin: 0
+        }
+      }
+    },
+    MuiTableCell: {
+      variants: [
+        {
+          props: { variant: "bordered" },
+          style: {
+            borderLeft: "1px solid #dddddd"
+            // "&:hover": {
+            //   backgroundColor: darken("#ffffff", 0.01),
+            // }
+          }
+        }
+      ]
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "green",
+          // width: "max-content",
+          // width: "100%",
+          //  border: "1px solid black",
+          borderRadius: allBorderRadius
+          // margin: 0
+        }
+      }
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: {
