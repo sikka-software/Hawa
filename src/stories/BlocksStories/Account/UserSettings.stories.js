@@ -14,12 +14,23 @@ export default {
 };
 export const UserSettings = (args) => {
   return (
-    <UserSettingsForm {...args}>
-      <HawaSettingsRow settingsType="checkbox" settingsLabel="Hide Watermark" />
+    <UserSettingsForm
+      {...args}
+      saveSettingsText="Save Settings"
+      handleSaveSettings={() => console.log("saving settings")}
+    >
+      <HawaSettingsRow
+        settingsType="checkbox"
+        settingsLabel="Hide Watermark"
+        onChange={(e) =>
+          console.log("checkbox settings value is ", e.target.checked)
+        }
+      />
       <HawaSettingsRow
         settingsType="text"
         placeholder="Your handle"
         settingsLabel="Custom Handle"
+        onChange={(e) => console.log("text settings value is ", e.target.value)}
       />
       <HawaSettingsRow
         handleChange={(e) => console.log("changing to ", e)}
@@ -41,10 +52,11 @@ export const UserSettings = (args) => {
         ]}
         settingsLabel="Language"
       />
-        <HawaSettingsRow
+      <HawaSettingsRow
         settingsType="boolean"
         placeholder="Your handle"
         settingsLabel="Show Analytics"
+        onChange={(e) => console.log("changing to ", e.target.checked)}
       />
     </UserSettingsForm>
   );

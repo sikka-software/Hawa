@@ -1,3 +1,4 @@
+import { Subtitle, Title } from "@storybook/addon-docs";
 import React from "react";
 import { HawaSettingsRow } from "../../elements";
 
@@ -6,24 +7,35 @@ export default {
   component: [HawaSettingsRow],
   parameters: {
     backgrounds: {
-      default: 'twitter',
+      default: "twitter",
       values: [
         {
-          name: 'light',
-          value: '#00aced',
+          name: "light",
+          value: "#00aced"
         },
         {
-          name: 'dark',
-          value: '#3b5998',
-        },
-      ],
-    },
-  //   backgrounds: [{ name: "dark background", value: "#000", default: true }]
+          name: "dark",
+          value: "#3b5998"
+        }
+      ]
+    }
   },
+
   argTypes: {
     settingsType: {
       options: ["checkbox", "text", "radio"],
       control: { type: "select" }
+    },
+    onChange: {
+      control: "text",
+      description: "The function to get the value of the settings row",
+      table: {
+        type: {
+          summary: "Conditions",
+          detail:
+            "For checkbox and radio the returned value is in e.target.checked, otherwise it's in e.target.value"
+        }
+      }
     }
   }
 };
