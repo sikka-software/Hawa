@@ -3,11 +3,13 @@ import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { darken, lighten } from "@mui/material";
 
 let allBorderRadius = 10;
-let primaryActionColor = "#994133";
-let primaryLayoutColor = "#E0E7F5";
+let primaryActionColor = "#153B50";
+let primaryLayoutColor = "#ECEBE4";
+let primaryDangerColor = "#E94F37";
 let primaryActionTextColor = "#ffffff";
 let mainFont = "Roboto";
 const defaultTheme = createTheme({
+  typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
   palette: {
     primary: {
       main: primaryActionColor
@@ -56,17 +58,37 @@ const defaultTheme = createTheme({
           // backgroundColor: "red",
           paddingRight: 10,
           paddingLeft: 10,
-          borderRadius: allBorderRadius
+          borderRadius: allBorderRadius,
           // border: "2px solid blue"
+          "&:hover": {
+            outline: `1px solid ${primaryActionColor}`
+            // backgroundColor: "red"
+          },
+          "&:focus": {
+            outline: `1px solid ${primaryActionColor}`
+            // backgroundColor: "red"
+          }
         },
         input: {
           // backgroundColor: "yellow",
           margin: 0,
           border: "none",
           padding: 10,
-          "&:focus": {
+
+          ":focus": {
             border: "none"
+            // backgroundColor: "red"
+            // backgroundColor: "blue"
           }
+        }
+      }
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          borderRadius: allBorderRadius,
+          backgroundColor: primaryLayoutColor,
+          minWidth: 300
         }
       }
     },
@@ -291,8 +313,7 @@ const defaultTheme = createTheme({
     MuiSnackbar: {
       styleOverrides: {
         root: {
-          borderWidth: 2,
-          // borderColor: darken("red", 2),
+          borderWidth: 10,
           borderRadius: allBorderRadius
         }
       }
@@ -308,6 +329,20 @@ const defaultTheme = createTheme({
         contained: { backgroundColor: primaryActionColor }
       },
       variants: [
+        {
+          props: { variant: "danger" },
+          style: {
+            backgroundColor: primaryDangerColor,
+            color: primaryActionTextColor,
+            // padding: 10,
+            // marginTop: 20,
+            borderRadius: allBorderRadius,
+            "&:hover": {
+              backgroundColor: darken(primaryDangerColor, 0.5),
+              color: "white"
+            }
+          }
+        },
         {
           props: { variant: "last" },
           style: {
@@ -430,7 +465,19 @@ const defaultTheme = createTheme({
         root: {
           borderRadius: allBorderRadius
         }
-      }
+      },
+      variants: [
+        {
+          props: { variant: "offline" },
+          style: {
+            backgroundColor: lighten(primaryDangerColor, 0.8),
+            // color: primaryActionTextColor,
+            color: "black",
+            borderRadius: allBorderRadius,
+            outline: `1px solid ${primaryDangerColor}`
+          }
+        }
+      ]
     },
     MuiListItemButton: {
       styleOverrides: {
