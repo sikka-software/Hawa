@@ -6,9 +6,14 @@ export default {
   title: "Elements/Table",
   component: HawaTable,
   argTypes: {
-    buttonLabel: {
-      control: "text",
-      description: "The text next to the logo"
+    columns: {
+      control: "array",
+      description: "An array of column names"
+    },
+    rows: {
+      control: "array",
+      description:
+        "A array of arrays. Each array inside the main array is a single row"
     }
   },
   parameters: {
