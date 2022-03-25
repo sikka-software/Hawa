@@ -12,3 +12,4 @@ export * from "./HawaTextField";
 export * from "./HawaInputLabel";
 export * from "./HawaTypography";
 export * from "./HawaAlert";
+export * from "./OfflineBanner";

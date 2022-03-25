@@ -288,7 +288,15 @@ const defaultTheme = createTheme({
         }
       ]
     },
-
+    MuiSnackbar: {
+      styleOverrides: {
+        root: {
+          borderWidth: 2,
+          // borderColor: darken("red", 2),
+          borderRadius: allBorderRadius
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
