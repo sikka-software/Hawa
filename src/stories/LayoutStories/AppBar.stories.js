@@ -1,9 +1,6 @@
 import React from "react";
-import { HawaAppBar } from "../../elements";
-
-const Template = (args) => {
-  return <HawaAppBar />;
-};
+import { HawaAppBar } from "../../layout";
+import SomeIcon from "@mui/icons-material/Person";
 export default {
   title: "Layout/AppBar",
   component: [HawaAppBar],
@@ -18,12 +15,26 @@ export default {
   }
 };
 
-export const Normal = Template.bind({});
-Normal.args = {
-  size: "large",
-  showText: true,
-  buttonLabel: "test",
-  // padding: theme.paddings,
-  textColor: "#000000",
-  buttonColor: "#f9f9f9"
+export const AppBar = (args) => {
+  return (
+    <HawaAppBar
+      accountMenu={[
+        {
+          icon: SomeIcon,
+          label: "test1",
+          action: () => console.log("going to test1")
+        },
+        {
+          // icon: () => <SomeIcon />,
+          label: "test2",
+          action: () => console.log("going to test2")
+        },
+        {
+          // icon: () => <SomeIcon />,
+          label: "test3",
+          action: () => console.log("going to test3")
+        }
+      ]}
+    />
+  );
 };

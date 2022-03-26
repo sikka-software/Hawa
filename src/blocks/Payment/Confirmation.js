@@ -69,23 +69,26 @@ export const ConfirmationPage = (props) => {
           {props.orderNumber}
         </Typography>
         <Divider variant="middle" />
+        {props.products && (
+          <>
+            <Typography
+              align="center"
+              variant="h5"
+              fontWeight={500}
+              style={{ marginBottom: 10 }}
+            >
+              {props.texts.orderDetails}
+            </Typography>
 
-        <Typography
-          align="center"
-          variant="h5"
-          fontWeight={500}
-          style={{ marginBottom: 10 }}
-        >
-          {props.texts.orderDetails}
-        </Typography>
-
-        <HawaTable
-          lang={props.lang}
-          columns={["Product", "Price"]}
-          rows={props.products}
-          end={["Total", props.total]}
-        />
-        <Divider variant="middle" />
+            <HawaTable
+              lang={props.lang}
+              columns={["Product", "Price"]}
+              rows={props.products}
+              end={["Total", props.total]}
+            />
+            <Divider variant="middle" />
+          </>
+        )}
         <Button onClick={props.handlePrint} variant="contained">
           {props.texts.print}
         </Button>

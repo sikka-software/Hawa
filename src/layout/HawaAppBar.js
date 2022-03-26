@@ -11,11 +11,13 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/material";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const HawaAppBar = (props) => {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -33,9 +35,9 @@ export const HawaAppBar = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  console.log("theme is ", theme);
   return (
-    <AppBar position="static">
+    <AppBar position="static" variant="appbar">
       <Container maxWidth="xl" variant="appbar">
         <Toolbar disableGutters>
           <Typography
@@ -96,7 +98,7 @@ export const HawaAppBar = (props) => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, display: "block" }}
               >
                 {page}
               </Button>
@@ -124,10 +126,21 @@ export const HawaAppBar = (props) => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
+              variant="themed"
+              PaperProps={{
+                style: {
+                  boxShadow: "none",
+                  borderRadius: theme.allBorderRadius,
+                  // borderColor: theme.primaryActionColor,
+                  // borderWidth: 2,
+                  border: `1px solid ${theme.primaryActionColor}`
+                }
+              }}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {props.accountMenu.map((setting) => (
+                <MenuItem key={setting.label} onClick={setting.action}>
+                  {setting.icon && <setting.icon />}
+                  <Typography textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>

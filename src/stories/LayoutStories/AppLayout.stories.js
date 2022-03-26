@@ -1,20 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { HawaAppLayout } from "../../layout";
-
+import { Person, BookOnline, AccessAlarms } from "@mui/icons-material";
 const Template = (args) => {
+  const [currentPage, setCurrentPage] = useState("home");
+  const [pageTitle, setPageTitle] = useState("Home");
   return (
     <HawaAppLayout
-      pageName="page1"
+      pageTitle={pageTitle}
+      pageName={currentPage}
       pages={[
-        { text: "page1", icon: "fdd" },
-        { text: "page2", icon: "huhu" },
-        { text: "page3", icon: "test" }
+        {
+          text: "Home",
+          slug: "home",
+          icon: Person,
+          action: () => {
+            setCurrentPage("home");
+            setPageTitle("Home");
+          }
+        },
+        {
+          text: "Dashboard",
+          slug: "dashboard",
+          icon: BookOnline,
+          action: () => {
+            setCurrentPage("dashboard");
+            setPageTitle("Dashboard");
+          }
+        },
+        {
+          text: "Analytics",
+          slug: "analytics",
+          icon: AccessAlarms,
+          action: () => {
+            setCurrentPage("analytics");
+            setPageTitle("Analytics");
+          }
+        }
       ]}
-      //   pages={[
-      //     <HawaListItem text="dd" />,
-      //     <HawaListItem text="dd" />,
-      //     <HawaListItem text="dd" />
-      //   ]}
+      accountMenu={[
+        {
+          icon: Person,
+          label: "test1",
+          action: () => console.log("going to test1")
+        },
+        {
+          // icon: () => <SomeIcon />,
+          label: "test2",
+          action: () => console.log("going to test2")
+        },
+        {
+          // icon: () => <SomeIcon />,
+          label: "test3",
+          action: () => console.log("going to test3")
+        }
+      ]}
       logo={
         <img
           height={40}

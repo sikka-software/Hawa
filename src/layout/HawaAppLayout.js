@@ -5,7 +5,6 @@ import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-// import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -13,15 +12,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { HawaListItem } from "../elements";
 import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -152,7 +145,7 @@ export function HawaAppLayout(props) {
             }}
           >
             <Typography variant="h6" noWrap component="div">
-              Page name here
+              {props.pageTitle}
             </Typography>
 
             <Box>
@@ -176,10 +169,21 @@ export function HawaAppLayout(props) {
                 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
+                variant="themed"
+                PaperProps={{
+                  style: {
+                    boxShadow: "none",
+                    borderRadius: theme.allBorderRadius,
+                    // borderColor: theme.primaryActionColor,
+                    // borderWidth: 2,
+                    border: `1px solid ${theme.primaryActionColor}`
+                  }
+                }}
               >
-                {[2, 3, 4].map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                {props.accountMenu.map((setting) => (
+                  <MenuItem key={setting.label} onClick={setting.action}>
+                    {setting.icon && <setting.icon />}
+                    <Typography textAlign="center">{setting.label}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -200,41 +204,38 @@ export function HawaAppLayout(props) {
         </DrawerHeader>
         <Divider />
         <List>
-          {props.pages.map((t) => {
+          {props.pages.map((p, jk) => {
             return (
-              <HawaListItem
-                open={open}
-                text={t.text}
-                selected={props.pageName.toLowerCase() === t.text}
-                // icon={<ChevronLeftIcon />}
-                icon={t.icon}
-              />
+              <Tooltip
+                title={p.text}
+                key={jk}
+                placement={"right"}
+                arrow={true}
+                PopperProps={{ style: { opacity: open ? 0 : 1 } }}
+              >
+                <ListItemButton
+                  variant={
+                    props.pageName?.toLowerCase() === p.slug?.toLowerCase() &&
+                    "clicked"
+                  }
+                  onClick={p.action}
+                  key={p.text}
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5
+                  }}
+                >
+                  <p.icon />
+                  <div style={{ width: 20 }} />
+                  <ListItemText
+                    primary={p.text}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </Tooltip>
             );
           })}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center"
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          ))}
         </List>
       </Drawer>
       <Box sx={{ flexGrow: 1, p: 3 }}>

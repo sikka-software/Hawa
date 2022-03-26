@@ -9,6 +9,11 @@ let primaryDangerColor = "#E94F37";
 let primaryActionTextColor = "#ffffff";
 let mainFont = "Roboto";
 const defaultTheme = createTheme({
+  allBorderRadius: allBorderRadius,
+  primaryActionColor: "#153B50",
+  primaryLayoutColor: "#ECEBE4",
+  primaryDangerColor: "#E94F37",
+  primaryActionTextColor: "#ffffff",
   typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
   palette: {
     primary: {
@@ -573,8 +578,7 @@ const defaultTheme = createTheme({
     MuiListItemButton: {
       styleOverrides: {
         root: {
-          // backgroundColor: "red",
-          margin: 5,
+          margin: 15,
           borderRadius: allBorderRadius,
           "&:hover": {
             backgroundColor: primaryActionColor,
@@ -626,7 +630,6 @@ const defaultTheme = createTheme({
         }
       ]
     },
-
     MuiAppBar: {
       styleOverrides: {
         root: {
@@ -640,9 +643,10 @@ const defaultTheme = createTheme({
           props: { variant: "appbar" },
           style: {
             color: "black",
+            margin: 0,
             // height: 60,
             background: "none",
-            color: primaryActionTextColor
+            color: primaryActionColor
             // padding: 10,
             // marginTop: 20,
             // borderRadius: allBorderRadius
