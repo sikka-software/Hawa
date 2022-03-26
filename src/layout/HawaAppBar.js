@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { useTheme } from "@mui/material";
+import { HawaPopMenu } from "../elements/HawaPopMenu";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -111,39 +112,11 @@ export const HawaAppBar = (props) => {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              variant="themed"
-              PaperProps={{
-                style: {
-                  boxShadow: "none",
-                  borderRadius: theme.allBorderRadius,
-                  // borderColor: theme.primaryActionColor,
-                  // borderWidth: 2,
-                  border: `1px solid ${theme.primaryActionColor}`
-                }
-              }}
-            >
-              {props.accountMenu.map((setting) => (
-                <MenuItem key={setting.label} onClick={setting.action}>
-                  {setting.icon && <setting.icon />}
-                  <Typography textAlign="center">{setting.label}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <HawaPopMenu
+              anchor={anchorElUser}
+              handleClose={(e) => setAnchorElUser(null)}
+              menuItems={props.accountMenu}
+            />
           </Box>
         </Toolbar>
       </Container>

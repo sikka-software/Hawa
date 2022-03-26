@@ -26,11 +26,13 @@ export const AppBar = (args) => {
         },
         {
           // icon: () => <SomeIcon />,
+          icon: SomeIcon,
           label: "test2",
           action: () => console.log("going to test2")
         },
         {
           // icon: () => <SomeIcon />,
+          icon: SomeIcon,
           label: "test3",
           action: () => console.log("going to test3")
         }
