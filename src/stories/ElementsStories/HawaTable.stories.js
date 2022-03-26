@@ -13,6 +13,12 @@ export default {
       control: "array",
       description:
         "A array of arrays. Each array inside the main array is a single row"
+    },
+    lang: {
+      control: "select",
+      options: ["ar", "en"],
+      description:
+        "A array of arrays. Each array inside the main array is a single row"
     }
   },
   parameters: {
@@ -32,6 +38,7 @@ export const Table = (args) => {
 
   return (
     <HawaTable
+      lang={args.lang}
       columns={["Product", "Price", "Date"]}
       rows={[
         [

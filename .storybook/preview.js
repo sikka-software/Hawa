@@ -37,12 +37,15 @@ const defaultTheme = createTheme({
     MuiTableCell: {
       variants: [
         {
-          props: { variant: "bordered" },
+          props: { variant: "borderedLeft" },
           style: {
             borderLeft: "1px solid #dddddd"
-            // "&:hover": {
-            //   backgroundColor: darken("#ffffff", 0.01),
-            // }
+          }
+        },
+        {
+          props: { variant: "borderedRight" },
+          style: {
+            borderRight: "1px solid #dddddd"
           }
         }
       ]
@@ -162,11 +165,12 @@ const defaultTheme = createTheme({
         {
           props: { variant: "unscrollable" },
           style: {
-            backgroundColor: "red",
-            "&:-webkit-inner-spin-button": {
-              "-webkit-appearance": "none",
-              "-moz-appearance": "none",
-              appearance: "none"
+            "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+              {
+                display: "none"
+              },
+            "& input[type=number]": {
+              MozAppearance: "textfield"
             }
           }
         }

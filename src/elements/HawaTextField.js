@@ -5,7 +5,13 @@ import { Typography } from "@mui/material";
 
 export const HawaTextField = (props) => {
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={
+        props.inForm && {
+          width: "100%"
+        }
+      }
+    >
       <div
         style={{
           display: "flex",
@@ -14,7 +20,7 @@ export const HawaTextField = (props) => {
           alignItems: "center"
         }}
       >
-        <InputLabel>{props.label}</InputLabel>
+        {props.label && <InputLabel>{props.label}</InputLabel>}
 
         {props.helperText && (
           <Typography variant="validation">{props.helperText}</Typography>

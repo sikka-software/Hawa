@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { HawaTextField, HawaTable, HawaSelect } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { Button, Container, Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
 
 export const CheckoutForm = (props) => {
+  let isArabic = props.lang === "ar";
   const methods = useForm();
   const {
     formState: { errors },
@@ -12,26 +13,35 @@ export const CheckoutForm = (props) => {
     register,
     control
   } = methods;
+
+  let containerStyle = {
+    display: "flex",
+    padding: 0,
+    paddingRight: "0px !important",
+    paddingLeft: "0px !important",
+    flexDirection: {
+      xs: "column",
+      sm: "row",
+      md: "row",
+      lg: "row",
+      xl: "row"
+    }
+  };
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" style={{ direction: isArabic ? "rtl" : "ltr" }}>
       <Typography
         align="center"
         variant="h4"
         fontWeight={400}
         style={{ marginBottom: 10 }}
       >
-        Order Details
+        {props.texts.orderDetails}
       </Typography>
       <HawaTable
+        lang={props.lang}
         columns={["Product", "Price"]}
-        rows={[
-          ["Logo Design", "1,200 SAR"],
-          ["Website Design", "1,500 SAR"],
-          ["Website Development", "900 SAR"],
-          ["Hosting", "200 SAR"],
-          ["Social Media Management", "700 SAR"]
-        ]}
-        end={["Total", "5,330 SAR"]}
+        rows={props.products}
+        end={["Total", props.total]}
       />
       <Divider variant="middle" />
 
@@ -41,32 +51,18 @@ export const CheckoutForm = (props) => {
         fontWeight={400}
         style={{ marginBottom: 10 }}
       >
-        Billing Address
+        {props.texts.billingAddress}
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(props.handle)}>
-          <Container
-            sx={{
-              display: "flex",
-              //   backgroundColor: "red",
-              padding: 0,
-              paddingRight: "0px !important",
-              paddingLeft: "0px !important",
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-                md: "row",
-                lg: "row",
-                xl: "row"
-              }
-            }}
-          >
+        <form onSubmit={handleSubmit(props.handlePayNow)}>
+          <Container sx={containerStyle}>
             <Controller
               control={control}
               name="firstName"
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -84,6 +80,7 @@ export const CheckoutForm = (props) => {
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -94,20 +91,12 @@ export const CheckoutForm = (props) => {
               )}
             />
           </Container>
-          {/* <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              width: "100%"
-            }}
-          >
-           
-          </div> */}
           <Controller
             control={control}
             name="email"
             render={({ field }) => (
               <HawaTextField
+                inForm
                 fullWidth
                 type="text"
                 value={field.value ?? ""}
@@ -126,28 +115,14 @@ export const CheckoutForm = (props) => {
             }}
           />
 
-          <Container
-            sx={{
-              display: "flex",
-              //   backgroundColor: "red",
-              padding: 0,
-              paddingRight: "0px !important",
-              paddingLeft: "0px !important",
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-                md: "row",
-                lg: "row",
-                xl: "row"
-              }
-            }}
-          >
+          <Container sx={containerStyle}>
             <Controller
               control={control}
               name="streetAddress"
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -165,6 +140,7 @@ export const CheckoutForm = (props) => {
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -175,28 +151,14 @@ export const CheckoutForm = (props) => {
               )}
             />
           </Container>
-          <Container
-            sx={{
-              display: "flex",
-              //   backgroundColor: "red",
-              padding: 0,
-              paddingRight: "0px !important",
-              paddingLeft: "0px !important",
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-                md: "row",
-                lg: "row",
-                xl: "row"
-              }
-            }}
-          >
+          <Container sx={containerStyle}>
             <Controller
               control={control}
               name="province"
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -214,6 +176,7 @@ export const CheckoutForm = (props) => {
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
                   type="text"
                   value={field.value ?? ""}
@@ -224,30 +187,17 @@ export const CheckoutForm = (props) => {
               )}
             />
           </Container>
-          <Container
-            sx={{
-              display: "flex",
-              //   backgroundColor: "red",
-              padding: 0,
-              paddingRight: "0px !important",
-              paddingLeft: "0px !important",
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-                md: "row",
-                lg: "row",
-                xl: "row"
-              }
-            }}
-          >
+          <Container sx={containerStyle}>
             <Controller
               control={control}
               name="zipCode"
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaTextField
+                  inForm
                   fullWidth
-                  type="tel"
+                  type="number"
+                  variant="unscrollable"
                   value={field.value ?? ""}
                   label={props.texts?.zipCodeLabel + " *"}
                   helperText={errors.zipCode?.message}
@@ -263,39 +213,27 @@ export const CheckoutForm = (props) => {
               rules={{ required: props.texts?.required }}
               render={({ field }) => (
                 <HawaSelect
-                  // <HawaTextField
                   fullWidth
                   native
-                  value={""}
                   label={props.texts?.countryLabel + " *"}
                   variant="standard"
-                  //   value={countryCode}
-                  //   value={field.value ?? ""}
+                  value={field.value ?? ""}
                   helperText={errors.country?.message}
-                  //   onChange={(e) => handleChangeInput(e)}
-                  //   label={t("country")}
                   displayEmpty
                   disableUnderline
-                  required
                   validators={["required"]}
                   {...field}
                 >
-                  <option>test</option>
-                  <option>test</option>
-                  <option>test</option>
-                  <option>test</option>
+                  <option></option>
+                  {props.countriesList.map((country, i) => (
+                    <option key={i}>{country}</option>
+                  ))}
                 </HawaSelect>
               )}
             />
           </Container>
-          <Button
-            type="submit"
-            fullWidth
-            variant="last"
-            onClick={props.handlePayWithCreditCard}
-          >
-            {/* {props.texts.signInText} */}
-            {"Pay Now"}
+          <Button type="submit" fullWidth variant="last">
+            {props.texts.payNow}
           </Button>
         </form>
       </FormProvider>

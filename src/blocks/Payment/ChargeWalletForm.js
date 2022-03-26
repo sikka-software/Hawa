@@ -16,7 +16,12 @@ export const ChargeWalletForm = (props) => {
 
   return (
     <Container maxWidth="xs">
-      <Typography align="center" variant="h2" fontWeight={500}>
+      <Typography
+        align="center"
+        variant="h2"
+        fontWeight={500}
+        style={{ marginBottom: 20 }}
+      >
         {Number(walletAmount).toLocaleString("en") || "0"}
         <Typography>{props.currency || "SAR"}</Typography>
       </Typography>

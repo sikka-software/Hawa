@@ -7,15 +7,20 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 export const HawaTable = (props) => {
+  let isArabic = props.lang === "ar";
   return (
-    <TableContainer>
+    <TableContainer style={{ direction: isArabic ? "rtl" : "ltr" }}>
       <Table aria-label="a dense table">
         <TableHead>
           <TableRow>
             {props.columns.map((col, i) => (
               <TableCell
+                align={isArabic ? "right" : "left"}
+                key={i}
                 style={{ fontWeight: 700 }}
-                variant={i == 0 || "bordered"}
+                variant={
+                  i > 0 ? (isArabic ? "borderedRight" : "borderedLeft") : "body"
+                }
               >
                 {col}
               </TableCell>
@@ -28,10 +33,17 @@ export const HawaTable = (props) => {
             <TableRow key={j}>
               {singleRow.map((r, i) => (
                 <TableCell
+                  align={isArabic ? "right" : "left"}
                   key={i}
                   component="th"
                   scope="row"
-                  variant={i == 0 || "bordered"}
+                  variant={
+                    i > 0
+                      ? isArabic
+                        ? "borderedRight"
+                        : "borderedLeft"
+                      : "body"
+                  }
                 >
                   {r}
                 </TableCell>
@@ -43,11 +55,14 @@ export const HawaTable = (props) => {
           <TableRow>
             {props.end.map((e, k) => (
               <TableCell
-                style={{ fontWeight: 700 ,}}
+                align={isArabic ? "right" : "left"}
+                style={{ fontWeight: 700 }}
                 key={k}
                 component="th"
                 scope="row"
-                variant={k == 0 || "bordered"}
+                variant={
+                  k > 0 ? (isArabic ? "borderedRight" : "borderedLeft") : "body"
+                }
               >
                 {e}
               </TableCell>
