@@ -7,6 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
@@ -136,6 +137,7 @@ export const SignUpForm = (props) => {
           {props.texts.signInText}
         </span>
       </Typography>
+      <Divider />
       <div style={{ display: "flex", flexDirection: "column" }}>
         {props.viaGoogle && (
           <HawaLogoButton

@@ -1,9 +1,7 @@
 import React from "react";
-import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import { Typography } from "@mui/material";
-
-export const HawaTextField = (props) => {
+import { Select, Typography } from "@mui/material";
+export const HawaSelect = (props) => {
   return (
     <div style={{ width: "100%" }}>
       <div
@@ -20,7 +18,7 @@ export const HawaTextField = (props) => {
           <Typography variant="validation">{props.helperText}</Typography>
         )}
       </div>
-      <Input disableUnderline {...props} />
+      <Select {...props}>{props.children}</Select>
     </div>
   );
 };

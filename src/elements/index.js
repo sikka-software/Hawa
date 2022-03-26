@@ -8,6 +8,7 @@ export * from "./HawaPricingCard";
 export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
 export * from "./HawaButton";
+export * from "./HawaSelect";
 export * from "./HawaTextField";
 export * from "./HawaInputLabel";
 export * from "./HawaTypography";

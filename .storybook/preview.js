@@ -16,6 +16,13 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          margin: 20
+        }
+      }
+    },
     MuiTableContainer: {
       styleOverrides: {
         root: {
@@ -87,6 +94,39 @@ const defaultTheme = createTheme({
         }
       ]
     },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "white",
+          padding: "0px !important",
+          // backgroundColor: "red",
+          paddingRight: 10,
+          paddingLeft: 10,
+          borderRadius: allBorderRadius,
+          // border: "2px solid blue"
+          "&:hover": {
+            outline: `1px solid ${primaryActionColor}`
+            // backgroundColor: "red"
+          },
+          "&:focus": {
+            outline: `1px solid ${primaryActionColor}`
+            // backgroundColor: "red"
+          }
+        },
+        input: {
+          // backgroundColor: "yellow",
+          margin: 0,
+          border: "none",
+          padding: 10,
+
+          ":focus": {
+            border: "none"
+            // backgroundColor: "red"
+            // backgroundColor: "blue"
+          }
+        }
+      }
+    },
     MuiInput: {
       styleOverrides: {
         root: {
@@ -141,7 +181,6 @@ const defaultTheme = createTheme({
         }
       }
     },
-
     MuiContainer: {
       styleOverrides: {
         root: {

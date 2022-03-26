@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import { Divider } from "@mui/material";
 
 export const SignInForm = (props) => {
   const methods = useForm();
@@ -115,6 +116,7 @@ export const SignInForm = (props) => {
           {props.texts.signUpText}
         </span>
       </Typography>
+      <Divider />
       <div style={{ display: "flex", flexDirection: "column" }}>
         {props.viaGoogle && (
           <HawaLogoButton
