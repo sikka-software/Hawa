@@ -33,8 +33,8 @@ export const CheckoutForm = (props) => {
     <Container maxWidth="sm" style={{ direction: isArabic ? "rtl" : "ltr" }}>
       <Typography
         align="center"
-        variant="h4"
-        fontWeight={400}
+        variant="h5"
+        fontWeight={500}
         style={{ marginBottom: 10 }}
       >
         {props.texts.orderDetails}
@@ -49,12 +49,13 @@ export const CheckoutForm = (props) => {
 
       <Typography
         align="center"
-        variant="h4"
-        fontWeight={400}
+        variant="h5"
+        fontWeight={500}
         style={{ marginBottom: 10 }}
       >
         {props.texts.billingAddress}
       </Typography>
+
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handlePayNow)}>
           <Container sx={containerStyle}>

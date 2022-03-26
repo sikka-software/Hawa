@@ -17,3 +17,4 @@ export * from "./CreditCardForm";
 export * from "./ChargeWalletForm";
 export * from "./PayWithWallet";
 export * from "./CheckoutForm";
+export * from "./Confirmation";

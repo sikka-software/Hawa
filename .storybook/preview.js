@@ -440,7 +440,6 @@ const defaultTheme = createTheme({
           style: {
             backgroundColor: primaryActionColor,
             color: primaryActionTextColor,
-            padding: 10,
             marginTop: 20,
             borderRadius: allBorderRadius,
             "&:hover": {

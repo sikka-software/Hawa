@@ -41,16 +41,16 @@ export default {
       control: "array",
       description: "An Array of strings for the package features"
     },
-    lang: {
-      control: "text",
-      description: "The language of the card to change the direction",
-      table: {
-        type: {
-          summary: "Options",
-          detail: "ar, en"
-        }
-      }
-    },
+    // lang: {
+    //   control: "text",
+    //   description: "The language of the card to change the direction",
+    //   table: {
+    //     type: {
+    //       summary: "Options",
+    //       detail: "ar, en"
+    //     }
+    //   }
+    // },
     buttonText: {
       control: "text",
       description: "The text of the button"
@@ -79,13 +79,13 @@ export const RTL = (args) => {
   return (
     <HawaPricingCard
       lang="ar"
-      title="الإحترافي"
-      subtitle="للمنشئات الصغيرة"
+      title_ar="الإحترافي"
+      subtitle_ar="للمنشئات الصغيرة"
       price="300"
-      currency="ريال"
-      cycleText="كل 6 أشهر"
+      currency="sar"
+      cycleText="monthly"
       buttonText="إختر الباقة"
-      features={["قوائم لا محدودة", "عناصر لا محدودة", "أسم مخصص"]}
+      features_ar={["قوائم لا محدودة", "عناصر لا محدودة", "أسم مخصص"]}
     />
   );
 };

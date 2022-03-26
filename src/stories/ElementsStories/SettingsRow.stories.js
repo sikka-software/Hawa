@@ -3,7 +3,7 @@ import React from "react";
 import { HawaSettingsRow } from "../../elements";
 
 export default {
-  title: "Elements/Settings/Row",
+  title: "Elements/Settings",
   component: [HawaSettingsRow],
   parameters: {
     backgrounds: {
