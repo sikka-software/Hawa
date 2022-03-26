@@ -1,4 +1,4 @@
-import { Class } from "@mui/icons-material";
+import Class from "@mui/icons-material/Class";
 import React from "react";
 import { AdaptiveButton } from "../../elements";
 

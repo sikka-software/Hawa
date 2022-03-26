@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import { Divider } from "@mui/material";
+import Divider from "@mui/material/Divider";
 
 export const SignInForm = (props) => {
   const methods = useForm();

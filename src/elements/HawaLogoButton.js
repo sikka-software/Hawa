@@ -1,10 +1,9 @@
 import React from "react";
-// import { styled, darken } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export const HawaLogoButton = (props) => {
   let logoElement = "";

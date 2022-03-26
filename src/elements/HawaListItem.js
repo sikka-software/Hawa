@@ -1,5 +1,6 @@
 import React from "react";
-import { ListItemButton, ListItemText } from "@mui/material";
+import ListItemText from "@mui/material/ListItemButton";
+import ListItemButton from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 
 export const HawaListItem = (props) => {

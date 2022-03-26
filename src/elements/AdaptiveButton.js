@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
-import { StyledTooltip } from "./StyledTooltip";
-import { getTextColor } from "../util";
 
 export const AdaptiveButton = (props) => {
   if (props.showText) {

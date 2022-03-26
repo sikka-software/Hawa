@@ -1,7 +1,7 @@
 import React from "react";
-import { ActionButton } from "../../elements";
-import { Box } from "../../layout";
-import { Button, Container, Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
 export const PayWithWallet = (props) => {
   return (

@@ -1,6 +1,5 @@
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import React from "react";
-import { Box } from "../../layout";
 
 const Template = (args) => {
   return <Container variant="auth">test</Container>;

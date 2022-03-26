@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { HawaTextField, HawaTypography, HawaLogoButton } from "../../elements";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 
 export const SelectPayment = (props) => {
   return (

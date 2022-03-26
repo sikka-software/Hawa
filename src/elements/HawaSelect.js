@@ -1,6 +1,8 @@
 import React from "react";
 import InputLabel from "@mui/material/InputLabel";
-import { Select, Typography } from "@mui/material";
+import Select from "@mui/material/Select";
+import Typography from "@mui/material/Typography";
+
 export const HawaSelect = (props) => {
   return (
     <div style={{ width: "100%" }}>

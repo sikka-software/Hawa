@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import { Button, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlined";
 export const HawaPricingCard = (props) => {
   let isArabic = props.lang === "ar";

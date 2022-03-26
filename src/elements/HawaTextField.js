@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export const HawaTextField = (props) => {
   return (

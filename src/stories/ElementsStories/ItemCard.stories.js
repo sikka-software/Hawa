@@ -1,10 +1,9 @@
-import { Container } from "@mui/material";
 import React from "react";
-import { HawaCard } from "../../elements";
+import { HawaPricingCard } from "../../elements";
 
 export default {
   title: "Elements/Cards/Items",
-  component: [HawaCard],
+  component: [HawaPricingCard],
   argTypes: {
     buttonLabel: {
       control: "text",
@@ -14,5 +13,5 @@ export default {
 };
 
 export const Items = (args) => {
-  return <HawaCard />;
+  return <HawaPricingCard />;
 };
