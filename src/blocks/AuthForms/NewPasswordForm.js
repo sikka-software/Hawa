@@ -33,7 +33,7 @@ export const NewPasswordForm = (props) => {
       )}
       {props.passwordChanged ? (
         <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-          Your password has been changed, you'll be redirected to sign in page
+          {props.texts.passwordChanged}
         </HawaTypography>
       ) : (
         <FormProvider {...methods}>

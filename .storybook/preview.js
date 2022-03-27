@@ -559,10 +559,21 @@ const defaultTheme = createTheme({
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: allBorderRadius
+          borderRadius: allBorderRadius,
+          marginBottom: 10
         }
       },
       variants: [
+        {
+          props: { variant: "inContainer" },
+          style: {
+            backgroundColor: lighten(primaryDangerColor, 0.8),
+            // color: primaryActionTextColor,
+            color: "black",
+            borderRadius: allBorderRadius,
+            outline: `1px solid ${primaryDangerColor}`
+          }
+        },
         {
           props: { variant: "offline" },
           style: {

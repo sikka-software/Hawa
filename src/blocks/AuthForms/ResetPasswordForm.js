@@ -16,12 +16,6 @@ export const ResetPasswordForm = (props) => {
   } = methods;
   return (
     <Container maxWidth="xs" variant="auth">
-      {props.error && (
-        <Alert severity="error">
-          {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
-          {props.errorText}
-        </Alert>
-      )}
       {!props.sent ? (
         <form onSubmit={handleSubmit(props.handleResetPassword)}>
           {console.log("eror ", errors.email?.message)}
@@ -59,7 +53,7 @@ export const ResetPasswordForm = (props) => {
         </form>
       ) : (
         <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-          An link was sent to your email to reset the password.
+          {props.emailSentText}
         </HawaTypography>
       )}
     </Container>

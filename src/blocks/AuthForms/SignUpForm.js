@@ -28,7 +28,7 @@ export const SignUpForm = (props) => {
       style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
     >
       {props.error && (
-        <Alert severity="error">
+        <Alert severity="error" variant="inContainer">
           {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
           {props.errorText}
         </Alert>

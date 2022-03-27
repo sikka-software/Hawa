@@ -29,30 +29,21 @@ export default {
 const ResetPasswordTemplate = (args) => {
   return (
     <ResetPasswordForm
+      {...args}
       error={args.showError}
+      emailSentText={"The reset password link was sent to your email"}
       texts={{
         emailLabel: "Email",
         emailPlaceholder: "Enter your email",
         emailRequiredText: "Email is required",
         emailInvalidText: "Invalid email address",
-        passwordLabel: "Password",
-        resetPassword: "Reset Password",
-        passwordRequiredText: "Password is required",
-        forgotPasswordText: "Forgot password?",
-        newUserText: "New user?",
-        signUpText: "Sign up",
-        signInText: "Sign in",
-        googleButtonLabel: "Sign in with Google",
-        githubButtonLabel: "Sign in with Github",
-        twitterButtonLabel: "Sign in with Twitter"
+        resetPassword: "Reset Password"
       }}
-      {...args}
       handleResetPassword={(e) => console.log("resetting password,", e)}
     />
   );
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
-  showError: false,
   sent: false
 };

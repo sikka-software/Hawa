@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { HawaTextField, HawaLogoButton } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
@@ -16,7 +16,6 @@ export const SignInForm = (props) => {
   const {
     formState: { errors },
     handleSubmit,
-    register,
     control
   } = methods;
 
@@ -27,7 +26,7 @@ export const SignInForm = (props) => {
       style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
     >
       {props.error && (
-        <Alert severity="error">
+        <Alert severity="error" variant="inContainer">
           {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
           {props.errorText}
         </Alert>

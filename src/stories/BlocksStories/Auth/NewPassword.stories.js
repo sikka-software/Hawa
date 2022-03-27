@@ -43,12 +43,8 @@ const NewPasswordTemplate = (args) => {
         confirmPasswordRequiredText: "Confirmation is required",
         passwordMatchError: "Password doesn't match",
         forgotPasswordText: "Forgot password?",
-        newUserText: "New user?",
-        signUpText: "Sign up",
-        signInText: "Sign in",
-        googleButtonLabel: "Sign in with Google",
-        githubButtonLabel: "Sign in with Github",
-        twitterButtonLabel: "Sign in with Twitter"
+        passwordChange:
+          "Your password has been changed, you'll be redirected to sign in page"
       }}
       error={args.showError}
     />
