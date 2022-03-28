@@ -1,18 +1,16 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, Components } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { darken, lighten } from "@mui/material";
 
 let allBorderRadius = 10;
 let primaryActionColor = "#153B50";
 let primaryLayoutColor = "#ECEBE4";
-let primaryDangerColor = "#E94F37";
 let primaryActionTextColor = "#ffffff";
 let mainFont = "Roboto";
 const defaultTheme = createTheme({
   allBorderRadius: allBorderRadius,
   primaryActionColor: "#153B50",
   primaryLayoutColor: "#ECEBE4",
-  primaryDangerColor: "#E94F37",
   primaryActionTextColor: "#ffffff",
   typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
   palette: {
@@ -481,17 +479,19 @@ const defaultTheme = createTheme({
       variants: [
         {
           props: { variant: "danger" },
-          style: {
-            backgroundColor: primaryDangerColor,
-            color: primaryActionTextColor,
-            // padding: 10,
-            // marginTop: 20,
-            borderRadius: allBorderRadius,
-            "&:hover": {
-              backgroundColor: darken(primaryDangerColor, 0.5),
-              color: "white"
+          style: ({ theme }) => ({
+            ...{
+              backgroundColor: theme.palette.error.main,
+              color: primaryActionTextColor,
+              // padding: 10,
+              // marginTop: 20,
+              borderRadius: allBorderRadius,
+              "&:hover": {
+                backgroundColor: darken(theme.palette.error.main, 0.5),
+                color: "white"
+              }
             }
-          }
+          })
         },
         {
           props: { variant: "last" },
@@ -614,28 +614,53 @@ const defaultTheme = createTheme({
         root: {
           borderRadius: allBorderRadius,
           marginBottom: 10
-        }
+        },
+
+        standardError: ({ theme }) => ({
+          ...{
+            backgroundColor: lighten(theme.palette.error.main, 0.8),
+            outline: `1px solid ${darken(theme.palette.error.main, 0.1)}`
+          }
+        }),
+        standardInfo: ({ theme }) => ({
+          ...{
+            backgroundColor: lighten(theme.palette.info.main, 0.8),
+            outline: `1px solid ${darken(theme.palette.info.main, 0.1)}`
+          }
+        }),
+        standardWarning: ({ theme }) => ({
+          ...{
+            backgroundColor: lighten(theme.palette.warning.main, 0.8),
+            outline: `1px solid ${darken(theme.palette.warning.main, 0.1)}`
+          }
+        }),
+        standardSuccess: ({ theme }) => ({
+          ...{
+            backgroundColor: lighten(theme.palette.success.main, 0.8),
+            outline: `1px solid ${darken(theme.palette.success.main, 0.1)}`
+          }
+        })
       },
       variants: [
         {
           props: { variant: "inContainer" },
           style: {
-            backgroundColor: lighten(primaryDangerColor, 0.8),
             // color: primaryActionTextColor,
             color: "black",
-            borderRadius: allBorderRadius,
-            outline: `1px solid ${primaryDangerColor}`
+            borderRadius: allBorderRadius
           }
         },
         {
           props: { variant: "offline" },
-          style: {
-            backgroundColor: lighten(primaryDangerColor, 0.8),
-            // color: primaryActionTextColor,
-            color: "black",
-            borderRadius: allBorderRadius,
-            outline: `1px solid ${primaryDangerColor}`
-          }
+          style: ({ theme }) => ({
+            ...{
+              backgroundColor: lighten(theme.palette.error.main, 0.8),
+              // color: primaryActionTextColor,
+              color: "black",
+              borderRadius: allBorderRadius,
+              outline: `1px solid ${theme.palette.error.main}`
+            }
+          })
         }
       ]
     },

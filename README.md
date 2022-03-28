@@ -7,34 +7,25 @@
 [![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
 [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
 
-
-
 > Opinionated UI Kit for web apps and websites.
+
+## Install
+
+```bash
+
+npm install --save @sikka/hawa
+
+```
 
 # Concept
 
-### Components
+### Elements
 
-The smallest elements of this UI kit are the typical low-level components. Examples of components:
-
-- InputField
-- Checkboxes
-- Modal
-- Drag-Drop Image(s)
-- Button
-- etc ...
+The smallest components of this UI kit are the typical low-level components.
 
 ### Blocks
 
-Blocks are commonly used collection of components. Examples of blocks:
-
-- Sign-In
-- Sign-Up
-- Reset Password
-- SaaS Pricing Plans
-- Payment Methods Block (to list saved methods)
-- Account Block (to edit account info)
-- etc ...
+Blocks are commonly used collection of components.
 
 ### Boxes
 
@@ -52,17 +43,6 @@ Points
 - some boxes can float (animation of open and close modal)
 - some boxes can go full screen (animation to transition)
 
-### Utilities
-
-- [x] **getTextColor(bgColor)**
-determine if text should be black or white based on the contrast of `bgColor`
-
-- [ ] **darkenColor(color,percent)**
-darken a given `color` by a given `percent`
-
-- [ ] **lightenColor(color,percent)**
-lighten a given `color` by a given `percent`
-
 # Features
 
 - [ ] Change borders and margin, padding in one place
@@ -74,14 +54,6 @@ lighten a given `color` by a given `percent`
 - [ ] TextArea
 - [ ] Autocomplete
 - [ ] Badges
-
-## Install
-
-```bash
-
-npm install --save @sikka/hawa
-
-```
 
 ## Usage
 

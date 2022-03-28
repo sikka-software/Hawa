@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   },
   panel: {
     backgroundColor: "var(--lightGrey)",
-    // borderRadius: "var(--borderR)",
     height: "100%",
     width: "100%",
     padding: 10

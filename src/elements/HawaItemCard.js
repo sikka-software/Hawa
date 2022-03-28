@@ -6,10 +6,6 @@ export const HawaItemCard = (props) => {
   let isArabic = props.lang === "ar";
   const handleParentClick = (e) => {
     e.stopPropagation();
-    // let dValue = e.currentTarget;
-    // console.log("d value ", dValue);
-    console.log("clicking parent");
-
     props.onCardClick();
   };
   return (
