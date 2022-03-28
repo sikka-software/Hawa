@@ -356,6 +356,59 @@ const defaultTheme = createTheme({
           }
         },
         {
+          props: { variant: "card-container" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            border: `1px solid ${primaryLayoutColor}`,
+            margin: 0,
+            padding: "0px !important"
+          }
+        },
+        {
+          props: { variant: "card-header" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+            border: `1px solid ${primaryLayoutColor}`,
+            backgroundColor: "white",
+            margin: 0,
+            padding: "0px !important",
+            paddingLeft: "20px !important",
+            paddingRight: "20px !important"
+          }
+        },
+        {
+          props: { variant: "card-content" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: allBorderRadius,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+            border: `1px solid ${primaryLayoutColor}`,
+            // backgroundColor: "white",
+            margin: 0,
+            padding: "0px !important",
+            paddingLeft: "20px !important",
+            paddingRight: "20px !important"
+          }
+        },
+        {
+          props: { variant: "card-actions" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            border: `1px solid ${primaryLayoutColor}`,
+            margin: 0
+          }
+        },
+        {
           props: { variant: "selected-plan-header" },
           style: {
             display: "flex",

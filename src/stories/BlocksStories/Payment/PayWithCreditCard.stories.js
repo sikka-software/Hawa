@@ -4,34 +4,12 @@ import { CreditCardForm } from "../../../blocks/Payment";
 export default {
   title: "Blocks/Payment/Pay Via Credit Card",
   component: [CreditCardForm],
-  argTypes: {
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
-    },
-    viaWallet: { control: "boolean" },
-    viaApplePay: { control: "boolean" },
-    viaGooglePay: { control: "boolean" },
-    viaSTCPay: { control: "boolean" },
-    viaCreditCard: { control: "boolean" },
-    viaPayPal: { control: "boolean" }
-  },
-  args: {
-    theme: "primary",
-    viaWallet: true,
-    viaMada: true,
-    viaApplePay: true,
-    viaGooglePay: true,
-    viaSTCPay: true,
-    viaCreditCard: true,
-    viaPayPal: true
-  }
+  argTypes: {},
+  args: {}
 };
 
 export const PayViaCreditCard = (args) => {
-  return <CreditCardForm theme={args.theme} />;
+  return <CreditCardForm />;
 };
 
-PayViaCreditCard.args = {
-  theme: "secondary"
-};
+PayViaCreditCard.args = {};

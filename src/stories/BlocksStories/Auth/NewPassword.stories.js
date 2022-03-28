@@ -5,12 +5,6 @@ export default {
   title: "Blocks/Auth/New Password",
   component: [NewPasswordForm],
   argTypes: {
-    showError: {
-      default: false,
-      control: "boolean",
-      description: "Display the error when auth fails",
-      table: { defaultValue: { summary: true } }
-    },
     errorTitle: {
       default: " ",
       control: "text",
@@ -43,15 +37,13 @@ const NewPasswordTemplate = (args) => {
         confirmPasswordRequiredText: "Confirmation is required",
         passwordMatchError: "Password doesn't match",
         forgotPasswordText: "Forgot password?",
-        passwordChange:
+        passwordChanged:
           "Your password has been changed, you'll be redirected to sign in page"
       }}
-      error={args.showError}
     />
   );
 };
 export const NewPassword = NewPasswordTemplate.bind({});
 NewPassword.args = {
-  showError: false,
   passwordChanged: false
 };

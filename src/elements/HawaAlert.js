@@ -4,7 +4,7 @@ import AlertTitle from "@mui/material/AlertTitle";
 
 export const HawaAlert = (props) => {
   return (
-    <Alert severity={props.severity}>
+    <Alert severity={props.severity} variant="inContainer">
       {props.title && <AlertTitle>{props.title}</AlertTitle>}
       {props.text}
     </Alert>

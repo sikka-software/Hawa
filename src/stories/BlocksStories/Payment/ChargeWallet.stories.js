@@ -5,21 +5,13 @@ export default {
   title: "Blocks/Payment/Charge Wallet",
   component: [ChargeWalletForm],
   argTypes: {
-    viaWallet: { control: "boolean" },
-    viaApplePay: { control: "boolean" },
-    viaGooglePay: { control: "boolean" },
-    viaSTCPay: { control: "boolean" },
-    viaCreditCard: { control: "boolean" },
-    viaPayPal: { control: "boolean" }
+    currency: {
+      options: ["SAR", "USD"],
+      control: { type: "select" }
+    }
   },
   args: {
-    viaWallet: true,
-    viaMada: true,
-    viaApplePay: true,
-    viaGooglePay: true,
-    viaSTCPay: true,
-    viaCreditCard: true,
-    viaPayPal: true
+    currency: "sar"
   }
 };
 

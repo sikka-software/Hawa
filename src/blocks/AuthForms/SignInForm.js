@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton } from "../../elements";
+import { HawaTextField, HawaLogoButton, HawaAlert } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
@@ -25,11 +25,12 @@ export const SignInForm = (props) => {
       variant="auth"
       style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
     >
-      {props.error && (
-        <Alert severity="error" variant="inContainer">
-          {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
-          {props.errorText}
-        </Alert>
+      {props.showError && (
+        <HawaAlert
+          title={props.errorTitle}
+          text={props.errorText}
+          severity="error"
+        />
       )}
       <form onSubmit={handleSubmit(props.handleSignIn)}>
         <Controller

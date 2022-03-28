@@ -18,7 +18,6 @@ export const ResetPasswordForm = (props) => {
     <Container maxWidth="xs" variant="auth">
       {!props.sent ? (
         <form onSubmit={handleSubmit(props.handleResetPassword)}>
-          {console.log("eror ", errors.email?.message)}
           <Controller
             control={control}
             name="email"

@@ -6,9 +6,13 @@ export default {
   title: "Blocks/Account/User Settings",
   component: UserSettingsForm,
   argTypes: {
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
+    children: {
+      default: true,
+      control: "select",
+      options: ["ar", "en"],
+      description:
+        "The content of the settings block, should be in <HawaSettingsRow/>",
+      table: { defaultValue: { summary: "en" } }
     }
   }
 };
