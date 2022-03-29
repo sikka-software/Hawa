@@ -1,13 +1,17 @@
+import { Container } from "@mui/material";
 import React from "react";
-import { HawaTextField } from "../../elements";
-
-const Template = (args) => {
-  return <HawaTextField {...args} />;
-};
+import { HawaTextArea, HawaTextField } from "../../elements";
 
 export default {
-  title: "UI/TextField",
-  component: HawaTextField,
+  title: "Elements/TextFields",
+  component: [HawaTextField, HawaTextArea],
+  parameters: {
+    backgrounds: {
+      default: "light",
+      values: [{ name: "light", value: "#ECEBE4" }]
+    }
+  },
+
   argsTypes: {
     type: {
       name: "type",
@@ -29,21 +33,25 @@ export default {
   // }
 };
 
-export const Light = Template.bind({});
-export const Dark = Template.bind({});
-
-Light.args = {
-  placeholder: "Exemple ...",
-  defaultValue: "This isko default value",
-  inputLabel: "Text Field",
-  bgColor: "lightgray",
-  padding: 10
-  // type: "number"
+export const InputField = (args) => {
+  return <HawaTextField {...args} />;
 };
-Dark.args = {
-  placeholder: "Exemple ...",
-  defaultValue: "This is default value",
-  inputLabel: "Text Field",
-  bgColor: "lightgray",
-  padding: 10
+
+InputField.args = {
+  label: "Label test",
+  helperText: "something invalid",
+  placeholder: "input placeholder",
+  type: "text",
+  fullWidth: false
+};
+
+export const TextArea = (args) => {
+  return <HawaTextField multiline {...args} />;
+};
+TextArea.args = {
+  label: "Label test",
+  helperText: "something invalid",
+  placeholder: "input placeholder",
+  type: "text",
+  fullWidth: false
 };

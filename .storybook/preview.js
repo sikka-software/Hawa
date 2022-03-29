@@ -781,6 +781,18 @@ export const parameters = {
           ["User Profile", "User Settings"],
           "Payment",
           ["Payment Selection", "User Settings"]
+        ],
+        "Layout",
+        ["Layout Introduction", "AppBar"],
+        "Elements",
+        [
+          "Elements Introduction",
+          "Auth",
+          ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
+          "Account",
+          ["User Profile", "User Settings"],
+          "Payment",
+          ["Payment Selection", "User Settings"]
         ]
       ]
     }

@@ -8,7 +8,7 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
 // import Repo from './assets/repo.svg';
 // import StackAlt from './assets/stackalt.svg';
 
-<Meta title="Introduction" />
+<Meta title="Layout/Layout Introduction" />
 
 <style>{`
   .subheading {
@@ -115,94 +115,83 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   
 `}</style>
 
-# Welcome to Hawa
+# Layout Components
 
 <div className="tip-wrapper">
   <span className="tip">Notice</span>This page is still in progress
 </div>
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+Hawa layout components are used as the foundation for Hawa blocks and can be used to organize and structure your web app.
 
 Browse example stories now by navigating to them in the sidebar.
 View their code in the `src/stories` directory to learn how they work.
 We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
 
+# Concept
+
+### Elements
+
+The smallest components of this UI kit are the typical low-level components.
+
+### Blocks
+
+Blocks are commonly used collection of components.
+
+### Boxes
+
+Most components and blocks will live inside **boxes**. Windows can show anything. It can show a video, image, form, iFrame, etc. Boxes make out the layout of your website or application. Boxes can be arranged in different layouts
+
+Points
+
+- The content inside each box can be scrollable (vertical/horizontal/Both) with one prop
+- you can control the spacing of the content inside each box with one prop
+- you can also control the spacing of all the box in the layout
+- some boxes can float (animation of open and close modal)
+- some boxes can go full screen (animation to transition)
+
+<p align="center">
+  <img
+    src="https://user-images.githubusercontent.com/46135573/143972102-0c104239-b8f6-4a7b-9aad-54f6d91a8906.png"
+    alt="layout-types"
+  />
+</p>
+
 <div className="subheading">Structure</div>
 
 <div className="link-list">
-  <div onClick={linkTo("Layout/Layout Introduction")} className="link-item">
-    <h3>Layout</h3>
+  <div onClick={linkTo("Layout/Container")} className="link-item">
+    <h3>Container</h3>
+    <span>
+      <strong>Presets for popular tools</strong>
+      Easy setup for TypeScript, SCSS and more. a styled
+    </span>
+  </div>
+  <div onClick={linkTo("Layout/AppBar")} className="link-item">
+    <h3>AppBar</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
-  <div onClick={linkTo("Blocks/Blocks Introduction")} className="link-item">
-    <h3>Blocks</h3>
+  <div onClick={linkTo("Layout/AppLayout")} className="link-item">
+    <h3>AppLayout</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
-  <div onClick={linkTo("Elements/Elements Introduction")} className="link-item">
-    <h3>Elements</h3>
+  <div onClick={linkTo("Layout/Dialog")} className="link-item">
+    <h3>Dialog</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
-  <div onClick={linkTo("Layout/Layout Introduction")} className="link-item">
-    <h3>UI</h3>
+  <div onClick={linkTo("Layout/PopMenu")} className="link-item">
+    <h3>PopMenu</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
-</div>
-
-<div className="subheading">Learn</div>
-
-<div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    {/* <img src={Repo} alt="repo" /> */}
-    <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/tutorials/"
-    target="_blank"
-  >
-    {/* <img src={Direction} alt="direction" /> */}
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://github.com/storybookjs/storybook"
-    target="_blank"
-  >
-    {/* <img src={Code} alt="code" /> */}
-    <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
-    {/* <img src={Comments} alt="comments" /> */}
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
-    </span>
-  </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{" "}
-  <code>src/stories/Introduction.stories.mdx</code>
 </div>

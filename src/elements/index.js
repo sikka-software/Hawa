@@ -10,6 +10,7 @@ export * from "./HawaLogoButton";
 export * from "./HawaButton";
 export * from "./HawaSelect";
 export * from "./HawaTextField";
+export * from "./HawaTextArea";
 export * from "./HawaInputLabel";
 export * from "./HawaTypography";
 export * from "./HawaAlert";
