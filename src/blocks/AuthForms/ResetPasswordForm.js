@@ -5,6 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import EmailIcon from "@mui/icons-material/MailOutline";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
 
 export const ResetPasswordForm = (props) => {
   const methods = useForm();
@@ -57,4 +58,9 @@ export const ResetPasswordForm = (props) => {
       )}
     </Container>
   );
+};
+ResetPasswordForm.propTypes = {
+  texts: PropTypes.object,
+  emailSentText: PropTypes.string,
+  handleResetPassword: PropTypes.func
 };

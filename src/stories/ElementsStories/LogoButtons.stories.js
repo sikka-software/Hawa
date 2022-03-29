@@ -6,6 +6,10 @@ export default {
   title: "Elements/Buttons/LogoButtons",
   component: HawaLogoButton,
   argTypes: {
+    lang: {
+      control: "boolean",
+      description: "The text next to the logo"
+    },
     buttonLabel: {
       control: "text",
       description: "The text next to the logo"
@@ -37,7 +41,11 @@ export default {
 const Template = (args) => {
   return (
     <Container maxWidth="xs" variant="plain">
-      <HawaLogoButton logo={args.logo} buttonText={args.buttonLabel} />
+      <HawaLogoButton
+        lang={args.lang}
+        logo={args.logo}
+        buttonText={args.buttonLabel}
+      />
     </Container>
   );
 };

@@ -20,14 +20,13 @@ const ProfileTemplate = (args) => {
         emailPlaceholder: "Enter your email",
         emailRequiredText: "Email is required",
         emailInvalidText: "Invalid email address",
+        passwordLabel: "Choose new password",
         passwordPlaceholder: "Minimum 8 characters",
         passwordRequiredText: "Password is required",
         passwordTooShortText: "Password too short",
-
-        updatePassword: "Update Password",
-        passwordLabel: "Choose new password",
-        confirmPasswordPlaceholder: "Confirm password",
+        updateProfile: "Update Profile",
         confirmPasswordLabel: "Confirm",
+        confirmPasswordPlaceholder: "Confirm password",
         confirmPasswordRequiredText: "Confirmation is required",
         passwordMatchError: "Password doesn't match"
       }}

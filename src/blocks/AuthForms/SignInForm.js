@@ -7,8 +7,7 @@ import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
+import PropTypes from "prop-types";
 import Divider from "@mui/material/Divider";
 
 export const SignInForm = (props) => {
@@ -142,4 +141,15 @@ export const SignInForm = (props) => {
       </div>
     </Container>
   );
+};
+SignInForm.propTypes = {
+  texts: PropTypes.object,
+  viaGoogle: PropTypes.bool,
+  viaGithub: PropTypes.bool,
+  viaTwitter: PropTypes.bool,
+  handleSignIn: PropTypes.func,
+  handleRouteToSignUp: PropTypes.func,
+  handleGoogleSignIn: PropTypes.func,
+  handleGithubSignIn: PropTypes.func,
+  handleTwitterSignIn: PropTypes.func
 };

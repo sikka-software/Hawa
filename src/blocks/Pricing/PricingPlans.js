@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import { HawaPricingCard, HawaRadio } from "../../elements";
+import PropTypes from "prop-types";
 
 export const PricingPlans = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
@@ -54,4 +55,9 @@ export const PricingPlans = (props) => {
       </Container>
     </Container>
   );
+};
+
+PricingPlans.propTypes = {
+  plans: PropTypes.array,
+  lang: PropTypes.string
 };

@@ -1,8 +1,9 @@
 import useTranslation from "next-translate/useTranslation";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
+import PropTypes from "prop-types";
 
-const PaymentMethod = (props) => {
+export const PaymentMethod = (props) => {
   const { t } = useTranslation("common");
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   return (
@@ -77,7 +78,7 @@ const PaymentMethodButton = (props) => {
         opacity: props.chip ? 0.7 : 1,
         padding: 20,
         width: "90%",
-        margin: 10,
+        margin: 10
       }}
       onClick={(e) => props.handlePaymentMethod(e, props.methodCode)}
     >
@@ -128,4 +129,8 @@ const PaymentMethodButton = (props) => {
   );
 };
 
-export default PaymentMethod;
+PaymentMethod.propTypes = {
+  texts: PropTypes.object,
+  wallet: PropTypes.bool,
+  handlePaymentMethod: PropTypes.func
+};

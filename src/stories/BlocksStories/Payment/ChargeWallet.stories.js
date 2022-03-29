@@ -18,8 +18,12 @@ export default {
 export const ChargeWallet = (args) => {
   return (
     <ChargeWalletForm
-      handleChargeWallet={(e) => console.log("amount is ", e)}
       {...args}
+      handleChargeWallet={(e) => console.log("amount is ", e)}
+      texts={{
+        amountLabel: "Enter Amount",
+        chargeWallet: "Charge Wallet"
+      }}
     />
   );
 };

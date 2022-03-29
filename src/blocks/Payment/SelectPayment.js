@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HawaTextField, HawaTypography, HawaLogoButton } from "../../elements";
+import { HawaTypography, HawaLogoButton } from "../../elements";
 import Container from "@mui/material/Container";
 
 export const SelectPayment = (props) => {
@@ -60,12 +60,23 @@ export const SelectPayment = (props) => {
   );
 };
 
-HawaTextField.propTypes = {
-  theme: PropTypes.oneOf(["secondary", "primary"]),
-  viaApplePay: PropTypes.bool,
-  viaGooglePay: PropTypes.bool,
+SelectPayment.propTypes = {
+  viaMada: PropTypes.bool,
+  viaWallet: PropTypes.bool,
   viaSTCPay: PropTypes.bool,
-  viaCreditCard: PropTypes.bool,
   viaPayPal: PropTypes.bool,
-  handleApplePay: PropTypes.func
+  viaApplePay: PropTypes.bool,
+  viaCreditCard: PropTypes.bool,
+  madaLabel: PropTypes.string,
+  stcPayLabel: PropTypes.string,
+  paypalLabel: PropTypes.string,
+  walletLabel: PropTypes.string,
+  applePayLabel: PropTypes.string,
+  visaMasterLabel: PropTypes.string,
+  handleMada: PropTypes.func,
+  handleWallet: PropTypes.func,
+  handleSTCPay: PropTypes.func,
+  handlePayPal: PropTypes.func,
+  handleApplePay: PropTypes.func,
+  handleCreditCard: PropTypes.func
 };

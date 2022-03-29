@@ -5,10 +5,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import PasswordIcon from "@mui/icons-material/HttpsOutlined";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
 
 export const NewPasswordForm = (props) => {
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [matchError, setMatchError] = useState(false);
   const methods = useForm();
   const {
@@ -48,7 +47,6 @@ export const NewPasswordForm = (props) => {
                   value={field.value ?? ""}
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
-                  // onChange={(e) => setNewPassword(e.target.value)}
                   helperText={errors.password?.message}
                   startAdornment={
                     <InputAdornment position="start">
@@ -72,7 +70,6 @@ export const NewPasswordForm = (props) => {
                   value={field.value ?? ""}
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}
-                  // onChange={(e) => setConfirmPassword(e.target.value)}
                   helperText={errors.confirmPassword?.message}
                   startAdornment={
                     <InputAdornment position="start">
@@ -95,4 +92,8 @@ export const NewPasswordForm = (props) => {
       )}
     </Container>
   );
+};
+NewPasswordForm.propTypes = {
+  texts: PropTypes.object,
+  handleNewPassword: PropTypes.func
 };

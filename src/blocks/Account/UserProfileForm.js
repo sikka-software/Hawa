@@ -77,7 +77,6 @@ export const UserProfileForm = (props) => {
                 value={field.value ?? ""}
                 label={props.texts.passwordLabel}
                 placeholder={props.texts.passwordPlaceholder}
-                // onChange={(e) => setNewPassword(e.target.value)}
                 helperText={errors.password?.message}
                 {...field}
               />
@@ -96,7 +95,6 @@ export const UserProfileForm = (props) => {
                 value={field.value ?? ""}
                 label={props.texts.confirmPasswordLabel}
                 placeholder={props.texts.confirmPasswordPlaceholder}
-                // onChange={(e) => setConfirmPassword(e.target.value)}
                 helperText={errors.confirmPassword?.message}
                 {...field}
               />
@@ -106,8 +104,8 @@ export const UserProfileForm = (props) => {
             }}
           />
           <Button type="submit" fullWidth variant="last">
-            update profile
-          </Button>{" "}
+            {props.texts.updateProfile}
+          </Button>
         </form>
       </FormProvider>
     </Container>

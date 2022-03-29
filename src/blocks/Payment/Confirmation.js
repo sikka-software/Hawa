@@ -1,34 +1,14 @@
-import React, { useState } from "react";
-import { HawaTextField, HawaTable, HawaSelect } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import React from "react";
+import { HawaTable } from "../../elements";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import PropTypes from "prop-types";
 
 export const ConfirmationPage = (props) => {
   let isArabic = props.lang === "ar";
-  const methods = useForm();
-  const {
-    formState: { errors },
-    handleSubmit,
-    register,
-    control
-  } = methods;
 
-  let containerStyle = {
-    display: "flex",
-    padding: 0,
-    paddingRight: "0px !important",
-    paddingLeft: "0px !important",
-    flexDirection: {
-      xs: "column",
-      sm: "row",
-      md: "row",
-      lg: "row",
-      xl: "row"
-    }
-  };
   return (
     <div
       style={{
@@ -117,4 +97,19 @@ export const ConfirmationPage = (props) => {
       </a>
     </div>
   );
+};
+
+ConfirmationPage.propTypes = {
+  texts: PropTypes.object,
+  products: PropTypes.array,
+  countriesList: PropTypes.array,
+  lang: PropTypes.string,
+  total: PropTypes.string,
+  userEmail: PropTypes.string,
+  orderNumber: PropTypes.string,
+  confirmationTitle: PropTypes.string,
+  handleHome: PropTypes.func,
+  handlePrint: PropTypes.func,
+  handleHistory: PropTypes.func,
+  handleRefundPolicyLink: PropTypes.func
 };

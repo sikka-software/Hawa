@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { HawaTextField, HawaTable, HawaSelect } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import PropTypes from "prop-types";
 
 export const CheckoutForm = (props) => {
   let isArabic = props.lang === "ar";
@@ -242,4 +243,13 @@ export const CheckoutForm = (props) => {
       </FormProvider>
     </Container>
   );
+};
+
+CheckoutForm.propTypes = {
+  texts: PropTypes.object,
+  lang: PropTypes.string,
+  countriesList: PropTypes.array,
+  products: PropTypes.array,
+  total: PropTypes.string,
+  handlePayNow: PropTypes.func
 };

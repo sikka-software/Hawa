@@ -3,6 +3,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlined";
+import PropTypes from "prop-types";
+
 export const HawaPricingCard = (props) => {
   let isArabic = props.lang === "ar";
   let cycleTextsArabic = {
@@ -131,4 +133,16 @@ export const HawaPricingCard = (props) => {
       </Button>
     </Container>
   );
+};
+
+HawaPricingCard.propTypes = {
+  lang: PropTypes.string,
+  buttonText: PropTypes.string,
+  selectedPlan: PropTypes.string,
+  title: PropTypes.string,
+  title_ar: PropTypes.string,
+  subtitle: PropTypes.string,
+  subtitle_ar: PropTypes.string,
+  features: PropTypes.array,
+  features_ar: PropTypes.array
 };

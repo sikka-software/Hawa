@@ -4,6 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
 
 export const ChargeWalletForm = (props) => {
   const [walletAmount, setWalletAmount] = useState(0);
@@ -33,21 +34,18 @@ export const ChargeWalletForm = (props) => {
             render={({ field }) => (
               <HawaTextField
                 fullWidth
-                placeholder="Enter amount"
+                placeholder={props.texts.amountLabel}
                 type="number"
                 value={field.value ?? ""}
-                // helperText={errors.amount?.message}
                 {...field}
                 inputProps={{
                   inputMode: "numeric",
-                  min: "0",
+                  min: "1",
                   max: "9999999",
                   step: "0.01"
                 }}
                 onChange={(e) => {
-                  // e.preventDefault();
                   field.onChange(parseFloat(e.target.value));
-                  console.log("e", e.target.value);
                   setWalletAmount(e.target.value);
                 }}
               />
@@ -60,11 +58,15 @@ export const ChargeWalletForm = (props) => {
             variant="last"
             onClick={props.handleSignIn}
           >
-            {/* {props.texts.signInText} */}
-            {"Charge Wallet"}
+            {props.texts.chargeWallet}
           </Button>
         </form>
       </FormProvider>
     </Container>
   );
+};
+
+ChargeWalletForm.propTypes = {
+  texts: PropTypes.object,
+  handleChargeWallet: PropTypes.func
 };

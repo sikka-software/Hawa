@@ -33,9 +33,7 @@ export const SignUpForm = (props) => {
           {props.errorText}
         </Alert>
       )}
-      {/* {props.error && (
-          <HawaAlert text="This is a sign in alert" severity="error" />
-        )} */}
+
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleSignUp)}>
           <Controller
@@ -166,9 +164,13 @@ export const SignUpForm = (props) => {
 };
 
 SignUpForm.propTypes = {
-  theme: PropTypes.oneOf(["secondary", "primary"])
-  // buttonLabel: PropTypes.string,
-  // danger: PropTypes.bool,
-  // disabled: PropTypes.bool,
-  // showText: PropTypes.bool
+  texts: PropTypes.object,
+  viaGoogle: PropTypes.bool,
+  viaGithub: PropTypes.bool,
+  viaTwitter: PropTypes.bool,
+  handleSignUp: PropTypes.func,
+  handleRouteToSignIn: PropTypes.func,
+  handleGoogleSignUp: PropTypes.func,
+  handleGithubSignUp: PropTypes.func,
+  handleTwitterSignUp: PropTypes.func
 };

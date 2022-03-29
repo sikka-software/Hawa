@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
 
 export const HawaItemCard = (props) => {
   let isArabic = props.lang === "ar";
@@ -53,4 +53,8 @@ export const HawaItemCard = (props) => {
       )}
     </Container>
   );
+};
+HawaItemCard.propTypes = {
+  lang: PropTypes.string,
+  onCardClick: PropTypes.func,
 };

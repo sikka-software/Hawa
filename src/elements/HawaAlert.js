@@ -1,6 +1,7 @@
 import React from "react";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import PropTypes from "prop-types";
 
 export const HawaAlert = (props) => {
   return (
@@ -9,4 +10,10 @@ export const HawaAlert = (props) => {
       {props.text}
     </Alert>
   );
+};
+HawaAlert.propTypes = {
+  severity: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  hideIcon: PropTypes.bool
 };

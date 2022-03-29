@@ -4,8 +4,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
 
 export const HawaLogoButton = (props) => {
+  let isArabic = props.lang === "ar";
   let logoElement = "";
   switch (props.logo?.toLowerCase()) {
     case "google":
@@ -79,7 +81,11 @@ export const HawaLogoButton = (props) => {
       break;
   }
   return (
-    <Button {...props} variant="withLogo">
+    <Button
+      style={{ direction: isArabic ? "rtl" : "ltr" }}
+      {...props}
+      variant="withLogo"
+    >
       {logoElement}
       <div style={{ width: 10 }} />
       <Typography
@@ -96,4 +102,10 @@ export const HawaLogoButton = (props) => {
       </Typography>
     </Button>
   );
+};
+
+HawaLogoButton.propTypes = {
+  lang: PropTypes.string,
+  logo: PropTypes.string,
+  buttonText: PropTypes.string
 };
