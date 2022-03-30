@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import PropTypes from "prop-types";
 
 export const HawaRadio = (props) => {
   const [value, setValue] = useState(props.defaultValue);
@@ -27,4 +28,10 @@ export const HawaRadio = (props) => {
       })}
     </Container>
   );
+};
+HawaRadio.propTypes = {
+  lang: PropTypes.string,
+  options: PropTypes.array,
+  defaultValue: PropTypes.string,
+  location: PropTypes.string
 };
