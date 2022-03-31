@@ -15,3 +15,4 @@ export * from "./HawaInputLabel";
 export * from "./HawaTypography";
 export * from "./HawaAlert";
 export * from "./HawaTable";
+export * from "./HawaColorPicker";

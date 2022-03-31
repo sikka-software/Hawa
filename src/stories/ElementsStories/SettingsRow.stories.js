@@ -1,5 +1,5 @@
 import { Subtitle, Title } from "@storybook/addon-docs";
-import React from "react";
+import React, { useState } from "react";
 import { HawaSettingsRow } from "../../elements";
 
 export default {
@@ -23,7 +23,7 @@ export default {
 
   argTypes: {
     settingsType: {
-      options: ["checkbox", "text", "radio"],
+      options: ["checkbox", "text", "radio", "color", "boolean"],
       control: { type: "select" }
     },
     onChange: {
@@ -40,25 +40,24 @@ export default {
   }
 };
 
-export const CheckboxSettings = (args) => <HawaSettingsRow {...args} />;
+export const CheckboxSettings = (args) => (
+  <HawaSettingsRow settingsType={"checkbox"} {...args} />
+);
 CheckboxSettings.args = {
-  settingsType: "checkbox",
   settingsLabel: "Checkbox Settings"
 };
 export const TextSettings = (args) => (
-  <HawaSettingsRow placeholder="Text here" {...args} />
+  <HawaSettingsRow placeholder="Text here" settingsType={"text"} {...args} />
 );
 
 TextSettings.args = {
-  settingsType: "text",
   settingsLabel: "Text Settings"
 };
 export const BooleanSettings = (args) => (
-  <HawaSettingsRow placeholder="Text here" {...args} />
+  <HawaSettingsRow placeholder="Text here" settingsType={"boolean"} {...args} />
 );
 
 BooleanSettings.args = {
-  settingsType: "boolean",
   settingsLabel: "Boolean Settings"
 };
 export const RadioSettings = (args) => {
@@ -67,7 +66,7 @@ export const RadioSettings = (args) => {
   });
   return (
     <HawaSettingsRow
-      settingsType={args.settingsType}
+      settingsType={"radio"}
       settingsLabel={args.settingsLabel}
       handleChange={(e) => console.log("changing to ", e)}
       defaultValue="option1"
@@ -78,6 +77,27 @@ export const RadioSettings = (args) => {
 
 RadioSettings.args = {
   options: 3,
-  settingsType: "radio",
   settingsLabel: "Radio Settings"
+};
+
+export const ColorSettings = (args) => {
+  const [currentColor, setCurrentColor] = useState("#f0f049");
+
+  return (
+    <HawaSettingsRow
+      settingsType={"color"}
+      settingsLabel={args.settingsLabel}
+      handleChange={(e) => {
+        setCurrentColor(e.target.value);
+        console.log("changing to ", e.target.value);
+      }}
+      // defaultValue="#847577"
+      color={currentColor}
+    />
+  );
+};
+
+ColorSettings.args = {
+  options: 3,
+  settingsLabel: "Color Settings"
 };

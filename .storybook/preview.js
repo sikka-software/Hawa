@@ -394,6 +394,23 @@ const defaultTheme = createTheme({
       },
       variants: [
         {
+          props: { variant: "color-picker" },
+          style: ({ theme }) => ({
+            ...{
+              height: 40,
+              marginRight: 5,
+              marginLeft: 5,
+              backgroundColor: theme.palette.error.main,
+              color: primaryActionTextColor,
+              borderRadius: allBorderRadius,
+              "&:hover": {
+                backgroundColor: darken(theme.palette.error.main, 0.5),
+                color: "white"
+              }
+            }
+          })
+        },
+        {
           props: { variant: "danger" },
           style: ({ theme }) => ({
             ...{

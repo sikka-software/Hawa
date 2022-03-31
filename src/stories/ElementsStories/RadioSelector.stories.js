@@ -14,6 +14,14 @@ export default {
           detail: "{label: 'Option 1', value: 'option1'}"
         }
       }
+    },
+    handleChange: {
+      control: "function",
+      description: "The function to change the defaultValue of the options tab"
+    },
+    defaultValue: {
+      control: "string",
+      description: "The string of the current selected option"
     }
   },
   args: {

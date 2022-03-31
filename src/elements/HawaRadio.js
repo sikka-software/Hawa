@@ -33,5 +33,6 @@ HawaRadio.propTypes = {
   lang: PropTypes.string,
   options: PropTypes.array,
   defaultValue: PropTypes.string,
+  handleChange: PropTypes.func,
   location: PropTypes.string
 };
