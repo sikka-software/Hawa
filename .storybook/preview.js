@@ -578,17 +578,17 @@ const defaultTheme = createTheme({
           props: { variant: "inContainer" },
           style: { color: "black", borderRadius: allBorderRadius }
         },
-        {
-          props: { variant: "offline" },
-          style: ({ theme }) => ({
-            ...{
-              backgroundColor: lighten(theme.palette.error.main, 0.8),
-              color: "black",
-              borderRadius: allBorderRadius,
-              outline: `1px solid ${theme.palette.error.main}`
-            }
-          })
-        }
+        // {
+        //   props: { variant: "offline" },
+        //   style: ({ theme }) => ({
+        //     ...{
+        //       backgroundColor: lighten(theme.palette.error.main, 0.8),
+        //       color: "black",
+        //       borderRadius: allBorderRadius,
+        //       outline: `1px solid ${theme.palette.error.main}`
+        //     }
+        //   })
+        // }
       ]
     },
     MuiListItemButton: {

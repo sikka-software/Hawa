@@ -4,6 +4,13 @@ import { SignInForm } from "../../../blocks/AuthForms";
 export default {
   title: "Blocks/Auth/Sign In",
   component: [SignInForm],
+  parameters: {
+    docs: {
+      description: {
+        component: "`<SignInForm/>` Authentication block for user sign in"
+      }
+    }
+  },
   argTypes: {
     lang: {
       default: true,

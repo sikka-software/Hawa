@@ -106,6 +106,23 @@ export const HawaLogoButton = (props) => {
 
 HawaLogoButton.propTypes = {
   lang: PropTypes.string,
-  logo: PropTypes.string,
+  /**
+   * The logo/icon of the button
+   */
+  logo: PropTypes.oneOf([
+    "google",
+    "github",
+    "twitter",
+    "wallet",
+    "googlepay",
+    "applepay",
+    "stcpay",
+    "visa/master",
+    "paypal",
+    "mada"
+  ]),
+  /**
+   * The text next to the logo in the button
+   */
   buttonText: PropTypes.string
 };

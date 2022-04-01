@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import PropTypes from "prop-types";
 
 export const HawaTable = (props) => {
   let isArabic = props.lang === "ar";
@@ -72,4 +73,10 @@ export const HawaTable = (props) => {
       </Table>
     </TableContainer>
   );
+};
+HawaTable.propTypes = {
+  lang: PropTypes.string,
+  columns: PropTypes.array,
+  rows: PropTypes.array,
+  end: PropTypes.array
 };

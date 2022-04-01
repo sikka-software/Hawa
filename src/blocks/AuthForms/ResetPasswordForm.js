@@ -60,7 +60,16 @@ export const ResetPasswordForm = (props) => {
   );
 };
 ResetPasswordForm.propTypes = {
-  texts: PropTypes.object,
+  /**
+   *  An object of all the texts in the blocks
+   */
+  texts: PropTypes.shape({
+    emailLabel: PropTypes.string,
+    emailPlaceholder: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    emailInvalidText: PropTypes.string,
+    resetPassword: PropTypes.string
+  }),
   emailSentText: PropTypes.string,
   handleResetPassword: PropTypes.func
 };

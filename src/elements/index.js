@@ -1,6 +1,6 @@
 export * from "./AdaptiveButton";
 export * from "./ActionButton";
-export * from "./OfflineBanner";
+export * from "./HawaSnackbar";
 export * from "./HawaCheckbox";
 export * from "./HawaRadio";
 export * from "./HawaItemCard";

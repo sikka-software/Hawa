@@ -163,8 +163,51 @@ export const SignUpForm = (props) => {
   );
 };
 
+// fullNameLabel: "Full Name",
+// fullNamePlaceholder: "Fulan AlFulani",
+// fullNameRequiredText: "Full Name is required",
+// emailLabel: "Email",
+// emailPlaceholder: "Enter your email",
+// emailRequiredText: "Email is required",
+// emailInvalidText: "Invalid email address",
+// passwordLabel: "Password",
+// passwordPlaceholder: "Minimum 8 characters",
+// passwordRequiredText: "Password is required",
+// passwordTooShortText: "Password too short",
+// forgotPasswordText: "Forgot password?",
+// newUserText: "New user?",
+// signUpText: "Sign up",
+// signInText: "Sign in",
+// existingUserText: "Existing User?",
+// googleButtonLabel: "Sign in with Google",
+// githubButtonLabel: "Sign in with Github",
+// twitterButtonLabel: "Sign in with Twitter"
+
 SignUpForm.propTypes = {
-  texts: PropTypes.object,
+  /**
+   *  An object of all the texts in the blocks
+   */
+  texts: PropTypes.shape({
+    fullNameLabel: PropTypes.string,
+    fullNamePlaceholder: PropTypes.string,
+    fullNameRequiredText: PropTypes.string,
+    emailLabel: PropTypes.string,
+    emailPlaceholder: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    emailInvalidText: PropTypes.string,
+    passwordLabel: PropTypes.string,
+    passwordPlaceholder: PropTypes.string,
+    passwordRequiredText: PropTypes.string,
+    passwordTooShortText: PropTypes.string,
+    forgotPasswordText: PropTypes.string,
+    newUserText: PropTypes.string,
+    signUpText: PropTypes.string,
+    signInText: PropTypes.string,
+    existingUserText: PropTypes.string,
+    googleButtonLabel: PropTypes.string,
+    githubButtonLabel: PropTypes.string,
+    twitterButtonLabel: PropTypes.string
+  }),
   viaGoogle: PropTypes.bool,
   viaGithub: PropTypes.bool,
   viaTwitter: PropTypes.bool,

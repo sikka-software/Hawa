@@ -12,8 +12,17 @@ export const HawaAlert = (props) => {
   );
 };
 HawaAlert.propTypes = {
-  severity: PropTypes.string,
+  /**
+   * The severity of the alert. This defines the color and icon used.
+   */
+  severity: PropTypes.oneOf(["error", "info", "success", "warning"]),
+  /**
+   * The title of the alert in bold. Can be left empty.
+   */
   title: PropTypes.string,
+  /**
+   * The text of the alert.
+   */
   text: PropTypes.string,
   hideIcon: PropTypes.bool
 };

@@ -100,7 +100,30 @@ export const ConfirmationPage = (props) => {
 };
 
 ConfirmationPage.propTypes = {
-  texts: PropTypes.object,
+  texts: PropTypes.shape({
+    print: PropTypes.string,
+    history: PropTypes.string,
+    homePage: PropTypes.string,
+    successMessage: PropTypes.string,
+    orderDetails: PropTypes.string,
+    fasterPaymentNote: PropTypes.string,
+    billingAddress: PropTypes.string,
+    payNow: PropTypes.string,
+    yourOrderNumber: PropTypes.string,
+    emailLabel: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    emailInvalidText: PropTypes.string,
+    firstNameLabel: PropTypes.string,
+    required: PropTypes.string,
+    lastNameLabel: PropTypes.string,
+    streetAddressLabel: PropTypes.string,
+    buildingNumberLabel: PropTypes.string,
+    cityLabel: PropTypes.string,
+    stateLabel: PropTypes.string,
+    countryLabel: PropTypes.string,
+    zipCodeLabel: PropTypes.string,
+    refundPolicy: PropTypes.string
+  }),
   products: PropTypes.array,
   countriesList: PropTypes.array,
   lang: PropTypes.string,

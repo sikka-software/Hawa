@@ -94,6 +94,23 @@ export const NewPasswordForm = (props) => {
   );
 };
 NewPasswordForm.propTypes = {
-  texts: PropTypes.object,
+  /**
+   *  An object of all the texts in the blocks
+   */
+  texts: PropTypes.shape({
+    emailLabel: PropTypes.string,
+    emailPlaceholder: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    passwordPlaceholder: PropTypes.string,
+    updatePassword: PropTypes.string,
+    passwordRequiredText: PropTypes.string,
+    passwordLabel: PropTypes.string,
+    confirmPasswordPlaceholder: PropTypes.string,
+    confirmPasswordLabel: PropTypes.string,
+    confirmPasswordRequiredText: PropTypes.string,
+    passwordMatchError: PropTypes.string,
+    forgotPasswordText: PropTypes.string,
+    passwordChanged: PropTypes.string
+  }),
   handleNewPassword: PropTypes.func
 };

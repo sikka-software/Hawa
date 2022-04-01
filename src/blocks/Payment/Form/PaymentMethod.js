@@ -85,7 +85,6 @@ const PaymentMethodButton = (props) => {
       {props.imageURL ? (
         <div
           style={{
-            // backgroundColor: "red",
             width: "50%",
             textAlign: "right",
             paddingRight: 20
@@ -93,14 +92,7 @@ const PaymentMethodButton = (props) => {
         >
           <img
             src={props.imageURL}
-            // src={`https://qawaim-images.s3-ap-southeast-1.amazonaws.com/payments/visa.png`}
-            // alt=""
-            // srcset=""
-            // height={"100%"}
-            // width={"30%"}
             style={{
-              // height: "100%",
-              // aspectRatio: "6/4",
               maxWidth: 70,
               maxHeight: 70,
               height: "auto"
@@ -110,7 +102,6 @@ const PaymentMethodButton = (props) => {
       ) : null}
       <div
         style={{
-          // backgroundColor: "blue",
           width: "50%",
           textAlign: props.imageURL ? "left" : "center"
         }}
@@ -130,7 +121,6 @@ const PaymentMethodButton = (props) => {
 };
 
 PaymentMethod.propTypes = {
-  texts: PropTypes.object,
   wallet: PropTypes.bool,
   handlePaymentMethod: PropTypes.func
 };

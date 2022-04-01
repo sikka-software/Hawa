@@ -67,6 +67,9 @@ export const ChargeWalletForm = (props) => {
 };
 
 ChargeWalletForm.propTypes = {
-  texts: PropTypes.object,
+  texts: PropTypes.shape({
+    amountLabel: PropTypes.string,
+    chargeWallet: PropTypes.string
+  }),
   handleChargeWallet: PropTypes.func
 };

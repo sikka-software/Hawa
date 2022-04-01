@@ -143,7 +143,25 @@ export const SignInForm = (props) => {
   );
 };
 SignInForm.propTypes = {
-  texts: PropTypes.object,
+  /**
+   *  An object of all the texts in the blocks
+   */
+  texts: PropTypes.shape({
+    emailLabel: PropTypes.string,
+    emailPlaceholder: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    emailInvalidText: PropTypes.string,
+    passwordLabel: PropTypes.string,
+    passwordPlaceholder: PropTypes.string,
+    passwordRequiredText: PropTypes.string,
+    forgotPasswordText: PropTypes.string,
+    newUserText: PropTypes.string,
+    signUpText: PropTypes.string,
+    signInText: PropTypes.string,
+    googleButtonLabel: PropTypes.string,
+    githubButtonLabel: PropTypes.string,
+    twitterButtonLabel: PropTypes.string
+  }),
   viaGoogle: PropTypes.bool,
   viaGithub: PropTypes.bool,
   viaTwitter: PropTypes.bool,

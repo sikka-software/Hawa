@@ -4,6 +4,13 @@ import { SignUpForm } from "../../../blocks/AuthForms";
 export default {
   title: "Blocks/Auth/Sign Up",
   component: [SignUpForm],
+  parameters: {
+    docs: {
+      description: {
+        component: "`<SignUpForm/>` Authentication block for user sign up"
+      }
+    }
+  },
   argTypes: {
     lang: {
       default: true,

@@ -246,7 +246,23 @@ export const CheckoutForm = (props) => {
 };
 
 CheckoutForm.propTypes = {
-  texts: PropTypes.object,
+  texts: PropTypes.shape({
+    orderDetails: PropTypes.string,
+    billingAddress: PropTypes.string,
+    payNow: PropTypes.string,
+    emailLabel: PropTypes.string,
+    emailRequiredText: PropTypes.string,
+    emailInvalidText: PropTypes.string,
+    firstNameLabel: PropTypes.string,
+    required: PropTypes.string,
+    lastNameLabel: PropTypes.string,
+    streetAddressLabel: PropTypes.string,
+    buildingNumberLabel: PropTypes.string,
+    cityLabel: PropTypes.string,
+    stateLabel: PropTypes.string,
+    countryLabel: PropTypes.string,
+    zipCodeLabel: PropTypes.string
+  }),
   lang: PropTypes.string,
   countriesList: PropTypes.array,
   products: PropTypes.array,

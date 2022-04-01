@@ -41,5 +41,11 @@ export const HawaPopMenu = (props) => {
 
 HawaPopMenu.propTypes = {
   handleClose: PropTypes.func,
-  menuItems: PropTypes.array
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.element,
+      label: PropTypes.string,
+      action: PropTypes.func
+    })
+  )
 };

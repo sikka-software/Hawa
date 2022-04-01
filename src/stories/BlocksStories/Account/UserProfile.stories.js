@@ -35,10 +35,6 @@ const ProfileTemplate = (args) => {
 };
 export const UserProfile = ProfileTemplate.bind({});
 UserProfile.args = {
-  viaGoogle: true,
-  viaGithub: true,
-  viaTwitter: true,
-  showError: false,
   errorTitle: "Error",
   errorText: "Something went wrong"
 };

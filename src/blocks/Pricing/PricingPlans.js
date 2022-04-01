@@ -58,6 +58,20 @@ export const PricingPlans = (props) => {
 };
 
 PricingPlans.propTypes = {
-  plans: PropTypes.array,
+  plans: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      title_ar: PropTypes.string,
+      subtitle: PropTypes.string,
+      subtitle_ar: PropTypes.string,
+      price: PropTypes.number,
+      currency: PropTypes.string,
+      cycleText: PropTypes.string,
+      buttonText: PropTypes.string,
+      features: PropTypes.array,
+      features_ar: PropTypes.array,
+      selectedPlan: PropTypes.bool
+    })
+  ),
   lang: PropTypes.string
 };

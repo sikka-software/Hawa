@@ -31,7 +31,12 @@ export const HawaRadio = (props) => {
 };
 HawaRadio.propTypes = {
   lang: PropTypes.string,
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })
+  ),
   defaultValue: PropTypes.string,
   handleChange: PropTypes.func,
   location: PropTypes.string

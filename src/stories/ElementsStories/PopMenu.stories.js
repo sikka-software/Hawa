@@ -4,7 +4,7 @@ import { HawaPopMenu } from "../../elements/HawaPopMenu";
 import { Person, BookOnline, AccessAlarms } from "@mui/icons-material";
 
 export default {
-  title: "Layout/PopMenu",
+  title: "Elements/PopMenu",
   component: [HawaPopMenu],
   argTypes: {
     title: {

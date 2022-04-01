@@ -111,3 +111,8 @@ export const UserProfileForm = (props) => {
     </Container>
   );
 };
+
+// texts: PropTypes.shape({
+//   emailLabel: PropTypes.string,
+
+// }),

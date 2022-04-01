@@ -4,6 +4,13 @@ import { NewPasswordForm } from "../../../blocks/AuthForms";
 export default {
   title: "Blocks/Auth/New Password",
   component: [NewPasswordForm],
+  parameters: {
+    docs: {
+      description: {
+        component: "`<NewPasswordForm/>` Block for users to set new password"
+      }
+    }
+  },
   argTypes: {
     errorTitle: {
       default: " ",

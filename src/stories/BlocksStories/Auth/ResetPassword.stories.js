@@ -4,6 +4,14 @@ import { ResetPasswordForm } from "../../../blocks/AuthForms";
 export default {
   title: "Blocks/Auth/Reset Password",
   component: [ResetPasswordForm],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "`<ResetPasswordForm/>` Block for users to request a password reset by entering their email."
+      }
+    }
+  },
   argTypes: {
     showError: {
       default: false,
