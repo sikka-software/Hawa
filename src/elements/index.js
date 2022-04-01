@@ -16,3 +16,5 @@ export * from "./HawaTypography";
 export * from "./HawaAlert";
 export * from "./HawaTable";
 export * from "./HawaColorPicker";
+export * from "./HawaSearchBar";
+export * from "./HawaAccordian";

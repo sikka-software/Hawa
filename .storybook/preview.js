@@ -19,6 +19,20 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          borderRadius: `${allBorderRadius}px !important`,
+          marginBottom: 10,
+          position: "unset",
+          "&.Mui-expanded": {
+            marginBottom: 10,
+            marginTop: 10
+          }
+        }
+      }
+    },
+
     MuiDivider: {
       styleOverrides: { root: { margin: 20 } }
     },
@@ -662,12 +676,12 @@ export const parameters = {
         "Elements",
         [
           "Elements Introduction",
-          "Auth",
+          "Buttons",
           ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
-          "Account",
+          "Cards",
           ["User Profile", "User Settings"],
-          "Payment",
-          ["Payment Selection", "User Settings"]
+          "Notifications",
+          "Selections"
         ]
       ]
     }

@@ -2,40 +2,55 @@ import React from "react";
 
 import { HawaAlert } from "../../elements";
 
-const Template = (args) => {
-  return (
-    <>
-      <HawaAlert
-        title="What?"
-        text="This is a success alert"
-        severity="success"
-      />
-      <HawaAlert text="This is an info alert" severity="info" />
-      <HawaAlert text="This is a warning alert" severity="warning" />
-      <HawaAlert text="This is an error alert" severity="error" />
-    </>
-  );
-};
-//types:
-//error (red)
-//warning (red)
-//notice (blue)
-
 export default {
-  title: "UI/Alert",
+  title: "Elements/Alert",
   component: HawaAlert,
   argTypes: {
-    theme: {
-      options: ["primary", "secondary", "default"],
-      control: { type: "select" }
+    title: {
+      control: "text",
+      description: "The title of the alert in bold"
+    },
+    text: {
+      control: "text",
+      description: "The content text of the alert"
+    },
+    severity: {
+      control: "select",
+      options: ["success", "info", "warning", "error"],
+      description: "The content text of the alert"
+    },
+    hideIcon: {
+      control: "boolean",
+      description: "Show or hide the alert icon"
     }
-  },
-  args: {
-    theme: "primary"
   }
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  theme: "primary"
+const Template = (args) => {
+  return <HawaAlert {...args} />;
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  title: "Success",
+  text: "This is an alert indicating that there was a successful action",
+  severity: "success"
+};
+export const Warning = Template.bind({});
+Warning.args = {
+  title: "Warning",
+  text: "This is an alert indicating that there was a warning action",
+  severity: "warning"
+};
+export const Info = Template.bind({});
+Info.args = {
+  title: "Info",
+  text: "This is an alert indicating that there was a info action",
+  severity: "info"
+};
+export const Error = Template.bind({});
+Error.args = {
+  title: "Error",
+  text: "This is an alert indicating that there was a error action",
+  severity: "error"
 };

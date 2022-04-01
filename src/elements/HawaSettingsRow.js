@@ -14,16 +14,22 @@ export const HawaSettingsRow = (props) => {
       <HawaTypography>{props.settingsLabel}</HawaTypography>
       {props.settingsType === "checkbox" && <Checkbox {...props} />}
       {props.settingsType === "text" && <HawaTextField {...props} />}
+      {props.settingsType === "boolean" && <HawaSwitch {...props} />}
+      {props.settingsType === "color" && <HawaColorPicker {...props} />}
       {props.settingsType === "radio" && (
         <HawaRadio location="inSettings" {...props} />
       )}
-      {props.settingsType === "boolean" && <HawaSwitch {...props} />}
-      {props.settingsType === "color" && <HawaColorPicker {...props} />}
     </Container>
   );
 };
 
 HawaSettingsRow.propTypes = {
-  type: PropTypes.oneOf(["checkbox", "text", "radio", "boolean", "color"]),
-  helperText: PropTypes.string
+  settingsLabel: PropTypes.string,
+  settingsType: PropTypes.oneOf([
+    "checkbox",
+    "text",
+    "radio",
+    "boolean",
+    "color"
+  ])
 };

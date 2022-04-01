@@ -1,6 +1,27 @@
 import React, { useState } from "react";
 import { HawaAppLayout } from "../../layout";
-import { Person, BookOnline, AccessAlarms } from "@mui/icons-material";
+import {
+  Person,
+  BookOnline,
+  AccessAlarms,
+  ExitToApp,
+  Settings
+} from "@mui/icons-material";
+
+export default {
+  title: "Layout/AppLayout",
+  component: [HawaAppLayout],
+  parameters: {
+    backgrounds: {
+      default: "light"
+      // values: [
+      //   { name: "light", value: theme.lightBackground },
+      //   { name: "dark", value: theme.darkBackground }
+      // ]
+    }
+  }
+};
+
 const Template = (args) => {
   const [currentPage, setCurrentPage] = useState("home");
   const [pageTitle, setPageTitle] = useState("Home");
@@ -40,17 +61,17 @@ const Template = (args) => {
       accountMenu={[
         {
           icon: Person,
-          label: "test1",
+          label: "Account",
           action: () => console.log("going to test1")
         },
         {
-          // icon: () => <SomeIcon />,
-          label: "test2",
+          icon: Settings,
+          label: "Settings",
           action: () => console.log("going to test2")
         },
         {
-          // icon: () => <SomeIcon />,
-          label: "test3",
+          icon: ExitToApp,
+          label: "Logout",
           action: () => console.log("going to test3")
         }
       ]}
@@ -65,19 +86,6 @@ const Template = (args) => {
       the rest of the app here
     </HawaAppLayout>
   );
-};
-export default {
-  title: "Layout/AppLayout",
-  component: [HawaAppLayout],
-  parameters: {
-    backgrounds: {
-      default: "light"
-      // values: [
-      //   { name: "light", value: theme.lightBackground },
-      //   { name: "dark", value: theme.darkBackground }
-      // ]
-    }
-  }
 };
 
 export const Normal = Template.bind({});

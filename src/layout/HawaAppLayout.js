@@ -13,10 +13,11 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import { HawaPopMenu } from "../elements/HawaPopMenu";
+// use this to detect size and change things accordingly
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 const drawerWidth = 240;
 
@@ -92,32 +93,15 @@ export function HawaAppLayout(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
+  const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
+  const handleCloseNavMenu = () => setAnchorElNav(null);
+  const handleCloseUserMenu = () => setAnchorElUser(null);
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
 
   return (
     <Box sx={{ display: "flex" }}>
-      {/* <CssBaseline /> */}
       <AppBar variant="appbar" position="fixed" open={open}>
         <Toolbar variant="appbar">
           <IconButton
@@ -151,42 +135,14 @@ export function HawaAppLayout(props) {
             <Box>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar />
                 </IconButton>
               </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-                variant="themed"
-                PaperProps={{
-                  style: {
-                    boxShadow: "none",
-                    borderRadius: theme.allBorderRadius,
-                    // borderColor: theme.primaryActionColor,
-                    // borderWidth: 2,
-                    border: `1px solid ${theme.primaryActionColor}`
-                  }
-                }}
-              >
-                {props.accountMenu.map((setting) => (
-                  <MenuItem key={setting.label} onClick={setting.action}>
-                    {setting.icon && <setting.icon />}
-                    <Typography textAlign="center">{setting.label}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              <HawaPopMenu
+                menuItems={props.accountMenu}
+                anchor={anchorElUser}
+                handleClose={handleCloseUserMenu}
+              />
             </Box>
           </div>
         </Toolbar>
