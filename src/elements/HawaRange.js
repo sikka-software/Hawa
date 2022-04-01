@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
+import React from "react";
+import Slider from "@mui/material/Slider";
+import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
-import { Slider, Stack } from "@mui/material";
 
 export const HawaRange = (props) => {
-  const [value, setValue] = useState(props.defaultValue);
   return (
     <Stack spacing={2} direction="row" alignItems="center">
       {props.startElement}
