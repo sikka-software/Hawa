@@ -20,6 +20,7 @@ const ColorInput = styled.input`
   }
 `;
 const ColorText = styled.input`
+  max-width: 70px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

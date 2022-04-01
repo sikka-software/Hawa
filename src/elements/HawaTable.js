@@ -30,27 +30,35 @@ export const HawaTable = (props) => {
         </TableHead>
 
         <TableBody>
-          {props.rows.map((singleRow, j) => (
-            <TableRow key={j}>
-              {singleRow.map((r, i) => (
-                <TableCell
-                  align={isArabic ? "right" : "left"}
-                  key={i}
-                  component="th"
-                  scope="row"
-                  variant={
-                    i > 0
-                      ? isArabic
-                        ? "borderedRight"
-                        : "borderedLeft"
-                      : "body"
-                  }
-                >
-                  {r}
-                </TableCell>
-              ))}
+          {props.rows ? (
+            props.rows.map((singleRow, j) => (
+              <TableRow key={j}>
+                {singleRow.map((r, i) => (
+                  <TableCell
+                    align={isArabic ? "right" : "left"}
+                    key={i}
+                    component="th"
+                    scope="row"
+                    variant={
+                      i > 0
+                        ? isArabic
+                          ? "borderedRight"
+                          : "borderedLeft"
+                        : "body"
+                    }
+                  >
+                    {r}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow align="center">
+              <TableCell align={"center"} component="th" colSpan={6}>
+                {props.noDataText}
+              </TableCell>
             </TableRow>
-          ))}
+          )}
         </TableBody>
         {props.end && (
           <TableRow>
@@ -75,6 +83,7 @@ export const HawaTable = (props) => {
   );
 };
 HawaTable.propTypes = {
+  noDataText: PropTypes.string,
   lang: PropTypes.string,
   columns: PropTypes.array,
   rows: PropTypes.array,

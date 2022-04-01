@@ -40,6 +40,7 @@ export const Table = (args) => {
     <HawaTable
       lang={args.lang}
       columns={["Product", "Price", "Date"]}
+      noDataText={"No data"}
       rows={[
         [
           "Logo Design",
