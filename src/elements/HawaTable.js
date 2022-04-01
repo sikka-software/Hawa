@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import PropTypes from "prop-types";
+import { Button } from "@mui/material";
 
 export const HawaTable = (props) => {
   let isArabic = props.lang === "ar";
@@ -26,6 +27,15 @@ export const HawaTable = (props) => {
                 {col}
               </TableCell>
             ))}
+            {props.actions && (
+              <TableCell
+                align={isArabic ? "right" : "left"}
+                style={{ fontWeight: 700 }}
+                variant={isArabic ? "borderedRight" : "borderedLeft"}
+              >
+                Actions
+              </TableCell>
+            )}
           </TableRow>
         </TableHead>
 
@@ -50,6 +60,24 @@ export const HawaTable = (props) => {
                     {r}
                   </TableCell>
                 ))}
+                {props.actions && (
+                  <TableCell
+                    align={isArabic ? "right" : "left"}
+                    style={{ fontWeight: 700 }}
+                    variant={isArabic ? "borderedRight" : "borderedLeft"}
+                  >
+                    {props.actions.map((act) => (
+                      <Button
+                        style={{ margin: 2 }}
+                        variant="outlined"
+                        size="small"
+                        onClick={() => props.handleActionClick(singleRow)}
+                      >
+                        {act}
+                      </Button>
+                    ))}
+                  </TableCell>
+                )}
               </TableRow>
             ))
           ) : (
@@ -83,6 +111,7 @@ export const HawaTable = (props) => {
   );
 };
 HawaTable.propTypes = {
+  handleActionClick: PropTypes.func,
   noDataText: PropTypes.string,
   lang: PropTypes.string,
   columns: PropTypes.array,
