@@ -119,6 +119,7 @@ import { useState } from "react"
 export const Template = (args) => <HawaSettingsRow {...args} />
 export const CheckboxSettings = (args) => <HawaSettingsRow {...args} />
 export const TextSettings = (args) => <HawaSettingsRow {...args} />
+export const RangeSettings = (args) => <HawaSettingsRow {...args} />
 export const BooleanSettings = (args) => <HawaSettingsRow {...args} />
 export const RadioSettings = (args) => {
   let allOptions = Array.from({ length: args.options }, (v, i) => {
@@ -204,6 +205,22 @@ The `HawaSettingsRow` component requires the `settingsType` prop that will deter
     args={{
       settingsLabel: "Boolean Settings",
       settingsType: "boolean",
+    }}
+  >
+    {BooleanSettings.bind({})}
+  </Story>
+</Canvas>
+
+### Range
+
+<Canvas>
+  <Story
+    name="Range Settings"
+    args={{
+      settingsLabel: "Range Settings",
+      settingsType: "range",
+      endElement: 100,
+      startElement: 0,
     }}
   >
     {BooleanSettings.bind({})}

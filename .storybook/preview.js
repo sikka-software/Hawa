@@ -19,6 +19,15 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          marginRight: 15,
+          marginLeft: 15,
+          minWidth: 50
+        }
+      }
+    },
     MuiAccordion: {
       styleOverrides: {
         root: {
@@ -242,10 +251,10 @@ const defaultTheme = createTheme({
           style: {
             display: "flex",
             flexDirection: "row",
-            borderRadius: allBorderRadius,
-            backgroundColor: lighten(primaryLayoutColor, 0.4),
             justifyContent: "space-between",
             alignItems: "center",
+            borderRadius: allBorderRadius,
+            backgroundColor: lighten(primaryLayoutColor, 0.4),
             height: 70,
             marginTop: 10,
             paddingLeft: "20px !important",
@@ -577,7 +586,7 @@ const defaultTheme = createTheme({
         {
           props: { variant: "inContainer" },
           style: { color: "black", borderRadius: allBorderRadius }
-        },
+        }
         // {
         //   props: { variant: "offline" },
         //   style: ({ theme }) => ({

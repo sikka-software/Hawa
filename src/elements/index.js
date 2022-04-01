@@ -9,6 +9,7 @@ export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
 export * from "./HawaButton";
 export * from "./HawaSelect";
+export * from "./HawaRange";
 export * from "./HawaTextField";
 export * from "./HawaTextArea";
 export * from "./HawaInputLabel";

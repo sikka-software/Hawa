@@ -7,6 +7,7 @@ import { HawaTextField } from "./HawaTextField";
 import { HawaRadio } from "./HawaRadio";
 import { HawaSwitch } from "./HawaSwitch";
 import { HawaColorPicker } from "./HawaColorPicker";
+import { HawaRange } from "./HawaRange";
 
 export const HawaSettingsRow = (props) => {
   return (
@@ -15,6 +16,7 @@ export const HawaSettingsRow = (props) => {
       {props.settingsType === "checkbox" && <Checkbox {...props} />}
       {props.settingsType === "text" && <HawaTextField {...props} />}
       {props.settingsType === "boolean" && <HawaSwitch {...props} />}
+      {props.settingsType === "range" && <HawaRange {...props} />}
       {props.settingsType === "color" && <HawaColorPicker {...props} />}
       {props.settingsType === "radio" && (
         <HawaRadio location="inSettings" {...props} />
