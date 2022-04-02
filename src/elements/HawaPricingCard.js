@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlined";
 import PropTypes from "prop-types";
+import Chip from "@mui/material/Chip";
 
 export const HawaPricingCard = (props) => {
   let isArabic = props.lang === "ar";
@@ -24,6 +25,7 @@ export const HawaPricingCard = (props) => {
     sar: isArabic ? "ريال" : "SAR"
   };
   let featuresMapping = isArabic ? props.features_ar : props.features;
+  let chipSpacing = isArabic ? { left: 10 } : { right: 10 };
   return (
     <Container
       maxWidth="xs"
@@ -31,6 +33,19 @@ export const HawaPricingCard = (props) => {
       style={{ direction: isArabic ? "rtl" : "ltr" }}
     >
       <Container variant="plan-header">
+        {props.discount && (
+          <Chip
+            label={props.discount}
+            variant="standard"
+            style={{
+              maxWidth: "fit-content",
+              position: "absolute",
+              bottom: 10,
+              ...chipSpacing
+            }}
+            color="success"
+          />
+        )}
         <Typography variant="h3" fontWeight={500}>
           {isArabic ? props.title_ar : props.title}
         </Typography>
@@ -144,5 +159,7 @@ HawaPricingCard.propTypes = {
   subtitle: PropTypes.string,
   subtitle_ar: PropTypes.string,
   features: PropTypes.array,
-  features_ar: PropTypes.array
+  features_ar: PropTypes.array,
+  currency: PropTypes.oneOf(["sar", "usd"]),
+  cycleText: PropTypes.oneOf(["monthly", "3-months", "6-months", "annually"])
 };

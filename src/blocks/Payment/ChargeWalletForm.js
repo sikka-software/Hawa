@@ -48,16 +48,15 @@ export const ChargeWalletForm = (props) => {
                   field.onChange(parseFloat(e.target.value));
                   setWalletAmount(e.target.value);
                 }}
+                helperText={errors.amount?.message}
               />
             )}
+            rules={{
+              required: props.texts.amountRequired
+            }}
           />
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="last"
-            onClick={props.handleSignIn}
-          >
+          <Button type="submit" fullWidth variant="last">
             {props.texts.chargeWallet}
           </Button>
         </form>
@@ -67,9 +66,20 @@ export const ChargeWalletForm = (props) => {
 };
 
 ChargeWalletForm.propTypes = {
+  /**
+   * The texts object for all the texts in the block
+   */
   texts: PropTypes.shape({
     amountLabel: PropTypes.string,
-    chargeWallet: PropTypes.string
+    chargeWallet: PropTypes.string,
+    amountRequired: PropTypes.string
   }),
-  handleChargeWallet: PropTypes.func
+  /**
+   * Function called when charge wallet button is clicked
+   */
+  handleChargeWallet: PropTypes.func,
+  /**
+   * The currency text under the amount
+   */
+  currency: PropTypes.string
 };

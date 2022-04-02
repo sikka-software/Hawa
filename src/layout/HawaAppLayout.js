@@ -17,7 +17,9 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import { HawaPopMenu } from "../elements/HawaPopMenu";
 // use this to detect size and change things accordingly
-// import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+import { RestoreOutlined } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -36,7 +38,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen
   }),
   overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
+  width: `calc(${theme.spacing(8)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`
   }
@@ -89,10 +91,11 @@ const Drawer = styled(MuiDrawer, {
 export function HawaAppLayout(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const matches = useMediaQuery("(max-width:600px)");
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  console.log("match is ", matches);
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
@@ -102,6 +105,19 @@ export function HawaAppLayout(props) {
 
   return (
     <Box sx={{ display: "flex" }}>
+      {matches && (
+        <BottomNavigation
+          showLabels
+          // value={value}
+          // onChange={(event, newValue) => {
+          //   setValue(newValue);
+          // }}
+        >
+          <BottomNavigationAction label="Recents" icon={<RestoreOutlined />} />
+          <BottomNavigationAction label="Favorites" icon={<RestoreOutlined />} />
+          <BottomNavigationAction label="Nearby" icon={<RestoreOutlined />} />
+        </BottomNavigation>
+      )}{" "}
       <AppBar variant="appbar" position="fixed" open={open}>
         <Toolbar variant="appbar">
           <IconButton

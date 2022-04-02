@@ -10,20 +10,6 @@ export default {
         component: "`<NewPasswordForm/>` Block for users to set new password"
       }
     }
-  },
-  argTypes: {
-    errorTitle: {
-      default: " ",
-      control: "text",
-      description: "The error text for the auth failure",
-      table: { defaultValue: { summary: "" } }
-    },
-    errorText: {
-      default: "Something went wrong",
-      control: "text",
-      description: "The error text for the auth failure",
-      table: { defaultValue: { summary: "Something went wrong" } }
-    }
   }
 };
 

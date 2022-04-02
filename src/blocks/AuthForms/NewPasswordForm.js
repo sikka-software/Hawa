@@ -112,5 +112,9 @@ NewPasswordForm.propTypes = {
     forgotPasswordText: PropTypes.string,
     passwordChanged: PropTypes.string
   }),
+  /**
+   * A boolean to replace the form with a success message
+   */
+  passwordChanged: PropTypes.bool,
   handleNewPassword: PropTypes.func
 };

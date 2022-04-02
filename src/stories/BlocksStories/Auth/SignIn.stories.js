@@ -54,6 +54,30 @@ export default {
       control: "text",
       description: "The error text for the auth failure",
       table: { defaultValue: { summary: "Something went wrong" } }
+    },
+    handleSignIn: {
+      action: "Signing in Via Email",
+      description: "The function to sign in user"
+    },
+    handleForgotPassword: {
+      action: "Redirecting to reset password",
+      description: "Directing user to forgot password block"
+    },
+    handleRouteToSignUp: {
+      action: "Redirecting to sign up block",
+      description: "Directing user to signup block"
+    },
+    handleGoogleSignIn: {
+      action: "Signing in via Google",
+      description: "Function to sign in user via Google"
+    },
+    handleGithubSignIn: {
+      action: "Signing in via Github",
+      description: "Function to sign in user via Github"
+    },
+    handleTwitterSignIn: {
+      action: "Signing in via Twitter",
+      description: "Function to sign in user via Twitter"
     }
   }
 };
@@ -79,12 +103,6 @@ const SignInTemplate = (args) => {
         githubButtonLabel: "Sign in with Github",
         twitterButtonLabel: "Sign in with Twitter"
       }}
-      handleSignIn={(e) => console.log("singing in via email", e)}
-      handleForgotPassword={() => console.log("user forgot password")}
-      handleGoogleSignIn={() => console.log("signing in via google")}
-      handleGithubSignIn={() => console.log("signing in via github")}
-      handleTwitterSignIn={() => console.log("signing in via Twitter")}
-      handleRouteToSignUp={() => console.log("switching to sign up")}
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}

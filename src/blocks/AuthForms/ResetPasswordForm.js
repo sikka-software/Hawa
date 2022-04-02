@@ -53,7 +53,7 @@ export const ResetPasswordForm = (props) => {
         </form>
       ) : (
         <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-          {props.emailSentText}
+          {props.texts.emailSentText}
         </HawaTypography>
       )}
     </Container>
@@ -68,8 +68,12 @@ ResetPasswordForm.propTypes = {
     emailPlaceholder: PropTypes.string,
     emailRequiredText: PropTypes.string,
     emailInvalidText: PropTypes.string,
+    emailSentText: PropTypes.string,
     resetPassword: PropTypes.string
   }),
-  emailSentText: PropTypes.string,
+  /**
+   * a boolean to replace the form with a success message
+   */
+  sent: PropTypes.bool,
   handleResetPassword: PropTypes.func
 };

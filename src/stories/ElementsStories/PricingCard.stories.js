@@ -18,14 +18,9 @@ export default {
       description: "The price of the pricing package"
     },
     currency: {
-      control: "text",
+      control: "select",
       description: "The currency of the price",
-      table: {
-        type: {
-          summary: "Examples",
-          detail: "$, SAR, ريال, دولار"
-        }
-      }
+      options: ["sar", "usd"]
     },
     cycleText: {
       control: "text",
@@ -55,21 +50,20 @@ export default {
       control: "text",
       description: "The text of the button"
     }
-  },
-  args: {
-    title: "Pro",
-    subtitle: "For small businesses",
-    price: 300,
-    currency: "$",
-    cycleText: "Monthly",
-    buttonText: "Select Plan"
   }
 };
 
 export const LTR = (args) => {
   return (
     <HawaPricingCard
-      {...args}
+      lang="en"
+      title="Pro"
+      subtitle="For small businesses"
+      price="300"
+      currency="sar"
+      cycleText="monthly"
+      buttonText="Choose Plan"
+      discount="Save 10%"
       features={["Unlimited Menus", "Unlimited Items", "Custom Handle"]}
     />
   );
@@ -79,13 +73,18 @@ export const RTL = (args) => {
   return (
     <HawaPricingCard
       lang="ar"
-      title_ar="الإحترافي"
-      subtitle_ar="للمنشئات الصغيرة"
-      price="300"
-      currency="sar"
       cycleText="monthly"
-      buttonText="إختر الباقة"
       features_ar={["قوائم لا محدودة", "عناصر لا محدودة", "أسم مخصص"]}
+      {...args}
     />
   );
+};
+RTL.args = {
+  currency: "sar",
+  price: 300,
+  discount: "خصم 10%",
+  title_ar: "الإحترافي",
+  subtitle_ar: "للمنشئات الصغيرة",
+  buttonText: "إختر الباقة",
+  cycleText: "3-months"
 };

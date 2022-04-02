@@ -36,5 +36,11 @@ export default {
 };
 
 export const Search = (args) => {
-  return <HawaSearchBar {...args} placeholder="Search" />;
+  return (
+    <HawaSearchBar
+      {...args}
+      placeholder="Search"
+      onChange={(e) => console.log(e.target.value)}
+    />
+  );
 };

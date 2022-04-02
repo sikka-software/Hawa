@@ -10,9 +10,7 @@ export default {
       control: { type: "select" }
     }
   },
-  args: {
-    currency: "sar"
-  }
+  args: { currency: "sar" }
 };
 
 export const ChargeWallet = (args) => {
@@ -22,7 +20,8 @@ export const ChargeWallet = (args) => {
       handleChargeWallet={(e) => console.log("amount is ", e)}
       texts={{
         amountLabel: "Enter Amount",
-        chargeWallet: "Charge Wallet"
+        chargeWallet: "Charge Wallet",
+        amountRequired: "Amount required"
       }}
     />
   );

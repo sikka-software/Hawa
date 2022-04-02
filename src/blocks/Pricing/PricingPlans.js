@@ -58,6 +58,9 @@ export const PricingPlans = (props) => {
 };
 
 PricingPlans.propTypes = {
+  /**
+   * An array of the pricing plans
+   */
   plans: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

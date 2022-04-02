@@ -16,7 +16,8 @@ export default {
       }
     },
     handleChange: {
-      control: "function",
+      action: "Tab Changed",
+      // control: "function",
       description: "The function to change the defaultValue of the options tab"
     },
     defaultValue: {
@@ -36,7 +37,7 @@ export const PanelTabs = (args) => {
   return (
     <HawaRadio
       {...args}
-      handleChange={(e) => console.log("changing to ", e)}
+      // handleChange={(e) => console.log("changing to ", e)}
       defaultValue="option1"
       options={allOptions}
     />

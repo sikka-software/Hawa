@@ -21,19 +21,12 @@ export const CreditCardForm = (props) => {
           placeholder="Enter password"
           type="tel"
           label="Card Number"
-          // variant="unscrollable"
-          // startAdornment={
-          //   <InputAdornment position="start">
-          //     <PasswordIcon />
-          //   </InputAdornment>
-          // }
           rules={{
             required: "Password is rquired"
           }}
           helperText={errors.password?.message}
         />
 
-       
         <Controller
           control={control}
           name="cardName"
@@ -44,11 +37,6 @@ export const CreditCardForm = (props) => {
               placeholder="Enter password"
               type="password"
               label="Name On Card"
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <PasswordIcon />
-              //   </InputAdornment>
-              // }
               rules={{
                 required: "Password is rquired"
               }}
@@ -66,11 +54,6 @@ export const CreditCardForm = (props) => {
               placeholder="Enter password"
               type="password"
               label="Expiry Date"
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <PasswordIcon />
-              //   </InputAdornment>
-              // }
               rules={{
                 required: "Password is rquired"
               }}
@@ -88,11 +71,6 @@ export const CreditCardForm = (props) => {
               placeholder="Enter password"
               type="password"
               label="CCV"
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <PasswordIcon />
-              //   </InputAdornment>
-              // }
               rules={{
                 required: "Password is rquired"
               }}
@@ -107,7 +85,6 @@ export const CreditCardForm = (props) => {
           variant="last"
           onClick={props.handlePayWithCreditCard}
         >
-          {/* {props.texts.signInText} */}
           {"Pay with Credit Card"}
         </Button>
       </form>

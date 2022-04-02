@@ -1,12 +1,5 @@
 import { Meta } from "@storybook/addon-docs"
 import { LinkTo, linkTo } from "@storybook/addon-links"
-// import Colors from './assets/colors.svg';
-// import Comments from './assets/comments.svg';
-// import Direction from './assets/direction.svg';
-// import Flow from './assets/flow.svg';
-// import Plugin from './assets/plugin.svg';
-// import Repo from './assets/repo.svg';
-// import StackAlt from './assets/stackalt.svg';
 
 <Meta title="Introduction" />
 
@@ -112,9 +105,20 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
     font-size: 12px;
     display: inline-block;
   }
-
+  .logo {
+    display:flex;
+    align-items: center;
+    justify-content:center;
+  }
   
 `}</style>
+
+<p className="logo" align="center">
+  <img
+    src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png"
+    alt="Hawa | هواء"
+  />
+</p>
 
 # Welcome to Hawa
 
@@ -122,7 +126,10 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   <span className="tip">Notice</span>This page is still in progress
 </div>
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
+This is an opinionated UI kit built with [MUI](https://mui.org) with the focus of making it easier to build web apps using common components.
+
+For bug reporting and contribution [Github](https://github.com/sikka-software/Hawa)
+
 That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
 
 Browse example stories now by navigating to them in the sidebar.

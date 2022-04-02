@@ -100,6 +100,9 @@ export const ConfirmationPage = (props) => {
 };
 
 ConfirmationPage.propTypes = {
+  /**
+   * The texts object for all the texts in the block
+   */
   texts: PropTypes.shape({
     print: PropTypes.string,
     history: PropTypes.string,

@@ -16,9 +16,13 @@ export const HawaTextField = (props) => {
           }}
         >
           {props.label && <InputLabel>{props.label}</InputLabel>}
-
           {props.helperText && (
-            <Typography variant="validation">{props.helperText}</Typography>
+            <Typography
+              style={{ marginBottom: !props.label && 10 }}
+              variant="validation"
+            >
+              {props.helperText}
+            </Typography>
           )}
         </div>
         <Input disableUnderline {...props} />

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const HawaRange = (props) => {
   return (
-    <Stack spacing={2} direction="row" alignItems="center">
+    <Stack spacing={2} direction="row" alignItems="center" style={props.style}>
       {props.startElement}
       <Slider
         size="small"
@@ -18,9 +18,14 @@ export const HawaRange = (props) => {
   );
 };
 HawaRange.propTypes = {
+  /**
+   * The element at the side where the range value is 0
+   * Can be an icon
+   */
   startElement: PropTypes.element,
+  /**
+   * The element at the side where the range value is 100
+   */
   endElement: PropTypes.element,
-  defaultValue: PropTypes.string,
-  handleChange: PropTypes.func,
-  location: PropTypes.string
+  handleChange: PropTypes.func
 };

@@ -28,6 +28,7 @@ export const InLanding = (args) => {
           price: 0,
           currency: "SAR",
           cycleText: "Monthly",
+          discount: "Save 10%",
           buttonText: "Select Plan",
           features: ["one", "two", "three"],
           features_ar: ["واحد", "اثنين", "ثلاثة"]

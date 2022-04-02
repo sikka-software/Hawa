@@ -83,7 +83,7 @@ const SignUpTemplate = (args) => {
         githubButtonLabel: "Sign in with Github",
         twitterButtonLabel: "Sign in with Twitter"
       }}
-      error={args.showError}
+      showError={args.showError}
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}

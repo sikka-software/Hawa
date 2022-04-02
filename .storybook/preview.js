@@ -3,14 +3,14 @@ import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { darken, lighten } from "@mui/material";
 
 let allBorderRadius = 10;
-let primaryActionColor = "#153B50";
-let primaryLayoutColor = "#ECEBE4";
+let primaryActionColor = "#3b28cc";
+let primaryLayoutColor = "#ADD7F6";
 let primaryActionTextColor = "#ffffff";
 let mainFont = "Roboto";
 const defaultTheme = createTheme({
   allBorderRadius: allBorderRadius,
-  primaryActionColor: "#153B50",
-  primaryLayoutColor: "#ECEBE4",
+  primaryActionColor: "#3b28cc",
+  primaryLayoutColor: "#ADD7F6",
   primaryActionTextColor: "#ffffff",
   typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
   palette: {
@@ -19,6 +19,13 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: allBorderRadius
+        }
+      }
+    },
     MuiSlider: {
       styleOverrides: {
         root: {
@@ -298,6 +305,7 @@ const defaultTheme = createTheme({
           style: {
             display: "flex",
             flexDirection: "column",
+            position: "relative",
             borderRadius: allBorderRadius,
             borderBottomLeftRadius: 0,
             borderBottomRightRadius: 0,

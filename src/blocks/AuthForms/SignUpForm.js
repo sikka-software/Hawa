@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton } from "../../elements";
+import { HawaTextField, HawaLogoButton, HawaAlert } from "../../elements";
 import PropTypes from "prop-types";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import PersonIcon from "@mui/icons-material/PermIdentityOutlined";
@@ -10,8 +10,6 @@ import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 
 export const SignUpForm = (props) => {
   const methods = useForm();
@@ -27,11 +25,12 @@ export const SignUpForm = (props) => {
       variant="auth"
       style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
     >
-      {props.error && (
-        <Alert severity="error" variant="inContainer">
-          {props.errorTitle && <AlertTitle>{props.errorTitle}</AlertTitle>}
-          {props.errorText}
-        </Alert>
+      {props.showError && (
+        <HawaAlert
+          title={props.errorTitle}
+          text={props.errorText}
+          severity="error"
+        />
       )}
 
       <FormProvider {...methods}>
@@ -162,26 +161,6 @@ export const SignUpForm = (props) => {
     </Container>
   );
 };
-
-// fullNameLabel: "Full Name",
-// fullNamePlaceholder: "Fulan AlFulani",
-// fullNameRequiredText: "Full Name is required",
-// emailLabel: "Email",
-// emailPlaceholder: "Enter your email",
-// emailRequiredText: "Email is required",
-// emailInvalidText: "Invalid email address",
-// passwordLabel: "Password",
-// passwordPlaceholder: "Minimum 8 characters",
-// passwordRequiredText: "Password is required",
-// passwordTooShortText: "Password too short",
-// forgotPasswordText: "Forgot password?",
-// newUserText: "New user?",
-// signUpText: "Sign up",
-// signInText: "Sign in",
-// existingUserText: "Existing User?",
-// googleButtonLabel: "Sign in with Google",
-// githubButtonLabel: "Sign in with Github",
-// twitterButtonLabel: "Sign in with Twitter"
 
 SignUpForm.propTypes = {
   /**
