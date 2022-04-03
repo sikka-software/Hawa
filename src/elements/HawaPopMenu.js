@@ -34,7 +34,7 @@ export const HawaPopMenu = (props) => {
       {props.menuItems.map((item) => (
         <MenuItem key={item.label} onClick={item.action}>
           {item.icon && <item.icon />}
-          <div style={{ width: 10 }} />
+          {item.icon && <div style={{ width: 10 }} />}
           <Typography textAlign="center">{item.label}</Typography>
         </MenuItem>
       ))}

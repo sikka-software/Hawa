@@ -1,5 +1,3 @@
-export * from "./blocks/Account";
-export * from "./blocks/AuthForms";
-export * from "./blocks/Payment";
+export * from "./blocks";
 export * from "./elements";
 export * from "./layout";

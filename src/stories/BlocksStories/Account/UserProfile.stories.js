@@ -3,8 +3,7 @@ import { UserProfileForm } from "../../../blocks/Account";
 
 export default {
   title: "Blocks/Account/User Profile",
-  component: [UserProfile],
-  argTypes: {}
+  component: [UserProfile]
 };
 
 const ProfileTemplate = (args) => {

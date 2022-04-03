@@ -48,7 +48,6 @@ const defaultTheme = createTheme({
         }
       }
     },
-
     MuiDivider: {
       styleOverrides: { root: { margin: 20 } }
     },
@@ -179,6 +178,16 @@ const defaultTheme = createTheme({
         }
       },
       variants: [
+        {
+          props: { variant: "page-controls" },
+          style: {
+            background: "none",
+            fontSize: "2rem",
+            padding: "0px !important",
+            marginBottom: 10,
+            borderRadius: allBorderRadius
+          }
+        },
         {
           props: { variant: "auth" },
           style: {
@@ -424,6 +433,16 @@ const defaultTheme = createTheme({
         contained: { backgroundColor: primaryActionColor }
       },
       variants: [
+        {
+          props: { variant: "layout" },
+          style: {
+            backgroundColor: primaryLayoutColor,
+            "&:hover": {
+              backgroundColor: darken(primaryLayoutColor, 0.3),
+              color: "white"
+            }
+          }
+        },
         {
           props: { variant: "color-picker" },
           style: ({ theme }) => ({
