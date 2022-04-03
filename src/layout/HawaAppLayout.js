@@ -16,10 +16,6 @@ import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import { HawaPopMenu } from "../elements/HawaPopMenu";
-// use this to detect size and change things accordingly
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { BottomNavigation, BottomNavigationAction } from "@mui/material";
-import { RestoreOutlined } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -44,10 +40,10 @@ const closedMixin = (theme) => ({
   }
 });
 
-const DrawerHeader = styled("div")(({ theme }) => ({
+const DrawerHeader = styled("div")(({ theme, direction }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-end",
+  justifyContent: direction === "rtl" ? "flex-start" : "flex-end",
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar
@@ -55,14 +51,16 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open"
-})(({ theme, open }) => ({
+})(({ theme, open, direction }) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen
   }),
+
   ...(open && {
-    marginLeft: drawerWidth,
+    marginLeft: direction === "rtl" ? 0 : drawerWidth,
+    marginRight: direction === "rtl" ? drawerWidth : 0,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -91,11 +89,10 @@ const Drawer = styled(MuiDrawer, {
 export function HawaAppLayout(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-  const matches = useMediaQuery("(max-width:600px)");
-
+  const isArabic = props.lang === "ar";
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  console.log("match is ", matches);
+
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
@@ -104,27 +101,23 @@ export function HawaAppLayout(props) {
   const handleDrawerClose = () => setOpen(false);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      {matches && (
-        <BottomNavigation
-          showLabels
-          // value={value}
-          // onChange={(event, newValue) => {
-          //   setValue(newValue);
-          // }}
+    <Box sx={{ display: "flex", direction: isArabic ? "rtl" : "ltr" }}>
+      <AppBar
+        variant="appbar"
+        position="fixed"
+        open={open}
+        direction={isArabic ? "rtl" : "ltr"}
+      >
+        <Toolbar
+          variant="appbar"
+          sx={{ paddingLeft: { xs: 3 }, paddingRight: { xs: 3 } }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreOutlined />} />
-          <BottomNavigationAction label="Favorites" icon={<RestoreOutlined />} />
-          <BottomNavigationAction label="Nearby" icon={<RestoreOutlined />} />
-        </BottomNavigation>
-      )}{" "}
-      <AppBar variant="appbar" position="fixed" open={open}>
-        <Toolbar variant="appbar">
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
+            s
             sx={{
               marginRight: 5,
               ...(open && { display: "none" })
@@ -150,7 +143,11 @@ export function HawaAppLayout(props) {
 
             <Box>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{ p: 0 }}
+                  size="small"
+                >
                   <Avatar />
                 </IconButton>
               </Tooltip>
@@ -163,8 +160,13 @@ export function HawaAppLayout(props) {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+      <Drawer
+        // anchor="left"
+
+        variant="permanent"
+        open={open}
+      >
+        <DrawerHeader direction={isArabic ? "rtl" : "ltr"}>
           {props.logo}
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (

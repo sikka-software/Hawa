@@ -402,8 +402,8 @@ const defaultTheme = createTheme({
             backgroundColor: "none !important",
             background: "none !important",
             padding: "0px !important",
-            paddingRight: "20px !important",
-            paddingLeft: "20px !important"
+            paddingRight: "0px !important",
+            paddingLeft: "0px !important"
           }
         }
       ]
@@ -647,8 +647,8 @@ const defaultTheme = createTheme({
           style: {
             color: "black",
             margin: 0,
-            background: "none",
-            color: primaryActionColor
+            padding: 0,
+            background: "none"
           }
         }
       ]

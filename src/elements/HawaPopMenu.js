@@ -1,4 +1,7 @@
-import { MenuItem, Menu, Typography, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import PropTypes from "prop-types";
 
 export const HawaPopMenu = (props) => {
@@ -40,6 +43,7 @@ export const HawaPopMenu = (props) => {
 };
 
 HawaPopMenu.propTypes = {
+  anchor: PropTypes.any,
   handleClose: PropTypes.func,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({

@@ -18,6 +18,13 @@ export default {
 export const AppBar = (args) => {
   return (
     <HawaAppBar
+      logo={
+        <img
+          height={40}
+          src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/sikka-logo-black.svg"
+        />
+      }
+      pages={[{ label: "About" }, { label: "Pricing" }, { label: "FAQ" }]}
       accountMenu={[
         {
           icon: SomeIcon,

@@ -27,6 +27,7 @@ const Template = (args) => {
   const [pageTitle, setPageTitle] = useState("Home");
   return (
     <HawaAppLayout
+      {...args}
       pageTitle={pageTitle}
       pageName={currentPage}
       pages={[
@@ -79,7 +80,7 @@ const Template = (args) => {
         <img
           height={40}
           style={{ zIndex: 30, width: "100%" }}
-          src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/sikka-logo.svg"
+          src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/sikka-logo-black.svg"
         />
       }
     >
@@ -88,8 +89,19 @@ const Template = (args) => {
   );
 };
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const LTR = Template.bind({});
+LTR.args = {
+  lang: "en",
+  size: "large",
+  showText: true,
+  buttonLabel: "test",
+  // padding: theme.paddings,
+  textColor: "#000000",
+  buttonColor: "#f9f9f9"
+};
+export const RTL = Template.bind({});
+RTL.args = {
+  lang: "ar",
   size: "large",
   showText: true,
   buttonLabel: "test",

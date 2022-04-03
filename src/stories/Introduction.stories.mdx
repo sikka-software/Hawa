@@ -17,7 +17,8 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   }
 
   .link-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 10px;
@@ -43,8 +44,9 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
     cursor:pointer;
     display: block;
     padding: 20px 30px 20px 15px;
-    border: 1px solid #00000010;
-    border-radius: 5px;
+    border: 1px solid #E9E9ED;
+
+    border-radius: 15px;
     transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
     color: #333333;
     display: flex;
@@ -126,9 +128,7 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   <span className="tip">Notice</span>This page is still in progress
 </div>
 
-This is an opinionated UI kit built with [MUI](https://mui.org) with the focus of making it easier to build web apps using common components.
-
-For bug reporting and contribution [Github](https://github.com/sikka-software/Hawa)
+This is an opinionated UI kit built with [MUI](https://mui.com) with the focus of making it easier to build web apps using common components.
 
 That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
 
@@ -140,14 +140,14 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
 
 <div className="link-list">
   <div onClick={linkTo("Layout/Layout Introduction")} className="link-item">
-    <h3>Layout</h3>
+    <h3>Blocks</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
   <div onClick={linkTo("Blocks/Blocks Introduction")} className="link-item">
-    <h3>Blocks</h3>
+    <h3>Layout</h3>
     <span>
       <strong>Presets for popular tools</strong>
       Easy setup for TypeScript, SCSS and more.
@@ -160,16 +160,6 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
       Easy setup for TypeScript, SCSS and more.
     </span>
   </div>
-  <div onClick={linkTo("Layout/Layout Introduction")} className="link-item">
-    <h3>UI</h3>
-    <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
-    </span>
-  </div>
 </div>
 
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{" "}
-  <code>src/stories/Introduction.stories.mdx</code>
-</div>
+For bug reporting and contribution [Github](https://github.com/sikka-software/Hawa)
