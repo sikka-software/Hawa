@@ -19,6 +19,20 @@ const defaultTheme = createTheme({
     }
   },
   components: {
+    MuiStack: {
+      variants: [
+        {
+          props: { variant: "card" },
+          style: {
+            backgroundColor: primaryLayoutColor,
+            padding: 15,
+            // paddingLeft: 5,
+            // paddingRight: 5,
+            borderRadius: allBorderRadius
+          }
+        }
+      ]
+    },
     MuiChip: {
       styleOverrides: {
         root: {
@@ -178,6 +192,25 @@ const defaultTheme = createTheme({
         }
       },
       variants: [
+        {
+          props: { variant: "drop-area" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: lighten(primaryLayoutColor, 0.3),
+            // fontSize: "2rem",
+            // padding: "0px !important",
+            // marginBottom: 10,
+            border: "1px dashed",
+            borderRadius: allBorderRadius,
+        
+            ":-moz-drag-over": {
+              backgroundColor: "green"
+            }
+          }
+        },
         {
           props: { variant: "page-controls" },
           style: {
