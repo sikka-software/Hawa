@@ -663,7 +663,7 @@ const defaultTheme = createTheme({
     MuiListItemButton: {
       styleOverrides: {
         root: {
-          margin: 15,
+          margin: 5,
           borderRadius: allBorderRadius,
           "&:hover": { backgroundColor: primaryActionColor, color: "white" }
         }

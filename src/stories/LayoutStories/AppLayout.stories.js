@@ -84,7 +84,22 @@ const Template = (args) => {
         />
       }
     >
-      the rest of the app here
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos
+        accusamus, libero id quos error laborum provident sed molestias nesciunt
+        expedita tempora. Necessitatibus neque deserunt consectetur voluptate,
+        et sit magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Obcaecati eos accusamus, libero id quos error laborum provident sed
+        molestias nesciunt expedita tempora. Necessitatibus neque deserunt
+        consectetur voluptate, et sit magnam. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Obcaecati eos accusamus, libero id quos
+        error laborum provident sed molestias nesciunt expedita tempora.
+        Necessitatibus neque deserunt consectetur voluptate, et sit magnam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eos
+        accusamus, libero id quos error laborum provident sed molestias nesciunt
+        expedita tempora. Necessitatibus neque deserunt consectetur voluptate,
+        et sit magnam.
+      </div>
     </HawaAppLayout>
   );
 };
