@@ -47,3 +47,14 @@ npm run storybook
 ## License
 
 MIT © [SIKKA SOFTWARE](https://sikka.sa)
+
+<!--start: logo-->
+<p align="center">
+  <a href="https://sikka.io">
+    <img width="44" alt="Sikka" src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/sikka/sikka-symbol-black.svg">
+  </a>
+</p>
+<p align="center">
+  <sub>An open source project by <a href="https://sikka.io">Sikka</a></sub>
+</p>
+<!--end: logo-->
