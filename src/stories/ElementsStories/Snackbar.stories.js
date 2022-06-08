@@ -12,6 +12,17 @@ export default {
     text: {
       control: "text",
       description: "The text of the notification banner"
+    },
+    position: {
+      options: [
+        "top-center",
+        "top-right",
+        "bottom-right",
+        "bottom-center",
+        "bottom-left",
+        "top-left"
+      ],
+      control: { type: "select" }
     }
   }
 };
@@ -23,23 +34,35 @@ export const Success = Template.bind({});
 Success.args = {
   title: "Success",
   text: "This is an alert indicating that there was a successful action",
-  severity: "success"
+  severity: "success",
+  isClosable: false,
+  duration: 5000,
+  position : "bottom-left"
 };
 export const Warning = Template.bind({});
 Warning.args = {
   title: "Warning",
   text: "This is an alert indicating that there was a warning action",
-  severity: "warning"
+  severity: "warning",
+  isClosable: false,
+  duration: 5000,
+  position : "bottom-left"
 };
 export const Info = Template.bind({});
 Info.args = {
   title: "Info",
   text: "This is an alert indicating that there was a info action",
-  severity: "info"
+  severity: "info",
+  isClosable: false,
+  duration: 5000,
+  position : "bottom-left"
 };
 export const Error = Template.bind({});
 Error.args = {
   title: "Offline",
   text: "This is an alert indicating that there was a error action",
-  severity: "error"
+  severity: "error",
+  isClosable: false,
+  duration: 5000,
+  position : "bottom-left"
 };
