@@ -7,7 +7,6 @@ export default {
   component: [SelectInput]
 };
 
-
 export const SelectInput = (args) => {
   return (
     <HawaSelectInput
@@ -23,10 +22,10 @@ export const SelectInput = (args) => {
 };
 
 SelectInput.args = {
-    isCreatable : false,
-    isMulti: false,
+  isCreatable: false,
+  isMulti: false,
   isClearable: false,
-  isSearchable : false,
+  isSearchable: false,
   options: [
     { value: "chocolate", label: "Chocolate" },
     { value: "strawberry", label: "Strawberry" },
@@ -35,7 +34,7 @@ SelectInput.args = {
   onChange: (newValue, action) => {
     console.log("new value: ", newValue, "\n", "action", action);
   },
-  onInputChange : (newValue, action) => {
+  onInputChange: (newValue, action) => {
     console.log("new value: ", newValue, "\n", "action", action);
-  },
-}
+  }
+};
