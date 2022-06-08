@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import CloseIcon from "@mui/icons-material/Close";
 // import styled from "@emotion/styled";
-import { Container, IconButton, Typography } from "@mui/material";
+import { Button, Container, IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/system";
 import { HawaAlert } from "./HawaAlert";
 
@@ -18,14 +18,19 @@ export const DragDropImages = ({
   texts,
   files,
   setFiles,
-  itemId,
   setDeletedFiles,
-  refetchSingleMenu,
-  maxFiles
+  maxFiles,
+  accept,
+  onAcceptedFiles,
+  onDeleteFile,
+  onClearFiles,
+  maxSize,
+  errorMessages
 }) =>
   // props
   {
     const [cmp, setCmp] = useState(0);
+    const [max, setMax] = useState(0);
     //const [thumbs, setThumbs] = useState("");
     const theme = useTheme();
     const {
@@ -36,8 +41,8 @@ export const DragDropImages = ({
       isDragActive
     } = useDropzone({
       multiple: true,
-      accept: "image/*",
-      maxSize: 5000000,
+      accept: accept,
+      maxSize: maxSize,
       maxFiles: maxFiles,
       onDrop: (acceptedFiles) => {
         setFiles(
@@ -49,52 +54,6 @@ export const DragDropImages = ({
         );
       }
     });
-    const handleRemoveFile = async (file) => {
-      console.log("fezafezaf", acceptedFiles[file]);
-      if (acceptedFiles[file]?.isFromDB) {
-        setDeletedFiles((old) => [
-          ...old,
-          {
-            img_url: acceptedFiles[file]?.img_url,
-            _id: acceptedFiles[file]?._id
-          }
-        ]);
-        try {
-          // await axios.post(
-          //   `${process.env.NEXT_PUBLIC_QAWAIM_API_URL}/deleteImages`,
-          //   {
-          //     deletedFiles: [
-          //       {
-          //         img_url: acceptedFiles[file]?.img_url,
-          //         _id: acceptedFiles[file]?._id
-          //       }
-          //     ],
-          //     itemId: itemId
-          //   }
-          // );
-          refetchSingleMenu();
-          acceptedFiles.splice(file, 1);
-          setFiles(acceptedFiles);
-        } catch (err) {
-          console.error(err);
-        }
-        console.log("accepted files after delete : ", acceptedFiles);
-        setCmp((old) => old + 1);
-        return;
-      }
-      // if (file.hasOwnProperty("_id")) {
-      //   console.log("Yes");
-      //   return;
-      // }
-      acceptedFiles.splice(file, 1);
-
-      setFiles(
-        acceptedFiles.map((f) =>
-          Object.assign(f, { preview: URL.createObjectURL(f) })
-        )
-      );
-      // setFiles(acceptedFiles);
-    };
     useEffect(
       () => () => {
         files?.forEach((file) => {
@@ -103,23 +62,28 @@ export const DragDropImages = ({
       },
       [files]
     );
+
     useEffect(() => {
-      if (files[0]?.hasOwnProperty("_id")) {
-        files?.map((file, index) => {
-          acceptedFiles.push({
-            // preview: `https://qawaim-images.s3-ap-southeast-1.amazonaws.com/${file.image_url}`,
-            isFromDB: true,
-            _id: file._id,
-            img_url: file.image_url
-          });
-        });
-        console.log("accepted files : ", acceptedFiles);
-        setFiles(acceptedFiles);
+      setFiles(acceptedFiles);
+    }, [acceptedFiles, cmp]);
+
+    onClearFiles = () => {
+      acceptedFiles.length = 0;
+      acceptedFiles.splice(0, acceptedFiles.length);
+      setFiles([]);
+    };
+
+    useEffect(() => {
+      if (maxSize > 0) {
+        const k = 1024;
+        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+        const i = Math.floor(Math.log(maxSize) / Math.log(1024));
+
+        setMax(
+          parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i]
+        );
       }
-      return () => {
-        acceptedFiles.splice(0, acceptedFiles?.length);
-      };
-    }, []);
+    }, [maxSize]);
     const errs = fileRejections.map((rej, i) => {
       return (
         <div key={i}>
@@ -128,13 +92,14 @@ export const DragDropImages = ({
         </div>
       );
     });
-    console.log(fileRejections[0]?.errors[0]?.code);
     const thumbs = files?.map((file, index) => (
       <div style={{ position: "relative", margin: 10 }}>
         <IconButton
           onClick={(e) => {
             e.stopPropagation();
-            console.log("delete");
+            acceptedFiles.splice(acceptedFiles.indexOf(file), 1);
+            setCmp(Math.random);
+            onDeleteFile(file);
           }}
           size="small"
           variant="contained"
@@ -167,6 +132,8 @@ export const DragDropImages = ({
       </div>
     ));
 
+    console.log("error", fileRejections);
+
     return (
       <Container
         variant="drop-area"
@@ -176,14 +143,29 @@ export const DragDropImages = ({
       >
         <input {...getInputProps()} />
         <Typography>Click here or drop files here to upload</Typography>
-        <Typography>Max file size is 5MB</Typography>
+        <Typography>Max file size is {max}</Typography>
+        {acceptedFiles.length > 0 && (
+          <Button
+            style={{ color: "black" }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClearFiles();
+            }}
+          >
+            Clear All
+          </Button>
+        )}
+
         {thumbs ? <aside style={thumbsContainer}>{thumbs}</aside> : null}
-        {fileRejections[0]?.errors[0]?.code !== "too-many-files" ? (
+        {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
           // <Typography variant="">{texts.tooManyFiles}</Typography>
           <HawaAlert text={texts.tooManyFiles} severity="error" />
+        ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
+          <HawaAlert text={texts.fileTooLarge} severity="error" />
         ) : (
           errs
         )}
+        {}
       </Container>
     );
   };
