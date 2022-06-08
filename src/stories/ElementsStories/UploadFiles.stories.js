@@ -26,8 +26,9 @@ const DragAndDropFiles = (args) => {
         maxFiles={args.maxFiles}
         maxSize={args.maxSize}
         accept={args.accept ? args.accept.split(",") : null}
-        onDeleteFile={args.deleteFileCallBack}
-        onClearFiles={args.clearFilesCallBack}
+        onDeleteFile={args.onRemoveFile}
+        onClearFiles={args.onClearAll}
+        showPreview={args.showPreview}
         errorMessages={args.errorMessage}
         texts={{
           tooManyFiles: "Too many files",
@@ -43,4 +44,7 @@ export const Default = DragAndDropFiles.bind({});
 Default.args = {
   maxFiles: 5,
   maxSize: 5000000,
+  showPreview: true,
+  onRemoveFile : () => {},
+  onClearAll : () => {}
 };

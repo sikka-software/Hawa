@@ -22,6 +22,7 @@ export const DragDropImages = ({
   maxFiles,
   accept,
   onAcceptedFiles,
+  showPreview,
   onDeleteFile,
   onClearFiles,
   maxSize,
@@ -149,14 +150,14 @@ export const DragDropImages = ({
             style={{ color: "black" }}
             onClick={(e) => {
               e.stopPropagation();
-              onClearFiles();
+              onClearFiles(acceptedFiles);
             }}
           >
             Clear All
           </Button>
         )}
 
-        {thumbs ? <aside style={thumbsContainer}>{thumbs}</aside> : null}
+        {thumbs && showPreview ? <aside style={thumbsContainer}>{thumbs}</aside> : null}
         {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
           // <Typography variant="">{texts.tooManyFiles}</Typography>
           <HawaAlert text={texts.tooManyFiles} severity="error" />

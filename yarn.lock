@@ -6152,14 +6152,7 @@
   dependencies:
     "ms" "2.0.0"
 
-"debug@^2.2.0":
-  "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
-  "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
-  "version" "2.6.9"
-  dependencies:
-    "ms" "2.0.0"
-
-"debug@^2.3.3", "debug@^2.6.0":
+"debug@^2.2.0", "debug@^2.3.3", "debug@^2.6.0":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
   "version" "2.6.9"
@@ -6195,6 +6188,13 @@
     "ms" "^2.1.1"
 
 "debug@^3.1.1":
+  "integrity" "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-3.2.7.tgz"
+  "version" "3.2.7"
+  dependencies:
+    "ms" "^2.1.1"
+
+"debug@^3.2.7":
   "integrity" "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-3.2.7.tgz"
   "version" "3.2.7"
@@ -7131,8 +7131,13 @@
   "resolved" "https://registry.npmjs.org/events/-/events-3.3.0.tgz"
   "version" "3.3.0"
 
+"eventsource@^2.0.2":
+  "integrity" "sha512-IzUmBGPR3+oUG9dUeXynyNmf91/3zUSJg1lCktzKw47OXuhco54U3r9B7O4XX+Rb1Itm9OZ2b0RkTs10bICOxA=="
+  "resolved" "https://registry.npmjs.org/eventsource/-/eventsource-2.0.2.tgz"
+  "version" "2.0.2"
+
 "eventsource@0.1.6":
-  "integrity" "sha1-Cs7ehJ7X3RzMMsgRuxG5RNTykjI= sha512-bbB5tEuvC+SuRUG64X8ghvjgiRniuA4WlehWbFnoN4z6TxDXpyX+BMHF7rMgZAqoe+EbyNRUbHN0uuP9phy5jQ=="
+  "integrity" "sha512-bbB5tEuvC+SuRUG64X8ghvjgiRniuA4WlehWbFnoN4z6TxDXpyX+BMHF7rMgZAqoe+EbyNRUbHN0uuP9phy5jQ=="
   "resolved" "https://registry.npmjs.org/eventsource/-/eventsource-0.1.6.tgz"
   "version" "0.1.6"
   dependencies:
@@ -7368,6 +7373,13 @@
   "integrity" "sha1-TkkvjQTftviQA1B/btvy1QHnxvQ= sha512-Xhj93RXbMSq8urNCUq4p9l0P6hnySJ/7YNRhYNug0bLOuii7pKO7xQFb5mx9xZXWCar88pLPb805PvUkwrLZpQ=="
   "resolved" "https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.10.0.tgz"
   "version" "0.10.0"
+  dependencies:
+    "websocket-driver" ">=0.5.1"
+
+"faye-websocket@^0.11.4":
+  "integrity" "sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g=="
+  "resolved" "https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.11.4.tgz"
+  "version" "0.11.4"
   dependencies:
     "websocket-driver" ">=0.5.1"
 
@@ -13892,7 +13904,18 @@
     "source-map-resolve" "^0.5.0"
     "use" "^3.1.0"
 
-"sockjs-client@^1.4.0", "sockjs-client@1.1.2":
+"sockjs-client@^1.4.0":
+  "integrity" "sha512-2g0tjOR+fRs0amxENLi/q5TiJTqY+WXFOzb5UwXndlK6TO3U/mirZznpx6w34HVMoc3g7cY24yC/ZMIYnDlfkw=="
+  "resolved" "https://registry.npmjs.org/sockjs-client/-/sockjs-client-1.6.1.tgz"
+  "version" "1.6.1"
+  dependencies:
+    "debug" "^3.2.7"
+    "eventsource" "^2.0.2"
+    "faye-websocket" "^0.11.4"
+    "inherits" "^2.0.4"
+    "url-parse" "^1.5.10"
+
+"sockjs-client@1.1.2":
   "integrity" "sha1-8CEqhVDkyUaMjM6u79LjSTwDOtU="
   "resolved" "https://registry.npmjs.org/sockjs-client/-/sockjs-client-1.1.2.tgz"
   "version" "1.1.2"
@@ -15107,7 +15130,7 @@
     "loader-utils" "^1.0.2"
     "mime" "1.3.x"
 
-"url-parse@^1.1.1", "url-parse@^1.4.3":
+"url-parse@^1.1.1", "url-parse@^1.4.3", "url-parse@^1.5.10":
   "integrity" "sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ=="
   "resolved" "https://registry.npmjs.org/url-parse/-/url-parse-1.5.10.tgz"
   "version" "1.5.10"
