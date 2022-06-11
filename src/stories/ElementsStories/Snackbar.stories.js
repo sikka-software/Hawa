@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { HawaSnackbar } from "../../elements";
 
 export default {
@@ -27,9 +27,19 @@ export default {
   }
 };
 
-const Template = (args) => (
-  <HawaSnackbar {...args} open={true} handleClose={() => console.log("test")} />
-);
+const Template = (args) => {
+  const [open, setOpen] = useState(true);
+  return (
+    <HawaSnackbar
+      {...args}
+      open={open}
+      handleClose={() => {
+        console.log("test");
+        setOpen(false);
+      }}
+    />
+  );
+};
 export const Success = Template.bind({});
 Success.args = {
   title: "Success",
@@ -37,7 +47,7 @@ Success.args = {
   severity: "success",
   isClosable: false,
   duration: 5000,
-  position : "bottom-left"
+  position: "bottom-left"
 };
 export const Warning = Template.bind({});
 Warning.args = {
@@ -46,7 +56,7 @@ Warning.args = {
   severity: "warning",
   isClosable: false,
   duration: 5000,
-  position : "bottom-left"
+  position: "bottom-left"
 };
 export const Info = Template.bind({});
 Info.args = {
@@ -55,7 +65,7 @@ Info.args = {
   severity: "info",
   isClosable: false,
   duration: 5000,
-  position : "bottom-left"
+  position: "bottom-left"
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -64,5 +74,5 @@ Error.args = {
   severity: "error",
   isClosable: false,
   duration: 5000,
-  position : "bottom-left"
+  position: "bottom-left"
 };
