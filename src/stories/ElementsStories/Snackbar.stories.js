@@ -47,7 +47,8 @@ Success.args = {
   severity: "success",
   isClosable: false,
   duration: 5000,
-  position: "bottom-left"
+  position: "bottom-left",
+  autoHide : false,
 };
 export const Warning = Template.bind({});
 Warning.args = {
@@ -56,7 +57,8 @@ Warning.args = {
   severity: "warning",
   isClosable: false,
   duration: 5000,
-  position: "bottom-left"
+  position: "bottom-left",
+  autoHide : false,
 };
 export const Info = Template.bind({});
 Info.args = {
@@ -65,7 +67,8 @@ Info.args = {
   severity: "info",
   isClosable: false,
   duration: 5000,
-  position: "bottom-left"
+  position: "bottom-left",
+  autoHide : false,
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -74,5 +77,6 @@ Error.args = {
   severity: "error",
   isClosable: false,
   duration: 5000,
-  position: "bottom-left"
+  position: "bottom-left",
+  autoHide : false,
 };

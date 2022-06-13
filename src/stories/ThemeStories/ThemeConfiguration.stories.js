@@ -12,7 +12,7 @@ export const ThemeConfiguration = (args, { ...rest }) => {
       rest.theme,
       args.borderRadius,
       args.primaryActionColor,
-      "#ADD7F6",
+      args.primaryLayoutColor,
       args.primaryActionTextColor,
       args.fontFamily
     );

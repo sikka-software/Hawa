@@ -19,7 +19,7 @@ export const CreateHawaTheme = (
       MuiStack: {
         variants: [
           {
-            props: { variants: "card" },
+            props: { variant: "card" },
             style: {
               backgroundColor: primaryLayoutColor,
               padding: 15,
@@ -75,11 +75,11 @@ export const CreateHawaTheme = (
       MuiTableCell: {
         variants: [
           {
-            props: { variants: "borderedLeft" },
+            props: { variant: "borderedLeft" },
             style: { borderLeft: "1px solid #dddddd" }
           },
           {
-            props: { variants: "borderedRight" },
+            props: { variant: "borderedRight" },
             style: { borderRight: "1px solid #dddddd" }
           }
         ]
@@ -99,7 +99,7 @@ export const CreateHawaTheme = (
       MuiFormControl: {
         variants: [
           {
-            props: { variants: "hawa" },
+            props: { variant: "hawa" },
             style: { width: "100%" }
           }
         ]
@@ -108,7 +108,7 @@ export const CreateHawaTheme = (
         styleOverrides: {},
         variants: [
           {
-            props: { variants: "validation" },
+            props: { variant: "validation" },
             style: {
               textAlign: "start",
               whiteSpace: "nowrap",
@@ -158,7 +158,7 @@ export const CreateHawaTheme = (
         },
         variants: [
           {
-            props: { variants: "unscrollable" },
+            props: { variant: "unscrollable" },
             style: {
               "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
                 { display: "none" },
@@ -190,7 +190,7 @@ export const CreateHawaTheme = (
         },
         variants: [
           {
-            props: { variants: "drop-area" },
+            props: { variant: "drop-area" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -209,7 +209,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "page-controls" },
+            props: { variant: "page-controls" },
             style: {
               background: "none",
               fontSize: "2rem",
@@ -219,7 +219,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "auth" },
+            props: { variant: "auth" },
             style: {
               backgroundColor: primaryLayoutColor,
               fontSize: "2rem",
@@ -228,12 +228,12 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "plain" },
+            props: { variant: "plain" },
             style: { background: "none" }
           },
 
           {
-            props: { variants: "panelTabs" },
+            props: { variant: "panelTabs" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -247,7 +247,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "pricingTabs" },
+            props: { variant: "pricingTabs" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -261,7 +261,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "inSettings" },
+            props: { variant: "inSettings" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -275,7 +275,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "inPricing" },
+            props: { variant: "inPricing" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -293,7 +293,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "settingsRow" },
+            props: { variant: "settingsRow" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -308,7 +308,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "plan-card" },
+            props: { variant: "plan-card" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -324,7 +324,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "selected-plan-card" },
+            props: { variant: "selected-plan-card" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -340,7 +340,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "plan-header" },
+            props: { variant: "plan-header" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -355,7 +355,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "card-container" },
+            props: { variant: "card-container" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -366,7 +366,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "card-header" },
+            props: { variant: "card-header" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -382,7 +382,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "card-content" },
+            props: { variant: "card-content" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -397,7 +397,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "card-actions" },
+            props: { variant: "card-actions" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -407,7 +407,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "selected-plan-header" },
+            props: { variant: "selected-plan-header" },
             style: {
               display: "flex",
               flexDirection: "column",
@@ -421,7 +421,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "pricing" },
+            props: { variant: "pricing" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -433,7 +433,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "appbar" },
+            props: { variant: "appbar" },
             style: {
               boxShadow: "none",
               display: "flex",
@@ -464,7 +464,7 @@ export const CreateHawaTheme = (
         },
         variants: [
           {
-            props: { variants: "layout" },
+            props: { variant: "layout" },
             style: {
               backgroundColor: primaryLayoutColor,
               "&:hover": {
@@ -474,7 +474,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "color-picker" },
+            props: { variant: "color-picker" },
             style: ({ theme }) => ({
               ...{
                 height: 40,
@@ -491,21 +491,21 @@ export const CreateHawaTheme = (
             })
           },
           {
-            props: { variants: "danger" },
-            style: ({ palette }) => ({
+            props: { variant: "danger" },
+            style: ({ theme }) => ({
               ...{
-                backgroundColor: palette.error.main,
+                backgroundColor: theme.palette.error.main,
                 color: primaryActionTextColor,
                 borderRadius: allBorderRadius,
                 "&:hover": {
-                  backgroundColor: darken(palette.error.main, 0.5),
+                  backgroundColor: darken(theme.palette.error.main, 0.5),
                   color: "white"
                 }
               }
             })
           },
           {
-            props: { variants: "last" },
+            props: { variant: "last" },
             style: {
               backgroundColor: primaryActionColor,
               color: primaryActionTextColor,
@@ -518,7 +518,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "withLogo" },
+            props: { variant: "withLogo" },
             style: {
               textTransform: "none",
               border: `1px solid ${darken(primaryActionColor, 0.1)}`,
@@ -532,7 +532,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "selected" },
+            props: { variant: "selected" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -550,7 +550,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "unselected" },
+            props: { variant: "unselected" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -563,7 +563,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "adaptive-dark" },
+            props: { variant: "adaptive-dark" },
             style: {
               backgroundColor: primaryActionColor,
               height: 40,
@@ -576,7 +576,7 @@ export const CreateHawaTheme = (
             }
           },
           {
-            props: { variants: "adaptive-light" },
+            props: { variant: "adaptive-light" },
             style: {
               display: "flex",
               flexDirection: "row",
@@ -641,11 +641,11 @@ export const CreateHawaTheme = (
         },
         variants: [
           {
-            props: { variants: "inContainer" },
+            props: { variant: "inContainer" },
             style: { color: "black", borderRadius: allBorderRadius }
           }
           // {
-          //   props: { variants: "offline" },
+          //   props: { variant: "offline" },
           //   style: ({ theme }) => ({
           //     ...{
           //       backgroundColor: lighten(theme.palette.error.main, 0.8),
@@ -667,7 +667,7 @@ export const CreateHawaTheme = (
         },
         variants: [
           {
-            props: { variants: "clicked" },
+            props: { variant: "clicked" },
             style: { backgroundColor: primaryActionColor, color: "white" }
           }
         ]
@@ -675,7 +675,7 @@ export const CreateHawaTheme = (
       MuiToolbar: {
         variants: [
           {
-            props: { variants: "appbar" },
+            props: { variant: "appbar" },
             style: {
               color: "black",
               height: 60,
@@ -692,7 +692,7 @@ export const CreateHawaTheme = (
         styleOverrides: { root: { boxShadow: "none", color: "black" } },
         variants: [
           {
-            props: { variants: "appbar" },
+            props: { variant: "appbar" },
             style: {
               color: "black",
               margin: 0,
@@ -878,5 +878,5 @@ export const UpdateHawaTheme = (
   ].backgroundColor = primaryActionColor;
   theme.components.MuiListItemButton.variants[0].style.backgroundColor =
     primaryActionColor;
-    return theme;
+  return theme;
 };
