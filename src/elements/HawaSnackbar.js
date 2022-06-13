@@ -6,27 +6,26 @@ import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export const HawaSnackbar = (props) => {
-
-  const [position, setPosition] = useState({vertical : "", horizontal : ""});
+  const [position, setPosition] = useState({ vertical: "", horizontal: "" });
 
   useEffect(() => {
-    if(props.position){
+    if (props.position) {
       const p = props.position.split("-");
-      setPosition({vertical : p[0], horizontal : p[1]});
+      setPosition({ vertical: p[0], horizontal: p[1] });
     }
-  }, [props.position])
+  }, [props.position]);
 
   return (
     <Snackbar
       open={props.open}
-      autoHideDuration={props.duration ? props.duration : null}
+      autoHideDuration={props.autoHide ? props.duration : null}
       onClose={props.handleClose}
       anchorOrigin={position}
       action={
         <>
           <IconButton
             aria-label="close"
-            style={{color: "black"}}
+            style={{ color: "black" }}
             sx={{ p: 0.5 }}
             onClick={props.handleClose}
           >
@@ -35,7 +34,11 @@ export const HawaSnackbar = (props) => {
         </>
       }
     >
-      <Alert icon={false} severity={props.severity} onClose={props.isClosable ? props.handleClose : null}>
+      <Alert
+        icon={false}
+        severity={props.severity}
+        onClose={props.isClosable ? props.handleClose : null}
+      >
         {props.title && <AlertTitle>{props.title}</AlertTitle>}
         {props.text}
       </Alert>
