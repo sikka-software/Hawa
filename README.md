@@ -51,7 +51,7 @@ MIT © [SIKKA SOFTWARE](https://sikka.sa)
 <!--start: logo-->
 <p align="center">
   <a href="https://sikka.io">
-    <img width="44" alt="Sikka" src="https://xakher-images.s3.ap-southeast-1.amazonaws.com/sikka/sikka-symbol-black.svg">
+    <img width="44" alt="Sikka" src="https://i.postimg.cc/8cK4tnKQ/sikka-symbol-black.png">
   </a>
 </p>
 <p align="center">
