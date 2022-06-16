@@ -16,5 +16,15 @@ const getTextColor = (backColor) => {
     return "#ffffff";
   }
 };
+const replaceAt = function (string, index, replacement) {
+  // if (replacement == "" || replacement == " ") {
+  //   return (
+  //     string.substring(0, index) +
+  //     string.substring(index + replacement.length )
+  //   );
+  // }
+  const replaced = string.substring(0, index) + replacement + string.substring(index + 1)
+  return replaced
+};
 
-export { hexToRgb, getTextColor };
+export { hexToRgb, getTextColor, replaceAt };
