@@ -147,13 +147,13 @@ export const CreateHawaTheme = (
             paddingLeft: 10,
             borderRadius: allBorderRadius,
             "&:hover": { outline: `1px solid ${primaryActionColor}` },
-            "&:focus": { outline: `1px solid ${primaryActionColor}` }
+            "&:focus": { outline: `1px solid ${primaryActionColor}` },
           },
           input: {
             margin: 0,
             border: "none",
             padding: 10,
-            ":focus": { border: "none" }
+            ":focus": { border: "none" },
           }
         },
         variants: [
@@ -164,7 +164,19 @@ export const CreateHawaTheme = (
                 { display: "none" },
               "& input[type=number]": { MozAppearance: "textfield" }
             }
+          }, 
+          {
+            props : {variant : "pin"},
+            style:{
+              height: 60,
+              width : 50,
+              textAlign:"center",
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                { display: "none" },
+              "& input[type=number]": { MozAppearance: "textfield" }
+            },
           }
+          
         ]
       },
       MuiDialog: {
@@ -701,7 +713,34 @@ export const CreateHawaTheme = (
             }
           }
         ]
+      },
+
+      MuiTextField : {
+        styleOverrides:{
+          root: {
+            backgroundColor: "white",
+            paddingRight: 10,
+            paddingLeft: 10,
+            borderRadius: allBorderRadius,
+            "&:hover": { outline: `1px solid ${primaryActionColor}` },
+            "&:focus": { outline: `1px solid ${primaryActionColor}` },
+          },
+        },
+        variants: [
+          {
+            props : {variant : "pinInput"},
+            style:{
+              height: 60,
+              width : 50,
+              textAlign:"center",
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                { display: "none" },
+              "& input[type=number]": { MozAppearance: "textfield" }
+            },
+          }
+        ]
       }
+
     }
   });
 
