@@ -1,3 +1,4 @@
+import { InputLabel } from "@mui/material";
 import React, { useState } from "react";
 import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
@@ -19,6 +20,15 @@ export const PinInput = (args) => {
       defaultValue={defaultValue}
       type={args.isAlphanumeric ? "alphanumeric" : null}
     >
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
+      <HawaPinInputField />
       <HawaPinInputField />
       <HawaPinInputField />
       <HawaPinInputField />
