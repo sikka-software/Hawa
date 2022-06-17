@@ -7,13 +7,35 @@ import {
   Stack
 } from "@mui/material";
 import { object } from "prop-types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { replaceAt } from "../util";
 
-export const HawaPinInput = ({ children, type, defaultValue, ...props }) => {
+export const HawaPinInput = ({
+  children,
+  type,
+  defaultValue,
+  onChange,
+  onComplete,
+  ...props
+}) => {
   const [value, setValue] = useState(
     defaultValue ? defaultValue.split("") : []
   );
+  const [pinLength, setPinLength] = useState(0);
+
+  useEffect(() => {
+    let length = 0;
+    React.Children.map(children, (child) => {
+      if (
+        React.isValidElement(child) &&
+        child.type?.displayName &&
+        child.type?.displayName === "HawaPinInputField"
+      ) {
+        length++;
+      }
+    });
+    setPinLength(length);
+  }, []);
 
   const childrenWithProps = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
@@ -29,7 +51,9 @@ export const HawaPinInput = ({ children, type, defaultValue, ...props }) => {
           index: index,
           setValue: setValue,
           value: value,
-          onChangeAction: (currentValue) => onChange(currentValue)
+          onChangeAction: (currentValue) => onChange(currentValue),
+          onCompleteAction: (finalValue) => onComplete(finalValue),
+          pinLength: pinLength
         });
       }
       return React.cloneElement(child, {
@@ -37,15 +61,19 @@ export const HawaPinInput = ({ children, type, defaultValue, ...props }) => {
         setValue: setValue,
         value: value,
         index: index,
-        onChangeAction: (currentValue) => onChange(currentValue)
+        onChangeAction: (currentValue) => onChange(currentValue),
+        onCompleteAction: (finalValue) => onComplete(finalValue),
+        pinLength: pinLength
       });
     }
     return child;
   });
 
-  const onChange = (value) => {
-    console.log("value ", value);
-  };
+  useEffect(() => {
+    if (value.length === pinLength) {
+      onComplete(value);
+    }
+  }, [value]);
 
   return (
     <div style={props.inForm && { width: "100%" }}>
@@ -103,6 +131,9 @@ export const HawaPinInputField = (props) => {
           if (i) {
             i.focus();
           }
+        }
+        if (props.value.length === props.pinLength) {
+          props.onCompleteAction(props.value.toString().replaceAll(",", ""));
         }
       }}
     />

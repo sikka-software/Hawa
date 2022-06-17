@@ -21,7 +21,8 @@ jobs:
          else 
           npm install
          fi
-      #- run: npm test
+      - run: npm run build-storybook
+      - run: npm run build-lib
 
   publish-npm:
     needs: build
