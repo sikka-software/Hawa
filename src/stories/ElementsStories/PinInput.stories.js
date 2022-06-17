@@ -19,6 +19,8 @@ export const PinInput = (args) => {
     <HawaPinInput
       defaultValue={defaultValue}
       type={args.isAlphanumeric ? "alphanumeric" : null}
+      onChange={args.onChange}
+      onComplete={args.onComplete}
     >
       <HawaPinInputField />
       <HawaPinInputField />
@@ -39,5 +41,7 @@ export const PinInput = (args) => {
 
 PinInput.args = {
   defaultValue: "1234",
-  isAlphanumeric: false
+  isAlphanumeric: false,
+  onChange : (value) => console.log("current value : ", value),
+  onComplete : (value) => console.log("final value :", value)
 };
