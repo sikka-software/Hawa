@@ -21,8 +21,9 @@ jobs:
          else 
           npm install
          fi
-      - run: npm run build-storybook
-      - run: npm run build-lib
+         npm run deploy-storybook -- --ci
+        env : 
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   publish-npm:
     needs: build
