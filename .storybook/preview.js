@@ -10,7 +10,14 @@ import { useEffect, useState } from "react";
 import { P } from "@storybook/components";
 import { CreateHawaTheme } from "../src";
 
-export const theme = CreateHawaTheme(10, "#3b28cc", "#ADD7F6", "#ffffff", "Roboto");
+export const theme = CreateHawaTheme(
+  10,
+  "#3b28cc",
+  "#ADD7F6",
+  "#ffffff",
+  "Roboto",
+  { mobile: 0, tablet: 768, laptop: 1024, desktop: 1200 }
+);
 
 const withThemeProvider = (Story, context) => {
   return (
