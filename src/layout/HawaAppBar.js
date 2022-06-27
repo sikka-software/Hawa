@@ -22,7 +22,6 @@ export const HawaAppBar = (props) => {
   const handleCloseNavMenu = () => setAnchorElNav(null);
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
-  console.log("theme is ", theme);
   return (
     <AppBar position="static" variant="appbar">
       <Container variant="appbar">

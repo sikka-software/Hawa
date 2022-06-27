@@ -6,7 +6,8 @@ export const CreateHawaTheme = (
   primaryActionColor,
   primaryLayoutColor,
   primaryActionTextColor,
-  mainFont
+  mainFont,
+  breakpointsValues
 ) =>
   createTheme({
     typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
@@ -14,6 +15,9 @@ export const CreateHawaTheme = (
       primary: {
         main: primaryActionColor
       }
+    },
+    breakpoints : {
+      values: breakpointsValues ?? null
     },
     components: {
       MuiStack: {
@@ -919,3 +923,4 @@ export const UpdateHawaTheme = (
     primaryActionColor;
   return theme;
 };
+

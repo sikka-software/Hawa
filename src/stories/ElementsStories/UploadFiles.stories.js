@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import React, { useState } from "react";
 import { DragDropImages } from "../../elements";
+import { useBreakPointValue } from "../../Hooks";
 
 export default {
   title: "Elements/DragAndDropFiles",
@@ -12,12 +13,20 @@ export default {
       description: "file's type, splited by ,",
       defaultValue: "image/*,application/pdf"
     }
-  },
+  }
 };
 
-const DragAndDropFiles = (args) => {
+const DragAndDropFiles = (args, props) => {
+  const variant = useBreakPointValue({
+    base: "this is base",
+    mobile: "this is mobile",
+    tablet: "this is tablet",
+    laptop: "this is laptop",
+    desktop: "this is desktop"
+  });
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  console.log(args.accept.split(","));
+  console.log("variant : ", variant);
+
   return (
     <Container>
       <DragDropImages
@@ -32,7 +41,7 @@ const DragAndDropFiles = (args) => {
         errorMessages={args.errorMessage}
         texts={{
           tooManyFiles: "Too many files",
-          fileTooLarge : "File too large"
+          fileTooLarge: "File too large"
         }}
       />
     </Container>
@@ -45,6 +54,6 @@ Default.args = {
   maxFiles: 5,
   maxSize: 5000000,
   showPreview: true,
-  onRemoveFile : () => {},
-  onClearAll : () => {}
+  onRemoveFile: () => {},
+  onClearAll: () => {}
 };
