@@ -16,7 +16,7 @@ export const theme = CreateHawaTheme(
   "#ADD7F6",
   "#ffffff",
   "Roboto",
-  { mobile: 0, tablet: 640, laptop: 1024, desktop: 1200 }
+  { mobile: 0, tablet: 768, laptop: 1024, desktop: 1200 }
 );
 
 const withThemeProvider = (Story, context) => {

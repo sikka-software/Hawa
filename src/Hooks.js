@@ -26,6 +26,7 @@ export function useBreakPointValue(values) {
   const theme = useTheme();
 
   useEffect(() => {
+    console.log("break point",theme.breakpoints.values);
     function handleResize() {
       if (
         values.mobile &&

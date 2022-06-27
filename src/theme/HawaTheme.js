@@ -8,16 +8,19 @@ export const CreateHawaTheme = (
   primaryActionTextColor,
   mainFont,
   breakpointsValues
-) =>
-  createTheme({
+) => {
+  console.log("achra  achraf", breakpointsValues);
+  return createTheme({
     typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
     palette: {
       primary: {
         main: primaryActionColor
       }
     },
-    breakpoints : {
-      values: breakpointsValues ?? null
+    breakpoints: {
+      values: breakpointsValues
+        ? breakpointsValues
+        : { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 }
     },
     components: {
       MuiStack: {
@@ -151,13 +154,13 @@ export const CreateHawaTheme = (
             paddingLeft: 10,
             borderRadius: allBorderRadius,
             "&:hover": { outline: `1px solid ${primaryActionColor}` },
-            "&:focus": { outline: `1px solid ${primaryActionColor}` },
+            "&:focus": { outline: `1px solid ${primaryActionColor}` }
           },
           input: {
             margin: 0,
             border: "none",
             padding: 10,
-            ":focus": { border: "none" },
+            ":focus": { border: "none" }
           }
         },
         variants: [
@@ -168,19 +171,18 @@ export const CreateHawaTheme = (
                 { display: "none" },
               "& input[type=number]": { MozAppearance: "textfield" }
             }
-          }, 
+          },
           {
-            props : {variant : "pin"},
-            style:{
+            props: { variant: "pin" },
+            style: {
               height: 60,
-              width : 50,
-              textAlign:"center",
+              width: 50,
+              textAlign: "center",
               "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
                 { display: "none" },
               "& input[type=number]": { MozAppearance: "textfield" }
-            },
+            }
           }
-          
         ]
       },
       MuiDialog: {
@@ -719,34 +721,34 @@ export const CreateHawaTheme = (
         ]
       },
 
-      MuiTextField : {
-        styleOverrides:{
+      MuiTextField: {
+        styleOverrides: {
           root: {
             backgroundColor: "white",
             paddingRight: 10,
             paddingLeft: 10,
             borderRadius: allBorderRadius,
             "&:hover": { outline: `1px solid ${primaryActionColor}` },
-            "&:focus": { outline: `1px solid ${primaryActionColor}` },
-          },
+            "&:focus": { outline: `1px solid ${primaryActionColor}` }
+          }
         },
         variants: [
           {
-            props : {variant : "pinInput"},
-            style:{
+            props: { variant: "pinInput" },
+            style: {
               height: 60,
-              width : 50,
-              textAlign:"center",
+              width: 50,
+              textAlign: "center",
               "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
                 { display: "none" },
               "& input[type=number]": { MozAppearance: "textfield" }
-            },
+            }
           }
         ]
       }
-
     }
   });
+};
 
 export const UpdateHawaTheme = (
   theme,
@@ -923,4 +925,3 @@ export const UpdateHawaTheme = (
     primaryActionColor;
   return theme;
 };
-
