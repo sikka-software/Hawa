@@ -90,7 +90,7 @@ export const Confirmation = (args) => {
       texts={{
         codeLabel: "Code",
         codePlaceholder: "123456",
-        emailRequiredText: "Email is required",
+        codeRequiredText: "Code is required",
         emailInvalidText: "Invalid email address",
         passwordLabel: "Password",
         passwordPlaceholder: "Enter password",
