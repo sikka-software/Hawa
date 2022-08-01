@@ -18,6 +18,7 @@ npm install --save @sikka/hawa
 # Roadmap
 
 - [ ] Drag and drop tool to create a layout of boxes
+- Organize code
 
 </br>
 

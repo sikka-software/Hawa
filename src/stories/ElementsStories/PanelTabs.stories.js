@@ -1,9 +1,9 @@
 import React from "react";
-import { HawaRadio } from "../../elements";
+import { HawaPanelTabs } from "../../elements";
 
 export default {
   title: "Elements/Selections/Panel Tabs",
-  component: [HawaRadio],
+  component: [HawaPanelTabs],
   argTypes: {
     options: {
       control: "array",
@@ -35,7 +35,7 @@ export const PanelTabs = (args) => {
     return { label: `Option ${i}`, value: `option${i}` };
   });
   return (
-    <HawaRadio
+    <HawaPanelTabs
       {...args}
       // handleChange={(e) => console.log("changing to ", e)}
       defaultValue="option1"
