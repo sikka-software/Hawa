@@ -1,10 +1,10 @@
 import { Container } from "@mui/material";
 import React from "react";
-import { HawaTextArea, HawaTextField } from "../../elements";
+import { HawaTextField } from "../../elements";
 
 export default {
   title: "Elements/TextFields",
-  component: [HawaTextField, HawaTextArea],
+  component: [HawaTextField],
   parameters: {
     backgrounds: {
       default: "light",
