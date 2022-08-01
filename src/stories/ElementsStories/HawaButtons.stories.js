@@ -39,13 +39,6 @@ const Template = (args) => {
 export const FullButton = Template.bind({});
 FullButton.args = {
   showText: true,
-  // buttonText: "Full Button",
+  buttonText: "Button",
   icon: <Class />
-};
-
-export const IconOnly = Template.bind({});
-IconOnly.args = {
-  showText: false,
-  icon: <Class />,
-  buttonText: "test"
 };

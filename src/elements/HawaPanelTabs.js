@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
 
-export const HawaRadio = (props) => {
+export const HawaPanelTabs = (props) => {
   const [value, setValue] = useState(props.defaultValue);
   return (
     <Container variant={props.location || "panelTabs"}>
@@ -29,7 +29,8 @@ export const HawaRadio = (props) => {
     </Container>
   );
 };
-HawaRadio.propTypes = {
+
+HawaPanelTabs.propTypes = {
   lang: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({

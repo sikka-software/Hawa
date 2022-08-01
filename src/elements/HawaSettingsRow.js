@@ -4,7 +4,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
 import { HawaTypography } from "./HawaTypography";
 import { HawaTextField } from "./HawaTextField";
-import { HawaRadio } from "./HawaRadio";
+import { HawaPanelTabs } from "./HawaPanelTabs";
 import { HawaSwitch } from "./HawaSwitch";
 import { HawaColorPicker } from "./HawaColorPicker";
 import { HawaRange } from "./HawaRange";
@@ -19,7 +19,7 @@ export const HawaSettingsRow = (props) => {
       {props.settingsType === "range" && <HawaRange {...props} />}
       {props.settingsType === "color" && <HawaColorPicker {...props} />}
       {props.settingsType === "radio" && (
-        <HawaRadio location="inSettings" {...props} />
+        <HawaPanelTabs location="inSettings" {...props} />
       )}
     </Container>
   );

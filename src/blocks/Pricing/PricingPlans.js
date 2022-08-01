@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
-import { HawaPricingCard, HawaRadio } from "../../elements";
+import { HawaPricingCard, HawaPanelTabs } from "../../elements";
 import PropTypes from "prop-types";
 
 export const PricingPlans = (props) => {
@@ -16,7 +16,7 @@ export const PricingPlans = (props) => {
           marginBottom: 10
         }}
       >
-        <HawaRadio
+        <HawaPanelTabs
           location="inPricing"
           handleChange={(e) => setCurrentCycle(e)}
           defaultValue="monthly"
@@ -28,7 +28,7 @@ export const PricingPlans = (props) => {
           ]}
         />
 
-        <HawaRadio
+        <HawaPanelTabs
           location="inPricing"
           handleChange={(e) => {
             setCurrentCurrency(e);
