@@ -27,5 +27,5 @@ export const AdaptiveButton = (props) => {
 AdaptiveButton.propTypes = {
   buttonText: PropTypes.string,
   onClick: PropTypes.func,
-  showText: PropTypes.bool
+  showText: PropTypes.bool,
 };
