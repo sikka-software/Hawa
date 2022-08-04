@@ -17,7 +17,7 @@ export default function HawaPhoneInput(props) {
   return (
     <PhoneInput
       country={country ?? null}
-      onChange={(e) => onchange(e)}
+      onChange={(e) => onChange(e)}
       value={value ?? value}
       onlyCountries={onlyContries?.length > 0 ? onlyContries : []}
       preferredCountries={

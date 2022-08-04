@@ -6,7 +6,7 @@ export default {
   component: [HawaPhoneInput],
   args: {
     country: "sa",
-    onchange: (e) => console.log(e),
+    onChange: (e) => console.log(e),
     required: true,
     name: "phone",
     label: "phone number"
