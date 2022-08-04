@@ -29,6 +29,37 @@ const ProfileTemplate = (args) => {
         confirmPasswordRequiredText: "Confirmation is required",
         passwordMatchError: "Password doesn't match"
       }}
+      inputs={[
+        {
+          name: "name",
+          label : "Full Name",
+          placeHolder : "Your full name",
+          defaultValue:"here goes default Value",
+          value:"this is value",
+          type: "text",
+          rules : {
+            required : true,
+            minLength:8,
+          }
+        },
+        {
+          name : "phone",
+          label : "Phone Number",
+          type: "number",
+          placeHolder : "Your full name",
+          type: "text",
+          rules : {
+            required : true,
+            minLength:8,
+          }
+        },
+        {
+          name : "message",
+          label : "Your Message",
+          defaultValue:"This is your default Value",
+          type : "textarea"
+        }
+      ]}
     />
   );
 };

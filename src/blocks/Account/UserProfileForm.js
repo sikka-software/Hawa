@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 export const UserProfileForm = (props) => {
   const methods = useForm();
+  const { inputs } = props;
   const {
     formState: { errors },
     handleSubmit,
@@ -103,6 +104,43 @@ export const UserProfileForm = (props) => {
               required: props.texts.confirmPasswordRequiredText
             }}
           />
+          {inputs.length > 0 &&
+            inputs.map((singleInput) => {
+              if (singleInput.type === "textArea") {
+                return (
+                  <Controller
+                    control={control}
+                    name={singleInput.name}
+                    render={({ field }) => (
+                      <HawaTextField
+                        fullWidth
+                        type="text"
+                        defaultValue={singleInput.defaultValue ?? null}
+                        label={singleInput.label ?? null}
+                        placeholder={singleInput.placeHolder ?? null}
+                        rules={singleInput.rules ?? null}
+                      />
+                    )}
+                  />
+                );
+              }
+              return (
+                <Controller
+                  control={control}
+                  name={singleInput.name}
+                  render={({ field }) => (
+                    <HawaTextField
+                      fullWidth
+                      type={singleInput.type}
+                      defaultValue={singleInput.defaultValue ?? null}
+                      label={singleInput.label ?? null}
+                      placeholder={singleInput.placeHolder ?? null}
+                      rules={singleInput.rules ?? null}
+                    />
+                  )}
+                />
+              );
+            })}
           <Button type="submit" fullWidth variant="last">
             {props.texts.updateProfile}
           </Button>
