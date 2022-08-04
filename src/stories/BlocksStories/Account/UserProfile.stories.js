@@ -56,6 +56,7 @@ const ProfileTemplate = (args) => {
         {
           name : "message",
           label : "Your Message",
+          defaultValue:"This is your default Value",
           type : "textarea"
         }
       ]}
