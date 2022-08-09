@@ -3,6 +3,7 @@ import { darken, lighten } from "@mui/material";
 
 export const CreateHawaTheme = (optionsObject, breakpointsValues) => {
   let allBorderRadius = optionsObject.borderRadius;
+  let primaryDangerColor = optionsObject.dangerColor;
   let primaryActionColor = optionsObject.actionColor;
   let primaryActionTextColor = optionsObject.actionTextColor;
   let primaryLayoutColor = optionsObject.layoutColor;
@@ -10,6 +11,13 @@ export const CreateHawaTheme = (optionsObject, breakpointsValues) => {
 
   console.log("achra  achraf", breakpointsValues);
   return createTheme({
+    allBorderRadius: optionsObject.borderRadius,
+    primaryDangerColor: optionsObject.dangerColor,
+    primaryActionColor: optionsObject.actionColor,
+    primaryActionTextColor: optionsObject.actionTextColor,
+    primaryLayoutColor: optionsObject.layoutColor,
+    mainFont: optionsObject.font,
+    test: "something",
     typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
     palette: {
       primary: {
@@ -141,7 +149,15 @@ export const CreateHawaTheme = (optionsObject, breakpointsValues) => {
             padding: 10,
             ":focus": { border: "none" }
           }
-        }
+        },
+        variants: [
+          {
+            props: { variant: "phone" },
+            style: {
+              backgroundColor: "red"
+            }
+          }
+        ]
       },
       MuiInput: {
         styleOverrides: {

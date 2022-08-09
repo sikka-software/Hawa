@@ -1,6 +1,8 @@
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
-import "../styles.css";
+import { useTheme } from "@mui/system";
+import { InputLabel } from "@mui/material";
+
 export default function HawaPhoneInput(props) {
   const {
     country,
@@ -16,41 +18,31 @@ export default function HawaPhoneInput(props) {
     // onChange,
     ...rest
   } = props;
-  return (
-    <PhoneInput
-      country={country ?? null}
-      onChange={(e) => onChange(e)}
-      value={value ?? value}
-      onlyCountries={onlyContries?.length > 0 ? onlyContries : []}
-      preferredCountries={
-        preferredCountries?.length > 0 ? preferredCountries : []
-      }
-      inputProps={{
-        required: required ?? false,
-        name: name ?? null
-      }}
-      specialLabel={label ?? ""}
-      placeholder={placeholder ?? ""}
-      inputClass="phoneInput"
-      buttonClass="phoneInputButton"
-      containerClass="phoneInputContainer"
-      // onChange={(phone) => {
-      //   setPhone(phone);
-      //   handleChange();
-      // }}
-      // onEnterKeyPress={async (e) => {
-      //   e.preventDefault();
-      //   await handleSignInWithPhone({ phone: phone });
-      // }}
 
-      {...rest}
-    />
+  const theme = useTheme();
+  return (
+    <div>
+      {label && <InputLabel>{props.label}</InputLabel>}
+      <PhoneInput
+        country={country ?? null}
+        onChange={(e) => onChange(e)}
+        value={value ?? value}
+        onlyCountries={onlyContries?.length > 0 ? onlyContries : []}
+        preferredCountries={
+          preferredCountries?.length > 0 ? preferredCountries : []
+        }
+        inputProps={{
+          required: required ?? false,
+          name: name ?? null
+        }}
+        specialLabel={""}
+        placeholder={placeholder ?? ""}
+        inputStyle={{
+          width: "100%",
+          borderRadius: theme.allBorderRadius
+        }}
+        {...rest}
+      />
+    </div>
   );
 }
-
-// prop  types
-// country = string
-// onChange = function
-// value = string
-// onlyCountries = array
-// preferredCountries = array

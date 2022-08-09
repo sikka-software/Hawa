@@ -12,7 +12,6 @@ export * from "./HawaButton";
 export * from "./HawaSelect";
 export * from "./HawaRange";
 export * from "./HawaTextField";
-export * from "./HawaInputLabel";
 export * from "./HawaTypography";
 export * from "./HawaAlert";
 export * from "./HawaTable";
