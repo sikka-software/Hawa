@@ -1,21 +1,15 @@
-import {
-  ThemeProvider,
-  createTheme,
-  Components,
-  useTheme
-} from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
-import { darken, lighten } from "@mui/material";
-import { useEffect, useState } from "react";
-import { P } from "@storybook/components";
 import { CreateHawaTheme } from "../src";
 
 export const theme = CreateHawaTheme(
-  10,
-  "#3b28cc",
-  "#ADD7F6",
-  "#ffffff",
-  "Roboto",
+  {
+    borderRadius: 10,
+    actionColor: "#3b28cc",
+    actionTextColor: "#ffffff",
+    layoutColor: "#ADD7F6",
+    font: "Roboto"
+  },
   { mobile: 0, tablet: 768, laptop: 1024, desktop: 1200 }
 );
 

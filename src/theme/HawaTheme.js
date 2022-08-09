@@ -1,14 +1,13 @@
 import { createTheme } from "@mui/material";
 import { darken, lighten } from "@mui/material";
 
-export const CreateHawaTheme = (
-  allBorderRadius,
-  primaryActionColor,
-  primaryLayoutColor,
-  primaryActionTextColor,
-  mainFont,
-  breakpointsValues
-) => {
+export const CreateHawaTheme = (optionsObject, breakpointsValues) => {
+  let allBorderRadius = optionsObject.borderRadius;
+  let primaryActionColor = optionsObject.actionColor;
+  let primaryActionTextColor = optionsObject.actionTextColor;
+  let primaryLayoutColor = optionsObject.layoutColor;
+  let mainFont = optionsObject.font;
+
   console.log("achra  achraf", breakpointsValues);
   return createTheme({
     typography: { fontFamily: ["IBMPlex", "Roboto"].join(",") },
@@ -30,8 +29,6 @@ export const CreateHawaTheme = (
             style: {
               backgroundColor: primaryLayoutColor,
               padding: 15,
-              // paddingLeft: 5,
-              // paddingRight: 5,
               borderRadius: allBorderRadius
             }
           }
@@ -203,7 +200,8 @@ export const CreateHawaTheme = (
             borderRadius: allBorderRadius,
             paddingLeft: 20,
             paddingRight: 20,
-            padding: 20
+            padding: 20,
+            maxWidth: 600
           }
         },
         variants: [
