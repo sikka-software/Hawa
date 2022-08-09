@@ -1,3 +1,5 @@
+
+
 .input {
   color: black;
   background-color: var(--light);
@@ -51,7 +53,56 @@
   border-width: 2px;
   cursor: pointer;
 }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-	-webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.phoneInput {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-right: 10px !important;
+  padding-left: 60px !important;
+  border-radius: var(--borderR) !important;
+  border: none !important;
+  height: 100% !important;
+  width: auto !important;
+}
+
+.phoneInput:hover {
+  border: none;
+  outline-color: transparent;
+}
+
+.phoneInput:focus {
+  /* border: 1px solid !important; */
+  /* border-color: #7f62fc !important; */
+  outline: 1px solid !important;
+  outline-color: #7f62fc !important;
+}
+.phoneInputContainer {
+  height: 43px !important;
+  width: 100% !important;
+  background-color: red !important;
+  max-width: 400px !important;
+  border-radius: var(--borderR) !important;
+}
+
+.phoneInputButton {
+  height: 100% !important;
+  border-radius: var(--borderR) !important;
+  background: none !important;
+}
+
+.react-tel-input .selected-flag {
+  /* background-color: red !important; */
+  /* height: 100% !important; */
+  border-radius: var(--borderR) !important;
+  border: none;
+}
+.phoneInputButton:focus {
+  background: none !important;
+  /* background-color: red !important; */
+  /* height: 100% !important; */
+  border-radius: var(--borderR) !important;
 }
