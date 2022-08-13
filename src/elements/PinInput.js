@@ -116,6 +116,14 @@ export const HawaPinInputField = (props) => {
       id={"pinInput" + props.index}
       defaultValue={props.defaultValue || ""}
       variant="pin"
+      onKeyDown={(e) => {
+        if (e.key === "Backspace") {
+          let i = document.getElementById("pinInput" + (props.index - 1));
+          if (e) {
+            i.focus();
+          }
+        }
+      }}
       disableUnderline
       inputProps={{ maxLength: 1 }}
       onChange={(e) => {
@@ -128,7 +136,7 @@ export const HawaPinInputField = (props) => {
           e.target.value != ""
         ) {
           let i = document.getElementById("pinInput" + (props.index + 1));
-          if (i) {
+          if (i != null) {
             i.focus();
           }
         }
