@@ -51,6 +51,7 @@ export const SignUpForm = (props) => {
                     <PersonIcon />
                   </InputAdornment>
                 }
+                {...field}
               />
             )}
             rules={{
@@ -74,6 +75,7 @@ export const SignUpForm = (props) => {
                     <EmailIcon />
                   </InputAdornment>
                 }
+                {...field}
               />
             )}
             rules={{
