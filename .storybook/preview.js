@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
-import { CreateHawaTheme } from "../src";
+import { CreateHawaTheme } from "./../src";
 
 export const theme = CreateHawaTheme(
   {
