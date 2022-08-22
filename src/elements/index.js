@@ -20,4 +20,5 @@ export * from "./HawaSearchBar";
 export * from "./HawaAccordian";
 export * from "./DragDropImages";
 export * from "./DraggableCard";
-export * from "./HawaPhoneInput"
+export * from "./HawaPhoneInput";
+export * from "./HawaPhoneInput2"

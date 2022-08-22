@@ -2,11 +2,12 @@ import { Container } from "@mui/material";
 import React from "react";
 import { HawaSearchBar, HawaTextField } from "../../elements";
 import HawaPhoneInput from "../../elements/HawaPhoneInput";
+import HawaPhoneInput2 from "../../elements/HawaPhoneInput2";
 import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
-  component: [HawaTextField, HawaPhoneInput],
+  component: [HawaTextField, HawaPhoneInput, HawaPhoneInput2],
   parameters: {
     backgrounds: {
       default: "light",
@@ -85,7 +86,6 @@ export const PinInput = (args) => {
       <HawaPinInputField />
       <HawaPinInputField />
       <HawaPinInputField />
-    
     </HawaPinInput>
   );
 };
@@ -95,4 +95,12 @@ PinInput.args = {
   isAlphanumeric: false,
   onChange: (value) => console.log("current value : ", value),
   onComplete: (value) => console.log("final value :", value)
+};
+
+export const PhoneInput2 = (args) => {
+  return <HawaPhoneInput2 {...args} />;
+};
+
+PhoneInput2.args = {
+  preferredCountry: "sa"
 };
