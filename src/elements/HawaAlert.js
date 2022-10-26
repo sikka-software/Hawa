@@ -1,14 +1,27 @@
 import React from "react";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import PropTypes from "prop-types";
 
 export const HawaAlert = (props) => {
+  let severities = {
+    info: "text-blue-700 bg-blue-100 dark:bg-blue-200 dark:text-blue-800",
+    warning:
+      "text-yellow-700 bg-yellow-100 dark:bg-yellow-200 dark:text-yellow-800",
+    error: "text-red-700 bg-red-100 dark:bg-red-200 dark:text-red-800",
+    success: "text-green-700 bg-green-100 dark:bg-green-200 dark:text-green-800"
+  };
+
   return (
-    <Alert severity={props.severity} icon={props.hideIcon}>
-      {props.title && <AlertTitle>{props.title}</AlertTitle>}
-      {props.text}
-    </Alert>
+    <div
+      class={
+        "flex flex-col p-4 mb-4 text-sm rounded-lg" +
+        " " +
+        severities[props.severity]
+      }
+      role="alert"
+    >
+      <span class="font-medium">{props.title}</span>
+      <span>{" " + props.text}</span>
+    </div>
   );
 };
 HawaAlert.propTypes = {

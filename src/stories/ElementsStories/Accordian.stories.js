@@ -4,12 +4,12 @@ import { HawaAccordian } from "../../elements";
 export default {
   title: "Elements/Accordian",
   component: [HawaAccordian],
-  parameters: {
-    backgrounds: {
-      default: "light",
-      values: [{ name: "light", value: "#96ACB7" }]
-    }
-  },
+  // parameters: {
+  //   backgrounds: {
+  //     default: "light",
+  //     values: [{ name: "light", value: "#96ACB7" }]
+  //   }
+  // },
   argTypes: {
     title: {
       control: "text",
@@ -40,11 +40,5 @@ export const Accordian = (args) => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
     }
   ];
-  return (
-    <>
-      {contentArray.map((c) => (
-        <HawaAccordian {...args} title={c.title} content={c.content} />
-      ))}
-    </>
-  );
+  return <HawaAccordian {...args} />;
 };
