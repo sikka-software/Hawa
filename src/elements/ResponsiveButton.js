@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
 
-export const AdaptiveButton = (props) => {
+export const ResponsiveButton = (props) => {
   if (props.showText) {
     return (
       <Button variant="adaptive-dark" onClick={props.onClick}>
@@ -24,7 +24,7 @@ export const AdaptiveButton = (props) => {
   }
 };
 
-AdaptiveButton.propTypes = {
+ResponsiveButton.propTypes = {
   buttonText: PropTypes.string,
   onClick: PropTypes.func,
   showText: PropTypes.bool,

@@ -1,10 +1,9 @@
-import Class from "@mui/icons-material/Class";
 import React from "react";
-import { AdaptiveButton } from "../../elements";
+import { ResposiveButton, HawaButton } from "../../elements";
 
 export default {
-  title: "Elements/Buttons/AdaptiveButton",
-  component: AdaptiveButton,
+  title: "Elements/Buttons",
+  component: [ResposiveButton, HawaButton],
   argTypes: {
     buttonText: {
       control: "text",
@@ -33,12 +32,22 @@ export default {
 };
 
 const Template = (args) => {
-  return <AdaptiveButton {...args} />;
+  return <HawaButton {...args}>{args.buttonText}</HawaButton>;
 };
 
-export const FullButton = Template.bind({});
-FullButton.args = {
+export const IconOnly = Template.bind({});
+IconOnly.args = {
   showText: true,
-  buttonText: "Button",
-  icon: <Class />
+  buttonText: "Button"
+  // icon: <Class />
 };
+
+const Template2 = (args) => {
+  return <ResposiveButton {...args}>{args.buttonText}</ResposiveButton>;
+};
+export const Adaptive = Template.bind({});
+// Adaptive.args = {
+//   showText: true,
+//   buttonText: "Button"
+//   // icon: <Class />
+// };

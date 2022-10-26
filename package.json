@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -82,5 +82,8 @@
     "@storybook/core-server/webpack": "^5",
     "@storybook/builder-webpack4/webpack": "^5",
     "@storybook/manager-webpack4/webpack": "^5"
+  },
+  "dependencies": {
+    "flowbite": "^1.5.3"
   }
 }
