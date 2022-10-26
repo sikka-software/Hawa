@@ -1,6 +1,7 @@
 export * from "./ResponsiveButton";
 export * from "./ActionButton";
 export * from "./HawaSnackbar";
+export * from "./HawaSwitch";
 export * from "./HawaCheckbox";
 export * from "./HawaPanelTabs";
 export * from "./HawaChip";
