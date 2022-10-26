@@ -1,10 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { HawaTextField, HawaTypography } from "../../elements";
-import InputAdornment from "@mui/material/InputAdornment";
-import EmailIcon from "@mui/icons-material/MailOutline";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import { HawaButton, HawaTextField } from "../../elements";
 import PropTypes from "prop-types";
 
 export const ResetPasswordForm = (props) => {
@@ -16,7 +12,7 @@ export const ResetPasswordForm = (props) => {
     control
   } = methods;
   return (
-    <Container maxWidth="xs" variant="auth">
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       {!props.sent ? (
         <form onSubmit={handleSubmit(props.handleResetPassword)}>
           <Controller
@@ -30,11 +26,6 @@ export const ResetPasswordForm = (props) => {
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <EmailIcon />
-                  </InputAdornment>
-                }
                 {...field}
               />
             )}
@@ -47,16 +38,14 @@ export const ResetPasswordForm = (props) => {
               }
             }}
           />
-          <Button type="submit" fullWidth variant="last">
+          <HawaButton fullWidth type="submit">
             {props.texts.resetPassword}
-          </Button>
+          </HawaButton>
         </form>
       ) : (
-        <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-          {props.texts.emailSentText}
-        </HawaTypography>
+        <div className="text-center">{props.texts.emailSentText}</div>
       )}
-    </Container>
+    </div>
   );
 };
 ResetPasswordForm.propTypes = {

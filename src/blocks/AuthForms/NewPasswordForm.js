@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { HawaTextField, HawaAlert, HawaTypography } from "../../elements";
+import { HawaTextField, HawaAlert, HawaButton } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import InputAdornment from "@mui/material/InputAdornment";
-import PasswordIcon from "@mui/icons-material/HttpsOutlined";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 
 export const NewPasswordForm = (props) => {
@@ -26,14 +22,12 @@ export const NewPasswordForm = (props) => {
   };
 
   return (
-    <Container maxWidth="xs" variant="auth">
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       {matchError && (
         <HawaAlert text={props.texts.passwordMatchError} severity="error" />
       )}
       {props.passwordChanged ? (
-        <HawaTypography style={{ textAlign: "center", margin: 5 }}>
-          {props.texts.passwordChanged}
-        </HawaTypography>
+        <div className="text-center">{props.texts.passwordChanged}</div>
       ) : (
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmission)}>
@@ -48,11 +42,6 @@ export const NewPasswordForm = (props) => {
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
                   helperText={errors.password?.message}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <PasswordIcon />
-                    </InputAdornment>
-                  }
                   {...field}
                 />
               )}
@@ -71,11 +60,6 @@ export const NewPasswordForm = (props) => {
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}
                   helperText={errors.confirmPassword?.message}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <PasswordIcon />
-                    </InputAdornment>
-                  }
                   {...field}
                 />
               )}
@@ -84,13 +68,13 @@ export const NewPasswordForm = (props) => {
               }}
             />
 
-            <Button type="submit" fullWidth variant="last">
+            <HawaButton type="submit" fullWidth>
               {props.texts.updatePassword}
-            </Button>
+            </HawaButton>
           </form>
         </FormProvider>
       )}
-    </Container>
+    </div>
   );
 };
 NewPasswordForm.propTypes = {

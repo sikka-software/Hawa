@@ -1,6 +1,6 @@
-import { Button, Container } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { HawaButton } from "../../elements";
 import HawaPhoneInput from "../../elements/HawaPhoneInput";
 
 export const SignInPhone = (props) => {
@@ -12,11 +12,7 @@ export const SignInPhone = (props) => {
     control
   } = methods;
   return (
-    <Container
-      maxWidth="xs"
-      variant="auth"
-      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
-    >
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       <form onSubmit={handleSubmit(props.onSubmit)}>
         <Controller
           control={control}
@@ -34,10 +30,10 @@ export const SignInPhone = (props) => {
             />
           )}
         />
-        <Button fullWidth type="submit" variant="last">
+        <HawaButton fullWidth type="submit">
           {props.SignInButtonText}
-        </Button>
+        </HawaButton>
       </form>
-    </Container>
+    </div>
   );
 };

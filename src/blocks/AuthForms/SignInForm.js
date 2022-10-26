@@ -78,15 +78,11 @@ export const SignInForm = (props) => {
         <HawaButton fullWidth type="submit">
           {props.texts.signInText}
         </HawaButton>
-        <div className="font-semibold p-3 text-center">
+        <div className="font-semibold p-3 text-center text-sm">
           {props.texts.newUserText}{" "}
           <span
             onClick={props.handleRouteToSignUp}
-            style={{
-              cursor: "pointer",
-              color: "blue",
-              textAlign: "center"
-            }}
+            className="text-blue-600 cursor-pointer"
           >
             {props.texts.signUpText}
           </span>
@@ -95,29 +91,31 @@ export const SignInForm = (props) => {
       {/* <Divider /> */}
 
       {/* <div className="divide-y divide-gray-900"></div> */}
-      <div className="flex flex-col ">
-        {props.viaGoogle && (
-          <HawaLogoButton
-            logo="google"
-            buttonText={props.texts.googleButtonLabel}
-            onClick={props.handleGoogleSignIn}
-          />
-        )}
-        {props.viaGithub && (
-          <HawaLogoButton
-            logo="github"
-            buttonText={props.texts.githubButtonLabel}
-            onClick={props.handleGithubSignIn}
-          />
-        )}
-        {props.viaTwitter && (
-          <HawaLogoButton
-            logo="twitter"
-            buttonText={props.texts.twitterButtonLabel}
-            onClick={props.handleTwitterSignIn}
-          />
-        )}
-      </div>
+      {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
+        <div className="flex flex-col ">
+          {props.viaGoogle && (
+            <HawaLogoButton
+              logo="google"
+              buttonText={props.texts.googleButtonLabel}
+              onClick={props.handleGoogleSignIn}
+            />
+          )}
+          {props.viaGithub && (
+            <HawaLogoButton
+              logo="github"
+              buttonText={props.texts.githubButtonLabel}
+              onClick={props.handleGithubSignIn}
+            />
+          )}
+          {props.viaTwitter && (
+            <HawaLogoButton
+              logo="twitter"
+              buttonText={props.texts.twitterButtonLabel}
+              onClick={props.handleTwitterSignIn}
+            />
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };

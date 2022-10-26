@@ -1,15 +1,12 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton, HawaAlert } from "../../elements";
+import {
+  HawaTextField,
+  HawaLogoButton,
+  HawaAlert,
+  HawaButton
+} from "../../elements";
 import PropTypes from "prop-types";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import PersonIcon from "@mui/icons-material/PermIdentityOutlined";
-import InputAdornment from "@mui/material/InputAdornment";
-import EmailIcon from "@mui/icons-material/MailOutline";
-import PasswordIcon from "@mui/icons-material/HttpsOutlined";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 export const SignUpForm = (props) => {
   const methods = useForm();
@@ -20,11 +17,7 @@ export const SignUpForm = (props) => {
   } = methods;
 
   return (
-    <Container
-      maxWidth="xs"
-      variant="auth"
-      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
-    >
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       {props.showError && (
         <HawaAlert
           title={props.errorTitle}
@@ -46,11 +39,6 @@ export const SignUpForm = (props) => {
                 label={props.texts.fullNameLabel}
                 placeholder={props.texts.fullNamePlaceholder}
                 helperText={errors.fullName?.message}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <PersonIcon />
-                  </InputAdornment>
-                }
                 {...field}
               />
             )}
@@ -70,11 +58,6 @@ export const SignUpForm = (props) => {
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <EmailIcon />
-                  </InputAdornment>
-                }
                 {...field}
               />
             )}
@@ -99,68 +82,54 @@ export const SignUpForm = (props) => {
                 label={props.texts.passwordLabel}
                 placeholder={props.texts.passwordPlaceholder}
                 helperText={errors.password?.message}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <PasswordIcon />
-                  </InputAdornment>
-                }
                 {...field}
               />
             )}
             rules={{ required: props.texts.passwordRequiredText }}
           />
 
-          <Button fullWidth variant="last" type="submit">
+          <HawaButton fullWidth type="submit">
             {props.texts.signUpText}
-          </Button>
+          </HawaButton>
         </form>
       </FormProvider>
 
-      <Typography
-        variant="subtitle2"
-        style={{
-          marginTop: 5,
-          textAlign: "center",
-          padding: 5
-        }}
-      >
+      <div className="font-semibold p-3 text-center text-sm">
         {props.texts.existingUserText}{" "}
         <span
           onClick={props.handleRouteToSignIn}
-          style={{
-            cursor: "pointer",
-            color: "blue",
-            textAlign: "center"
-          }}
+          className="text-blue-600 cursor-pointer"
         >
           {props.texts.signInText}
         </span>
-      </Typography>
-      <Divider />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        {props.viaGoogle && (
-          <HawaLogoButton
-            logo="google"
-            buttonText={props.texts.googleButtonLabel}
-            onClick={props.handleGoogleSignUp}
-          />
-        )}
-        {props.viaGithub && (
-          <HawaLogoButton
-            logo="github"
-            buttonText={props.texts.githubButtonLabel}
-            onClick={props.handleGithubSignUp}
-          />
-        )}
-        {props.viaTwitter && (
-          <HawaLogoButton
-            logo="twitter"
-            buttonText={props.texts.twitterButtonLabel}
-            onClick={props.handleTwitterSignUp}
-          />
-        )}
       </div>
-    </Container>
+
+      {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {props.viaGoogle && (
+            <HawaLogoButton
+              logo="google"
+              buttonText={props.texts.googleButtonLabel}
+              onClick={props.handleGoogleSignUp}
+            />
+          )}
+          {props.viaGithub && (
+            <HawaLogoButton
+              logo="github"
+              buttonText={props.texts.githubButtonLabel}
+              onClick={props.handleGithubSignUp}
+            />
+          )}
+          {props.viaTwitter && (
+            <HawaLogoButton
+              logo="twitter"
+              buttonText={props.texts.twitterButtonLabel}
+              onClick={props.handleTwitterSignUp}
+            />
+          )}
+        </div>
+      ) : null}
+    </div>
   );
 };
 

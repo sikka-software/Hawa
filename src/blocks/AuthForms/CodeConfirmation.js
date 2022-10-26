@@ -1,14 +1,7 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton, HawaAlert } from "../../elements";
+import { HawaTextField, HawaAlert, HawaButton } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
-import InputAdornment from "@mui/material/InputAdornment";
-import EmailIcon from "@mui/icons-material/MailOutline";
-import PasswordIcon from "@mui/icons-material/HttpsOutlined";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
-import Divider from "@mui/material/Divider";
 
 export const CodeConfirmation = (props) => {
   const methods = useForm();
@@ -19,11 +12,7 @@ export const CodeConfirmation = (props) => {
   } = methods;
 
   return (
-    <Container
-      maxWidth="xs"
-      variant="auth"
-      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
-    >
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       {props.showError && (
         <HawaAlert
           title={props.errorTitle}
@@ -43,11 +32,6 @@ export const CodeConfirmation = (props) => {
               label={props.texts.codeLabel}
               helperText={errors.email?.message}
               placeholder={props.texts.codePlaceholder}
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <EmailIcon />
-              //   </InputAdornment>
-              // }
               {...field}
             />
           )}
@@ -56,11 +40,11 @@ export const CodeConfirmation = (props) => {
           }}
         />
 
-        <Button type="submit" fullWidth variant="last">
+        <HawaButton type="submit" fullWidth>
           {props.texts.confirmText}
-        </Button>
+        </HawaButton>
       </form>
-    </Container>
+    </div>
   );
 };
 CodeConfirmation.propTypes = {

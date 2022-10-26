@@ -22,6 +22,17 @@ export default function HawaPhoneInput(props) {
   const theme = useTheme();
   return (
     <div>
+      <label
+        for="first_name"
+        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >
+        {props.label}
+      </label>
+      <input
+        {...props}
+        className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+
       {label && <InputLabel>{props.label}</InputLabel>}
       <PhoneInput
         country={country ?? null}
@@ -41,6 +52,12 @@ export default function HawaPhoneInput(props) {
           width: "100%",
           borderRadius: theme.allBorderRadius
         }}
+        // inputClass="bg-red-900"
+        // inputClass="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        dropdownClass="bg-blue-900"
+        buttonClass="bg-green-900"
+        // containerClass="bg-orange-900"
+        // containerClass="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         {...rest}
       />
     </div>
