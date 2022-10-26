@@ -1,8 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { CreateHawaTheme } from "./../src";
-import "../src/tailwind.css"
-
+import "../src/tailwind.css";
 export const theme = CreateHawaTheme(
   {
     borderRadius: 10,
@@ -52,7 +51,7 @@ export const parameters = {
           ["Payment Selection", "User Settings"]
         ],
         "Layout",
-        ["Layout Introduction", "AppBar", "AppLayout", "Container", "Dialog"],
+        ["Layout Introduction", "App Layout", "Container", "Dialog"],
         "Elements",
         [
           "Elements Introduction",

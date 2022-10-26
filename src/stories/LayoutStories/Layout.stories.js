@@ -1,6 +1,7 @@
 import { HawaLayout } from "../../layout";
+
 export default {
-  title: "Layout",
+  title: "Layout/AppLayout",
   component: [HawaLayout]
 };
 

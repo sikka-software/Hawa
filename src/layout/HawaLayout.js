@@ -29,6 +29,70 @@ const MenuButton = () => {
     </button>
   );
 };
+const ProfileDropdown = (props) => {
+  return (
+    <div
+      id="userDropdown"
+      class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+      data-popper-reference-hidden=""
+      data-popper-escaped=""
+      data-popper-placement="bottom-start"
+      // style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 295.5px, 0px);"
+    >
+      <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
+        <div>{props.username}</div>
+        <div class="font-medium truncate">{props.userEmail}</div>
+      </div>
+      <ul
+        class="py-1 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="avatarButton"
+      >
+        {props.profileItems.map((it) => {
+          return <ProfileItem text={it.text} link={it.slug} />;
+        })}
+      </ul>
+      <div class="py-1">
+        <a
+          href="#"
+          class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+        >
+          Sign out
+        </a>
+      </div>
+    </div>
+  );
+};
+const DrawerContent = (props) => {
+  return (
+    <div
+      id="drawer-navigation"
+      class="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
+      tabindex="-1"
+      aria-labelledby="drawer-navigation-label"
+    >
+      <div href={props.logoHref} class="flex items-center">
+        <img
+          src={
+            "https://my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
+          }
+          // src={props.logoLink}
+          class="h-9"
+          alt="Flowbite Logo"
+        />
+      </div>
+      <CloseButton />
+      <div class="py-4 overflow-y-auto">
+        <ul class="space-y-2">
+          {props.drawerItems.map((item, i) => {
+            return (
+              <HawaDrawerItem action={item.action} key={i} text={item.text} />
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 const ProfileItem = (props) => {
   return (
@@ -72,31 +136,42 @@ export const HawaLayout = (props) => {
       <div>
         <nav class="border-gray-200 rounded dark:bg-gray-900">
           <div class="flex p-3 flex-row-reverse items-center justify-between w-full">
-            <div href={props.logoHref} class="flex items-center">
+            {/* <div href={props.logoHref} class="flex items-center">
               <img src={props.logoLink} class="h-9" alt="Flowbite Logo" />
+            </div> */}
+            <div
+              data-dropdown-toggle="userDropdown"
+              data-dropdown-placement="bottom-start"
+              class="overflow-hidden mr-2 relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600"
+            >
+              <svg
+                class="absolute -left-1 w-12 h-12 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
             </div>
+
+            {/* <div href={props.logoHref} class="flex items-center">
+              <img
+                src={
+                  // "https://my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
+                  "https://qawaim-images.s3-ap-southeast-1.amazonaws.com/614580f79706137eab618399"
+                }
+                // src={props.logoLink}
+                class="h-12"
+                alt="Flowbite Logo"
+              />
+            </div> */}
+            <div>{props.pageTitle ?? "Home"}</div>
             <div className="flex flex-row-reverse">
               <MenuButton />
-
-              <div
-                data-dropdown-toggle="userDropdown"
-                data-dropdown-placement="bottom-start"
-                class="overflow-hidden mr-2 relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600"
-              >
-                <svg
-                  class="absolute -left-1 w-12 h-12 text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </div>
-
               {/* <img
                 id="avatarButton"
                 type="button"
@@ -110,59 +185,12 @@ export const HawaLayout = (props) => {
           </div>
         </nav>
       </div>
-      <div
-        id="userDropdown"
-        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-        data-popper-reference-hidden=""
-        data-popper-escaped=""
-        data-popper-placement="bottom-start"
-        // style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 295.5px, 0px);"
-      >
-        <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
-          <div>{props.username}</div>
-          <div class="font-medium truncate">{props.userEmail}</div>
-        </div>
-        <ul
-          class="py-1 text-sm text-gray-700 dark:text-gray-200"
-          aria-labelledby="avatarButton"
-        >
-          {props.profileItems.map((it) => {
-            return <ProfileItem text={it.text} link={it.slug} />;
-          })}
-        </ul>
-        <div class="py-1">
-          <a
-            href="#"
-            class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-          >
-            Sign out
-          </a>
-        </div>
-      </div>
-
-      <div
-        id="drawer-navigation"
-        class="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
-        tabindex="-1"
-        aria-labelledby="drawer-navigation-label"
-      >
-        <h5
-          id="drawer-navigation-label"
-          class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
-        >
-          {props.appTitle}
-        </h5>
-        <CloseButton />
-        <div class="py-4 overflow-y-auto">
-          <ul class="space-y-2">
-            {props.drawerItems.map((item, i) => {
-              return (
-                <HawaDrawerItem action={item.action} key={i} text={item.text} />
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+      <ProfileDropdown profileItems={props.profileItems} />
+      <DrawerContent
+        logoHref={props.logoHref}
+        appTitle={props.appTitle}
+        drawerItems={props.drawerItems}
+      />
       <div className="p-3">{props.children}</div>
     </div>
   );

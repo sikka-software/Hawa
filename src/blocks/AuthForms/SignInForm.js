@@ -1,14 +1,12 @@
 import React from "react";
-import { HawaTextField, HawaLogoButton, HawaAlert } from "../../elements";
+import {
+  HawaTextField,
+  HawaLogoButton,
+  HawaAlert,
+  HawaButton
+} from "../../elements";
 import { Controller, useForm } from "react-hook-form";
-import InputAdornment from "@mui/material/InputAdornment";
-import EmailIcon from "@mui/icons-material/MailOutline";
-import PasswordIcon from "@mui/icons-material/HttpsOutlined";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
-import Divider from "@mui/material/Divider";
 
 export const SignInForm = (props) => {
   const methods = useForm();
@@ -19,19 +17,15 @@ export const SignInForm = (props) => {
   } = methods;
 
   return (
-    <Container
-      variant="auth"
-      maxWidth="sm"
-      style={{ direction: props.lang === "ar" ? "rtl" : "ltr" }}
-    >
-      {props.showError && (
-        <HawaAlert
-          title={props.errorTitle}
-          text={props.errorText}
-          severity="error"
-        />
-      )}
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       <form onSubmit={handleSubmit(props.handleSignIn)}>
+        {props.showError && (
+          <HawaAlert
+            title={props.errorTitle}
+            text={props.errorText}
+            severity="error"
+          />
+        )}
         <Controller
           control={control}
           name="email"
@@ -43,11 +37,6 @@ export const SignInForm = (props) => {
               label={props.texts.emailLabel}
               helperText={errors.email?.message}
               placeholder={props.texts.emailPlaceholder}
-              startAdornment={
-                <InputAdornment position="start">
-                  <EmailIcon />
-                </InputAdornment>
-              }
               {...field}
             />
           )}
@@ -73,50 +62,40 @@ export const SignInForm = (props) => {
               label={props.texts.passwordLabel}
               placeholder={props.texts.passwordPlaceholder}
               helperText={errors.password?.message}
-              startAdornment={
-                <InputAdornment position="start">
-                  <PasswordIcon />
-                </InputAdornment>
-              }
               {...field}
             />
           )}
           rules={{ required: props.texts.passwordRequiredText }}
         />
-        <Typography
-          style={{
-            cursor: "pointer",
-            marginTop: 5,
-            width: "max-content",
-            fontSize: 15,
-            padding: 5
-          }}
+
+        <div
+          className="text-xs cursor-pointer w-fit"
           onClick={props.handleForgotPassword}
         >
           {props.texts.forgotPasswordText}
-        </Typography>
-        <Button type="submit" fullWidth variant="last">
+        </div>
+
+        <HawaButton fullWidth type="submit">
           {props.texts.signInText}
-        </Button>
+        </HawaButton>
+        <div className="font-semibold p-3 text-center">
+          {props.texts.newUserText}{" "}
+          <span
+            onClick={props.handleRouteToSignUp}
+            style={{
+              cursor: "pointer",
+              color: "blue",
+              textAlign: "center"
+            }}
+          >
+            {props.texts.signUpText}
+          </span>
+        </div>
       </form>
-      <Typography
-        variant="subtitle2"
-        style={{ marginTop: 5, textAlign: "center", padding: 5 }}
-      >
-        {props.texts.newUserText}{" "}
-        <span
-          onClick={props.handleRouteToSignUp}
-          style={{
-            cursor: "pointer",
-            color: "blue",
-            textAlign: "center"
-          }}
-        >
-          {props.texts.signUpText}
-        </span>
-      </Typography>
-      <Divider />
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      {/* <Divider /> */}
+
+      {/* <div className="divide-y divide-gray-900"></div> */}
+      <div className="flex flex-col ">
         {props.viaGoogle && (
           <HawaLogoButton
             logo="google"
@@ -139,7 +118,7 @@ export const SignInForm = (props) => {
           />
         )}
       </div>
-    </Container>
+    </div>
   );
 };
 SignInForm.propTypes = {
