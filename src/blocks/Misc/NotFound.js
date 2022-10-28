@@ -1,8 +1,6 @@
 import React from "react";
-import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { HawaButton } from "../../elements";
 
 export const NotFound = (props) => {
   return (
@@ -13,27 +11,14 @@ export const NotFound = (props) => {
         alignItems: "center"
       }}
     >
-      <Typography variant="h2" fontWeight={700}>
-        404
-      </Typography>
-      <Typography variant="h5" fontWeight={700}>
-        Page Not Found
-      </Typography>
-      <Container
-        style={{
-          maxWidth: 300,
-          marginTop: 10,
-          direction: props.lang === "ar" ? "rtl" : "ltr"
-        }}
-        maxWidth="xs"
-      >
-        <Typography textAlign={"center"}>
+      <div className="text-6xl font-bold">404</div>
+      <div className="text-xl m-2 font-bold">Page Not Found</div>
+      <div className="flex w-40 flex-col bg-blue-300 rounded-xl p-4">
+        <div className="text-center">
           If you're lost please contact us help@sikka.io{" "}
-        </Typography>
-        <Button style={{ marginTop: 5 }} variant="contained">
-          Home
-        </Button>
-      </Container>
+        </div>
+        <HawaButton fullWidth>Home</HawaButton>
+      </div>
     </div>
   );
 };

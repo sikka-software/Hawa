@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Container from "@mui/material/Container";
 import { HawaPricingCard, HawaPanelTabs } from "../../elements";
 import PropTypes from "prop-types";
 
@@ -7,7 +6,7 @@ export const PricingPlans = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
   const [currentCycle, setCurrentCycle] = useState("monthly");
   return (
-    <Container style={{ width: "fit-content" }} variant="plain">
+    <div>
       <div
         style={{
           display: "flex",
@@ -41,7 +40,7 @@ export const PricingPlans = (props) => {
         />
       </div>
 
-      <Container variant="pricing">
+      <div className="flex flex-row">
         {props.plans.map((plan) => {
           return (
             <HawaPricingCard
@@ -52,8 +51,8 @@ export const PricingPlans = (props) => {
             />
           );
         })}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 

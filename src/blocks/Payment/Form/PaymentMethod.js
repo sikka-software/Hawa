@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
-import Chip from "@mui/material/Chip";
 import PropTypes from "prop-types";
+import { HawaChip } from "../../../elements";
 
 export const PaymentMethod = (props) => {
   const { t } = useTranslation("common");
@@ -106,14 +106,7 @@ const PaymentMethodButton = (props) => {
         }}
       >
         {props.methodLabel}
-        {props.chip ? (
-          <Chip
-            size="small"
-            color="primary"
-            label={props.chip}
-            style={{ marginRight: 10, marginLeft: 10 }}
-          />
-        ) : null}
+        {props.chip ? <HawaChip label="test" /> : null}x
       </div>
     </button>
   );

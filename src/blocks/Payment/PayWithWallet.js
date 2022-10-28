@@ -1,23 +1,16 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { HawaButton } from "../../elements";
 
 export const PayWithWallet = (props) => {
   return (
-    <Container maxWidth="xs">
-      <Typography align="center">Wallet Balance</Typography>
-      <Typography align="center" variant="h1">
+    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+      <div className="text-5xl font-extrabold text-center">
         {props.walletBalance || "0"}
-        <Typography>{props.currency || "SAR"}</Typography>
-      </Typography>
-      <HawaButton
-        type="submit"
-        fullWidth
-        onClick={props.handlePayWithWallet}
-      >
+        <div className="text-sm font-normal">{props.currency || "SAR"}</div>
+      </div>
+      <HawaButton type="submit" fullWidth onClick={props.handlePayWithWallet}>
         {"Pay Now"}
       </HawaButton>
-    </Container>
+    </div>
   );
 };

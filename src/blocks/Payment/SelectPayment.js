@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { HawaTypography, HawaLogoButton } from "../../elements";
-import Container from "@mui/material/Container";
 
 export const SelectPayment = (props) => {
   return (
-    <Container maxWidth="xs">
+    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
       <HawaTypography align="center">Choose Payment Method</HawaTypography>
       {props.viaWallet && (
         <HawaLogoButton
@@ -56,7 +55,7 @@ export const SelectPayment = (props) => {
           onClick={props.handleApplePay}
         />
       )}
-    </Container>
+    </div>
   );
 };
 

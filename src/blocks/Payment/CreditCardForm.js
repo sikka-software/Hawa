@@ -1,7 +1,6 @@
 import React from "react";
 import { HawaButton, HawaTextField } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import Container from "@mui/material/Container";
+import { Controller, useForm } from "react-hook-form";
 
 export const CreditCardForm = (props) => {
   const methods = useForm();
@@ -12,7 +11,7 @@ export const CreditCardForm = (props) => {
   } = methods;
 
   return (
-    <Container maxWidth="xs">
+    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
       <form onSubmit={handleSubmit(props.handle)}>
         <HawaTextField
           fullWidth
@@ -86,6 +85,6 @@ export const CreditCardForm = (props) => {
           {"Pay with Credit Card"}
         </HawaButton>
       </form>
-    </Container>
+    </div>
   );
 };

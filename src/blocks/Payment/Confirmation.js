@@ -1,73 +1,37 @@
 import React from "react";
 import { HawaButton, HawaTable } from "../../elements";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import PropTypes from "prop-types";
 
 export const ConfirmationPage = (props) => {
   let isArabic = props.lang === "ar";
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <Container maxWidth="sm" style={{ direction: isArabic ? "rtl" : "ltr" }}>
-        <Typography
-          align="center"
-          variant="h3"
-          fontWeight={400}
-          style={{ marginBottom: 10 }}
-        >
-          {props.confirmationTitle}
-        </Typography>
-        <Divider variant="middle" />
-
-        <Typography
-          align="center"
-          variant="body1"
-          //   fontWeight={500}
-          style={{ marginBottom: 10 }}
-        >
+    <div className="flex flex-col divide-gray-300 bg-blue-300 divide-y rounded-xl p-4">
+      <div className="text-3xl font-bold text-center py-5">
+        {props.confirmationTitle}
+      </div>
+      <div className="py-5">
+        <div className="text-center mb-2">
           {props.texts.successMessage} <strong>{props.userEmail}</strong>
-        </Typography>
-        <Typography align="center" variant="body1">
-          {props.texts.yourOrderNumber}
-        </Typography>
-        <Typography
-          align="center"
-          variant="body1"
-          fontWeight={700}
-          style={{ marginBottom: 10 }}
-        >
-          {props.orderNumber}
-        </Typography>
-        <Divider variant="middle" />
-        {props.products && (
-          <>
-            <Typography
-              align="center"
-              variant="h5"
-              fontWeight={500}
-              style={{ marginBottom: 10 }}
-            >
-              {props.texts.orderDetails}
-            </Typography>
+        </div>
+        <div className="text-center">{props.texts.yourOrderNumber}</div>
+        <div className="font-bold text-center">{props.orderNumber}</div>
+      </div>
 
-            <HawaTable
-              lang={props.lang}
-              columns={["Product", "Price"]}
-              rows={props.products}
-              end={["Total", props.total]}
-            />
-            <Divider variant="middle" />
-          </>
+      <div className="py-5">
+        <div className="text-xl font-semibold mb-3 text-center">
+          {props.texts.orderDetails}
+        </div>
+        {props.products && (
+          <HawaTable
+            lang={props.lang}
+            columns={["Product", "Price"]}
+            rows={props.products}
+            end={["Total", props.total]}
+          />
         )}
+      </div>
+      <div className="flex flex-col py-5 justify-center items-center">
         <HawaButton fullWidth onClick={props.handlePrint}>
           {props.texts.print}
         </HawaButton>
@@ -77,23 +41,16 @@ export const ConfirmationPage = (props) => {
         <HawaButton fullWidth onClick={props.handleHome}>
           {props.texts.homePage}
         </HawaButton>
-        <Typography align="center" variant="body2" style={{ marginTop: 10 }}>
+        <div className="mt-5 mb-5 text-center text-sm">
           {props.texts.fasterPaymentNote}
-        </Typography>
-      </Container>
-      <a
-        style={{
-          marginTop: 10,
-          paddingTop: 10,
-          padding: 5,
-          cursor: "pointer"
-        }}
-        onClick={props.handleRefundPolicyLink}
-      >
-        <Typography align="center" variant="caption" fontWeight={500}>
+        </div>
+        <a
+          className="w-fit text-center cursor-pointer text-xs font-normal"
+          onClick={props.handleRefundPolicyLink}
+        >
           {props.texts.refundPolicy}
-        </Typography>
-      </a>
+        </a>
+      </div>
     </div>
   );
 };

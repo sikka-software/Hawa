@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
 export const ChargeWalletForm = (props) => {
@@ -15,16 +13,11 @@ export const ChargeWalletForm = (props) => {
   } = methods;
 
   return (
-    <Container maxWidth="xs">
-      <Typography
-        align="center"
-        variant="h2"
-        fontWeight={500}
-        style={{ marginBottom: 20 }}
-      >
+    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+      <div className="text-5xl font-extrabold text-center">
         {Number(walletAmount).toLocaleString("en") || "0"}
-        <Typography>{props.currency || "SAR"}</Typography>
-      </Typography>
+        <div className="text-sm font-normal">{props.currency || "SAR"}</div>
+      </div>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleChargeWallet)}>
           <Controller
@@ -60,7 +53,7 @@ export const ChargeWalletForm = (props) => {
           </HawaButton>
         </form>
       </FormProvider>
-    </Container>
+    </div>
   );
 };
 

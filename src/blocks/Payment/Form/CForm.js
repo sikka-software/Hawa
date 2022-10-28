@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import sha256 from "crypto-js/sha256";
-import CircularProgress from "@mui/material/CircularProgress";
 import useTranslation from "next-translate/useTranslation";
 import axios from "axios";
 import { HawaButton } from "../../../elements";
@@ -310,15 +309,15 @@ export default function CForm({
             fullWidth
             onClick={handlePayfortForm}
           >
-            {loading ? (
+            {/* {loading ? (
               <CircularProgress
                 variant="indeterminate"
                 style={{ color: "white", display: "none" }}
                 size={25}
               />
-            ) : (
+            ) : ( */}
               <span className="pay-new-btn-txt">{t("pay-now")}</span>
-            )}
+            {/* )} */}
           </HawaButton>
         </div>
       </div>

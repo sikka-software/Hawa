@@ -1,7 +1,6 @@
 import React from "react";
 import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import Container from "@mui/material/Container";
 
 export const UserProfileForm = (props) => {
   const methods = useForm();
@@ -13,7 +12,7 @@ export const UserProfileForm = (props) => {
   } = methods;
 
   return (
-    <Container maxWidth="sm">
+    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleUpdateProfile)}>
           <Controller
@@ -146,7 +145,7 @@ export const UserProfileForm = (props) => {
           </HawaButton>
         </form>
       </FormProvider>
-    </Container>
+    </div>
   );
 };
 
