@@ -1,7 +1,5 @@
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
-import { useTheme } from "@mui/system";
-import { InputLabel } from "@mui/material";
 
 export default function HawaPhoneInput(props) {
   const {
@@ -19,7 +17,6 @@ export default function HawaPhoneInput(props) {
     ...rest
   } = props;
 
-  const theme = useTheme();
   return (
     <div>
       <label
@@ -33,7 +30,7 @@ export default function HawaPhoneInput(props) {
         className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
 
-      {label && <InputLabel>{props.label}</InputLabel>}
+      {/* {label && <InputLabel>{props.label}</InputLabel>} */}
       <PhoneInput
         country={country ?? null}
         onChange={(e) => onChange(e)}
@@ -49,8 +46,7 @@ export default function HawaPhoneInput(props) {
         specialLabel={""}
         placeholder={placeholder ?? ""}
         inputStyle={{
-          width: "100%",
-          borderRadius: theme.allBorderRadius
+          width: "100%"
         }}
         // inputClass="bg-red-900"
         // inputClass="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

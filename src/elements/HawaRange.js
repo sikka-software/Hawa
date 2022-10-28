@@ -1,20 +1,36 @@
 import React from "react";
-import Slider from "@mui/material/Slider";
-import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
 
 export const HawaRange = (props) => {
   return (
-    <Stack spacing={2} direction="row" alignItems="center" style={props.style}>
-      {props.startElement}
-      <Slider
-        size="small"
-        aria-label="Volume"
-        value={props.value}
-        onChange={props.handleChange}
-      />
-      {props.endElement}
-    </Stack>
+    // <Stack spacing={2} direction="row" alignItems="center" style={props.style}>
+    //   {props.startElement}
+    //   <Slider
+    //     size="small"
+    //     aria-label="Volume"
+    //     value={props.value}
+    //     onChange={props.handleChange}
+    //   />
+    //   {props.endElement}
+    // </Stack>
+    <div>
+      <label
+        for="default-range"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >
+        Default range
+      </label>
+      <div className="flex flex-row justify-center items-center w-fit">
+        <div className="mr-2">{props.startElement}</div>{" "}
+        <input
+          id="default-range"
+          type="range"
+          value="50"
+          class="w-fit h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+        />
+        <div className="ml-2">{props.endElement}</div>{" "}
+      </div>
+    </div>
   );
 };
 HawaRange.propTypes = {

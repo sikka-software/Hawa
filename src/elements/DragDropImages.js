@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import CloseIcon from "@mui/icons-material/Close";
-// import styled from "@emotion/styled";
-import { Button, Container, IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/system";
 import { HawaAlert } from "./HawaAlert";
+import { HawaButton } from "./HawaButton";
 
 const thumbsContainer = {
   display: "flex",
@@ -95,26 +92,33 @@ export const DragDropImages = ({
     });
     const thumbs = files?.map((file, index) => (
       <div style={{ position: "relative", margin: 10 }}>
-        <IconButton
+        <button
           onClick={(e) => {
             e.stopPropagation();
             acceptedFiles.splice(acceptedFiles.indexOf(file), 1);
             setCmp(Math.random);
             onDeleteFile(file);
           }}
-          size="small"
-          variant="contained"
-          style={{
-            position: "absolute",
-            top: -10,
-            right: -10,
-            backgroundColor: theme.primaryActionColor,
-            color: "white",
-            padding: 3
-          }}
+          type="button"
+          class="text-gray-400 absolute left-0 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-toggle="defaultModal"
         >
-          <CloseIcon fontSize="small" />
-        </IconButton>
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+
         <div
           style={{
             display: "flex",
@@ -136,17 +140,20 @@ export const DragDropImages = ({
     console.log("error", fileRejections);
 
     return (
-      <Container
-        variant="drop-area"
+      <div
+        // variant="drop-area"
         {...getRootProps({
           style: { backgroundColor: isDragActive && "white" }
         })}
+        className="border-black border border-dashed rounded-xl flex flex-col justify-center"
       >
         <input {...getInputProps()} />
-        <Typography>Click here or drop files here to upload</Typography>
-        <Typography>Max file size is {max}</Typography>
+        <div className="text-center p-1">
+          Click here or drop files here to upload
+        </div>
+        <div className="text-center p-1">Max file size is {max}</div>
         {acceptedFiles.length > 0 && (
-          <Button
+          <HawaButton
             style={{ color: "black" }}
             onClick={(e) => {
               e.stopPropagation();
@@ -154,12 +161,13 @@ export const DragDropImages = ({
             }}
           >
             Clear All
-          </Button>
+          </HawaButton>
         )}
 
-        {thumbs && showPreview ? <aside style={thumbsContainer}>{thumbs}</aside> : null}
+        {thumbs && showPreview ? (
+          <aside style={thumbsContainer}>{thumbs}</aside>
+        ) : null}
         {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
-          // <Typography variant="">{texts.tooManyFiles}</Typography>
           <HawaAlert text={texts.tooManyFiles} severity="error" />
         ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
           <HawaAlert text={texts.fileTooLarge} severity="error" />
@@ -167,6 +175,6 @@ export const DragDropImages = ({
           errs
         )}
         {}
-      </Container>
+      </div>
     );
   };

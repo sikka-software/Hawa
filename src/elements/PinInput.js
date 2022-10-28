@@ -1,14 +1,4 @@
-import {
-  Input,
-  makeStyles,
-  TextField,
-  InputLabel,
-  Typography,
-  Stack
-} from "@mui/material";
-import { object } from "prop-types";
 import React, { useEffect, useState } from "react";
-import { replaceAt } from "../util";
 
 export const HawaPinInput = ({
   children,
@@ -86,24 +76,25 @@ export const HawaPinInput = ({
             alignItems: "center"
           }}
         >
-          {props.label && <InputLabel>{props.label}</InputLabel>}
+          {props.label && (
+            <label
+              for="first_name"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              {props.label}
+            </label>
+          )}
+
           {props.helperText && (
-            <Typography
+            <div
               style={{ marginBottom: !props.label && 10 }}
               variant="validation"
             >
               {props.helperText}
-            </Typography>
+            </div>
           )}
         </div>
-        <Stack
-          direction={"row"}
-          spacing={2}
-          justifyContent="center"
-          alignItems={"center"}
-        >
-          {childrenWithProps}
-        </Stack>
+        <div>{childrenWithProps}</div>
       </div>
     </div>
   );
@@ -111,7 +102,8 @@ export const HawaPinInput = ({
 
 export const HawaPinInputField = (props) => {
   return (
-    <Input
+    <input
+      className="w-12 rounded-lg mx-2"
       type={props.type && props.type == "alphanumeric" ? "text" : "number"}
       id={"pinInput" + props.index}
       defaultValue={props.defaultValue || ""}

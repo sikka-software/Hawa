@@ -89,23 +89,7 @@ export const HawaAccordian = (props) => {
           />
         );
       })}
-      {/* <AccordionItem count={1} />
-      <AccordionItem count={2} />
-      <AccordionItem count={3} /> */}
     </div>
-
-    // <Accordion elevation={0}>
-    //   <AccordionSummary
-    //     expandIcon={<ExpandMore />}
-    //     aria-controls="panel1a-content"
-    //     id="panel1a-header"
-    //   >
-    //     <Typography>{props.title}</Typography>
-    //   </AccordionSummary>
-    //   <AccordionDetails>
-    //     <Typography>{props.content} </Typography>
-    //   </AccordionDetails>
-    // </Accordion>
   );
 };
 HawaAccordian.propTypes = {
