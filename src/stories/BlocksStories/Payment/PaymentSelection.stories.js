@@ -36,7 +36,7 @@ const PaymentSelectionTemplate = (args) => {
       handleWallet={() => console.log("paying via wallet")}
       visaMasterLabel="Credit Card"
       handleCreditCard={() => console.log("paying via Credit Card")}
-      madaLabel="Mada"
+      madaLabel="mada"
       handleMada={() => console.log("paying via Mada")}
       paypalLabel="PayPal"
       handlePayPal={() => console.log("paying via PayPal")}

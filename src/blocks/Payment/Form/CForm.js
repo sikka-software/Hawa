@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import sha256 from "crypto-js/sha256";
-import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import useTranslation from "next-translate/useTranslation";
 import axios from "axios";
+import { HawaButton } from "../../../elements";
 
 const currentYear = new Date().getFullYear();
 const monthsArr = Array.from({ length: 12 }, (x, i) => {
@@ -305,9 +305,8 @@ export default function CForm({
                 />
               )}
           </form>
-          <Button
-            variant="contained"
-            color="primary"
+          <HawaButton
+            // color="primary"
             fullWidth
             onClick={handlePayfortForm}
           >
@@ -320,7 +319,7 @@ export default function CForm({
             ) : (
               <span className="pay-new-btn-txt">{t("pay-now")}</span>
             )}
-          </Button>
+          </HawaButton>
         </div>
       </div>
     </div>

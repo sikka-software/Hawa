@@ -1,4 +1,3 @@
-import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import { HawaPopMenu } from "../../elements/HawaPopMenu";
 import { Person, BookOnline, AccessAlarms } from "@mui/icons-material";
@@ -36,12 +35,12 @@ export const PopMenu = (args) => {
 
   return (
     <>
-      <Button
+      <button
         variant="contained"
         onClick={(e) => setAnchorElUser(e.currentTarget)}
       >
         Open Menu
-      </Button>
+      </button>
       <HawaPopMenu
         anchor={anchorElUser}
         handleClose={(e) => setAnchorElUser(null)}

@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import { HawaButton } from "../../elements";
 
 export const PayWithWallet = (props) => {
   return (
@@ -11,14 +11,13 @@ export const PayWithWallet = (props) => {
         {props.walletBalance || "0"}
         <Typography>{props.currency || "SAR"}</Typography>
       </Typography>
-      <Button
+      <HawaButton
         type="submit"
         fullWidth
-        variant="last"
         onClick={props.handlePayWithWallet}
       >
         {"Pay Now"}
-      </Button>
+      </HawaButton>
     </Container>
   );
 };

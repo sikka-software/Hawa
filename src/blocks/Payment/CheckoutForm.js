@@ -1,7 +1,11 @@
 import React from "react";
-import { HawaTextField, HawaTable, HawaSelect } from "../../elements";
+import {
+  HawaTextField,
+  HawaTable,
+  HawaSelect,
+  HawaButton
+} from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -236,9 +240,9 @@ export const CheckoutForm = (props) => {
               )}
             />
           </Container>
-          <Button type="submit" fullWidth variant="last">
+          <HawaButton type="submit" fullWidth>
             {props.texts.payNow}
-          </Button>
+          </HawaButton>
         </form>
       </FormProvider>
     </Container>

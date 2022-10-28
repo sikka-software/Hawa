@@ -1,4 +1,3 @@
-import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import { HawaDialog } from "../../layout";
 
@@ -34,9 +33,9 @@ export const Dialog = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button variant="contained" onClick={() => setOpen(!open)}>
+      <button variant="contained" onClick={() => setOpen(!open)}>
         Open Dialog
-      </Button>
+      </button>
 
       <HawaDialog
         title="Dialog Test"
@@ -45,8 +44,8 @@ export const Dialog = (args) => {
         onClose={() => setOpen(!open)}
         actions={
           <>
-            <Button variant="outlined">Button</Button>
-            <Button variant="danger">Button</Button>
+            <button variant="outlined">Button</button>
+            <button variant="danger">Button</button>
           </>
         }
       >

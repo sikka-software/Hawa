@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlined";
 import PropTypes from "prop-types";
@@ -139,13 +138,13 @@ export const HawaPricingCard = (props) => {
           );
         })}
       </div>
-      <Button
+      <button
         onClick={props.selectPlan}
         variant={props.selectedPlan ? "outlined" : "contained"}
         style={{ margin: 20 }}
       >
         {props.buttonText}
-      </Button>
+      </button>
     </Container>
   );
 };

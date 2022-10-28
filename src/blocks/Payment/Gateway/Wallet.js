@@ -1,5 +1,4 @@
 import useTranslation from "next-translate/useTranslation";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -120,7 +119,7 @@ const Wallet = (props) => {
             </Grid>
             {!props.leftAmount && (
               <Grid item xs={12}>
-                <Button
+                <button
                   variant="contained"
                   color="primary"
                   fullWidth
@@ -136,7 +135,7 @@ const Wallet = (props) => {
                   ) : (
                     t("pay-now")
                   )}
-                </Button>
+                </button>
               </Grid>
             )}
           </Grid>

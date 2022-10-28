@@ -1,5 +1,4 @@
 import useTranslation from "next-translate/useTranslation";
-import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import PropTypes from "prop-types";
 
@@ -68,7 +67,7 @@ export const PaymentMethod = (props) => {
 
 const PaymentMethodButton = (props) => {
   return (
-    <Button
+    <button
       disabled={props?.chip ? true : false}
       fullWidth
       variant="contained"
@@ -116,7 +115,7 @@ const PaymentMethodButton = (props) => {
           />
         ) : null}
       </div>
-    </Button>
+    </button>
   );
 };
 

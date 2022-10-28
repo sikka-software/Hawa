@@ -1,18 +1,13 @@
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import { HawaButton } from "../../elements";
 
 export const UserSettingsForm = (props) => {
   return (
     <Container maxWidth="sm">
       {props.children}
-      <Button
-        type="submit"
-        fullWidth
-        variant="last"
-        onClick={props.handleSaveSettings}
-      >
+      <HawaButton type="submit" fullWidth onClick={props.handleSaveSettings}>
         {props.saveSettingsText}
-      </Button>
+      </HawaButton>
     </Container>
   );
 };

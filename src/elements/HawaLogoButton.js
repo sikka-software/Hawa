@@ -1,9 +1,7 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
 export const HawaLogoButton = (props) => {
@@ -29,7 +27,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/mada.png"
-          height={20}
+          // height={20}
+          className="h-6"
         />
       );
       break;
@@ -37,7 +36,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/stc-pay.png"
-          height={20}
+          // height={20}
+          className="h-6"
         />
       );
       break;
@@ -45,7 +45,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/visa-master.png"
-          height={30}
+          // height={30}
+          className="h-6"
         />
       );
       break;
@@ -53,7 +54,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/paypal.png"
-          height={25}
+          // height={25}
+          className="h-6"
         />
       );
       break;
@@ -61,7 +63,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/google-pay.png"
-          height={20}
+          // height={20}
+          className="h-6"
         />
       );
       break;
@@ -69,7 +72,8 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/apple-pay.png"
-          height={40}
+          // height={40}
+          className="h-11"
         />
       );
       break;
@@ -81,26 +85,20 @@ export const HawaLogoButton = (props) => {
       break;
   }
   return (
-    <Button
+    <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       {...props}
-      variant="withLogo"
+      // variant="withLogo"
+      className="bg-white rounded-xl my-2 h-11 flex flex-row justify-center align-middle"
     >
-      {logoElement}
+      <div className="h-full w-1/2 flex flex-row justify-end items-center">
+        {logoElement}
+      </div>
       <div style={{ width: 10 }} />
-      <Typography
-        style={{
-          color: "black",
-          fontSize: 14,
-          textAlign: "center",
-          letterSpacing: 0.4,
-          fontFamily: "Roboto",
-          fontWeight: 500
-        }}
-      >
+      <div className="h-full w-1/2 flex flex-col justify-center items-start">
         {props.buttonText}
-      </Typography>
-    </Button>
+      </div>
+    </button>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { HawaTextField } from "../../elements";
+import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
 export const CreditCardForm = (props) => {
@@ -79,14 +78,13 @@ export const CreditCardForm = (props) => {
           )}
         />
 
-        <Button
+        <HawaButton
           type="submit"
           fullWidth
-          variant="last"
           onClick={props.handlePayWithCreditCard}
         >
           {"Pay with Credit Card"}
-        </Button>
+        </HawaButton>
       </form>
     </Container>
   );

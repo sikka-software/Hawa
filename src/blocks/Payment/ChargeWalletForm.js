@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { HawaTextField } from "../../elements";
+import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
@@ -56,9 +55,9 @@ export const ChargeWalletForm = (props) => {
             }}
           />
 
-          <Button type="submit" fullWidth variant="last">
+          <HawaButton type="submit" fullWidth>
             {props.texts.chargeWallet}
-          </Button>
+          </HawaButton>
         </form>
       </FormProvider>
     </Container>

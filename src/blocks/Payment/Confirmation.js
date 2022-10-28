@@ -1,6 +1,5 @@
 import React from "react";
-import { HawaTable } from "../../elements";
-import Button from "@mui/material/Button";
+import { HawaButton, HawaTable } from "../../elements";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -69,15 +68,15 @@ export const ConfirmationPage = (props) => {
             <Divider variant="middle" />
           </>
         )}
-        <Button onClick={props.handlePrint} variant="contained">
+        <HawaButton fullWidth onClick={props.handlePrint}>
           {props.texts.print}
-        </Button>
-        <Button onClick={props.handleHistory} variant="last">
+        </HawaButton>
+        <HawaButton fullWidth onClick={props.handleHistory}>
           {props.texts.history}
-        </Button>
-        <Button onClick={props.handleHome} variant="last">
+        </HawaButton>
+        <HawaButton fullWidth onClick={props.handleHome}>
           {props.texts.homePage}
-        </Button>
+        </HawaButton>
         <Typography align="center" variant="body2" style={{ marginTop: 10 }}>
           {props.texts.fasterPaymentNote}
         </Typography>

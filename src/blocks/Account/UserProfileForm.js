@@ -1,8 +1,7 @@
 import React from "react";
-import { HawaTextField } from "../../elements";
+import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 
 export const UserProfileForm = (props) => {
   const methods = useForm();
@@ -141,9 +140,10 @@ export const UserProfileForm = (props) => {
                 />
               );
             })}
-          <Button type="submit" fullWidth variant="last">
+
+          <HawaButton fullWidth type="submit">
             {props.texts.updateProfile}
-          </Button>
+          </HawaButton>
         </form>
       </FormProvider>
     </Container>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
+
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
 
@@ -9,7 +9,7 @@ export const HawaPanelTabs = (props) => {
     <Container variant={props.location || "panelTabs"}>
       {props.options.map((singleOption, i) => {
         return (
-          <Button
+          <button
             key={i}
             onClick={() => {
               props.handleChange(singleOption.value);
@@ -23,7 +23,7 @@ export const HawaPanelTabs = (props) => {
             }
           >
             {singleOption.label}
-          </Button>
+          </button>
         );
       })}
     </Container>
