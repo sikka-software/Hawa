@@ -1,5 +1,4 @@
 import React from "react";
-import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
 
 export const ResponsiveButton = (props) => {
@@ -14,11 +13,16 @@ export const ResponsiveButton = (props) => {
   } else {
     //icon only
     return (
-      <Tooltip title={props.buttonText} placement="top">
-        <button variant="adaptive-dark" onClick={props.onClick}>
+      <>
+        <button
+          data-tooltip-target="btn1"
+          variant="adaptive-dark"
+          onClick={props.onClick}
+        >
           {props.icon}
         </button>
-      </Tooltip>
+        <HawaTooltip tooltipID="btn1" content={props.buttonText} />
+      </>
     );
   }
 };
@@ -26,5 +30,5 @@ export const ResponsiveButton = (props) => {
 ResponsiveButton.propTypes = {
   buttonText: PropTypes.string,
   onClick: PropTypes.func,
-  showText: PropTypes.bool,
+  showText: PropTypes.bool
 };

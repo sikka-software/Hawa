@@ -14,7 +14,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
-import Tooltip from "@mui/material/Tooltip";
 import { HawaPopMenu } from "../elements/HawaPopMenu";
 
 const drawerWidth = 200;
@@ -154,18 +153,15 @@ export function HawaAppLayout(props) {
             </Typography>
 
             <Box style={{ position: "absolute", right: 10 }}>
-              <Tooltip title="Open settings">
-                <IconButton
-                  onClick={handleOpenUserMenu}
-                  // sx={{ p: 0 }}
-                  size="small"
-                >
-                  <Avatar
-                    style={{ width: 30, height: 30 }}
-                    fontSize="inherit"
-                  />
-                </IconButton>
-              </Tooltip>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                // sx={{ p: 0 }}
+                size="small"
+              >
+                <Avatar style={{ width: 30, height: 30 }} fontSize="inherit" />
+              </IconButton>
+              {/* <Tooltip title="Open settings">
+              </Tooltip> */}
               <HawaPopMenu
                 menuItems={props.accountMenu}
                 anchor={anchorElUser}
@@ -207,34 +203,32 @@ export function HawaAppLayout(props) {
         >
           {props.pages.map((p, jk) => {
             return (
-              <Tooltip
-                title={p.text}
-                key={jk}
-                placement={"right"}
-                arrow={true}
-                PopperProps={{ style: { opacity: open ? 0 : 1 } }}
+              // <Tooltip
+              //   title={p.text}
+              //   key={jk}
+              //   placement={"right"}
+              //   arrow={true}
+              //   PopperProps={{ style: { opacity: open ? 0 : 1 } }}
+              // >
+
+              // </Tooltip>
+              <ListItemButton
+                variant={
+                  props.pageName?.toLowerCase() === p.slug?.toLowerCase() &&
+                  "clicked"
+                }
+                onClick={p.action}
+                key={p.text}
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5
+                }}
               >
-                <ListItemButton
-                  variant={
-                    props.pageName?.toLowerCase() === p.slug?.toLowerCase() &&
-                    "clicked"
-                  }
-                  onClick={p.action}
-                  key={p.text}
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5
-                  }}
-                >
-                  <p.icon />
-                  <div style={{ width: 20 }} />
-                  <ListItemText
-                    primary={p.text}
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </Tooltip>
+                <p.icon />
+                <div style={{ width: 20 }} />
+                <ListItemText primary={p.text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
             );
           })}
         </List>
