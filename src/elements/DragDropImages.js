@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { useTheme } from "@mui/system";
 import { HawaAlert } from "./HawaAlert";
 import { HawaButton } from "./HawaButton";
 
@@ -30,7 +29,6 @@ export const DragDropImages = ({
     const [cmp, setCmp] = useState(0);
     const [max, setMax] = useState(0);
     //const [thumbs, setThumbs] = useState("");
-    const theme = useTheme();
     const {
       getRootProps,
       getInputProps,

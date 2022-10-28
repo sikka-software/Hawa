@@ -1,4 +1,3 @@
-import { useTheme } from "@mui/system";
 import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
@@ -36,13 +35,13 @@ const ColorText = styled.input`
   }
 `;
 export const HawaColorPicker = (props) => {
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       <ColorText
         type={"text"}
         value={props.color}
-        borderRadius={theme.allBorderRadius}
+        // borderRadius={theme.allBorderRadius}
         onChange={props.handleChange}
       />
       <div style={{ width: 10 }} />
@@ -50,7 +49,7 @@ export const HawaColorPicker = (props) => {
         type={"color"}
         value={props.color}
         onChange={props.handleChange}
-        borderRadius={theme.allBorderRadius}
+        // borderRadius={theme.allBorderRadius}
       />
     </div>
   );
