@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Checkbox from "@mui/material/Checkbox";
-import Container from "@mui/material/Container";
 import { HawaTypography } from "./HawaTypography";
 import { HawaTextField } from "./HawaTextField";
 import { HawaPanelTabs } from "./HawaPanelTabs";
 import { HawaSwitch } from "./HawaSwitch";
 import { HawaColorPicker } from "./HawaColorPicker";
 import { HawaRange } from "./HawaRange";
+import { HawaCheckbox } from "./HawaCheckbox";
 
 export const HawaSettingsRow = (props) => {
   return (
-    <Container variant="settingsRow">
+    <div className="flex flex-row bg-white justify-between align-middle items-center p-2 rounded-xl my-2 h-14">
       <HawaTypography>{props.settingsLabel}</HawaTypography>
-      {props.settingsType === "checkbox" && <Checkbox {...props} />}
+      {props.settingsType === "checkbox" && <HawaCheckbox {...props} />}
       {props.settingsType === "text" && <HawaTextField {...props} />}
       {props.settingsType === "boolean" && <HawaSwitch {...props} />}
       {props.settingsType === "range" && <HawaRange {...props} />}
@@ -21,7 +20,7 @@ export const HawaSettingsRow = (props) => {
       {props.settingsType === "radio" && (
         <HawaPanelTabs location="inSettings" {...props} />
       )}
-    </Container>
+    </div>
   );
 };
 

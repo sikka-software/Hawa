@@ -1,6 +1,5 @@
-import Container from "@mui/material/Container";
 import React from "react";
-import { ActionButton, HawaLogoButton } from "../../elements";
+import {  HawaLogoButton } from "../../elements";
 
 export default {
   title: "Elements/Buttons/LogoButtons",
@@ -40,13 +39,13 @@ export default {
 
 const Template = (args) => {
   return (
-    <Container maxWidth="xs" variant="plain">
+    <div className="bg-red-100 w-full p-10">
       <HawaLogoButton
         lang={args.lang}
         logo={args.logo}
         buttonText={args.buttonLabel}
       />
-    </Container>
+    </div>
   );
 };
 

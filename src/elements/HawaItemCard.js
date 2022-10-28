@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
 
 export const HawaItemCard = (props) => {

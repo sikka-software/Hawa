@@ -1,12 +1,11 @@
-import Container from "@mui/material/Container";
 import React from "react";
 
 const Template = (args) => {
-  return <Container variant="auth">test</Container>;
+  return <div className="bg-red-100 p-10 rounded-xl">test</div>;
 };
 export default {
   title: "Layout/Container",
-  component: <Container />,
+  // component: <Container />,
   parameters: {
     backgrounds: {
       default: "light"

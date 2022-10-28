@@ -89,7 +89,7 @@ export const HawaLogoButton = (props) => {
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       {...props}
       // variant="withLogo"
-      className="bg-white rounded-xl my-2 h-11 flex flex-row justify-center align-middle"
+      className="bg-white rounded-xl my-2 h-11 flex max-w-sm w-full flex-row justify-center align-middle"
     >
       <div className="h-full w-1/2 flex flex-row justify-end items-center">
         {logoElement}
