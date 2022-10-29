@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { HawaModal } from "../../elements";
-import { HawaDialog } from "../../layout";
 
 export default {
   title: "Elements/Modal",
