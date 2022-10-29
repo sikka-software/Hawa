@@ -29,6 +29,21 @@ export default {
   }
 };
 
+export const NoData = (args) => {
+  function randomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  return (
+    <HawaTable
+      lang={args.lang}
+      columns={["Product", "Price", "Date"]}
+      noDataText={"No data"}
+    />
+  );
+};
 export const DataOnly = (args) => {
   function randomDate(start, end) {
     return new Date(

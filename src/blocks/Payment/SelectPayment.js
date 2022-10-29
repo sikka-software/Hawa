@@ -4,7 +4,7 @@ import { HawaTypography, HawaLogoButton } from "../../elements";
 
 export const SelectPayment = (props) => {
   return (
-    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+    <div className="flex flex-col w-1/3 bg-blue-300 rounded-xl p-4">
       <HawaTypography align="center">Choose Payment Method</HawaTypography>
       {props.viaWallet && (
         <HawaLogoButton

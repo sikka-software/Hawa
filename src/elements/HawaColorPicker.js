@@ -34,13 +34,11 @@ import PropTypes from "prop-types";
 //   }
 // `;
 export const HawaColorPicker = (props) => {
-  // const theme = useTheme();
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       {/* <ColorText
         type={"text"}
         value={props.color}
-        // borderRadius={theme.allBorderRadius}
         onChange={props.handleChange}
       />
       <div style={{ width: 10 }} />
@@ -48,7 +46,6 @@ export const HawaColorPicker = (props) => {
         type={"color"}
         value={props.color}
         onChange={props.handleChange}
-        // borderRadius={theme.allBorderRadius}
       /> */}
     </div>
   );

@@ -76,7 +76,6 @@ export const HawaPopMenu = (props) => {
     //   PaperProps={{
     //     style: {
     //       boxShadow: "none",
-    //       borderRadius: theme.allBorderRadius,
     //       border: `1px solid ${theme.primaryActionColor}`
     //     }
     //   }}

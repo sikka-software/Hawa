@@ -1,29 +1,4 @@
-import { ThemeProvider } from "@mui/material/styles";
-import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
-import { CreateHawaTheme } from "./../src";
 import "../src/tailwind.css";
-export const theme = CreateHawaTheme(
-  {
-    borderRadius: 10,
-    actionColor: "#3b28cc",
-    actionTextColor: "#ffffff",
-    layoutColor: "#ADD7F6",
-    font: "Roboto"
-  },
-  { mobile: 0, tablet: 768, laptop: 1024, desktop: 1200 }
-);
-
-const withThemeProvider = (Story, context) => {
-  return (
-    <Emotion10ThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <Story {...context} theme={theme} />
-      </ThemeProvider>
-    </Emotion10ThemeProvider>
-  );
-};
-
-export const decorators = [withThemeProvider];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

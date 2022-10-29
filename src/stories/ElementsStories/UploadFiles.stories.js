@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 import React, { useState } from "react";
 import { DragDropImages } from "../../elements";
-import { useBreakPointValue } from "../../Hooks";
 
 export default {
   title: "Elements/DragAndDropFiles",
@@ -17,15 +16,8 @@ export default {
 };
 
 const DragAndDropFiles = (args, props) => {
-  const variant = useBreakPointValue({
-    base: "this is base",
-    mobile: "this is mobile",
-    tablet: "this is tablet",
-    laptop: "this is laptop",
-    desktop: "this is desktop"
-  });
+
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  console.log("variant : ", variant);
 
   return (
     <Container>

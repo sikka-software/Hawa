@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.56",
+  "version": "0.0.57",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -26,6 +26,7 @@
     "@storybook/addon-docs": "^6.5.8",
     "@storybook/addon-essentials": "^6.5.8",
     "@storybook/addon-links": "^6.5.8",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addons": "^6.5.8",
     "@storybook/react": "^6.5.8",
     "@storybook/storybook-deployer": "^2.8.11",
