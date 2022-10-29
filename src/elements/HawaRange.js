@@ -3,23 +3,15 @@ import PropTypes from "prop-types";
 
 export const HawaRange = (props) => {
   return (
-    // <Stack spacing={2} direction="row" alignItems="center" style={props.style}>
-    //   {props.startElement}
-    //   <Slider
-    //     size="small"
-    //     aria-label="Volume"
-    //     value={props.value}
-    //     onChange={props.handleChange}
-    //   />
-    //   {props.endElement}
-    // </Stack>
     <div>
-      <label
-        for="default-range"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-      >
-        Default range
-      </label>
+      {props.label && (
+        <label
+          for="default-range"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >
+          {props.label}
+        </label>
+      )}
       <div className="flex flex-row justify-center items-center w-fit">
         <div className="mr-2">{props.startElement}</div>{" "}
         <input

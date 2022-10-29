@@ -1,10 +1,24 @@
 import React, { useState } from "react";
-import { HawaPricingCard, HawaPanelTabs } from "../../elements";
+import { HawaPricingCard, HawaPanelTabs, HawaTabs } from "../../elements";
 import PropTypes from "prop-types";
 
 export const PricingPlans = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
   const [currentCycle, setCurrentCycle] = useState("monthly");
+  let cycleOptions = [
+    { label: `Monthly`, value: `monthly` },
+    { label: `3 Months`, value: `3-months` },
+    { label: `6 Months`, value: `6-months` },
+    { label: `Annually`, value: `annually` }
+  ];
+  let currencyOptions = [
+    { label: `USD`, value: `usd` },
+    { label: `SAR`, value: `sar` }
+  ];
+  let activeTabStyle =
+    "inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active";
+  let inactiveTabStyle =
+    "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white";
   return (
     <div>
       <div
@@ -15,28 +29,23 @@ export const PricingPlans = (props) => {
           marginBottom: 10
         }}
       >
-        <HawaPanelTabs
-          location="inPricing"
-          handleChange={(e) => setCurrentCycle(e)}
-          defaultValue="monthly"
+        <HawaTabs
+          defaultValue={currentCycle}
           options={[
             { label: `Monthly`, value: `monthly` },
             { label: `3 Months`, value: `3-months` },
             { label: `6 Months`, value: `6-months` },
             { label: `Annually`, value: `annually` }
           ]}
+          onChangeTab={(e) => setCurrentCycle(e)}
         />
-
-        <HawaPanelTabs
-          location="inPricing"
-          handleChange={(e) => {
-            setCurrentCurrency(e);
-          }}
-          defaultValue="sar"
+        <HawaTabs
+          defaultValue={currentCurrency}
           options={[
             { label: `USD`, value: `usd` },
             { label: `SAR`, value: `sar` }
           ]}
+          onChangeTab={(e) => setCurrentCurrency(e)}
         />
       </div>
 

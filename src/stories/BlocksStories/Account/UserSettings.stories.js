@@ -54,6 +54,16 @@ export const UserSettings = (args) => {
           { value: "en", label: "English" },
           { value: "ar", label: "Arabic" }
         ]}
+        //   <HawaTabs
+        //   defaultValue={currentCycle}
+        //   options={[
+        //     { label: `Monthly`, value: `monthly` },
+        //     { label: `3 Months`, value: `3-months` },
+        //     { label: `6 Months`, value: `6-months` },
+        //     { label: `Annually`, value: `annually` }
+        //   ]}
+        //   onChangeTab={(e) => setCurrentCycle(e)}
+        // />
         settingsLabel="Language"
       />
       <HawaSettingsRow

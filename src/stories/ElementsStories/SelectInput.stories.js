@@ -3,7 +3,7 @@ import Select from "react-select";
 import HawaSelectInput from "../../elements/HawaSelectInput";
 
 export default {
-  title: "Elements/Select",
+  title: "Elements/Select Input",
   component: [SelectInput]
 };
 

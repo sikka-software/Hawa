@@ -52,13 +52,9 @@ export const HawaTable = (props) => {
                       >
                         {props.actions.map((act) => (
                           <HawaButton
-                            style={{ margin: 2 }}
-                            variant="outlined"
-                            size="small"
                             onClick={() => props.handleActionClick(singleRow)}
-                          >
-                            {act}
-                          </HawaButton>
+                            text={act}
+                          />
                         ))}
                       </td>
                     )}

@@ -33,6 +33,7 @@ export default {
 export const PopMenu = (args) => {
   return (
     <>
+      <div className="text-xs w-full">Requires a refresh sometimes</div>
       <button
         id="dropdownDefault"
         data-dropdown-toggle="test"

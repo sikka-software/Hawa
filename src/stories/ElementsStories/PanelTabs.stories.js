@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { HawaPanelTabs } from "../../elements";
+import { HawaTabs } from "../../elements/HawaTabs";
 
 export default {
   title: "Elements/Selections/Panel Tabs",
@@ -52,6 +53,20 @@ export const PanelTabs = (args) => {
       // handleChange={(e) => console.log("changing to ", e)}
       defaultValue="option1"
       options={allOptions}
+    />
+  );
+};
+
+export const Tabs = (args) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+  return (
+    <HawaTabs
+      onChangeTab={(e) => setSelectedOption(e)}
+      options={[
+        { value: "option1", label: "Option 1" },
+        { value: "option2", label: "Option 2" },
+        { value: "option3", label: "Option 3" }
+      ]}
     />
   );
 };

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { HawaModal } from "../../elements";
 import { HawaDialog } from "../../layout";
 
 export default {
-  title: "Layout/Dialog",
-  component: [HawaDialog],
+  title: "Elements/Modal",
+  component: [HawaModal],
   argTypes: {
     title: {
       control: "text",
@@ -29,15 +30,20 @@ export default {
   }
 };
 
-export const Dialog = (args) => {
+export const Modal = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button variant="contained" onClick={() => setOpen(!open)}>
+      <button
+        data-modal-toggle="defaultModal"
+        variant="contained"
+        // onClick={() => setOpen(!open)}>
+      >
         Open Dialog
       </button>
 
-      <HawaDialog
+      <HawaModal
+        modalID="defaultModal"
         title="Dialog Test"
         hideClose={args.hideClose}
         open={open}
@@ -50,7 +56,7 @@ export const Dialog = (args) => {
         }
       >
         <div>We are children</div>
-      </HawaDialog>
+      </HawaModal>
     </>
   );
 };

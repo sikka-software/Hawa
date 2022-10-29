@@ -1,8 +1,9 @@
 import React from "react";
+import { ComparingPlans } from "../../../blocks/Pricing";
 import { PricingPlans } from "../../../blocks/Pricing/PricingPlans";
 
 export default {
-  title: "Blocks/Pricing/In Landing",
+  title: "Blocks/Pricing",
   component: [PricingPlans],
   argTypes: {
     lang: {
@@ -15,7 +16,7 @@ export default {
   }
 };
 
-export const InLanding = (args) => {
+export const PlanCards = (args) => {
   return (
     <PricingPlans
       {...args}
@@ -28,17 +29,16 @@ export const InLanding = (args) => {
           price: 0,
           currency: "SAR",
           cycleText: "Monthly",
-          discount: "Save 10%",
           buttonText: "Select Plan",
           features: ["one", "two", "three"],
           features_ar: ["واحد", "اثنين", "ثلاثة"]
         },
         {
           title: "Intro",
-          title_ar: "تجريبي",
+          title_ar: "شركات",
           subtitle: "For beginners",
           subtitle_ar: "للعرب",
-          selectedPlan: false,
+          selectedPlan: true,
           price: 10,
           currency: "SAR",
           cycleText: "Monthly",
@@ -48,7 +48,7 @@ export const InLanding = (args) => {
         },
         {
           title: "Pro",
-          title_ar: "تجريبي",
+          title_ar: "المحترفين",
           subtitle: "For professionals",
           subtitle_ar: "للعرب",
           price: 30,
@@ -57,6 +57,27 @@ export const InLanding = (args) => {
           buttonText: "Select Plan",
           features: ["one", "two", "three"],
           features_ar: ["واحد", "اثنين", "ثلاثة"]
+        }
+      ]}
+    />
+  );
+};
+
+export const PlansCompare = (args) => {
+  return (
+    <ComparingPlans
+      plans={[
+        {
+          title: "Beginner",
+          availableIn: 3
+        },
+        {
+          title: "Professional",
+          availableIn: 3
+        },
+        {
+          title: "Enterprise",
+          availableIn: 3
         }
       ]}
     />

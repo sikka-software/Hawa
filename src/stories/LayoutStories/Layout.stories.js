@@ -6,7 +6,11 @@ export default {
 };
 
 const Template = (args) => {
-  return <HawaLayout {...args}>Here goes content</HawaLayout>;
+  return (
+    <HawaLayout {...args}>
+      <div className="text-xs w-full">Requires a refresh sometimes</div>
+    </HawaLayout>
+  );
 };
 
 export const AppLayout = Template.bind({});
