@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckoutForm } from "../../../blocks/Payment";
-import { HawaPageControls } from "../../../layout/HawaPageControls";
+// import { HawaPageControls } from "../../../layout/HawaPageControls";
 
 export default {
   title: "Blocks/Payment/Checkout",
@@ -19,7 +19,7 @@ export default {
 export const Checkout = (args) => {
   return (
     <>
-      <HawaPageControls
+      {/* <HawaPageControls
         backText="Back"
         backAction={() => console.log("going back")}
         maxWidth="sm"
@@ -28,7 +28,7 @@ export const Checkout = (args) => {
           { label: "action2", action: () => console.log("action2 is clicked") },
           { label: "action3", action: () => console.log("action3 is clicked") }
         ]}
-      />
+      /> */}
       <CheckoutForm
         lang={args.lang}
         handlePayNow={(e) => console.log("submitting checkout", e)}
