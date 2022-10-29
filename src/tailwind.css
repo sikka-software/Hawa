@@ -1,7 +1,21 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 body {
-    font-family: "IBM Plex Sans Arabic";
+  font-family: "IBM Plex Sans Arabic";
+}
+/* <div class="react-select-container">
+  <div class="react-select__control">
+    <div class="react-select__value-container">...</div>
+    <div class="react-select__indicators">...</div>
+  </div>
+  <div class="react-select__menu">
+    <div class="react-select__menu-list">
+      <div class="react-select__option">...</div>
+    </div>
+  </div>
+</div> */
+.hawa-select-container {
+  background-color: red;
 }

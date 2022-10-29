@@ -20,7 +20,6 @@ export * from "./HawaAccordian";
 export * from "./DragDropImages";
 export * from "./DraggableCard";
 export * from "./HawaPhoneInput";
-export * from "./HawaPhoneInput2";
 export * from "./HawaDrawerItem";
 export * from "./HawaTooltip";
 export * from "./HawaTabs";

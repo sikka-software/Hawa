@@ -1,12 +1,12 @@
 import React from "react";
 import { HawaSearchBar, HawaTextField } from "../../elements";
 import HawaPhoneInput from "../../elements/HawaPhoneInput";
-import HawaPhoneInput2 from "../../elements/HawaPhoneInput2";
+import HawaSelectInput from "../../elements/HawaSelectInput";
 import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
-  component: [HawaTextField, HawaPhoneInput, HawaPhoneInput2],
+  component: [HawaTextField, HawaPhoneInput],
   parameters: {
     backgrounds: {
       default: "light",
@@ -56,11 +56,11 @@ export const PhoneInput = (args) => {
   return <HawaPhoneInput {...args} />;
 };
 PhoneInput.args = {
-  country: "sa",
-  onChange: (e) => console.log(e),
-  required: true,
-  name: "phone",
-  label: "phone number"
+  // country: "sa",
+  // onChange: (e) => console.log(e),
+  // required: true,
+  // name: "phone",
+  // label: "phone number"
 };
 
 export const SearchInput = (args) => {
@@ -95,11 +95,35 @@ PinInput.args = {
   onChange: (value) => console.log("current value : ", value),
   onComplete: (value) => console.log("final value :", value)
 };
-
-export const PhoneInput2 = (args) => {
-  return <HawaPhoneInput2 {...args} />;
+export const SelectInput = (args) => {
+  return (
+    <HawaSelectInput
+      options={args.options}
+      isCreatable={args.isCreatable}
+      isMulti={args.isMulti ?? false}
+      isSearchable={args.isSearchable}
+      isClearable={args.isClearable ?? false}
+      // onChange={args.onChange}
+      onChange={(e, o) => console.log("chooo", e)}
+      onInputChange={(e, o) => console.log("changing", e)}
+    />
+  );
 };
 
-PhoneInput2.args = {
-  preferredCountry: "sa"
+SelectInput.args = {
+  isCreatable: false,
+  isMulti: false,
+  isClearable: false,
+  isSearchable: true,
+  options: [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" }
+  ],
+  onChange: (newValue, action) => {
+    console.log("new value: ", newValue, "\n", "action", action);
+  },
+  onInputChange: (newValue, action) => {
+    console.log("new value: ", newValue, "\n", "action", action);
+  }
 };
