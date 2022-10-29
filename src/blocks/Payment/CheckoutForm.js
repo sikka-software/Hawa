@@ -7,6 +7,7 @@ import {
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout";
 
 export const CheckoutForm = (props) => {
   let isArabic = props.lang === "ar";
@@ -32,7 +33,8 @@ export const CheckoutForm = (props) => {
     }
   };
   return (
-    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+    <HawaContainer withDividers>
+      {" "}
       <div>
         <div className="text-xl text-center font-semibold mb-2">
           {props.texts.orderDetails}
@@ -44,7 +46,6 @@ export const CheckoutForm = (props) => {
           end={["Total", props.total]}
         />
       </div>
-
       <div>
         <div className="text-xl text-center font-semibold my-2">
           {props.texts.billingAddress}
@@ -111,7 +112,6 @@ export const CheckoutForm = (props) => {
                 }
               }}
             />
-
             <div sx={containerStyle}>
               <Controller
                 control={control}
@@ -184,7 +184,7 @@ export const CheckoutForm = (props) => {
                 )}
               />
             </div>
-            <div sx={containerStyle}>
+            <div className="mb-3">
               <Controller
                 control={control}
                 name="zipCode"
@@ -229,13 +229,11 @@ export const CheckoutForm = (props) => {
                 )}
               />
             </div>
-            <HawaButton type="submit" fullWidth>
-              {props.texts.payNow}
-            </HawaButton>
+            <HawaButton type="submit" fullWidth text={props.texts.payNow} />{" "}
           </form>
         </FormProvider>
       </div>
-    </div>
+    </HawaContainer>
   );
 };
 

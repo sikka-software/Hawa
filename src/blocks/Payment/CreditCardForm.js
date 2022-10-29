@@ -1,6 +1,7 @@
 import React from "react";
 import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
+import { HawaContainer } from "../../layout";
 
 export const CreditCardForm = (props) => {
   const methods = useForm();
@@ -11,7 +12,8 @@ export const CreditCardForm = (props) => {
   } = methods;
 
   return (
-    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {" "}
       <form onSubmit={handleSubmit(props.handle)}>
         <HawaTextField
           fullWidth
@@ -24,7 +26,6 @@ export const CreditCardForm = (props) => {
           }}
           helperText={errors.password?.message}
         />
-
         <Controller
           control={control}
           name="cardName"
@@ -76,15 +77,13 @@ export const CreditCardForm = (props) => {
             />
           )}
         />
-
         <HawaButton
           type="submit"
           fullWidth
           onClick={props.handlePayWithCreditCard}
-        >
-          {"Pay with Credit Card"}
-        </HawaButton>
+          text={"Pay with Credit Card"}
+        />{" "}
       </form>
-    </div>
+    </HawaContainer>
   );
 };

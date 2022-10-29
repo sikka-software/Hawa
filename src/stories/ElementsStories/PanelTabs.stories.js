@@ -26,13 +26,25 @@ export default {
     }
   },
   args: {
-    options: 3
+    options: 4
   }
 };
 
 export const PanelTabs = (args) => {
   let allOptions = Array.from({ length: args.options }, (v, i) => {
-    return { label: `Option ${i}`, value: `option${i}` };
+    return {
+      label: `Option ${i}`,
+      value: `option${i}`,
+      content: (
+        <>
+          <div>
+            <h1>This option is number {i}</h1>
+            <p> lorem ipsume</p>
+            <p>test here lore</p>
+          </div>
+        </>
+      )
+    };
   });
   return (
     <HawaPanelTabs

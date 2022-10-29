@@ -157,9 +157,8 @@ export const DragDropImages = ({
               e.stopPropagation();
               onClearFiles(acceptedFiles);
             }}
-          >
-            Clear All
-          </HawaButton>
+            text={"Clear All"}
+          />
         )}
 
         {thumbs && showPreview ? (

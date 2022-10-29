@@ -1,7 +1,7 @@
-import { BookmarkAdd, Close, InboxOutlined } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
 import React from "react";
-import { AdaptiveButton, HawaButton, HawaItemCard } from "../../elements";
+import { HawaButton, HawaItemCard } from "../../elements";
+import { FaClone, FaTrash } from "react-icons/fa";
+import { FiEdit3 } from "react-icons/fi";
 
 export default {
   title: "Elements/Cards/Items",
@@ -41,80 +41,74 @@ export const Items = (args) => {
     <HawaItemCard
       {...args}
       // onCardClick={() => console.log("card clicked")}
-      // headerActions={
-      //   <>
-      //     <IconButton
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking test");
-      //       }}
-      //       size="small"
-      //     >
-      //       <InboxOutlined fontSize="small" />
-      //     </IconButton>
-      //     <IconButton
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking test");
-      //       }}
-      //       size="small"
-      //     >
-      //       <BookmarkAdd fontSize="small" />
-      //     </IconButton>
-      //     <IconButton
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking test");
-      //       }}
-      //       size="small"
-      //     >
-      //       <Close fontSize="small" />
-      //     </IconButton>
-      //   </>
-      // }
-      // header={
-      //   <div>
-      //     <h1>Menu</h1>
-      //   </div>
-      // }
-      // content={
-      //   <div>
-      //     <p>date here ere f</p>
-      //   </div>
-      // }
-      // actions={
-      //   <>
-      //     <Button
-      //       variant="contained"
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking test");
-      //       }}
-      //     >
-      //       TEST
-      //     </Button>
-      //     <div style={{ width: 5 }}></div>
-      //     <Button
-      //       variant="contained"
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking tost");
-      //       }}
-      //     >
-      //       TEST
-      //     </Button>
-      //     <div style={{ width: 5 }}></div>
-      //     <AdaptiveButton
-      //       buttonText="Something"
-      //       showText={true}
-      //       icon={<InboxOutlined />}
-      //       onClick={(e) => {
-      //         e.stopPropagation();
-      //         console.log("clicking something");
-      //       }}
-      //     />
-      //   </>
-      // }
+      headerActions={[
+        { label: "QR Code" },
+        { label: "Menu Settings" },
+        { label: "Menu Styles" },
+        { label: "Analytics" }
+      ]}
+      header={
+        <div>
+          <h1>Menu</h1>
+        </div>
+      }
+      content={
+        <div>
+          <p>
+            {" "}
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+        </div>
+      }
+      actions={
+        <>
+          <HawaButton
+            text="test"
+            icon={<FaClone />}
+            iconOnly
+            tooltip="dublicate"
+          />
+          <HawaButton
+            text="test"
+            icon={<FaTrash />}
+            iconOnly
+            tooltip="delete"
+          />
+          <HawaButton text="test" icon={<FiEdit3 />} iconOnly tooltip="edit" />
+        </>
+        //   <>
+        //     <Button
+        //       variant="contained"
+        //       onClick={(e) => {
+        //         e.stopPropagation();
+        //         console.log("clicking test");
+        //       }}
+        //     >
+        //       TEST
+        //     </Button>
+        //     <div style={{ width: 5 }}></div>
+        //     <Button
+        //       variant="contained"
+        //       onClick={(e) => {
+        //         e.stopPropagation();
+        //         console.log("clicking tost");
+        //       }}
+        //     >
+        //       TEST
+        //     </Button>
+        //     <div style={{ width: 5 }}></div>
+        //     <AdaptiveButton
+        //       buttonText="Something"
+        //       showText={true}
+        //       icon={<InboxOutlined />}
+        //       onClick={(e) => {
+        //         e.stopPropagation();
+        //         console.log("clicking something");
+        //       }}
+        //     />
+        //   </>
+      }
     />
   );
 };

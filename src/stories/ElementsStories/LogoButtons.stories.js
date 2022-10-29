@@ -77,4 +77,4 @@ export const PayPal = Template.bind({});
 PayPal.args = { buttonLabel: "PayPal", logo: "paypal" };
 
 export const Mada = Template.bind({});
-Mada.args = { buttonLabel: "Mada", logo: "mada" };
+Mada.args = { buttonLabel: "mada", logo: "mada" };

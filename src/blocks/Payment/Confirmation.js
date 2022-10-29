@@ -1,12 +1,14 @@
 import React from "react";
 import { HawaButton, HawaTable } from "../../elements";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout";
 
 export const ConfirmationPage = (props) => {
   let isArabic = props.lang === "ar";
 
   return (
-    <div className="flex flex-col divide-gray-300 bg-blue-300 divide-y rounded-xl p-4">
+    <HawaContainer withDividers>
+      {" "}
       <div className="text-3xl font-bold text-center py-5">
         {props.confirmationTitle}
       </div>
@@ -17,7 +19,6 @@ export const ConfirmationPage = (props) => {
         <div className="text-center">{props.texts.yourOrderNumber}</div>
         <div className="font-bold text-center">{props.orderNumber}</div>
       </div>
-
       <div className="py-5">
         <div className="text-xl font-semibold mb-3 text-center">
           {props.texts.orderDetails}
@@ -32,15 +33,21 @@ export const ConfirmationPage = (props) => {
         )}
       </div>
       <div className="flex flex-col py-5 justify-center items-center">
-        <HawaButton fullWidth onClick={props.handlePrint}>
-          {props.texts.print}
-        </HawaButton>
-        <HawaButton fullWidth onClick={props.handleHistory}>
-          {props.texts.history}
-        </HawaButton>
-        <HawaButton fullWidth onClick={props.handleHome}>
-          {props.texts.homePage}
-        </HawaButton>
+        <HawaButton
+          fullWidth
+          onClick={props.handlePrint}
+          text={props.texts.print}
+        />{" "}
+        <HawaButton
+          fullWidth
+          onClick={props.handleHistory}
+          text={props.texts.history}
+        />{" "}
+        <HawaButton
+          fullWidth
+          onClick={props.handleHome}
+          text={props.texts.homePage}
+        />{" "}
         <div className="mt-5 mb-5 text-center text-sm">
           {props.texts.fasterPaymentNote}
         </div>
@@ -51,7 +58,7 @@ export const ConfirmationPage = (props) => {
           {props.texts.refundPolicy}
         </a>
       </div>
-    </div>
+    </HawaContainer>
   );
 };
 

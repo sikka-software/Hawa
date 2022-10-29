@@ -7,6 +7,7 @@ import {
 } from "../../elements";
 import PropTypes from "prop-types";
 import { Controller, FormProvider, useForm } from "react-hook-form";
+import { HawaContainer } from "../../layout/HawaContainer";
 
 export const SignUpForm = (props) => {
   const methods = useForm();
@@ -17,7 +18,7 @@ export const SignUpForm = (props) => {
   } = methods;
 
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer withDividers>
       {props.showError && (
         <HawaAlert
           title={props.errorTitle}
@@ -25,7 +26,6 @@ export const SignUpForm = (props) => {
           severity="error"
         />
       )}
-
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleSignUp)}>
           <Controller
@@ -46,7 +46,6 @@ export const SignUpForm = (props) => {
               required: props.texts.fullNameRequiredText
             }}
           />
-
           <Controller
             control={control}
             name="email"
@@ -87,13 +86,9 @@ export const SignUpForm = (props) => {
             )}
             rules={{ required: props.texts.passwordRequiredText }}
           />
-
-          <HawaButton fullWidth type="submit">
-            {props.texts.signUpText}
-          </HawaButton>
+          <HawaButton fullWidth type="submit" text={props.texts.signUpText} />{" "}
         </form>
       </FormProvider>
-
       <div className="font-semibold p-3 text-center text-sm">
         {props.texts.existingUserText}{" "}
         <span
@@ -103,7 +98,6 @@ export const SignUpForm = (props) => {
           {props.texts.signInText}
         </span>
       </div>
-
       {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
         <div style={{ display: "flex", flexDirection: "column" }}>
           {props.viaGoogle && (
@@ -129,7 +123,7 @@ export const SignUpForm = (props) => {
           )}
         </div>
       ) : null}
-    </div>
+    </HawaContainer>
   );
 };
 

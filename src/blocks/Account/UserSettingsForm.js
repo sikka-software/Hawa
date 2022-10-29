@@ -1,12 +1,17 @@
 import { HawaButton } from "../../elements";
+import { HawaContainer } from "../../layout";
 
 export const UserSettingsForm = (props) => {
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {" "}
       {props.children}
-      <HawaButton type="submit" fullWidth onClick={props.handleSaveSettings}>
-        {props.saveSettingsText}
-      </HawaButton>
-    </div>
+      <HawaButton
+        text={props.saveSettingsText}
+        type="submit"
+        fullWidth
+        onClick={props.handleSaveSettings}
+      />
+    </HawaContainer>
   );
 };

@@ -17,7 +17,7 @@ export const NotFound = (props) => {
         <div className="text-center">
           If you're lost please contact us help@sikka.io{" "}
         </div>
-        <HawaButton fullWidth>Home</HawaButton>
+        <HawaButton fullWidth text={"Home"} />
       </div>
     </div>
   );

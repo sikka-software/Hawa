@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HawaButton, HawaTextField } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout";
 
 export const ChargeWalletForm = (props) => {
   const [walletAmount, setWalletAmount] = useState(0);
@@ -13,7 +14,8 @@ export const ChargeWalletForm = (props) => {
   } = methods;
 
   return (
-    <div className="flex flex-col bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {" "}
       <div className="text-5xl font-extrabold text-center">
         {Number(walletAmount).toLocaleString("en") || "0"}
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
@@ -48,12 +50,14 @@ export const ChargeWalletForm = (props) => {
             }}
           />
 
-          <HawaButton type="submit" fullWidth>
-            {props.texts.chargeWallet}
-          </HawaButton>
+          <HawaButton
+            type="submit"
+            fullWidth
+            text={props.texts.chargeWallet}
+          ></HawaButton>
         </form>
       </FormProvider>
-    </div>
+    </HawaContainer>
   );
 };
 

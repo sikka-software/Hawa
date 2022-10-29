@@ -1,11 +1,12 @@
 import React from "react";
-import { ResposiveButton, HawaButton } from "../../elements";
+import { HawaButton } from "../../elements";
+import { FaClipboardCheck, FaClone } from "react-icons/fa";
 
 export default {
   title: "Elements/Buttons",
-  component: [ResposiveButton, HawaButton],
+  component: [HawaButton],
   argTypes: {
-    buttonText: {
+    text: {
       control: "text",
       description: "The button text",
       table: {
@@ -25,29 +26,28 @@ export default {
         }
       }
     }
-  },
-  args: {
-    buttonText: "Click"
   }
 };
 
 const Template = (args) => {
-  return <HawaButton {...args}>{args.buttonText}</HawaButton>;
+  return <HawaButton {...args} />;
 };
 
+export const Default = Template.bind({});
+Default.args = {
+  showText: true,
+  text: "Default Button"
+};
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  showText: true,
+  text: "Button with Icon",
+  icon: <FaClone size={15} />
+};
 export const IconOnly = Template.bind({});
 IconOnly.args = {
   showText: true,
-  buttonText: "Button"
-  // icon: <Class />
+  text: "Icon Only Button",
+  icon: <FaClipboardCheck size={15} />,
+  iconOnly: true
 };
-
-const Template2 = (args) => {
-  return <ResposiveButton {...args}>{args.buttonText}</ResposiveButton>;
-};
-export const Adaptive = Template.bind({});
-// Adaptive.args = {
-//   showText: true,
-//   buttonText: "Button"
-//   // icon: <Class />
-// };

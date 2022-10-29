@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HawaButton } from "../../elements";
 import HawaPhoneInput from "../../elements/HawaPhoneInput";
+import { HawaContainer } from "../../layout";
 
 export const SignInPhone = (props) => {
   const [phone, setPhone] = useState("");
@@ -12,7 +13,7 @@ export const SignInPhone = (props) => {
     control
   } = methods;
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
       <form onSubmit={handleSubmit(props.onSubmit)}>
         <Controller
           control={control}
@@ -30,10 +31,8 @@ export const SignInPhone = (props) => {
             />
           )}
         />
-        <HawaButton fullWidth type="submit">
-          {props.SignInButtonText}
-        </HawaButton>
+        <HawaButton fullWidth type="submit" text={props.SignInButtonText} />
       </form>
-    </div>
+    </HawaContainer>
   );
 };

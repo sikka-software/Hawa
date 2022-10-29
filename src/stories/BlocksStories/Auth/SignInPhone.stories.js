@@ -2,7 +2,7 @@ import React from "react";
 import { SignInPhone } from "../../../blocks/AuthForms/SignInPhone";
 
 export default {
-  title: "Blocks/Auth/Sign In with Phone",
+  title: "Blocks/Auth/Sign In With Phone",
   component: [SignInPhone],
   parameters: {
     docs: {
@@ -18,8 +18,8 @@ const SignInPhoneTemplate = (args) => {
   return <SignInPhone {...args} />;
 };
 
-export const SignIn = SignInPhoneTemplate.bind({});
-SignIn.args = {
+export const SignInWithPhone = SignInPhoneTemplate.bind({});
+SignInWithPhone.args = {
   country: "sa",
   onChange: (e) => console.log(e),
   value: "this is value",

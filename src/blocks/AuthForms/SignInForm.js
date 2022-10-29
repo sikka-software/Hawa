@@ -7,6 +7,7 @@ import {
 } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout/HawaContainer";
 
 export const SignInForm = (props) => {
   const methods = useForm();
@@ -17,7 +18,7 @@ export const SignInForm = (props) => {
   } = methods;
 
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer withDividers>
       <form onSubmit={handleSubmit(props.handleSignIn)}>
         {props.showError && (
           <HawaAlert
@@ -49,7 +50,6 @@ export const SignInForm = (props) => {
             }
           }}
         />
-
         <Controller
           control={control}
           name="password"
@@ -67,17 +67,13 @@ export const SignInForm = (props) => {
           )}
           rules={{ required: props.texts.passwordRequiredText }}
         />
-
         <div
-          className="text-xs cursor-pointer w-fit"
+          className="text-xs cursor-pointer w-fit mb-3"
           onClick={props.handleForgotPassword}
         >
           {props.texts.forgotPasswordText}
         </div>
-
-        <HawaButton fullWidth type="submit">
-          {props.texts.signInText}
-        </HawaButton>
+        <HawaButton fullWidth type="submit" text={props.texts.signInText} />{" "}
         <div className="font-semibold p-3 text-center text-sm">
           {props.texts.newUserText}{" "}
           <span
@@ -89,7 +85,6 @@ export const SignInForm = (props) => {
         </div>
       </form>
       {/* <Divider /> */}
-
       {/* <div className="divide-y divide-gray-900"></div> */}
       {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
         <div className="flex flex-col ">
@@ -116,7 +111,7 @@ export const SignInForm = (props) => {
           )}
         </div>
       ) : null}
-    </div>
+    </HawaContainer>
   );
 };
 SignInForm.propTypes = {

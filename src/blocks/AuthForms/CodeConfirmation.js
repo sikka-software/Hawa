@@ -2,6 +2,7 @@ import React from "react";
 import { HawaTextField, HawaAlert, HawaButton } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout";
 
 export const CodeConfirmation = (props) => {
   const methods = useForm();
@@ -12,7 +13,8 @@ export const CodeConfirmation = (props) => {
   } = methods;
 
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {" "}
       {props.showError && (
         <HawaAlert
           title={props.errorTitle}
@@ -40,11 +42,9 @@ export const CodeConfirmation = (props) => {
           }}
         />
 
-        <HawaButton type="submit" fullWidth>
-          {props.texts.confirmText}
-        </HawaButton>
+        <HawaButton type="submit" fullWidth text={props.texts.confirmText} />
       </form>
-    </div>
+    </HawaContainer>
   );
 };
 CodeConfirmation.propTypes = {

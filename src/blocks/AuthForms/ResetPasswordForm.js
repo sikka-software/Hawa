@@ -2,6 +2,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HawaButton, HawaTextField } from "../../elements";
 import PropTypes from "prop-types";
+import { HawaContainer } from "../../layout";
 
 export const ResetPasswordForm = (props) => {
   const methods = useForm();
@@ -12,7 +13,8 @@ export const ResetPasswordForm = (props) => {
     control
   } = methods;
   return (
-    <div className="flex flex-col divide-y divide-gray-300 bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {" "}
       {!props.sent ? (
         <form onSubmit={handleSubmit(props.handleResetPassword)}>
           <Controller
@@ -38,14 +40,16 @@ export const ResetPasswordForm = (props) => {
               }
             }}
           />
-          <HawaButton fullWidth type="submit">
-            {props.texts.resetPassword}
-          </HawaButton>
+          <HawaButton
+            fullWidth
+            type="submit"
+            text={props.texts.resetPassword}
+          />{" "}
         </form>
       ) : (
         <div className="text-center">{props.texts.emailSentText}</div>
       )}
-    </div>
+    </HawaContainer>
   );
 };
 ResetPasswordForm.propTypes = {

@@ -305,20 +305,10 @@ export default function CForm({
               )}
           </form>
           <HawaButton
-            // color="primary"
             fullWidth
             onClick={handlePayfortForm}
-          >
-            {/* {loading ? (
-              <CircularProgress
-                variant="indeterminate"
-                style={{ color: "white", display: "none" }}
-                size={25}
-              />
-            ) : ( */}
-              <span className="pay-new-btn-txt">{t("pay-now")}</span>
-            {/* )} */}
-          </HawaButton>
+            text={<span className="pay-new-btn-txt">{t("pay-now")}</span>}
+          />{" "}
         </div>
       </div>
     </div>

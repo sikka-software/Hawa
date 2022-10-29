@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { HawaTypography, HawaLogoButton } from "../../elements";
+import { HawaContainer } from "../../layout";
 
 export const SelectPayment = (props) => {
   return (
-    <div className="flex flex-col w-1/3 bg-blue-300 rounded-xl p-4">
+    <HawaContainer>
+      {/* // <div className="flex flex-col w-1/3 bg-blue-300 rounded-xl p-4"> */}
       <HawaTypography align="center">Choose Payment Method</HawaTypography>
       {props.viaWallet && (
         <HawaLogoButton
@@ -55,7 +57,7 @@ export const SelectPayment = (props) => {
           onClick={props.handleApplePay}
         />
       )}
-    </div>
+    </HawaContainer>
   );
 };
 
