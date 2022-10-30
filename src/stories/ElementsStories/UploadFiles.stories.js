@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+
 import React, { useState } from "react";
 import { DragDropImages } from "../../elements";
 
@@ -20,7 +20,7 @@ const DragAndDropFiles = (args, props) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   return (
-    <Container>
+    <div>
       <DragDropImages
         setFiles={(e) => setUploadedFiles(e)}
         files={uploadedFiles}
@@ -36,7 +36,7 @@ const DragAndDropFiles = (args, props) => {
           fileTooLarge: "File too large"
         }}
       />
-    </Container>
+    </div>
   );
 };
 

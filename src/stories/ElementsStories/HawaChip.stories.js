@@ -1,4 +1,3 @@
-import Class from "@mui/icons-material/Class";
 import React from "react";
 import { HawaChip } from "../../elements";
 

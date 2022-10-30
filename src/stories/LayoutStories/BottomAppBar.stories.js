@@ -1,8 +1,7 @@
 import React from "react";
 import { HawaBottomAppBar } from "../../layout/HawaBottomAppBar";
-import MenuIcon from "@mui/icons-material/Menu";
-import CategoryIcon from "@mui/icons-material/Category";
-import SettingsIcon from "@mui/icons-material/Settings";
+import {AiOutlineMenu, AiFillSetting} from "react-icons/ai"
+import {BiCategoryAlt} from "react-icons/bi"
 
 export default {
   title: "Layout/BottomAppBar",
@@ -59,17 +58,17 @@ BottomAppBar.args = {
   appBarContent: [
     {
       label: "Menu",
-      icon: <MenuIcon />,
+      icon: <AiOutlineMenu />,
       action: () => console.log("this is menu button")
     },
     {
       label: "Items",
-      icon: <CategoryIcon />,
+      icon: <BiCategoryAlt />,
       action: () => console.log("this is items button")
     },
     {
       label: "Settings",
-      icon: <SettingsIcon />,
+      icon: <AiFillSetting />,
       action: () => console.log("this is settings button")
     }
   ]

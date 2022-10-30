@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HawaPopMenu } from "../../elements/HawaPopMenu";
-import { Person, BookOnline, AccessAlarms } from "@mui/icons-material";
+import {BsFillPersonFill} from "react-icons/bs"
+import {MdBookOnline, MdAccessAlarm} from "react-icons/md"
 
 export default {
   title: "Elements/PopMenu",
@@ -64,17 +65,17 @@ export const PopMenu = (args) => {
         handleClose={(e) => setAnchorElUser(null)}
         menuItems={[
           {
-            icon: Person,
+            icon: BsFillPersonFill,
             label: "test1",
             action: () => console.log("going to test1")
           },
           {
-            icon: BookOnline,
+            icon: MdBookOnline,
             label: "test2",
             action: () => console.log("going to test2")
           },
           {
-            icon: AccessAlarms,
+            icon: MdAccessAlarm,
             label: "test3",
             action: () => console.log("going to test3")
           }
