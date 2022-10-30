@@ -7,17 +7,17 @@ export const HawaTable = (props) => {
   return (
     <>
       <div>
-        <div class="overflow-x-auto relative rounded-xl">
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="overflow-x-auto relative rounded-xl">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 {props.columns.map((col, i) => (
-                  <th key={i} scope="col" class="py-3 px-6">
+                  <th key={i} scope="col" className="py-3 px-6">
                     {col}
                   </th>
                 ))}
                 {props.actions && (
-                  <th scope="col" class="py-3 px-6">
+                  <th scope="col" className="py-3 px-6">
                     actions
                   </th>
                 )}
@@ -27,7 +27,7 @@ export const HawaTable = (props) => {
               {props.rows ? (
                 props.rows.map((singleRow, j) => (
                   <tr
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                     key={j}
                   >
                     {singleRow.map((r, i) => {
@@ -35,13 +35,13 @@ export const HawaTable = (props) => {
                         return (
                           <th
                             scope="row"
-                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                           >
                             {r}{" "}
                           </th>
                         );
                       } else {
-                        return <td class="py-4 px-6">{r}</td>;
+                        return <td className="py-4 px-6">{r}</td>;
                       }
                     })}
                     {props.actions && (

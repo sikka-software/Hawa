@@ -59,7 +59,7 @@ const AccordionItem = (props) => {
             Check out this guide to learn how to{" "}
             <a
               href="/docs/getting-started/introduction/"
-              class="text-blue-600 dark:text-blue-500 hover:underline"
+              className="text-blue-600 dark:text-blue-500 hover:underline"
             >
               get started
             </a>{" "}

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const CheckMark = () => (
   <svg
-    class="w-5 h-5 text-green-500"
+    className="w-5 h-5 text-green-500"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -20,7 +20,7 @@ const CheckMark = () => (
 
 const UncheckMark = () => (
   <svg
-    class="w-5 h-5 text-red-500"
+    className="w-5 h-5 text-red-500"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -52,20 +52,20 @@ export const ComparingPlans = (props) => {
   let inactiveTabStyle =
     "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white";
   return (
-    <div id="detailed-pricing" class="overflow-x-auto w-full">
-      <div class="overflow-hidden min-w-max">
-        <div class="grid grid-cols-4 gap-x-16 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-          <div class="flex items-center"></div>
+    <div id="detailed-pricing" className="overflow-x-auto w-full">
+      <div className="overflow-hidden min-w-max">
+        <div className="grid grid-cols-4 gap-x-16 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+          <div className="flex items-center"></div>
           {props.plans.map((plan) => (
             <div>{plan.title}</div>
           ))}
         </div>
         {props.plans.map((plan) => {
           return (
-            <div class="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
-              <div class="text-gray-500 dark:text-gray-400">
+            <div className="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
+              <div className="text-gray-500 dark:text-gray-400">
                 Basic components (
-                <a href="#" class="text-blue-600 hover:underline">
+                <a href="#" className="text-blue-600 hover:underline">
                   view all
                 </a>
                 )
@@ -76,10 +76,10 @@ export const ComparingPlans = (props) => {
             </div>
           );
         })}
-        <div class="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
-          <div class="text-gray-500 dark:text-gray-400">
+        <div className="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
+          <div className="text-gray-500 dark:text-gray-400">
             Application UI (
-            <a href="#" class="text-blue-600 hover:underline">
+            <a href="#" className="text-blue-600 hover:underline">
               view demo
             </a>
             )
@@ -88,20 +88,20 @@ export const ComparingPlans = (props) => {
           <CheckMark />
           <UncheckMark />
         </div>
-        <div class="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
-          <div class="text-gray-500 dark:text-gray-400">
+        <div className="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
+          <div className="text-gray-500 dark:text-gray-400">
             Marketing UI pre-order
           </div>
           <UncheckMark />
           <CheckMark />
           <UncheckMark />
         </div>
-        <div class="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
-          <div class="text-gray-500 dark:text-gray-400"></div>
+        <div className="grid grid-cols-4 gap-x-16 py-5 px-4 text-sm text-gray-700 border-b border-gray-200 dark:border-gray-700">
+          <div className="text-gray-500 dark:text-gray-400"></div>
           <div>
             <a
               href="#"
-              class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
             >
               Buy now
             </a>
@@ -109,7 +109,7 @@ export const ComparingPlans = (props) => {
           <div>
             <a
               href="#"
-              class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
             >
               Buy now
             </a>
@@ -117,7 +117,7 @@ export const ComparingPlans = (props) => {
           <div>
             <a
               href="#"
-              class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
             >
               Buy now
             </a>

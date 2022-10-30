@@ -12,14 +12,14 @@ export const HawaAlert = (props) => {
 
   return (
     <div
-      class={
+      className={
         "flex flex-col p-4 mb-4 text-sm rounded-lg" +
         " " +
         severities[props.severity]
       }
       role="alert"
     >
-      <span class="font-medium">{props.title}</span>
+      <span className="font-medium">{props.title}</span>
       <span>{" " + props.text}</span>
     </div>
   );

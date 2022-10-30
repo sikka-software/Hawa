@@ -7,7 +7,7 @@ export const HawaRange = (props) => {
       {props.label && (
         <label
           for="default-range"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           {props.label}
         </label>
@@ -18,7 +18,7 @@ export const HawaRange = (props) => {
           id="default-range"
           type="range"
           value="50"
-          class="w-fit h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          className="w-fit h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
         />
         <div className="ml-2">{props.endElement}</div>{" "}
       </div>

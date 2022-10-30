@@ -1928,14 +1928,14 @@ input:checked + .toggle-bg {
 body {
   font-family: "IBM Plex Sans Arabic";
 }
-/* <div class="react-select-container">
-  <div class="react-select__control">
-    <div class="react-select__value-container">...</div>
-    <div class="react-select__indicators">...</div>
+/* <div className="react-select-container">
+  <div className="react-select__control">
+    <div className="react-select__value-container">...</div>
+    <div className="react-select__indicators">...</div>
   </div>
-  <div class="react-select__menu">
-    <div class="react-select__menu-list">
-      <div class="react-select__option">...</div>
+  <div className="react-select__menu">
+    <div className="react-select__menu-list">
+      <div className="react-select__option">...</div>
     </div>
   </div>
 </div> */
