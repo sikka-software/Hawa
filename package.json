@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.67",
+  "version": "0.0.68",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -9,6 +9,7 @@
     "start": "start-storybook -p 6006 -s public",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook",
+    "generate-css": "postcss src/tailwind.css -o src/styles.css",
     "deploy-storybook": "storybook-to-ghpages",
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles"
