@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "flowbite";
 
 const AccordionItem = (props) => {
   let noRounding =

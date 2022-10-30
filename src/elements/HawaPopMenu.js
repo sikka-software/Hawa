@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import "flowbite";
 export const HawaPopMenu = (props) => {
   return (
     <div>

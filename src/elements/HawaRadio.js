@@ -1,5 +1,4 @@
 import React from "react";
-import "flowbite";
 
 export const HawaRadio = (props) => {
   return (

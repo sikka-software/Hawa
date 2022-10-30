@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import PropTypes from "prop-types";
-import "flowbite";
 
 export const HawaPanelTabs = (props) => {
   const [value, setValue] = useState(props.defaultValue);

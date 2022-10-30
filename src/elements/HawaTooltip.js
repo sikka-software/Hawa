@@ -1,5 +1,4 @@
 import React from "react";
-import "flowbite";
 
 export const HawaTooltip = (props) => {
   return (
