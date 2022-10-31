@@ -42,6 +42,7 @@ jobs:
          fi
       - run: npm run build-lib
       - run: npm run build:styles
+      - run: npm run generate-css
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
