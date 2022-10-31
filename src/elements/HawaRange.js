@@ -6,7 +6,7 @@ export const HawaRange = (props) => {
     <div>
       {props.label && (
         <label
-          for="default-range"
+        htmlFor="default-range"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           {props.label}

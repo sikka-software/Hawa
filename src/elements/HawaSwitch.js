@@ -3,7 +3,7 @@ import React from "react";
 export const HawaSwitch = (props) => {
   return (
     <label
-      for="default-toggle"
+    htmlFor="default-toggle"
       className="inline-flex relative items-center cursor-pointer"
     >
       <input
