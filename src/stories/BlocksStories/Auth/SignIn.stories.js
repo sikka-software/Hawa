@@ -106,6 +106,8 @@ const SignInTemplate = (args) => {
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}
+      handleSignIn={(e) => console.log(e)}
+      handleForgotPassword={() => console.log('forgot password')}
     />
   );
 };
@@ -116,6 +118,7 @@ SignIn.args = {
   viaGithub: true,
   viaTwitter: true,
   showError: false,
+  withoutSignUp: false,
   errorTitle: "Error",
   errorText: "Something went wrong",
   lang: "en"

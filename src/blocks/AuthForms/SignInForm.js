@@ -74,15 +74,17 @@ export const SignInForm = (props) => {
           {props.texts.forgotPasswordText}
         </div>
         <HawaButton fullWidth type="submit" text={props.texts.signInText} />{" "}
-        <div className="font-semibold p-3 text-center text-sm">
-          {props.texts.newUserText}{" "}
-          <span
-            onClick={props.handleRouteToSignUp}
-            className="text-blue-600 cursor-pointer"
-          >
-            {props.texts.signUpText}
-          </span>
-        </div>
+        {!props.withoutSignUp && (
+          <div className="font-semibold p-3 text-center text-sm">
+            {props.texts.newUserText}{" "}
+            <span
+              onClick={props.handleRouteToSignUp}
+              className="text-blue-600 cursor-pointer"
+            >
+              {props.texts.signUpText}
+            </span>
+          </div>
+        )}
       </form>
       {/* <Divider /> */}
       {/* <div className="divide-y divide-gray-900"></div> */}
@@ -141,5 +143,8 @@ SignInForm.propTypes = {
   handleRouteToSignUp: PropTypes.func,
   handleGoogleSignIn: PropTypes.func,
   handleGithubSignIn: PropTypes.func,
-  handleTwitterSignIn: PropTypes.func
+  handleTwitterSignIn: PropTypes.func,
+  handleForgotPassword: PropTypes.func,
+  
+  withoutSignUp: PropTypes.bool
 };
