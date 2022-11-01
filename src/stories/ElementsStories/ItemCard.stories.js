@@ -42,10 +42,10 @@ export const Items = (args) => {
       {...args}
       // onCardClick={() => console.log("card clicked")}
       headerActions={[
-        { label: "QR Code" },
-        { label: "Menu Settings" },
-        { label: "Menu Styles" },
-        { label: "Analytics" }
+        { label: "QR Code", action : () => console.log("clicking on QR") },
+        { label: "Menu Settings", action : () => console.log("clicking on Settings")  },
+        { label: "Menu Styles", action : () => console.log("clicking on Styles")  },
+        { label: "Analytics", action : () => console.log("clicking on Analytics")  }
       ]}
       header={
         <div>
