@@ -6,7 +6,7 @@ export const HawaRange = (props) => {
     <div>
       {props.label && (
         <label
-        htmlFor="default-range"
+          htmlFor="default-range"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           {props.label}
@@ -17,7 +17,8 @@ export const HawaRange = (props) => {
         <input
           id="default-range"
           type="range"
-          value="50"
+          value={props.value}
+          onChange={props.handleChange}
           className="w-fit h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
         />
         <div className="ml-2">{props.endElement}</div>{" "}

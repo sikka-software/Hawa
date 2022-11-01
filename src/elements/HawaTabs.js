@@ -11,7 +11,7 @@ export const HawaTabs = (props) => {
     <div>
       <ul className="bg-gray-100 w-fit rounded-lg flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
         {props.options.map((opt) => (
-          <li className="mr-2">
+          <li >
             <button
               aria-current="page"
               onClick={() => {

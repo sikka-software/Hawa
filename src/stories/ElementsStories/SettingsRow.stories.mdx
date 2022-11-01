@@ -116,23 +116,45 @@ import { useState } from "react"
 
 # SettingsRow
 
-export const Template = (args) => <HawaSettingsRow {...args} />
-export const CheckboxSettings = (args) => <HawaSettingsRow {...args} />
-export const TextSettings = (args) => <HawaSettingsRow {...args} />
-export const RangeSettings = (args) => <HawaSettingsRow {...args} />
-export const BooleanSettings = (args) => <HawaSettingsRow {...args} />
+export const Template = (args) => (
+  <div className="bg-red-100 p-2">
+    <HawaSettingsRow {...args} />
+  </div>
+)
+export const CheckboxSettings = (args) => (
+  <div className="bg-red-100 p-2">
+    <HawaSettingsRow {...args} />
+  </div>
+)
+export const TextSettings = (args) => (
+  <div className="bg-red-100 p-2">
+    <HawaSettingsRow {...args} />
+  </div>
+)
+export const RangeSettings = (args) => (
+  <div className="bg-red-100 p-2">
+    <HawaSettingsRow {...args} />
+  </div>
+)
+export const BooleanSettings = (args) => (
+  <div className="bg-red-100 p-2">
+    <HawaSettingsRow {...args} />
+  </div>
+)
 export const RadioSettings = (args) => {
   let allOptions = Array.from({ length: args.options }, (v, i) => {
     return { label: `Option ${i}`, value: `option${i}` }
   })
   return (
-    <HawaSettingsRow
-      settingsType={"radio"}
-      settingsLabel={args.settingsLabel}
-      handleChange={(e) => console.log("changing to ", e)}
-      defaultValue="option1"
-      options={allOptions}
-    />
+    <div className="bg-red-100 p-2">
+      <HawaSettingsRow
+        settingsType={"radio"}
+        settingsLabel={args.settingsLabel}
+        handleChange={(e) => console.log("changing to ", e)}
+        defaultValue="option1"
+        options={allOptions}
+      />
+    </div>
   )
 }
 export const ColorSettings = (args) => {

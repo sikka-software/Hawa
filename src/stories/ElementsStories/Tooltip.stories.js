@@ -32,8 +32,9 @@ export default {
 export const Tooltip = (args) => {
   return (
     <div>
-      <button data-tooltip-target="tooltip-test">Show tooltip</button>
-      <HawaTooltip tooltipID="tooltip-test" content="somethign" />
+      <HawaTooltip tooltipID="tooltip-test" content="somethign">
+        <button data-tooltip-target="tooltip-test">Show tooltip</button>
+      </HawaTooltip>
     </div>
   );
 };
