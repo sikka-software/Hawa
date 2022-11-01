@@ -4,7 +4,8 @@ import {
   HawaLogoButton,
   HawaAlert,
   HawaButton,
-  HawaCheckbox
+  HawaCheckbox,
+  HawaSelect
 } from "../../elements";
 import PropTypes from "prop-types";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -48,29 +49,50 @@ export const SignUpForm = (props) => {
                 required: props.texts.fullNameRequiredText
               }}
             />
-            <Controller
-              control={control}
-              name="email"
-              render={({ field }) => (
-                <HawaTextField
-                  fullWidth
-                  type="text"
-                  value={field.value ?? ""}
-                  label={props.texts.emailLabel}
-                  helperText={errors.email?.message}
-                  placeholder={props.texts.emailPlaceholder}
-                  {...field}
-                />
-              )}
-              rules={{
-                required: props.texts.emailRequiredText,
-                pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: props.texts.emailInvalidText
-                }
-              }}
-            />
+            {props.signUpType === "email" ? (
+              <Controller
+                control={control}
+                name="email"
+                render={({ field }) => (
+                  <HawaTextField
+                    fullWidth
+                    type="text"
+                    value={field.value ?? ""}
+                    label={props.texts.emailLabel}
+                    helperText={errors.email?.message}
+                    placeholder={props.texts.emailPlaceholder}
+                    {...field}
+                  />
+                )}
+                rules={{
+                  required: props.texts.emailRequiredText,
+                  pattern: {
+                    value:
+                      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: props.texts.emailInvalidText
+                  }
+                }}
+              />
+            ) : (
+              <Controller
+                control={control}
+                name="username"
+                render={({ field }) => (
+                  <HawaTextField
+                    fullWidth
+                    type="text"
+                    value={field.value ?? ""}
+                    label={props.texts.usernameLabel}
+                    helperText={errors.username?.message}
+                    placeholder={props.texts.usernamePlaceholder}
+                    {...field}
+                  />
+                )}
+                rules={{
+                  required: props.texts.usernameRequired
+                }}
+              />
+            )}
             <Controller
               control={control}
               name="password"
@@ -83,6 +105,23 @@ export const SignUpForm = (props) => {
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
                   helperText={errors.password?.message}
+                  {...field}
+                />
+              )}
+              rules={{ required: props.texts.passwordRequiredText }}
+            />
+            <Controller
+              control={control}
+              name="confirm_password"
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="password"
+                  defaultValue={field.value ?? ""}
+                  value={field.value ?? ""}
+                  label={props.texts.confirmPasswordLabel}
+                  placeholder={props.texts.confirmPasswordPlaceholder}
+                  helperText={errors.confirm_password?.message}
                   {...field}
                 />
               )}
@@ -107,6 +146,24 @@ export const SignUpForm = (props) => {
                 rules={{ required: props.texts.passwordRequiredText }}
               />
             )}
+            {props.showUserSource && (
+              <div className="py-2">
+                <HawaSelect
+                  label="How did you learn about us?"
+                  isCreatable={false}
+                  isMulti={false ?? false}
+                  isSearchable={false}
+                  isClearable={false ?? false}
+                  options={[
+                    { value: "chocolate", label: "Chocolate" },
+                    { value: "strawberry", label: "Strawberry" },
+                    { value: "vanilla", label: "Vanilla" }
+                  ]}
+                  onChange={(e, o) => console.log("chooo", e)}
+                  onInputChange={(e, o) => console.log("changing", e)}
+                />
+              </div>
+            )}
             {props.showTermsOption && (
               <div className="py-2">
                 <HawaCheckbox
@@ -121,7 +178,7 @@ export const SignUpForm = (props) => {
                 />
               </div>
             )}
-            {props.showNewletterOption && (
+            {props.showNewsletterOption && (
               <div className="py-2">
                 <HawaCheckbox label="Subscribe to newsletter?" />
               </div>
@@ -180,10 +237,15 @@ SignUpForm.propTypes = {
     emailPlaceholder: PropTypes.string,
     emailRequiredText: PropTypes.string,
     emailInvalidText: PropTypes.string,
+    usernameLabel: PropTypes.string,
+    usernamePlaceholder: PropTypes.string,
+    usernameRequired: PropTypes.string,
     passwordLabel: PropTypes.string,
     passwordPlaceholder: PropTypes.string,
     passwordRequiredText: PropTypes.string,
     passwordTooShortText: PropTypes.string,
+    confirmPasswordLabel: PropTypes.string,
+    confirmPasswordPlaceholder: PropTypes.string,
     forgotPasswordText: PropTypes.string,
     newUserText: PropTypes.string,
     signUpText: PropTypes.string,
@@ -196,6 +258,9 @@ SignUpForm.propTypes = {
   viaGoogle: PropTypes.bool,
   viaGithub: PropTypes.bool,
   viaTwitter: PropTypes.bool,
+  showNewsletterOption: PropTypes.bool,
+  showRefCode: PropTypes.bool,
+  showTermsOption: PropTypes.bool,
   handleSignUp: PropTypes.func,
   handleRouteToSignIn: PropTypes.func,
   handleGoogleSignUp: PropTypes.func,

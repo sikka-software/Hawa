@@ -62,6 +62,7 @@ const SignUpTemplate = (args) => {
   return (
     <SignUpForm
       {...args}
+      signUpType="email"
       texts={{
         fullNameLabel: "Full Name",
         fullNamePlaceholder: "Fulan AlFulani",
@@ -70,18 +71,23 @@ const SignUpTemplate = (args) => {
         emailPlaceholder: "Enter your email",
         emailRequiredText: "Email is required",
         emailInvalidText: "Invalid email address",
+        usernameLabel: "Username",
+        usernamePlaceholder: "Enter your username",
+        usernameRequired: " Username is required",
         passwordLabel: "Password",
         passwordPlaceholder: "Minimum 8 characters",
         passwordRequiredText: "Password is required",
         passwordTooShortText: "Password too short",
+        confirmPasswordLabel: "Confirm Password",
+        confirmPasswordPlaceholder: "Minimum 8 characters",
         forgotPasswordText: "Forgot password?",
         newUserText: "New user?",
         signUpText: "Sign up",
         signInText: "Sign in",
         existingUserText: "Existing User?",
-        googleButtonLabel: "Sign in with Google",
-        githubButtonLabel: "Sign in with Github",
-        twitterButtonLabel: "Sign in with Twitter"
+        googleButtonLabel: "Sign up with Google",
+        githubButtonLabel: "Sign up with Github",
+        twitterButtonLabel: "Sign up with Twitter"
       }}
       showError={args.showError}
       viaGoogle={args.viaGoogle}
@@ -100,6 +106,9 @@ SignUp.args = {
   viaGoogle: true,
   viaGithub: true,
   viaTwitter: true,
+  showUserSource: true,
+  showNewsletterOption: true,
+  showTermsOption: true,
   showError: false,
   errorTitle: "Error",
   errorText: "Something went wrong",

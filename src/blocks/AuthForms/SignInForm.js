@@ -88,12 +88,14 @@ export const SignInForm = (props) => {
           )}
           rules={{ required: props.texts.passwordRequiredText }}
         />
-        <div
-          className="text-xs cursor-pointer w-fit mb-3"
-          onClick={props.handleForgotPassword}
-        >
-          {props.texts.forgotPasswordText}
-        </div>
+        {!props.withoutResetPassword && (
+          <div
+            className="text-xs cursor-pointer w-fit mb-3"
+            onClick={props.handleForgotPassword}
+          >
+            {props.texts.forgotPasswordText}
+          </div>
+        )}
         <HawaButton fullWidth type="submit" text={props.texts.signInText} />{" "}
         {!props.withoutSignUp && (
           <div className="font-semibold p-3 text-center text-sm">
@@ -146,7 +148,7 @@ SignInForm.propTypes = {
     emailPlaceholder: PropTypes.string,
     emailRequiredText: PropTypes.string,
     emailInvalidText: PropTypes.string,
-    usernameLabel:PropTypes.string,
+    usernameLabel: PropTypes.string,
     usernamePlaceholder: PropTypes.string,
     usernameRequired: PropTypes.string,
     passwordLabel: PropTypes.string,

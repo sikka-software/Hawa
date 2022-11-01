@@ -1,12 +1,15 @@
 import React from "react";
-import { HawaSearchBar, HawaTextField } from "../../elements";
-import HawaPhoneInput from "../../elements/HawaPhoneInput";
-import HawaSelectInput from "../../elements/HawaSelectInput";
+import {
+  HawaSearchBar,
+  HawaTextField,
+  HawaSelect,
+  HawaPhoneInput
+} from "../../elements";
 import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
-  component: [HawaTextField, HawaPhoneInput],
+  component: [HawaTextField, HawaPhoneInput, HawaSelect],
   parameters: {
     backgrounds: {
       default: "light",
@@ -97,7 +100,7 @@ PinInput.args = {
 };
 export const SelectInput = (args) => {
   return (
-    <HawaSelectInput
+    <HawaSelect
       options={args.options}
       isCreatable={args.isCreatable}
       isMulti={args.isMulti ?? false}

@@ -1,12 +1,11 @@
 let countries = [
   {
-    country_label: "Andorra",
-    value: "Andorra",
-    code: "AD",
-    unicode: "&#x1F1E6;&#x1F1E9;",
+    country_label: "Saudi Arabia",
+    code: "SA",
+    unicode: "&#x1F1F8;&#x1F1E6;",
     image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/AD.svg",
-    label: "+376"
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/SA.svg",
+    label: "+966"
   },
   {
     country_label: "United Arab Emirates",
@@ -16,6 +15,48 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/AE.svg",
     label: "+971"
   },
+  {
+    country_label: "Bahrain",
+    code: "BH",
+    unicode: "&#x1F1E7;&#x1F1ED;",
+    image:
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BH.svg",
+    label: "+973"
+  },
+  {
+    country_label: "Kuwait",
+    code: "KW",
+    unicode: "&#x1F1F0;&#x1F1FC;",
+    image:
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/KW.svg",
+    label: "+965"
+  },
+  {
+    country_label: "Qatar",
+    code: "QA",
+    unicode: "&#x1F1F6;&#x1F1E6;",
+    image:
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/QA.svg",
+    label: "+974"
+  },
+  {
+    country_label: "Oman",
+    code: "OM",
+    unicode: "&#x1F1F4;&#x1F1F2;",
+    image:
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/OM.svg",
+    label: "+968"
+  },
+  {
+    country_label: "Andorra",
+    value: "Andorra",
+    code: "AD",
+    unicode: "&#x1F1E6;&#x1F1E9;",
+    image:
+      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/AD.svg",
+    label: "+376"
+  },
+
   {
     country_label: "Afghanistan",
     code: "AF",
@@ -176,14 +217,7 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BG.svg",
     label: "+359"
   },
-  {
-    country_label: "Bahrain",
-    code: "BH",
-    unicode: "&#x1F1E7;&#x1F1ED;",
-    image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BH.svg",
-    label: "+973"
-  },
+
   {
     country_label: "Burundi",
     code: "BI",
@@ -936,14 +970,7 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/KR.svg",
     label: "+82"
   },
-  {
-    country_label: "Kuwait",
-    code: "KW",
-    unicode: "&#x1F1F0;&#x1F1FC;",
-    image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/KW.svg",
-    label: "+965"
-  },
+
   {
     country_label: "Cayman Islands",
     code: "KY",
@@ -1328,14 +1355,7 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NZ.svg",
     label: "+64"
   },
-  {
-    country_label: "Oman",
-    code: "OM",
-    unicode: "&#x1F1F4;&#x1F1F2;",
-    image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/OM.svg",
-    label: "+968"
-  },
+
   {
     country_label: "Panama",
     code: "PA",
@@ -1448,14 +1468,7 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/PY.svg",
     label: "+595"
   },
-  {
-    country_label: "Qatar",
-    code: "QA",
-    unicode: "&#x1F1F6;&#x1F1E6;",
-    image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/QA.svg",
-    label: "+974"
-  },
+
   {
     country_label: "Réunion",
     code: "RE",
@@ -1496,14 +1509,7 @@ let countries = [
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/RW.svg",
     label: "+250"
   },
-  {
-    country_label: "Saudi Arabia",
-    code: "SA",
-    unicode: "&#x1F1F8;&#x1F1E6;",
-    image:
-      "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/SA.svg",
-    label: "+966"
-  },
+
   {
     country_label: "Solomon Islands",
     code: "SB",

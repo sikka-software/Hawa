@@ -1,17 +1,25 @@
 import { useState } from "react";
 import Countries from "../../countries";
 import Select from "react-select";
-const Option = ({ cx, children, getStyles, innerRef, ...props }) => (
+const Option = ({
+  cx,
+  children,
+  getStyles,
+  innerProps,
+  innerRef,
+  ...props
+}) => (
   <div
     ref={innerRef}
     className="m-2 p-1 px-3 rounded-lg flex flex-row items-center justify-between hover:bg-blue-200"
+    {...innerProps}
   >
     <img className="h-8 w-8" src={props.data.image}></img>
     {children}
   </div>
 );
 
-export default function HawaPhoneInput({ preferredCountry }) {
+export const HawaPhoneInput = ({ preferredCountry }) => {
   const [code, setCode] = useState(preferredCountry ?? "");
   const [selectedCountry, setSelectedCountry] = useState("+966");
   const [tel, setTel] = useState("");
@@ -54,9 +62,14 @@ export default function HawaPhoneInput({ preferredCountry }) {
             lineHeight: "1.25rem",
             padding: "0.37rem"
           }),
+          singleValue: (base) => ({
+            ...base,
+            fontSize: "0.875rem",
+            textAlign: "right"
+          }),
           control: (base) => ({
             ...base,
-            width: 80,
+            width: 64,
             borderRadius: "0.75rem",
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0
@@ -76,16 +89,19 @@ export default function HawaPhoneInput({ preferredCountry }) {
         isCreatable={false}
         isMulti={false}
         isSearchable={true}
-        isClearable={true}
+        isClearable={false}
         placeholder="+966"
-        // value={selectedCountry}
-        // inputValue={selectedCountry}
+        defaultValue={Countries[0]}
+        onInputChange={() => console.log("changed to")}
         onChange={(newValue, action) => {
           console.log("test n", newValue);
           setSelectedCountry(newValue);
         }}
       />
-      <input className="bg-gray-50 border rounded-l-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-l-0" />
+      <input
+        type="number"
+        className="bg-gray-50 appearance-none border rounded-l-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-l-0"
+      />
     </div>
   );
-}
+};
