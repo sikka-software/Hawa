@@ -19,7 +19,7 @@ export const parameters = {
         [
           "Blocks Introduction",
           "Auth",
-          ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
+          ["Landing", "Sign In", "Sign Up", "Reset Password", "New Pasword"],
           "Account",
           ["User Profile", "User Settings"],
           "Payment",
