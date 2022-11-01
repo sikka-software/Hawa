@@ -25,6 +25,14 @@ export default {
             "Set this property to true in large screen and false on mobile"
         }
       }
+    },
+    isLoading: {
+      control: "boolean",
+      description: "Boolean to show a spiner"
+    },
+    loadingText: {
+      control: "text",
+      description: "Text when button is on loading state"
     }
   }
 };
@@ -50,4 +58,11 @@ IconOnly.args = {
   text: "Icon Only Button",
   icon: <FaClipboardCheck size={15} />,
   iconOnly: true
+};
+export const LoadingButton = Template.bind({});
+LoadingButton.args = {
+  showText: true,
+  text: "Default Button",
+  isLoading: true,
+  loadingText: "In Progress..."
 };
