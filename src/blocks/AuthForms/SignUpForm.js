@@ -3,7 +3,8 @@ import {
   HawaTextField,
   HawaLogoButton,
   HawaAlert,
-  HawaButton
+  HawaButton,
+  HawaCheckbox
 } from "../../elements";
 import PropTypes from "prop-types";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -19,84 +20,124 @@ export const SignUpForm = (props) => {
 
   return (
     <HawaContainer withDividers>
-      {props.showError && (
-        <HawaAlert
-          title={props.errorTitle}
-          text={props.errorText}
-          severity="error"
-        />
-      )}
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(props.handleSignUp)}>
-          <Controller
-            control={control}
-            name="fullName"
-            render={({ field }) => (
-              <HawaTextField
-                fullWidth
-                type="text"
-                value={field.value ?? ""}
-                label={props.texts.fullNameLabel}
-                placeholder={props.texts.fullNamePlaceholder}
-                helperText={errors.fullName?.message}
-                {...field}
+      <div>
+        {props.showError && (
+          <HawaAlert
+            title={props.errorTitle}
+            text={props.errorText}
+            severity="error"
+          />
+        )}
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(props.handleSignUp)}>
+            <Controller
+              control={control}
+              name="fullName"
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="text"
+                  value={field.value ?? ""}
+                  label={props.texts.fullNameLabel}
+                  placeholder={props.texts.fullNamePlaceholder}
+                  helperText={errors.fullName?.message}
+                  {...field}
+                />
+              )}
+              rules={{
+                required: props.texts.fullNameRequiredText
+              }}
+            />
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="text"
+                  value={field.value ?? ""}
+                  label={props.texts.emailLabel}
+                  helperText={errors.email?.message}
+                  placeholder={props.texts.emailPlaceholder}
+                  {...field}
+                />
+              )}
+              rules={{
+                required: props.texts.emailRequiredText,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: props.texts.emailInvalidText
+                }
+              }}
+            />
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <HawaTextField
+                  fullWidth
+                  type="password"
+                  defaultValue={field.value ?? ""}
+                  value={field.value ?? ""}
+                  label={props.texts.passwordLabel}
+                  placeholder={props.texts.passwordPlaceholder}
+                  helperText={errors.password?.message}
+                  {...field}
+                />
+              )}
+              rules={{ required: props.texts.passwordRequiredText }}
+            />
+            {props.showRefCode && (
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <HawaTextField
+                    fullWidth
+                    type="text"
+                    defaultValue={field.value ?? ""}
+                    value={field.value ?? ""}
+                    label={"Ref Code"}
+                    placeholder={props.texts.passwordPlaceholder}
+                    helperText={errors.password?.message}
+                    {...field}
+                  />
+                )}
+                rules={{ required: props.texts.passwordRequiredText }}
               />
             )}
-            rules={{
-              required: props.texts.fullNameRequiredText
-            }}
-          />
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <HawaTextField
-                fullWidth
-                type="text"
-                value={field.value ?? ""}
-                label={props.texts.emailLabel}
-                helperText={errors.email?.message}
-                placeholder={props.texts.emailPlaceholder}
-                {...field}
-              />
+            {props.showTermsOption && (
+              <div className="py-2">
+                <HawaCheckbox
+                  label={
+                    <span>
+                      I accept the{" "}
+                      <a className="cursor-pointer text-blue-800">
+                        terms and conditions
+                      </a>
+                    </span>
+                  }
+                />
+              </div>
             )}
-            rules={{
-              required: props.texts.emailRequiredText,
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: props.texts.emailInvalidText
-              }
-            }}
-          />
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <HawaTextField
-                fullWidth
-                type="password"
-                defaultValue={field.value ?? ""}
-                value={field.value ?? ""}
-                label={props.texts.passwordLabel}
-                placeholder={props.texts.passwordPlaceholder}
-                helperText={errors.password?.message}
-                {...field}
-              />
+            {props.showNewletterOption && (
+              <div className="py-2">
+                <HawaCheckbox label="Subscribe to newsletter?" />
+              </div>
             )}
-            rules={{ required: props.texts.passwordRequiredText }}
-          />
-          <HawaButton fullWidth type="submit" text={props.texts.signUpText} />{" "}
-        </form>
-      </FormProvider>
-      <div className="font-semibold p-3 text-center text-sm">
-        {props.texts.existingUserText}{" "}
-        <span
-          onClick={props.handleRouteToSignIn}
-          className="text-blue-600 cursor-pointer"
-        >
-          {props.texts.signInText}
-        </span>
+            <HawaButton fullWidth type="submit" text={props.texts.signUpText} />{" "}
+          </form>
+        </FormProvider>
+        <div className="font-semibold p-3 text-center text-sm">
+          {props.texts.existingUserText}{" "}
+          <span
+            onClick={props.handleRouteToSignIn}
+            className="text-blue-600 cursor-pointer"
+          >
+            {props.texts.signInText}
+          </span>
+        </div>
       </div>
       {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
         <div style={{ display: "flex", flexDirection: "column" }}>

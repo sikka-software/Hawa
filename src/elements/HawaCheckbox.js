@@ -2,7 +2,7 @@ import React from "react";
 
 export const HawaCheckbox = (props) => {
   return (
-    <div className="flex items-center h-full p-2">
+    <div className="flex items-center h-full">
       <input
         type="checkbox"
         value=""
