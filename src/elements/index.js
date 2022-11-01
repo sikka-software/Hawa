@@ -24,3 +24,4 @@ export * from "./HawaDrawerItem";
 export * from "./HawaTooltip";
 export * from "./HawaTabs";
 export * from "./HawaModal";
+export * from "./HawaMenu";
