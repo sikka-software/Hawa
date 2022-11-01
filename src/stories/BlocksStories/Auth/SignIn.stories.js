@@ -87,11 +87,15 @@ const SignInTemplate = (args) => {
     <SignInForm
       {...args}
       error={args.showError}
+      signInType="username"
       texts={{
         emailLabel: "Email",
         emailPlaceholder: "Enter your email",
         emailRequiredText: "Email is required",
         emailInvalidText: "Invalid email address",
+        usernameLabel: "Username",
+        usernamePlaceholder: "Enter your username",
+        usernameRequired: " Username is required",
         passwordLabel: "Password",
         passwordPlaceholder: "Enter password",
         passwordRequiredText: "Password is required",
@@ -107,7 +111,7 @@ const SignInTemplate = (args) => {
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}
       handleSignIn={(e) => console.log(e)}
-      handleForgotPassword={() => console.log('forgot password')}
+      handleForgotPassword={() => console.log("forgot password")}
     />
   );
 };

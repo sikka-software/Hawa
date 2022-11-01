@@ -27,29 +27,50 @@ export const SignInForm = (props) => {
             severity="error"
           />
         )}
-        <Controller
-          control={control}
-          name="email"
-          render={({ field }) => (
-            <HawaTextField
-              fullWidth
-              type="text"
-              value={field.value ?? ""}
-              label={props.texts.emailLabel}
-              helperText={errors.email?.message}
-              placeholder={props.texts.emailPlaceholder}
-              {...field}
-            />
-          )}
-          rules={{
-            required: props.texts.emailRequiredText,
-            pattern: {
-              value:
-                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: props.texts.emailInvalidText
-            }
-          }}
-        />
+        {props.signInType === "email" ? (
+          <Controller
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                type="text"
+                value={field.value ?? ""}
+                label={props.texts.emailLabel}
+                helperText={errors.email?.message}
+                placeholder={props.texts.emailPlaceholder}
+                {...field}
+              />
+            )}
+            rules={{
+              required: props.texts.emailRequiredText,
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: props.texts.emailInvalidText
+              }
+            }}
+          />
+        ) : (
+          <Controller
+            control={control}
+            name="username"
+            render={({ field }) => (
+              <HawaTextField
+                fullWidth
+                type="text"
+                value={field.value ?? ""}
+                label={props.texts.usernameLabel}
+                helperText={errors.username?.message}
+                placeholder={props.texts.usernamePlaceholder}
+                {...field}
+              />
+            )}
+            rules={{
+              required: props.texts.usernameRequired
+            }}
+          />
+        )}
         <Controller
           control={control}
           name="password"
@@ -125,6 +146,9 @@ SignInForm.propTypes = {
     emailPlaceholder: PropTypes.string,
     emailRequiredText: PropTypes.string,
     emailInvalidText: PropTypes.string,
+    usernameLabel:PropTypes.string,
+    usernamePlaceholder: PropTypes.string,
+    usernameRequired: PropTypes.string,
     passwordLabel: PropTypes.string,
     passwordPlaceholder: PropTypes.string,
     passwordRequiredText: PropTypes.string,
@@ -145,6 +169,6 @@ SignInForm.propTypes = {
   handleGithubSignIn: PropTypes.func,
   handleTwitterSignIn: PropTypes.func,
   handleForgotPassword: PropTypes.func,
-  
+
   withoutSignUp: PropTypes.bool
 };
