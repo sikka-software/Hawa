@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { HawaButton } from "../../elements";
-import HawaPhoneInput from "../../elements/HawaPhoneInput";
+import { HawaButton, HawaPhoneInput } from "../../elements";
 import { HawaContainer } from "../../layout";
 
 export const SignInPhone = (props) => {
