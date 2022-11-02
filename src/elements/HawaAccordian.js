@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const AccordionItem = (props) => {
+  const [collapse, setCollapse] = React.useState(false);
   let noRounding =
     "flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white";
   let roundedTop =
@@ -23,6 +24,7 @@ const AccordionItem = (props) => {
             // ? roundedBottom
             // : noRounding
           }
+          onClick={() => setCollapse(!collapse)}
           data-accordion-target={"#accordion-collapse-body-" + props.count}
           aria-expanded="true"
           aria-controls={"accordion-collapse-body-" + props.count}
@@ -30,7 +32,7 @@ const AccordionItem = (props) => {
           <span>What is Flowbite?</span>
           <svg
             data-accordion-icon=""
-            className="w-6 h-6 rotate-180 shrink-0"
+            className={`w-6 h-6 ${collapse ? "" : "rotate-180"}  shrink-0`}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +47,7 @@ const AccordionItem = (props) => {
       </h2>
       <div
         id={"accordion-collapse-body-" + props.count}
-        className=""
+        className={`${collapse ? "hidden" : "block"}`}
         aria-labelledby={"accordion-collapse-heading-" + props.count}
       >
         <div className={props.count === -1 ? accPaperRounded : accPaper}>
