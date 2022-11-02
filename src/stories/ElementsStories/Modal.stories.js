@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HawaModal } from "../../elements";
+import { HawaModal, ModalFooter } from "../../elements";
 
 export default {
   title: "Elements/Modal",
@@ -29,22 +29,24 @@ export default {
   }
 };
 
-export const Modal = (args) => {
-  const [open, setOpen] = useState(false);
+const Template = (args) => {
+  const [open, setOpen] = useState(args.open);
   return (
     <>
       <button
         data-modal-toggle="defaultModal"
         variant="contained"
         // onClick={() => setOpen(!open)}>
+        onClick={() => setOpen(true)}
       >
         Open Dialog
       </button>
 
       <HawaModal
         modalID="defaultModal"
-        title="Dialog Test"
+        title={args.title}
         hideClose={args.hideClose}
+        closeOnClickOutside={args.closeOnClickOutside}
         open={open}
         onClose={() => setOpen(!open)}
         actions={
@@ -58,4 +60,12 @@ export const Modal = (args) => {
       </HawaModal>
     </>
   );
+};
+
+export const Modal = Template.bind({});
+Modal.args = {
+  title: "Modal Title",
+  hideClose: false,
+  closeOnClickOutside: false,
+  open: false
 };
