@@ -1,6 +1,7 @@
 import React from "react";
 
 export const HawaSnackbar = (props) => {
+  
   let severities = {
     info: "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-blue-700 bg-blue-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
     warning:
