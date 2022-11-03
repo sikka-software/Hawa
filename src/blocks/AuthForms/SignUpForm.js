@@ -155,9 +155,9 @@ export const SignUpForm = (props) => {
                   isSearchable={false}
                   isClearable={false ?? false}
                   options={[
-                    { value: "chocolate", label: "Chocolate" },
-                    { value: "strawberry", label: "Strawberry" },
-                    { value: "vanilla", label: "Vanilla" }
+                    { value: "friend", label: "From a friend" },
+                    { value: "ad", label: "Advertisement" },
+                    { value: "other", label: "Other" }
                   ]}
                   onChange={(e, o) => console.log("chooo", e)}
                   onInputChange={(e, o) => console.log("changing", e)}
