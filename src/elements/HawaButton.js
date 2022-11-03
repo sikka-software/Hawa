@@ -26,7 +26,6 @@ export const HawaButton = ({
   return (
     <button
       data-tooltip-target={tooltip}
-      type="button"
       className={styles}
       disabled={isLoading}
       {...props}

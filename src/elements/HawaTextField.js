@@ -2,7 +2,7 @@ import React from "react";
 
 export const HawaTextField = (props) => {
   return (
-    <div>
+    <div className="mb-3">
       <label
         htmlFor="first_name"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -24,7 +24,7 @@ export const HawaTextField = (props) => {
       )}
 
       {props.helperText && (
-        <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+        <p className="mx-2 mt-1 text-xs text-red-600 dark:text-red-500">
           {/* <span className="font-medium">Oh, snapp!</span> */}
           {props.helperText}
         </p>

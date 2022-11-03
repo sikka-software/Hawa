@@ -106,7 +106,6 @@ export const SelectInput = (args) => {
       isMulti={args.isMulti ?? false}
       isSearchable={args.isSearchable}
       isClearable={args.isClearable ?? false}
-      // onChange={args.onChange}
       onChange={(e, o) => console.log("chooo", e)}
       onInputChange={(e, o) => console.log("changing", e)}
     />

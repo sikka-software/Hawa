@@ -70,14 +70,14 @@ export const HawaPhoneInput = ({ preferredCountry }) => {
           control: (base) => ({
             ...base,
             width: 64,
-            borderRadius: "0.75rem",
+            borderRadius: "0.5rem",
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0
           }),
           menu: (base) => ({
             ...base,
             width: 190,
-            borderRadius: "0.75rem"
+            borderRadius: "0.5rem"
           })
         }}
         components={{

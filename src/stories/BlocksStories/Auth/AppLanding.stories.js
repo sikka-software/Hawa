@@ -32,7 +32,7 @@ Landing.args = {
   texts: {
     signIn: "Sign In",
     signUp: "Sign Up",
-    langauge: "عربي"
+    lang: "عربي"
   },
   handleSignIn: () => console.log("routing to sign in page"),
   handleSignUp: () => console.log("routing to sign up page"),

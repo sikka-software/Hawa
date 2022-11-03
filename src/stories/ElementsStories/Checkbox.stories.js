@@ -24,6 +24,6 @@ const Template = (args) => {
 export const Checkbox = Template.bind({});
 Checkbox.args = {
   title: "Success",
-  text: "This is an alert indicating that there was a successful action",
-  severity: "success"
+  label: "This is an alert indicating that there was a successful action",
+  helperText: "success"
 };

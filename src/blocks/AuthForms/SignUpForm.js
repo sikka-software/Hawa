@@ -143,44 +143,69 @@ export const SignUpForm = (props) => {
                     {...field}
                   />
                 )}
-                rules={{ required: props.texts.passwordRequiredText }}
               />
             )}
             {props.showUserSource && (
-              <div className="py-2">
-                <HawaSelect
-                  label="How did you learn about us?"
-                  isCreatable={false}
-                  isMulti={false ?? false}
-                  isSearchable={false}
-                  isClearable={false ?? false}
-                  options={[
-                    { value: "friend", label: "From a friend" },
-                    { value: "ad", label: "Advertisement" },
-                    { value: "other", label: "Other" }
-                  ]}
-                  onChange={(e, o) => console.log("chooo", e)}
-                  onInputChange={(e, o) => console.log("changing", e)}
+              <div>
+                <Controller
+                  control={control}
+                  name="reference"
+                  render={({ field }) => (
+                    <HawaSelect
+                      label="How did you learn about us?"
+                      isCreatable={false}
+                      isMulti={false ?? false}
+                      isSearchable={false}
+                      isClearable={false ?? false}
+                      options={[
+                        { value: "friend", label: "From a friend" },
+                        { value: "ad", label: "Advertisement" },
+                        { value: "other", label: "Other" }
+                      ]}
+                      onChange={(e, o) => console.log("chooo", e)}
+                      onInputChange={(e, o) => console.log("changing", e)}
+                      {...field}
+                    />
+                  )}
                 />
               </div>
             )}
             {props.showTermsOption && (
               <div className="py-2">
-                <HawaCheckbox
-                  label={
-                    <span>
-                      I accept the{" "}
-                      <a className="cursor-pointer text-blue-800">
-                        terms and conditions
-                      </a>
-                    </span>
-                  }
+                <Controller
+                  control={control}
+                  name="terms_accepted"
+                  render={({ field }) => (
+                    <HawaCheckbox
+                      helperText={errors.terms_accepted?.message}
+                      onChange={() => console.log("te")}
+                      label={
+                        <span>
+                          {props.texts.iAcceptText}{" "}
+                          <a className="cursor-pointer text-blue-800">
+                            {props.texts.termsText}
+                          </a>
+                        </span>
+                      }
+                      {...field}
+                    />
+                  )}
+                  rules={{ required: props.texts.termsRequiredText }}
                 />
               </div>
             )}
             {props.showNewsletterOption && (
               <div className="py-2">
-                <HawaCheckbox label="Subscribe to newsletter?" />
+                <Controller
+                  control={control}
+                  name="newsletter_accepted"
+                  render={({ field }) => (
+                    <HawaCheckbox
+                      label={props.texts.subscribeToNewsletter}
+                      {...field}
+                    />
+                  )}
+                />
               </div>
             )}
             <HawaButton fullWidth type="submit" text={props.texts.signUpText} />{" "}
@@ -247,6 +272,9 @@ SignUpForm.propTypes = {
     confirmPasswordLabel: PropTypes.string,
     confirmPasswordPlaceholder: PropTypes.string,
     forgotPasswordText: PropTypes.string,
+    termsText: PropTypes.string,
+    iAcceptText: PropTypes.string,
+    termsRequiredText: PropTypes.string,
     newUserText: PropTypes.string,
     signUpText: PropTypes.string,
     signInText: PropTypes.string,

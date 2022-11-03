@@ -18,7 +18,7 @@ export const AppLanding = (props) => {
       />
       <HawaButton
         fullWidth
-        text={props.texts.langauge}
+        text={props.texts.lang}
         onClick={props.handleLangauge}
       />
     </HawaContainer>
@@ -28,7 +28,7 @@ AppLanding.propTypes = {
   texts: PropTypes.shape({
     signIn: PropTypes.string,
     signUp: PropTypes.string,
-    language: PropTypes.string
+    lang: PropTypes.string
   }),
   handleSignIn: PropTypes.func,
   handleSignUp: PropTypes.func,

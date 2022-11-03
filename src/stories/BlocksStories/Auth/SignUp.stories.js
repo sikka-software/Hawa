@@ -78,8 +78,12 @@ const SignUpTemplate = (args) => {
         passwordPlaceholder: "Minimum 8 characters",
         passwordRequiredText: "Password is required",
         passwordTooShortText: "Password too short",
+        subscribeToNewsletter: "Subscribe to newsletter?",
         confirmPasswordLabel: "Confirm Password",
         confirmPasswordPlaceholder: "Minimum 8 characters",
+        iAcceptText: "I accept the",
+        termsText: "terms & conditinos",
+        termsRequiredText: "you must accept the terms & conditions",
         forgotPasswordText: "Forgot password?",
         newUserText: "New user?",
         signUpText: "Sign up",
@@ -93,7 +97,7 @@ const SignUpTemplate = (args) => {
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}
-      handleSignUp={() => console.log("singing up via email")}
+      handleSignUp={(e) => console.log("singing up via email", e)}
       handleGoogleSignUp={() => console.log("signing up via google")}
       handleGithubSignUp={() => console.log("signing up via github")}
       handleTwitterSignUp={() => console.log("signing up via Twitter")}
