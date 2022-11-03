@@ -9,7 +9,6 @@ export const HawaButton = ({
   text,
   isLoading = false,
   loadingText,
-  onClick,
   ...props
 }) => {
   const [loading, setLoading] = useState(isLoading);
@@ -29,7 +28,6 @@ export const HawaButton = ({
       data-tooltip-target={tooltip}
       type="button"
       className={styles}
-      onClick={() => console.log("clicking")}
       disabled={isLoading}
       {...props}
     >
@@ -57,6 +55,5 @@ HawaButton.PropTypes = {
   iconOnly: PropTypes.bool,
   text: PropTypes.string,
   isLoading: PropTypes.bool,
-  loadingText: PropTypes.string,
-  onClick : PropTypes.func
+  loadingText: PropTypes.string
 };

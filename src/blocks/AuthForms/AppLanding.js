@@ -6,9 +6,21 @@ import { HawaContainer } from "../../layout/HawaContainer";
 export const AppLanding = (props) => {
   return (
     <HawaContainer>
-      <HawaButton fullWidth text={"Sign In"} />
-      <HawaButton fullWidth text={"Sign Up"} />
-      <HawaButton fullWidth text={"عربي"} />
+      <HawaButton
+        fullWidth
+        text={props.texts.signIn}
+        onClick={props.handleSignIn}
+      />
+      <HawaButton
+        fullWidth
+        text={props.texts.signUp}
+        onClick={props.handleSignUp}
+      />
+      <HawaButton
+        fullWidth
+        text={props.texts.langauge}
+        onClick={props.handleLangauge}
+      />
     </HawaContainer>
   );
 };
@@ -17,5 +29,8 @@ AppLanding.propTypes = {
     signIn: PropTypes.string,
     signUp: PropTypes.string,
     language: PropTypes.string
-  })
+  }),
+  handleSignIn: PropTypes.func,
+  handleSignUp: PropTypes.func,
+  handleLangauge: PropTypes.func
 };

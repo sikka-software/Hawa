@@ -23,10 +23,18 @@ export default {
 };
 
 const AppLandingTemplate = (args) => {
-  return <AppLanding />;
+  return <AppLanding {...args} />;
 };
 
 export const Landing = AppLandingTemplate.bind({});
 Landing.args = {
-  lang: "en"
+  lang: "en",
+  texts: {
+    signIn: "Sign In",
+    signUp: "Sign Up",
+    langauge: "عربي"
+  },
+  handleSignIn: () => console.log("routing to sign in page"),
+  handleSignUp: () => console.log("routing to sign up page"),
+  handleLangauge: () => console.log("changing language")
 };
