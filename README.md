@@ -7,7 +7,7 @@
 [![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
 [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
 
-> Opinionated UI Kit for web apps and websites built with MUI
+> Opinionated UI Kit for web apps and websites built with TailwindCSS
 
 ## Install
 
