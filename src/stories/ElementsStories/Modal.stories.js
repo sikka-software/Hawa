@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HawaModal, ModalFooter } from "../../elements";
+import { HawaButton, HawaModal, ModalFooter } from "../../elements";
 
 export default {
   title: "Elements/Modal",
@@ -51,8 +51,8 @@ const Template = (args) => {
         onClose={() => setOpen(!open)}
         actions={
           <>
-            <button variant="outlined">Button</button>
-            <button variant="danger">Button</button>
+            <HawaButton normalWidth text="test" />{" "}
+            <HawaButton normalWidth text="test" />{" "}
           </>
         }
       >
@@ -66,6 +66,6 @@ export const Modal = Template.bind({});
 Modal.args = {
   title: "Modal Title",
   hideClose: false,
-  closeOnClickOutside: false,
+  closeOnClickOutside: true,
   open: false
 };

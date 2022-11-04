@@ -20,6 +20,10 @@ export const HawaButton = ({
     styles =
       "my-1 w-full flex justify-center text-white bg-primary-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
   }
+  if (props.normalWidth) {
+    styles =
+      "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
+  }
   if (iconOnly) {
     iconStyle = "flex flex-col justify-center items-center";
   }
@@ -41,7 +45,7 @@ export const HawaButton = ({
       ) : (
         <div className="flex flex-row gap-x-3">
           <div className="border-2 border-gray-400 border-t-white animate-spin  text-white rounded-full h-5 w-5"></div>
-          <div>{loadingText}</div>
+          {/* <div>{loadingText}</div> */}
         </div>
       )}
     </button>
