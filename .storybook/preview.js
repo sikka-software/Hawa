@@ -11,8 +11,8 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Introduction",
         "Getting Started",
+        "Introduction",
         "Theme",
         ["Theme Introduction", "Theme Configuration"],
         "Blocks",

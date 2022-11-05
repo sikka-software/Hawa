@@ -12,6 +12,26 @@ export default {
     }
   },
   argTypes: {
+    texts: { default: "" },
+
+    // isLoading={isLoading}
+    // error={args.showError}
+    // signInType="username"
+    signInType: {
+      default: "email",
+      control: "select",
+      options: ["email", "username", "phone"],
+
+      description: "For setting the type of sign in the user will use",
+      table: { defaultValue: { summary: "email" } }
+    },
+    isLoading: {
+      default: false,
+      control: "boolean",
+      description:
+        "a boolean that changes the main button into a loading button",
+      table: { defaultValue: { summary: "false" } }
+    },
     lang: {
       default: true,
       control: "select",
@@ -55,6 +75,7 @@ export default {
       description: "The error text for the auth failure",
       table: { defaultValue: { summary: "Something went wrong" } }
     },
+
     handleSignIn: {
       action: "Signing in Via Email",
       description: "The function to sign in user"
@@ -87,9 +108,6 @@ const SignInTemplate = (args) => {
   return (
     <SignInForm
       {...args}
-      isLoading={isLoading}
-      error={args.showError}
-      signInType="username"
       texts={{
         emailLabel: "Email",
         emailPlaceholder: "Enter your email",
@@ -109,6 +127,9 @@ const SignInTemplate = (args) => {
         githubButtonLabel: "Sign in with Github",
         twitterButtonLabel: "Sign in with Twitter"
       }}
+      isLoading={isLoading}
+      error={args.showError}
+      signInType={args.signInType}
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}

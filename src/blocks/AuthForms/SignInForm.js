@@ -1,14 +1,13 @@
 import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import PropTypes from "prop-types";
-
 import {
+  HawaTextField,
+  HawaLogoButton,
   HawaAlert,
   HawaButton,
-  HawaLogoButton,
-  HawaTextField
+  HawaPhoneInput
 } from "../../elements";
-import { HawaContainer } from "../../layout";
+import { Controller, useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 export const SignInForm = (props) => {
   const {
@@ -51,7 +50,7 @@ export const SignInForm = (props) => {
               }
             }}
           />
-        ) : (
+        ) : props.signInType === "username" ? (
           <Controller
             control={control}
             name="username"
@@ -69,6 +68,13 @@ export const SignInForm = (props) => {
             rules={{
               required: props.texts.usernameRequiredText
             }}
+          />
+        ) : (
+          <Controller
+            control={control}
+            name="phone"
+            render={({ field }) => <HawaPhoneInput label="Phone number" />}
+            rules={{ required: props.texts.passwordRequiredText }}
           />
         )}
         <Controller
@@ -90,7 +96,7 @@ export const SignInForm = (props) => {
         />
         {!props.withoutResetPassword && (
           <div
-            className="dark:text-gray-300 text-xs cursor-pointer w-fit mb-3"
+            className="mb-3 w-fit cursor-pointer text-xs dark:text-gray-300"
             onClick={props.handleForgotPassword}
           >
             {props.texts.forgotPasswordText}
@@ -103,11 +109,11 @@ export const SignInForm = (props) => {
           text={props.texts.signInText}
         />
         {!props.withoutSignUp && (
-          <div className="dark:text-gray-300 font-semibold p-3 text-center text-sm">
+          <div className="p-3 text-center text-sm font-semibold dark:text-gray-300">
             {props.texts.newUserText}{" "}
             <span
               onClick={props.handleRouteToSignUp}
-              className="dark:text-blue-400 text-blue-600 cursor-pointer"
+              className="cursor-pointer text-blue-600 dark:text-blue-400"
             >
               {props.texts.signUpText}
             </span>
