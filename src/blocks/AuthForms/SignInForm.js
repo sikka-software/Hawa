@@ -3,7 +3,8 @@ import {
   HawaTextField,
   HawaLogoButton,
   HawaAlert,
-  HawaButton
+  HawaButton,
+  HawaPhoneInput
 } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
@@ -51,7 +52,7 @@ export const SignInForm = (props) => {
               }
             }}
           />
-        ) : (
+        ) : props.signInType === "username" ? (
           <Controller
             control={control}
             name="username"
@@ -69,6 +70,13 @@ export const SignInForm = (props) => {
             rules={{
               required: props.texts.usernameRequired
             }}
+          />
+        ) : (
+          <Controller
+            control={control}
+            name="phone"
+            render={({ field }) => <HawaPhoneInput label="Phone number" />}
+            rules={{ required: props.texts.passwordRequiredText }}
           />
         )}
         <Controller
