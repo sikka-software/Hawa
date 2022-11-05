@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SignInForm } from "../../../blocks/AuthForms";
 
 export default {
@@ -83,9 +83,11 @@ export default {
 };
 
 const SignInTemplate = (args) => {
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <SignInForm
       {...args}
+      isLoading={isLoading}
       error={args.showError}
       signInType="username"
       texts={{
@@ -110,7 +112,10 @@ const SignInTemplate = (args) => {
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
       viaTwitter={args.viaTwitter}
-      handleSignIn={(e) => console.log(e)}
+      handleSignIn={(e) => {
+        setIsLoading(true);
+        console.log(e);
+      }}
       handleForgotPassword={() => console.log("forgot password")}
     />
   );
