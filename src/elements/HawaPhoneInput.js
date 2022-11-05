@@ -42,14 +42,7 @@ export const HawaPhoneInput = ({ preferredCountry, label }) => {
   };
 
   return (
-    <div
-      // style={{
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      //   height: "100%"
-      // }}
-      className="flex flex-col mb-3"
-    >
+    <div className="flex flex-col mb-3">
       {label && (
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
           {label}

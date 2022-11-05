@@ -26,3 +26,4 @@ export * from "./HawaTabs";
 export * from "./HawaModal";
 export * from "./HawaMenu";
 export * from "./HawaDrawer";
+export * from "./HawaCopyrights";
