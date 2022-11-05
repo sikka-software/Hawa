@@ -1,21 +1,21 @@
 import React from "react";
-import {
-  HawaTextField,
-  HawaLogoButton,
-  HawaAlert,
-  HawaButton
-} from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
-import { HawaContainer } from "../../layout/HawaContainer";
+
+import {
+  HawaAlert,
+  HawaButton,
+  HawaLogoButton,
+  HawaTextField
+} from "../../elements";
+import { HawaContainer } from "../../layout";
 
 export const SignInForm = (props) => {
-  const methods = useForm();
   const {
     formState: { errors },
     handleSubmit,
     control
-  } = methods;
+  } = useForm();
 
   return (
     <HawaContainer withDividers>
@@ -67,7 +67,7 @@ export const SignInForm = (props) => {
               />
             )}
             rules={{
-              required: props.texts.usernameRequired
+              required: props.texts.usernameRequiredText
             }}
           />
         )}
@@ -86,7 +86,7 @@ export const SignInForm = (props) => {
               {...field}
             />
           )}
-          rules={{ required: props.texts.passwordRequiredText }}
+          rules={{ required: props.texts.passwordRequiredText, minLength: 5 }}
         />
         {!props.withoutResetPassword && (
           <div
@@ -101,7 +101,7 @@ export const SignInForm = (props) => {
           isLoading={props.isLoading}
           type="submit"
           text={props.texts.signInText}
-        />{" "}
+        />
         {!props.withoutSignUp && (
           <div className="dark:text-gray-300 font-semibold p-3 text-center text-sm">
             {props.texts.newUserText}{" "}
