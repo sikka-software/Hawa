@@ -24,17 +24,5 @@ export const HawaCheckbox = (props) => {
         </div>
       )}
     </div>
-
-    // <React.Fragment>
-    //   <FormControlLabel
-    //     label={props.label}
-    //     control={
-    //       <Checkbox
-    //         style={{ color: props.color || null }}
-    //         defaultChecked={props.defaultValue}
-    //       />
-    //     }
-    //   />
-    // </React.Fragment>
   );
 };

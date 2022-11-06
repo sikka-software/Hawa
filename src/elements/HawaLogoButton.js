@@ -32,13 +32,10 @@ export const HawaLogoButton = (props) => {
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          // xmlns:xlink="http://www.w3.org/1999/xlink"
           x="0px"
           y="0px"
           className="w-5 h-5"
           viewBox="0 0 512.002 512.002"
-          // style="enable-background:new 0 0 512.002 512.002;"
-          // xml:space="preserve"
         >
           <path
             // style="fill:#73A1FB;"
@@ -62,7 +59,6 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/mada.png"
-          // height={20}
           className="h-6"
         />
       );
@@ -80,7 +76,6 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/visa-master.png"
-          // height={30}
           className="h-6"
         />
       );
@@ -89,7 +84,6 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/paypal.png"
-          // height={25}
           className="h-6"
         />
       );
@@ -98,7 +92,6 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/google-pay.png"
-          // height={20}
           className="h-6"
         />
       );
@@ -107,7 +100,6 @@ export const HawaLogoButton = (props) => {
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/apple-pay.png"
-          // height={40}
           className="h-11"
         />
       );
@@ -142,7 +134,6 @@ export const HawaLogoButton = (props) => {
     <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       {...props}
-      // variant="withLogo"
       className="bg-white rounded-xl my-2 h-11 flex max-w-sm w-full flex-row justify-center align-middle"
     >
       <div className="h-full flex flex-row justify-end items-center">

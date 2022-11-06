@@ -6,13 +6,13 @@ export default {
   title: "Elements/Checkbox",
   component: HawaCheckbox,
   argTypes: {
-    title: {
+    label: {
       control: "text",
-      description: "The title of the alert in bold"
+      description: "The content text of the checkbox"
     },
-    text: {
+    helperText: {
       control: "text",
-      description: "The content text of the alert"
+      description: "The red text if the checkbox is required"
     }
   }
 };
@@ -23,7 +23,6 @@ const Template = (args) => {
 
 export const Checkbox = Template.bind({});
 Checkbox.args = {
-  title: "Success",
-  label: "This is an alert indicating that there was a successful action",
-  helperText: "success"
+  label: "This is an checkbox element with a label and helperText",
+  helperText: "This is the helperText"
 };
