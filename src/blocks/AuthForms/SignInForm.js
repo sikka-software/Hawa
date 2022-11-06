@@ -8,15 +8,13 @@ import {
 } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
-import { HawaContainer } from "../../layout/HawaContainer";
 
 export const SignInForm = (props) => {
-  const methods = useForm();
   const {
     formState: { errors },
     handleSubmit,
     control
-  } = methods;
+  } = useForm();
 
   return (
     <HawaContainer withDividers>
@@ -68,7 +66,7 @@ export const SignInForm = (props) => {
               />
             )}
             rules={{
-              required: props.texts.usernameRequired
+              required: props.texts.usernameRequiredText
             }}
           />
         ) : (
@@ -94,11 +92,11 @@ export const SignInForm = (props) => {
               {...field}
             />
           )}
-          rules={{ required: props.texts.passwordRequiredText }}
+          rules={{ required: props.texts.passwordRequiredText, minLength: 5 }}
         />
         {!props.withoutResetPassword && (
           <div
-            className="dark:text-gray-300 text-xs cursor-pointer w-fit mb-3"
+            className="mb-3 w-fit cursor-pointer text-xs dark:text-gray-300"
             onClick={props.handleForgotPassword}
           >
             {props.texts.forgotPasswordText}
@@ -109,13 +107,13 @@ export const SignInForm = (props) => {
           isLoading={props.isLoading}
           type="submit"
           text={props.texts.signInText}
-        />{" "}
+        />
         {!props.withoutSignUp && (
-          <div className="dark:text-gray-300 font-semibold p-3 text-center text-sm">
+          <div className="p-3 text-center text-sm font-semibold dark:text-gray-300">
             {props.texts.newUserText}{" "}
             <span
               onClick={props.handleRouteToSignUp}
-              className="dark:text-blue-400 text-blue-600 cursor-pointer"
+              className="cursor-pointer text-blue-600 dark:text-blue-400"
             >
               {props.texts.signUpText}
             </span>
