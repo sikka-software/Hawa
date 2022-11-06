@@ -7,8 +7,6 @@ export const HawaModal = ({
   closeOnClickOutside,
   ...props
 }) => {
-  console.log("open : ", open);
-
   useEffect(() => {
     if (closeOnClickOutside) {
       window.onclick = () => {
