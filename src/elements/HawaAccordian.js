@@ -18,18 +18,13 @@ const AccordionItem = (props) => {
       <h2 id={"accordion-collapse-heading-" + props.count}>
         <button
           type="button"
-          className={
-            props.count === 0 ? roundedTop : noRounding
-            // : props.count === -1
-            // ? roundedBottom
-            // : noRounding
-          }
+          className={props.count === 0 ? roundedTop : noRounding}
           onClick={() => setCollapse(!collapse)}
           data-accordion-target={"#accordion-collapse-body-" + props.count}
           aria-expanded="true"
           aria-controls={"accordion-collapse-body-" + props.count}
         >
-          <span>What is Flowbite?</span>
+          <span>{props.title}</span>
           <svg
             data-accordion-icon=""
             className={`w-6 h-6 ${collapse ? "" : "rotate-180"}  shrink-0`}
@@ -52,20 +47,7 @@ const AccordionItem = (props) => {
       >
         <div className={props.count === -1 ? accPaperRounded : accPaper}>
           <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is an open-source library of interactive components built
-            on top of Tailwind CSS including buttons, dropdowns, modals,
-            navbars, and more.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out this guide to learn how to{" "}
-            <a
-              href="/docs/getting-started/introduction/"
-              className="text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              get started
-            </a>{" "}
-            and start developing websites even faster with components on top of
-            Tailwind CSS.
+            {props.content}
           </p>
         </div>
       </div>
@@ -73,20 +55,14 @@ const AccordionItem = (props) => {
   );
 };
 export const HawaAccordian = (props) => {
-  let accordionContent = [
-    { title: "etete", content: "teoite" },
-    { title: "etete", content: "teoite" },
-    { title: "etete", content: "teoite" },
-    { title: "etete", content: "teoite" }
-  ];
   return (
     <div id="accordion-collapse" data-accordion="collapse">
-      {accordionContent.map((acc, i) => {
+      {props.content.map((acc, i) => {
         return (
           <AccordionItem
             title={acc.title}
             content={acc.content}
-            count={accordionContent.length - 1 === i ? -1 : i}
+            count={props.content.length - 1 === i ? -1 : i}
           />
         );
       })}
@@ -94,6 +70,8 @@ export const HawaAccordian = (props) => {
   );
 };
 HawaAccordian.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.shape({
+    title: PropTypes.string,
+    content: PropTypes.string
+  })
 };

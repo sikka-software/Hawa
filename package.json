@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.91",
+  "version": "0.0.92",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -32,6 +32,7 @@
     "@storybook/storybook-deployer": "^2.8.11",
     "@storybook/theming": "^6.5.8",
     "babel-loader": "^8.2.2",
+    "clsx": "^1.2.1",
     "crypto-js": "^4.1.1",
     "emotion-theming": "^11.0.0",
     "framer-motion": "^4.1.7",
