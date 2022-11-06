@@ -32,13 +32,15 @@ export default {
 };
 
 const Template = (args) => {
+  const [openDropDown, setOpenDropDown] = useState(args.open);
   return (
     <>
       <HawaMenu
         {...args}
         popMenuID={"test"}
-        handleClose={(e) => setAnchorElUser(null)}
+        handleClose={setOpenDropDown}
         menuItems={args.menuItems}
+        open={openDropDown}
       />
     </>
   );
@@ -46,6 +48,7 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
+  open: false,
   menuItems: [
     [
       {
