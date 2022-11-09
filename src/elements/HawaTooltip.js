@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const HawaTooltip = (props) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div>
       <div
-        id={props.tooltipID}
-        role="tooltip"
-        // className="inline-block absolute py-2 px-3"
-        className="inline-block opacity-0 absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm transition-opacity duration-300 tooltip dark:bg-gray-700"
+        className="w-fit"
+        onMouseEnter={() => {
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+        }}
+      >
+        {props.children}
+      </div>
+      <div
+        className={
+          isHovered
+            ? "relative top-2 z-10 inline-block w-fit max-w-xs rounded-lg bg-gray-900 py-2 px-3 text-center text-sm font-medium text-white opacity-100 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+            : "relative top-2 z-10 inline-block w-fit max-w-xs rounded-lg bg-gray-900 py-2 px-3 text-center text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+        }
       >
         {props.content}
-        <div className="tooltip-arrow" data-popper-arrow></div>
       </div>
-
-      <div onMouseEnter={() => console.log("hovering")}>{props.children}</div>
     </div>
   );
 };

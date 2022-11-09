@@ -3,13 +3,14 @@ import {
   HawaSearchBar,
   HawaTextField,
   HawaSelect,
-  HawaPhoneInput
+  HawaPhoneInput,
+  HawaColorPicker
 } from "../../elements";
 import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
-  component: [HawaTextField, HawaPhoneInput, HawaSelect],
+  component: [HawaTextField, HawaPhoneInput, HawaSelect, HawaColorPicker],
   parameters: {
     backgrounds: {
       default: "light",
@@ -128,4 +129,11 @@ SelectInput.args = {
   onInputChange: (newValue, action) => {
     console.log("new value: ", newValue, "\n", "action", action);
   }
+};
+export const ColorPicker = (args) => {
+  return <HawaColorPicker {...args} />;
+};
+
+ColorPicker.args = {
+  color: "#f0f0f0"
 };

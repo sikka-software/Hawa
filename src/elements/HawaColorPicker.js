@@ -1,52 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-// const ColorInput = styled.input`
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   border: none;
-//   cursor: pointer;
-//   height: 35px;
-//   border-radius: ${(props) => props.borderRadius}px;
-//   background-color: ${(props) => props.value};
-//   &::-webkit-color-swatch {
-//     border: none;
-//   }
-//   &::-moz-color-swatch {
-//     border: none;
-//   }
-// `;
-// const ColorText = styled.input`
-//   max-width: 70px;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   border: none;
-//   //   height: 30px;
-//   padding: 10px;
-//   border-radius: ${(props) => props.borderRadius}px;
-//   &::-webkit-color-swatch {
-//     border: none;
-//   }
-//   &::-moz-color-swatch {
-//     border: none;
-//   }
-// `;
 export const HawaColorPicker = (props) => {
+  const [selectedColor, setSelectedColor] = useState(props.color);
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      {/* <ColorText
-        type={"text"}
-        value={props.color}
-        onChange={props.handleChange}
+    <div className={`flex w-fit flex-row p-0`}>
+      <div
+        style={{ backgroundColor: selectedColor }}
+        className="rounded-tl-lg rounded-bl-lg"
+      >
+        <input
+          type="color"
+          value={selectedColor}
+          onChange={(e) => {
+            setSelectedColor(e.target.value);
+            props.handleChange(e.target.value);
+          }}
+          className="opacity-0"
+        />
+      </div>
+
+      <input
+        type="text"
+        value={selectedColor}
+        className="w-24 rounded-tr-lg rounded-br-lg pr-2 pl-2"
       />
-      <div style={{ width: 10 }} />
-      <ColorInput
-        type={"color"}
-        value={props.color}
-        onChange={props.handleChange}
-      /> */}
     </div>
   );
 };

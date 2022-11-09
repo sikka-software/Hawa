@@ -12,7 +12,7 @@ export const HawaSettingsRow = (props) => {
   return (
     <div className="flex flex-row bg-white justify-between align-middle items-center p-2 rounded-xl my-2 h-14">
       <HawaTypography>{props.settingsLabel}</HawaTypography>
-      {props.settingsType === "checkbox" && <HawaCheckbox {...props} />}
+      {props.settingsType === "checkbox" && <HawaCheckbox centered {...props} />}
       {props.settingsType === "text" && <HawaTextField {...props} />}
       {props.settingsType === "boolean" && <HawaSwitch {...props} />}
       {props.settingsType === "range" && <HawaRange {...props} />}

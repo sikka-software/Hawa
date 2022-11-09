@@ -9,23 +9,20 @@ import {
 
 export default {
   title: "Elements/Drawer",
-  component: HawaDrawer
+  component: HawaDrawer,
   // parameters: {
   //   backgrounds: {
   //     default: "light",
   //     values: [{ name: "light", value: "#96ACB7" }]
   //   }
   // },
-  //   argTypes: {
-  //     title: {
-  //       control: "text",
-  //       description: "The title of the acordion"
-  //     },
-  //     content: {
-  //       control: "text",
-  //       description: "The content text of the accordion when expanded"
-  //     }
-  //   }
+  argTypes: {
+    position: {
+      control: "select",
+      options: ["right", "left"],
+      description: "The title of the acordion"
+    }
+  }
 };
 
 const Template = (args) => {
@@ -34,7 +31,7 @@ const Template = (args) => {
   return (
     <HawaDrawer position={args.position} open={args.open} setOpen={setOpen}>
       <DrawerHeader>
-        <div className="font-bold text-lg">Hawa</div>
+        <div className="text-lg font-bold">Hawa</div>
       </DrawerHeader>
       <DrawerBody>
         <div>This is Drawer body</div>

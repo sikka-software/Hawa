@@ -5,7 +5,7 @@ export default {
   title: "Elements/Tooltip",
   component: [HawaTooltip],
   argTypes: {
-    title: {
+    content: {
       control: "text",
       description: "The title of the dialog"
     },
@@ -13,18 +13,6 @@ export default {
       control: "object",
       description:
         "The children element that will be contained by the dialog component"
-    },
-    actions: {
-      control: "object",
-      description:
-        "HTML elements that will act as the dialog actions. Preferebly use buttons"
-    },
-    hideClose: {
-      control: "boolean",
-      description: "A boolean to hide the X icon",
-      table: {
-        defaultValue: { summary: true }
-      }
     }
   }
 };
@@ -32,9 +20,13 @@ export default {
 export const Tooltip = (args) => {
   return (
     <div>
-      <HawaTooltip tooltipID="tooltip-test" content="somethign">
-        <button data-tooltip-target="tooltip-test">Show tooltip</button>
+      <HawaTooltip {...args}>
+        <button>Show tooltip</button>
       </HawaTooltip>
     </div>
   );
+};
+
+Tooltip.args = {
+  content: "This is tooltip content and it can be long sometimes "
 };
