@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaButton, HawaItemCard } from "../../elements";
+import { HawaButton, HawaItemCard } from "../../../elements";
 import { FaClone, FaTrash } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 

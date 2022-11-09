@@ -5,6 +5,7 @@ export * from "./HawaPanelTabs";
 export * from "./HawaChip";
 export * from "./HawaItemCard";
 export * from "./HawaPricingCard";
+export * from "./HawaAdCard";
 export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
 export * from "./HawaButton";

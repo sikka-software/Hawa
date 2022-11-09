@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaPricingCard } from "../../elements";
+import { HawaPricingCard } from "../../../elements";
 
 export default {
   title: "Elements/Cards/Pricing",
@@ -36,16 +36,7 @@ export default {
       control: "array",
       description: "An Array of strings for the package features"
     },
-    // lang: {
-    //   control: "text",
-    //   description: "The language of the card to change the direction",
-    //   table: {
-    //     type: {
-    //       summary: "Options",
-    //       detail: "ar, en"
-    //     }
-    //   }
-    // },
+
     buttonText: {
       control: "text",
       description: "The text of the button"

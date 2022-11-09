@@ -28,27 +28,47 @@ export const HawaButton = ({
     iconStyle = "flex flex-col justify-center items-center";
   }
   return (
-    <button
-      data-tooltip-target={tooltip}
-      className={styles}
-      disabled={isLoading}
-      {...props}
-    >
-      {!isLoading ? (
-        <>
-          {tooltip ? (
-            <HawaTooltip tooltipID={tooltip} content={tooltip} />
-          ) : null}
-          {icon ? <div className={iconStyle}>{icon}</div> : null}
-          {!iconOnly && text}
-        </>
+    <>
+      {tooltip ? (
+        <HawaTooltip tooltipID={tooltip} content={tooltip}>
+          <button
+            data-tooltip-target={tooltip}
+            className={styles}
+            disabled={isLoading}
+            {...props}
+          >
+            {!isLoading ? (
+              <>
+                {icon ? <div className={iconStyle}>{icon}</div> : null}
+                {!iconOnly && text}
+              </>
+            ) : (
+              <div className="flex flex-row gap-x-3">
+                <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
+              </div>
+            )}
+          </button>
+        </HawaTooltip>
       ) : (
-        <div className="flex flex-row gap-x-3">
-          <div className="border-2 border-gray-400 border-t-white animate-spin  text-white rounded-full h-5 w-5"></div>
-          {/* <div>{loadingText}</div> */}
-        </div>
+        <button
+          data-tooltip-target={tooltip}
+          className={styles}
+          disabled={isLoading}
+          {...props}
+        >
+          {!isLoading ? (
+            <>
+              {icon ? <div className={iconStyle}>{icon}</div> : null}
+              {!iconOnly && text}
+            </>
+          ) : (
+            <div className="flex flex-row gap-x-3">
+              <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
+            </div>
+          )}
+        </button>
       )}
-    </button>
+    </>
   );
 };
 
