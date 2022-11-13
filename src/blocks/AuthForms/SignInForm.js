@@ -74,7 +74,7 @@ export const SignInForm = (props) => {
             control={control}
             name="phone"
             render={({ field }) => <HawaPhoneInput label="Phone number" />}
-            rules={{ required: props.texts.passwordRequiredText }}
+            rules={{ required: props.texts.phoneRequiredText }}
           />
         )}
         <Controller

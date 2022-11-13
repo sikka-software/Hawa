@@ -29,6 +29,9 @@ export const SignInPhone = (props) => {
               {...field}
             />
           )}
+          rules={{
+            required: props.phoneRequiredText
+          }}
         />
         <div className="mt-2"></div>
         <HawaButton fullWidth type="submit" text={props.SignInButtonText} />

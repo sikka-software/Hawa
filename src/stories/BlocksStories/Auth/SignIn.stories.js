@@ -116,6 +116,7 @@ const SignInTemplate = (args) => {
         usernameLabel: "Username",
         usernamePlaceholder: "Enter your username",
         usernameRequired: " Username is required",
+        phoneRequiredText: "Phone is required",
         passwordLabel: "Password",
         passwordPlaceholder: "Enter password",
         passwordRequiredText: "Password is required",

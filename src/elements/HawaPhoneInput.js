@@ -11,7 +11,7 @@ const Option = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 p-1 px-3 rounded-lg flex flex-row items-center justify-between hover:bg-blue-200"
+    className="m-2 flex flex-row items-center justify-between rounded-lg p-1 px-3 hover:bg-blue-200"
     {...innerProps}
   >
     <img className="h-8 w-8" src={props.data.image}></img>
@@ -19,7 +19,7 @@ const Option = ({
   </div>
 );
 
-export const HawaPhoneInput = ({ preferredCountry, label }) => {
+export const HawaPhoneInput = ({ preferredCountry, label, helperText }) => {
   const [code, setCode] = useState(preferredCountry ?? "");
   const [selectedCountry, setSelectedCountry] = useState("+966");
   const [tel, setTel] = useState("");
@@ -42,9 +42,9 @@ export const HawaPhoneInput = ({ preferredCountry, label }) => {
   };
 
   return (
-    <div className="flex flex-col mb-3">
+    <div className="mb-3 flex flex-col">
       {label && (
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+        <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {label}
         </label>
       )}
@@ -98,8 +98,13 @@ export const HawaPhoneInput = ({ preferredCountry, label }) => {
         />
         <input
           type="number"
-          className="bg-gray-50 appearance-none border rounded-l-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-l-0"
+          className="block w-full appearance-none rounded-lg rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
         />
+        {helperText && (
+          <p className="mb-1 mt-1 text-xs text-red-600 dark:text-red-500">
+            {helperText}
+          </p>
+        )}
       </div>
     </div>
   );
