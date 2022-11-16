@@ -8,7 +8,7 @@ export * from "./HawaPricingCard";
 export * from "./HawaAdCard";
 export * from "./HawaSettingsRow";
 export * from "./HawaLogoButton";
-export * from "./HawaButton";
+export * from "./HawaButton2";
 export * from "./HawaSelect";
 export * from "./HawaRange";
 export * from "./HawaTextField";
@@ -28,4 +28,4 @@ export * from "./HawaModal";
 export * from "./HawaMenu";
 export * from "./HawaDrawer";
 export * from "./HawaCopyrights";
-export * from "./TestButton"
+export * from "./HawaButton"

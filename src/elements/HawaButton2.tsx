@@ -1,31 +1,42 @@
-import React, { useState } from "react";
-import { HawaTooltip } from "./HawaTooltip";
-import PropTypes from "prop-types";
+import React, { useState } from "react"
+import { HawaTooltip } from "./HawaTooltip"
 
-export const HawaButton = ({
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "contained" | "outlined"
+  color?: "default" | "primary" | "secondary"
+  size?: "small" | "medium" | "large"
+  text: ""
+  tooltip?: "test"
+  iconOnly?: any
+  icon?: any
+  isLoading?: boolean
+  fullWidth?: boolean
+  normalWidth?: boolean
+}
+
+export function HawaButton2({
   tooltip,
   icon,
   iconOnly,
   text,
   isLoading = false,
-  loadingText,
   ...props
-}) => {
-  const [loading, setLoading] = useState(isLoading);
-  let iconStyle = "pr-2 flex flex-col justify-center items-center";
+}: ButtonProps) {
+  const [loading, setLoading] = useState(isLoading)
+  let iconStyle = "pr-2 flex flex-col justify-center items-center"
   let styles = `${
     isLoading ? "cursor-not-allowed" : "cursor-pointer"
-  } m-1 px-2.5 py-2.5 text-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300       font-medium rounded-lg        text-sm  text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800`;
+  } m-1 px-2.5 py-2.5 text-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300       font-medium rounded-lg        text-sm  text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800`
   if (props.fullWidth) {
     styles =
-      "my-1 w-full flex justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800";
+      "my-1 w-full flex justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
   }
   if (props.normalWidth) {
     styles =
-      "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800";
+      "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
   }
   if (iconOnly) {
-    iconStyle = "flex flex-col justify-center items-center";
+    iconStyle = "flex flex-col justify-center items-center"
   }
   return (
     <>
@@ -69,14 +80,5 @@ export const HawaButton = ({
         </button>
       )}
     </>
-  );
-};
-
-HawaButton.PropTypes = {
-  tooltip: PropTypes.string,
-  icon: PropTypes.element,
-  iconOnly: PropTypes.bool,
-  text: PropTypes.string,
-  isLoading: PropTypes.bool,
-  loadingText: PropTypes.string
-};
+  )
+}

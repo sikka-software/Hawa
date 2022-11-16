@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HawaButton } from "./HawaButton";
+import { HawaButton } from "./HawaButton2";
 
 export const HawaTable = (props) => {
   let isArabic = props.lang === "ar";

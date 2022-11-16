@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { HawaAlert } from "./HawaAlert";
-import { HawaButton } from "./HawaButton";
+import { HawaButton } from "./HawaButton2";
 
 const thumbsContainer = {
   display: "flex",

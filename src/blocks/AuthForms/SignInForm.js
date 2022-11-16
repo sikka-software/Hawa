@@ -102,12 +102,17 @@ export const SignInForm = (props) => {
             {props.texts.forgotPasswordText}
           </div>
         )}
+
         <HawaButton
-          fullWidth
           isLoading={props.isLoading}
+          variant="contained"
+          color="primary"
+          size="medium"
+          width="full"
           type="submit"
-          text={props.texts.signInText}
-        />
+        >
+          {props.texts.signInText}
+        </HawaButton>
         {!props.withoutSignUp && (
           <div className="p-3 text-center text-sm font-semibold dark:text-gray-300">
             {props.texts.newUserText}{" "}
