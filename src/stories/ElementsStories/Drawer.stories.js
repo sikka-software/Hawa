@@ -4,6 +4,7 @@ import {
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
+  HawaButton,
   HawaDrawer
 } from "../../elements";
 
@@ -26,10 +27,12 @@ export default {
 };
 
 const Template = (args) => {
-  const [open, setOpen] = useState(args.open);
+  const [open, setOpen] = useState(args.open ?? false);
 
   return (
-    <HawaDrawer position={args.position} open={args.open} setOpen={setOpen}>
+    <>
+    <HawaButton onClick={() => setOpen(true)}>Open Drawer</HawaButton>
+    <HawaDrawer position={args.position} open={open} setOpen={setOpen}>
       <DrawerHeader>
         <div className="text-lg font-bold">Hawa</div>
       </DrawerHeader>
@@ -40,6 +43,7 @@ const Template = (args) => {
         <div>This is Drawer footer</div>
       </DrawerFooter>
     </HawaDrawer>
+    </>
   );
 };
 

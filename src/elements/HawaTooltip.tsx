@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 
-export const HawaTooltip = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
+
+type THawaToolTip = {
+  children : React.ReactElement
+  content : string
+}
+
+export const HawaTooltip : React.FunctionComponent<THawaToolTip> = ({children, content}) => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
     <div className="relative">
       <div
@@ -13,7 +19,7 @@ export const HawaTooltip = (props) => {
           setIsHovered(false);
         }}
       >
-        {props.children}
+        {children}
       </div>
       <div
         className={
@@ -22,7 +28,7 @@ export const HawaTooltip = (props) => {
             : "absolute top-10 left-0 z-10 inline-block w-fit max-w-xs rounded-lg bg-gray-900 py-2 px-3 text-center text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
         }
       >
-        {props.content}
+        {content}
       </div>
     </div>
   );

@@ -3,12 +3,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import clsx from "clsx";
 
 export const HawaDrawer = ({ open, setOpen, position, heading, children }) => {
-  const [openDrawer, setOpenDrawer] = useState(open);
-
   const leftDrawer =
-    "w-60 z-50 h-full absolute overflow-x-hidden top-0 left-0 border-r";
+    "w-60 z-50 h-full absolute overflow-x-hidden top-0 left-0 border-r bg-white";
   const rightDrawer =
-    "w-60 z-50 h-full absolute overflow-x-hidden top-0 right-0 border-l";
+    "w-60 z-50 h-full absolute overflow-x-hidden top-0 right-0 border-l bg-white";
 
   //   useEffect(() => {
   //     setOpenDrawer(true);
@@ -17,7 +15,7 @@ export const HawaDrawer = ({ open, setOpen, position, heading, children }) => {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child.type.name == "DrawerHeader") {
       return React.cloneElement(child, {
-        closeButton: setOpenDrawer,
+        setOpen: setOpen,
         children: child.props.children
       });
     }
@@ -39,14 +37,15 @@ export const HawaDrawer = ({ open, setOpen, position, heading, children }) => {
   return <div className={drawerClass}>{childrenWithProps}</div>;
 };
 
-export const DrawerHeader = ({ children, closeButton }) => {
+export const DrawerHeader = ({ children, setOpen }) => {
   return (
-    <div className="  w-full flex flex-row justify-between items-center py-4 px-1 border-b">
+    <div className="  flex w-full flex-row items-center justify-between border-b py-4 px-1">
       {children}
       <div
-        className="justify-self-end hover:cursor-pointer border p-1 rounded"
+        className="justify-self-end rounded border p-1 hover:cursor-pointer"
         onClick={() => {
-          closeButton(false);
+          console.log("running");
+          setOpen(false)
         }}
       >
         <AiOutlineClose size={20} strokeWidth={2} />
@@ -61,7 +60,7 @@ export const DrawerBody = ({ children }) => {
 
 export const DrawerFooter = ({ children }) => {
   return (
-    <div className="absolute w-full py-4 px-1 border-t bottom-0">
+    <div className="absolute bottom-0 w-full border-t py-4 px-1">
       {children}
     </div>
   );
