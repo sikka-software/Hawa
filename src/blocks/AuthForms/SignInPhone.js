@@ -34,7 +34,7 @@ export const SignInPhone = (props) => {
           }}
         />
         <div className="mt-2"></div>
-        <HawaButton width="full" type="submit">
+        <HawaButton color="primary"  width="full" type="submit">
           {props.SignInButtonText}
         </HawaButton>
       </form>

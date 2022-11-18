@@ -12,6 +12,7 @@ export const PayWithWallet = (props) => {
       <HawaButton
         type="submit"
         width="full"
+        color="primary"
         onClick={props.handlePayWithWallet}
       >
         Pay Now

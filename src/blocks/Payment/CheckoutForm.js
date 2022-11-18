@@ -229,7 +229,7 @@ export const CheckoutForm = (props) => {
                 )}
               />
             </div>
-            <HawaButton type="submit" width="full">
+            <HawaButton color="primary" type="submit" width="full">
               {props.texts.payNow}
             </HawaButton>
           </form>

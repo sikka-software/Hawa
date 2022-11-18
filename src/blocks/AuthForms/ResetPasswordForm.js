@@ -40,7 +40,7 @@ export const ResetPasswordForm = (props) => {
               }
             }}
           />
-          <HawaButton width="full" type="submit">
+          <HawaButton  color="primary" width="full" type="submit">
             {props.texts.resetPassword}
           </HawaButton>
         </form>

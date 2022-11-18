@@ -70,7 +70,7 @@ export const NewPasswordForm = (props) => {
               }}
             />
 
-            <HawaButton type="submit" width="full">
+            <HawaButton color="primary"  type="submit" width="full">
               {props.texts.updatePassword}
             </HawaButton>
           </form>

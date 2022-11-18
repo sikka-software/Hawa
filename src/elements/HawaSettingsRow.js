@@ -10,10 +10,14 @@ import { HawaTabs } from "./HawaTabs";
 
 export const HawaSettingsRow = (props) => {
   return (
-    <div className="flex flex-row bg-white justify-between align-middle items-center p-2 rounded-xl my-2 h-14">
+    <div className="my-2 flex max-h-fit flex-row items-center justify-between rounded-xl bg-white px-4 py-2 pr-2 align-middle">
       <HawaTypography>{props.settingsLabel}</HawaTypography>
-      {props.settingsType === "checkbox" && <HawaCheckbox centered {...props} />}
-      {props.settingsType === "text" && <HawaTextField {...props} />}
+      {props.settingsType === "checkbox" && (
+        <HawaCheckbox centered {...props} />
+      )}
+      {props.settingsType === "text" && (
+        <HawaTextField margin="none" {...props} />
+      )}
       {props.settingsType === "boolean" && <HawaSwitch {...props} />}
       {props.settingsType === "range" && <HawaRange {...props} />}
       {props.settingsType === "color" && <HawaColorPicker {...props} />}

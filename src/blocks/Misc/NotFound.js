@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { HawaButton } from "../../elements";
+import { HawaContainer } from "../../layout";
 
 export const NotFound = (props) => {
   return (
@@ -13,12 +14,14 @@ export const NotFound = (props) => {
     >
       <div className="text-6xl font-bold">404</div>
       <div className="m-2 text-xl font-bold">Page Not Found</div>
-      <div className="flex w-40 flex-col rounded-xl bg-blue-300 p-4">
+      <HawaContainer>
         <div className="text-center">
           If you're lost please contact us help@sikka.io{" "}
         </div>
-        <HawaButton width="full">Home</HawaButton>
-      </div>
+        <HawaButton color="primary" width="full">
+          Home
+        </HawaButton>
+      </HawaContainer>
     </div>
   );
 };

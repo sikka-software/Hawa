@@ -208,7 +208,7 @@ export const SignUpForm = (props) => {
                 />
               </div>
             )}
-            <HawaButton width="full" type="submit">
+            <HawaButton color="primary"  width="full" type="submit">
               {props.texts.signUpText}
             </HawaButton>
           </form>

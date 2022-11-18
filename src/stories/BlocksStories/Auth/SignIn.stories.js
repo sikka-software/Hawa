@@ -14,9 +14,6 @@ export default {
   argTypes: {
     texts: { default: "" },
 
-    // isLoading={isLoading}
-    // error={args.showError}
-    // signInType="username"
     signInType: {
       default: "email",
       control: "select",
@@ -107,7 +104,6 @@ const SignInTemplate = (args) => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <SignInForm
-      {...args}
       texts={{
         emailLabel: "Email",
         emailPlaceholder: "Enter your email",
@@ -129,16 +125,12 @@ const SignInTemplate = (args) => {
         twitterButtonLabel: "Sign in with Twitter"
       }}
       isLoading={isLoading}
-      error={args.showError}
-      signInType={args.signInType}
-      viaGoogle={args.viaGoogle}
-      viaGithub={args.viaGithub}
-      viaTwitter={args.viaTwitter}
       handleSignIn={(e) => {
         setIsLoading(true);
         console.log(e);
       }}
       handleForgotPassword={() => console.log("forgot password")}
+      {...args}
     />
   );
 };
@@ -150,6 +142,7 @@ SignIn.args = {
   viaTwitter: true,
   showError: false,
   withoutSignUp: false,
+  signInType: "email",
   errorTitle: "Error",
   errorText: "Something went wrong",
   lang: "en"

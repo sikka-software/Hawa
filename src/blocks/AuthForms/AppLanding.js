@@ -7,16 +7,16 @@ export const AppLanding = (props) => {
   return (
     <HawaContainer>
       {props.handleSignIn && (
-        <HawaButton width="full" onClick={props.handleSignIn}>
+        <HawaButton color="primary" width="full" onClick={props.handleSignIn}>
           {props.texts.signIn}
         </HawaButton>
       )}
       {props.handleSignUp && (
-        <HawaButton width="full" onClick={props.handleSignUp}>
+        <HawaButton color="primary" width="full" onClick={props.handleSignUp}>
           {props.texts.signUp}
         </HawaButton>
       )}
-      <HawaButton width="full" onClick={props.handleLangauge}>
+      <HawaButton color="primary" width="full" onClick={props.handleLangauge}>
         {props.texts.lang}
       </HawaButton>
     </HawaContainer>

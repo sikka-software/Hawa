@@ -6,7 +6,7 @@ export const UserSettingsForm = (props) => {
     <HawaContainer>
       {" "}
       {props.children}
-      <HawaButton type="submit" width="full" onClick={props.handleSaveSettings}>
+      <HawaButton color="primary"  type="submit" width="full" onClick={props.handleSaveSettings}>
         {props.saveSettingsText}
       </HawaButton>
     </HawaContainer>

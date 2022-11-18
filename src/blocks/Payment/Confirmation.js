@@ -33,13 +33,13 @@ export const ConfirmationPage = (props) => {
         )}
       </div>
       <div className="flex flex-col justify-center py-5 pt-0">
-        <HawaButton width="full" onClick={props.handlePrint}>
+        <HawaButton color="primary" width="full" onClick={props.handlePrint}>
           {props.texts.print}
         </HawaButton>
-        <HawaButton width="full" onClick={props.handleHistory}>
+        <HawaButton color="primary" width="full" onClick={props.handleHistory}>
           {props.texts.history}
         </HawaButton>
-        <HawaButton width="full" onClick={props.handleHome}>
+        <HawaButton color="primary" width="full" onClick={props.handleHome}>
           {props.texts.homePage}
         </HawaButton>
         <div className="mt-5 mb-5 text-center text-sm">
