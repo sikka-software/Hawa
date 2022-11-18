@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HawaPricingCard, HawaPanelTabs, HawaTabs } from "../../elements";
+import { HawaPricingCard, HawaTabs } from "../../elements";
 import PropTypes from "prop-types";
 
 export const PricingPlans = (props) => {
@@ -21,38 +21,24 @@ export const PricingPlans = (props) => {
     "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white";
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 10
-        }}
-      >
+      <div className="mb-2 flex w-full justify-between">
         <HawaTabs
           defaultValue={currentCycle}
-          options={[
-            { label: `Monthly`, value: `monthly` },
-            { label: `3 Months`, value: `3-months` },
-            { label: `6 Months`, value: `6-months` },
-            { label: `Annually`, value: `annually` }
-          ]}
+          options={cycleOptions}
           onChangeTab={(e) => setCurrentCycle(e)}
         />
         <HawaTabs
           defaultValue={currentCurrency}
-          options={[
-            { label: `USD`, value: `usd` },
-            { label: `SAR`, value: `sar` }
-          ]}
+          options={currencyOptions}
           onChangeTab={(e) => setCurrentCurrency(e)}
         />
       </div>
 
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-between">
         {props.plans.map((plan) => {
           return (
             <HawaPricingCard
+              size="large"
               lang={props.lang}
               {...plan}
               currency={currentCurrency}

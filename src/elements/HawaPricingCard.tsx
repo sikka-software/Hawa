@@ -1,53 +1,106 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
 
-export const HawaPricingCard = (props) => {
-  let isArabic = props.lang === "ar";
-  let cycleTextsArabic = {
+type PricingCardTypes = {
+  lang: "ar" | "en"
+  features: [any]
+  features_ar: [any]
+  title: string
+  title_ar: string
+  price: number
+  currency: string
+  buttonText: string
+  cycleText: string
+  size: "small" | "medium" | "large"
+}
+type CycleTextTypes = {
+  monthly: string
+  "3-months": string
+  "6-months": string
+  annually: string
+}
+type CurrencyTextTypes = {
+  usd: string
+  sar: string
+}
+export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
+  props
+) => {
+  let isArabic = props.lang === "ar"
+  let cycleTextsArabic: CycleTextTypes = {
     monthly: "شهرياً",
     "3-months": "كل 3 أشهر",
     "6-months": "كل 6 أشهر",
-    annually: "سنوياً"
-  };
-  let cycleTextsEnglish = {
+    annually: "سنوياً",
+  }
+  let cycleTextsEnglish: CycleTextTypes = {
     monthly: "Monthly",
     "3-months": "3 Months",
     "6-months": "6 Months",
-    annually: "Annually"
-  };
-  let currencyMapping = {
+    annually: "Annually",
+  }
+  let currencyMapping: CurrencyTextTypes = {
     usd: isArabic ? "دولار" : "$",
-    sar: isArabic ? "ريال" : "SAR"
-  };
-  let featuresMapping = isArabic ? props.features_ar : props.features;
-  let chipSpacing = isArabic ? { left: 10 } : { right: 10 };
+    sar: isArabic ? "ريال" : "SAR",
+  }
+  let featuresMapping = isArabic ? props.features_ar : props.features
+  let chipSpacing = isArabic ? { left: 10 } : { right: 10 }
+  let cardSizes = {
+    small:
+      "mx-1 w-full max-w-fit rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+    medium:
+      "mx-1 w-full max-w-md rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+    large:
+      "mx-1 w-full max-w-lg rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+  }
   return (
-    <div className="mx-1 p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div dir={isArabic ? "rtl" : "ltr"} className={cardSizes[props.size]}>
       <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
         {isArabic ? props.title_ar : props.title}
       </h5>
       <div className="flex items-baseline text-gray-900 dark:text-white">
-        <span className="font-semibold text-sm">
-          {" "}
-          {currencyMapping[props.currency?.toLowerCase()]}
-        </span>
-        <span className="text-5xl font-extrabold tracking-tight">
-          {props.price}
-        </span>
+        {isArabic ? (
+          <>
+            <span className="text-5xl font-extrabold tracking-tight">
+              {props.price}
+            </span>
+            <span className="mx-1 text-sm font-semibold">
+              {" "}
+              {
+                currencyMapping[
+                  props.currency?.toLowerCase() as keyof CurrencyTextTypes
+                ]
+              }
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="text-sm font-semibold">
+              {" "}
+              {
+                currencyMapping[
+                  props.currency?.toLowerCase() as keyof CurrencyTextTypes
+                ]
+              }
+            </span>
+            <span className="mx-1 text-5xl font-extrabold tracking-tight">
+              {props.price}
+            </span>
+          </>
+        )}
         <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
           /{" "}
           {isArabic
-            ? cycleTextsArabic[props.cycleText]
-            : cycleTextsEnglish[props.cycleText]}
+            ? cycleTextsArabic[props.cycleText as keyof CycleTextTypes]
+            : cycleTextsEnglish[props.cycleText as keyof CycleTextTypes]}
         </span>
       </div>
-      <ul role="list" className="my-7 space-y-5">
+      <ul role="list" className="my-7 space-y-0">
         {featuresMapping?.map((feature) => {
           return (
-            <li className="flex space-x-3">
+            <li className="flex ">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                className="m-2 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,11 +112,11 @@ export const HawaPricingCard = (props) => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+              <span className="flex items-center  text-center font-normal leading-tight text-gray-500  dark:text-gray-400">
                 {feature}
               </span>
             </li>
-          );
+          )
         })}
 
         {/* <li className="flex space-x-3 line-through decoration-gray-500">
@@ -88,7 +141,7 @@ export const HawaPricingCard = (props) => {
       </ul>
       <button
         type="button"
-        className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+        className="inline-flex w-full justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
       >
         {props.buttonText}
       </button>
@@ -126,19 +179,5 @@ export const HawaPricingCard = (props) => {
     //     {props.buttonText}
     //   </button>
     // </Container>
-  );
-};
-
-HawaPricingCard.propTypes = {
-  lang: PropTypes.string,
-  buttonText: PropTypes.string,
-  selectedPlan: PropTypes.string,
-  title: PropTypes.string,
-  title_ar: PropTypes.string,
-  subtitle: PropTypes.string,
-  subtitle_ar: PropTypes.string,
-  features: PropTypes.array,
-  features_ar: PropTypes.array,
-  currency: PropTypes.oneOf(["sar", "usd"]),
-  cycleText: PropTypes.oneOf(["monthly", "3-months", "6-months", "annually"])
-};
+  )
+}

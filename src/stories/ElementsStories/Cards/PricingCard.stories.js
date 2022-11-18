@@ -45,21 +45,21 @@ export default {
 };
 
 export const LTR = (args) => {
-  return (
-    <HawaPricingCard
-      lang="en"
-      title="Pro"
-      subtitle="For small businesses"
-      price="300"
-      currency="sar"
-      cycleText="monthly"
-      buttonText="Choose Plan"
-      discount="Save 10%"
-      features={["Unlimited Menus", "Unlimited Items", "Custom Handle"]}
-    />
-  );
+  return <HawaPricingCard {...args} />;
 };
 
+LTR.args = {
+  lang: "en",
+  title: "Pro",
+  subtitle: "For small businesses",
+  price: "300",
+  size: "small",
+  currency: "sar",
+  cycleText: "monthly",
+  buttonText: "Choose Plan",
+  discount: "Save 10%",
+  features: ["Unlimited Menus", "Unlimited Items", "Custom Handle"]
+};
 export const RTL = (args) => {
   return (
     <HawaPricingCard
@@ -73,6 +73,7 @@ export const RTL = (args) => {
 RTL.args = {
   currency: "sar",
   price: 300,
+  size: "medium",
   discount: "خصم 10%",
   title_ar: "الإحترافي",
   subtitle_ar: "للمنشئات الصغيرة",

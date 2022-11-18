@@ -27,21 +27,21 @@ export const HawaItemCard = ({
 
   return (
     <div
-      className="block pt-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 "
+      className="relative block max-w-sm rounded-lg border border-gray-200 bg-white pt-6 shadow-md  dark:border-gray-700 dark:bg-gray-800 "
       {...props}
     >
       {headerActions && (
-        <div className="relative flex justify-end pr-6">
+        <div className="absolute right-0 top-0 flex justify-end pt-3 pr-3">
           <button
             id="dropdownButton"
             data-dropdown-toggle="dropdown"
-            className="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm"
+            className="inline-block rounded-lg text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             type="button"
             onClick={handleOpenActionHeader}
           >
             <span className="sr-only">Open dropdown</span>
             <svg
-              className="w-6 h-6"
+              className="h-6 w-6"
               aria-hidden="true"
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -54,7 +54,7 @@ export const HawaItemCard = ({
             id="dropdown"
             className={`absolute ${
               openActionHeader ? "block" : "hidden"
-            } right-0 top-7 z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700`}
+            } right-0 top-7 z-10 w-44 list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:bg-gray-700`}
           >
             <ul className="py-1" aria-labelledby="dropdownButton">
               {headerActions.map(({ label, action }) => {
@@ -62,7 +62,7 @@ export const HawaItemCard = ({
                   <li onClick={action}>
                     <a
                       href="#"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       {label}
                     </a>
@@ -81,7 +81,7 @@ export const HawaItemCard = ({
           {content}
         </p>
       </div>
-      <div className="p-3 mt-6 rounded-b-lg flex justify-end">{actions}</div>
+      <div className="mt-6 flex justify-end rounded-b-lg p-3">{actions}</div>
     </div>
   );
 };

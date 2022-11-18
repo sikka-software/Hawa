@@ -42,10 +42,19 @@ export const Items = (args) => {
       {...args}
       // onCardClick={() => console.log("card clicked")}
       headerActions={[
-        { label: "QR Code", action : () => console.log("clicking on QR") },
-        { label: "Menu Settings", action : () => console.log("clicking on Settings")  },
-        { label: "Menu Styles", action : () => console.log("clicking on Styles")  },
-        { label: "Analytics", action : () => console.log("clicking on Analytics")  }
+        { label: "QR Code", action: () => console.log("clicking on QR") },
+        {
+          label: "Menu Settings",
+          action: () => console.log("clicking on Settings")
+        },
+        {
+          label: "Menu Styles",
+          action: () => console.log("clicking on Styles")
+        },
+        {
+          label: "Analytics",
+          action: () => console.log("clicking on Analytics")
+        }
       ]}
       header={
         <div>
@@ -63,19 +72,15 @@ export const Items = (args) => {
       }
       actions={
         <>
-          <HawaButton
-            text="test"
-            icon={<FaClone />}
-            iconOnly
-            tooltip="dublicate"
-          />
-          <HawaButton
-            text="test"
-            icon={<FaTrash />}
-            iconOnly
-            tooltip="delete"
-          />
-          <HawaButton text="test" icon={<FiEdit3 />} iconOnly tooltip="edit" />
+          <HawaButton tooltip="dublicate">
+            <FaClone />
+          </HawaButton>
+          <HawaButton className="mx-2" tooltip="delete">
+            <FaTrash />
+          </HawaButton>
+          <HawaButton tooltip="edit">
+            <FiEdit3 />
+          </HawaButton>
         </>
         //   <>
         //     <Button

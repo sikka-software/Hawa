@@ -99,10 +99,6 @@ export function HawaButton({
         {!isLoading ? (
           children
         ) : (
-          // <>
-          //   {icon ? <div className={iconStyle}>{icon}</div> : null}
-          //   {!iconOnly && text}
-          // </>
           <div className="flex flex-row gap-x-3">
             <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
           </div>
