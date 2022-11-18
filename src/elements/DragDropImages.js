@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { HawaAlert } from "./HawaAlert";
-import { HawaButton } from "./HawaButton2";
+import { HawaButton } from "./HawaButton";
 
 const thumbsContainer = {
   display: "flex",
@@ -98,12 +98,12 @@ export const DragDropImages = ({
             onDeleteFile(file);
           }}
           type="button"
-          className="text-gray-400 absolute left-0 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          className="absolute left-0 ml-auto inline-flex items-center rounded-lg bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
           data-modal-toggle="defaultModal"
         >
           <svg
             aria-hidden="true"
-            className="w-5 h-5"
+            className="h-5 w-5"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -143,13 +143,13 @@ export const DragDropImages = ({
         {...getRootProps({
           style: { backgroundColor: isDragActive && "white" }
         })}
-        className="border-black border border-dashed rounded-xl flex flex-col justify-center"
+        className="flex flex-col justify-center rounded-xl border border-dashed border-black"
       >
         <input {...getInputProps()} />
-        <div className="text-center p-1">
+        <div className="p-1 text-center">
           Click here or drop files here to upload
         </div>
-        <div className="text-center p-1">Max file size is {max}</div>
+        <div className="p-1 text-center">Max file size is {max}</div>
         {acceptedFiles.length > 0 && (
           <HawaButton
             style={{ color: "black" }}
@@ -157,8 +157,9 @@ export const DragDropImages = ({
               e.stopPropagation();
               onClearFiles(acceptedFiles);
             }}
-            text={"Clear All"}
-          />
+          >
+            Clear All
+          </HawaButton>
         )}
 
         {thumbs && showPreview ? (

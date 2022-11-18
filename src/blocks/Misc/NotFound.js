@@ -12,12 +12,12 @@ export const NotFound = (props) => {
       }}
     >
       <div className="text-6xl font-bold">404</div>
-      <div className="text-xl m-2 font-bold">Page Not Found</div>
-      <div className="flex w-40 flex-col bg-blue-300 rounded-xl p-4">
+      <div className="m-2 text-xl font-bold">Page Not Found</div>
+      <div className="flex w-40 flex-col rounded-xl bg-blue-300 p-4">
         <div className="text-center">
           If you're lost please contact us help@sikka.io{" "}
         </div>
-        <HawaButton fullWidth text={"Home"} />
+        <HawaButton width="full">Home</HawaButton>
       </div>
     </div>
   );

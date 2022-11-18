@@ -7,24 +7,18 @@ export const AppLanding = (props) => {
   return (
     <HawaContainer>
       {props.handleSignIn && (
-        <HawaButton
-          fullWidth
-          text={props.texts.signIn}
-          onClick={props.handleSignIn}
-        />
+        <HawaButton width="full" onClick={props.handleSignIn}>
+          {props.texts.signIn}
+        </HawaButton>
       )}
       {props.handleSignUp && (
-        <HawaButton
-          fullWidth
-          text={props.texts.signUp}
-          onClick={props.handleSignUp}
-        />
+        <HawaButton width="full" onClick={props.handleSignUp}>
+          {props.texts.signUp}
+        </HawaButton>
       )}
-      <HawaButton
-        fullWidth
-        text={props.texts.lang}
-        onClick={props.handleLangauge}
-      />
+      <HawaButton width="full" onClick={props.handleLangauge}>
+        {props.texts.lang}
+      </HawaButton>
     </HawaContainer>
   );
 };

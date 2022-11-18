@@ -304,11 +304,9 @@ export default function CForm({
                 />
               )}
           </form>
-          <HawaButton
-            fullWidth
-            onClick={handlePayfortForm}
-            text={<span className="pay-new-btn-txt">{t("pay-now")}</span>}
-          />{" "}
+          <HawaButton width="full" onClick={handlePayfortForm}>
+            <span className="pay-new-btn-txt">{t("pay-now")}</span>
+          </HawaButton>
         </div>
       </div>
     </div>

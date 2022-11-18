@@ -42,7 +42,9 @@ export const CodeConfirmation = (props) => {
           }}
         />
 
-        <HawaButton type="submit" fullWidth text={props.texts.confirmText} />
+        <HawaButton type="submit" width="full">
+          {props.texts.confirmText}
+        </HawaButton>
       </form>
     </HawaContainer>
   );

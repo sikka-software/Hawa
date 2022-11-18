@@ -40,11 +40,9 @@ export const ResetPasswordForm = (props) => {
               }
             }}
           />
-          <HawaButton
-            fullWidth
-            type="submit"
-            text={props.texts.resetPassword}
-          />{" "}
+          <HawaButton width="full" type="submit">
+            {props.texts.resetPassword}
+          </HawaButton>
         </form>
       ) : (
         <div className="text-center">{props.texts.emailSentText}</div>

@@ -208,14 +208,16 @@ export const SignUpForm = (props) => {
                 />
               </div>
             )}
-            <HawaButton fullWidth type="submit" text={props.texts.signUpText} />{" "}
+            <HawaButton width="full" type="submit">
+              {props.texts.signUpText}
+            </HawaButton>
           </form>
         </FormProvider>
-        <div className="font-semibold p-3 text-center text-sm">
+        <div className="p-3 text-center text-sm font-semibold">
           {props.texts.existingUserText}{" "}
           <span
             onClick={props.handleRouteToSignIn}
-            className="text-blue-600 cursor-pointer"
+            className="cursor-pointer text-blue-600"
           >
             {props.texts.signInText}
           </span>

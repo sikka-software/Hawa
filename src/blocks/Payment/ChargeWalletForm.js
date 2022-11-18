@@ -16,7 +16,7 @@ export const ChargeWalletForm = (props) => {
   return (
     <HawaContainer>
       {" "}
-      <div className="text-5xl font-extrabold text-center">
+      <div className="text-center text-5xl font-extrabold">
         {Number(walletAmount).toLocaleString("en") || "0"}
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
       </div>
@@ -50,11 +50,9 @@ export const ChargeWalletForm = (props) => {
             }}
           />
 
-          <HawaButton
-            type="submit"
-            fullWidth
-            text={props.texts.chargeWallet}
-          ></HawaButton>
+          <HawaButton type="submit" width="full">
+            {props.texts.chargeWallet}
+          </HawaButton>
         </form>
       </FormProvider>
     </HawaContainer>

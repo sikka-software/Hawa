@@ -9,18 +9,18 @@ export const ConfirmationPage = (props) => {
   return (
     <HawaContainer withDividers>
       {" "}
-      <div className="text-3xl font-bold text-center py-5">
+      <div className="py-5 text-center text-3xl font-bold">
         {props.confirmationTitle}
       </div>
       <div className="py-5">
-        <div className="text-center mb-2">
+        <div className="mb-2 text-center">
           {props.texts.successMessage} <strong>{props.userEmail}</strong>
         </div>
         <div className="text-center">{props.texts.yourOrderNumber}</div>
-        <div className="font-bold text-center">{props.orderNumber}</div>
+        <div className="text-center font-bold">{props.orderNumber}</div>
       </div>
       <div className="py-5">
-        <div className="text-xl font-semibold mb-3 text-center">
+        <div className="mb-3 text-center text-xl font-semibold">
           {props.texts.orderDetails}
         </div>
         {props.products && (
@@ -32,27 +32,21 @@ export const ConfirmationPage = (props) => {
           />
         )}
       </div>
-      <div className="flex flex-col py-5 justify-center items-center">
-        <HawaButton
-          fullWidth
-          onClick={props.handlePrint}
-          text={props.texts.print}
-        />{" "}
-        <HawaButton
-          fullWidth
-          onClick={props.handleHistory}
-          text={props.texts.history}
-        />{" "}
-        <HawaButton
-          fullWidth
-          onClick={props.handleHome}
-          text={props.texts.homePage}
-        />{" "}
+      <div className="flex flex-col justify-center py-5 pt-0">
+        <HawaButton width="full" onClick={props.handlePrint}>
+          {props.texts.print}
+        </HawaButton>
+        <HawaButton width="full" onClick={props.handleHistory}>
+          {props.texts.history}
+        </HawaButton>
+        <HawaButton width="full" onClick={props.handleHome}>
+          {props.texts.homePage}
+        </HawaButton>
         <div className="mt-5 mb-5 text-center text-sm">
           {props.texts.fasterPaymentNote}
         </div>
         <a
-          className="w-fit text-center cursor-pointer text-xs font-normal"
+          className="w-fit cursor-pointer text-center text-xs font-normal"
           onClick={props.handleRefundPolicyLink}
         >
           {props.texts.refundPolicy}

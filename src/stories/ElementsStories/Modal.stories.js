@@ -51,8 +51,8 @@ const Template = (args) => {
         onClose={() => setOpen(!open)}
         actions={
           <>
-            <HawaButton normalWidth text="test" />{" "}
-            <HawaButton normalWidth text="test" />{" "}
+            <HawaButton width="normal">Test</HawaButton>
+            <HawaButton width="normal">Test</HawaButton>
           </>
         }
       >

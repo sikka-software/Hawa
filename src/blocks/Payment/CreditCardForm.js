@@ -79,10 +79,11 @@ export const CreditCardForm = (props) => {
         />
         <HawaButton
           type="submit"
-          fullWidth
+          width="full"
           onClick={props.handlePayWithCreditCard}
-          text={"Pay with Credit Card"}
-        />{" "}
+        >
+          Pay with Credit Card
+        </HawaButton>
       </form>
     </HawaContainer>
   );

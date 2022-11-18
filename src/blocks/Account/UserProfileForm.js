@@ -142,11 +142,9 @@ export const UserProfileForm = (props) => {
               );
             })}
 
-          <HawaButton
-            fullWidth
-            type="submit"
-            text={props.texts.updateProfile}
-          />
+          <HawaButton width="full" type="submit">
+            {props.texts.updateProfile}
+          </HawaButton>
         </form>
       </FormProvider>
     </HawaContainer>

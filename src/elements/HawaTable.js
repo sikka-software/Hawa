@@ -7,9 +7,9 @@ export const HawaTable = (props) => {
   return (
     <>
       <div>
-        <div className="overflow-x-auto relative rounded-xl">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto rounded-xl">
+          <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 {props.columns.map((col, i) => (
                   <th key={i} scope="col" className="py-3 px-6">
@@ -27,7 +27,7 @@ export const HawaTable = (props) => {
               {props.rows ? (
                 props.rows.map((singleRow, j) => (
                   <tr
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
                     key={j}
                   >
                     {singleRow.map((r, i) => {
@@ -35,7 +35,7 @@ export const HawaTable = (props) => {
                         return (
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                            className="whitespace-nowrap py-4 px-6 font-medium text-gray-900 dark:text-white"
                           >
                             {r}{" "}
                           </th>
@@ -53,8 +53,9 @@ export const HawaTable = (props) => {
                         {props.actions.map((act) => (
                           <HawaButton
                             onClick={() => props.handleActionClick(singleRow)}
-                            text={act}
-                          />
+                          >
+                            {act}
+                          </HawaButton>
                         ))}
                       </td>
                     )}
@@ -63,7 +64,7 @@ export const HawaTable = (props) => {
               ) : (
                 <tr>
                   <td colspan={props.columns.length}>
-                    <div className="w-full p-5 text-center bg-white">
+                    <div className="w-full bg-white p-5 text-center">
                       {props.noDataText}
                     </div>
                   </td>

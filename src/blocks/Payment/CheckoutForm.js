@@ -36,7 +36,7 @@ export const CheckoutForm = (props) => {
     <HawaContainer withDividers>
       {" "}
       <div>
-        <div className="text-xl text-center font-semibold mb-2">
+        <div className="mb-2 text-center text-xl font-semibold">
           {props.texts.orderDetails}
         </div>
         <HawaTable
@@ -47,7 +47,7 @@ export const CheckoutForm = (props) => {
         />
       </div>
       <div>
-        <div className="text-xl text-center font-semibold my-2">
+        <div className="my-2 text-center text-xl font-semibold">
           {props.texts.billingAddress}
         </div>
 
@@ -229,7 +229,9 @@ export const CheckoutForm = (props) => {
                 )}
               />
             </div>
-            <HawaButton type="submit" fullWidth text={props.texts.payNow} />{" "}
+            <HawaButton type="submit" width="full">
+              {props.texts.payNow}
+            </HawaButton>
           </form>
         </FormProvider>
       </div>

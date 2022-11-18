@@ -5,16 +5,17 @@ import { HawaContainer } from "../../layout";
 export const PayWithWallet = (props) => {
   return (
     <HawaContainer>
-      <div className="text-5xl font-extrabold text-center">
+      <div className="text-center text-5xl font-extrabold">
         {props.walletBalance || "0"}
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
       </div>
       <HawaButton
         type="submit"
-        fullWidth
+        width="full"
         onClick={props.handlePayWithWallet}
-        text={"Pay Now"}
-      />
+      >
+        Pay Now
+      </HawaButton>
     </HawaContainer>
   );
 };
