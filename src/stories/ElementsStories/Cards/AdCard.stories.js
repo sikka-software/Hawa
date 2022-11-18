@@ -1,41 +1,32 @@
 import React from "react";
-import { HawaAdCard, HawaButton, HawaItemCard } from "../../../elements";
-import { FaClone, FaTrash } from "react-icons/fa";
-import { FiEdit3 } from "react-icons/fi";
+import { HawaAdCard } from "../../../elements";
 
 export default {
   title: "Elements/Cards/Ad",
   component: [HawaAdCard],
-  argTypes: {
-    lang: {
-      options: ["ar", "en"],
-      control: "select",
-      description: "The language of the card"
-    },
-    header: {
-      control: "object",
-      description:
-        "HTML elemnts as the card header, make sure to add e.stopPropagation() in buttons onClick function"
-    },
-    content: {
-      control: "object",
-      description: "HTML elements as the card content"
-    },
-    actions: {
-      control: "object",
-      description:
-        "HTML elements as the card actions,, make sure to add e.stopPropagation() in buttons onClick function"
-    },
-    onCardClick: {
-      control: "function",
-      description: "A function triggered when the card is clicked"
-    }
-  },
+  argTypes: {},
   args: {
     lang: "en"
   }
 };
 
 export const Ad = (args) => {
-  return <HawaAdCard {...args} />;
+  return (
+    <>
+      <div>
+        <div className="m-2 ml-0 text-lg font-bold">Horizontal</div>
+        <HawaAdCard orientation={"horizontal"} {...args} />
+      </div>
+      <div>
+        <div className="m-2 ml-0 text-lg font-bold">Vertical</div>
+        <HawaAdCard orientation={"vertical"} {...args} />
+      </div>
+    </>
+  );
+};
+
+Ad.args = {
+  title: "Seera App",
+  description:
+    "Increase your hiring chances by turning your CV into a digital one with a link"
 };

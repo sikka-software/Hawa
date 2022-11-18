@@ -3,12 +3,7 @@ export * from "./HawaSwitch";
 export * from "./HawaCheckbox";
 export * from "./HawaPanelTabs";
 export * from "./HawaChip";
-export * from "./HawaItemCard";
-export * from "./HawaPricingCard";
-export * from "./HawaAdCard";
 export * from "./HawaSettingsRow";
-export * from "./HawaLogoButton";
-export * from "./HawaButton2";
 export * from "./HawaSelect";
 export * from "./HawaRange";
 export * from "./HawaTextField";
@@ -28,4 +23,11 @@ export * from "./HawaModal";
 export * from "./HawaMenu";
 export * from "./HawaDrawer";
 export * from "./HawaCopyrights";
-export * from "./HawaButton"
+// Cards
+export * from "./HawaItemCard";
+export * from "./HawaPricingCard";
+export * from "./HawaAdCard";
+//Buttons
+export * from "./HawaButton";
+export * from "./HawaLogoButton";
+export * from "./HawaButton2";
