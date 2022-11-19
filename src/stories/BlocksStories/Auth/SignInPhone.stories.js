@@ -21,10 +21,10 @@ const SignInPhoneTemplate = (args) => {
 export const SignInWithPhone = SignInPhoneTemplate.bind({});
 SignInWithPhone.args = {
   country: "sa",
-  onChange: (e) => console.log(e),
+  // handlePhoneChange: (e) => console.log("changing to ", e),
   value: "this is value",
   SignInButtonText: "Sign In",
-  onSubmit: (e) => console.log("this is submit function = ", e),
+  // onSubmit: (e) => console.log("this is submit function = ", e),
   label: "Your Phone",
   phoneRequiredText: "Phone number is required"
 };
