@@ -1,7 +1,16 @@
-import { useState } from "react";
-import Countries from "../../countries";
-import Select from "react-select";
-const Option = ({
+import { useState } from "react"
+import Countries from "../../countries"
+import Select from "react-select"
+
+type OptionTypes = {
+  cx: any
+  data: any
+  children: any
+  getStyles: any
+  innerProps: any
+  innerRef: any
+}
+const Option: React.FunctionComponent<OptionTypes> = ({
   cx,
   children,
   getStyles,
@@ -17,35 +26,44 @@ const Option = ({
     <img className="h-8 w-8" src={props.data.image}></img>
     {children}
   </div>
-);
+)
 
-export const HawaPhoneInput = ({ preferredCountry, label, helperText }) => {
-  const [code, setCode] = useState(preferredCountry ?? "");
-  const [selectedCountry, setSelectedCountry] = useState("+966");
-  const [tel, setTel] = useState("");
-  const handleChangePhone = (phone) => {
-    if (phone.length == 0) {
-      setTel("");
-      setCode("");
-      return;
-    }
-    if (!phone.startsWith("+")) phone = "+".concat(phone);
-    if (phone.length >= 5) {
-      setTel(phone);
-      return;
-    }
-    let findDialCode = Countries.find((country) => country.dial_code == phone);
-    if (findDialCode != undefined && findDialCode != null) {
-      setCode(findDialCode.code);
-    }
-    setTel(phone);
-  };
+type HawaPhoneInputTypes = {
+  preferredCountry: any
+  helperText: any
+  label: string
+}
+export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = ({
+  preferredCountry,
+  helperText,
+  ...props
+}) => {
+  const [code, setCode] = useState(preferredCountry ?? "")
+  const [selectedCountry, setSelectedCountry] = useState("+966")
+  const [tel, setTel] = useState("")
+  // const handleChangePhone = (phone) => {
+  //   if (phone.length == 0) {
+  //     setTel("")
+  //     setCode("")
+  //     return
+  //   }
+  //   if (!phone.startsWith("+")) phone = "+".concat(phone)
+  //   if (phone.length >= 5) {
+  //     setTel(phone)
+  //     return
+  //   }
+  //   let findDialCode = Countries.find((country) => country.dial_code == phone)
+  //   if (findDialCode != undefined && findDialCode != null) {
+  //     setCode(findDialCode.code)
+  //   }
+  //   setTel(phone)
+  // }
 
   return (
     <div className="mb-3 flex flex-col">
-      {label && (
+      {props.label && (
         <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          {label}
+          {props.label}
         </label>
       )}
       <div className="flex flex-row">
@@ -55,36 +73,36 @@ export const HawaPhoneInput = ({ preferredCountry, label, helperText }) => {
               ...base,
               fontSize: "0.875rem",
               "input:focus": {
-                boxShadow: "none"
+                boxShadow: "none",
               },
               lineHeight: "1.25rem",
-              padding: "0.37rem"
+              padding: "0.37rem",
             }),
             singleValue: (base) => ({
               ...base,
               fontSize: "0.875rem",
-              textAlign: "right"
+              textAlign: "right",
             }),
             control: (base) => ({
               ...base,
               width: 64,
               borderRadius: "0.5rem",
               borderTopRightRadius: 0,
-              borderBottomRightRadius: 0
+              borderBottomRightRadius: 0,
             }),
             menu: (base) => ({
               ...base,
               width: 190,
-              borderRadius: "0.5rem"
-            })
+              borderRadius: "0.5rem",
+            }),
           }}
           components={{
             Option,
             DropdownIndicator: () => null,
-            IndicatorSeparator: () => null
+            IndicatorSeparator: () => null,
           }}
           options={Countries}
-          isCreatable={false}
+          // isCreatable={false}
           isMulti={false}
           isSearchable={true}
           isClearable={false}
@@ -92,8 +110,8 @@ export const HawaPhoneInput = ({ preferredCountry, label, helperText }) => {
           defaultValue={Countries[0]}
           onInputChange={() => console.log("changed to")}
           onChange={(newValue, action) => {
-            console.log("test n", newValue);
-            setSelectedCountry(newValue);
+            console.log("test n", newValue)
+            setSelectedCountry(newValue)
           }}
         />
         <input
@@ -107,5 +125,5 @@ export const HawaPhoneInput = ({ preferredCountry, label, helperText }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
