@@ -8,6 +8,7 @@ type TextFieldTypes = {
   multiline: any
   helperText: any
   value: any
+  props: React.PropsWithRef<"input">
 }
 
 export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({

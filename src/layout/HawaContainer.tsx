@@ -2,7 +2,7 @@ import React from "react"
 import clsx from "clsx"
 type ContainerTypes = {
   maxWidth: "full" | "small" | "normal"
-  children: any
+  children: React.ReactNode
 }
 export const HawaContainer: React.FunctionComponent<ContainerTypes> = (
   props
