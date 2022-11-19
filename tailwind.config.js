@@ -7,6 +7,9 @@ module.exports = {
       plex: ["IBM Plex Sans Arabic"]
     },
     extend: {
+      screens: {
+        xs: "440px"
+      },
       transitionProperty: {
         height: "height"
       },
