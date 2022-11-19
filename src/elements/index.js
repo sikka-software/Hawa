@@ -30,4 +30,4 @@ export * from "./HawaAdCard";
 //Buttons
 export * from "./HawaButton";
 export * from "./HawaLogoButton";
-export * from "./HawaButton2";
+// export * from "./HawaButton2";
