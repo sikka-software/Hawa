@@ -2,7 +2,7 @@ import React from "react"
 
 type DrawerItemTypes = {
   action: any
-  icon: any
+  icon?: any
   text: any
 }
 const HawaDrawerItem: React.FunctionComponent<DrawerItemTypes> = (props) => {

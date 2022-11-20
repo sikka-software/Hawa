@@ -1,9 +1,9 @@
 import React from "react"
 
 type CheckoutTypes = {
-  centered: any
-  label: any
-  helperText: any
+  centered?: any
+  label?: any
+  helperText?: any
 }
 
 export const HawaCheckbox: React.FunctionComponent<CheckoutTypes> = (props) => {

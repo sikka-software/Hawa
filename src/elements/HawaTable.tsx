@@ -1,6 +1,6 @@
 import React from "react"
 // import PropTypes from "prop-types"
-import { HawaButton } from "./HawaButton2"
+import { HawaButton } from "./HawaButton"
 
 type TableTypes = {
   lang: any
@@ -8,6 +8,7 @@ type TableTypes = {
   actions: any
   rows: any
   noDataText: any
+  handleActionClick: any
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
@@ -19,7 +20,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
           <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
             <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                {props.columns.map((col, i) => (
+                {props.columns.map((col: any, i: any) => (
                   <th key={i} scope="col" className="py-3 px-6">
                     {col}
                   </th>
@@ -33,12 +34,12 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
             </thead>
             <tbody>
               {props.rows ? (
-                props.rows.map((singleRow, j) => (
+                props.rows.map((singleRow: any, j: any) => (
                   <tr
                     className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
                     key={j}
                   >
-                    {singleRow.map((r, i) => {
+                    {singleRow.map((r: any, i: any) => {
                       if (i === 0) {
                         return (
                           <th
@@ -56,9 +57,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
                       <td
                         align={isArabic ? "right" : "left"}
                         style={{ fontWeight: 700 }}
-                        variant={isArabic ? "borderedRight" : "borderedLeft"}
+                        // variant={isArabic ? "borderedRight" : "borderedLeft"}
                       >
-                        {props.actions.map((act) => (
+                        {props.actions.map((act: any) => (
                           <HawaButton
                             onClick={() => props.handleActionClick(singleRow)}
                           >
@@ -71,7 +72,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
                 ))
               ) : (
                 <tr>
-                  <td colspan={props.columns.length}>
+                  <td colSpan={props.columns.length}>
                     <div className="w-full bg-white p-5 text-center">
                       {props.noDataText}
                     </div>

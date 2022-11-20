@@ -2,11 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 
 type RangeTypes = {
-  value: any
-  handleChange: any
-  startElement: any
-  endElement: any
-  label: any
+  value?: any
+  handleChange?: any
+  startElement?: any
+  endElement?: any
+  label?: any
 }
 export const HawaRange: React.FunctionComponent<RangeTypes> = ({
   value,

@@ -66,7 +66,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     })
     useEffect(
       () => () => {
-        files?.forEach((file) => {
+        files?.forEach((file: any) => {
           URL.revokeObjectURL(file.preview)
         })
       },

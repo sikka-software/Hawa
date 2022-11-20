@@ -1,3 +1,4 @@
+import React from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 type OptionTypes = {
@@ -24,7 +25,14 @@ const Option: React.FunctionComponent<OptionTypes> = ({
   </div>
 )
 
-const Control = ({
+type ControlTypes = {
+  cx: any
+  children: any
+  getStyles: any
+  innerProps: any
+  innerRef: any
+}
+const Control: React.FunctionComponent<ControlTypes> = ({
   cx,
   children,
   getStyles,
@@ -43,7 +51,21 @@ const Control = ({
     </div>
   )
 }
-const Menu = ({ cx, children, getStyles, innerProps, innerRef, ...props }) => {
+type MenuTypes = {
+  cx: any
+  children: any
+  getStyles: any
+  innerProps: any
+  innerRef: any
+}
+const Menu: React.FunctionComponent<MenuTypes> = ({
+  cx,
+  children,
+  getStyles,
+  innerProps,
+  innerRef,
+  ...props
+}) => {
   return (
     <div
       className="absolute mt-2 w-full rounded-lg bg-white"
@@ -56,7 +78,18 @@ const Menu = ({ cx, children, getStyles, innerProps, innerRef, ...props }) => {
   )
 }
 
-export const HawaSelect = (props) => {
+type SelectTypes = {
+  label: any
+  isCreatable: any
+  options: any
+  isClearable: any
+  isMulti: any
+  isSearchable: any
+  onChange: any
+  helperText: any
+  onInputChange: any
+}
+export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (
     <div className="mb-3">
       {props.label && (
@@ -70,7 +103,7 @@ export const HawaSelect = (props) => {
           isClearable={props.isClearable}
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
-          onChange={(newValue, action) =>
+          onChange={(newValue: any, action) =>
             props.onChange(newValue.label, action)
           }
           components={{

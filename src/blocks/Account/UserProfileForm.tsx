@@ -30,7 +30,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
             name="fullName"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="text"
                 label={props.texts.fullNameLabel}
                 placeholder={props.texts.fullNamePlaceholder}

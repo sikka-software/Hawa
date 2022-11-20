@@ -1,7 +1,7 @@
 import React from "react"
 
 type SwitchTypes = {
-  text: any
+  text?: any
 }
 
 export const HawaSwitch: React.FunctionComponent<SwitchTypes> = (props) => {

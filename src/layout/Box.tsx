@@ -1,5 +1,5 @@
-import React from "react";
+import React from "react"
 
-export const Box = (props) => {
-  return <div>{props.children}</div>;
-};
+export const Box = (props: any) => {
+  return <div>{props.children}</div>
+}

@@ -1,11 +1,13 @@
 import React from "react"
 
-type RadioTypes = {}
+type RadioTypes = {
+  options: any
+}
 export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
   return (
     <div>
       <ul className="w-full items-center rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:flex">
-        {props.options.map((option) => {
+        {props.options.map((option: any) => {
           return (
             <li className="w-full border-b border-gray-200 dark:border-gray-600 sm:border-b-0 sm:border-r">
               <div className="flex items-center pl-3">

@@ -2,13 +2,13 @@ import React from "react"
 import clsx from "clsx"
 
 type TextFieldTypes = {
-  margin: "none" | "normal" | "large"
-  width: "small" | "normal" | "full"
-  label: any
-  multiline: any
-  helperText: any
-  value: any
-  props: React.PropsWithRef<"input">
+  margin?: "none" | "normal" | "large"
+  width?: "small" | "normal" | "full"
+  label?: any
+  multiline?: any
+  helperText?: any
+  value?: any
+  props?: React.PropsWithRef<"input">
 }
 
 export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({

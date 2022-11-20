@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import HawaDrawerItem from "../elements/HawaDrawerItem";
+import React from "react"
+import PropTypes from "prop-types"
+import HawaDrawerItem from "../elements/HawaDrawerItem"
 
 const MenuButton = () => {
   return (
@@ -9,12 +9,12 @@ const MenuButton = () => {
       data-drawer-show="drawer-navigation"
       aria-controls="drawer-navigation"
       type="button"
-      className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     >
       <span className="sr-only">Open main menu</span>
       <svg
         aria-hidden="true"
-        className="w-6 h-6"
+        className="h-6 w-6"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -26,13 +26,13 @@ const MenuButton = () => {
         ></path>
       </svg>
     </button>
-  );
-};
-const ProfileDropdown = (props) => {
+  )
+}
+const ProfileDropdown = (props: any) => {
   return (
     <div
       id="userDropdown"
-      className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+      className="z-10 hidden w-44 divide-y divide-gray-100 rounded bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
       data-popper-reference-hidden=""
       data-popper-escaped=""
       data-popper-placement="bottom-start"
@@ -40,36 +40,39 @@ const ProfileDropdown = (props) => {
     >
       <div className="py-3 px-4 text-sm text-gray-900 dark:text-white">
         <div>{props.username}</div>
-        <div className="font-medium truncate">{props.userEmail}</div>
+        <div className="truncate font-medium">{props.userEmail}</div>
       </div>
       <ul
         className="py-1 text-sm text-gray-700 dark:text-gray-200"
         aria-labelledby="avatarButton"
       >
-        {props.profileItems.map((it) => {
-          return <ProfileItem text={it.text} link={it.slug} />;
+        {props.profileItems.map((it: any) => {
+          return <ProfileItem text={it.text} link={it.slug} />
         })}
       </ul>
       <div className="py-1">
         <a
           href="#"
-          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
         >
           Sign out
         </a>
       </div>
     </div>
-  );
-};
-const DrawerContent = (props) => {
+  )
+}
+const DrawerContent = (props: any) => {
   return (
     <div
       id="drawer-navigation"
-      className="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
-      tabindex="-1"
+      className="fixed z-40 h-screen w-80 overflow-y-auto bg-white p-4 dark:bg-gray-800"
+      tabIndex={-1}
       aria-labelledby="drawer-navigation-label"
     >
-      <div href={props.logoHref} className="flex items-center">
+      <div
+        // href={props.logoHref}
+        className="flex items-center"
+      >
         <img
           src={
             "https://my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
@@ -80,20 +83,20 @@ const DrawerContent = (props) => {
         />
       </div>
       <CloseButton />
-      <div className="py-4 overflow-y-auto">
+      <div className="overflow-y-auto py-4">
         <ul className="space-y-2">
-          {props.drawerItems.map((item, i) => {
+          {props.drawerItems.map((item: any, i: any) => {
             return (
               <HawaDrawerItem action={item.action} key={i} text={item.text} />
-            );
+            )
           })}
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-const ProfileItem = (props) => {
+const ProfileItem = (props: any) => {
   return (
     <li>
       <a
@@ -103,19 +106,19 @@ const ProfileItem = (props) => {
         {props.text}
       </a>
     </li>
-  );
-};
+  )
+}
 const CloseButton = () => {
   return (
     <button
       type="button"
       data-drawer-dismiss="drawer-navigation"
       aria-controls="drawer-navigation"
-      className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+      className="absolute top-2.5 right-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
     >
       <svg
         aria-hidden="true"
-        className="w-5 h-5"
+        className="h-5 w-5"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -127,24 +130,24 @@ const CloseButton = () => {
         ></path>
       </svg>
     </button>
-  );
-};
-export const HawaLayout = (props) => {
+  )
+}
+export const HawaLayout = (props: any) => {
   return (
     <div className="font-plex">
       <div>
-        <nav className="border-gray-200 rounded dark:bg-gray-900">
-          <div className="flex p-3 flex-row-reverse items-center justify-between w-full">
+        <nav className="rounded border-gray-200 dark:bg-gray-900">
+          <div className="flex w-full flex-row-reverse items-center justify-between p-3">
             {/* <div href={props.logoHref} className="flex items-center">
               <img src={props.logoLink} className="h-9" alt="Flowbite Logo" />
             </div> */}
             <div
               data-dropdown-toggle="userDropdown"
               data-dropdown-placement="bottom-start"
-              className="overflow-hidden mr-2 relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600"
+              className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600"
             >
               <svg
-                className="absolute -left-1 w-12 h-12 text-gray-400"
+                className="absolute -left-1 h-12 w-12 text-gray-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -192,16 +195,16 @@ export const HawaLayout = (props) => {
       />
       <div className="p-3">{props.children}</div>
     </div>
-  );
-};
+  )
+}
 
-HawaLayout.propTypes = {
-  logoLink: PropTypes.string,
-  username: PropTypes.string,
-  userEmail: PropTypes.string,
-  drawerItems: PropTypes.objectOf({
-    text: PropTypes.string,
-    slug: PropTypes.string,
-    action: PropTypes.func
-  })
-};
+// HawaLayout.propTypes = {
+//   logoLink: PropTypes.string,
+//   username: PropTypes.string,
+//   userEmail: PropTypes.string,
+//   drawerItems: PropTypes.objectOf({
+//     text: PropTypes.string,
+//     slug: PropTypes.string,
+//     action: PropTypes.func,
+//   }),
+// }
