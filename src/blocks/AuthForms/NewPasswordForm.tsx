@@ -1,14 +1,27 @@
 import React, { useState } from "react"
 import { HawaTextField, HawaAlert, HawaButton } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
-// import PropTypes from "prop-types"
 import { HawaContainer } from "../../layout"
 
 type NewPasswordTypes = {
   handleNewPassword: any
   passwordChanged: any
   errorText: any
-  texts: any
+  texts: {
+    emailLabel: string
+    emailPlaceholder: string
+    emailRequiredText: string
+    passwordPlaceholder: string
+    updatePassword: string
+    passwordRequiredText: string
+    passwordLabel: string
+    confirmPasswordPlaceholder: string
+    confirmPasswordLabel: string
+    confirmPasswordRequiredText: string
+    passwordMatchError: string
+    forgotPasswordText: string
+    passwordChanged: string
+  }
   handleSignIn: any
 }
 
@@ -89,28 +102,3 @@ export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
     </HawaContainer>
   )
 }
-// NewPasswordForm.propTypes = {
-//   /**
-//    *  An object of all the texts in the blocks
-//    */
-//   texts: PropTypes.shape({
-//     emailLabel: PropTypes.string,
-//     emailPlaceholder: PropTypes.string,
-//     emailRequiredText: PropTypes.string,
-//     passwordPlaceholder: PropTypes.string,
-//     updatePassword: PropTypes.string,
-//     passwordRequiredText: PropTypes.string,
-//     passwordLabel: PropTypes.string,
-//     confirmPasswordPlaceholder: PropTypes.string,
-//     confirmPasswordLabel: PropTypes.string,
-//     confirmPasswordRequiredText: PropTypes.string,
-//     passwordMatchError: PropTypes.string,
-//     forgotPasswordText: PropTypes.string,
-//     passwordChanged: PropTypes.string,
-//   }),
-//   /**
-//    * A boolean to replace the form with a success message
-//    */
-//   passwordChanged: PropTypes.bool,
-//   handleNewPassword: PropTypes.func,
-// }

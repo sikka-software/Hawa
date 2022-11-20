@@ -1,7 +1,6 @@
 import React from "react"
 import { Controller, useForm } from "react-hook-form"
 import { HawaButton, HawaTextField } from "../../elements"
-import PropTypes from "prop-types"
 import { HawaContainer } from "../../layout"
 
 type ResetPasswordType = {
@@ -10,8 +9,16 @@ type ResetPasswordType = {
   errorText: any
   sent: any
   handleSignIn: any
-  texts: any
+  texts: {
+    emailLabel: string
+    emailPlaceholder: string
+    emailRequiredText: string
+    emailInvalidText: string
+    emailSentText: string
+    resetPassword: string
+  }
 }
+
 export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
   props
 ) => {
@@ -60,21 +67,3 @@ export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
     </HawaContainer>
   )
 }
-// ResetPasswordForm.propTypes = {
-//   /**
-//    *  An object of all the texts in the blocks
-//    */
-//   texts: PropTypes.shape({
-//     emailLabel: PropTypes.string,
-//     emailPlaceholder: PropTypes.string,
-//     emailRequiredText: PropTypes.string,
-//     emailInvalidText: PropTypes.string,
-//     emailSentText: PropTypes.string,
-//     resetPassword: PropTypes.string,
-//   }),
-//   /**
-//    * a boolean to replace the form with a success message
-//    */
-//   sent: PropTypes.bool,
-//   handleResetPassword: PropTypes.func,
-// }

@@ -10,24 +10,43 @@ import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
 type SignInFormTypes = {
-  handleSignIn: any
-  handleRouteToSignUp: any
   showError: any
   errorTitle: string
   errorText: string
   signInType: "email" | "username" | "phone"
-  texts: any
+  texts: {
+    emailLabel: string
+    emailPlaceholder: string
+    emailRequiredText: string
+    emailInvalidText: string
+    usernameLabel: string
+    usernamePlaceholder: string
+    usernameRequired: string
+    passwordLabel: string
+    passwordPlaceholder: string
+    passwordRequiredText: string
+    forgotPasswordText: string
+    newUserText: string
+    signUpText: string
+    signInText: string
+    googleButtonLabel: string
+    githubButtonLabel: string
+    twitterButtonLabel: string
+  }
   withoutResetPassword: boolean
   withoutSignUp: boolean
-  handleForgotPassword: any
   isLoading: any
   viaGoogle: boolean
   viaGithub: boolean
   viaTwitter: boolean
+  handleSignIn: any
+  handleRouteToSignUp: any
+  handleForgotPassword: any
   handleGoogleSignIn: any
   handleGithubSignIn: any
   handleTwitterSignIn: any
 }
+
 export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   const {
     formState: { errors },
@@ -174,38 +193,3 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
     </HawaContainer>
   )
 }
-// SignInForm.propTypes = {
-//   /**
-//    *  An object of all the texts in the blocks
-//    */
-//   texts: PropTypes.shape({
-//     emailLabel: PropTypes.string,
-//     emailPlaceholder: PropTypes.string,
-//     emailRequiredText: PropTypes.string,
-//     emailInvalidText: PropTypes.string,
-//     usernameLabel: PropTypes.string,
-//     usernamePlaceholder: PropTypes.string,
-//     usernameRequired: PropTypes.string,
-//     passwordLabel: PropTypes.string,
-//     passwordPlaceholder: PropTypes.string,
-//     passwordRequiredText: PropTypes.string,
-//     forgotPasswordText: PropTypes.string,
-//     newUserText: PropTypes.string,
-//     signUpText: PropTypes.string,
-//     signInText: PropTypes.string,
-//     googleButtonLabel: PropTypes.string,
-//     githubButtonLabel: PropTypes.string,
-//     twitterButtonLabel: PropTypes.string,
-//   }),
-//   viaGoogle: PropTypes.bool,
-//   viaGithub: PropTypes.bool,
-//   viaTwitter: PropTypes.bool,
-//   handleSignIn: PropTypes.func,
-//   handleRouteToSignUp: PropTypes.func,
-//   handleGoogleSignIn: PropTypes.func,
-//   handleGithubSignIn: PropTypes.func,
-//   handleTwitterSignIn: PropTypes.func,
-//   handleForgotPassword: PropTypes.func,
-
-//   withoutSignUp: PropTypes.bool,
-// }

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { HawaSnackbar } from "../../elements";
+import React, { useState } from "react"
+import { HawaSnackbar } from "../../elements"
 import { Story, Meta } from "@storybook/react"
 
-export default  {
+export default {
   title: "Elements/Snackbar",
   component: HawaSnackbar,
   // argTypes: {
@@ -28,13 +28,14 @@ export default  {
   // }
 } as Meta
 
-const Template : Story = (args) => {
-  const [open, setOpen] = useState(true);
+const Template: Story = (args) => {
+  const [open, setOpen] = useState(true)
   return (
     <HawaSnackbar
       title={args.title}
       description={args.description}
-      severity={args.severity}    
+      severity={args.severity}
+      position={args.position}
       // {...args}
       // open={open}
       // handleClose={() => {
@@ -42,9 +43,9 @@ const Template : Story = (args) => {
       //   setOpen(false);
       // }}
     />
-  );
-};
-export const Plain = Template.bind({});
+  )
+}
+export const Plain = Template.bind({})
 Plain.args = {
   title: "Plain",
   description: "This is an alert indicating that there was a successful action",
@@ -53,9 +54,9 @@ Plain.args = {
   // duration: 5000,
   position: "bottom-left",
   // autoHide: false
-};
+}
 Plain.storyName = "None"
-export const Success = Template.bind({});
+export const Success = Template.bind({})
 Success.args = {
   title: "Success",
   description: "This is an alert indicating that there was a successful action",
@@ -63,9 +64,9 @@ Success.args = {
   isClosable: false,
   duration: 5000,
   position: "bottom-left",
-  autoHide: false
-};
-export const Warning = Template.bind({});
+  autoHide: false,
+}
+export const Warning = Template.bind({})
 Warning.args = {
   title: "Warning",
   description: "This is an alert indicating that there was a warning action",
@@ -73,9 +74,9 @@ Warning.args = {
   isClosable: false,
   duration: 5000,
   position: "bottom-left",
-  autoHide: false
-};
-export const Info = Template.bind({});
+  autoHide: false,
+}
+export const Info = Template.bind({})
 Info.args = {
   title: "Info",
   description: "This is an alert indicating that there was a info action",
@@ -83,9 +84,9 @@ Info.args = {
   isClosable: false,
   duration: 5000,
   position: "bottom-left",
-  autoHide: false
-};
-export const Error = Template.bind({});
+  autoHide: false,
+}
+export const Error = Template.bind({})
 Error.args = {
   title: "Offline",
   description: "This is an alert indicating that there was a error action",
@@ -93,5 +94,5 @@ Error.args = {
   isClosable: false,
   duration: 5000,
   position: "bottom-left",
-  autoHide: false
-};
+  autoHide: false,
+}

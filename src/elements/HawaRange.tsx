@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 
 type RangeTypes = {
   value?: any
@@ -45,17 +45,17 @@ export const HawaRange: React.FunctionComponent<RangeTypes> = ({
     </div>
   )
 }
-HawaRange.propTypes = {
-  /**
-   * The element at the side where the range value is 0
-   * Can be an icon
-   */
-  startElement: PropTypes.element,
-  value: PropTypes.number,
-  /**
-   * The element at the side where the range value is 100
-   */
-  endElement: PropTypes.element,
-  handleChange: PropTypes.func,
-  label: PropTypes.string,
-}
+// HawaRange.propTypes = {
+//   /**
+//    * The element at the side where the range value is 0
+//    * Can be an icon
+//    */
+//   startElement: PropTypes.element,
+//   value: PropTypes.number,
+//   /**
+//    * The element at the side where the range value is 100
+//    */
+//   endElement: PropTypes.element,
+//   handleChange: PropTypes.func,
+//   label: PropTypes.string,
+// }

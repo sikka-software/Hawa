@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React, { FunctionComponent } from "react"
 
 type THawaSnackBar = {
@@ -17,26 +18,38 @@ export const HawaSnackbar: FunctionComponent<THawaSnackBar> = ({
   title,
   description,
   severity = "info",
+  position = "bottom-left",
 }) => {
+  let defaultStyle =
+    "fixed flex flex-row items-top p-1 w-full max-w-xs rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
   let severities = {
-    info: "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-blue-700 bg-blue-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
-    warning:
-      "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-yellow-700 bg-yellow-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
-    error:
-      "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-red-700 bg-red-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
-    success:
-      "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-green-700 bg-green-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
-    none: "bottom-4 fixed flex items-center p-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800",
+    info: "text-blue-700 bg-blue-100",
+    warning: "text-yellow-700 bg-yellow-100",
+    error: "text-red-700 bg-red-100",
+    success: "text-green-700 bg-green-100",
+    none: "text-gray-500 bg-white ",
+  }
+  let positions = {
+    "top-left": "top-4",
+    "top-right": "top-4 right-4",
+    "top-center": "top-4 left-1/2 -translate-x-1/2",
+    "bottom-left": "bottom-4",
+    "bottom-right": "bottom-4 right-4",
+    "bottom-center": "bottom-4 left-1/2 -translate-x-1/2",
   }
   return (
-    <div id="toast-default" role="alert" className={severities[severity]}>
-      <div>
+    <div
+      id="toast-default"
+      role="alert"
+      className={clsx(defaultStyle, severities[severity], positions[position])}
+    >
+      <div className="p-3">
         <div className="ml-3 text-sm font-bold">{title}</div>
         <div className="ml-3 text-sm font-normal">{description}</div>
       </div>
       <button
         type="button"
-        className="-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+        className="inline-flex h-8 w-8 rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
         data-dismiss-target="#toast-default"
         aria-label="Close"
       >

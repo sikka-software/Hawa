@@ -6,7 +6,11 @@ type AppLandingTypes = {
   handleSignIn: any
   handleSignUp: any
   handleLanguage: any
-  texts: any
+  texts: {
+    signIn: string
+    signUp: string
+    lang: string
+  }
 }
 export const AppLanding: React.FunctionComponent<AppLandingTypes> = (props) => {
   return (
@@ -27,13 +31,3 @@ export const AppLanding: React.FunctionComponent<AppLandingTypes> = (props) => {
     </HawaContainer>
   )
 }
-// AppLanding.propTypes = {
-//   texts: PropTypes.shape({
-//     signIn: PropTypes.string,
-//     signUp: PropTypes.string,
-//     lang: PropTypes.string,
-//   }),
-//   handleSignIn: PropTypes.func,
-//   handleSignUp: PropTypes.func,
-//   handleLangauge: PropTypes.func,
-// }

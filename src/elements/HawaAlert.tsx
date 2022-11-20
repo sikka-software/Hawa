@@ -13,7 +13,7 @@ type AlertTypes = {
   severity: keyof typeof severities
   title: any
   text: any
-  hideIcon: any
+  hideIcon?: any
 }
 export const HawaAlert: React.FunctionComponent<AlertTypes> = (props) => {
   return (
