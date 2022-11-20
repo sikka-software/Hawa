@@ -1,6 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-export const HawaPinInput = ({
+type PinInputTypes = {
+  children: any
+  type: any
+  defaultValue: any
+  onChange: any
+  label: any
+  helperText: any
+  onComplete: any
+  inForm: any
+  fullWidth: any
+}
+export const HawaPinInput: React.FunctionComponent<PinInputTypes> = ({
   children,
   type,
   defaultValue,
@@ -8,24 +19,22 @@ export const HawaPinInput = ({
   onComplete,
   ...props
 }) => {
-  const [value, setValue] = useState(
-    defaultValue ? defaultValue.split("") : []
-  );
-  const [pinLength, setPinLength] = useState(0);
+  const [value, setValue] = useState(defaultValue ? defaultValue.split("") : [])
+  const [pinLength, setPinLength] = useState(0)
 
   useEffect(() => {
-    let length = 0;
+    let length = 0
     React.Children.map(children, (child) => {
       if (
         React.isValidElement(child) &&
         child.type?.displayName &&
         child.type?.displayName === "HawaPinInputField"
       ) {
-        length++;
+        length++
       }
-    });
-    setPinLength(length);
-  }, []);
+    })
+    setPinLength(length)
+  }, [])
 
   const childrenWithProps = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
@@ -43,8 +52,8 @@ export const HawaPinInput = ({
           value: value,
           onChangeAction: (currentValue) => onChange(currentValue),
           onCompleteAction: (finalValue) => onComplete(finalValue),
-          pinLength: pinLength
-        });
+          pinLength: pinLength,
+        })
       }
       return React.cloneElement(child, {
         type,
@@ -53,17 +62,17 @@ export const HawaPinInput = ({
         index: index,
         onChangeAction: (currentValue) => onChange(currentValue),
         onCompleteAction: (finalValue) => onComplete(finalValue),
-        pinLength: pinLength
-      });
+        pinLength: pinLength,
+      })
     }
-    return child;
-  });
+    return child
+  })
 
   useEffect(() => {
     if (value.length === pinLength) {
-      onComplete(value);
+      onComplete(value)
     }
-  }, [value]);
+  }, [value])
 
   return (
     <div style={props.inForm && { width: "100%" }}>
@@ -73,13 +82,13 @@ export const HawaPinInput = ({
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           {props.label && (
             <label
-            htmlFor="first_name"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              htmlFor="first_name"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               {props.label}
             </label>
@@ -97,45 +106,45 @@ export const HawaPinInput = ({
         <div>{childrenWithProps}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const HawaPinInputField = (props) => {
   return (
     <input
-      className="w-12 rounded-lg mx-2"
+      className="mx-2 w-12 rounded-lg"
       type={props.type && props.type == "alphanumeric" ? "text" : "number"}
       id={"pinInput" + props.index}
       defaultValue={props.defaultValue || ""}
       variant="pin"
       onKeyDown={(e) => {
         if (e.key === "Backspace") {
-          let i = document.getElementById("pinInput" + (props.index - 1));
+          let i = document.getElementById("pinInput" + (props.index - 1))
           if (e) {
-            i.focus();
+            i.focus()
           }
         }
       }}
       disableUnderline
       inputProps={{ maxLength: 1 }}
       onChange={(e) => {
-        let newValue = props.value;
-        newValue[props.index] = e.target.value;
-        props.setValue(newValue);
-        props.onChangeAction(newValue.toString().replaceAll(",", ""));
+        let newValue = props.value
+        newValue[props.index] = e.target.value
+        props.setValue(newValue)
+        props.onChangeAction(newValue.toString().replaceAll(",", ""))
         if (
           parseInt(e.target.attributes["maxlength"].value) >= 1 &&
           e.target.value != ""
         ) {
-          let i = document.getElementById("pinInput" + (props.index + 1));
+          let i = document.getElementById("pinInput" + (props.index + 1))
           if (i != null) {
-            i.focus();
+            i.focus()
           }
         }
         if (props.value.length === props.pinLength) {
-          props.onCompleteAction(props.value.toString().replaceAll(",", ""));
+          props.onCompleteAction(props.value.toString().replaceAll(",", ""))
         }
       }}
     />
-  );
-};
+  )
+}

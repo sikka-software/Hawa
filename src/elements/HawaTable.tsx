@@ -1,9 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { HawaButton } from "./HawaButton2";
+import React from "react"
+// import PropTypes from "prop-types"
+import { HawaButton } from "./HawaButton2"
 
-export const HawaTable = (props) => {
-  let isArabic = props.lang === "ar";
+type TableTypes = {
+  lang: any
+  columns: any
+  actions: any
+  rows: any
+  noDataText: any
+}
+
+export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
+  let isArabic = props.lang === "ar"
   return (
     <>
       <div>
@@ -39,9 +47,9 @@ export const HawaTable = (props) => {
                           >
                             {r}{" "}
                           </th>
-                        );
+                        )
                       } else {
-                        return <td className="py-4 px-6">{r}</td>;
+                        return <td className="py-4 px-6">{r}</td>
                       }
                     })}
                     {props.actions && (
@@ -181,13 +189,13 @@ export const HawaTable = (props) => {
         </Table>
       </TableContainer> */}
     </>
-  );
-};
-HawaTable.propTypes = {
-  handleActionClick: PropTypes.func,
-  noDataText: PropTypes.string,
-  lang: PropTypes.string,
-  columns: PropTypes.array,
-  rows: PropTypes.array,
-  end: PropTypes.array
-};
+  )
+}
+// HawaTable.propTypes = {
+//   handleActionClick: PropTypes.func,
+//   noDataText: PropTypes.string,
+//   lang: PropTypes.string,
+//   columns: PropTypes.array,
+//   rows: PropTypes.array,
+//   end: PropTypes.array,
+// }

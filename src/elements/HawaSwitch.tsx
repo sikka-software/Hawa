@@ -1,6 +1,10 @@
-import React from "react";
+import React from "react"
 
-export const HawaSwitch = (props) => {
+type SwitchTypes = {
+  text: any
+}
+
+export const HawaSwitch: React.FunctionComponent<SwitchTypes> = (props) => {
   return (
     <label
       htmlFor="default-toggle"
@@ -17,5 +21,5 @@ export const HawaSwitch = (props) => {
         {props.text}
       </span>
     </label>
-  );
-};
+  )
+}

@@ -1,6 +1,12 @@
-import React from "react";
+import React from "react"
 
-export const HawaCheckbox = (props) => {
+type CheckoutTypes = {
+  centered: any
+  label: any
+  helperText: any
+}
+
+export const HawaCheckbox: React.FunctionComponent<CheckoutTypes> = (props) => {
   return (
     <div
       className={props.centered ? "flex h-full items-center" : "flex h-full"}
@@ -26,5 +32,5 @@ export const HawaCheckbox = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

@@ -1,5 +1,10 @@
-import React from "react";
+import React from "react"
 
-export const HawaTypography = (props) => {
-  return <div {...props}>{props.children}</div>;
-};
+type TypographyTypes = {
+  children: any
+}
+export const HawaTypography: React.FunctionComponent<TypographyTypes> = (
+  props
+) => {
+  return <div {...props}>{props.children}</div>
+}

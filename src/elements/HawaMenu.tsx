@@ -1,6 +1,16 @@
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
-export const HawaMenu = ({
+type MenuTypes = {
+  popMenuID: any
+  menuItems: any
+  withHeader: any
+  withIcons: any
+  headerTitle: any
+  headerSubtitle: any
+  open: any
+  handleClose: any
+}
+export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
   popMenuID,
   menuItems,
   withHeader,
@@ -8,12 +18,12 @@ export const HawaMenu = ({
   headerTitle,
   headerSubtitle,
   open,
-  handleClose
+  handleClose,
 }) => {
   return (
     <div>
       <button
-        className="border rounded w-44 p-2 bg-blue-700 text-white"
+        className="w-44 rounded border bg-blue-700 p-2 text-white"
         onClick={() => handleClose(!open)}
       >
         Menu Dropdown
@@ -22,12 +32,12 @@ export const HawaMenu = ({
         id={popMenuID}
         className={`${
           open ? "block" : "hidden"
-        } z-10 w-44 bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-gray-700`}
+        } z-10 w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
       >
         {withHeader && (
-          <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
+          <div className="py-3 px-4 text-sm text-gray-900 dark:text-white">
             <div>{headerTitle}</div>
-            <div class="font-medium truncate">{headerSubtitle}</div>
+            <div className="truncate font-medium">{headerSubtitle}</div>
           </div>
         )}
         {menuItems.map((group) => {
@@ -39,8 +49,8 @@ export const HawaMenu = ({
                     onClick={item.action}
                     className={
                       item.button
-                        ? "bg-primary-500 text-white hover:bg-primary-600 flex flex-row rtl:flex-row-reverse items-center cursor-pointer py-2 px-4 rounded-lg mx-1 hover:bg-gray-100 dark:hover:bg-primary-600 dark:hover:text-white"
-                        : "flex flex-row rtl:flex-row-reverse items-center cursor-pointer py-2 px-4 rounded-lg mx-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        ? "mx-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
+                        : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >
                     {withIcons && (
@@ -48,24 +58,24 @@ export const HawaMenu = ({
                     )}
                     {item.label}
                   </li>
-                );
+                )
               })}
             </ul>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
-
-HawaMenu.propTypes = {
-  anchor: PropTypes.any,
-  handleClose: PropTypes.func,
-  menuItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.element,
-      label: PropTypes.string,
-      action: PropTypes.func
-    })
   )
-};
+}
+
+// HawaMenu.propTypes = {
+//   anchor: PropTypes.any,
+//   handleClose: PropTypes.func,
+//   menuItems: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       icon: PropTypes.element,
+//       label: PropTypes.string,
+//       action: PropTypes.func,
+//     })
+//   ),
+// }

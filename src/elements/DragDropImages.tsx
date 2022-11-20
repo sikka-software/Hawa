@@ -1,16 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { HawaAlert } from "./HawaAlert";
-import { HawaButton } from "./HawaButton";
+import React, { useEffect, useState } from "react"
+import { useDropzone } from "react-dropzone"
+import { HawaAlert } from "./HawaAlert"
+import { HawaButton } from "./HawaButton"
 
 const thumbsContainer = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  marginTop: 10
-};
+  marginTop: 10,
+}
+type DragDropImagesTypes = {
+  texts: any
+  files: any
+  setFiles: any
+  setDeletedFiles: any
+  maxFiles: any
+  accept: any
+  onAcceptedFiles: any
+  showPreview: any
+  onDeleteFile: any
+  onClearFiles: any
+  maxSize: any
+  errorMessages: any
+}
 
-export const DragDropImages = ({
+export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
   texts,
   files,
   setFiles,
@@ -22,19 +36,19 @@ export const DragDropImages = ({
   onDeleteFile,
   onClearFiles,
   maxSize,
-  errorMessages
+  errorMessages,
 }) =>
   // props
   {
-    const [cmp, setCmp] = useState(0);
-    const [max, setMax] = useState(0);
+    const [cmp, setCmp] = useState(0)
+    const [max, setMax] = useState(0)
     //const [thumbs, setThumbs] = useState("");
     const {
       getRootProps,
       getInputProps,
       fileRejections,
       acceptedFiles,
-      isDragActive
+      isDragActive,
     } = useDropzone({
       multiple: true,
       accept: accept,
@@ -44,58 +58,58 @@ export const DragDropImages = ({
         setFiles(
           acceptedFiles.map((file, index) =>
             Object.assign(file, {
-              preview: URL.createObjectURL(file)
+              preview: URL.createObjectURL(file),
             })
           )
-        );
-      }
-    });
+        )
+      },
+    })
     useEffect(
       () => () => {
         files?.forEach((file) => {
-          URL.revokeObjectURL(file.preview);
-        });
+          URL.revokeObjectURL(file.preview)
+        })
       },
       [files]
-    );
+    )
 
     useEffect(() => {
-      setFiles(acceptedFiles);
-    }, [acceptedFiles, cmp]);
+      setFiles(acceptedFiles)
+    }, [acceptedFiles, cmp])
 
     onClearFiles = () => {
-      acceptedFiles.length = 0;
-      acceptedFiles.splice(0, acceptedFiles.length);
-      setFiles([]);
-    };
+      acceptedFiles.length = 0
+      acceptedFiles.splice(0, acceptedFiles.length)
+      setFiles([])
+    }
 
     useEffect(() => {
       if (maxSize > 0) {
-        const k = 1024;
-        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-        const i = Math.floor(Math.log(maxSize) / Math.log(1024));
+        const k = 1024
+        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+        const i = Math.floor(Math.log(maxSize) / Math.log(1024))
 
         setMax(
           parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i]
-        );
+        )
       }
-    }, [maxSize]);
+    }, [maxSize])
     const errs = fileRejections.map((rej, i) => {
       return (
         <div key={i}>
           <div>{rej.file.name}</div>
           <div>{rej.errors[0].code}</div>
         </div>
-      );
-    });
-    const thumbs = files?.map((file, index) => (
+      )
+    })
+    const thumbs = files?.map((file: any, index: any) => (
       <div style={{ position: "relative", margin: 10 }}>
         <button
           onClick={(e) => {
-            e.stopPropagation();
-            acceptedFiles.splice(acceptedFiles.indexOf(file), 1);
-            setCmp(Math.random);
-            onDeleteFile(file);
+            e.stopPropagation()
+            acceptedFiles.splice(acceptedFiles.indexOf(file), 1)
+            setCmp(Math.random)
+            onDeleteFile(file)
           }}
           type="button"
           className="absolute left-0 ml-auto inline-flex items-center rounded-lg bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -128,20 +142,20 @@ export const DragDropImages = ({
             backgroundImage: `url(${file.preview})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            border: "1px solid black"
+            border: "1px solid black",
           }}
           key={file.name}
         />
       </div>
-    ));
+    ))
 
-    console.log("error", fileRejections);
+    console.log("error", fileRejections)
 
     return (
       <div
         // variant="drop-area"
         {...getRootProps({
-          style: { backgroundColor: isDragActive && "white" }
+          style: { backgroundColor: isDragActive && "white" },
         })}
         className="flex flex-col justify-center rounded-xl border border-dashed border-black"
       >
@@ -154,8 +168,8 @@ export const DragDropImages = ({
           <HawaButton
             style={{ color: "black" }}
             onClick={(e) => {
-              e.stopPropagation();
-              onClearFiles(acceptedFiles);
+              e.stopPropagation()
+              onClearFiles(acceptedFiles)
             }}
           >
             Clear All
@@ -174,5 +188,5 @@ export const DragDropImages = ({
         )}
         {}
       </div>
-    );
-  };
+    )
+  }

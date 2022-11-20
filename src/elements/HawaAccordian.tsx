@@ -1,18 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+// import PropTypes from "prop-types"
 
-const AccordionItem = (props) => {
-  const [collapse, setCollapse] = React.useState(false);
+type AccordionItemTypes = {
+  title: any
+  count: any
+  content: any
+}
+
+const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
+  const [collapse, setCollapse] = React.useState(false)
   let noRounding =
-    "flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white";
+    "flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
   let roundedTop =
-    "rounded-t-xl border-b-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white";
+    "rounded-t-xl border-b-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
   let roundedBottom =
-    "rounded-b-xl border-t-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white";
+    "rounded-b-xl border-t-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
   let accPaper =
-    "p-5 font-light border border-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900";
+    "p-5 font-light border border-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
   let accPaperRounded =
-    "p-5 font-light border border-b-xl rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900";
+    "p-5 font-light border border-b-xl rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
   return (
     <div>
       <h2 id={"accordion-collapse-heading-" + props.count}>
@@ -27,7 +33,7 @@ const AccordionItem = (props) => {
           <span>{props.title}</span>
           <svg
             data-accordion-icon=""
-            className={`w-6 h-6 ${collapse ? "" : "rotate-180"}  shrink-0`}
+            className={`h-6 w-6 ${collapse ? "" : "rotate-180"}  shrink-0`}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,26 +58,31 @@ const AccordionItem = (props) => {
         </div>
       </div>
     </div>
-  );
-};
-export const HawaAccordian = (props) => {
+  )
+}
+type AccordionTypes = {
+  content: any
+}
+export const HawaAccordian: React.FunctionComponent<AccordionTypes> = (
+  props
+) => {
   return (
     <div id="accordion-collapse" data-accordion="collapse">
-      {props.content.map((acc, i) => {
+      {props.content.map((acc: any, i: any) => {
         return (
           <AccordionItem
             title={acc.title}
             content={acc.content}
             count={props.content.length - 1 === i ? -1 : i}
           />
-        );
+        )
       })}
     </div>
-  );
-};
-HawaAccordian.propTypes = {
-  content: PropTypes.shape({
-    title: PropTypes.string,
-    content: PropTypes.string
-  })
-};
+  )
+}
+// HawaAccordian.propTypes = {
+//   content: PropTypes.shape({
+//     title: PropTypes.string,
+//     content: PropTypes.string,
+//   }),
+// }

@@ -1,6 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
-export const HawaModal = ({
+type ModalTypes = {
+  open: any
+  title: any
+  onClose: any
+  closeOnClickOutside: any
+  modalID: any
+  children: any
+  actions: any
+}
+export const HawaModal: React.FunctionComponent<ModalTypes> = ({
   open,
   title,
   onClose,
@@ -10,15 +19,15 @@ export const HawaModal = ({
   useEffect(() => {
     if (closeOnClickOutside) {
       window.onclick = () => {
-        console.log("open : ", open);
+        console.log("open : ", open)
         if (open) {
-          console.log("Im clicing");
-          onClose();
+          console.log("Im clicing")
+          onClose()
         }
-      };
+      }
     }
-    return () => (window.onClick = null);
-  }, [open]);
+    return () => (window.onClick = null)
+  }, [open])
   return (
     <div
       id={props.modalID}
@@ -26,25 +35,25 @@ export const HawaModal = ({
       aria-hidden="true"
       className={`${
         open ? "block" : "hidden"
-      } overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center`}
+      } h-modal fixed top-0 right-0 left-0 z-50 w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0 md:h-full`}
     >
-      <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+      <div className="relative h-full w-full max-w-2xl p-4 md:h-auto">
+        <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
+          <div className="flex items-start justify-between rounded-t border-b p-4 dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               {title}
             </h3>
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-toggle="defaultModal"
               onClick={() => {
-                onClose();
+                onClose()
               }}
             >
               <svg
                 aria-hidden="true"
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,12 +67,12 @@ export const HawaModal = ({
               <span className="sr-only">Close modal</span>
             </button>
           </div>
-          <div className="p-6 space-y-6">{props.children}</div>
-          <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+          <div className="space-y-6 p-6">{props.children}</div>
+          <div className="flex items-center space-x-2 rounded-b border-t border-gray-200 p-6 dark:border-gray-600">
             {props.actions}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

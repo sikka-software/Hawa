@@ -1,29 +1,35 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { useState } from "react";
+import React, { useEffect } from "react"
+import PropTypes from "prop-types"
+import { useState } from "react"
 
-export const HawaItemCard = ({
+type ItemCardTypes = {
+  actions: any
+  content: any
+  headerActions: any
+  header: any
+}
+export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
   actions,
   content,
   headerActions,
   header,
   ...props
 }) => {
-  const [openActionHeader, setOpenActionHeader] = useState(false);
+  const [openActionHeader, setOpenActionHeader] = useState(false)
 
   function handleOpenActionHeader() {
-    setOpenActionHeader(!openActionHeader);
+    setOpenActionHeader(!openActionHeader)
   }
 
   useEffect(() => {
     window.onclick = () => {
-      console.log("clicking, state = ", openActionHeader);
+      console.log("clicking, state = ", openActionHeader)
       if (openActionHeader) {
-        setOpenActionHeader(false);
+        setOpenActionHeader(false)
       }
-    };
-    return () => (window.onClick = null);
-  }, [openActionHeader]);
+    }
+    return () => (window.onClick = null)
+  }, [openActionHeader])
 
   return (
     <div
@@ -67,7 +73,7 @@ export const HawaItemCard = ({
                       {label}
                     </a>
                   </li>
-                );
+                )
               })}
             </ul>
           </div>
@@ -83,16 +89,16 @@ export const HawaItemCard = ({
       </div>
       <div className="mt-6 flex justify-end rounded-b-lg p-3">{actions}</div>
     </div>
-  );
-};
-HawaItemCard.propTypes = {
-  lang: PropTypes.string,
-  actions: PropTypes.element,
-  content: PropTypes.element,
-  headerActions: PropTypes.arrayOf({
-    label: PropTypes.string,
-    action: PropTypes.func
-  }),
-  header: PropTypes.element,
-  onCardClick: PropTypes.func
-};
+  )
+}
+// HawaItemCard.propTypes = {
+//   lang: PropTypes.string,
+//   actions: PropTypes.element,
+//   content: PropTypes.element,
+//   headerActions: PropTypes.arrayOf({
+//     label: PropTypes.string,
+//     action: PropTypes.func,
+//   }),
+//   header: PropTypes.element,
+//   onCardClick: PropTypes.func,
+// }

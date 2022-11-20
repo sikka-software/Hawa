@@ -1,7 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
-export const HawaRange = ({
+type RangeTypes = {
+  value: any
+  handleChange: any
+  startElement: any
+  endElement: any
+  label: any
+}
+export const HawaRange: React.FunctionComponent<RangeTypes> = ({
   value,
   handleChange,
   startElement,
@@ -9,35 +16,35 @@ export const HawaRange = ({
   label,
   ...props
 }) => {
-  const [rangeValue, setRangeValue] = React.useState(value);
+  const [rangeValue, setRangeValue] = React.useState(value)
 
   return (
     <div {...props}>
       {label && (
         <label
           htmlFor="default-range"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           {label}
         </label>
       )}
-      <div className="flex flex-row justify-center items-center w-fit">
+      <div className="flex w-fit flex-row items-center justify-center">
         <div className="mr-2">{startElement}</div>{" "}
         <input
           id="default-range"
           type="range"
           value={rangeValue}
           onChange={(e) => {
-            setRangeValue(e.target.value);
-            handleChange(e);
+            setRangeValue(e.target.value)
+            handleChange(e)
           }}
-          className="w-fit h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          className="h-2 w-fit cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
         />
         <div className="ml-2">{endElement}</div>{" "}
       </div>
     </div>
-  );
-};
+  )
+}
 HawaRange.propTypes = {
   /**
    * The element at the side where the range value is 0
@@ -50,5 +57,5 @@ HawaRange.propTypes = {
    */
   endElement: PropTypes.element,
   handleChange: PropTypes.func,
-  label : PropTypes.string
-};
+  label: PropTypes.string,
+}

@@ -1,9 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
-export const HawaLogoButton = (props) => {
-  let isArabic = props.lang === "ar";
-  let logoElement = "";
+type LogoButtonTypes = {
+  lang: any
+  logo: any
+  buttonText: any
+}
+export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
+  props
+) => {
+  let isArabic = props.lang === "ar"
+  let logoElement = ""
   switch (props.logo?.toLowerCase()) {
     case "google":
       logoElement = (
@@ -12,8 +19,8 @@ export const HawaLogoButton = (props) => {
             "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
           }
         />
-      );
-      break;
+      )
+      break
     case "github":
       logoElement = (
         <svg
@@ -21,12 +28,12 @@ export const HawaLogoButton = (props) => {
           height="32px"
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-7 h-7"
+          className="h-7 w-7"
         >
           <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z" />
         </svg>
-      );
-      break;
+      )
+      break
     case "twitter":
       logoElement = (
         <svg
@@ -34,7 +41,7 @@ export const HawaLogoButton = (props) => {
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
-          className="w-5 h-5"
+          className="h-5 w-5"
           viewBox="0 0 512.002 512.002"
         >
           <path
@@ -53,16 +60,16 @@ export const HawaLogoButton = (props) => {
      C507.7,94.204,503.76,93.294,500.398,94.784z"
           />
         </svg>
-      );
-      break;
+      )
+      break
     case "mada":
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/mada.png"
           className="h-6"
         />
-      );
-      break;
+      )
+      break
     case "stcpay":
       logoElement = (
         <img
@@ -70,40 +77,40 @@ export const HawaLogoButton = (props) => {
           // height={20}
           className="h-6"
         />
-      );
-      break;
+      )
+      break
     case "visa/master":
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/visa-master.png"
           className="h-6"
         />
-      );
-      break;
+      )
+      break
     case "paypal":
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/paypal.png"
           className="h-6"
         />
-      );
-      break;
+      )
+      break
     case "googlepay":
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/google-pay.png"
           className="h-6"
         />
-      );
-      break;
+      )
+      break
     case "applepay":
       logoElement = (
         <img
           src="https://sikka-images.s3.ap-southeast-1.amazonaws.com/payments/apple-pay.png"
           className="h-11"
         />
-      );
-      break;
+      )
+      break
     case "wallet":
       logoElement = (
         <svg
@@ -124,48 +131,48 @@ export const HawaLogoButton = (props) => {
             />
           </g>
         </svg>
-      );
-      break;
+      )
+      break
 
     default:
-      break;
+      break
   }
   return (
     <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       {...props}
-      className="bg-white rounded-xl my-2 h-11 flex max-w-sm w-full flex-row justify-center align-middle"
+      className="my-2 flex h-11 w-full max-w-sm flex-row justify-center rounded-xl bg-white align-middle"
     >
-      <div className="h-full flex flex-row justify-end items-center">
+      <div className="flex h-full flex-row items-center justify-end">
         {logoElement}
       </div>
       <div style={{ width: 10 }} />
-      <div className="h-full flex flex-col justify-center items-start">
+      <div className="flex h-full flex-col items-start justify-center">
         {props.buttonText}
       </div>
     </button>
-  );
-};
+  )
+}
 
-HawaLogoButton.propTypes = {
-  lang: PropTypes.string,
-  /**
-   * The logo/icon of the button
-   */
-  logo: PropTypes.oneOf([
-    "google",
-    "github",
-    "twitter",
-    "wallet",
-    "googlepay",
-    "applepay",
-    "stcpay",
-    "visa/master",
-    "paypal",
-    "mada"
-  ]),
-  /**
-   * The text next to the logo in the button
-   */
-  buttonText: PropTypes.string
-};
+// HawaLogoButton.propTypes = {
+//   lang: PropTypes.string,
+//   /**
+//    * The logo/icon of the button
+//    */
+//   logo: PropTypes.oneOf([
+//     "google",
+//     "github",
+//     "twitter",
+//     "wallet",
+//     "googlepay",
+//     "applepay",
+//     "stcpay",
+//     "visa/master",
+//     "paypal",
+//     "mada",
+//   ]),
+//   /**
+//    * The text next to the logo in the button
+//    */
+//   buttonText: PropTypes.string,
+// }

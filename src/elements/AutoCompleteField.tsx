@@ -1,9 +1,16 @@
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import React from "react"
+import { Controller, useFormContext } from "react-hook-form"
 
-export const AutoCompleteField = (props) => {
-  const { control } = useFormContext();
-  const { name, rules, shouldUnregister } = props;
+type AutoCompleteFieldTypes = {
+  name: any
+  rules: any
+  shouldUnregister: any
+}
+export const AutoCompleteField: React.FunctionComponent<
+  AutoCompleteFieldTypes
+> = (props) => {
+  const { control } = useFormContext()
+  const { name, rules, shouldUnregister } = props
 
   return (
     <React.Fragment>
@@ -12,7 +19,7 @@ export const AutoCompleteField = (props) => {
         rules={rules}
         control={control}
         shouldUnregister={shouldUnregister}
-        className="theme_form_input"
+        // className="theme_form_input"
         render={({ field: { onChange, value } }) => {
           return (
             <input type="text" />
@@ -24,9 +31,9 @@ export const AutoCompleteField = (props) => {
             //   {...props}
             //   className={"theme_form_input"}
             // />
-          );
+          )
         }}
       />
     </React.Fragment>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 // const useStyles = makeStyles((theme) => ({
 //   panelsContainer: {
@@ -13,8 +13,13 @@ import React from "react";
 //   }
 // }));
 
-export const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
+type TabPanelTypes = {
+  children: any
+  value: any
+  index: any
+}
+export const TabPanel: React.FunctionComponent<TabPanelTypes> = (props) => {
+  const { children, value, index, ...other } = props
   return (
     <div
       role="tabpanel"
@@ -29,5 +34,5 @@ export const TabPanel = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

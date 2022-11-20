@@ -1,7 +1,10 @@
-import React from "react";
-import { HawaTextField } from "./HawaTextField";
+import React from "react"
+import { HawaTextField } from "./HawaTextField"
 
-export const HawaSearchBar = (props) => {
+type SearchBarTypes = {}
+export const HawaSearchBar: React.FunctionComponent<SearchBarTypes> = (
+  props
+) => {
   return (
     <HawaTextField
       // endAdornment={
@@ -11,5 +14,5 @@ export const HawaSearchBar = (props) => {
       // }
       {...props}
     />
-  );
-};
+  )
+}

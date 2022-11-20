@@ -1,10 +1,15 @@
-import React from "react";
+import React from "react"
 
-const HawaDrawerItem = (props) => {
+type DrawerItemTypes = {
+  action: any
+  icon: any
+  text: any
+}
+const HawaDrawerItem: React.FunctionComponent<DrawerItemTypes> = (props) => {
   let withIcon =
-    "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700";
+    "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
   let withoutIcon =
-    "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700";
+    "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
 
   return (
     <li onClick={props.action}>
@@ -22,7 +27,7 @@ const HawaDrawerItem = (props) => {
         <span className="ml-3">{props.text}</span>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default HawaDrawerItem;
+export default HawaDrawerItem
