@@ -19,7 +19,7 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
           data-tabs-toggle="#myTabContent"
           role="tablist"
         >
-          {props.options.map((option) => {
+          {props.options.map((option: any) => {
             return (
               <li className="mr-2" role="presentation">
                 <button
@@ -39,7 +39,7 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
         </ul>
       </div>
       <div id="myTabContent">
-        {props.options.map((option) => {
+        {props.options.map((option: any) => {
           return (
             <div
               className="rounded-lg bg-gray-50 p-4 dark:bg-gray-800"

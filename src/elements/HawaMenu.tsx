@@ -3,13 +3,20 @@ import PropTypes from "prop-types"
 type MenuTypes = {
   popMenuID: any
   menuItems: any
+  //
+  //         icon: PropTypes.element,
+  //         label: PropTypes.string,
+  //        action: PropTypes.func,
+  //
   withHeader: any
   withIcons: any
   headerTitle: any
   headerSubtitle: any
   open: any
   handleClose: any
+  anchor: any
 }
+
 export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
   popMenuID,
   menuItems,
@@ -40,16 +47,16 @@ export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
             <div className="truncate font-medium">{headerSubtitle}</div>
           </div>
         )}
-        {menuItems.map((group) => {
+        {menuItems.map((group: any) => {
           return (
             <ul className="py-1  text-sm text-gray-700 dark:text-gray-200">
-              {group.map((item) => {
+              {group.map((item: any) => {
                 return (
                   <li
                     onClick={item.action}
                     className={
                       item.button
-                        ? "mx-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
+                        ? "mx-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
                         : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >
@@ -67,15 +74,3 @@ export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
     </div>
   )
 }
-
-// HawaMenu.propTypes = {
-//   anchor: PropTypes.any,
-//   handleClose: PropTypes.func,
-//   menuItems: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       icon: PropTypes.element,
-//       label: PropTypes.string,
-//       action: PropTypes.func,
-//     })
-//   ),
-// }

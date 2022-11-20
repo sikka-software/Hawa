@@ -10,7 +10,7 @@ export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
   props
 ) => {
   let isArabic = props.lang === "ar"
-  let logoElement = ""
+  let logoElement: any = ""
   switch (props.logo?.toLowerCase()) {
     case "google":
       logoElement = (

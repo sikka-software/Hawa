@@ -1,13 +1,17 @@
 import React, { useEffect } from "react"
-import PropTypes from "prop-types"
 import { useState } from "react"
 
 type ItemCardTypes = {
   actions: any
   content: any
   headerActions: any
+  //     label: PropTypes.string,
+  //     action: PropTypes.func,
   header: any
+  lang: string
+  onCardClick?: any
 }
+
 export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
   actions,
   content,
@@ -63,14 +67,14 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
             } right-0 top-7 z-10 w-44 list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:bg-gray-700`}
           >
             <ul className="py-1" aria-labelledby="dropdownButton">
-              {headerActions.map(({ label, action }) => {
+              {headerActions.map((singleAction: any) => {
                 return (
-                  <li onClick={action}>
+                  <li onClick={singleAction.action}>
                     <a
                       href="#"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
-                      {label}
+                      {singleAction.label}
                     </a>
                   </li>
                 )
@@ -91,14 +95,3 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
     </div>
   )
 }
-// HawaItemCard.propTypes = {
-//   lang: PropTypes.string,
-//   actions: PropTypes.element,
-//   content: PropTypes.element,
-//   headerActions: PropTypes.arrayOf({
-//     label: PropTypes.string,
-//     action: PropTypes.func,
-//   }),
-//   header: PropTypes.element,
-//   onCardClick: PropTypes.func,
-// }

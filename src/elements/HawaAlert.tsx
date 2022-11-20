@@ -11,7 +11,7 @@ let severities = {
 }
 type AlertTypes = {
   severity: keyof typeof severities
-  title: any
+  title?: any
   text: any
   hideIcon?: any
 }
