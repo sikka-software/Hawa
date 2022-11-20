@@ -1,76 +1,54 @@
-// import { AppBar, Paper, Box, IconButton, Typography } from "@mui/material";
+import React from "react"
 
-// export function HawaBottomAppBar({ args }) {
-//   return (
-//     <AppBar
-//       position="fixed"
-//       sx={args.sx}
-//       style={{
-//         bottom: 0,
-//         top: "auto",
-//         padding: 10,
-//         flexDirection: "row",
-//         alignItems: "center",
-//         justifyContent: "space-evenly"
-//       }}
-//       color={args.color}
-//     >
-//       <BottomAppBar appBarContent={args.appBarContent} />
-//     </AppBar>
-//   );
-// }
-
-// export function BottomAppBar(props) {
-//   return (
-//     <Paper
-//       elevation={3}
-//       style={{
-//         width: "100%",
-//         display: "flex",
-//         flexDirection: "row",
-//         justifyContent: "space-evenly",
-//         borderRadius: 10,
-//         alignContent: "center",
-//         padding: 10
-//       }}
-//       variant="outlined"
-//     >
-//       {props.appBarContent.map(({ label, icon, action }) => (
-//         <SubAppBarContent label={label} icon={icon} action={action} />
-//       ))}
-//     </Paper>
-//   );
-// }
-
-// function SubAppBarContent(props) {
-//   return (
-//     <Box
-//       display="flex"
-//       flexDirection="row"
-//       justifyContent="center"
-//       alignItems="center"
-//       sx={{
-//         "&:hover": {
-//           cursor: "pointer",
-//           color: "blue"
-//         }
-//       }}
-//       onClick={props.action}
-//     >
-//       <IconButton
-//         sx={{
-//           ml: 1,
-//           "&.MuiButtonBase-root:hover": {
-//             color: "blue",
-//             bgcolor: "transparent"
-//           }
-//         }}
-//       >
-//         {props.icon}
-//       </IconButton>
-//       <Typography sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-//         {props.label}
-//       </Typography>
-//     </Box>
-//   );
-// }
+type BottomAppBarTypes = {
+  sx: any
+  color: any
+  appBarContent: any
+}
+export const HawaBottomAppBar: React.FunctionComponent<BottomAppBarTypes> = (
+  props
+) => {
+  return (
+    <div className="fixed bottom-0 top-auto left-0 m-0 w-full max-w-full  p-1">
+      <div
+        //   elevation={3}
+        // style={{
+        //   width: "100%",
+        //   display: "flex",
+        //   flexDirection: "row",
+        //   justifyContent: "space-evenly",
+        //   borderRadius: 10,
+        //   alignContent: "center",
+        //   padding: 10,
+        // }}
+        className="flex w-full flex-row items-center justify-evenly rounded-lg bg-gray-200"
+        //   variant="outlined"
+      >
+        {props.appBarContent.map((singleContent: any) => (
+          <div
+            className="m-1 flex h-full w-full flex-col items-center justify-center rounded-lg p-2 transition-all hover:cursor-pointer hover:bg-primary-600 hover:text-white"
+            onClick={singleContent.action}
+          >
+            <div
+            //   sx={{
+            //     ml: 1,
+            //     "&.MuiButtonBase-root:hover": {
+            //       color: "blue",
+            //       bgcolor: "transparent",
+            //     },
+            //   }}
+            >
+              {singleContent.icon}
+            </div>
+            <div
+              // sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+              className="mt-2 text-sm"
+            >
+              {singleContent.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
