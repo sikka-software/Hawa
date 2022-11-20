@@ -36,7 +36,7 @@ export const CodeConfirmation: React.FunctionComponent<
           name="code"
           render={({ field }) => (
             <HawaTextField
-              fullWidth
+              width="full"
               type="number"
               label={props.texts.codeLabel}
               helperText={errors.email?.message}

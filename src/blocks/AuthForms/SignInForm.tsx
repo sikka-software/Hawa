@@ -22,6 +22,8 @@ type SignInFormTypes = {
     usernameLabel: string
     usernamePlaceholder: string
     usernameRequired: string
+    usernameRequiredText: string
+    phoneRequiredText: string
     passwordLabel: string
     passwordPlaceholder: string
     passwordRequiredText: string
@@ -55,7 +57,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   } = useForm()
 
   return (
-    <HawaContainer withDividers>
+    <HawaContainer>
       <form onSubmit={handleSubmit(props.handleSignIn)}>
         {props.showError && (
           <HawaAlert
@@ -70,7 +72,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
             name="email"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="text"
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}
@@ -94,7 +96,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
             name="username"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="text"
                 label={props.texts.usernameLabel}
                 helperText={errors.username?.message}
@@ -120,7 +122,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
           name="password"
           render={({ field }) => (
             <HawaTextField
-              fullWidth
+              width="full"
               type="password"
               defaultValue={field.value ?? ""}
               label={props.texts.passwordLabel}

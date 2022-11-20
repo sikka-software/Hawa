@@ -1,5 +1,4 @@
 import React from "react"
-// import PropTypes from "prop-types"
 
 type AccordionItemTypes = {
   title: any
@@ -80,9 +79,3 @@ export const HawaAccordian: React.FunctionComponent<AccordionTypes> = (
     </div>
   )
 }
-// HawaAccordian.propTypes = {
-//   content: PropTypes.shape({
-//     title: PropTypes.string,
-//     content: PropTypes.string,
-//   }),
-// }

@@ -45,7 +45,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
             name="phoneNumber"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="tel"
                 label="Phone Number"
                 placeholder="+966"
@@ -58,7 +58,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
             name="email"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="text"
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}
@@ -81,7 +81,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
             name="password"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="password"
                 label={props.texts.passwordLabel}
                 placeholder={props.texts.passwordPlaceholder}
@@ -99,7 +99,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
             name="confirmPassword"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="password"
                 label={props.texts.confirmPasswordLabel}
                 placeholder={props.texts.confirmPasswordPlaceholder}
@@ -121,7 +121,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
                     name={singleInput.name}
                     render={({ field }) => (
                       <HawaTextField
-                        fullWidth
+                        width="full"
                         type="text"
                         defaultValue={singleInput.defaultValue ?? null}
                         label={singleInput.label ?? null}
@@ -138,7 +138,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
                   name={singleInput.name}
                   render={({ field }) => (
                     <HawaTextField
-                      fullWidth
+                      width="full"
                       type={singleInput.type}
                       defaultValue={singleInput.defaultValue ?? null}
                       label={singleInput.label ?? null}

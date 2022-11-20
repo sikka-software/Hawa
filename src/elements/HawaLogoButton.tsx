@@ -1,9 +1,20 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 type LogoButtonTypes = {
   lang: any
   logo: any
+  //   logo: PropTypes.oneOf([
+  //     "google",
+  //     "github",
+  //     "twitter",
+  //     "wallet",
+  //     "googlepay",
+  //     "applepay",
+  //     "stcpay",
+  //     "visa/master",
+  //     "paypal",
+  //     "mada",
+  //   ]),
   buttonText: any
 }
 export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
@@ -153,26 +164,3 @@ export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
     </button>
   )
 }
-
-// HawaLogoButton.propTypes = {
-//   lang: PropTypes.string,
-//   /**
-//    * The logo/icon of the button
-//    */
-//   logo: PropTypes.oneOf([
-//     "google",
-//     "github",
-//     "twitter",
-//     "wallet",
-//     "googlepay",
-//     "applepay",
-//     "stcpay",
-//     "visa/master",
-//     "paypal",
-//     "mada",
-//   ]),
-//   /**
-//    * The text next to the logo in the button
-//    */
-//   buttonText: PropTypes.string,
-// }

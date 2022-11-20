@@ -1,28 +1,35 @@
-import React from "react";
-import { HawaButton, HawaTextField } from "../../elements";
-import { Controller, useForm } from "react-hook-form";
-import { HawaContainer } from "../../layout";
+import React from "react"
+import { HawaButton, HawaTextField } from "../../elements"
+import { Controller, useForm } from "react-hook-form"
+import { HawaContainer } from "../../layout"
 
-export const CreditCardForm = (props) => {
-  const methods = useForm();
+type CreditCardFormTypes = {
+  handle: any
+  handlePayWithCreditCard: any
+}
+
+export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
+  props
+) => {
+  const methods = useForm()
   const {
     formState: { errors },
     handleSubmit,
-    control
-  } = methods;
+    control,
+  } = methods
 
   return (
     <HawaContainer>
       {" "}
       <form onSubmit={handleSubmit(props.handle)}>
         <HawaTextField
-          fullWidth
+          width="full"
           name="password"
           placeholder="Enter password"
           type="tel"
           label="Card Number"
           rules={{
-            required: "Password is rquired"
+            required: "Password is rquired",
           }}
           helperText={errors.password?.message}
         />
@@ -31,13 +38,13 @@ export const CreditCardForm = (props) => {
           name="cardName"
           render={({ field }) => (
             <HawaTextField
-              fullWidth
+              width="full"
               name="password"
               placeholder="Enter password"
               type="password"
               label="Name On Card"
               rules={{
-                required: "Password is rquired"
+                required: "Password is rquired",
               }}
               helperText={errors.password?.message}
             />
@@ -48,13 +55,13 @@ export const CreditCardForm = (props) => {
           name="cardName"
           render={({ field }) => (
             <HawaTextField
-              fullWidth
+              width="full"
               name="password"
               placeholder="Enter password"
               type="password"
               label="Expiry Date"
               rules={{
-                required: "Password is rquired"
+                required: "Password is rquired",
               }}
               helperText={errors.password?.message}
             />
@@ -65,13 +72,13 @@ export const CreditCardForm = (props) => {
           name="cardName"
           render={({ field }) => (
             <HawaTextField
-              fullWidth
+              width="full"
               name="password"
               placeholder="Enter password"
               type="password"
               label="CCV"
               rules={{
-                required: "Password is rquired"
+                required: "Password is rquired",
               }}
               helperText={errors.password?.message}
             />
@@ -87,5 +94,5 @@ export const CreditCardForm = (props) => {
         </HawaButton>
       </form>
     </HawaContainer>
-  );
-};
+  )
+}

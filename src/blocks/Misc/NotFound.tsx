@@ -26,11 +26,3 @@ export const NotFound: React.FunctionComponent<NotFoundTypes> = (props) => {
     </div>
   )
 }
-// NotFound.propTypes = {
-//   /**
-//    *  An object of all the texts in the blocks
-//    */
-//   texts: PropTypes.shape({
-//     emailLabel: PropTypes.string,
-//   }),
-// }

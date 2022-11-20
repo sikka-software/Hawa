@@ -10,11 +10,27 @@ import { HawaContainer } from "../../layout"
 
 type CheckoutFormTypes = {
   lang: string
-  texts: any
   products: any
   total: any
   handlePayNow: any
   countriesList: any
+  texts: {
+    orderDetails: string
+    billingAddress: string
+    payNow: string
+    emailLabel: string
+    emailRequiredText: string
+    emailInvalidText: string
+    firstNameLabel: string
+    required: string
+    lastNameLabel: string
+    streetAddressLabel: string
+    buildingNumberLabel: string
+    cityLabel: string
+    stateLabel: string
+    countryLabel: string
+    zipCodeLabel: string
+  }
 }
 
 export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
@@ -85,7 +101,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
+                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.lastNameLabel + " *"}
@@ -101,8 +117,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
               name="email"
               render={({ field }) => (
                 <HawaTextField
-                  inForm
-                  fullWidth
+                  // inForm
+                  width="full"
                   type="text"
                   label={props.texts?.emailLabel + " *"}
                   helperText={errors.email?.message}
@@ -126,8 +142,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
-                    fullWidth
+                    // inForm
+                    width="full"
                     type="text"
                     label={props.texts?.streetAddressLabel + " *"}
                     helperText={errors.streetAddress?.message}
@@ -144,8 +160,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
-                    fullWidth
+                    // inForm
+                    width="full"
                     type="text"
                     label={props.texts?.buildingNumberLabel + " *"}
                     helperText={errors.buildingNumber?.message}
@@ -163,8 +179,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
-                    fullWidth
+                    // inForm
+                    width="full"
                     type="text"
                     label={props.texts?.stateLabel + " *"}
                     helperText={errors.province?.message}
@@ -181,8 +197,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
-                    fullWidth
+                    // inForm
+                    width="full"
                     type="text"
                     label={props.texts?.cityLabel + " *"}
                     helperText={errors.city?.message}
@@ -199,8 +215,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    inForm
-                    fullWidth
+                    // inForm
+                    width="full"
                     type="number"
                     variant="unscrollable"
                     label={props.texts?.zipCodeLabel + " *"}
@@ -246,28 +262,3 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
     </HawaContainer>
   )
 }
-
-// CheckoutForm.propTypes = {
-//   texts: PropTypes.shape({
-//     orderDetails: PropTypes.string,
-//     billingAddress: PropTypes.string,
-//     payNow: PropTypes.string,
-//     emailLabel: PropTypes.string,
-//     emailRequiredText: PropTypes.string,
-//     emailInvalidText: PropTypes.string,
-//     firstNameLabel: PropTypes.string,
-//     required: PropTypes.string,
-//     lastNameLabel: PropTypes.string,
-//     streetAddressLabel: PropTypes.string,
-//     buildingNumberLabel: PropTypes.string,
-//     cityLabel: PropTypes.string,
-//     stateLabel: PropTypes.string,
-//     countryLabel: PropTypes.string,
-//     zipCodeLabel: PropTypes.string,
-//   }),
-//   lang: PropTypes.string,
-//   countriesList: PropTypes.array,
-//   products: PropTypes.array,
-//   total: PropTypes.string,
-//   handlePayNow: PropTypes.func,
-// }

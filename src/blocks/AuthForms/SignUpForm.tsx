@@ -7,7 +7,6 @@ import {
   HawaCheckbox,
   HawaSelect,
 } from "../../elements"
-import PropTypes from "prop-types"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout/HawaContainer"
 

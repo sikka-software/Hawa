@@ -61,7 +61,7 @@ export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
               name="password"
               render={({ field }) => (
                 <HawaTextField
-                  fullWidth
+                  width="full"
                   type="password"
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
@@ -79,7 +79,7 @@ export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
               name="confirmPassword"
               render={({ field }) => (
                 <HawaTextField
-                  fullWidth
+                  width="full"
                   type="password"
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}

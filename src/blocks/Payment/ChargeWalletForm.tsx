@@ -1,17 +1,27 @@
-import React, { useState } from "react";
-import { HawaButton, HawaTextField } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import PropTypes from "prop-types";
-import { HawaContainer } from "../../layout";
+import React, { useState } from "react"
+import { HawaButton, HawaTextField } from "../../elements"
+import { Controller, FormProvider, useForm } from "react-hook-form"
+import { HawaContainer } from "../../layout"
 
-export const ChargeWalletForm = (props) => {
-  const [walletAmount, setWalletAmount] = useState(0);
-  const methods = useForm();
+type ChargeWalletTypes = {
+  currency: any
+  handleChargeWallet: any
+  texts: {
+    amountLabel: string
+    amountRequired: string
+    chargeWallet: string
+  }
+}
+export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
+  props
+) => {
+  const [walletAmount, setWalletAmount] = useState(0)
+  const methods = useForm()
   const {
     formState: { errors },
     handleSubmit,
-    control
-  } = methods;
+    control,
+  } = methods
 
   return (
     <HawaContainer>
@@ -30,23 +40,23 @@ export const ChargeWalletForm = (props) => {
                 fullWidth
                 placeholder={props.texts.amountLabel}
                 type="number"
-                value={field.value ?? ""}
                 {...field}
+                value={field.value ?? ""}
                 inputProps={{
                   inputMode: "numeric",
                   min: "1",
                   max: "9999999",
-                  step: "0.01"
+                  step: "0.01",
                 }}
-                onChange={(e) => {
-                  field.onChange(parseFloat(e.target.value));
-                  setWalletAmount(e.target.value);
+                onChange={(e: any) => {
+                  field.onChange(parseFloat(e.target.value))
+                  setWalletAmount(e.target.value)
                 }}
                 helperText={errors.amount?.message}
               />
             )}
             rules={{
-              required: props.texts.amountRequired
+              required: props.texts.amountRequired,
             }}
           />
 
@@ -56,24 +66,5 @@ export const ChargeWalletForm = (props) => {
         </form>
       </FormProvider>
     </HawaContainer>
-  );
-};
-
-ChargeWalletForm.propTypes = {
-  /**
-   * The texts object for all the texts in the block
-   */
-  texts: PropTypes.shape({
-    amountLabel: PropTypes.string,
-    chargeWallet: PropTypes.string,
-    amountRequired: PropTypes.string
-  }),
-  /**
-   * Function called when charge wallet button is clicked
-   */
-  handleChargeWallet: PropTypes.func,
-  /**
-   * The currency text under the amount
-   */
-  currency: PropTypes.string
-};
+  )
+}

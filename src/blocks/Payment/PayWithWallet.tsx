@@ -1,8 +1,15 @@
-import React from "react";
-import { HawaButton } from "../../elements";
-import { HawaContainer } from "../../layout";
+import React from "react"
+import { HawaButton } from "../../elements"
+import { HawaContainer } from "../../layout"
 
-export const PayWithWallet = (props) => {
+type PayWithWalletTypes = {
+  walletBalance: any
+  currency: any
+  handlePayWithWallet: any
+}
+export const PayWithWallet: React.FunctionComponent<PayWithWalletTypes> = (
+  props
+) => {
   return (
     <HawaContainer>
       <div className="text-center text-5xl font-extrabold">
@@ -18,5 +25,5 @@ export const PayWithWallet = (props) => {
         Pay Now
       </HawaButton>
     </HawaContainer>
-  );
-};
+  )
+}

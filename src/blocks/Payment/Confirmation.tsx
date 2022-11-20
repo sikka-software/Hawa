@@ -1,13 +1,52 @@
-import React from "react";
-import { HawaButton, HawaTable } from "../../elements";
-import PropTypes from "prop-types";
-import { HawaContainer } from "../../layout";
+import React from "react"
+import { HawaButton, HawaTable } from "../../elements"
+import { HawaContainer } from "../../layout"
 
-export const ConfirmationPage = (props) => {
-  let isArabic = props.lang === "ar";
+type ConfirmationPageTypes = {
+  texts: {
+    print: string
+    history: string
+    homePage: string
+    successMessage: string
+    orderDetails: string
+    fasterPaymentNote: string
+    billingAddress: string
+    payNow: string
+    yourOrderNumber: string
+    emailLabel: string
+    emailRequiredText: string
+    emailInvalidText: string
+    firstNameLabel: string
+    required: string
+    lastNameLabel: string
+    streetAddressLabel: string
+    buildingNumberLabel: string
+    cityLabel: string
+    stateLabel: string
+    countryLabel: string
+    zipCodeLabel: string
+    refundPolicy: string
+  }
+  products: any
+  countriesList: any
+  lang: string
+  total: string
+  userEmail: string
+  orderNumber: string
+  confirmationTitle: string
+  handleHome: any
+  handlePrint: any
+  handleHistory: any
+  handleRefundPolicyLink: any
+}
+
+export const ConfirmationPage: React.FunctionComponent<
+  ConfirmationPageTypes
+> = (props) => {
+  let isArabic = props.lang === "ar"
 
   return (
-    <HawaContainer withDividers>
+    <HawaContainer>
       {" "}
       <div className="py-5 text-center text-3xl font-bold">
         {props.confirmationTitle}
@@ -28,7 +67,7 @@ export const ConfirmationPage = (props) => {
             lang={props.lang}
             columns={["Product", "Price"]}
             rows={props.products}
-            end={["Total", props.total]}
+            // end={["Total", props.total]}
           />
         )}
       </div>
@@ -53,46 +92,5 @@ export const ConfirmationPage = (props) => {
         </a>
       </div>
     </HawaContainer>
-  );
-};
-
-ConfirmationPage.propTypes = {
-  /**
-   * The texts object for all the texts in the block
-   */
-  texts: PropTypes.shape({
-    print: PropTypes.string,
-    history: PropTypes.string,
-    homePage: PropTypes.string,
-    successMessage: PropTypes.string,
-    orderDetails: PropTypes.string,
-    fasterPaymentNote: PropTypes.string,
-    billingAddress: PropTypes.string,
-    payNow: PropTypes.string,
-    yourOrderNumber: PropTypes.string,
-    emailLabel: PropTypes.string,
-    emailRequiredText: PropTypes.string,
-    emailInvalidText: PropTypes.string,
-    firstNameLabel: PropTypes.string,
-    required: PropTypes.string,
-    lastNameLabel: PropTypes.string,
-    streetAddressLabel: PropTypes.string,
-    buildingNumberLabel: PropTypes.string,
-    cityLabel: PropTypes.string,
-    stateLabel: PropTypes.string,
-    countryLabel: PropTypes.string,
-    zipCodeLabel: PropTypes.string,
-    refundPolicy: PropTypes.string
-  }),
-  products: PropTypes.array,
-  countriesList: PropTypes.array,
-  lang: PropTypes.string,
-  total: PropTypes.string,
-  userEmail: PropTypes.string,
-  orderNumber: PropTypes.string,
-  confirmationTitle: PropTypes.string,
-  handleHome: PropTypes.func,
-  handlePrint: PropTypes.func,
-  handleHistory: PropTypes.func,
-  handleRefundPolicyLink: PropTypes.func
-};
+  )
+}

@@ -1,25 +1,38 @@
-import useTranslation from "next-translate/useTranslation";
-import PropTypes from "prop-types";
-import { HawaChip } from "../../../elements";
+// import useTranslation from "next-translate/useTranslation"
+import React from "react"
+import { HawaChip } from "../../../elements"
 
-export const PaymentMethod = (props) => {
-  const { t } = useTranslation("common");
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+type PaymentMethodTypes = {
+  wallet: boolean
+  creditCard: boolean
+  mada: boolean
+  stcPay: boolean
+  paypal: boolean
+  googlePay: boolean
+  applePay: boolean
+  handlePaymentMethod: any
+}
+
+export const PaymentMethod: React.FunctionComponent<PaymentMethodTypes> = (
+  props
+) => {
+  // const { t } = useTranslation("common")
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
   return (
     <>
       {props.wallet ? (
         <PaymentMethodButton
           imageURL={`/wallet.png`}
           methodCode="wallet"
-          methodLabel={t("current-wallet")}
+          // methodLabel={t("current-wallet")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
-      {props.creditcard ? (
+      {props.creditCard ? (
         <PaymentMethodButton
           imageURL={`/visa-master.png`}
           methodCode="creditcard"
-          methodLabel={t("credit-card")}
+          // methodLabel={t("credit-card")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
@@ -27,57 +40,65 @@ export const PaymentMethod = (props) => {
         <PaymentMethodButton
           imageURL={`/mada.png`}
           methodCode="mada"
-          methodLabel={t("mada")}
+          // methodLabel={t("mada")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
-      {props.stcpay ? (
+      {props.stcPay ? (
         <PaymentMethodButton
           methodCode="stcpay"
           methodLabel={"STC Pay"}
-          chip={t("soon")}
+          // chip={t("soon")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
       {props.paypal ? (
         <PaymentMethodButton
           methodCode="paypal"
-          methodLabel={t("paypal")}
+          // methodLabel={t("paypal")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
-      {isSafari && applepay && (
+      {isSafari && props.applePay && (
         <PaymentMethodButton
           methodCode="applepay"
-          methodLabel={t("applepay")}
+          // methodLabel={t("applepay")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       )}
-      {props.googlepay ? (
+      {props.googlePay ? (
         <PaymentMethodButton
           methodCode="googlepay"
-          chip={t("soon")}
-          methodLabel={t("googlepay")}
+          // chip={t("soon")}
+          // methodLabel={t("googlepay")}
           handlePaymentMethod={props.handlePaymentMethod}
         />
       ) : null}
     </>
-  );
-};
+  )
+}
 
-const PaymentMethodButton = (props) => {
+type PaymentButtonTypes = {
+  chip?: any
+  imageURL?: any
+  methodCode?: any
+  methodLabel?: any
+  handlePaymentMethod?: any
+}
+const PaymentMethodButton: React.FunctionComponent<PaymentButtonTypes> = (
+  props
+) => {
   return (
     <button
       disabled={props?.chip ? true : false}
-      fullWidth
-      variant="contained"
-      color="secondary"
+      // variant="contained"
+      // color="secondary"
       style={{
         backgroundColor: "white",
         opacity: props.chip ? 0.7 : 1,
         padding: 20,
         width: "90%",
-        margin: 10
+        margin: 10,
       }}
       onClick={(e) => props.handlePaymentMethod(e, props.methodCode)}
     >
@@ -86,7 +107,7 @@ const PaymentMethodButton = (props) => {
           style={{
             width: "50%",
             textAlign: "right",
-            paddingRight: 20
+            paddingRight: 20,
           }}
         >
           <img
@@ -94,7 +115,7 @@ const PaymentMethodButton = (props) => {
             style={{
               maxWidth: 70,
               maxHeight: 70,
-              height: "auto"
+              height: "auto",
             }}
           />
         </div>
@@ -102,17 +123,12 @@ const PaymentMethodButton = (props) => {
       <div
         style={{
           width: "50%",
-          textAlign: props.imageURL ? "left" : "center"
+          textAlign: props.imageURL ? "left" : "center",
         }}
       >
         {props.methodLabel}
         {props.chip ? <HawaChip label="test" /> : null}x
       </div>
     </button>
-  );
-};
-
-PaymentMethod.propTypes = {
-  wallet: PropTypes.bool,
-  handlePaymentMethod: PropTypes.func
-};
+  )
+}

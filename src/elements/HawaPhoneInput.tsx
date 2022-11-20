@@ -29,12 +29,12 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 )
 
 type HawaPhoneInputTypes = {
-  preferredCountry: any
-  helperText: any
-  label: string
-  value: any
-  country: any
-  handleChange: any
+  preferredCountry?: any
+  helperText?: any
+  label?: string
+  value?: any
+  country?: any
+  handleChange?: any
 }
 export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
   props

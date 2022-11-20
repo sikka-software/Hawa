@@ -1,10 +1,17 @@
 import React, { useState } from "react"
 
-// import PropTypes from "prop-types"
-
 type PanelTabsTypes = {
   defaultValue: any
   options: any
+  //   options: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       label: PropTypes.string,
+  //       value: PropTypes.string,
+  //     })
+  //   ),
+  lang: any
+  handleChange: any
+  location: any
 }
 export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
   props
@@ -55,16 +62,3 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
     </div>
   )
 }
-
-// HawaPanelTabs.propTypes = {
-//   lang: PropTypes.string,
-//   options: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       label: PropTypes.string,
-//       value: PropTypes.string,
-//     })
-//   ),
-//   defaultValue: PropTypes.string,
-//   handleChange: PropTypes.func,
-//   location: PropTypes.string,
-// }

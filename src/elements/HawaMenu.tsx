@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 
 type MenuTypes = {
   popMenuID: any

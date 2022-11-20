@@ -1,9 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { HawaTypography, HawaLogoButton } from "../../elements";
-import { HawaContainer } from "../../layout";
+import React from "react"
+import { HawaTypography, HawaLogoButton } from "../../elements"
+import { HawaContainer } from "../../layout"
 
-export const SelectPayment = (props) => {
+type SelectPaymentTypes = {
+  viaMada: boolean
+  viaWallet: boolean
+  viaSTCPay: boolean
+  viaPayPal: boolean
+  viaApplePay: boolean
+  viaCreditCard: boolean
+  viaGooglePay: boolean
+  madaLabel: string
+  stcPayLabel: string
+  paypalLabel: string
+  walletLabel: string
+  applePayLabel: string
+  visaMasterLabel: string
+  googlePayLabel: string
+  handleMada: any
+  handleWallet: any
+  handleSTCPay: any
+  handlePayPal: any
+  handleApplePay: any
+  handleCreditCard: any
+  handleGooglePay: any
+}
+
+export const SelectPayment: React.FunctionComponent<SelectPaymentTypes> = (
+  props
+) => {
   return (
     <HawaContainer>
       {/* // <div className="flex flex-col w-1/3 bg-blue-300 rounded-xl p-4"> */}
@@ -58,26 +83,5 @@ export const SelectPayment = (props) => {
         />
       )}
     </HawaContainer>
-  );
-};
-
-SelectPayment.propTypes = {
-  viaMada: PropTypes.bool,
-  viaWallet: PropTypes.bool,
-  viaSTCPay: PropTypes.bool,
-  viaPayPal: PropTypes.bool,
-  viaApplePay: PropTypes.bool,
-  viaCreditCard: PropTypes.bool,
-  madaLabel: PropTypes.string,
-  stcPayLabel: PropTypes.string,
-  paypalLabel: PropTypes.string,
-  walletLabel: PropTypes.string,
-  applePayLabel: PropTypes.string,
-  visaMasterLabel: PropTypes.string,
-  handleMada: PropTypes.func,
-  handleWallet: PropTypes.func,
-  handleSTCPay: PropTypes.func,
-  handlePayPal: PropTypes.func,
-  handleApplePay: PropTypes.func,
-  handleCreditCard: PropTypes.func
-};
+  )
+}

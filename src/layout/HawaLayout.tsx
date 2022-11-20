@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import HawaDrawerItem from "../elements/HawaDrawerItem"
 
 const MenuButton = () => {
@@ -132,7 +131,21 @@ const CloseButton = () => {
     </button>
   )
 }
-export const HawaLayout = (props: any) => {
+
+type LayoutTypes = {
+  logoLink: string
+  username: string
+  userEmail: string
+  drawerItems: any
+  // drawerItems: PropTypes.objectOf({
+  //   text: PropTypes.string,
+  //   slug: PropTypes.string,
+  //   action: PropTypes.func,
+  // }),
+}
+export const HawaLayout: React.FunctionComponent<LayoutTypes> = (
+  props: any
+) => {
   return (
     <div className="font-plex">
       <div>
@@ -197,14 +210,3 @@ export const HawaLayout = (props: any) => {
     </div>
   )
 }
-
-// HawaLayout.propTypes = {
-//   logoLink: PropTypes.string,
-//   username: PropTypes.string,
-//   userEmail: PropTypes.string,
-//   drawerItems: PropTypes.objectOf({
-//     text: PropTypes.string,
-//     slug: PropTypes.string,
-//     action: PropTypes.func,
-//   }),
-// }

@@ -1,14 +1,14 @@
 import React from "react"
-// import PropTypes from "prop-types"
 import { HawaButton } from "./HawaButton"
 
 type TableTypes = {
-  lang: any
-  columns: any
-  actions: any
-  rows: any
-  noDataText: any
-  handleActionClick: any
+  lang?: any
+  columns?: any
+  actions?: any
+  rows?: any
+  noDataText?: any
+  handleActionClick?: any
+  end: any
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
@@ -192,11 +192,3 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
     </>
   )
 }
-// HawaTable.propTypes = {
-//   handleActionClick: PropTypes.func,
-//   noDataText: PropTypes.string,
-//   lang: PropTypes.string,
-//   columns: PropTypes.array,
-//   rows: PropTypes.array,
-//   end: PropTypes.array,
-// }

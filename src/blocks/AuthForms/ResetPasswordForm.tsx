@@ -39,7 +39,7 @@ export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
             name="email"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 type="text"
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}

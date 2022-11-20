@@ -1,5 +1,4 @@
 import React from "react"
-// import PropTypes from "prop-types"
 import { HawaTypography } from "./HawaTypography"
 import { HawaTextField } from "./HawaTextField"
 import { HawaSwitch } from "./HawaSwitch"
@@ -11,6 +10,13 @@ import { HawaTabs } from "./HawaTabs"
 type SettingsRowTypes = {
   settingsLabel: any
   settingsType: any
+  // settingsType: PropTypes.oneOf([
+  //     "checkbox",
+  //     "text",
+  //     "radio",
+  //     "boolean",
+  //     "color",
+  //   ]),
 }
 
 export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = (
@@ -32,14 +38,3 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = (
     </div>
   )
 }
-
-// HawaSettingsRow.propTypes = {
-//   settingsLabel: PropTypes.string,
-//   settingsType: PropTypes.oneOf([
-//     "checkbox",
-//     "text",
-//     "radio",
-//     "boolean",
-//     "color",
-//   ]),
-// }

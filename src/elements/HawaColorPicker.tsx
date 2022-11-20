@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 
 type ColorPickerTypes = {
   color: any
@@ -36,7 +35,4 @@ export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
   )
 }
 
-HawaColorPicker.propTypes = {
-  color: PropTypes.string,
-  handleChange: PropTypes.func,
-}
+
