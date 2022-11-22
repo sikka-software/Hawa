@@ -11,17 +11,17 @@ const thumbsContainer = {
 }
 type DragDropImagesTypes = {
   texts: any
-  files: any
+  files: [File]
   setFiles: any
   setDeletedFiles: any
-  maxFiles: any
+  maxFiles: number
   accept: any
   onAcceptedFiles: any
   showPreview: any
   onDeleteFile: any
   onClearFiles: any
-  maxSize: any
-  errorMessages: any
+  maxSize: number
+  errorMessages: string
 }
 
 export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
@@ -41,7 +41,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
   // props
   {
     const [cmp, setCmp] = useState(0)
-    const [max, setMax] = useState(0)
+    const [max, setMax] = useState<any>(0)
     //const [thumbs, setThumbs] = useState("");
     const {
       getRootProps,
@@ -177,7 +177,16 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
         )}
 
         {thumbs && showPreview ? (
-          <aside style={thumbsContainer}>{thumbs}</aside>
+          <aside
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              marginTop: 10,
+            }}
+          >
+            {thumbs}
+          </aside>
         ) : null}
         {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
           <HawaAlert text={texts.tooManyFiles} severity="error" />

@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 
 type THawaSnackBar = {
   severity: "info" | "warning" | "error" | "success" | "none"
@@ -14,7 +14,7 @@ type THawaSnackBar = {
     | "bottom-left"
 }
 
-export const HawaSnackbar: FunctionComponent<THawaSnackBar> = ({
+export const HawaSnackbar: FC<THawaSnackBar> = ({
   title,
   description,
   severity = "info",
