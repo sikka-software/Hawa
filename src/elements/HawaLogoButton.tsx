@@ -153,7 +153,7 @@ export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
     <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       {...props}
-      className="my-2 flex h-11 w-full max-w-sm flex-row justify-center rounded-xl bg-white align-middle"
+      className="my-2 flex h-11 w-full flex-row justify-center rounded-xl bg-white align-middle"
     >
       <div className="flex h-full flex-row items-center justify-end">
         {logoElement}

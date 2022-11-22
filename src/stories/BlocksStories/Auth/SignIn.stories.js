@@ -104,32 +104,9 @@ const SignInTemplate = (args) => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <SignInForm
-      texts={{
-        emailLabel: "Email",
-        emailPlaceholder: "Enter your email",
-        emailRequiredText: "Email is required",
-        emailInvalidText: "Invalid email address",
-        usernameLabel: "Username",
-        usernamePlaceholder: "Enter your username",
-        usernameRequired: " Username is required",
-        phoneRequiredText: "Phone is required",
-        passwordLabel: "Password",
-        passwordPlaceholder: "Enter password",
-        passwordRequiredText: "Password is required",
-        forgotPasswordText: "Forgot password?",
-        newUserText: "New user?",
-        signUpText: "Sign up",
-        signInText: "Sign in",
-        googleButtonLabel: "Sign in with Google",
-        githubButtonLabel: "Sign in with Github",
-        twitterButtonLabel: "Sign in with Twitter"
-      }}
       isLoading={isLoading}
-      handleSignIn={(e) => {
-        setIsLoading(true);
-        console.log(e);
-      }}
       handleForgotPassword={() => console.log("forgot password")}
+      handleSignIn={(e) => setIsLoading(true)}
       {...args}
     />
   );
@@ -145,5 +122,25 @@ SignIn.args = {
   signInType: "email",
   errorTitle: "Error",
   errorText: "Something went wrong",
-  lang: "en"
+  lang: "en",
+  texts: {
+    emailLabel: "Email",
+    emailPlaceholder: "Enter your email",
+    emailRequiredText: "Email is required",
+    emailInvalidText: "Invalid email address",
+    usernameLabel: "Username",
+    usernamePlaceholder: "Enter your username",
+    usernameRequired: " Username is required",
+    phoneRequiredText: "Phone is required",
+    passwordLabel: "Password",
+    passwordPlaceholder: "Enter password",
+    passwordRequiredText: "Password is required",
+    forgotPasswordText: "Forgot password?",
+    newUserText: "New user?",
+    signUpText: "Sign up",
+    signInText: "Sign in",
+    googleButtonLabel: "Sign in with Google",
+    githubButtonLabel: "Sign in with Github",
+    twitterButtonLabel: "Sign in with Twitter"
+  }
 };
