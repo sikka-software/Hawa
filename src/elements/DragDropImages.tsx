@@ -155,7 +155,8 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       <div
         // variant="drop-area"
         {...getRootProps({
-          style: { backgroundColor: isDragActive && "white" },
+          //fix type error
+          // style: { backgroundColor: isDragActive && "white" },
         })}
         className="flex flex-col justify-center rounded-xl border border-dashed border-black"
       >

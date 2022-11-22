@@ -218,7 +218,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                     // inForm
                     width="full"
                     type="number"
-                    variant="unscrollable"
+                    // variant="unscrollable"
                     label={props.texts?.zipCodeLabel + " *"}
                     helperText={errors.zipCode?.message}
                     {...field}
@@ -237,11 +237,11 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                     fullWidth
                     native
                     label={props.texts?.countryLabel + " *"}
-                    variant="standard"
+                    // variant="standard"
                     helperText={errors.country?.message}
-                    displayEmpty
-                    disableUnderline
-                    validators={["required"]}
+                    // displayEmpty
+                    // disableUnderline
+                    // validators={["required"]}
                     {...field}
                     value={field.value ?? ""}
                   >

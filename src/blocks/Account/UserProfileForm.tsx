@@ -126,9 +126,9 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
                         defaultValue={singleInput.defaultValue ?? null}
                         label={singleInput.label ?? null}
                         placeholder={singleInput.placeHolder ?? null}
-                        rules={singleInput.rules ?? null}
                       />
                     )}
+                    rules={singleInput.rules ?? null}
                   />
                 )
               }
@@ -143,9 +143,9 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
                       defaultValue={singleInput.defaultValue ?? null}
                       label={singleInput.label ?? null}
                       placeholder={singleInput.placeHolder ?? null}
-                      rules={singleInput.rules ?? null}
                     />
                   )}
+                  rules={singleInput.rules ?? null}
                 />
               )
             })}

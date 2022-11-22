@@ -8,7 +8,7 @@ type TableTypes = {
   rows?: any
   noDataText?: any
   handleActionClick?: any
-  end: any
+  end?: any
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {

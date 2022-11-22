@@ -32,7 +32,7 @@ export const SelectPayment: React.FunctionComponent<SelectPaymentTypes> = (
   return (
     <HawaContainer>
       {/* // <div className="flex flex-col w-1/3 bg-blue-300 rounded-xl p-4"> */}
-      <HawaTypography align="center">Choose Payment Method</HawaTypography>
+      <HawaTypography>Choose Payment Method</HawaTypography>
       {props.viaWallet && (
         <HawaLogoButton
           logo="wallet"

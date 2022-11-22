@@ -79,15 +79,19 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
 }
 
 type SelectTypes = {
-  label: any
-  isCreatable: any
-  options: any
-  isClearable: any
-  isMulti: any
-  isSearchable: any
-  onChange: any
-  helperText: any
-  onInputChange: any
+  label?: any
+  isCreatable?: any
+  options?: any
+  isClearable?: any
+  isMulti?: any
+  isSearchable?: any
+  onChange?: any
+  helperText?: any
+  onInputChange?: any
+  native?: any
+  fullWidth?: any
+  value?: any
+  children?: any
 }
 export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (

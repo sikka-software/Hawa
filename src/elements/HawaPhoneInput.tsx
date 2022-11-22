@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Countries from "../../countries"
+import Countries from "../countries"
 import Select from "react-select"
 
 type OptionTypes = {

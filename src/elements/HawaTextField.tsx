@@ -9,6 +9,12 @@ type TextFieldTypes = {
   helperText?: any
   value?: any
   props?: React.PropsWithRef<"input">
+  type?: any
+  placeholder?: any
+  defaultValue?: any
+  name?: any
+  inputProps?: any
+  onChange?: any
 }
 
 export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({

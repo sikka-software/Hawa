@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
 type TabsTypes = {
-  options: any
-  onChangeTab: any
-  defaultValue: any
+  options?: any
+  onChangeTab?: any
+  defaultValue?: any
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)

@@ -4,7 +4,8 @@ import babel from "rollup-plugin-babel";
 import external from "rollup-plugin-peer-deps-external";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
-import typescript from 'rollup-plugin-typescript2';
+import typescript from "rollup-plugin-typescript2";
+import swc from "rollup-plugin-swc";
 
 export default [
   {
@@ -14,7 +15,6 @@ export default [
       { file: "es/index.es.js", format: "es", exports: "named" }
     ],
     plugins: [
-      typescript(),
       postcss({ plugins: [], minimize: true }),
       babel({
         exclude: "node_modules/**",
@@ -24,8 +24,18 @@ export default [
         ]
       }),
       external(),
-      resolve(),
+      resolve({
+        extensions: [".tsx", ".ts"]
+      }),
+      typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
+      swc({
+        jsc: {
+          parser: {
+            syntax: "typescript"
+          }
+        }
+      }),
       commonjs()
     ]
   }

@@ -4,6 +4,7 @@ type CheckoutTypes = {
   centered?: any
   label?: any
   helperText?: any
+  onChange?: any
 }
 
 export const HawaCheckbox: React.FunctionComponent<CheckoutTypes> = (props) => {

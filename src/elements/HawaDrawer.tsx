@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { AiOutlineClose } from "react-icons/ai"
+import { FaDailymotion } from "react-icons/fa"
 import clsx from "clsx"
 
 type DrawerTypes = {
@@ -27,18 +27,21 @@ export const HawaDrawer: React.FunctionComponent<DrawerTypes> = ({
   //   }, [open]);
 
   const childrenWithProps = React.Children.map(children, (child) => {
-    if (React.isValidElement(child) && child.type.name == "DrawerHeader") {
-      return React.cloneElement(child, {
-        setOpen: setOpen,
-        children: child.props.children,
-      })
-    }
-    if (React.isValidElement(child) && child.type.name == "DrawerBody") {
-      return React.cloneElement(child, { children: child.props.children })
-    }
-    if (React.isValidElement(child) && child.type.name == "DrawerFooter") {
-      return React.cloneElement(child, { children: child.props.children })
-    }
+    // if (
+    //   // React.isValidElement(child) &&
+    //   // child.type.name == "DrawerHeader"
+    // ) {
+    //   return React.cloneElement(child, {
+    //     // setOpen: setOpen,
+    //     // children: child.props.children,
+    //   })
+    // }
+    // if (React.isValidElement(child) && child.type.name == "DrawerBody") {
+    // return React.cloneElement(child, { children: child.props })
+    // }
+    // if (React.isValidElement(child) && child.type.name == "DrawerFooter") {
+    // return React.cloneElement(child, { children: child.props.children })
+    // }
   })
 
   const drawerClass =
@@ -62,7 +65,7 @@ export const DrawerHeader = (props: any) => {
           props.setOpen(false)
         }}
       >
-        <AiOutlineClose size={20} strokeWidth={2} />
+        <FaDailymotion size={20} strokeWidth={2} />
       </div>
     </div>
   )

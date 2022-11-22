@@ -37,7 +37,7 @@ export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
             name="amount"
             render={({ field }) => (
               <HawaTextField
-                fullWidth
+                width="full"
                 placeholder={props.texts.amountLabel}
                 type="number"
                 {...field}

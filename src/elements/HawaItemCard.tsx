@@ -25,14 +25,14 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
     setOpenActionHeader(!openActionHeader)
   }
 
-  useEffect(() => {
+  useEffect((): any => {
     window.onclick = () => {
       console.log("clicking, state = ", openActionHeader)
       if (openActionHeader) {
         setOpenActionHeader(false)
       }
     }
-    return () => (window.onClick = null)
+    return () => (window.onclick = null)
   }, [openActionHeader])
 
   return (

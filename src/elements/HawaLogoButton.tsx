@@ -1,8 +1,8 @@
 import React from "react"
 
 type LogoButtonTypes = {
-  lang: any
-  logo: any
+  lang?: any
+  logo?: any
   //   logo: PropTypes.oneOf([
   //     "google",
   //     "github",
@@ -15,7 +15,8 @@ type LogoButtonTypes = {
   //     "paypal",
   //     "mada",
   //   ]),
-  buttonText: any
+  onClick?: any
+  buttonText?: any
 }
 export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
   props

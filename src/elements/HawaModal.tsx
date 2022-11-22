@@ -16,7 +16,7 @@ export const HawaModal: React.FunctionComponent<ModalTypes> = ({
   closeOnClickOutside,
   ...props
 }) => {
-  useEffect(() => {
+  useEffect((): any => {
     if (closeOnClickOutside) {
       window.onclick = () => {
         console.log("open : ", open)
@@ -26,12 +26,12 @@ export const HawaModal: React.FunctionComponent<ModalTypes> = ({
         }
       }
     }
-    return () => (window.onClick = null)
+    return () => (window.onclick = null)
   }, [open])
   return (
     <div
       id={props.modalID}
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
       className={`${
         open ? "block" : "hidden"

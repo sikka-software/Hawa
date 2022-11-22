@@ -1,4 +1,4 @@
-let countries = [
+let countries: any = [
   {
     country_label: "Saudi Arabia",
     code: "SA",

@@ -210,9 +210,11 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                         { value: "ad", label: "Advertisement" },
                         { value: "other", label: "Other" },
                       ]}
-                      onChange={(e, o) => console.log("chooo", e)}
-                      onInputChange={(e, o) => console.log("changing", e)}
+                      onInputChange={(e: any, o: any) =>
+                        console.log("changing", e)
+                      }
                       {...field}
+                      onChange={(e: any, o: any) => console.log("chooo", e)}
                     />
                   )}
                 />
@@ -226,6 +228,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   render={({ field }) => (
                     <HawaCheckbox
                       helperText={errors.terms_accepted?.message}
+                      {...field}
                       onChange={() => console.log("te")}
                       label={
                         <span>
@@ -235,7 +238,6 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                           </a>
                         </span>
                       }
-                      {...field}
                     />
                   )}
                   rules={{ required: props.texts.termsRequiredText }}

@@ -31,10 +31,26 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = (
       {props.settingsType === "text" && (
         <HawaTextField margin="none" {...props} />
       )}
-      {props.settingsType === "boolean" && <HawaSwitch {...props} />}
-      {props.settingsType === "range" && <HawaRange {...props} />}
-      {props.settingsType === "color" && <HawaColorPicker {...props} />}
-      {props.settingsType === "radio" && <HawaTabs {...props} />}
+      {props.settingsType === "boolean" && (
+        <HawaSwitch
+        // {...props}
+        />
+      )}
+      {props.settingsType === "range" && (
+        <HawaRange
+        // {...props}
+        />
+      )}
+      {props.settingsType === "color" && (
+        <HawaColorPicker
+        //  {...props}
+        />
+      )}
+      {props.settingsType === "radio" && (
+        <HawaTabs
+        // {...props}
+        />
+      )}
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
 type ColorPickerTypes = {
-  color: any
-  handleChange: any
+  color?: any
+  handleChange?: any
 }
 
 export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (

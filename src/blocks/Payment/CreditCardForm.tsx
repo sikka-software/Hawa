@@ -22,16 +22,22 @@ export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
     <HawaContainer>
       {" "}
       <form onSubmit={handleSubmit(props.handle)}>
-        <HawaTextField
-          width="full"
-          name="password"
-          placeholder="Enter password"
-          type="tel"
-          label="Card Number"
+        <Controller
+          control={control}
+          name="cardName"
+          render={({ field }) => (
+            <HawaTextField
+              width="full"
+              name="password"
+              placeholder="Enter password"
+              type="tel"
+              label="Card Number"
+              helperText={errors.password?.message}
+            />
+          )}
           rules={{
             required: "Password is rquired",
           }}
-          helperText={errors.password?.message}
         />
         <Controller
           control={control}
@@ -43,12 +49,12 @@ export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
               placeholder="Enter password"
               type="password"
               label="Name On Card"
-              rules={{
-                required: "Password is rquired",
-              }}
               helperText={errors.password?.message}
             />
           )}
+          rules={{
+            required: "Password is rquired",
+          }}
         />
         <Controller
           control={control}
@@ -60,12 +66,12 @@ export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
               placeholder="Enter password"
               type="password"
               label="Expiry Date"
-              rules={{
-                required: "Password is rquired",
-              }}
               helperText={errors.password?.message}
             />
           )}
+          rules={{
+            required: "Password is rquired",
+          }}
         />
         <Controller
           control={control}
@@ -77,12 +83,12 @@ export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
               placeholder="Enter password"
               type="password"
               label="CCV"
-              rules={{
-                required: "Password is rquired",
-              }}
               helperText={errors.password?.message}
             />
           )}
+          rules={{
+            required: "Password is rquired",
+          }}
         />
         <HawaButton
           type="submit"
