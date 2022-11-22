@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook",
     "generate-css": "postcss src/tailwind.css -o src/styles.css && mkdir -p dist && cp src/styles.css dist/",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-lib": "tsc --outDir dist/lib --declarationDir dist/types --declaration true && rollup -c",
+    "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles"
   },
   "author": "Sikka Software",
