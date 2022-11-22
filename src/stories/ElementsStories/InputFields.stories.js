@@ -6,7 +6,7 @@ import {
   HawaPhoneInput,
   HawaColorPicker
 } from "../../elements";
-import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
+// import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
@@ -76,29 +76,30 @@ export const SearchInput = (args) => {
 SearchInput.args = {
   placeholder: "Search"
 };
-export const PinInput = (args) => {
-  return (
-    <HawaPinInput
-      type={args.isAlphanumeric ? "alphanumeric" : null}
-      onChange={args.onChange}
-      onComplete={args.onComplete}
-    >
-      <HawaPinInputField />
-      <HawaPinInputField />
-      <HawaPinInputField />
-      <HawaPinInputField />
-      <HawaPinInputField />
-      <HawaPinInputField />
-    </HawaPinInput>
-  );
-};
 
-PinInput.args = {
-  defaultValue: "1234",
-  isAlphanumeric: false,
-  onChange: (value) => console.log("current value : ", value),
-  onComplete: (value) => console.log("final value :", value)
-};
+// export const PinInput = (args) => {
+//   return (
+//     <HawaPinInput
+//       type={args.isAlphanumeric ? "alphanumeric" : null}
+//       onChange={args.onChange}
+//       onComplete={args.onComplete}
+//     >
+//       <HawaPinInputField />
+//       <HawaPinInputField />
+//       <HawaPinInputField />
+//       <HawaPinInputField />
+//       <HawaPinInputField />
+//       <HawaPinInputField />
+//     </HawaPinInput>
+//   );
+// };
+
+// PinInput.args = {
+//   defaultValue: "1234",
+//   isAlphanumeric: false,
+//   onChange: (value) => console.log("current value : ", value),
+//   onComplete: (value) => console.log("final value :", value)
+// };
 export const SelectInput = (args) => {
   return (
     <HawaSelect
