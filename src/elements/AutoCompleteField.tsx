@@ -1,13 +1,13 @@
 import React from "react"
 import { Controller, useFormContext } from "react-hook-form"
 
-type AutoCompleteFieldTypes = {
-  name: any
+type TAutoCompleteFieldTypes = {
+  name: string
   rules: any
-  shouldUnregister: any
+  shouldUnregister: boolean
 }
 export const AutoCompleteField: React.FunctionComponent<
-  AutoCompleteFieldTypes
+  TAutoCompleteFieldTypes
 > = (props) => {
   const { control } = useFormContext()
   const { name, rules, shouldUnregister } = props
