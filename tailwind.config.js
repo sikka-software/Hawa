@@ -23,10 +23,35 @@ module.exports = {
           "50%": { transform: "scaleY(0)" },
           "60%": { transform: "scaleY(0)" }
           // "100%": { transform: "scaleY(1)" },
+        },
+        expandDown: {
+          "0%": {
+            // opacity: 0,
+            "max-height": 0,
+            height: 0
+          },
+          "100%": {
+            // opacity: 1,
+            "max-height": 100
+          }
+        },
+        expandUp: {
+          "0%": {
+            // opacity: 1,
+            maxHeight: 100
+          },
+          "100%": {
+            // opacity: 0,
+            maxHeight: 0,
+            height: 0
+          }
         }
       },
+
       animation: {
-        collapsing: "collapse"
+        collapse: "collapse",
+        expandDown: "expandDown 100ms linear",
+        expandUp: "expandUp 100ms linear"
       },
       colors: {
         primary: {
