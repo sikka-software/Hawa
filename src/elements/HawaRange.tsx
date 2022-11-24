@@ -6,6 +6,8 @@ type RangeTypes = {
   startElement?: any
   endElement?: any
   label?: any
+  min?: any
+  max?: any
 }
 
 export const HawaRange: React.FunctionComponent<RangeTypes> = ({

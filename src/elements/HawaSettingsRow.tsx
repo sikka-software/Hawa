@@ -6,51 +6,42 @@ import { HawaColorPicker } from "./HawaColorPicker"
 import { HawaRange } from "./HawaRange"
 import { HawaCheckbox } from "./HawaCheckbox"
 import { HawaTabs } from "./HawaTabs"
+import { HawaRadio } from "./HawaRadio"
 
 type SettingsRowTypes = {
   settingsLabel: any
-  settingsType: any
-  // settingsType: PropTypes.oneOf([
-  //     "checkbox",
-  //     "text",
-  //     "radio",
-  //     "boolean",
-  //     "color",
-  //   ]),
+  settingsType: "checkbox" | "text" | "radio" | "boolean" | "color" | "range"
+  radioProps: {
+    defaultValue: any
+    onChangeTab: any
+    options: any
+  }
+  colorProps: {
+    color?: any
+    handleChange?: any
+  }
+  rangeProps: {
+    min?: any
+    max?: any
+  }
 }
 
-export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = (
-  props
-) => {
+export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
+  settingsLabel,
+  settingsType,
+  colorProps,
+  rangeProps,
+  radioProps,
+}) => {
   return (
     <div className="my-2 flex max-h-fit flex-row items-center justify-between rounded-xl bg-white px-4 py-2 pr-2 align-middle">
-      <HawaTypography>{props.settingsLabel}</HawaTypography>
-      {props.settingsType === "checkbox" && (
-        <HawaCheckbox centered {...props} />
-      )}
-      {props.settingsType === "text" && (
-        <HawaTextField margin="none" {...props} />
-      )}
-      {props.settingsType === "boolean" && (
-        <HawaSwitch
-        // {...props}
-        />
-      )}
-      {props.settingsType === "range" && (
-        <HawaRange
-        // {...props}
-        />
-      )}
-      {props.settingsType === "color" && (
-        <HawaColorPicker
-        //  {...props}
-        />
-      )}
-      {props.settingsType === "radio" && (
-        <HawaTabs
-        // {...props}
-        />
-      )}
+      <HawaTypography>{settingsLabel}</HawaTypography>
+      {settingsType === "checkbox" && <HawaCheckbox centered />}
+      {settingsType === "text" && <HawaTextField margin="none" width="small" />}
+      {settingsType === "boolean" && <HawaSwitch />}
+      {settingsType === "range" && <HawaRange {...rangeProps} />}
+      {settingsType === "color" && <HawaColorPicker {...colorProps} />}
+      {settingsType === "radio" && <HawaTabs {...radioProps} />}
     </div>
   )
 }

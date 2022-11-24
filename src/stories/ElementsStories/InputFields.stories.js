@@ -34,15 +34,20 @@ export default {
 };
 
 export const TextField = (args) => {
-  return <HawaTextField {...args} />;
+  return (
+    <div>
+      <HawaTextField {...args} width="full" label="Full Width" />
+      <HawaTextField {...args} width="normal" label="Normal Width" />
+      <HawaTextField {...args} width="small" label="Small Width" />
+    </div>
+  );
 };
 
 TextField.args = {
   label: "Label test",
   helperText: "something invalid",
   placeholder: "input placeholder",
-  type: "text",
-  fullWidth: false
+  type: "text"
 };
 
 export const TextArea = (args) => {
