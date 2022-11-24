@@ -96,14 +96,15 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     }, [maxSize])
     const errs = fileRejections.map((rej, i) => {
       return (
-        <div key={i}>
-          <div>{rej.file.name}</div>
-          <div>{rej.errors[0].code}</div>
-        </div>
+        <HawaAlert
+          text={rej.file.name}
+          title={rej.errors[0].code}
+          severity="error"
+        />
       )
     })
     const thumbs = files?.map((file: any, index: any) => (
-      <div style={{ position: "relative", margin: 10 }}>
+      <div className="relative m-3 rounded-lg">
         <button
           onClick={(e) => {
             e.stopPropagation()
@@ -112,7 +113,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
             onDeleteFile(file)
           }}
           type="button"
-          className="absolute left-0 ml-auto inline-flex items-center rounded-lg bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+          className="absolute left-0 ml-auto inline-flex items-center rounded-lg rounded-tr-none rounded-bl-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
           data-modal-toggle="defaultModal"
         >
           <svg
@@ -144,6 +145,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
             backgroundPosition: "center",
             border: "1px solid black",
           }}
+          className="rounded-lg"
           key={file.name}
         />
       </div>
@@ -165,37 +167,41 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           Click here or drop files here to upload
         </div>
         <div className="p-1 text-center">Max file size is {max}</div>
-        {acceptedFiles.length > 0 && (
-          <HawaButton
-            style={{ color: "black" }}
-            onClick={(e) => {
-              e.stopPropagation()
-              onClearFiles(acceptedFiles)
-            }}
-          >
-            Clear All
-          </HawaButton>
-        )}
-
+        <div className="flex justify-center ">
+          {acceptedFiles.length > 0 && (
+            <HawaButton
+              // style={{ color: "black" }}
+              onClick={(e) => {
+                e.stopPropagation()
+                onClearFiles(acceptedFiles)
+              }}
+            >
+              Clear All
+            </HawaButton>
+          )}
+        </div>
         {thumbs && showPreview ? (
           <aside
             style={{
               display: "flex",
               flexDirection: "row",
               flexWrap: "wrap",
-              marginTop: 10,
+              // marginTop: 10,
             }}
+            className="rounded-lg border-red-500"
           >
             {thumbs}
           </aside>
         ) : null}
-        {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
-          <HawaAlert text={texts.tooManyFiles} severity="error" />
-        ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
-          <HawaAlert text={texts.fileTooLarge} severity="error" />
-        ) : (
-          errs
-        )}
+        <div className="px-2">
+          {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
+            <HawaAlert text={texts.tooManyFiles} severity="error" />
+          ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
+            <HawaAlert text={texts.fileTooLarge} severity="error" />
+          ) : (
+            errs
+          )}
+        </div>
         {}
       </div>
     )

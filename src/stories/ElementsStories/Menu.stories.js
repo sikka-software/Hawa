@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HawaMenu } from "../../elements";
+import { HawaButton, HawaMenu } from "../../elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
 
@@ -11,10 +11,14 @@ export default {
       control: "text",
       description: "The title of the dialog"
     },
+    buttonPosition: {
+      control: "select",
+      defaultValue: "top-left",
+      options: ["top-right", "top-left", "bottom-right", "bottom-left"]
+    },
     children: {
       control: "object",
-      description:
-        "The children element that will be contained by the dialog component"
+      description: "The button element that will open the menu"
     },
     actions: {
       control: "object",
@@ -34,15 +38,18 @@ export default {
 const Template = (args) => {
   const [openDropDown, setOpenDropDown] = useState(args.open);
   return (
-    <>
+    <div className="flex h-96 items-center justify-center">
       <HawaMenu
         {...args}
         popMenuID={"test"}
         handleClose={setOpenDropDown}
-        menuItems={args.menuItems}
         open={openDropDown}
-      />
-    </>
+      >
+        <HawaButton width="normal" variant="contained">
+          Open Menu
+        </HawaButton>
+      </HawaMenu>
+    </div>
   );
 };
 
