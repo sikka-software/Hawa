@@ -18,7 +18,7 @@ export default {
 };
 
 const Template = (args) => {
-  return <HawaCheckbox {...args} />;
+  return <HawaCheckbox  {...args} />;
 };
 
 export const Checkbox = Template.bind({});

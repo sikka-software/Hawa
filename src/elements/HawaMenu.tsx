@@ -1,26 +1,33 @@
 import clsx from "clsx"
-import React from "react"
+import React, { ReactNode } from "react"
 
-type MenuTypes = {
+interface TMenuTypes {
   popMenuID: any
-  menuItems: any
+  menuItems: MenuItems[][]
   //
   //         icon: PropTypes.element,
   //         label: PropTypes.string,
   //        action: PropTypes.func,
   //
-  withHeader: any
-  withIcons: any
-  headerTitle: any
-  headerSubtitle: any
-  open: any
-  handleClose: any
-  anchor: any
-  children: any
-  buttonPosition: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  withHeader?: boolean
+  withIcons?: boolean
+  headerTitle?: string
+  headerSubtitle?: string
+  open: boolean
+  handleClose: (e : boolean) => void
+  anchor?: any
+  children?: ReactNode
+  buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
 }
 
-export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
+type MenuItems =  {
+  icon ?: JSX.Element,
+  label : string,
+  action ?: (e : React.MouseEvent<HTMLLIElement, MouseEvent>,item : string) => void
+  isButton ?: boolean
+}
+
+export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   menuItems,
   withHeader,
   withIcons,
@@ -61,15 +68,15 @@ export const HawaMenu: React.FunctionComponent<MenuTypes> = ({
               <div className="truncate font-medium">{headerSubtitle}</div>
             </div>
           )}
-          {menuItems.map((group: any) => {
+          {menuItems.map((group) => {
             return (
               <ul className="py-1  text-sm text-gray-700 dark:text-gray-200">
-                {group.map((item: any) => {
+                {group.map((item) => {
                   return (
                     <li
-                      onClick={item.action}
+                      onClick={(e) => item.action(e, item.label)}
                       className={
-                        item.button
+                        item.isButton
                           ? "mx-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
                           : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                       }

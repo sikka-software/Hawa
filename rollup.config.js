@@ -6,6 +6,7 @@ import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
 import swc from "rollup-plugin-swc";
+import cleaner from "rollup-plugin-cleaner";
 
 export default [
   {
@@ -15,6 +16,9 @@ export default [
       { file: "es/index.es.js", format: "es", exports: "named" }
     ],
     plugins: [
+      cleaner({
+        targets: ["./lib", "./es"]
+      }),
       postcss({ plugins: [], minimize: true }),
       babel({
         exclude: "node_modules/**",

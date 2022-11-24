@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 
 type CopyRightsTypes = {
-  withLogo: any
-  lang: any
-  version: any
+  withLogo: boolean
+  lang: string
+  version: string
 }
 
 export const HawaCopyrights: React.FunctionComponent<CopyRightsTypes> = (

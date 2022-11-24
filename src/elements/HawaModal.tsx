@@ -1,33 +1,32 @@
-import React, { useEffect } from "react"
+import React, { ReactElement, useEffect } from "react"
 
 type ModalTypes = {
-  open: any
-  title: any
-  onClose: any
-  closeOnClickOutside: any
-  modalID: any
-  children: any
+  open: boolean
+  title: string
+  onClose: () => void
+  // closeOnClickOutside: any
+  modalID?: string
+  children: ReactElement
   actions: any
 }
 export const HawaModal: React.FunctionComponent<ModalTypes> = ({
   open,
   title,
   onClose,
-  closeOnClickOutside,
   ...props
 }) => {
-  useEffect((): any => {
-    if (closeOnClickOutside) {
-      window.onclick = () => {
-        console.log("open : ", open)
-        if (open) {
-          console.log("Im clicing")
-          onClose()
-        }
-      }
-    }
-    return () => (window.onclick = null)
-  }, [open])
+  // useEffect((): any => {
+  //   if (closeOnClickOutside) {
+  //     window.onclick = () => {
+  //       console.log("open : ", open)
+  //       if (open) {
+  //         console.log("Im clicing")
+  //         onClose()
+  //       }
+  //     }
+  //   }
+  //   return () => (window.onclick = null)
+  // }, [open])
   return (
     <div
       id={props.modalID}
@@ -47,7 +46,7 @@ export const HawaModal: React.FunctionComponent<ModalTypes> = ({
               type="button"
               className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-toggle="defaultModal"
-              onClick={() => {
+              onClick={(e) => {
                 onClose()
               }}
             >
