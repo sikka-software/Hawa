@@ -17,5 +17,6 @@ export const Copyrights = (args) => {
 };
 
 Copyrights.args = {
-  version: "v1.2.3"
+  version: "v1.2.3",
+  credits: "Developed by Sikka Software"
 };

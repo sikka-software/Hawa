@@ -15,7 +15,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = (props) => {
   return (
     <div>
       <ul className="flex w-fit flex-wrap rounded-lg bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
-        {props.options.map((opt: any) => (
+        {props.options?.map((opt: any) => (
           <li>
             <button
               aria-current="page"
