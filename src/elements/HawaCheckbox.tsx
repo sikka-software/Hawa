@@ -10,7 +10,11 @@ type TCheckBoxTypes = {
 export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (props) => {
   return (
     <div
-      className={props.centered ? "flex h-full items-center" : "flex h-full"}
+      className={
+        props.centered
+          ? "flex h-full items-center justify-center"
+          : "flex h-full items-start"
+      }
     >
       <input
         type="checkbox"
