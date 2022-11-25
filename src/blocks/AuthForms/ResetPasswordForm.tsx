@@ -5,10 +5,7 @@ import { HawaContainer } from "../../layout"
 
 type ResetPasswordType = {
   handleResetPassword: any
-  passwordChanged: any
-  errorText: any
   sent: any
-  handleSignIn: any
   texts: {
     emailLabel: string
     emailPlaceholder: string
