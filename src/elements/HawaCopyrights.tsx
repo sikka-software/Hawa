@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 
 type CopyRightsTypes = {
-  withLogo: any
+  withLogo: boolean
   lang: any
-  version: any
+  version: string
   credits: string
   logoURL: string
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 type ColorPickerTypes = {
   color?: any
-  handleChange?: any
+  handleChange?: (e : React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
@@ -20,7 +20,7 @@ export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
           value={selectedColor}
           onChange={(e) => {
             setSelectedColor(e.target.value)
-            props.handleChange(e.target.value)
+            props.handleChange(e)
           }}
           className="opacity-0"
         />

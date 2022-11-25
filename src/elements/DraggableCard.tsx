@@ -1,6 +1,6 @@
-import React from "react"
+import React, { ReactElement } from "react"
 type DraggableCardTypes = {
-  children: any
+  children: ReactElement
 }
 
 export const DraggableCard: React.FunctionComponent<DraggableCardTypes> = (

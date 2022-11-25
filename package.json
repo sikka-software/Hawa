@@ -58,6 +58,7 @@
     "react-transition-group": "^4.4.2",
     "rollup": "^2.38.4",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
@@ -93,6 +94,7 @@
     "react-hook-form": "^7.28.0",
     "react-icons": "^4.6.0",
     "react-select": "^5.3.2",
+    "rollup-plugin-swc": "^0.2.1",
     "rollup-plugin-typescript2": "^0.34.1"
   }
 }
