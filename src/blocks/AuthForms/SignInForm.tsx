@@ -57,7 +57,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   } = useForm()
 
   return (
-    <HawaContainer>
+    <HawaContainer maxWidth="small">
       <form onSubmit={handleSubmit(props.handleSignIn)}>
         {props.showError && (
           <HawaAlert

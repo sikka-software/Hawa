@@ -13,11 +13,11 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
     "flex w-full max-w-sm flex-col rounded-xl bg-primary-300 p-4 dark:bg-gray-600"
   let maxWidthStyles: any = {
     full: "md:max-w-xl",
-    small: "md:max-w-sm",
+    small: "md:max-w-sm w-1/3 min-w-min",
     normal: "md:max-w-md",
   }
   return (
-    <div className={clsx(defaultStyle, maxWidthStyles[maxWidth])}>
+    <div className={clsx(defaultStyle, maxWidthStyles[maxWidth], "")}>
       {props.children}
     </div>
   )

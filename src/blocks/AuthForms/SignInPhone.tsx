@@ -27,7 +27,7 @@ export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
     console.log("submitting ", userPhone)
   }
   return (
-    <HawaContainer>
+    <HawaContainer maxWidth="small">
       <form
         onSubmit={handleSubmit(() => console.log("testing submit"))}
         // onSubmit={(e) => {

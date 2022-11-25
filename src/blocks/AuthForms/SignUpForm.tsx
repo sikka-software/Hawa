@@ -68,7 +68,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
   } = methods
 
   return (
-    <HawaContainer>
+    <HawaContainer maxWidth="small">
       <div>
         {props.showError && (
           <HawaAlert

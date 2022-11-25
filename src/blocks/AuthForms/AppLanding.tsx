@@ -11,10 +11,11 @@ type AppLandingTypes = {
     signUp: string
     lang: string
   }
+  size: "small" | "normal" | "full"
 }
 export const AppLanding: React.FunctionComponent<AppLandingTypes> = (props) => {
   return (
-    <HawaContainer>
+    <HawaContainer maxWidth={props.size}>
       {props.handleSignIn && (
         <HawaButton color="primary" width="full" onClick={props.handleSignIn}>
           {props.texts.signIn}
