@@ -1,49 +1,21 @@
 import React from "react"
 import { FaClone } from "react-icons/fa"
-import { HawaButton, HawaTooltip } from "../elements"
-import { HawaContainer } from "../layout"
+import { HawaAlert, HawaButton } from "../../elements"
+import { HawaContainer } from "../../layout"
 
-type TReferralBlock = {
+type TReferralStats = {
   referralLink: string
   referralCode: string
+  withdrawError?: string
 }
 
-export const ReferralBlock: React.FunctionComponent<TReferralBlock> = ({
+export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
   referralLink,
   referralCode,
+  withdrawError,
 }) => {
   return (
     <HawaContainer maxWidth="normal">
-      <div className="my-2 mt-0">
-        <div className="mb-1">Referral Code</div>
-        <div className="flex flex-row items-center justify-between rounded-lg bg-white">
-          <span className="ml-3 font-bold">{referralCode}</span>
-          <HawaButton
-            tooltip="Copy"
-            className="mr-1.5"
-            onClick={() => navigator.clipboard.writeText(referralCode)}
-          >
-            <span className="bg-red flex items-center justify-center">
-              <FaClone />
-            </span>
-          </HawaButton>
-        </div>
-      </div>
-      <div className="my-2 mt-0">
-        <div className="mb-1">Referral Link</div>
-        <div className="flex flex-row items-center justify-between rounded-lg bg-white">
-          <span className="ml-3 font-bold">{referralLink}</span>
-          <HawaButton
-            tooltip="Copy"
-            className="mr-1.5"
-            onClick={() => navigator.clipboard.writeText(referralLink)}
-          >
-            <span className="bg-red flex items-center justify-center">
-              <FaClone />
-            </span>
-          </HawaButton>
-        </div>
-      </div>
       <div className="mb-1">Stats</div>
       <div className="justi flex flex-row gap-1">
         <NumberCard title="Clicks" number={22} />
@@ -53,9 +25,27 @@ export const ReferralBlock: React.FunctionComponent<TReferralBlock> = ({
       <div>
         <HawaButton width="full">Withdraw Money</HawaButton>
       </div>
+      {withdrawError && (
+        <div>
+          <HawaAlert
+            text={
+              "Sorry can't withdraw the money at the moment. Please try again in 2022/11/20"
+            }
+            severity="warning"
+          />
+        </div>
+      )}
       <div className="mt-3">
         <div className="mb-1">Sign ups</div>
         <div className="rounded-lg">
+          {/* <HawaTable
+            columns={["date", "email", "amount"]}
+            rows={[
+              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
+              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
+              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
+            ]}
+          /> */}
           <ReferralSignUpCard
             date="2020/10/11 @ 9:45 pm"
             email="zakher@sikka.io"

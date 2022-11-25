@@ -7,6 +7,7 @@ import {
 } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
+import countries from "../../countries"
 
 type CheckoutFormTypes = {
   lang: string
@@ -242,6 +243,14 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                     // displayEmpty
                     // disableUnderline
                     // validators={["required"]}
+                    options={countries}
+                    getOptionLabel={(countries) => countries.country_label}
+                    // options={[
+                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
+                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
+                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
+                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
+                    // ]}
                     {...field}
                     value={field.value ?? ""}
                   >

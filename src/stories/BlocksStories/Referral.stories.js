@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { ReferralBlock } from "../../blocks";
+import {
+  ReferralStats,
+  ReferralAccount,
+  ReferralSettlement
+} from "../../blocks";
 
 export default {
   title: "Blocks/Referral",
-  component: [ReferralBlock],
+  component: [ReferralStats, ReferralAccount, ReferralSettlement],
   parameters: {
     docs: {
       description: {
@@ -16,11 +20,27 @@ export default {
   }
 };
 
-export const Referral = (args) => {
-  return <ReferralBlock {...args} />;
+export const ReferralCodes = (args) => {
+  return <ReferralAccount {...args} />;
 };
 
-Referral.args = {
+ReferralCodes.args = {
+  referralLink: "https://my.qawaim/signUp?ref=DF522D",
+  referralCode: "DF522D"
+};
+export const ReferralBank = (args) => {
+  return <ReferralSettlement {...args} />;
+};
+
+ReferralBank.args = {
+  referralLink: "https://my.qawaim/signUp?ref=DF522D",
+  referralCode: "DF522D"
+};
+export const ReferralAnalytics = (args) => {
+  return <ReferralStats {...args} />;
+};
+
+ReferralAnalytics.args = {
   referralLink: "https://my.qawaim/signUp?ref=DF522D",
   referralCode: "DF522D"
 };

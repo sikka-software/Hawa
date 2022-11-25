@@ -3,9 +3,9 @@ import { HawaButton } from "./HawaButton"
 
 type TableTypes = {
   lang?: any
-  columns?: any
+  columns: any[string]
   actions?: any
-  rows?: any
+  rows?: any[any]
   noDataText?: any
   handleActionClick?: any
   end?: any

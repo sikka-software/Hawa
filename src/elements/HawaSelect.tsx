@@ -68,7 +68,7 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
 }) => {
   return (
     <div
-      className="absolute mt-2 w-full rounded-lg bg-white"
+      className="absolute z-10 mt-2 w-full rounded-lg bg-white ring-1 ring-blue-200"
       ref={innerRef}
       {...innerProps}
       // {...props}
@@ -81,7 +81,7 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
 type SelectTypes = {
   label?: any
   isCreatable?: any
-  options?: any
+  options?: any[any]
   isClearable?: any
   isMulti?: any
   isSearchable?: any
@@ -92,6 +92,7 @@ type SelectTypes = {
   fullWidth?: any
   value?: any
   children?: any
+  getOptionLabel?: any
 }
 export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (
@@ -115,6 +116,7 @@ export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
             Option,
             Menu,
           }}
+          getOptionLabel={props.getOptionLabel}
         />
       )}
       {props.isCreatable && (
