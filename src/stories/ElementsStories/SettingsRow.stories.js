@@ -1,8 +1,8 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { LinkTo, linkTo } from "@storybook/addon-links";
+// import { Canvas, Meta, Story } from "@storybook/addon-docs";
+// import { LinkTo, linkTo } from "@storybook/addon-links";
 import { HawaSettingsRow } from "../../elements";
 import { useState } from "react";
-import { HawaRadio } from "../../elements/HawaRadio";
+// import { HawaRadio } from "../../elements/HawaRadio";
 
 export default {
   title: "Elements/Settings",
@@ -53,9 +53,6 @@ export default {
 //     <HawaSettingsRow {...args} />
 //   </div>
 // );
-export const CheckboxSettings = (args) => (
-  <HawaSettingsRow settingsType="checkbox" settingsLabel="Checkbox Setting" />
-);
 
 export const TextSettings = (args) => (
   <HawaSettingsRow settingsType="text" settingsLabel="Text Setting" />
@@ -75,7 +72,9 @@ export const RadioSettings = (args) => {
       settingsType="radio"
       settingsLabel="Radio Setting"
       radioProps={{
-        options: allOptions
+        options: allOptions,
+        onChangeTab: () => console.log(),
+        defaultValue: "test"
       }}
     />
   );

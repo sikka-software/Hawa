@@ -4,13 +4,11 @@ import { HawaTextField } from "./HawaTextField"
 import { HawaSwitch } from "./HawaSwitch"
 import { HawaColorPicker } from "./HawaColorPicker"
 import { HawaRange } from "./HawaRange"
-import { HawaCheckbox } from "./HawaCheckbox"
-import { HawaTabs } from "./HawaTabs"
 import { HawaRadio } from "./HawaRadio"
 
 type SettingsRowTypes = {
   settingsLabel: any
-  settingsType: "checkbox" | "text" | "radio" | "boolean" | "color" | "range"
+  settingsType: "text" | "radio" | "boolean" | "color" | "range"
   radioProps: {
     defaultValue: any
     onChangeTab: any
@@ -34,14 +32,13 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
   radioProps,
 }) => {
   return (
-    <div className="my-2 flex max-h-fit flex-row items-center justify-between rounded-xl bg-white px-4 py-2 pr-2 align-middle">
+    <div className="my-0.5 flex max-h-fit flex-row items-center justify-between rounded-xl bg-white px-4 py-2 pr-2 align-middle">
       <HawaTypography>{settingsLabel}</HawaTypography>
-      {settingsType === "checkbox" && <HawaCheckbox centered />}
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
       {settingsType === "boolean" && <HawaSwitch />}
       {settingsType === "range" && <HawaRange {...rangeProps} />}
       {settingsType === "color" && <HawaColorPicker {...colorProps} />}
-      {settingsType === "radio" && <HawaTabs {...radioProps} />}
+      {settingsType === "radio" && <HawaRadio {...radioProps} />}
     </div>
   )
 }
