@@ -39,12 +39,7 @@ const Template = (args) => {
   const [openDropDown, setOpenDropDown] = useState(args.open);
   return (
     <div className="flex h-96 items-center justify-center">
-      <HawaMenu
-        {...args}
-        popMenuID={"test"}
-        handleClose={setOpenDropDown}
-        open={openDropDown}
-      >
+      <HawaMenu {...args} handleClose={setOpenDropDown} open={openDropDown}>
         <HawaButton width="normal" variant="contained">
           Open Menu
         </HawaButton>

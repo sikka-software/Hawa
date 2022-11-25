@@ -1,25 +1,53 @@
+import clsx from "clsx"
 import React, { useEffect } from "react"
 import { useState } from "react"
+import { HawaMenu } from "./HawaMenu"
 
-type ItemCardTypes = {
-  actions: any
-  content: any
-  headerActions: any
-  //     label: PropTypes.string,
-  //     action: PropTypes.func,
-  header: any
-  lang: string
+interface ItemCardTypes {
+  actions?: any
+  content?: any
+  headerActions?: THeaderActions[][]
+  header?: any
+  lang?: string
+  cardImage?: string
   onCardClick?: any
+  orientation?: "horizontal" | "vertical"
 }
 
+type THeaderActions = {
+  icon?: JSX.Element
+  label: string
+  action?: (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    item: string
+  ) => void
+  isButton?: boolean
+}
 export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
   actions,
   content,
   headerActions,
   header,
+  cardImage,
+  orientation = "vertical",
   ...props
 }) => {
+  let defaultStyle =
+    "block rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all dark:border-gray-700 dark:bg-gray-800 "
+
+  let orientationStyles = {
+    vertical: "max-w-sm",
+    horizontal: "flex flex-row w-full",
+  }
+  let imageStyles = {
+    vertical: "w-full rounded-tr-lg rounded-tl-lg",
+    horizontal: "h-40 w-fit rounded-tl-lg rounded-bl-lg",
+  }
+  let headerActionsButtonStyle =
+    "inline-block rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+
   const [openActionHeader, setOpenActionHeader] = useState(false)
+  const [openDropDown, setOpenDropDown] = useState(false)
 
   function handleOpenActionHeader() {
     setOpenActionHeader(!openActionHeader)
@@ -37,61 +65,58 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
 
   return (
     <div
-      className="relative block max-w-sm rounded-lg border border-gray-200 bg-white pt-6 shadow-md  dark:border-gray-700 dark:bg-gray-800 "
+      className={clsx(defaultStyle, orientationStyles[orientation])}
       {...props}
     >
-      {headerActions && (
-        <div className="absolute right-0 top-0 flex justify-end pt-3 pr-3">
-          <button
-            id="dropdownButton"
-            data-dropdown-toggle="dropdown"
-            className="inline-block rounded-lg text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-            type="button"
-            onClick={handleOpenActionHeader}
-          >
-            <span className="sr-only">Open dropdown</span>
-            <svg
-              className="h-6 w-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-            </svg>
-          </button>
-          <div
-            id="dropdown"
-            className={`absolute ${
-              openActionHeader ? "block" : "hidden"
-            } right-0 top-7 z-10 w-44 list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:bg-gray-700`}
-          >
-            <ul className="py-1" aria-labelledby="dropdownButton">
-              {headerActions.map((singleAction: any) => {
-                return (
-                  <li onClick={singleAction.action}>
-                    <a
-                      href="#"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      {singleAction.label}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
+      {cardImage && (
+        <img
+          src={"https://via.placeholder.com/50"}
+          // className=" h-full w-full max-w-sm bg-red-500  bg-[url('https://via.placeholder.com/50')] bg-cover bg-no-repeat"
+          className={clsx(imageStyles[orientation])}
+        />
       )}
-      <div className="px-6">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {header}{" "}
-        </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          {content}
-        </p>
+      <div className="relative w-full  px-6 pt-6">
+        {headerActions && (
+          <div className="max-h- bg-red absolute right-0 top-0 flex justify-end pt-3 pr-3">
+            <HawaMenu
+              buttonPosition="top-right"
+              menuItems={headerActions}
+              handleClose={setOpenDropDown}
+              open={openDropDown}
+            >
+              <div
+                className={clsx(headerActionsButtonStyle)}
+                onClick={handleOpenActionHeader}
+              >
+                <span className="sr-only">Open dropdown</span>
+                <svg
+                  className="h-6 w-6"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                </svg>
+              </div>
+            </HawaMenu>
+          </div>
+        )}
+
+        {header && (
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {header}
+          </h5>
+        )}
+        {content && (
+          <p className="w-full font-normal text-gray-700 dark:text-gray-400">
+            {content}
+          </p>
+        )}
+        {actions && (
+          <div className="flex justify-end rounded-b-lg p-3">{actions}</div>
+        )}
       </div>
-      <div className="mt-6 flex justify-end rounded-b-lg p-3">{actions}</div>
     </div>
   )
 }

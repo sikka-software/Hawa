@@ -37,7 +37,12 @@ const Template = (args) => {
         data-modal-toggle="defaultModal"
         variant="contained"
         // onClick={() => setOpen(!open)}>
-        onClick={() => setOpen(true)}
+        onClick={(e) => {
+          console.log("opening modal");
+          e.stopPropagation();
+
+          setOpen(true);
+        }}
       >
         Open Dialog
       </button>
@@ -65,7 +70,7 @@ const Template = (args) => {
 export const Modal = Template.bind({});
 Modal.args = {
   title: "Modal Title",
-  hideClose: false,
+  hideClose: true,
   closeOnClickOutside: true,
-  open: false
+  open: true
 };

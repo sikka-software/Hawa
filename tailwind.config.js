@@ -50,7 +50,7 @@ module.exports = {
 
       animation: {
         collapse: "collapse",
-        expandDown: "expandDown 100ms linear",
+        expandDown: "expandDown 50ms linear",
         expandUp: "expandUp 100ms linear"
       },
       colors: {

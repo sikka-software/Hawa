@@ -35,7 +35,7 @@ const colorStyles = {
     primary:
       "text-white bg-primary-default hover:bg-primary-700 hover:text-white",
     secondary:
-      "text-neutral-900 bg-secondary-default hover:bg-secondary-700 hover:text-white",
+      "text-neutral-900 bg-secondary-default hover:text-white hover:bg-secondary-700",
   },
   outlined: {
     default: "text-gray-600 border-gray-600 hover:bg-gray-200",
@@ -64,25 +64,6 @@ export function HawaButton({
 }: ButtonProps) {
   const [isHovered, setIsHovered] = React.useState(false)
 
-  const buttonClass = disabled
-    ? clsx(
-        className,
-        baseStyles,
-        variantStyles[variant],
-        sizeStyles[size],
-        widthStyles[width],
-        disabledSyles,
-        disabledVariantSyles[variant]
-      )
-    : clsx(
-        className,
-        baseStyles,
-        variantStyles[variant],
-        sizeStyles[size],
-        colorStyles[variant][color],
-        widthStyles[width]
-      )
-
   return (
     <div className="relative my-2">
       <button
@@ -92,7 +73,26 @@ export function HawaButton({
         onMouseLeave={() => {
           setIsHovered(false)
         }}
-        className={buttonClass}
+        className={
+          disabled
+            ? clsx(
+                className,
+                baseStyles,
+                variantStyles[variant],
+                sizeStyles[size],
+                widthStyles[width],
+                disabledSyles,
+                disabledVariantSyles[variant]
+              )
+            : clsx(
+                className,
+                baseStyles,
+                variantStyles[variant],
+                sizeStyles[size],
+                colorStyles[variant][color],
+                widthStyles[width]
+              )
+        }
         disabled={disabled}
         {...props}
       >
