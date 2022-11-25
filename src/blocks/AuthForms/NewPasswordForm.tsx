@@ -6,11 +6,7 @@ import { HawaContainer } from "../../layout"
 type NewPasswordTypes = {
   handleNewPassword: any
   passwordChanged: any
-  errorText: any
   texts: {
-    emailLabel: string
-    emailPlaceholder: string
-    emailRequiredText: string
     passwordPlaceholder: string
     updatePassword: string
     passwordRequiredText: string
@@ -19,7 +15,6 @@ type NewPasswordTypes = {
     confirmPasswordLabel: string
     confirmPasswordRequiredText: string
     passwordMatchError: string
-    forgotPasswordText: string
     passwordChanged: string
   }
   handleSignIn: any

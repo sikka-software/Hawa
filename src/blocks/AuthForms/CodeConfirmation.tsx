@@ -7,7 +7,12 @@ type CodeConfirmationTypes = {
   showError: any
   errorTitle: any
   errorText: any
-  texts: any
+  texts: {
+    codeLabel: string
+    codePlaceholder: string
+    codeRequiredText: string
+    confirmText: string
+  }
   handleSignIn: any
 }
 export const CodeConfirmation: React.FunctionComponent<
