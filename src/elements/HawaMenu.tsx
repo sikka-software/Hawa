@@ -36,7 +36,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   children,
 }) => {
   let defaultStyles =
-    "border-2 border-blue-400 border-opacity-20 ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded-lg bg-white shadow transition-all dark:bg-gray-700"
+    "border-none ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded-lg bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
   let positionStyles = {
     "top-right": "top-30 right-0",
     "top-left": "top-30 left-0",
@@ -44,8 +44,8 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     "bottom-left": "bottom-30 left-0",
   }
   let animationStyles = {
-    opened: "max-h-72 animate-expandDown",
-    closed: "max-h-0 opacity-0 animate-expandUp",
+    opened: "max-h-fit",
+    closed: "h-0 ",
   }
   return (
     <div className="relative w-fit " onClick={() => handleClose(!open)}>

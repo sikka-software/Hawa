@@ -27,31 +27,33 @@ module.exports = {
         expandDown: {
           "0%": {
             // opacity: 0,
-            "max-height": 0,
-            height: 0
+            // maxHeight: 0,
+            height: "0px"
           },
           "100%": {
             // opacity: 1,
-            "max-height": 100
+            // maxHeight: 100,
+            height: "15rem"
           }
         },
         expandUp: {
           "0%": {
             // opacity: 1,
-            maxHeight: 100
+            // maxHeight: 100,
+            height: "15rem"
           },
           "100%": {
             // opacity: 0,
-            maxHeight: 0,
-            height: 0
+            // maxHeight: 0,
+            height: "0rem"
           }
         }
       },
 
       animation: {
         collapse: "collapse",
-        expandDown: "expandDown 50ms linear",
-        expandUp: "expandUp 100ms linear"
+        expandDown: "expandDown 500ms ease-in-out",
+        expandUp: "expandUp 100ms ease-in-out"
       },
       colors: {
         primary: {
