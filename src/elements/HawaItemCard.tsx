@@ -40,8 +40,9 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
     horizontal: "flex flex-row w-full",
   }
   let imageStyles = {
-    vertical: "w-full rounded-tr-lg rounded-tl-lg",
-    horizontal: "h-40 w-fit rounded-tl-lg rounded-bl-lg",
+    vertical: "h-auto max-h-56 w-full rounded-t-lg object-cover",
+    horizontal:
+      "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
   }
   let headerActionsButtonStyle =
     "inline-block rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
@@ -73,6 +74,8 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
           src={"https://via.placeholder.com/50"}
           // className=" h-full w-full max-w-sm bg-red-500  bg-[url('https://via.placeholder.com/50')] bg-cover bg-no-repeat"
           className={clsx(imageStyles[orientation])}
+          // className="h-40 w-fit rounded-tl-lg rounded-bl-lg bg-[url('https://via.placeholder.com/50')] bg-cover bg-no-repeat          "
+          // className="h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
         />
       )}
       <div className="relative w-full  px-6 pt-6">
