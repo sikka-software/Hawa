@@ -44,7 +44,7 @@ export default {
     }
   },
   args: {
-    options: 4
+    options: 3
   }
 };
 
@@ -71,10 +71,11 @@ export const RadioSettings = (args) => {
     <HawaSettingsRow
       settingsType="radio"
       settingsLabel="Radio Setting"
+      
       radioProps={{
         options: allOptions,
         onChangeTab: () => console.log(),
-        defaultValue: "test"
+        defaultValue: "option2"
       }}
     />
   );

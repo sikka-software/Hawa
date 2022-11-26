@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React, { useState } from "react"
 
 type RadioTypes = {
@@ -8,15 +9,22 @@ type RadioTypes = {
 export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4 text-white bg-blue-600 rounded-lg active"
+    "inline-block py-2 px-4  w-full text-white bg-blue-600 rounded-lg active"
   let inactiveTabStyle =
-    "inline-block py-2 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+    "inline-block py-2 px-4 w-full bg-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
 
   return (
     <div>
-      <ul className="flex w-fit flex-wrap rounded-lg bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
+      <ul
+        className={clsx(
+          props.options.length > 2
+            ? "flex-wrap xs:max-w-full xs:flex-nowrap"
+            : "",
+          "flex max-w-fit flex-row whitespace-nowrap rounded-lg bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400"
+        )}
+      >
         {props.options?.map((opt: any) => (
-          <li>
+          <li className="w-full">
             <button
               aria-current="page"
               onClick={() => {
