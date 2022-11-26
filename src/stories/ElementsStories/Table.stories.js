@@ -19,6 +19,12 @@ export default {
       options: ["ar", "en"],
       description:
         "A array of arrays. Each array inside the main array is a single row"
+    },
+    lang: {
+      control: "select",
+      options: ["normal", "small"],
+      description:
+        "A array of arrays. Each array inside the main array is a single row"
     }
   },
   parameters: {
@@ -38,6 +44,7 @@ export const NoData = (args) => {
 
   return (
     <HawaTable
+      size={args.size}
       lang={args.lang}
       columns={["Product", "Price", "Date"]}
       noDataText={"No data"}
@@ -54,6 +61,7 @@ export const DataOnly = (args) => {
   return (
     <HawaTable
       lang={args.lang}
+      size={args.size}
       columns={["Product", "Price", "Date"]}
       noDataText={"No data"}
       rows={[
@@ -95,10 +103,11 @@ export const DataWithActions = (args) => {
 
   return (
     <HawaTable
-      actions={["view", "edit", "delete"]}
+      actions={["View", "Edit", "Delete"]}
       lang={args.lang}
       columns={["Product", "Price", "Date"]}
       noDataText={"No data"}
+      size={args.size}
       rows={[
         [
           "Logo Design",

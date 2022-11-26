@@ -1,6 +1,8 @@
 import React from "react"
 import { HawaButton } from "./HawaButton"
-
+import { FaTrash, FaExclamationCircle, FaPen } from "react-icons/fa"
+import clsx from "clsx"
+// import { HiOutlineEye } from "react-icons/hi2"
 type TableTypes = {
   lang?: any
   columns: any[string]
@@ -9,10 +11,19 @@ type TableTypes = {
   noDataText?: any
   handleActionClick?: any
   end?: any
+  size?: "normal" | "small"
 }
 
-export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
+export const HawaTable: React.FunctionComponent<TableTypes> = ({
+  size = "normal",
+  ...props
+}) => {
   let isArabic = props.lang === "ar"
+
+  let sizeStyles = {
+    normal: "py-3 px-6",
+    small: "px-3 py-1",
+  }
   return (
     <>
       <div>
@@ -21,15 +32,15 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
             <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 {props.columns.map((col: any, i: any) => (
-                  <th key={i} scope="col" className="py-3 px-6">
+                  <th key={i} scope="col" className={clsx(sizeStyles[size])}>
                     {col}
                   </th>
                 ))}
-                {props.actions && (
-                  <th scope="col" className="py-3 px-6">
+                {props.actions && size !== "small" ? (
+                  <th scope="col" className={clsx(sizeStyles[size])}>
                     actions
                   </th>
-                )}
+                ) : null}
               </tr>
             </thead>
             <tbody>
@@ -44,30 +55,30 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
                         return (
                           <th
                             scope="row"
-                            className="whitespace-nowrap py-4 px-6 font-medium text-gray-900 dark:text-white"
+                            className={clsx(
+                              sizeStyles[size],
+                              "whitespace-nowrap font-medium text-gray-900 dark:text-white"
+                            )}
                           >
                             {r}{" "}
                           </th>
                         )
                       } else {
-                        return <td className="py-4 px-6">{r}</td>
+                        return <td className={clsx(sizeStyles[size])}>{r}</td>
                       }
                     })}
-                    {props.actions && (
+                    {props.actions && size !== "small" ? (
                       <td
                         align={isArabic ? "right" : "left"}
                         style={{ fontWeight: 700 }}
+                        className="flex flex-row gap-1"
                         // variant={isArabic ? "borderedRight" : "borderedLeft"}
                       >
-                        {props.actions.map((act: any) => (
-                          <HawaButton
-                            onClick={() => props.handleActionClick(singleRow)}
-                          >
-                            {act}
-                          </HawaButton>
-                        ))}
+                        {props.actions.map((act: any) => {
+                          return <TableActionButton action={act} />
+                        })}
                       </td>
-                    )}
+                    ) : null}
                   </tr>
                 ))
               ) : (
@@ -190,5 +201,29 @@ export const HawaTable: React.FunctionComponent<TableTypes> = (props) => {
         </Table>
       </TableContainer> */}
     </>
+  )
+}
+
+const TableActionButton = (props) => {
+  let smallAct = props.action.toLowerCase()
+  return (
+    <HawaButton
+      size="noPadding"
+      variant="outlined"
+      tooltip={props.action}
+      onClick={() => props.handleActionClick(smallAct)}
+    >
+      <div className="w-full rounded-lg p-1.5">
+        {smallAct === "delete" ? (
+          <FaTrash />
+        ) : smallAct === "view" ? (
+          <FaExclamationCircle />
+        ) : smallAct === "edit" ? (
+          <FaPen />
+        ) : (
+          props.action
+        )}
+      </div>
+    </HawaButton>
   )
 }

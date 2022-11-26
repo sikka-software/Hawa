@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
-  size?: "small" | "medium" | "large"
+  size?: "small" | "medium" | "large" | "noPadding"
   tooltip?: string
   isLoading?: boolean
 }
@@ -16,6 +16,7 @@ const sizeStyles = {
   small: "text-xs px-2.5 py-1.5",
   medium: "text-sm leading-4 px-3 py-2",
   large: "text-sm px-4 py-2",
+  noPadding: "p-0",
 }
 
 const widthStyles = {
