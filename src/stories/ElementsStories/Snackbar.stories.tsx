@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { HawaSnackbar } from "../../elements"
 import { Story, Meta } from "@storybook/react"
 
@@ -29,7 +29,6 @@ export default {
 } as Meta
 
 const Template: Story = (args) => {
-  const [open, setOpen] = useState(true)
   return (
     <HawaSnackbar
       title={args.title}

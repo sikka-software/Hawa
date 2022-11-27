@@ -7,6 +7,8 @@ import {
   HawaButton,
   HawaDrawer
 } from "../../elements";
+import useDiscloser from "./../../hooks/useDiscloser"
+
 
 export default {
   title: "Elements/Drawer",
@@ -27,12 +29,13 @@ export default {
 };
 
 const Template = (args) => {
-  const [open, setOpen] = useState(args.open ?? false);
+
+  const {isOpen, onClose, onOpen} = useDiscloser()
 
   return (
     <>
-    <HawaButton onClick={() => setOpen(true)}>Open Drawer</HawaButton>
-    <HawaDrawer position={args.position} open={open} setOpen={setOpen}>
+    <HawaButton onClick={onOpen}>Open Drawer</HawaButton>
+    <HawaDrawer position={args.position} open={isOpen} setOpen={onClose}>
       <DrawerHeader>
         <div className="text-lg font-bold">Hawa</div>
       </DrawerHeader>

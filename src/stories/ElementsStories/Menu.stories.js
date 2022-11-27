@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HawaButton, HawaMenu } from "../../elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
+import useDiscloser from "../../hooks/useDiscloser";
 
 export default {
   title: "Elements/Menu",
@@ -36,10 +37,10 @@ export default {
 };
 
 const Template = (args) => {
-  const [openDropDown, setOpenDropDown] = useState(args.open);
+  const { isOpen, onClose, onOpen } = useDiscloser(args.open);
   return (
     <div className="flex h-96 items-center justify-center">
-      <HawaMenu {...args} handleClose={setOpenDropDown} open={openDropDown}>
+      <HawaMenu {...args} handleClose={onClose} handleOpen={onOpen} open={isOpen}>
         <HawaButton width="normal" variant="contained">
           Open Menu
         </HawaButton>

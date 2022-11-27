@@ -8,7 +8,8 @@ interface TMenuTypes {
   headerTitle?: string
   headerSubtitle?: string
   open?: boolean
-  handleClose?: (e: boolean) => void
+  handleClose?: () => void
+  handleOpen: () => void
   anchor?: any
   children?: ReactNode
   buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
@@ -32,6 +33,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   headerSubtitle,
   open,
   handleClose,
+  handleOpen,
   buttonPosition,
   children,
 }) => {
@@ -48,7 +50,13 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     closed: "h-0 ",
   }
   return (
-    <div className="relative w-fit " onClick={() => handleClose(!open)}>
+    <div
+      className="relative w-fit "
+      onClick={() => {
+        if (open) handleClose()
+        else handleOpen()
+      }}
+    >
       {children}
 
       <div
