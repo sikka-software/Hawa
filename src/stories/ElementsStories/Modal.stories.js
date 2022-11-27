@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HawaButton, HawaModal, ModalFooter } from "../../elements";
+import useDiscloser from "../../hooks/useDiscloser";
 
 export default {
   title: "Elements/Modal",
@@ -30,7 +31,7 @@ export default {
 };
 
 const Template = (args) => {
-  const [open, setOpen] = useState(args.open);
+  const { isOpen, onClose, onOpen } = useDiscloser(args.open);
   return (
     <>
       <button
@@ -41,7 +42,7 @@ const Template = (args) => {
           console.log("opening modal");
           e.stopPropagation();
 
-          setOpen(true);
+          onOpen();
         }}
       >
         Open Dialog
@@ -52,8 +53,8 @@ const Template = (args) => {
         title={args.title}
         hideClose={args.hideClose}
         closeOnClickOutside={args.closeOnClickOutside}
-        open={open}
-        onClose={() => setOpen(!open)}
+        open={isOpen}
+        onClose={() => onClose()}
         actions={
           <>
             <HawaButton width="normal">Test</HawaButton>

@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.106",
+  "version": "0.0.107",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -95,6 +95,7 @@
     "react-icons": "^4.6.0",
     "react-select": "^5.3.2",
     "rollup-plugin-swc": "^0.2.1",
-    "rollup-plugin-typescript2": "^0.34.1"
+    "rollup-plugin-typescript2": "^0.34.1",
+    "start": "^5.1.0"
   }
 }
