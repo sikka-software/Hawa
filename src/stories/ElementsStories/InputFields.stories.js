@@ -4,13 +4,19 @@ import {
   HawaTextField,
   HawaSelect,
   HawaPhoneInput,
-  HawaColorPicker
+  HawaColorPicker,
+  HawaCardInput
 } from "../../elements";
-// import { HawaPinInput, HawaPinInputField } from "../../elements/PinInput";
 
 export default {
   title: "Elements/Input Fields",
-  component: [HawaTextField, HawaPhoneInput, HawaSelect, HawaColorPicker],
+  component: [
+    HawaTextField,
+    HawaPhoneInput,
+    HawaSelect,
+    HawaColorPicker,
+    HawaCardInput
+  ],
   parameters: {
     backgrounds: {
       default: "light",
@@ -141,5 +147,12 @@ export const ColorPicker = (args) => {
 };
 
 ColorPicker.args = {
+  color: "#f0f0f0"
+};
+export const CardInput = (args) => {
+  return <HawaCardInput {...args} />;
+};
+
+CardInput.args = {
   color: "#f0f0f0"
 };

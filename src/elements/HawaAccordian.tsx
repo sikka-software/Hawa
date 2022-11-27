@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React from "react"
 
 type AccordionItemTypes = {
@@ -18,12 +19,17 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
     "p-5 font-light border border-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
   let accPaperRounded =
     "p-5 font-light border border-b-xl rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+
   return (
-    <div>
+    <div className="rounded-lg ">
       <h2 id={"accordion-collapse-heading-" + props.count}>
         <button
           type="button"
-          className={props.count === 0 ? roundedTop : noRounding}
+          className={clsx(
+            // props.count === 0 ? roundedTop : noRounding,
+            "flex w-full items-center justify-between border border-gray-200 bg-gray-100 p-5 text-left font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800",
+            !collapse ? "rounded-t-lg" : "rounded-lg"
+          )}
           onClick={() => setCollapse(!collapse)}
           data-accordion-target={"#accordion-collapse-body-" + props.count}
           aria-expanded="true"
@@ -32,7 +38,7 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
           <span>{props.title}</span>
           <svg
             data-accordion-icon=""
-            className={`h-6 w-6 ${collapse ? "" : "rotate-180"}  shrink-0`}
+            className={`h-6 w-6 ${collapse ? "" : "rotate-180"}  shrink-0 transition-all`}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,14 +53,15 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
       </h2>
       <div
         id={"accordion-collapse-body-" + props.count}
-        className={`${collapse ? "hidden" : "block"}`}
+        className={clsx(
+          collapse ? "invisible hidden" : "visible",
+          "border-b-xl rounded-b-xl border border-gray-200 p-5 font-light dark:border-gray-700 dark:bg-gray-900"
+        )}
         aria-labelledby={"accordion-collapse-heading-" + props.count}
       >
-        <div className={props.count === -1 ? accPaperRounded : accPaper}>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            {props.content}
-          </p>
-        </div>
+        {/* <div className={props.count === -1 ? accPaperRounded : accPaper}> */}
+        <p className="mb-2 text-gray-500 dark:text-gray-400">{props.content}</p>
+        {/* </div> */}
       </div>
     </div>
   )
@@ -66,7 +73,11 @@ export const HawaAccordian: React.FunctionComponent<AccordionTypes> = (
   props
 ) => {
   return (
-    <div id="accordion-collapse" data-accordion="collapse">
+    <div
+      id="accordion-collapse"
+      data-accordion="collapse"
+      className="flex flex-col gap-3"
+    >
       {props.content.map((acc: any, i: any) => {
         return (
           <AccordionItem
