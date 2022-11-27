@@ -15,7 +15,7 @@ type DragDropImagesTypes = {
   setFiles: any
   setDeletedFiles: any
   maxFiles: number
-  accept: any
+  accept: string
   onAcceptedFiles: any
   showPreview: any
   onDeleteFile: any
@@ -157,9 +157,9 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       <div
         // variant="drop-area"
         {...getRootProps({
-          //fix type error
-          // style: { backgroundColor: isDragActive && "white" },
+          style: {backgroundColor : isDragActive ?  "white" : "inherit" }
         })}
+        // style={{ backgroundColor: isDragActive ? "white" : "inherit" }}
         className="flex flex-col justify-center rounded-xl border border-dashed border-black"
       >
         <input {...getInputProps()} />
