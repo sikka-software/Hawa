@@ -1,26 +1,31 @@
 {
-    "compilerOptions": {
-      "declaration": true,
-      "target": "es5",
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": false,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": false,
-      "noEmitHelpers": false,
-      "inlineSourceMap": false,
-      "importHelpers": true,
-      // "allowNonTsExtensions":true,
-      "esModuleInterop": true,
-      "noResolve": false,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve",
-      "rootDir": "src"
-    },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "*.js+(|x)", "**/*.js+(|x)"],
-    "exclude": ["node_modules"]
-  }
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "noEmitHelpers": false,
+    "inlineSourceMap": false,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "noResolve": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "rootDir": "src"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "*.js+(|x)",
+    "**/*.js+(|x)"
+  ],
+  "exclude": ["node_modules"]
+}
