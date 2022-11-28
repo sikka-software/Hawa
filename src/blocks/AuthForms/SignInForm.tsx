@@ -58,7 +58,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
 
   return (
     <HawaContainer maxWidth="small">
-      <form onSubmit={handleSubmit(props.handleSignIn)}>
+      <form onSubmit={handleSubmit((e) => props.handleSignIn(e))}>
         {props.showError && (
           <HawaAlert
             title={props.errorTitle}
@@ -150,6 +150,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
           size="medium"
           width="full"
           type="submit"
+          // onClick={(e) => console.log("clicking")}
         >
           {props.texts.signInText}
         </HawaButton>

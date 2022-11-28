@@ -73,10 +73,10 @@ export default {
       table: { defaultValue: { summary: "Something went wrong" } }
     },
 
-    handleSignIn: {
-      action: "Signing in Via Email",
-      description: "The function to sign in user"
-    },
+    // handleSignIn: {
+    //   action: "Signing in Via Email",
+    //   description: "The function to sign in user"
+    // },
     handleForgotPassword: {
       action: "Redirecting to reset password",
       description: "Directing user to forgot password block"
@@ -106,7 +106,9 @@ const SignInTemplate = (args) => {
     <SignInForm
       isLoading={isLoading}
       handleForgotPassword={() => console.log("forgot password")}
-      handleSignIn={(e) => setIsLoading(true)}
+      handleSignIn={(e) => {
+        console.log("achraf : ",e);
+      }}
       {...args}
     />
   );

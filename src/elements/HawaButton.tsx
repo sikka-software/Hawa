@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
   size?: "small" | "medium" | "large" | "noPadding"
-  tooltip?: string
+  tooltip?: string,
   isLoading?: boolean
 }
 
@@ -95,6 +95,7 @@ export function HawaButton({
               )
         }
         disabled={disabled}
+        type={props.type}
         {...props}
       >
         {!isLoading ? (
