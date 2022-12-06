@@ -23,6 +23,7 @@ export * from "./HawaMenu"
 export * from "./HawaDrawer"
 export * from "./HawaCopyrights"
 export * from "./HawaTimeline"
+export * from "./Breadcrumb"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"
