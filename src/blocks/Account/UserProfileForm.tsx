@@ -1,5 +1,5 @@
 import React from "react"
-import { HawaButton, HawaTextField } from "../../elements"
+import { HawaButton, HawaPhoneInput, HawaTextField } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
@@ -24,7 +24,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
     <HawaContainer>
       {" "}
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(props.handleUpdateProfile)}>
+        <form onSubmit={handleSubmit((e) => props.handleUpdateProfile(e))}>
           <Controller
             control={control}
             name="fullName"
@@ -43,15 +43,7 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
           <Controller
             control={control}
             name="phoneNumber"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="tel"
-                label="Phone Number"
-                placeholder="+966"
-                {...field}
-              />
-            )}
+            render={({ field }) => <HawaPhoneInput label="Phone number" />}
           />
           <Controller
             control={control}

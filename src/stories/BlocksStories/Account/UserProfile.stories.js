@@ -9,8 +9,8 @@ export default {
 const ProfileTemplate = (args) => {
   return (
     <UserProfileForm
-      {...args}
       handleUpdateProfile={(e) => console.log("updating profile", e)}
+      {...args}
       texts={{
         fullNameLabel: "Full Name",
         fullNamePlaceholder: "Fulan AlFulani",
@@ -32,32 +32,32 @@ const ProfileTemplate = (args) => {
       inputs={[
         {
           name: "name",
-          label : "Full Name",
-          placeHolder : "Your full name",
-          defaultValue:"here goes default Value",
-          value:"this is value",
+          label: "Full Name",
+          placeHolder: "Your full name",
+          defaultValue: "here goes default Value",
+          value: "this is value",
           type: "text",
-          rules : {
-            required : true,
-            minLength:8,
+          rules: {
+            required: true,
+            minLength: 8
           }
         },
         {
-          name : "phone",
-          label : "Phone Number",
+          name: "phone",
+          label: "Phone Number",
           type: "number",
-          placeHolder : "Your full name",
+          placeHolder: "Your full name",
           type: "text",
-          rules : {
-            required : true,
-            minLength:8,
+          rules: {
+            required: true,
+            minLength: 8
           }
         },
         {
-          name : "message",
-          label : "Your Message",
-          defaultValue:"This is your default Value",
-          type : "textarea"
+          name: "message",
+          label: "Your Message",
+          defaultValue: "This is your default Value",
+          type: "textarea"
         }
       ]}
     />
