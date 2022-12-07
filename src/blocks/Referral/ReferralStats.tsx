@@ -15,7 +15,7 @@ export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
   withdrawError,
 }) => {
   return (
-    <HawaContainer maxWidth="normal">
+    <HawaContainer>
       <div className="mb-1">Stats</div>
       <div className="justi flex flex-row gap-1">
         <NumberCard title="Clicks" number={22} />

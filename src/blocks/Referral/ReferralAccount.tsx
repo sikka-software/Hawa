@@ -13,7 +13,7 @@ export const ReferralAccount: React.FunctionComponent<ReferralAccount> = ({
   referralCode,
 }) => {
   return (
-    <HawaContainer maxWidth="normal">
+    <HawaContainer>
       <div className="my-2 mt-0">
         <div className="mb-1">Referral Code</div>
         <div className="flex flex-row items-center justify-between rounded-lg bg-white">

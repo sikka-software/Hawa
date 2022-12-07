@@ -26,7 +26,7 @@ export const ReferralSettlement: React.FunctionComponent<
     control,
   } = methods
   return (
-    <HawaContainer maxWidth="normal">
+    <HawaContainer>
       <div>
         <FormProvider {...methods}>
           <HawaTextField label={"IBAN"} />

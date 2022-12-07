@@ -27,8 +27,7 @@ export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
     control,
   } = methods
   return (
-    <HawaContainer maxWidth="small">
-      {" "}
+    <HawaContainer>
       {!props.sent ? (
         <form onSubmit={handleSubmit(props.handleResetPassword)}>
           <Controller

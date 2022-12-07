@@ -148,7 +148,6 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
     </div>
 
     // <Container
-    //   maxWidth="xs"
     //   variant={props.selectedPlan ? "selected-plan-card" : "plan-card"}
     //   style={{ direction: isArabic ? "rtl" : "ltr" }}
     // >
@@ -157,7 +156,6 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
     //         label={props.discount}
     //         variant="standard"
     //         style={{
-    //           maxWidth: "fit-content",
     //           position: "absolute",
     //           bottom: 10,
     //           ...chipSpacing

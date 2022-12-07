@@ -26,7 +26,7 @@ export const CodeConfirmation: React.FunctionComponent<
   } = methods
 
   return (
-    <HawaContainer maxWidth="small">
+    <HawaContainer>
       {" "}
       {props.showError && (
         <HawaAlert

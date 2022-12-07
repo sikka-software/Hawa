@@ -41,7 +41,7 @@ export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
   }
 
   return (
-    <HawaContainer maxWidth="small">
+    <HawaContainer>
       {" "}
       {matchError && (
         <HawaAlert text={props.texts.passwordMatchError} severity="error" />

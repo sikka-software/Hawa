@@ -60,7 +60,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
     },
   }
   return (
-    <HawaContainer maxWidth="full">
+    <HawaContainer>
       <div>
         <div className="mb-2 text-center text-xl font-semibold">
           {props.texts.orderDetails}
