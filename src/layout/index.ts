@@ -3,3 +3,4 @@ export * from "./Box";
 export * from "./HawaBottomAppBar";
 export * from "./HawaLayout";
 export * from "./HawaContainer";
+export * from "./SimpleGrid";
