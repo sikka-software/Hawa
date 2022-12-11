@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import React, { FC } from "react"
+import { HawaButton } from "./HawaButton"
 
 type THawaSnackBar = {
   severity: "info" | "warning" | "error" | "success" | "none"
@@ -12,6 +13,13 @@ type THawaSnackBar = {
     | "bottom-right"
     | "bottom-center"
     | "bottom-left"
+  actions?: [
+    {
+      label: string
+      onClick: any
+      variant: "contained" | "outlined"
+    }
+  ]
 }
 
 export const HawaSnackbar: FC<THawaSnackBar> = ({
@@ -19,6 +27,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
   description,
   severity = "info",
   position = "bottom-left",
+  actions,
 }) => {
   let defaultStyle =
     "fixed flex flex-row items-top p-1 w-full max-w-xs rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
@@ -44,8 +53,21 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
       className={clsx(defaultStyle, severities[severity], positions[position])}
     >
       <div className="p-3">
-        <div className="ml-3 text-sm font-bold">{title}</div>
-        <div className="ml-3 text-sm font-normal">{description}</div>
+        <div className="text-sm font-bold">{title}</div>
+        <div className="text-sm font-normal">{description}</div>
+        {actions && (
+          <div className="mt-2 flex flex-row gap-2">
+            {actions.map((act) => (
+              <HawaButton
+                variant={act.variant}
+                onClick={act.onClick()}
+                margins="none"
+              >
+                {act.label}
+              </HawaButton>
+            ))}
+          </div>
+        )}
       </div>
       <button
         type="button"

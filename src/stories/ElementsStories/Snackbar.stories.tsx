@@ -35,7 +35,7 @@ const Template: Story = (args) => {
       description={args.description}
       severity={args.severity}
       position={args.position}
-      // {...args}
+      {...args}
       // open={open}
       // handleClose={() => {
       //   console.log("test");
@@ -94,4 +94,27 @@ Error.args = {
   duration: 5000,
   position: "bottom-left",
   autoHide: false,
+}
+
+export const WithActions = Template.bind({})
+WithActions.args = {
+  title: "Info",
+  description: "This is an alert indicating that there was a info action",
+  severity: "info",
+  isClosable: false,
+  duration: 5000,
+  position: "bottom-left",
+  autoHide: false,
+  actions: [
+    {
+      label: "Upgrade",
+      onClick: () => console.log("testing"),
+      variant: "outlined",
+    },
+    {
+      label: "Disable",
+      onClick: () => console.log("testing"),
+      variant: "outlined",
+    },
+  ],
 }
