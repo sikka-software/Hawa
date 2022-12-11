@@ -29,7 +29,7 @@ const AppLandingTemplate = (args) => {
 export const Landing = AppLandingTemplate.bind({});
 Landing.args = {
   lang: "en",
-  size: "small",
+  size: "normal",
   texts: {
     signIn: "Sign In",
     signUp: "Sign Up",

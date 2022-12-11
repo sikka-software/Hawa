@@ -54,3 +54,21 @@ Error.args = {
   text: "This is an alert indicating that there was a error action",
   severity: "error"
 };
+export const WithActions = Template.bind({});
+WithActions.args = {
+  title: "Error",
+  text: "This is an alert indicating that there was a error action",
+  severity: "error",
+  actions: [
+    {
+      label: "Upgrade",
+      onClick: () => console.log("testing"),
+      variant: "outlined"
+    },
+    {
+      label: "Disable",
+      onClick: () => console.log("testing"),
+      variant: "outlined"
+    }
+  ]
+};

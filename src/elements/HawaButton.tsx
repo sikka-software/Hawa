@@ -6,7 +6,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
   size?: "small" | "medium" | "large" | "noPadding"
-  tooltip?: string,
+  margins?: "none" | "1" | "2" | "3" | "4"
+  tooltip?: string
   isLoading?: boolean
 }
 
@@ -59,6 +60,7 @@ export function HawaButton({
   width = "normal",
   disabled = false,
   isLoading = false,
+  margins = "2",
   tooltip,
   children,
   ...props
@@ -66,7 +68,12 @@ export function HawaButton({
   const [isHovered, setIsHovered] = React.useState(false)
 
   return (
-    <div className="relative my-2">
+    <div
+      className={clsx(
+        "relative",
+        margins !== "none" ? `my-${margins}` : "my-0"
+      )}
+    >
       <button
         onMouseEnter={() => {
           setIsHovered(true)

@@ -1,5 +1,6 @@
 import React from "react"
 import clsx from "clsx"
+import { HawaButton } from "./HawaButton"
 
 let severities = {
   info: "text-blue-700 bg-blue-100 dark:bg-blue-200 dark:text-blue-800",
@@ -13,6 +14,13 @@ type AlertTypes = {
   title?: any
   text: any
   hideIcon?: any
+  actions?: [
+    {
+      label: string
+      onClick: any
+      variant: "contained" | "outlined"
+    }
+  ]
 }
 export const HawaAlert: React.FunctionComponent<AlertTypes> = (props) => {
   return (
@@ -25,6 +33,19 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = (props) => {
     >
       <span className="font-medium">{props.title}</span>
       <span>{" " + props.text}</span>
+      {props.actions && (
+        <div className="mt-2 flex flex-row gap-2">
+          {props.actions.map((act) => (
+            <HawaButton
+              variant={act.variant}
+              onClick={act.onClick()}
+              margins="none"
+            >
+              {act.label}
+            </HawaButton>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
