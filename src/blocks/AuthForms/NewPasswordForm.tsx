@@ -4,7 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
 type NewPasswordTypes = {
-  handleNewPassword: any
+  handleNewPassword: () => void
   passwordChanged: any
   texts: {
     passwordPlaceholder: string
@@ -17,7 +17,6 @@ type NewPasswordTypes = {
     passwordMatchError: string
     passwordChanged: string
   }
-  handleSignIn: any
 }
 
 export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (

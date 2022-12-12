@@ -11,29 +11,27 @@ type SignInPhoneTypes = {
   handlePhoneChange: any
   phoneRequiredText: any
   SignInButtonText: any
+  handleSignIn: any
 }
 
 export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
   props
 ) => {
+  const methods = useForm()
   const {
     formState: { errors },
     handleSubmit,
     control,
-  } = useForm()
+  } = methods
 
   const [userPhone, setUserPhone] = useState("")
-  const handlingSubmit = () => {
-    console.log("submitting ", userPhone)
-  }
   return (
     <HawaContainer>
       <form
-        onSubmit={handleSubmit(() => console.log("testing submit"))}
-        // onSubmit={(e) => {
-        //   e.preventDefault()
-        //   console.log("testing submit")
-        // }}
+        onSubmit={(e) => {
+          e.preventDefault()
+          props.handleSignIn(userPhone)
+        }}
       >
         <Controller
           control={control}
@@ -42,11 +40,11 @@ export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
             <HawaPhoneInput
               country={props.country ?? ""}
               label={props.label ?? ""}
-              {...field}
               handleChange={(e: any) => {
                 console.log("test")
                 setUserPhone(e.target.value)
               }}
+              {...field}
               // handleChange={(e: any) => {
               //   // props.handlePhoneChange(e.target.value)
               //   setUserPhone(e.target.value)

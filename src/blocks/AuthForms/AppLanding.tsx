@@ -3,9 +3,9 @@ import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout/HawaContainer"
 
 type AppLandingTypes = {
-  handleSignIn: any
-  handleSignUp: any
-  handleLanguage: any
+  handleSignIn: () => void
+  handleSignUp: () => void
+  handleLanguage: () => void
   texts: {
     signIn: string
     signUp: string

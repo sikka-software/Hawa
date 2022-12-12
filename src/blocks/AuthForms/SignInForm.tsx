@@ -41,12 +41,12 @@ type SignInFormTypes = {
   viaGoogle: boolean
   viaGithub: boolean
   viaTwitter: boolean
-  handleSignIn: any
-  handleRouteToSignUp: any
-  handleForgotPassword: any
-  handleGoogleSignIn: any
-  handleGithubSignIn: any
-  handleTwitterSignIn: any
+  handleSignIn: (e: any) => void
+  handleRouteToSignUp: () => void
+  handleForgotPassword: () => void
+  handleGoogleSignIn: () => void
+  handleGithubSignIn: () => void
+  handleTwitterSignIn: () => void
 }
 
 export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {

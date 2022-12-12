@@ -14,29 +14,26 @@ export default {
 };
 
 const NewPasswordTemplate = (args) => {
-  return (
-    <NewPasswordForm
-      {...args}
-      texts={{
-        emailLabel: "Email",
-        emailPlaceholder: "Enter your email",
-        emailRequiredText: "Email is required",
-        passwordPlaceholder: "Enter password",
-        updatePassword: "Update Password",
-        passwordRequiredText: "Password is required",
-        passwordLabel: "Choose new password",
-        confirmPasswordPlaceholder: "Confirm password",
-        confirmPasswordLabel: "Confirm",
-        confirmPasswordRequiredText: "Confirmation is required",
-        passwordMatchError: "Password doesn't match",
-        forgotPasswordText: "Forgot password?",
-        passwordChanged:
-          "Your password has been changed, you'll be redirected to sign in page"
-      }}
-    />
-  );
+  return <NewPasswordForm {...args} />;
 };
 export const NewPassword = NewPasswordTemplate.bind({});
 NewPassword.args = {
-  passwordChanged: false
+  handleNewPassword: () => console.log("changing password"),
+  passwordChanged: false,
+  texts: {
+    emailLabel: "Email",
+    emailPlaceholder: "Enter your email",
+    emailRequiredText: "Email is required",
+    passwordPlaceholder: "Enter password",
+    updatePassword: "Update Password",
+    passwordRequiredText: "Password is required",
+    passwordLabel: "Choose new password",
+    confirmPasswordPlaceholder: "Confirm password",
+    confirmPasswordLabel: "Confirm",
+    confirmPasswordRequiredText: "Confirmation is required",
+    passwordMatchError: "Password doesn't match",
+    forgotPasswordText: "Forgot password?",
+    passwordChanged:
+      "Your password has been changed, you'll be redirected to sign in page"
+  }
 };

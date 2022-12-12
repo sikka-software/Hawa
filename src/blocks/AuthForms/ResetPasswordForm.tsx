@@ -4,7 +4,7 @@ import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
 
 type ResetPasswordType = {
-  handleResetPassword: any
+  handleResetPassword: () => void
   sent: any
   texts: {
     emailLabel: string

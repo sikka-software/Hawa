@@ -26,5 +26,6 @@ SignInWithPhone.args = {
   SignInButtonText: "Sign In",
   // onSubmit: (e) => console.log("this is submit function = ", e),
   label: "Your Phone",
-  phoneRequiredText: "Phone number is required"
+  phoneRequiredText: "Phone number is required",
+  handleSignIn: (e) => console.log(e)
 };

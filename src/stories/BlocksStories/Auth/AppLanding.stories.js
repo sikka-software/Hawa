@@ -7,17 +7,46 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "`<AppLanding/>` Authentication block for user sign in"
+        component:
+          "`<AppLanding/>` The first block the users sees when visiting the app"
       }
     }
   },
   argTypes: {
-    lang: {
-      default: true,
+    size: {
+      default: "normal",
       control: "select",
-      options: ["ar", "en"],
-      description: "The language of the form",
-      table: { defaultValue: { summary: "en" } }
+      options: ["normal", "small", "full"],
+      description: "The max width of the block",
+      table: { defaultValue: { summary: "normal" } },
+      type: {
+        summary: "string"
+      }
+    },
+    texts: {
+      description: "The texts used in the block",
+      control: "object",
+      type: {
+        summary: "object"
+      }
+    },
+    handleSignIn: {
+      description: "Action to redirect user to sign in page",
+      type: {
+        summary: "function"
+      }
+    },
+    handleSignUp: {
+      description: "Action to redirect user to sign up page",
+      type: {
+        summary: "function"
+      }
+    },
+    handleLanguage: {
+      description: "Action to change the language",
+      type: {
+        summary: "function"
+      }
     }
   }
 };
@@ -28,8 +57,6 @@ const AppLandingTemplate = (args) => {
 
 export const Landing = AppLandingTemplate.bind({});
 Landing.args = {
-  lang: "en",
-  size: "normal",
   texts: {
     signIn: "Sign In",
     signUp: "Sign Up",

@@ -15,22 +15,18 @@ export default {
 };
 
 const ResetPasswordTemplate = (args) => {
-  return (
-    <ResetPasswordForm
-      {...args}
-      texts={{
-        emailLabel: "Email",
-        emailPlaceholder: "Enter your email",
-        emailRequiredText: "Email is required",
-        emailInvalidText: "Invalid email address",
-        emailSentText: "The reset password link was sent to your email",
-        resetPassword: "Reset Password"
-      }}
-      handleResetPassword={(e) => console.log("resetting password,", e)}
-    />
-  );
+  return <ResetPasswordForm {...args} />;
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
-  sent: false
+  sent: false,
+  texts: {
+    emailLabel: "Email",
+    emailPlaceholder: "Enter your email",
+    emailRequiredText: "Email is required",
+    emailInvalidText: "Invalid email address",
+    emailSentText: "The reset password link was sent to your email",
+    resetPassword: "Reset Password"
+  },
+  handleResetPassword: (e) => console.log("resetting password,", e)
 };

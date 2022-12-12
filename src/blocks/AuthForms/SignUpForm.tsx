@@ -49,11 +49,11 @@ type SignUpFormTypes = {
   showNewsletterOption: boolean
   showRefCode: boolean
   showTermsOption: boolean
-  handleSignUp: any
-  handleRouteToSignIn: any
-  handleGoogleSignUp: any
-  handleGithubSignUp: any
-  handleTwitterSignUp: any
+  handleSignUp: (e: any) => void
+  handleRouteToSignIn: () => void
+  handleGoogleSignUp: () => void
+  handleGithubSignUp: () => void
+  handleTwitterSignUp: () => void
   showError: any
   errorTitle: any
   errorText: any
@@ -78,7 +78,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
           />
         )}
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(props.handleSignUp)}>
+          <form onSubmit={handleSubmit((e) => props.handleSignUp(e))}>
             <Controller
               control={control}
               name="fullName"
@@ -228,7 +228,6 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   render={({ field }) => (
                     <HawaCheckbox
                       helperText={errors.terms_accepted?.message}
-                      {...field}
                       onChange={() => console.log("te")}
                       label={
                         <span>
@@ -238,6 +237,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                           </a>
                         </span>
                       }
+                      {...field}
                     />
                   )}
                   rules={{ required: props.texts.termsRequiredText }}
