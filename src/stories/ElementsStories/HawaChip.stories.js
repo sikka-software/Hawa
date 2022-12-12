@@ -1,6 +1,6 @@
 import React from "react";
 import { HawaChip } from "../../elements";
-
+import { FaCheck } from "react-icons/fa";
 export default {
   title: "Elements/Chip",
   component: HawaChip,
@@ -24,13 +24,14 @@ export default {
   }
 };
 
-export const Chip = (args) => {
+export const Default = (args) => {
   return <HawaChip variant="contained" {...args} />;
 };
 
-// export const FullButton = Template.bind({});
-// FullButton.args = {
-//   showText: true,
-//   buttonText: "Button",
-//   icon: <Class />
-// };
+export const WithIcon = (args) => {
+  return <HawaChip variant="contained" {...args} />;
+};
+
+WithIcon.args = {
+  icon: <FaCheck />
+};
