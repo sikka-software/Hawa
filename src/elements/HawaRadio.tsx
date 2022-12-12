@@ -2,7 +2,12 @@ import clsx from "clsx"
 import React, { useState } from "react"
 
 type RadioTypes = {
-  options?: any
+  options?: [
+    {
+      value: any
+      label: any
+    }
+  ]
   onChangeTab?: any
   defaultValue?: any
 }
@@ -17,7 +22,7 @@ export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
     <div>
       <ul
         className={clsx(
-          props.options.length > 2
+          props.options?.length > 2
             ? "flex-wrap xs:max-w-full xs:flex-nowrap"
             : "",
           "flex max-w-fit flex-row whitespace-nowrap rounded-lg bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400"

@@ -13,7 +13,6 @@ export const UserSettingsForm: React.FunctionComponent<
 > = (props) => {
   return (
     <HawaContainer>
-      {" "}
       {props.children}
       <HawaButton
         color="primary"

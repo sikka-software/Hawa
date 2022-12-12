@@ -24,7 +24,7 @@ export const UserSettings = (args) => {
       handleSaveSettings={() => console.log("saving settings")}
     >
       <HawaSettingsRow
-        settingsType="checkbox"
+        settingsType="boolean"
         settingsLabel="Hide Watermark"
         onChange={(e) =>
           console.log("checkbox settings value is ", e.target.checked)
@@ -37,34 +37,28 @@ export const UserSettings = (args) => {
         onChange={(e) => console.log("text settings value is ", e.target.value)}
       />
       <HawaSettingsRow
-        handleChange={(e) => console.log("changing to ", e)}
         settingsType="radio"
-        defaultValue="sar"
-        options={[
-          { value: "sar", label: "SAR" },
-          { value: "usd", label: "USD" }
-        ]}
         settingsLabel="Currency"
+        radioProps={{
+          onChangeTab: () => console.log("changing tab"),
+          defaultValue: "sar",
+          options: [
+            { value: "sar", label: "SAR" },
+            { value: "usd", label: "USD" }
+          ]
+        }}
       />
       <HawaSettingsRow
-        handleChange={(e) => console.log("changing to ", e)}
         settingsType="radio"
-        defaultValue="en"
-        options={[
-          { value: "en", label: "English" },
-          { value: "ar", label: "Arabic" }
-        ]}
-        //   <HawaTabs
-        //   defaultValue={currentCycle}
-        //   options={[
-        //     { label: `Monthly`, value: `monthly` },
-        //     { label: `3 Months`, value: `3-months` },
-        //     { label: `6 Months`, value: `6-months` },
-        //     { label: `Annually`, value: `annually` }
-        //   ]}
-        //   onChangeTab={(e) => setCurrentCycle(e)}
-        // />
         settingsLabel="Language"
+        radioProps={{
+          onChangeTab: () => console.log("changing tab"),
+          defaultValue: "en",
+          options: [
+            { value: "en", label: "English" },
+            { value: "ar", label: "Arabic" }
+          ]
+        }}
       />
       <HawaSettingsRow
         settingsType="boolean"
@@ -76,6 +70,5 @@ export const UserSettings = (args) => {
   );
 };
 UserSettings.args = {
-  theme: "primary",
   title: "red"
 };
