@@ -5,5 +5,5 @@ type SearchBarTypes = {}
 export const HawaSearchBar: React.FunctionComponent<SearchBarTypes> = (
   props
 ) => {
-  return <HawaTextField {...props} />
+  return <HawaTextField type={"search"} {...props} />
 }
