@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { DragDropImages } from "../../elements";
 
@@ -10,13 +9,12 @@ export default {
       name: "accept",
       type: { name: "string", required: false },
       description: "file's type, splited by ,",
-      defaultValue: "image/*,application/pdf"
+      table: { defaultValue: "image/*,application/pdf" }
     }
   }
 };
 
 const DragAndDropFiles = (args, props) => {
-
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   return (

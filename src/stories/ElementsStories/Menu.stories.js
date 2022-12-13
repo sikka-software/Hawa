@@ -14,8 +14,10 @@ export default {
     },
     buttonPosition: {
       control: "select",
-      defaultValue: "top-left",
-      options: ["top-right", "top-left", "bottom-right", "bottom-left"]
+      options: ["top-right", "top-left", "bottom-right", "bottom-left"],
+      table: {
+        defaultValue: "top-left"
+      }
     },
     children: {
       control: "object",
@@ -40,7 +42,12 @@ const Template = (args) => {
   const { isOpen, onClose, onOpen } = useDiscloser(args.open);
   return (
     <div className="flex h-96 items-center justify-center">
-      <HawaMenu {...args} handleClose={onClose} handleOpen={onOpen} open={isOpen}>
+      <HawaMenu
+        {...args}
+        handleClose={onClose}
+        handleOpen={onOpen}
+        open={isOpen}
+      >
         <HawaButton width="normal" variant="contained">
           Open Menu
         </HawaButton>

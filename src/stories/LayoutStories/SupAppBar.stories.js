@@ -1,8 +1,4 @@
 import { BottomAppBar } from "../../layout/HawaBottomAppBar";
-// import AppSettingsAltIcon from "@mui/icons-material/AppSettingsAlt";
-// import BugReportIcon from "@mui/icons-material/BugReport";
-// import AppsIcon from "@mui/icons-material/Apps";
-// import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 export default {
   title: "Layout/SupAppBar",
@@ -33,7 +29,6 @@ Normal.args = {
     },
     {
       label: "Button 4",
-      // icon: <EmojiEmotionsIcon />,
       action: () => console.log("button 4")
     }
   ]

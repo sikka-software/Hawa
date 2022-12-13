@@ -8,7 +8,7 @@ export default {
 const Template = (args) => {
   return (
     <HawaLayout {...args}>
-      <div className="text-xs w-full">Requires a refresh sometimes</div>
+      <div className="w-full text-xs">Requires a refresh sometimes</div>
     </HawaLayout>
   );
 };
@@ -18,7 +18,7 @@ AppLayout.args = {
   appTitle: "قوائم",
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
-  logoLink: "https://flowbite.com/docs/images/logo.svg",
+  logoLink: "https://something.com/docs/images/logo.svg",
   profileItems: [
     {
       text: "Dashboard",

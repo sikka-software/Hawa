@@ -6,7 +6,7 @@ type TextFieldTypes = {
   width?: "small" | "normal" | "full"
   label?: any
   multiline?: any
-  helperText?: any
+  helperText?: string
   value?: any
   props?: React.PropsWithRef<"input">
   type?: any

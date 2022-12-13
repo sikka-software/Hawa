@@ -78,7 +78,6 @@ const DrawerContent = (props: any) => {
           }
           // src={props.logoLink}
           className="h-9"
-          alt="Flowbite Logo"
         />
       </div>
       <CloseButton />
@@ -151,9 +150,6 @@ export const HawaLayout: React.FunctionComponent<LayoutTypes> = (
       <div>
         <nav className="rounded border-gray-200 dark:bg-gray-900">
           <div className="flex w-full flex-row-reverse items-center justify-between p-3">
-            {/* <div href={props.logoHref} className="flex items-center">
-              <img src={props.logoLink} className="h-9" alt="Flowbite Logo" />
-            </div> */}
             <div
               data-dropdown-toggle="userDropdown"
               data-dropdown-placement="bottom-start"
@@ -181,7 +177,6 @@ export const HawaLayout: React.FunctionComponent<LayoutTypes> = (
                 }
                 // src={props.logoLink}
                 className="h-12"
-                alt="Flowbite Logo"
               />
             </div> */}
             <div>{props.pageTitle ?? "Home"}</div>

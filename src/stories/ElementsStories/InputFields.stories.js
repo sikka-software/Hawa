@@ -29,7 +29,6 @@ export default {
       type: { name: "string", required: true },
       options: ["text", "number", "date"],
       control: { type: "radio" },
-      defaultValue: "text",
       description: "Styled Text Field",
       table: {
         type: { summary: "string" },

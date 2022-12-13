@@ -38,7 +38,6 @@
     "babel-loader": "^8.2.2",
     "clsx": "^1.2.1",
     "crypto-js": "^4.1.1",
-    "emotion-theming": "^11.0.0",
     "framer-motion": "^4.1.7",
     "html-webpack-plugin": "^5.5.0",
     "next-scripts": "^0.3.4",
