@@ -19,6 +19,17 @@ export default {
       options: ["success", "info", "warning", "error"],
       description: "The content text of the alert"
     },
+    variant: {
+      control: "select",
+      options: [
+        "normal",
+        "top-accent",
+        "left-accent",
+        "right-accent",
+        "bottom-accent"
+      ],
+      description: "The content text of the alert"
+    },
     hideIcon: {
       control: "boolean",
       description: "Show or hide the alert icon"
