@@ -28,6 +28,7 @@ export * from "./HawaStats"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"
+export * from "./HawaPinInput"
 // Cards
 export * from "./HawaItemCard"
 export * from "./HawaPricingCard"

@@ -1,20 +1,21 @@
-import { HawaSiteLayout } from "../../layout";
+import { HawaAppLayout } from "../../layout";
+import { FaAddressCard, FaAdversal, FaAirFreshener } from "react-icons/fa";
 
 export default {
-  title: "Layout/SiteLayout",
-  component: [HawaSiteLayout]
+  title: "Layout/AppLayout",
+  component: [HawaAppLayout]
 };
 
 const Template = (args) => {
   return (
-    <HawaSiteLayout {...args}>
+    <HawaAppLayout {...args}>
       <div className="w-full text-xs">Requires a refresh sometimes</div>
-    </HawaSiteLayout>
+    </HawaAppLayout>
   );
 };
 
-export const SiteLayout = Template.bind({});
-SiteLayout.args = {
+export const AppLayout = Template.bind({});
+AppLayout.args = {
   appTitle: "قوائم",
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
@@ -62,7 +63,7 @@ SiteLayout.args = {
     {
       text: "Home",
       slug: "home",
-      // icon: Person,
+      icon: <FaAddressCard />,
       action: () => {
         setCurrentPage("home");
         setPageTitle("Home");
@@ -71,7 +72,7 @@ SiteLayout.args = {
     {
       text: "Menus",
       slug: "home",
-      // icon: Person,
+      icon: <FaAdversal />,
       action: () => {
         setCurrentPage("home");
         setPageTitle("Home");
@@ -81,7 +82,7 @@ SiteLayout.args = {
     {
       text: "Analytics",
       slug: "home",
-      // icon: Person,
+      icon: <FaAirFreshener />,
       action: () => {
         setCurrentPage("home");
         setPageTitle("Home");
