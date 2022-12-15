@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import React, { useState } from "react"
-import { FaAddressCard } from "react-icons/fa"
+
 type HawaAppLayoutTypes = {
   logoLink: string
   username: string
@@ -14,32 +14,41 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 
   return (
     <div className="fixed top-0 left-0 m-0 w-full p-0">
-      {/* navbar */}
-      <div className="m-0 flex flex-row justify-between bg-red-300 p-2">
-        <div>logo</div>
-        <div>page title</div>
-        <div className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
-          <AvatarIcon />
-        </div>
-      </div>
-
-      {/* side menu */}
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="fixed top-0 flex h-full w-10 flex-col gap-2 bg-blue-300 transition-all hover:w-60"
+        className="absolute top-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
       >
+        <div className="m-1 bg-red-300 p-2">logo</div>
         {props.drawerItems.map((dItem) => (
-          <div className="flex flex-row items-start justify-start bg-yellow-300 p-2">
-            {dItem.icon}
-            <div className={clsx(openSideMenu ? "visible" : "invisible")}>
+          <div className="pl-3 m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg bg-orange-400 p-2 transition-all hover:bg-green-300">
+            <div className="flex items-center justify-center">{dItem.icon}</div>
+            <div
+              className={clsx(
+                "mx-2 text-sm transition-all",
+                openSideMenu ? "opacity-100" : "opacity-0"
+              )}
+            >
               {dItem.text}
             </div>
           </div>
         ))}
       </div>
-      {/* page content */}
-      {props.children}
+
+      {/* 
+      <div className="relative flex flex-row bg-yellow-300">
+        <div className="relative left-10 h-screen w-full bg-orange-300">
+          <div className="m-0 flex flex-row justify-between bg-red-300 p-2">
+            <div></div>
+            <div>page title</div>
+            <div className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+              <AvatarIcon />
+            </div>
+          </div>
+
+          <div>{props.children}</div>
+        </div>
+      </div> */}
     </div>
   )
 }

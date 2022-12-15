@@ -10,43 +10,43 @@ import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
 type SignInFormTypes = {
-  showError: any
-  errorTitle: string
-  errorText: string
-  signInType: "email" | "username" | "phone"
-  texts: {
-    emailLabel: string
-    emailPlaceholder: string
-    emailRequiredText: string
-    emailInvalidText: string
-    usernameLabel: string
-    usernamePlaceholder: string
-    usernameRequired: string
-    usernameRequiredText: string
-    phoneRequiredText: string
-    passwordLabel: string
-    passwordPlaceholder: string
-    passwordRequiredText: string
-    forgotPasswordText: string
-    newUserText: string
-    signUpText: string
-    signInText: string
-    googleButtonLabel: string
-    githubButtonLabel: string
-    twitterButtonLabel: string
+  showError?: any
+  errorTitle?: string
+  errorText?: string
+  signInType?: "email" | "username" | "phone"
+  texts?: {
+    emailLabel?: string
+    emailPlaceholder?: string
+    emailRequiredText?: string
+    emailInvalidText?: string
+    usernameLabel?: string
+    usernamePlaceholder?: string
+    usernameRequired?: string
+    usernameRequiredText?: string
+    phoneRequiredText?: string
+    passwordLabel?: string
+    passwordPlaceholder?: string
+    passwordRequiredText?: string
+    forgotPasswordText?: string
+    newUserText?: string
+    signUpText?: string
+    signInText?: string
+    googleButtonLabel?: string
+    githubButtonLabel?: string
+    twitterButtonLabel?: string
   }
-  withoutResetPassword: boolean
-  withoutSignUp: boolean
-  isLoading: any
-  viaGoogle: boolean
-  viaGithub: boolean
-  viaTwitter: boolean
-  handleSignIn: (e: any) => void
-  handleRouteToSignUp: () => void
-  handleForgotPassword: () => void
-  handleGoogleSignIn: () => void
-  handleGithubSignIn: () => void
-  handleTwitterSignIn: () => void
+  withoutResetPassword?: boolean
+  withoutSignUp?: boolean
+  isLoading?: any
+  viaGoogle?: boolean
+  viaGithub?: boolean
+  viaTwitter?: boolean
+  handleSignIn?: (e: any) => void
+  handleRouteToSignUp?: () => void
+  handleForgotPassword?: () => void
+  handleGoogleSignIn?: () => void
+  handleGithubSignIn?: () => void
+  handleTwitterSignIn?: () => void
 }
 
 export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
