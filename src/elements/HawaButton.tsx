@@ -1,5 +1,6 @@
 import * as React from "react"
 import clsx from "clsx"
+import { HawaSpinner } from "./HawaSpinner"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
@@ -108,9 +109,10 @@ export function HawaButton({
         {!isLoading ? (
           children
         ) : (
-          <div className="flex flex-row gap-x-3">
-            <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
-          </div>
+          // <div className="flex flex-row gap-x-3">
+          //   <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
+          // </div>
+          <HawaSpinner />
         )}
       </button>
       {tooltip && (
