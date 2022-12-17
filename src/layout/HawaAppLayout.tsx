@@ -3,9 +3,8 @@ import React, { useState } from "react"
 
 type HawaAppLayoutTypes = {
   logoLink: string
-  username: string
-  userEmail: string
   drawerItems: any
+  currentPage?: string
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   props: any
@@ -21,7 +20,18 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       >
         <div className="m-1 bg-red-300 p-2">logo</div>
         {props.drawerItems.map((dItem) => (
-          <div className="pl-3 m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg bg-orange-400 p-2 transition-all hover:bg-green-300">
+          <div
+            // onClick={() => {
+            //   // dItem.action()
+            // }}
+            onClick={() => {
+              console.log("switching pages")
+            }}
+            className={clsx(
+              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-green-300",
+              props.currentPage === dItem.slug ? "bg-primary-400" : ""
+            )}
+          >
             <div className="flex items-center justify-center">{dItem.icon}</div>
             <div
               className={clsx(
