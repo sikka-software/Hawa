@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HawaButton, HawaModal, ModalFooter } from "../../elements";
 import useDiscloser from "../../hooks/useDiscloser";
 

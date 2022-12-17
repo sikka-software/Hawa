@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HawaButton, HawaMenu } from "../../elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";

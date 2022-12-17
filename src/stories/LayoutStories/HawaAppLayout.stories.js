@@ -1,6 +1,6 @@
-import { HawaAppLayout } from "../../layout";
-import { FaAddressCard, FaAdversal, FaHome } from "react-icons/fa";
 import { useState } from "react";
+import { HawaAppLayout } from "../../layout";
+import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
 
 export default {
   title: "Layout/AppLayout",
@@ -9,36 +9,33 @@ export default {
 
 const Template = (args) => {
   const [selectedPage, setSelectedPage] = useState("home");
+  const handleItemClick = (e) => {
+    console.log("switching page to");
+    console.log("switching to", e);
+    // setSelectedPage(e); //this is the line that breaks chrome for some reason
+  };
   return (
     <HawaAppLayout
       currentPage={selectedPage}
       drawerItems={[
         {
-          text: "Home",
+          label: "Home",
           slug: "home",
           icon: <FaHome />,
-          // action: () => setSelectedPage("home");
-          action: () => {
-            console.log("switching to home page");
-          }
+          action: handleItemClick
         },
         {
-          text: "Menus",
-          slug: "menus",
-          icon: <FaAdversal />,
-          // action: () => setSelectedPage("menus");
-          action: () => {
-            setSelectedPage("menus");
-            console.log("switching to menus page");
-          }
+          label: "Files",
+          slug: "files",
+          icon: <FaFolderOpen />,
+          action: handleItemClick
         },
 
         {
-          text: "Analytics",
+          label: "Analytics",
           slug: "analytics",
-          icon: <FaAddressCard />,
-          // action: () => setSelectedPage("analytics")
-          action: () => console.log("switching to analytics page")
+          icon: <FaPoll />,
+          action: handleItemClick
         }
       ]}
       {...args}

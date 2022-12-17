@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import {
   DrawerBody,
   DrawerFooter,
@@ -7,8 +6,7 @@ import {
   HawaButton,
   HawaDrawer
 } from "../../elements";
-import useDiscloser from "./../../hooks/useDiscloser"
-
+import useDiscloser from "./../../hooks/useDiscloser";
 
 export default {
   title: "Elements/Drawer",
@@ -29,23 +27,22 @@ export default {
 };
 
 const Template = (args) => {
-
-  const {isOpen, onClose, onOpen} = useDiscloser()
+  const { isOpen, onClose, onOpen } = useDiscloser();
 
   return (
     <>
-    <HawaButton onClick={onOpen}>Open Drawer</HawaButton>
-    <HawaDrawer position={args.position} open={isOpen} setOpen={onClose}>
-      <DrawerHeader>
-        <div className="text-lg font-bold">Hawa</div>
-      </DrawerHeader>
-      <DrawerBody>
-        <div>This is Drawer body</div>
-      </DrawerBody>
-      <DrawerFooter>
-        <div>This is Drawer footer</div>
-      </DrawerFooter>
-    </HawaDrawer>
+      <HawaButton onClick={onOpen}>Open Drawer</HawaButton>
+      <HawaDrawer position={args.position} open={isOpen} setOpen={onClose}>
+        <DrawerHeader>
+          <div className="text-lg font-bold">Hawa</div>
+        </DrawerHeader>
+        <DrawerBody>
+          <div>This is Drawer body</div>
+        </DrawerBody>
+        <DrawerFooter>
+          <div>This is Drawer footer</div>
+        </DrawerFooter>
+      </HawaDrawer>
     </>
   );
 };

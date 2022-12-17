@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 type HawaAppLayoutTypes = {
   logoLink: string
-  drawerItems: any
+  drawerItems: { label: string; icon: any; slug: string; action: () => void }[]
   currentPage?: string
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
@@ -21,15 +21,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         <div className="m-1 bg-red-300 p-2">logo</div>
         {props.drawerItems.map((dItem) => (
           <div
-            // onClick={() => {
-            //   // dItem.action()
-            // }}
-            onClick={() => {
-              console.log("switching pages")
-            }}
+            onClick={() => dItem.action(dItem.slug)}
             className={clsx(
               "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-green-300",
-              props.currentPage === dItem.slug ? "bg-primary-400" : ""
+              props.currentPage === dItem.slug
+                ? "bg-primary-400"
+                : "bg-yellow-300"
             )}
           >
             <div className="flex items-center justify-center">{dItem.icon}</div>
@@ -39,7 +36,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
                 openSideMenu ? "opacity-100" : "opacity-0"
               )}
             >
-              {dItem.text}
+              {dItem.label}
             </div>
           </div>
         ))}
