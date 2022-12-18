@@ -12,21 +12,27 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   const [openSideMenu, setOpenSideMenu] = useState(false)
 
   return (
-    <div className="fixed top-0 left-0 m-0 w-full p-0">
+    <div className="flex">
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="absolute top-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
+        className="top-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
       >
-        <div className="m-1 bg-red-300 p-2">logo</div>
-        {props.drawerItems.map((dItem) => (
+        <div className="m-1 flex flex-row bg-red-300 p-2">
+          <div>symbol</div>
+          <div className={openSideMenu ? "scale-100" : "scale-0"}>
+            logo text
+          </div>
+        </div>
+        {props.drawerItems.map((dItem, i) => (
           <div
+            key={i}
             onClick={() => dItem.action(dItem.slug)}
             className={clsx(
-              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-green-300",
+              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-primary-400",
               props.currentPage === dItem.slug
-                ? "bg-primary-400"
-                : "bg-yellow-300"
+                ? "bg-primary-600 text-white"
+                : ""
             )}
           >
             <div className="flex items-center justify-center">{dItem.icon}</div>
@@ -42,35 +48,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         ))}
       </div>
 
-      {/* 
-      <div className="relative flex flex-row bg-yellow-300">
-        <div className="relative left-10 h-screen w-full bg-orange-300">
-          <div className="m-0 flex flex-row justify-between bg-red-300 p-2">
-            <div></div>
-            <div>page title</div>
-            <div className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
-              <AvatarIcon />
-            </div>
-          </div>
-
-          <div>{props.children}</div>
-        </div>
-      </div> */}
+      <div className="w-full bg-red-200">{props.children}</div>
     </div>
   )
 }
-
-const AvatarIcon = () => (
-  <svg
-    className="absolute -left-1 h-12 w-12 text-gray-400"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill-rule="evenodd"
-      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-      clip-rule="evenodd"
-    ></path>
-  </svg>
-)
