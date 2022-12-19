@@ -14,13 +14,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 ) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
   return (
-    <div className="flex">
+    <>
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="absolute top-0 left-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
+        className="absolute top-0 left-0 z-50 flex h-full w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
       >
-        <div className="bg-red- m-1 flex flex-row p-2">
+        <div className="flex flex-row p-2">
           {/* full logo */}
           {openSideMenu ? (
             <img
@@ -57,10 +57,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           </div>
         ))}
       </div>
-
-      <div className=" absolute top-0 h-screen w-[calc(100%-2rem)] translate-x-12  overflow-scroll">
+      <div className="top-0 w-[calc(100%-1rem)] -translate-y-[1rem] translate-x-8 overflow-scroll ">
         {props.children}
       </div>
-    </div>
+    </>
   )
 }
