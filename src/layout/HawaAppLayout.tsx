@@ -18,7 +18,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="absolute top-0 left-0 z-50 flex h-full w-12 flex-col bg-blue-300 transition-all hover:w-40"
+        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col bg-blue-300 transition-all hover:w-40"
       >
         <div className="flex flex-row p-2">
           {/* full logo */}
@@ -60,8 +60,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         className={clsx(
           // "overflow-scroll",
-          "w-[calc(100%-1rem)]",
-          "translate-x-[2rem] -translate-y-[1rem]",
+          "w-[calc(100%-3rem)]",
+          "translate-x-[3rem]",
           "bg-red-900 text-white",
           "m-0"
         )}

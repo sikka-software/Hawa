@@ -44,7 +44,7 @@ const Template = (args) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
         turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
         sit amet ex venenatis viverra id sed massa. Orci varius natoque
-        {/* penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         Aenean leo libero, scelerisque sed erat sit amet, placerat tempus
         libero. Phasellus non sapien commodo, volutpat leo ac, scelerisque diam.
         Maecenas at libero nec leo egestas tempus. Sed lacus lectus, ullamcorper
@@ -938,7 +938,7 @@ const Template = (args) => {
         auctor, leo in dignissim imperdiet, massa urna tincidunt mi, eu
         fringilla neque mi id tellus. Pellentesque vel luctus tellus.
         Suspendisse id porta odio. Cras semper, diam id pellentesque tristique,
-        ipsum metus cursus justo, a pharetra justo arcu in lacus. */}
+        ipsum metus cursus justo, a pharetra justo arcu in lacus.
       </div>
     </HawaAppLayout>
   );
