@@ -18,13 +18,21 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="top-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
+        className="absolute top-0 left-0 z-10 flex h-screen w-12 flex-col gap-0 bg-blue-300 transition-all hover:w-40"
       >
-        <div className="m-1 flex flex-row bg-red-300 p-2">
-          <div>{props.logoSymbol}</div>
-          <div className={openSideMenu ? "scale-100" : "scale-0"}>
-            {props.logoText}
-          </div>
+        <div className="bg-red- m-1 flex flex-row p-2">
+          {/* full logo */}
+          {openSideMenu ? (
+            <img
+              className={clsx("h-10", !openSideMenu ? "invisible" : "visible")}
+              src="https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
+            />
+          ) : (
+            <img
+              className={clsx("h-10", openSideMenu ? "invisible" : "visible")}
+              src="https://beta-admin.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=128&q=75"
+            />
+          )}
         </div>
         {props.drawerItems.map((dItem, i) => (
           <div
@@ -50,7 +58,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         ))}
       </div>
 
-      <div className="w-full">{props.children}</div>
+      <div className=" absolute top-0 h-screen w-[calc(100%-3rem)] translate-x-8 overflow-scroll p-2">
+        {props.children}
+      </div>
     </div>
   )
 }

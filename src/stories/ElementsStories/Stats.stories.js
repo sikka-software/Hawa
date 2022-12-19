@@ -26,7 +26,20 @@ export default {
 };
 
 const Template = (args) => {
-  return <HawaStats {...args} />;
+  return (
+    <div className="flex flex-wrap items-start justify-start gap-2">
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+      <HawaStats {...args} />
+    </div>
+  );
 };
 
 export const Stats = Template.bind({});
