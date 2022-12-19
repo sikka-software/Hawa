@@ -57,7 +57,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           </div>
         ))}
       </div>
-      <div className="top-0 w-[calc(100%-1rem)] -translate-y-[1rem] translate-x-8 overflow-scroll ">
+      <div className="h-screen w-[calc(100%-3rem)] translate-x-[3rem] overflow-scroll">
+        {/* <div className="top-0 w-[calc(100%-1rem)] -translate-y-[1rem] translate-x-8 overflow-scroll bg-yellow-300 "> */}
         {props.children}
       </div>
     </>
