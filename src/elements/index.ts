@@ -26,6 +26,7 @@ export * from "./HawaTimeline"
 export * from "./Breadcrumb"
 export * from "./HawaStats"
 export * from "./HawaSpinner"
+export * from "./HawaRadio"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"
