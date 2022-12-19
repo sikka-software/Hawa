@@ -11,7 +11,7 @@ type StatTypes = {
   handleClick?: () => void
 }
 export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
-  let defaultStyle = "flex flex-col gap-1 rounded-lg p-4 text-sm"
+  let defaultStyle = "flex flex-col gap-1 rounded-lg p-4 text-sm max-h-fit"
   let statStyles = {
     plain: "",
     contained: "bg-primary-200 w-fit",
