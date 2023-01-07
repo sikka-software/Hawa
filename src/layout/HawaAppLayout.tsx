@@ -124,7 +124,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           // "overflow-scroll",
           "w-[calc(100%-3rem)]",
           "translate-x-[3rem]",
-          "bg-red-900 text-white",
+          // "bg-red-900 text-white",
           "m-0",
           props.topBar ? "mt-14" : ""
         )}
