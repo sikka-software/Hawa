@@ -37,9 +37,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             "fixed top-0 z-40 flex h-14 w-1/2 flex-row items-center justify-between bg-primary-400",
             "w-[calc(100%-3rem)]",
             "translate-x-[3rem]",
-            "p-2"
-            ,
-            'pr-5'
+            "p-2",
+            "pr-5"
           )}
         >
           {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
@@ -51,7 +50,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             handleOpen={onOpen}
             open={isOpen}
           >
-            <div className="relative cursor-pointer h-8 w-8 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+            <div className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
               <svg
                 className="absolute -left-1 h-10 w-10 text-gray-400"
                 fill="currentColor"
@@ -101,7 +100,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             <div className="flex items-center justify-center">{dItem.icon}</div>
             <div
               className={clsx(
-                "mx-2 text-sm transition-all",
+                "mx-2 whitespace-nowrap text-sm transition-all",
                 openSideMenu ? "opacity-100" : "opacity-0"
               )}
             >

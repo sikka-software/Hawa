@@ -41,7 +41,7 @@ const Template = (args) => {
           action: handleItemClick
         },
         {
-          label: "Files",
+          label: "Files Items",
           slug: "files",
           icon: <FaFolderOpen />,
           action: handleItemClick
