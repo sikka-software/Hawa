@@ -36,7 +36,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           className={clsx(
             "fixed top-0 z-40 flex h-14 w-1/2 flex-row items-center justify-between bg-primary-400",
             "w-[calc(100%-3rem)]",
-            "translate-x-[2rem]",
+            "translate-x-[3rem]",
             "p-2"
             ,
             'pr-5'
