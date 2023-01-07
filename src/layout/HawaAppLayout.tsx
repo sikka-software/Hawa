@@ -42,7 +42,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           )}
         >
           {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
-          {/* <div>currentPage</div> */}
           <HawaMenu
             buttonPosition="top-right"
             menuItems={props.profileMenuItems}
@@ -70,7 +69,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col bg-primary-400 transition-all hover:w-40"
+        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col overflow-auto bg-primary-400 transition-all hover:w-40"
       >
         <div className="flex flex-row p-2">
           {/* full logo */}
@@ -86,26 +85,37 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             />
           )}
         </div>
-        {props.drawerItems.map((dItem, i) => (
-          <div
-            key={i}
-            onClick={() => dItem.action(dItem.slug)}
-            className={clsx(
-              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-primary-500",
-              props.currentPage === dItem.slug
-                ? "bg-primary-600 text-white hover:bg-primary-600"
-                : ""
-            )}
-          >
-            <div className="flex items-center justify-center">{dItem.icon}</div>
-            <div
-              className={clsx(
-                "mx-2 whitespace-nowrap text-sm transition-all",
-                openSideMenu ? "opacity-100" : "opacity-0"
-              )}
-            >
-              {dItem.label}
-            </div>
+        {props.drawerItems.map((dSection, j) => (
+          <div className="flex flex-col items-stretch justify-center">
+            {dSection.map((dItem, i) => {
+              return (
+                <div
+                  key={i}
+                  onClick={() => dItem.action(dItem.slug)}
+                  className={clsx(
+                    "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-primary-500",
+                    props.currentPage === dItem.slug
+                      ? "bg-primary-600 text-white hover:bg-primary-600"
+                      : ""
+                  )}
+                >
+                  <div className="flex items-center justify-center">
+                    {dItem.icon}
+                  </div>
+                  <div
+                    className={clsx(
+                      "mx-2 whitespace-nowrap text-sm transition-all",
+                      openSideMenu ? "opacity-100" : "opacity-0"
+                    )}
+                  >
+                    {dItem.label}
+                  </div>
+                </div>
+              )
+            })}
+            {j !== props.drawerItems.length - 1 && (
+              <div className="my-2 h-[1px] w-10/12 self-center bg-primary-600 text-center "></div>
+            )}{" "}
           </div>
         ))}
       </div>

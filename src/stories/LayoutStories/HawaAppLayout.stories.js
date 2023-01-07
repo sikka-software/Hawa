@@ -34,25 +34,167 @@ const Template = (args) => {
         ]
       ]}
       drawerItems={[
-        {
-          label: "Home",
-          slug: "home",
-          icon: <FaHome />,
-          action: handleItemClick
-        },
-        {
-          label: "Files Items",
-          slug: "files",
-          icon: <FaFolderOpen />,
-          action: handleItemClick
-        },
+        [
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />,
+            action: handleItemClick
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: handleItemClick
+          },
 
-        {
-          label: "Analytics",
-          slug: "analytics",
-          icon: <FaPoll />,
-          action: handleItemClick
-        }
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          }
+        ],
+        [
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />,
+            action: handleItemClick
+          }
+        ]
       ]}
       {...args}
     >
@@ -61,7 +203,6 @@ const Template = (args) => {
         turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
         sit amet ex venenatis viverra id sed massa. Orci varius natoque
         penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-       
       </div>
     </HawaAppLayout>
   );
