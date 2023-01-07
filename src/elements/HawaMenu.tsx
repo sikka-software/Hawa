@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { ReactNode } from "react"
+import React, { ReactNode, useEffect, useRef } from "react"
 
 interface TMenuTypes {
   menuItems: MenuItems[][]
@@ -13,6 +13,7 @@ interface TMenuTypes {
   anchor?: any
   children?: ReactNode
   buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  onClickOutside?: any
 }
 
 type MenuItems = {
@@ -36,7 +37,22 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   handleOpen,
   buttonPosition,
   children,
+  onClickOutside,
 }) => {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        // onClickOutside && onClickOutside()
+        handleClose()
+      }
+    }
+    document.addEventListener("click", handleClickOutside, true)
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [onClickOutside])
   let defaultStyles =
     "border-none ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded-lg bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
   let positionStyles = {
@@ -60,6 +76,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
       {children}
 
       <div
+        ref={ref}
         className={clsx(
           defaultStyles,
           positionStyles[buttonPosition],
@@ -82,7 +99,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                     className={
                       item.isButton
                         ? "mx-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
-                        : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-100 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
+                        : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >
                     {withIcons && (

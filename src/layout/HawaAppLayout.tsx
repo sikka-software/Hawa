@@ -1,24 +1,77 @@
 import clsx from "clsx"
 import React, { useState } from "react"
+import useDiscloser from "../hooks/useDiscloser"
+import { HawaMenu } from "../elements"
 
 type HawaAppLayoutTypes = {
   drawerItems: { label: string; icon: any; slug: string; action: () => void }[]
   currentPage: string
+  pageTitle?: string
   logoSymbol?: any
   logoLink?: string
   logoText?: any
   children?: any
+  topBar?: boolean
+  profileMenuItems?: MenuItems[][]
+}
+type MenuItems = {
+  icon?: JSX.Element
+  label: string
+  action?: (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    item: string
+  ) => void
+  isButton?: boolean
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   props: any
 ) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
+  const { isOpen, onClose, onOpen } = useDiscloser(false)
+
   return (
     <>
+      {props.topBar && (
+        <div
+          className={clsx(
+            "fixed top-0 z-40 flex h-14 w-1/2 flex-row items-center justify-between bg-primary-400",
+            "w-[calc(100%-3rem)]",
+            "translate-x-[2rem]",
+            "p-2"
+            ,
+            'pr-5'
+          )}
+        >
+          {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
+          {/* <div>currentPage</div> */}
+          <HawaMenu
+            buttonPosition="top-right"
+            menuItems={props.profileMenuItems}
+            handleClose={onClose}
+            handleOpen={onOpen}
+            open={isOpen}
+          >
+            <div className="relative cursor-pointer h-8 w-8 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+              <svg
+                className="absolute -left-1 h-10 w-10 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </HawaMenu>
+        </div>
+      )}
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col bg-blue-300 transition-all hover:w-40"
+        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col bg-primary-400 transition-all hover:w-40"
       >
         <div className="flex flex-row p-2">
           {/* full logo */}
@@ -39,7 +92,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             key={i}
             onClick={() => dItem.action(dItem.slug)}
             className={clsx(
-              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-primary-400",
+              "m-1 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all hover:bg-primary-500",
               props.currentPage === dItem.slug
                 ? "bg-primary-600 text-white hover:bg-primary-600"
                 : ""
@@ -63,7 +116,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           "w-[calc(100%-3rem)]",
           "translate-x-[3rem]",
           "bg-red-900 text-white",
-          "m-0"
+          "m-0",
+          props.topBar ? "mt-14" : ""
         )}
       >
         {props.children}
