@@ -1,17 +1,14 @@
 import { useState } from "react"
 
-
 type TUseDiscloser = {
-    isOpen : boolean,
-    onOpen : () => void,
-    onClose : () => void
+  isOpen: boolean
+  onOpen: () => void
+  onClose: () => void
 }
 
-const useDiscloser = (value: boolean = false) : TUseDiscloser => {
+const useDiscloser = (value: boolean = false): TUseDiscloser => {
   const [open, setOpen] = useState<boolean>(value)
-
   const onOpen = () => setOpen(true)
-
   const onClose = () => setOpen(false)
 
   return {
@@ -21,5 +18,4 @@ const useDiscloser = (value: boolean = false) : TUseDiscloser => {
   }
 }
 
-
-export default useDiscloser;
+export default useDiscloser
