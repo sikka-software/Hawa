@@ -36,11 +36,6 @@ const Template: Story = (args) => {
       severity={args.severity}
       position={args.position}
       {...args}
-      // open={open}
-      // handleClose={() => {
-      //   console.log("test");
-      //   setOpen(false);
-      // }}
     />
   )
 }
@@ -49,10 +44,7 @@ Plain.args = {
   title: "Plain",
   description: "This is an alert indicating that there was a successful action",
   severity: "none",
-  // isClosable: false,
-  // duration: 5000,
   position: "bottom-left",
-  // autoHide: false
 }
 Plain.storyName = "None"
 export const Success = Template.bind({})
@@ -60,40 +52,32 @@ Success.args = {
   title: "Success",
   description: "This is an alert indicating that there was a successful action",
   severity: "success",
-  isClosable: false,
   duration: 5000,
   position: "bottom-left",
-  autoHide: false,
 }
 export const Warning = Template.bind({})
 Warning.args = {
   title: "Warning",
   description: "This is an alert indicating that there was a warning action",
   severity: "warning",
-  isClosable: false,
-  duration: 5000,
+  duration: 0,
   position: "bottom-left",
-  autoHide: false,
 }
 export const Info = Template.bind({})
 Info.args = {
   title: "Info",
   description: "This is an alert indicating that there was a info action",
   severity: "info",
-  isClosable: false,
-  duration: 5000,
+  duration: 0,
   position: "bottom-left",
-  autoHide: false,
 }
 export const Error = Template.bind({})
 Error.args = {
   title: "Offline",
   description: "This is an alert indicating that there was a error action",
   severity: "error",
-  isClosable: false,
-  duration: 5000,
+  duration: 0,
   position: "bottom-left",
-  autoHide: false,
 }
 
 export const WithActions = Template.bind({})
@@ -101,10 +85,8 @@ WithActions.args = {
   title: "Info",
   description: "This is an alert indicating that there was a info action",
   severity: "info",
-  isClosable: false,
-  duration: 5000,
+  duration: 0,
   position: "bottom-left",
-  autoHide: false,
   actions: [
     {
       label: "Upgrade",
