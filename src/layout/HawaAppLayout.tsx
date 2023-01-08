@@ -1,8 +1,9 @@
 import clsx from "clsx"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import useDiscloser from "../hooks/useDiscloser"
 import { HawaMenu } from "../elements"
-
+import { HiMenu } from "react-icons/hi"
+import useBreakpoint from "../hooks/useBreakpoint"
 type HawaAppLayoutTypes = {
   drawerItems: { label: string; icon: any; slug: string; action: () => void }[]
   currentPage: string
@@ -28,19 +29,42 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 ) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const { isOpen, onClose, onOpen } = useDiscloser(false)
+  const ref = useRef(null)
+
+  const size = useBreakpoint()
+  console.log("size is ", size)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        // onClickOutside && onClickOutside()
+        setOpenSideMenu(false)
+      }
+    }
+    document.addEventListener("click", handleClickOutside, true)
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [])
 
   return (
     <>
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-40 flex h-14 w-1/2 flex-row items-center justify-between bg-primary-400",
-            "w-[calc(100%-3rem)]",
-            "translate-x-[3rem]",
+            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-primary-400",
+            size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "p-2",
             "pr-5"
           )}
         >
+          {size > 600 ? null : (
+            <div
+              onClick={() => setOpenSideMenu(true)}
+              className=" cursor-pointer rounded-lg p-2 transition-all hover:bg-gray-100"
+            >
+              <HiMenu size={30} />
+            </div>
+          )}
           {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
           <HawaMenu
             buttonPosition="top-right"
@@ -69,10 +93,14 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => setOpenSideMenu(false)}
-        className="fixed top-0 left-0 z-50 flex h-full w-12 flex-col overflow-auto bg-primary-400 transition-all hover:w-40"
+        ref={ref}
+        className={clsx(
+          "fixed top-0 left-0 z-50 flex h-full flex-col overflow-auto bg-primary-400 transition-all hover:w-40",
+          size > 600 ? "w-12" : "w-0",
+          openSideMenu ? "w-40" : ""
+        )}
       >
-        <div className="flex flex-row p-2">
-          {/* full logo */}
+        <div className="flex flex-row items-center justify-center bg-red-300 p-2">
           {openSideMenu ? (
             <img
               className={clsx("h-10", !openSideMenu ? "invisible" : "visible")}
@@ -85,6 +113,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             />
           )}
         </div>
+
         {props.drawerItems.map((dSection, j) => (
           <div className="flex flex-col items-stretch justify-center">
             {dSection.map((dItem, i) => {

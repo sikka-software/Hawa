@@ -11,11 +11,11 @@ type StatTypes = {
   handleClick?: () => void
 }
 export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
-  let defaultStyle = "flex flex-col gap-1 rounded-lg p-4 text-sm h-fit max-h-fit"
+  let defaultStyle =
+    "flex flex-col gap-1 rounded-lg p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
     contained: "bg-primary-200 w-fit",
-    // outlined: "border-2 border-primary-200 w-fit",
     outlined: "ring-2 w-fit",
   }
   return (
@@ -29,7 +29,7 @@ export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
       ) : (
         <div className="text-2xl font-bold">{props.number}</div>
       )}{" "}
-      <div className="text-xs">{props.helperText}</div>
+      {props.helperText && <div className="text-xs">{props.helperText}</div>}{" "}
     </div>
   )
 }
