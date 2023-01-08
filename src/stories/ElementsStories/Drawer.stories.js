@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  HawaButton,
-  HawaDrawer
-} from "../../elements";
+import { HawaButton, HawaDrawer } from "../../elements";
 import useDiscloser from "./../../hooks/useDiscloser";
 
 export default {
@@ -32,17 +26,14 @@ const Template = (args) => {
   return (
     <>
       <HawaButton onClick={onOpen}>Open Drawer</HawaButton>
-      <HawaDrawer position={args.position} open={isOpen} setOpen={onClose}>
-        <DrawerHeader>
-          <div className="text-lg font-bold">Hawa</div>
-        </DrawerHeader>
-        <DrawerBody>
-          <div>This is Drawer body</div>
-        </DrawerBody>
-        <DrawerFooter>
-          <div>This is Drawer footer</div>
-        </DrawerFooter>
-      </HawaDrawer>
+      <HawaDrawer
+        position={args.position}
+        open={isOpen}
+        setOpen={onClose}
+        drawerHeader={<div>Hawa</div>}
+        drawerBody={<div>This is Drawer body</div>}
+        drawerFooter={<div>This is Drawer footer</div>}
+      />
     </>
   );
 };
