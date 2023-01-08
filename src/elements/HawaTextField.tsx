@@ -16,6 +16,7 @@ type TextFieldTypes = {
   name?: any
   inputProps?: any
   onChange?: any
+  ref?: any
 }
 
 export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
@@ -37,6 +38,7 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
   let defaultStyle = "flex h-fit max-h-fit flex-col justify-center"
   return (
     <div
+      // ref={props.ref}
       className={clsx(defaultStyle, marginStyles[margin], widthStyles[width])}
     >
       {props.label && (
@@ -67,7 +69,12 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
       ) : (
         <div>
           <input
-            {...props}
+            onChange={props.onChange}
+            type={props.type}
+            aria-label={props.label}
+            placeholder={props.placeholder}
+            defaultValue={props.defaultValue}
+            value={props.value}
             className="mb-0 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           />
         </div>

@@ -22,7 +22,6 @@ type SignInFormTypes = {
     usernameLabel?: string
     usernamePlaceholder?: string
     usernameRequired?: string
-    usernameRequiredText?: string
     phoneRequiredText?: string
     passwordLabel?: string
     passwordPlaceholder?: string
@@ -77,8 +76,8 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
                 label={props.texts.emailLabel}
                 helperText={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
-                {...field}
                 value={field.value ?? ""}
+                onChange={field.onChange}
               />
             )}
             rules={{
@@ -94,19 +93,21 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
           <Controller
             control={control}
             name="username"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="text"
-                label={props.texts.usernameLabel}
-                helperText={errors.username?.message}
-                placeholder={props.texts.usernamePlaceholder}
-                {...field}
-                value={field.value ?? ""}
-              />
-            )}
+            render={({ field }) => {
+              return (
+                <HawaTextField
+                  width="full"
+                  type="text"
+                  label={props.texts.usernameLabel}
+                  helperText={errors.username?.message}
+                  placeholder={props.texts.usernamePlaceholder}
+                  onChange={field.onChange}
+                  value={field.value ?? ""}
+                />
+              )
+            }}
             rules={{
-              required: props.texts.usernameRequiredText,
+              required: props.texts.usernameRequired,
             }}
           />
         ) : (
@@ -124,11 +125,10 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
             <HawaTextField
               width="full"
               type="password"
-              defaultValue={field.value ?? ""}
               label={props.texts.passwordLabel}
               placeholder={props.texts.passwordPlaceholder}
               helperText={errors.password?.message}
-              {...field}
+              onChange={field.onChange}
               value={field.value ?? ""}
             />
           )}

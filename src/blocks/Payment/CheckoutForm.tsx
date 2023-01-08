@@ -238,20 +238,11 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                     fullWidth
                     native
                     label={props.texts?.countryLabel + " *"}
-                    // variant="standard"
                     helperText={errors.country?.message}
-                    // displayEmpty
-                    // disableUnderline
-                    // validators={["required"]}
                     options={countries}
                     getOptionLabel={(countries) => countries.country_label}
-                    // options={[
-                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
-                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
-                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
-                    //   { label: "Saudi Arabia", value: "saudi_arabia" },
-                    // ]}
-                    {...field}
+                    // {...field}
+                    onChange={(e) => field.onChange(e.country_label)}
                     value={field.value ?? ""}
                   >
                     <option></option>

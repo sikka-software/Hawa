@@ -89,7 +89,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   label={props.texts.fullNameLabel}
                   placeholder={props.texts.fullNamePlaceholder}
                   helperText={errors.fullName?.message}
-                  {...field}
+                  onChange={field.onChange}
                   value={field.value ?? ""}
                 />
               )}
@@ -108,7 +108,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                     label={props.texts.emailLabel}
                     helperText={errors.email?.message}
                     placeholder={props.texts.emailPlaceholder}
-                    {...field}
+                    onChange={field.onChange}
                     value={field.value ?? ""}
                   />
                 )}
@@ -132,7 +132,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                     label={props.texts.usernameLabel}
                     helperText={errors.username?.message}
                     placeholder={props.texts.usernamePlaceholder}
-                    {...field}
+                    onChange={field.onChange}
                     value={field.value ?? ""}
                   />
                 )}
@@ -148,11 +148,11 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
-                  defaultValue={field.value ?? ""}
+                  // defaultValue={field.value ?? ""}
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
                   helperText={errors.password?.message}
-                  {...field}
+                  onChange={field.onChange}
                   value={field.value ?? ""}
                 />
               )}
@@ -165,11 +165,11 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
-                  defaultValue={field.value ?? ""}
+                  // defaultValue={field.value ?? ""}
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}
                   helperText={errors.confirm_password?.message}
-                  {...field}
+                  onChange={field.onChange}
                   value={field.value ?? ""}
                 />
               )}
@@ -187,8 +187,8 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                     label={"Ref Code"}
                     placeholder={props.texts.passwordPlaceholder}
                     helperText={errors.password?.message}
-                    {...field}
                     value={field.value ?? ""}
+                    onChange={field.onChange}
                   />
                 )}
               />
@@ -210,11 +210,9 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                         { value: "ad", label: "Advertisement" },
                         { value: "other", label: "Other" },
                       ]}
-                      onInputChange={(e: any, o: any) =>
-                        console.log("changing", e)
-                      }
-                      {...field}
-                      onChange={(e: any, o: any) => console.log("chooo", e)}
+                      onChange={(e: any) => {
+                        field.onChange(e.value)
+                      }}
                     />
                   )}
                 />
@@ -228,7 +226,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   render={({ field }) => (
                     <HawaCheckbox
                       helperText={errors.terms_accepted?.message}
-                      onChange={() => console.log("te")}
+                      onChange={field.onChange}
                       label={
                         <span>
                           {props.texts.iAcceptText}{" "}
@@ -237,7 +235,6 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                           </a>
                         </span>
                       }
-                      {...field}
                     />
                   )}
                   rules={{ required: props.texts.termsRequiredText }}
@@ -252,7 +249,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   render={({ field }) => (
                     <HawaCheckbox
                       label={props.texts.subscribeToNewsletter}
-                      {...field}
+                      onChange={field.onChange}
                     />
                   )}
                 />

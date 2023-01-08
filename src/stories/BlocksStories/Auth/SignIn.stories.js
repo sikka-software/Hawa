@@ -107,7 +107,7 @@ const SignInTemplate = (args) => {
       isLoading={isLoading}
       handleForgotPassword={() => console.log("forgot password")}
       handleSignIn={(e) => {
-        console.log("achraf : ", e);
+        console.log("Form result: ", e);
       }}
       {...args}
     />

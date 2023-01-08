@@ -1,12 +1,12 @@
-import { BottomAppBar } from "../../layout/HawaBottomAppBar";
+import { HawaBottomAppBar } from "../../layout";
 
 export default {
   title: "Layout/SupAppBar",
-  component: [BottomAppBar]
+  component: [HawaBottomAppBar]
 };
 
 const Template = (args) => {
-  return <BottomAppBar {...args} />;
+  return <HawaBottomAppBar {...args} />;
 };
 
 export const Normal = Template.bind({});

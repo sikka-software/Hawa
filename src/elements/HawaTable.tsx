@@ -47,13 +47,14 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               {props.rows ? (
                 props.rows.map((singleRow: any, j: any) => (
                   <tr
-                    className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
                     key={j}
+                    className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
                   >
                     {singleRow.map((r: any, i: any) => {
                       if (i === 0) {
                         return (
                           <th
+                            key={i}
                             scope="row"
                             className={clsx(
                               sizeStyles[size],
@@ -64,7 +65,11 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                           </th>
                         )
                       } else {
-                        return <td className={clsx(sizeStyles[size])}>{r}</td>
+                        return (
+                          <td key={i} className={clsx(sizeStyles[size])}>
+                            {r}
+                          </td>
+                        )
                       }
                     })}
                     {props.actions && size !== "small" ? (
@@ -74,8 +79,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                         className="flex flex-row gap-1"
                         // variant={isArabic ? "borderedRight" : "borderedLeft"}
                       >
-                        {props.actions.map((act: any) => {
-                          return <TableActionButton action={act} />
+                        {props.actions.map((act: any, s: any) => {
+                          return <TableActionButton key={s} action={act} />
                         })}
                       </td>
                     ) : null}

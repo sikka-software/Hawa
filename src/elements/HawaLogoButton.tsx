@@ -2,19 +2,17 @@ import React from "react"
 
 type LogoButtonTypes = {
   lang?: any
-  logo?: any
-  //   logo: PropTypes.oneOf([
-  //     "google",
-  //     "github",
-  //     "twitter",
-  //     "wallet",
-  //     "googlepay",
-  //     "applepay",
-  //     "stcpay",
-  //     "visa/master",
-  //     "paypal",
-  //     "mada",
-  //   ]),
+  logo?:
+    | "google"
+    | "github"
+    | "twitter"
+    | "wallet"
+    | "googlepay"
+    | "applepay"
+    | "stcpay"
+    | "visa/master"
+    | "paypal"
+    | "mada"
   onClick?: any
   buttonText?: any
 }
@@ -145,14 +143,13 @@ export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
         </svg>
       )
       break
-
     default:
       break
   }
   return (
     <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
-      {...props}
+      onClick={props.onClick}
       className="my-2 flex h-11 w-full flex-row justify-center rounded-xl bg-white align-middle"
     >
       <div className="flex h-full flex-row items-center justify-end">
