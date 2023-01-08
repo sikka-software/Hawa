@@ -13,16 +13,21 @@ export default {
     helperText: {
       control: "text",
       description: "The red text if the checkbox is required"
+    },
+    id: {
+      control: "text",
+      description: "Required to make the label clickable"
     }
   }
 };
 
 const Template = (args) => {
-  return <HawaCheckbox  {...args} />;
+  return <HawaCheckbox {...args} />;
 };
 
 export const Checkbox = Template.bind({});
 Checkbox.args = {
   label: "This is an checkbox element with a label and helperText",
-  helperText: "This is the helperText"
+  helperText: "This is the helperText",
+  id: "random"
 };

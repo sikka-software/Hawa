@@ -54,6 +54,7 @@ type SignUpFormTypes = {
   handleGoogleSignUp: () => void
   handleGithubSignUp: () => void
   handleTwitterSignUp: () => void
+  handleRouteToTOS: () => void
   showError: any
   errorTitle: any
   errorText: any
@@ -225,12 +226,16 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   name="terms_accepted"
                   render={({ field }) => (
                     <HawaCheckbox
+                      id="terms_accepted"
                       helperText={errors.terms_accepted?.message}
                       onChange={field.onChange}
                       label={
                         <span>
                           {props.texts.iAcceptText}{" "}
-                          <a className="cursor-pointer text-blue-800">
+                          <a
+                            onClick={props.handleRouteToTOS}
+                            className="cursor-pointer text-blue-800"
+                          >
                             {props.texts.termsText}
                           </a>
                         </span>
@@ -248,6 +253,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   name="newsletter_accepted"
                   render={({ field }) => (
                     <HawaCheckbox
+                      id="newsletter_accepted"
                       label={props.texts.subscribeToNewsletter}
                       onChange={field.onChange}
                     />

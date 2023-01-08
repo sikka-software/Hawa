@@ -82,7 +82,7 @@ const SignUpTemplate = (args) => {
         confirmPasswordLabel: "Confirm Password",
         confirmPasswordPlaceholder: "Minimum 8 characters",
         iAcceptText: "I accept the",
-        termsText: "terms & conditinos",
+        termsText: "terms & conditions",
         termsRequiredText: "you must accept the terms & conditions",
         forgotPasswordText: "Forgot password?",
         newUserText: "New user?",
@@ -102,6 +102,7 @@ const SignUpTemplate = (args) => {
       handleGithubSignUp={() => console.log("signing up via github")}
       handleTwitterSignUp={() => console.log("signing up via Twitter")}
       handleRouteToSignIn={() => console.log("switching to sign in")}
+      handleRouteToTOS={() => console.log("routing to TOS page")}
     />
   );
 };
