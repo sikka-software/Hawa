@@ -31,7 +31,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   const { isOpen, onClose, onOpen } = useDiscloser(false)
   const ref = useRef(null)
 
-  const size = useBreakpoint()
+  let size
+  if (typeof window !== "undefined") {
+    size = useBreakpoint()
+  } else {
+    size = 1200
+  }
   console.log("size is ", size)
   useEffect(() => {
     const handleClickOutside = (event) => {
