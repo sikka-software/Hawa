@@ -100,13 +100,33 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         onMouseLeave={() => setOpenSideMenu(false)}
         ref={ref}
         className={clsx(
-          "fixed top-0 left-0 z-50 flex h-full flex-col overflow-auto bg-primary-400 transition-all hover:w-40",
+          "fixed top-0 left-0 z-50 flex h-full flex-col bg-primary-400 transition-all hover:w-40 hover:overflow-auto",
           size > 600 ? "w-12" : "w-0",
           openSideMenu ? "w-40" : ""
         )}
       >
-        <div className="flex flex-row items-center justify-center bg-red-300 p-2">
-          {openSideMenu ? (
+        <div className="  mb-9 h-12        w-12 p-2">
+          <img
+            className={clsx(
+              "fixed top-2 h-9",
+              !openSideMenu ? "invisible" : "visible"
+            )}
+            height={10}
+            src={props.logoLink}
+            // src={"https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"}
+          />
+
+          <img
+            className={clsx(
+              // " bg-green-500",
+              "fixed top-2 h-9",
+              openSideMenu ? "invisible" : "visible"
+            )}
+            src={props.logoSymbol}
+            // src="https://beta-admin.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=128&q=75"
+          />
+
+          {/* {openSideMenu ? (
             <img
               className={clsx("h-10", !openSideMenu ? "invisible" : "visible")}
               src="https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
@@ -116,7 +136,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
               className={clsx("h-10", openSideMenu ? "invisible" : "visible")}
               src="https://beta-admin.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=128&q=75"
             />
-          )}
+          )} */}
         </div>
 
         {props.drawerItems.map((dSection, j) => (
