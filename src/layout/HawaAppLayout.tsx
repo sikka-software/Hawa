@@ -102,9 +102,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         className={clsx(
           "fixed top-0 left-0 z-50 flex h-full flex-col bg-primary-400 transition-all hover:w-40 hover:overflow-auto",
           size > 600 ? "w-12" : "w-0",
-          openSideMenu ? "w-40" : ""
+          openSideMenu ? "w-40" : "w-0"
         )}
       >
+        
         <div className="  mb-9 h-12        w-12 p-2">
           <img
             className={clsx(
