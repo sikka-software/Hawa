@@ -89,9 +89,12 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
             <div className="truncate font-medium">{headerSubtitle}</div>
           </div>
         )}
-        {menuItems.map((group) => {
+        {menuItems.map((group, o) => {
           return (
-            <ul className="py-1  text-sm text-gray-700 dark:text-gray-200">
+            <ul
+              key={o}
+              className="py-1  text-sm text-gray-700 dark:text-gray-200"
+            >
               {group?.map((item) => {
                 return (
                   <li

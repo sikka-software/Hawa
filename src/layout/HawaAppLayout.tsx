@@ -5,7 +5,12 @@ import { HawaMenu } from "../elements"
 import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
 type HawaAppLayoutTypes = {
-  drawerItems: { label: string; icon: any; slug: string; action: () => void }[]
+  drawerItems: {
+    label: string
+    icon: any
+    slug: string
+    action: () => void
+  }[][]
   currentPage: string
   pageTitle?: string
   logoSymbol?: any
@@ -51,6 +56,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
     }
   }, [])
 
+  //States of the side menu
+  //larger than 600
+  //as a bar and expands when hover
+  //less than 600
+  //as nothing and expands as button is clicked
   return (
     <>
       {props.topBar && (
@@ -100,13 +110,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         onMouseLeave={() => setOpenSideMenu(false)}
         ref={ref}
         className={clsx(
-          "fixed top-0 left-0 z-50 flex h-full flex-col bg-primary-400 transition-all hover:w-40 hover:overflow-auto",
-          size > 600 ? "w-12" : "w-0",
+          "fixed top-0 left-0 z-50 flex h-full flex-col overflow-x-clip bg-primary-400 transition-all  hover:overflow-auto",
+          size > 600 ? "w-12 hover:w-40" : "w-0",
           openSideMenu ? "w-40" : "w-0"
         )}
       >
-        
-        <div className="  mb-9 h-12        w-12 p-2">
+        <div className="mb-9 h-12 w-12 p-2">
           <img
             className={clsx(
               "fixed top-2 h-9",
@@ -141,7 +150,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         </div>
 
         {props.drawerItems.map((dSection, j) => (
-          <div className="flex flex-col items-stretch justify-center">
+          <div
+            key={j}
+            className={clsx(
+              "flex flex-col items-stretch justify-center"
+              // !openSideMenu ? "invisible" : "visible"
+            )}
+          >
             {dSection.map((dItem, i) => {
               return (
                 <div
@@ -152,6 +167,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
                     props.currentPage === dItem.slug
                       ? "bg-primary-600 text-white hover:bg-primary-600"
                       : ""
+                    // !openSideMenu ? " h-0 w-0" : ""
                   )}
                 >
                   <div className="flex items-center justify-center">

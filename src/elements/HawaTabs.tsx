@@ -21,8 +21,8 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = (props) => {
           selectedOption ? "border-b-2" : "border-b-0"
         )}
       >
-        {props.options?.map((opt: any) => (
-          <li>
+        {props.options?.map((opt: any, o) => (
+          <li key={o}>
             <button
               aria-current="page"
               onClick={() => {

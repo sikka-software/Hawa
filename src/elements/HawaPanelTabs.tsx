@@ -26,9 +26,9 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
           data-tabs-toggle="#myTabContent"
           role="tablist"
         >
-          {props.options.map((option: any) => {
+          {props.options.map((option: any, o) => {
             return (
-              <li className="mr-2" role="presentation">
+              <li key={o} className="mr-2" role="presentation">
                 <button
                   className="inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600 hover:text-blue-600 dark:border-blue-500 dark:text-blue-500 dark:hover:text-blue-500"
                   id={`${option.value}-tab`}

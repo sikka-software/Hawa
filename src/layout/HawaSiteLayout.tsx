@@ -46,8 +46,8 @@ const ProfileDropdown = (props: any) => {
         className="py-1 text-sm text-gray-700 dark:text-gray-200"
         aria-labelledby="avatarButton"
       >
-        {props.profileItems.map((it: any) => {
-          return <ProfileItem text={it.text} link={it.slug} />
+        {props.profileItems.map((it: any, o) => {
+          return <ProfileItem key={o} text={it.text} link={it.slug} />
         })}
       </ul>
       <div className="py-1">
@@ -85,7 +85,7 @@ const DrawerContent = (props: any) => {
       <div className="overflow-y-auto py-4">
         <ul className="space-y-2">
           {props.drawerItems.map((item: any, i: any) => {
-            return <div>{item.text}</div>
+            return <div key={i}>{item.text}</div>
           })}
         </ul>
       </div>
@@ -236,7 +236,7 @@ export const HawaSiteLayout: React.FunctionComponent<LayoutTypes> = (
         <div className="overflow-y-auto py-4">
           <ul className="space-y-2">
             {props.drawerItems.map((item: any, i: any) => {
-              return <div>{item.text}</div>
+              return <div key={i}>{item.text}</div>
             })}
           </ul>
         </div>

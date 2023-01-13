@@ -28,8 +28,8 @@ export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
           "flex max-w-fit flex-row whitespace-nowrap rounded-lg bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400"
         )}
       >
-        {props.options?.map((opt: any) => (
-          <li className="w-full">
+        {props.options?.map((opt: any, o) => (
+          <li className="w-full" key={o}>
             <button
               aria-current="page"
               onClick={() => {

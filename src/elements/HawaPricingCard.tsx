@@ -95,9 +95,9 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
         </span>
       </div>
       <ul role="list" className="my-7 space-y-0">
-        {featuresMapping?.map((feature) => {
+        {featuresMapping?.map((feature, o) => {
           return (
-            <li className="flex ">
+            <li key={o} className="flex ">
               <svg
                 aria-hidden="true"
                 className="m-2 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-500"

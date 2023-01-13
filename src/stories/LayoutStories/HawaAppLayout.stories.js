@@ -214,7 +214,8 @@ AppLayout.args = {
   topBar: true,
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
-  logoLink: "https://something.com/docs/images/logo.svg",
+  logoLink: "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
+  symbolLink: "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
   profileItems: [
     {
       text: "Dashboard",
