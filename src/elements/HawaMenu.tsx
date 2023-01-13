@@ -102,7 +102,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                         : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >
-                    {withIcons && (
+                    {item.icon && (
                       <div className="mr-2 rtl:ml-2">{item.icon}</div>
                     )}
                     {item.label}
