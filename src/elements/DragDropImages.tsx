@@ -10,6 +10,7 @@ const thumbsContainer = {
   marginTop: 10,
 }
 type DragDropImagesTypes = {
+  label?: string
   texts: any
   files: [File]
   setFiles: any
@@ -37,6 +38,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
   onClearFiles,
   maxSize,
   errorMessages,
+  label,
 }) =>
   // props
   {
@@ -154,55 +156,62 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     console.log("error", fileRejections)
 
     return (
-      <div
-        // variant="drop-area"
-        {...getRootProps({
-          style: { backgroundColor: isDragActive ? "white" : "inherit" },
-        })}
-        // style={{ backgroundColor: isDragActive ? "white" : "inherit" }}
-        className="flex flex-col justify-center rounded-xl border border-dashed border-black"
-      >
-        <input {...getInputProps()} />
-        <div className="p-1 text-center">
-          Click here or drop files here to upload
-        </div>
-        <div className="p-1 text-center">Max file size is {max}</div>
-        <div className="flex justify-center ">
-          {acceptedFiles.length > 0 && (
-            <HawaButton
-              // style={{ color: "black" }}
-              onClick={(e) => {
-                e.stopPropagation()
-                onClearFiles(acceptedFiles)
+      <div>
+        {label && (
+          <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+            {label}
+          </div>
+        )}
+        <div
+          // variant="drop-area"
+          {...getRootProps({
+            style: { backgroundColor: isDragActive ? "white" : "inherit" },
+          })}
+          // style={{ backgroundColor: isDragActive ? "white" : "inherit" }}
+          className="mb-2 flex flex-col justify-center rounded-xl border border-dashed border-black"
+        >
+          <input {...getInputProps()} />
+          <div className="p-1 text-center">
+            Click here or drop files here to upload
+          </div>
+          <div className="p-1 text-center">Max file size is {max}</div>
+          <div className="flex justify-center ">
+            {acceptedFiles.length > 0 && (
+              <HawaButton
+                // style={{ color: "black" }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onClearFiles(acceptedFiles)
+                }}
+              >
+                Clear All
+              </HawaButton>
+            )}
+          </div>
+          {thumbs && showPreview ? (
+            <aside
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                // marginTop: 10,
               }}
+              className="rounded-lg border-red-500"
             >
-              Clear All
-            </HawaButton>
-          )}
+              {thumbs}
+            </aside>
+          ) : null}
+          <div className="px-2">
+            {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
+              <HawaAlert text={texts.tooManyFiles} severity="error" />
+            ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
+              <HawaAlert text={texts.fileTooLarge} severity="error" />
+            ) : (
+              errs
+            )}
+          </div>
+          {}
         </div>
-        {thumbs && showPreview ? (
-          <aside
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              // marginTop: 10,
-            }}
-            className="rounded-lg border-red-500"
-          >
-            {thumbs}
-          </aside>
-        ) : null}
-        <div className="px-2">
-          {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
-            <HawaAlert text={texts.tooManyFiles} severity="error" />
-          ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
-            <HawaAlert text={texts.fileTooLarge} severity="error" />
-          ) : (
-            errs
-          )}
-        </div>
-        {}
       </div>
     )
   }

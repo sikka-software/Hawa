@@ -20,6 +20,7 @@ const DragAndDropFiles = (args, props) => {
   return (
     <div>
       <DragDropImages
+      label={"Company Logo"}
         setFiles={(e) => setUploadedFiles(e)}
         files={uploadedFiles}
         maxFiles={args.maxFiles}
