@@ -231,7 +231,7 @@ WithButton.args = {
     [
       {
         icon: <BsFillPersonFill />,
-        button: true,
+        isButton: true,
         label: "عربي",
         action: () => console.log("going to dashboard")
       },
