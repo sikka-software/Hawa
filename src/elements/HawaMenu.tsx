@@ -93,7 +93,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
           return (
             <ul
               key={o}
-              className="py-1  text-sm text-gray-700 dark:text-gray-200"
+              className="py-1 bg-layout-1200  text-sm text-gray-700 dark:text-gray-200"
             >
               {group?.map((item) => {
                 return (

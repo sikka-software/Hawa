@@ -1,4 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+// const Color = require("color");
+
+// const themeColors = {
+//   buttonPrimar
+// }
+// const alpha = (clr, val) => Color(clr).alpha(val).rgb().string();
+// const lighten = (clr, val) => Color(clr).lighten(val).rgb().string();
+// const darken = (clr, val) => Color(clr).darken(val).rgb().string();
+const BUTTON_PRIMARY = "#C62E65";
+const LAYOUT_PRIMARY = "#EEF7FC";
+
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -6,7 +17,15 @@ module.exports = {
     fontFamily: {
       plex: ["IBM Plex Sans Arabic"]
     },
+    // colors: {
+    //   buttonPrimary: "--button-primary",
+    //   buttonSecondary: "rgb(var(--button-secondary) / <alpha-value>)"
+    // },
+
     extend: {
+      boxShadow: {
+        neobrutalism: "10px 10px 0px 0px rgba(0,0,0,1);"
+      },
       screens: {
         xs: "440px"
       },
@@ -56,6 +75,35 @@ module.exports = {
         expandUp: "expandUp 100ms ease-in-out"
       },
       colors: {
+        buttonPrimary: {
+          lighter: "#edebfd",
+          default: "var(--color-text)",
+          default: "#4c37eb",
+          darker: "#3929b0",
+          1000: "#C4DEFD"
+
+          // #f6f5fe
+          // #edebfd lighter
+          // #d2cdfa
+          // #b7aff7
+          // #8273f1
+          // #4c37eb default
+          // #4432d4
+          // #3929b0 700 (darker)
+          // #2e218d
+          // #251b73
+        },
+        layoutPrimary: {
+          default: "#d2cdfa",
+          darker: "#b7aff7",
+          dark: "#251b73",
+          1000: "#C4DEFD"
+        },
+        inputPrimary: {
+          default: "#EEF7FC",
+          1000: "#C4DEFD"
+        },
+
         primary: {
           default: "#1279F8",
           200: "#C4DEFD",
@@ -66,6 +114,21 @@ module.exports = {
           700: "#065CC6",
           800: "#054A9E",
           900: "#043777"
+        },
+        layout: {
+          default: "#EEF7FC",
+          100: "#4896DA",
+          200: "#58A4E0",
+          300: "#65ACE4",
+          400: "#74B4E6",
+          500: "#81BCE8",
+          600: "#90C3EB",
+          700: "#9ECDEE",
+          800: "#AFD6F1",
+          900: "#BEDEF3",
+          1000: "#CFE6F6",
+          1100: "#DFEDFA",
+          1200: "#EEF7FC"
         },
         secondary: {
           default: "#A3D039",

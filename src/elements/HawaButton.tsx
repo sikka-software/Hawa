@@ -24,7 +24,7 @@ const sizeStyles = {
 const widthStyles = {
   full: "w-full flex justify-center px-5 py-2.5 text-center inline-flex items-center",
   normal:
-    "w-fit dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800",
+    "w-fit dark:bg-buttonPrimary-dark dark:hover:bg-buttonPrimary-dark dark:hover:brightness-90 dark:focus:ring-primary-800",
   half: "w-1/2",
 }
 const variantStyles = {
@@ -34,11 +34,11 @@ const variantStyles = {
 
 const colorStyles = {
   contained: {
-    default: "text-neutral-900 bg-gray-200 hover:bg-gray-300",
+    default: "text-neutral-900 hover:bg-gray-300 bg-buttonPrimary-default text-white",
     primary:
-      "text-white bg-primary-default hover:bg-primary-700 hover:text-white",
+      "text-white bg-buttonPrimary-default hover:bg-buttonPrimary-darker transition-all",
     secondary:
-      "text-neutral-900 bg-secondary-default hover:text-white hover:bg-secondary-700",
+      "text-neutral-900 bg-buttonPrimary-default hover:text-white hover:bg-secondary-700",
   },
   outlined: {
     default: "text-gray-600 border-gray-600 hover:bg-gray-200",
@@ -67,7 +67,6 @@ export function HawaButton({
   ...props
 }: ButtonProps) {
   const [isHovered, setIsHovered] = React.useState(false)
-
   return (
     <div
       className={clsx(
@@ -75,6 +74,7 @@ export function HawaButton({
         margins !== "none" ? `my-${margins}` : "my-0"
       )}
     >
+      {/* <div className="bg-buttonPrimary-default h-32">test</div> */}
       <button
         onMouseEnter={() => {
           setIsHovered(true)
@@ -85,6 +85,7 @@ export function HawaButton({
         className={
           disabled
             ? clsx(
+                // "brightne",
                 className,
                 baseStyles,
                 variantStyles[variant],

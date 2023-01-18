@@ -11,7 +11,14 @@ export default {
       }
     }
   },
+
   argTypes: {
+    variant: {
+      default: "contained",
+      control: "select",
+      options: ["contained", "outlined", "neobrutalism"],
+      description: "The theme style of the block"
+    },
     lang: {
       default: true,
       control: "select",
@@ -28,4 +35,8 @@ export default {
 
 export const EmptyState = (args) => {
   return <EState {...args} />;
+};
+
+EmptyState.args = {
+  variant: "contained"
 };

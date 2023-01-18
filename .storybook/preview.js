@@ -47,3 +47,7 @@ export const parameters = {
     }
   }
 };
+
+export const globalTypes = {
+  darkMode: true
+};

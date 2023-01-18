@@ -8,196 +8,56 @@ export default {
 };
 
 const Template = (args) => {
-  const [selectedPage, setSelectedPage] = useState("home");
-  const handleItemClick = (e) => {
-    console.log("switching page to");
-    console.log("switching to", e);
-    // setSelectedPage(e); //this is the line that breaks chrome for some reason
-  };
   return (
-    <HawaAppLayout
-      currentPage={selectedPage}
-      profileMenuItems={[
-        [
-          {
-            label: "Dashboard",
-            action: () => console.log("going to dashboard")
-          },
-          {
-            label: "Billing",
-            action: () => console.log("going to billing")
-          },
-          {
-            label: "Settings",
-            action: () => console.log("going to settings")
-          }
-        ]
-      ]}
-      drawerItems={[
-        [
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />,
-            action: handleItemClick
-          },
-          {
-            label: "Files Items",
-            slug: "files",
-            icon: <FaFolderOpen />,
-            action: handleItemClick
-          },
-
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          }
-        ],
-        [
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />,
-            action: handleItemClick
-          }
-        ]
-      ]}
-      {...args}
-    >
+    <HawaAppLayout {...args}>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+        turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
+        sit amet ex venenatis viverra id sed massa. Orci varius natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </div>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
         turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et augue
@@ -210,12 +70,28 @@ const Template = (args) => {
 
 export const AppLayout = Template.bind({});
 AppLayout.args = {
-  appTitle: "قوائم",
+  profileMenuItems: [
+    [
+      {
+        label: "Dashboard"
+      },
+      {
+        label: "Billing"
+      },
+      {
+        label: "Settings"
+      }
+    ]
+  ],
+  currentPage: "home",
+  pageTitle: "Dashboard Page",
   topBar: true,
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
-  logoLink: "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
-  symbolLink: "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
+  logoLink:
+    "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
+  logoSymbol:
+    "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
   profileItems: [
     {
       text: "Dashboard",
@@ -254,5 +130,42 @@ AppLayout.args = {
         setPageTitle("Home");
       }
     }
+  ],
+  drawerItems: [
+    [
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+        // action: handleItemClick
+      },
+      {
+        label: "Files Items",
+        slug: "files",
+        icon: <FaFolderOpen />,
+        // action: handleItemClick,
+        subItems: [
+          {
+            label: "New Item",
+            slug: "files",
+            icon: <FaFolderOpen />
+            // action: handleItemClick
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />
+            // action: handleItemClick
+          }
+        ]
+      },
+
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      }
+    ]
   ]
 };
