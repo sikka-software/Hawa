@@ -13,3 +13,10 @@
 body {
   font-family: "IBM Plex Sans Arabic", sans-serif;
 }
+
+.layoutBody_open {
+  background-color: red;
+  /* left: 10rem; */
+  position: fixed;
+  left: 56px;
+}

@@ -235,14 +235,15 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 
       <div
         className={clsx(
-          size > 600 ? "left-14" : "",
+          size > 600 ? "left-14" : "left-0",
           // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3.54rem]" : "",
+          "fixed h-full overflow-auto p-4",
           props.topBar ? "top-14" : "top-0",
           // props.topBar ? "mt-[3.6rem]" : "mt-0",
-          "fixed top-0 h-full overflow-auto p-4",
           // keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
-          keepOpen ? "left-40" : ""
+          keepOpen ? "left-40" : "left-0"
         )}
+        // className={"layoutBody_open"}
       >
         {props.children}
       </div>
