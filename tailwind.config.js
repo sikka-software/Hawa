@@ -77,7 +77,6 @@ module.exports = {
       colors: {
         buttonPrimary: {
           lighter: "#edebfd",
-          default: "var(--color-text)",
           default: "#4c37eb",
           darker: "#3929b0",
           1000: "#C4DEFD"
@@ -116,7 +115,7 @@ module.exports = {
           900: "#043777"
         },
         layout: {
-          default: "#EEF7FC",
+          default: "#9ECDEE",
           100: "#4896DA",
           200: "#58A4E0",
           300: "#65ACE4",

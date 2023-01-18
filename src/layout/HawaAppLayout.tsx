@@ -44,7 +44,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   } else {
     size = 1200
   }
-  const [keepOpen, setKeepOpen] = useState(size > 600 ? true : false)
+  const [keepOpen, setKeepOpen] = useState(false)
   console.log("size is ", size)
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -69,7 +69,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
+            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-secondary-default",
             // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "w-full",
             "p-2"
@@ -81,7 +81,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
               <div
                 className={clsx(
                   size > 600 ? "ml-14" : "ml-2",
-                  "bg-red-300",
                   keepOpen ? "ml-40" : ""
                 )}
               >
@@ -131,7 +130,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         }
         ref={ref}
         className={clsx(
-          "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+          "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-secondary-default transition-all  hover:overflow-auto",
           size > 600 ? "w-14 hover:w-40" : "w-0",
           openSideMenu ? "w-40" : "w-14"
         )}
@@ -236,10 +235,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 
       <div
         className={clsx(
-          size > 600 ? "w-[calc(100%-3rem)] translate-x-[3.54rem]" : "",
-          props.topBar ? "mt-[3.6rem]" : "mt-0 ",
-          " fixed top-0 h-full overflow-auto p-4",
-          keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
+          size > 600 ? "left-14" : "",
+          // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3.54rem]" : "",
+          props.topBar ? "top-14" : "top-0",
+          // props.topBar ? "mt-[3.6rem]" : "mt-0",
+          "fixed top-0 h-full overflow-auto p-4",
+          // keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
+          keepOpen ? "left-40" : ""
         )}
       >
         {props.children}
