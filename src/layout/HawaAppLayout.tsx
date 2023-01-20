@@ -236,10 +236,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
       <div
         className={clsx(
           "fixed h-full overflow-y-auto",
-          size > 600 ? "left-14" : "left-0",
+          size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
           props.topBar ? "top-14" : "top-0",
           keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
-          keepOpen && size > 600 ? "left-0 w-[calc(100%-3.5rem)]" : ""
+          keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : ""
         )}
       >
         {props.children}
