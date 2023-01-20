@@ -241,7 +241,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           props.topBar ? "top-14" : "top-0",
           // props.topBar ? "mt-[3.6rem]" : "mt-0",
           // keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
-          keepOpen ? "left-40" : "left-0"
+          keepOpen
+            ? "left-40 w-[calc(100%-10rem)]"
+            : "left-0 w-[calc(100%-3.5rem)]"
         )}
         // className={"layoutBody_open"}
       >
