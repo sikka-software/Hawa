@@ -237,7 +237,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         className={clsx(
           size > 600 ? "left-14" : "left-0",
           // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3.54rem]" : "",
-          "fixed h-full overflow-auto p-4",
+          "fixed h-full w-full overflow-y-auto",
           props.topBar ? "top-14" : "top-0",
           // props.topBar ? "mt-[3.6rem]" : "mt-0",
           // keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
