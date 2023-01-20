@@ -91,7 +91,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             <div className="flex items-center justify-center">
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className=" cursor-pointer rounded-lg p-2 transition-all hover:bg-gray-100"
+                className=" mr-2 cursor-pointer rounded-lg p-2  transition-all hover:bg-gray-100"
               >
                 <HiMenu size={25} />
               </div>
@@ -214,7 +214,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
           ))}
         </div>
         <div className={clsx("flex items-center justify-end")}>
-          {openSideMenu && !keepOpen ? (
+          {openSideMenu && !keepOpen && size > 600 ? (
             <div
               onClick={() => setKeepOpen(true)}
               className="m-2 w-fit cursor-pointer rounded-lg bg-gray-300 p-2"
@@ -235,21 +235,15 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 
       <div
         className={clsx(
+          "fixed h-full overflow-y-auto",
           size > 600 ? "left-14" : "left-0",
-          // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3.54rem]" : "",
-          "fixed h-full w-full overflow-y-auto",
           props.topBar ? "top-14" : "top-0",
-          // props.topBar ? "mt-[3.6rem]" : "mt-0",
-          // keepOpen ? "w-[calc(100%-10rem)] translate-x-[10.54rem]" : ""
-          keepOpen
-            ? "left-40 w-[calc(100%-10rem)]"
-            : "left-0 w-[calc(100%-3.5rem)]"
+          keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
+          keepOpen && size > 600 ? "left-0 w-[calc(100%-3.5rem)]" : ""
         )}
-        // className={"layoutBody_open"}
       >
         {props.children}
       </div>
-      {/* <div className="top-0 w-[calc(100%-1rem)] -translate-y-[1rem] translate-x-8 overflow-scroll bg-yellow-300 "> */}
     </div>
   )
 }

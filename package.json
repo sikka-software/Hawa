@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.150",
+  "version": "0.0.151",
   "description": "UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
