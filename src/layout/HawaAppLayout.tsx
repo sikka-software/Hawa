@@ -65,11 +65,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   //less than 600
   //as nothing and expands as button is clicked
   return (
-    <div className="fixed left-0 h-full bg-green-400">
+    <div className="fixed left-0 h-full">
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-secondary-default",
+            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
             // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "w-full",
             "p-2"
@@ -130,7 +130,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         }
         ref={ref}
         className={clsx(
-          "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-secondary-default transition-all  hover:overflow-auto",
+          "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
           size > 600 ? "w-14 hover:w-40" : "w-0",
           openSideMenu ? "w-40" : "w-14"
         )}

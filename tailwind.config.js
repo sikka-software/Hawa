@@ -94,6 +94,7 @@ module.exports = {
         },
         layoutPrimary: {
           default: "#d2cdfa",
+          // default: "#d2cdfa",
           darker: "#b7aff7",
           dark: "#251b73",
           1000: "#C4DEFD"
