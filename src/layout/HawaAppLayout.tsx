@@ -45,7 +45,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
     size = 1200
   }
   const [keepOpen, setKeepOpen] = useState(false)
-  console.log("size is ", size)
+  // console.log("size is ", size)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
