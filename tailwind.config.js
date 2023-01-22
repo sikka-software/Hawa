@@ -77,7 +77,7 @@ module.exports = {
       colors: {
         buttonPrimary: {
           lighter: "#edebfd",
-          default: "#4c37eb",
+          default: "var(--button-primary)",
           darker: "#3929b0",
           1000: "#C4DEFD"
 
@@ -93,8 +93,8 @@ module.exports = {
           // #251b73
         },
         layoutPrimary: {
-          default: "#d2cdfa",
           // default: "#d2cdfa",
+          default: "var(--layout-primary)",
           darker: "#b7aff7",
           dark: "#251b73",
           1000: "#C4DEFD"

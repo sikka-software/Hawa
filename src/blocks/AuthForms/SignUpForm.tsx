@@ -58,6 +58,7 @@ type SignUpFormTypes = {
   errorTitle: any
   errorText: any
   signUpFields: any[]
+  isLoading?: boolean
 }
 
 export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
@@ -274,7 +275,12 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                 />
               </div>
             )}
-            <HawaButton color="primary" width="full" type="submit">
+            <HawaButton
+              isLoading={props.isLoading}
+              color="primary"
+              width="full"
+              type="submit"
+            >
               {props.texts.signUpText}
             </HawaButton>
           </form>
