@@ -93,7 +93,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
           return (
             <ul
               key={o}
-              className="py-1 bg-layout-1200  text-sm text-gray-700 dark:text-gray-200"
+              className="bg-layout-1200 py-1  text-sm text-gray-700 dark:text-gray-200"
             >
               {group?.map((item) => {
                 return (
@@ -101,7 +101,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                     onClick={(e) => item.action(e, item.label)}
                     className={
                       item.isButton
-                        ? "mx-1 my-1 flex cursor-pointer flex-row items-center rounded-lg bg-primary-500 py-2 px-4 text-white hover:bg-primary-600 rtl:flex-row-reverse dark:hover:bg-primary-600 dark:hover:text-white"
+                        ? "mx-1 my-1 flex cursor-pointer flex-row items-center rounded-lg bg-buttonPrimary-default py-2 px-4 text-white hover:bg-buttonPrimary-darker rtl:flex-row-reverse dark:hover:bg-buttonPrimary-darker dark:hover:text-white"
                         : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >

@@ -75,25 +75,29 @@ module.exports = {
         expandUp: "expandUp 100ms ease-in-out"
       },
       colors: {
+        // #f6f5fe
+        // #edebfd lighter
+        // #d2cdfa
+        // #b7aff7
+        // #8273f1
+        // #4c37eb default
+        // #4432d4
+        // #3929b0 700 (darker)
+        // #2e218d
+        // #251b73
         buttonPrimary: {
           lighter: "#edebfd",
           default: "var(--button-primary)",
-          darker: "#3929b0",
+          darker: "var(--button-primary-darker)",
           1000: "#C4DEFD"
-
-          // #f6f5fe
-          // #edebfd lighter
-          // #d2cdfa
-          // #b7aff7
-          // #8273f1
-          // #4c37eb default
-          // #4432d4
-          // #3929b0 700 (darker)
-          // #2e218d
-          // #251b73
+        },
+        buttonSecondary: {
+          default: "var(--button-secondary)",
+          darker: "var(--button-secondary-darker)",
+          dark: "#251b73"
+          // 1000: "#C4DEFD"
         },
         layoutPrimary: {
-          // default: "#d2cdfa",
           default: "var(--layout-primary)",
           darker: "#b7aff7",
           dark: "#251b73",

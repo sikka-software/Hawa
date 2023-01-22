@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean
 }
 
-const baseStyles = "font-medium rounded-lg"
+const baseStyles = "font-medium rounded-lg transition-all"
 
 const sizeStyles = {
   small: "text-xs px-2.5 py-1.5",
@@ -34,16 +34,18 @@ const variantStyles = {
 
 const colorStyles = {
   contained: {
-    default: "text-neutral-900 hover:bg-gray-300 bg-buttonPrimary-default text-white",
+    default:
+      "text-neutral-900 hover:bg-buttonPrimary-darker bg-buttonPrimary-default text-white",
     primary:
       "text-white bg-buttonPrimary-default hover:bg-buttonPrimary-darker transition-all",
     secondary:
-      "text-neutral-900 bg-buttonPrimary-default hover:text-white hover:bg-secondary-700",
+      "text-neutral-900 bg-buttonSecondary-default hover:text-white hover:bg-buttonSecondary-darker",
   },
   outlined: {
     default: "text-gray-600 border-gray-600 hover:bg-gray-200",
     primary: "text-black hover:bg-gray-50",
-    secondary: "text-secondary-800 border-secondary-800 hover:bg-secondary-100",
+    secondary:
+      "text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-darker hover:text-white",
   },
 }
 

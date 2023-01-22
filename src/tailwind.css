@@ -6,9 +6,12 @@
   :root {
     --layout-primary: #d2cdfa;
     --layout-secondary: #d2cdfa;
+
     --button-primary: #4c37eb;
-    --button-primary-darker: #cf1736;
-    --button-secondary: #d2cdfa;
+    --button-primary-darker: #2e1dac;
+
+    --button-secondary: #ffc011;
+    --button-secondary-darker: #b48d24;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

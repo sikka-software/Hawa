@@ -12,7 +12,7 @@ export const EmptyState: React.FunctionComponent<TEmptyState> = ({
   return (
     <HawaContainer variant={variant} centered={true}>
       <div className="flex flex-col items-center justify-center text-center dark:text-white">
-        <div className="flex h-10 w-10 flex-col items-center justify-center rounded-3xl bg-primary-400 text-6xl font-bold">
+        <div className="flex h-10 w-10 flex-col items-center justify-center rounded-3xl bg-buttonPrimary-lighter text-6xl font-bold">
           <FaCheck size={20} />
         </div>
         <div className="m-2 text-xl font-bold">You're all caught up</div>

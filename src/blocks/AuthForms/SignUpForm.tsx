@@ -234,7 +234,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
               </div>
             )}
             {props.showTermsOption && (
-              <div className="py-2">
+              <div>
                 <Controller
                   control={control}
                   name="terms_accepted"
@@ -242,7 +242,10 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                     <HawaCheckbox
                       id="terms_accepted"
                       helperText={errors.terms_accepted?.message}
-                      onChange={field.onChange}
+                      onChange={(e) => {
+                        console.log("changing ", e)
+                        field.onChange(e)
+                      }}
                       label={
                         <span>
                           {props.texts.iAcceptText}{" "}

@@ -9,7 +9,7 @@ type TabsTypes = {
 export const HawaTabs: React.FunctionComponent<TabsTypes> = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4 text-white bg-primary-500 rounded-lg rounded-br-none rounded-bl-none active"
+    "inline-block py-2 px-4 text-white bg-buttonPrimary-default rounded-lg rounded-br-none rounded-bl-none active"
   let inactiveTabStyle =
     "inline-block py-2 px-4 rounded-lg rounded-br-none rounded-bl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
 
