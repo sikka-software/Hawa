@@ -62,7 +62,6 @@ const SignUpTemplate = (args) => {
   return (
     <SignUpForm
       {...args}
-      signUpType="email"
       texts={{
         fullNameLabel: "Full Name",
         fullNamePlaceholder: "Fulan AlFulani",
@@ -96,6 +95,7 @@ const SignUpTemplate = (args) => {
       showError={args.showError}
       viaGoogle={args.viaGoogle}
       viaGithub={args.viaGithub}
+      signUpFields={["fullname", "username", "email"]}
       viaTwitter={args.viaTwitter}
       handleSignUp={(e) => console.log("singing up via email", e)}
       handleGoogleSignUp={() => console.log("signing up via google")}

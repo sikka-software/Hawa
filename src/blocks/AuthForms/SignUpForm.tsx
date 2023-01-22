@@ -42,7 +42,6 @@ type SignUpFormTypes = {
     twitterButtonLabel: string
   }
   showUserSource: any
-  signUpType: any
   viaGoogle: boolean
   viaGithub: boolean
   viaTwitter: boolean
@@ -58,6 +57,7 @@ type SignUpFormTypes = {
   showError: any
   errorTitle: any
   errorText: any
+  signUpFields: any[]
 }
 
 export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
@@ -80,68 +80,81 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
         )}
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit((e) => props.handleSignUp(e))}>
-            <Controller
-              control={control}
-              name="fullName"
-              render={({ field }) => (
-                <HawaTextField
-                  width="full"
-                  type="text"
-                  label={props.texts.fullNameLabel}
-                  placeholder={props.texts.fullNamePlaceholder}
-                  helperText={errors.fullName?.message}
-                  onChange={field.onChange}
-                  value={field.value ?? ""}
-                />
-              )}
-              rules={{
-                required: props.texts.fullNameRequiredText,
-              }}
-            />
-            {props.signUpType === "email" ? (
-              <Controller
-                control={control}
-                name="email"
-                render={({ field }) => (
-                  <HawaTextField
-                    width="full"
-                    type="text"
-                    label={props.texts.emailLabel}
-                    helperText={errors.email?.message}
-                    placeholder={props.texts.emailPlaceholder}
-                    onChange={field.onChange}
-                    value={field.value ?? ""}
-                  />
-                )}
-                rules={{
-                  required: props.texts.emailRequiredText,
-                  pattern: {
-                    value:
-                      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: props.texts.emailInvalidText,
-                  },
-                }}
-              />
-            ) : (
-              <Controller
-                control={control}
-                name="username"
-                render={({ field }) => (
-                  <HawaTextField
-                    width="full"
-                    type="text"
-                    label={props.texts.usernameLabel}
-                    helperText={errors.username?.message}
-                    placeholder={props.texts.usernamePlaceholder}
-                    onChange={field.onChange}
-                    value={field.value ?? ""}
-                  />
-                )}
-                rules={{
-                  required: props.texts.usernameRequired,
-                }}
-              />
-            )}
+            <div>
+              {props.signUpFields.map((fld) => {
+                if (fld === "fullname") {
+                  return (
+                    <Controller
+                      control={control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <HawaTextField
+                          width="full"
+                          type="text"
+                          label={props.texts.fullNameLabel}
+                          placeholder={props.texts.fullNamePlaceholder}
+                          helperText={errors.fullName?.message}
+                          onChange={field.onChange}
+                          value={field.value ?? ""}
+                        />
+                      )}
+                      rules={{
+                        required: props.texts.fullNameRequiredText,
+                      }}
+                    />
+                  )
+                }
+                if (fld === "email") {
+                  return (
+                    <Controller
+                      control={control}
+                      name="email"
+                      render={({ field }) => (
+                        <HawaTextField
+                          width="full"
+                          type="text"
+                          label={props.texts.emailLabel}
+                          helperText={errors.email?.message}
+                          placeholder={props.texts.emailPlaceholder}
+                          onChange={field.onChange}
+                          value={field.value ?? ""}
+                        />
+                      )}
+                      rules={{
+                        required: props.texts.emailRequiredText,
+                        pattern: {
+                          value:
+                            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                          message: props.texts.emailInvalidText,
+                        },
+                      }}
+                    />
+                  )
+                }
+                if (fld === "username") {
+                  return (
+                    <Controller
+                      control={control}
+                      name="username"
+                      render={({ field }) => (
+                        <HawaTextField
+                          width="full"
+                          type="text"
+                          label={props.texts.usernameLabel}
+                          helperText={errors.username?.message}
+                          placeholder={props.texts.usernamePlaceholder}
+                          onChange={field.onChange}
+                          value={field.value ?? ""}
+                        />
+                      )}
+                      rules={{
+                        required: props.texts.usernameRequired,
+                      }}
+                    />
+                  )
+                }
+              })}
+            </div>
             <Controller
               control={control}
               name="password"
