@@ -18,8 +18,11 @@ export default {
     },
     handleChange: {
       action: "Tab Changed",
-      // control: "function",
       description: "The function to change the defaultValue of the options tab"
+    },
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"]
     },
     defaultValue: {
       control: "string",
@@ -61,12 +64,30 @@ export const Tabs = (args) => {
   const [selectedOption, setSelectedOption] = useState(null);
   return (
     <HawaTabs
-      onChangeTab={(e) => setSelectedOption(e)}
+      // onChangeTab={(e) => setSelectedOption(e)}
+      {...args}
       options={[
-        { value: "option1", label: "Option 1" },
-        { value: "option2", label: "Option 2" },
-        { value: "option3", label: "Option 3" }
+        {
+          value: "option1",
+          label: "Option 1",
+          content: <div className="bg-red-300"> option 1</div>
+        },
+        {
+          value: "option2",
+          label: "Option 2",
+          content: <div className="bg-red-300"> option 2</div>
+        },
+        {
+          value: "option3",
+          label: "Option 3",
+          content: <div className="bg-red-300"> option 3</div>
+        }
       ]}
+      // defaultValue={2}
     />
   );
+};
+
+Tabs.args = {
+  orientation: "vertical"
 };
