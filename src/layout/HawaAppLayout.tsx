@@ -11,7 +11,9 @@ type HawaAppLayoutTypes = {
     icon: any
     slug: string
     action: () => void
+    subItems?: any
   }[][]
+  direction?: "rtl" | "ltr"
   currentPage: string
   pageTitle?: string
   logoSymbol?: any
@@ -30,9 +32,10 @@ type MenuItems = {
   ) => void
   isButton?: boolean
 }
-export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
-  props: any
-) => {
+export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
+  direction = "rtl",
+  ...props
+}) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [openSubItem, setOpenSubItem] = useState(false)
   const { isOpen, onClose, onOpen } = useDiscloser(false)
@@ -64,15 +67,41 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
   //as a bar and expands when hover
   //less than 600
   //as nothing and expands as button is clicked
+  let ltrDrawerStyle = [
+    "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+    size > 600 ? "w-14 hover:w-40" : "w-0",
+    openSideMenu ? "w-40" : "w-14",
+  ]
+  let rtlDrawerStyle = [
+    "fixed top-0 right-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+    size > 600 ? "w-14 hover:w-40" : "w-0",
+    openSideMenu ? "w-40" : "w-14",
+  ]
+
+  let ltrChildrenStyle = [
+    "fixed h-full overflow-y-auto",
+    size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
+    props.topBar ? "top-14" : "top-0",
+    keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
+    keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : "",
+  ]
+  let rtlChildrenStyle = [
+    "fixed h-full overflow-y-auto",
+    size > 600 ? "right-14 w-[calc(100%-3.5rem)]" : "right-0 ",
+    props.topBar ? "top-14" : "top-0",
+    keepOpen ? "right-40 w-[calc(100%-10rem)]" : "",
+    keepOpen && size > 600 ? "right-0 w-[calc(100%-10.01rem)]" : "",
+  ]
   return (
-    <div className="fixed left-0 h-full">
+    <div className="fixed left-0 h-full bg-red-500">
       {props.topBar && (
         <div
           className={clsx(
             "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
             // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "w-full",
-            "p-2"
+            "p-2",
+            direction === "rtl" ? "flex-row-reverse" : ""
             // "pr-5"
           )}
         >
@@ -80,8 +109,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
             props.pageTitle ? (
               <div
                 className={clsx(
-                  size > 600 ? "ml-14" : "ml-2",
-                  keepOpen ? "ml-40" : ""
+                  direction === "rtl"
+                    ? [
+                        size > 600 ? "mr-14" : "mr-2",
+                        keepOpen ? "mr-40 bg-red-500" : "",
+                      ]
+                    : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
                 )}
               >
                 {props.pageTitle}
@@ -130,9 +163,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
         }
         ref={ref}
         className={clsx(
-          "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
-          size > 600 ? "w-14 hover:w-40" : "w-0",
-          openSideMenu ? "w-40" : "w-14"
+          direction === "rtl" ? rtlDrawerStyle : ltrDrawerStyle
+          // "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+          // size > 600 ? "w-14 hover:w-40" : "w-0",
+          // openSideMenu ? "w-40" : "w-14"
         )}
       >
         <div>
@@ -175,14 +209,14 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
                       key={i}
                       onClick={() => {
                         // if()
-                        dItem.action(dItem.slug)
+                        dItem.action()
                       }}
                       className={clsx(
                         props.currentPage === dItem.slug
                           ? "bg-buttonPrimary-default text-white"
                           : "hover:bg-buttonPrimary-lighter",
-                        // !openSideMenu ? " h-0 w-0" : ""
-                        "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all "
+                        "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all ",
+                        direction === "rtl" ? "flex-row-reverse pr-3" : ""
                       )}
                     >
                       <div className="flex items-center justify-center">
@@ -235,11 +269,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = (
 
       <div
         className={clsx(
-          "fixed h-full overflow-y-auto",
-          size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
-          props.topBar ? "top-14" : "top-0",
-          keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
-          keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : ""
+          direction === "rtl" ? rtlChildrenStyle : ltrChildrenStyle
+          // "fixed h-full overflow-y-auto",
+          // size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
+          // props.topBar ? "top-14" : "top-0",
+          // keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
+          // keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : ""
         )}
       >
         {props.children}

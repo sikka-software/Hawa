@@ -100,6 +100,7 @@ AppLayout.args = {
   currentPage: "home",
   pageTitle: "Dashboard Page",
   topBar: true,
+  direction: "ltr",
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
   logoLink:
