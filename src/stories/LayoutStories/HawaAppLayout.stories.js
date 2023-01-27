@@ -1,6 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { HawaAppLayout } from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
+// import { useState } from "@storybook/addons";
 
 export default {
   title: "Layout/AppLayout",
@@ -9,7 +10,110 @@ export default {
 
 const Template = (args) => {
   return (
-    <HawaAppLayout {...args}>
+    <HawaAppLayout
+      drawerItems={[
+        [
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />
+            // action: handleItemClick,
+            // subItems: [
+            //   {
+            //     label: "New Item",
+            //     slug: "files",
+            //     icon: <FaFolderOpen />
+            //     // action: handleItemClick
+            //   },
+            //   {
+            //     label: "Files Items",
+            //     slug: "files",
+            //     icon: <FaFolderOpen />
+            //     // action: handleItemClick
+            //   }
+            // ]
+          },
+
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics",
+            icon: <FaPoll />
+            // action: handleItemClick
+          },
+          {
+            label: "Analytics",
+            slug: "analytics3",
+            icon: <FaPoll />
+          }
+        ]
+      ]}
+      {...args}
+    >
       <div className="flex flex-row-reverse">
         <div className="bg-red-300">fd</div>
         <div>
@@ -84,6 +188,7 @@ const Template = (args) => {
 
 export const AppLayout = Template.bind({});
 AppLayout.args = {
+  currentPage: "analytics3",
   profileMenuItems: [
     [
       {
@@ -102,7 +207,6 @@ AppLayout.args = {
       }
     ]
   ],
-  currentPage: "home",
   pageTitle: "Dashboard Page",
   topBar: true,
   direction: "ltr",
@@ -150,84 +254,5 @@ AppLayout.args = {
         setPageTitle("Home");
       }
     }
-  ],
-  drawerItems: [
-    [
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-        // action: handleItemClick
-      },
-      {
-        label: "Files Items",
-        slug: "files",
-        icon: <FaFolderOpen />
-        // action: handleItemClick,
-        // subItems: [
-        //   {
-        //     label: "New Item",
-        //     slug: "files",
-        //     icon: <FaFolderOpen />
-        //     // action: handleItemClick
-        //   },
-        //   {
-        //     label: "Files Items",
-        //     slug: "files",
-        //     icon: <FaFolderOpen />
-        //     // action: handleItemClick
-        //   }
-        // ]
-      },
-
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      }
-    ]
   ]
 };

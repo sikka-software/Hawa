@@ -40,6 +40,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   const [openSubItem, setOpenSubItem] = useState(false)
   const { isOpen, onClose, onOpen } = useDiscloser(false)
   const ref = useRef(null)
+  const drawerItemRef = useRef(null)
 
   let size
   if (typeof window !== "undefined") {
@@ -48,11 +49,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
     size = 1200
   }
   const [keepOpen, setKeepOpen] = useState(false)
-  // console.log("size is ", size)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
         // onClickOutside && onClickOutside()
+
         setOpenSideMenu(false)
       }
     }
@@ -68,12 +69,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    "fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all hover:overflow-auto",
+    "fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
   let rtlDrawerStyle = [
-    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all hover:overflow-auto",
+    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -154,28 +155,28 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         </div>
       )}
       <div
-        onMouseEnter={() => setOpenSideMenu(true)}
-        onMouseLeave={() =>
-          keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
-        }
+        onMouseEnter={() => {
+          setOpenSideMenu(true)
+        }}
+        onMouseLeave={() => {
+          if (keepOpen) {
+            setOpenSideMenu(true)
+          } else {
+            setOpenSideMenu(false)
+          }
+        }}
         ref={ref}
-        className={clsx(
-          direction === "rtl" ? rtlDrawerStyle : ltrDrawerStyle
-          // "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
-          // size > 600 ? "w-14 hover:w-40" : "w-0",
-          // openSideMenu ? "w-40" : "w-14"
-        )}
+        className={clsx(direction === "rtl" ? rtlDrawerStyle : ltrDrawerStyle)}
       >
-        <div>
+        <div className="overflow-scroll scroll-auto ">
           <div
             className={clsx(
-              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-default p-2",
+              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-default p-2 transition-all",
               openSideMenu ? "w-full" : "w-14"
             )}
           >
             <img
               className={clsx(
-                // "bg-blue-700",
                 "fixed top-2 h-9",
                 direction === "rtl" ? "right-2.5" : "left-2.5",
                 !openSideMenu ? "invisible" : "visible"
@@ -198,22 +199,26 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             ) : null}
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 mb-8">
             {props.drawerItems.map((dSection, j) => (
               <div
                 key={j}
-                className={clsx(
-                  "flex flex-col items-stretch justify-center"
-                  // !openSideMenu ? "invisible" : "visible"
-                )}
+                className={clsx("flex flex-col items-stretch justify-center")}
               >
                 {dSection.map((dItem, i) => {
                   return (
-                    <div className="flex flex-col">
+                    <div key={i} id={"test"} className="flex flex-col">
                       <div
-                        key={i}
+                        ref={
+                          props.currentPage === dItem.slug
+                            ? drawerItemRef
+                            : null
+                        }
                         onClick={() => {
                           // if()
+                          const { offsetTop } = drawerItemRef.current
+                          ref.current.scrollTop = offsetTop - 100
+
                           dItem.action()
                         }}
                         className={clsx(
@@ -260,41 +265,46 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           </div>
         </div>
         <div
+          dir={direction}
           className={clsx(
-            "sticky bottom-2 flex w-fit items-center",
-            direction === "rtl" ? "left-2 justify-start" : " justify-end"
+            "fixed bottom-2 flex w-fit items-center",
+            direction === "rtl"
+              ? "right-32 justify-start"
+              : "left-32 justify-start",
+            "transition-all duration-700",
+            openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
           )}
         >
           {openSideMenu && !keepOpen && size > 600 ? (
             <div
-              onClick={() => setKeepOpen(true)}
+              onClick={() => setKeepOpen(!keepOpen)}
               className={clsx(
-                "w-fit cursor-pointer rounded-lg bg-gray-300 p-2"
-                // openSideMenu ? "sticky bottom-2" : ""
+                keepOpen ? "rotate-180" : "",
+                direction === "rtl" ? "rotate-180" : "",
+                "w-fit cursor-pointer rounded-lg bg-gray-300 p-1 transition-all"
               )}
             >
               <FaChevronRight />
             </div>
           ) : null}
-          {keepOpen && (
+          {/* {keepOpen && (
             <div
               onClick={() => setKeepOpen(false)}
-              className=" w-fit rotate-180 cursor-pointer rounded-lg bg-gray-300 p-2"
+              className={clsx(
+                openSideMenu ? "visible" : "invisible",
+                direction === "rtl" ? "rotate-180" : "",
+                "w-fit cursor-pointer rounded-lg bg-gray-300 p-1 transition-all"
+              )}
             >
-              <FaChevronRight />
+              <FaChevronLeft />
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
       <div
         className={clsx(
           direction === "rtl" ? rtlChildrenStyle : ltrChildrenStyle
-          // "fixed h-full overflow-y-auto",
-          // size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
-          // props.topBar ? "top-14" : "top-0",
-          // keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
-          // keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : ""
         )}
       >
         {props.children}
