@@ -17,20 +17,22 @@ const Breadcrumb: FC<TBreadcrumb> = ({
   ...props
 }) => {
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex flex-row items-center gap-2 text-sm">
       {breadcrumbLink.map((singleBreadcrumbLink, index) => (
-        <div className="flex flex-row items-center justify-center mx-1">
+        <div className="flex flex-row items-center justify-center gap-2">
           <a
             href={singleBreadcrumbLink.href}
-            className="mx-1 hover:underline hover:decoration-2"
+            className="hover:underline hover:decoration-2"
           >
             {singleBreadcrumbLink.label}
           </a>
-          {index != breadcrumbLink.length - 1
-            ? typeof separator == "string"
-              ? separator
-              : <div>{separator}</div>
-            : null}
+          {index != breadcrumbLink.length - 1 ? (
+            typeof separator == "string" ? (
+              <div>{separator}</div>
+            ) : (
+              <div>{separator}</div>
+            )
+          ) : null}
         </div>
       ))}
     </div>

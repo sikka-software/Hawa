@@ -162,24 +162,66 @@ AppLayout.args = {
       {
         label: "Files Items",
         slug: "files",
-        icon: <FaFolderOpen />,
+        icon: <FaFolderOpen />
         // action: handleItemClick,
-        subItems: [
-          {
-            label: "New Item",
-            slug: "files",
-            icon: <FaFolderOpen />
-            // action: handleItemClick
-          },
-          {
-            label: "Files Items",
-            slug: "files",
-            icon: <FaFolderOpen />
-            // action: handleItemClick
-          }
-        ]
+        // subItems: [
+        //   {
+        //     label: "New Item",
+        //     slug: "files",
+        //     icon: <FaFolderOpen />
+        //     // action: handleItemClick
+        //   },
+        //   {
+        //     label: "Files Items",
+        //     slug: "files",
+        //     icon: <FaFolderOpen />
+        //     // action: handleItemClick
+        //   }
+        // ]
       },
 
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
       {
         label: "Analytics",
         slug: "analytics",

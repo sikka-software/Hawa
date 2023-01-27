@@ -68,12 +68,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    "fixed top-0 left-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+    "fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all hover:overflow-auto",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
   let rtlDrawerStyle = [
-    "fixed top-0 right-0 z-50 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all  hover:overflow-auto",
+    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all hover:overflow-auto",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -93,11 +93,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
     keepOpen && size > 600 ? "right-0 w-[calc(100%-10.01rem)]" : "",
   ]
   return (
-    <div className="fixed left-0 h-full bg-red-500">
+    <div className="fixed left-0 h-full">
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-40 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
+            "fixed top-0 z-30 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
             // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "w-full",
             "p-2",
@@ -110,10 +110,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               <div
                 className={clsx(
                   direction === "rtl"
-                    ? [
-                        size > 600 ? "mr-14" : "mr-2",
-                        keepOpen ? "mr-40 bg-red-500" : "",
-                      ]
+                    ? [size > 600 ? "mr-14" : "mr-2", keepOpen ? "mr-40" : ""]
                     : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
                 )}
               >
@@ -170,13 +167,19 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         )}
       >
         <div>
-          <div className="mb-9 h-12 w-12 p-2">
+          <div
+            className={clsx(
+              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-default p-2",
+              openSideMenu ? "w-full" : "w-14"
+            )}
+          >
             <img
               className={clsx(
+                // "bg-blue-700",
                 "fixed top-2 h-9",
+                direction === "rtl" ? "right-2.5" : "left-2.5",
                 !openSideMenu ? "invisible" : "visible"
               )}
-              height={10}
               src={props.logoLink}
               // src={"https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"}
             />
@@ -185,7 +188,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               <img
                 className={clsx(
                   // " bg-green-500",
-                  "fixed top-2 h-9",
+                  " fixed h-9 ",
+                  direction === "rtl" ? "right-2.5" : "left-2.5",
                   openSideMenu ? "invisible" : "visible"
                 )}
                 src={props.logoSymbol}
@@ -194,64 +198,80 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             ) : null}
           </div>
 
-          {props.drawerItems.map((dSection, j) => (
-            <div
-              key={j}
-              className={clsx(
-                "flex flex-col items-stretch justify-center"
-                // !openSideMenu ? "invisible" : "visible"
-              )}
-            >
-              {dSection.map((dItem, i) => {
-                return (
-                  <div className="flex flex-col">
-                    <div
-                      key={i}
-                      onClick={() => {
-                        // if()
-                        dItem.action()
-                      }}
-                      className={clsx(
-                        props.currentPage === dItem.slug
-                          ? "bg-buttonPrimary-default text-white"
-                          : "hover:bg-buttonPrimary-lighter",
-                        "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all ",
-                        direction === "rtl" ? "flex-row-reverse pr-3" : ""
-                      )}
-                    >
-                      <div className="flex items-center justify-center">
-                        {dItem.icon}
-                      </div>
+          <div className="mt-12">
+            {props.drawerItems.map((dSection, j) => (
+              <div
+                key={j}
+                className={clsx(
+                  "flex flex-col items-stretch justify-center"
+                  // !openSideMenu ? "invisible" : "visible"
+                )}
+              >
+                {dSection.map((dItem, i) => {
+                  return (
+                    <div className="flex flex-col">
                       <div
+                        key={i}
+                        onClick={() => {
+                          // if()
+                          dItem.action()
+                        }}
                         className={clsx(
-                          "mx-2 whitespace-nowrap text-sm transition-all",
-                          openSideMenu ? "opacity-100" : "opacity-0"
+                          props.currentPage === dItem.slug
+                            ? "bg-buttonPrimary-default text-white"
+                            : "hover:bg-buttonPrimary-lighter",
+                          "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all ",
+                          direction === "rtl" ? "flex-row-reverse pr-3" : ""
                         )}
                       >
-                        {dItem.label}
+                        <div className="flex items-center justify-center">
+                          {dItem.icon}
+                        </div>
+                        <div
+                          className={clsx(
+                            "mx-2 whitespace-nowrap text-sm transition-all",
+                            openSideMenu ? "opacity-100" : "opacity-0"
+                          )}
+                        >
+                          {dItem.label}
+                        </div>
                       </div>
+                      {/* {dItem.subItems && (openSideMenu || isOpen) ? ( */}
+                      {dItem.subItems ? (
+                        <div
+                          className={clsx(
+                            "flex flex-col gap-2",
+                            direction === "rtl" ? "text-right" : "text-left"
+                          )}
+                        >
+                          {dItem.subItems.map((subIt) => (
+                            <div className="p-2 px-4">subItems</div>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
-                    {dItem.subItems && (openSideMenu || isOpen) ? (
-                      <div className="flex flex-col gap-2">
-                        {dItem.subItems.map((subIt) => (
-                          <div className="bg-red-100 p-2 px-4">subItems</div>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
-                )
-              })}
-              {j !== props.drawerItems.length - 1 && (
-                <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-default text-center "></div>
-              )}{" "}
-            </div>
-          ))}
+                  )
+                })}
+                {j !== props.drawerItems.length - 1 && (
+                  <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-default text-center "></div>
+                )}{" "}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={clsx("flex items-center justify-end")}>
+        <div
+          className={clsx(
+            "sticky bottom-2 flex w-fit items-center",
+            direction === "rtl" ? "left-2 justify-start" : " justify-end"
+          )}
+        >
           {openSideMenu && !keepOpen && size > 600 ? (
             <div
               onClick={() => setKeepOpen(true)}
-              className="m-2 w-fit cursor-pointer rounded-lg bg-gray-300 p-2"
+              className={clsx(
+                "w-fit cursor-pointer rounded-lg bg-gray-300 p-2"
+                // openSideMenu ? "sticky bottom-2" : ""
+              )}
             >
               <FaChevronRight />
             </div>
@@ -259,7 +279,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           {keepOpen && (
             <div
               onClick={() => setKeepOpen(false)}
-              className="m-2 w-fit rotate-180 cursor-pointer rounded-lg bg-gray-300 p-2"
+              className=" w-fit rotate-180 cursor-pointer rounded-lg bg-gray-300 p-2"
             >
               <FaChevronRight />
             </div>
