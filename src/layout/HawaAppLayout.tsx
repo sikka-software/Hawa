@@ -69,7 +69,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    "fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    " fixed top-3 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -80,16 +80,16 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   ]
 
   let ltrChildrenStyle = [
-    "fixed h-full overflow-y-auto",
+    "fixed  overflow-y-auto",
     size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
-    props.topBar ? "top-14" : "top-0",
+    props.topBar ? "top-14 h-[calc(100%-3.5rem)]" : "top-0 h-full",
     keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
     keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : "",
   ]
   let rtlChildrenStyle = [
-    "fixed h-full overflow-y-auto",
+    "fixed overflow-y-auto",
     size > 600 ? "right-14 w-[calc(100%-3.5rem)]" : "right-0 ",
-    props.topBar ? "top-14" : "top-0",
+    props.topBar ? "top-14 h-[calc(100%-3.5rem)]" : "top-0 h-full",
     keepOpen ? "right-40 w-[calc(100%-10rem)]" : "",
     keepOpen && size > 600 ? "right-0 w-[calc(100%-10.01rem)]" : "",
   ]
@@ -168,18 +168,23 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         ref={ref}
         className={clsx(direction === "rtl" ? rtlDrawerStyle : ltrDrawerStyle)}
       >
-        <div className="overflow-scroll scroll-auto ">
+        <div
+          className={clsx(
+            // "overflow-hidden",
+            openSideMenu ? "overflow-auto" : "overflow-hidden"
+          )}
+        >
           <div
             className={clsx(
               "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-default p-2 transition-all",
-              openSideMenu ? "w-full" : "w-14"
+              openSideMenu ? "w-40" : "w-14"
             )}
           >
             <img
               className={clsx(
-                "fixed top-2 h-9",
+                "fixed top-2 h-9 transition-all",
                 direction === "rtl" ? "right-2.5" : "left-2.5",
-                !openSideMenu ? "invisible" : "visible"
+                !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
               )}
               src={props.logoLink}
               // src={"https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"}
@@ -189,9 +194,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               <img
                 className={clsx(
                   // " bg-green-500",
-                  " fixed h-9 ",
+                  "fixed top-2.5 h-9 transition-all",
                   direction === "rtl" ? "right-2.5" : "left-2.5",
-                  openSideMenu ? "invisible" : "visible"
+                  openSideMenu ? "invisible opacity-0" : "visible opacity-100"
                 )}
                 src={props.logoSymbol}
                 // src="https://beta-admin.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=128&q=75"
@@ -275,7 +280,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
           )}
         >
-          {openSideMenu && !keepOpen && size > 600 ? (
+          {openSideMenu && size > 600 ? (
             <div
               onClick={() => setKeepOpen(!keepOpen)}
               className={clsx(

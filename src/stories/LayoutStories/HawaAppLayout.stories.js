@@ -114,9 +114,44 @@ const Template = (args) => {
       ]}
       {...args}
     >
-      <div className="flex flex-row-reverse">
+      <div className="flex flex-row-reverse bg-blue-400 p-4 overflow-auto">
         <div className="bg-red-300">fd</div>
         <div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
+            augue sit amet ex venenatis viverra id sed massa. Orci varius
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
+            augue sit amet ex venenatis viverra id sed massa. Orci varius
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
+            augue sit amet ex venenatis viverra id sed massa. Orci varius
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
+            augue sit amet ex venenatis viverra id sed massa. Orci varius
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
+            augue sit amet ex venenatis viverra id sed massa. Orci varius
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </div>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
             turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
