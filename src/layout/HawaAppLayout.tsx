@@ -133,7 +133,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           )}
 
           <HawaMenu
-            buttonPosition="top-right"
+            buttonPosition={direction === "rtl" ? "top-left" : "top-right"}
             menuItems={props.profileMenuItems}
             handleClose={onClose}
             handleOpen={onOpen}
