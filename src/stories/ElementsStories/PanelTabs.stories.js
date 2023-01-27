@@ -69,18 +69,46 @@ export const Tabs = (args) => {
       options={[
         {
           value: "option1",
-          label: "Option 1",
+          label: "Billing",
           content: <div className="bg-red-300"> option 1</div>
         },
         {
           value: "option2",
-          label: "Option 2",
+          label: "Settings",
           content: <div className="bg-red-300"> option 2</div>
         },
         {
           value: "option3",
-          label: "Option 3",
+          label: "Legal",
           content: <div className="bg-red-300"> option 3</div>
+        },
+        {
+          value: "option4",
+          label: "Test",
+          content: (
+            <div className="flex flex-col gap-9 bg-red-300">
+              {" "}
+              option 3<div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+            </div>
+          )
         }
       ]}
       // defaultValue={2}
@@ -89,5 +117,6 @@ export const Tabs = (args) => {
 };
 
 Tabs.args = {
-  orientation: "vertical"
+  orientation: "horizontal",
+  direction: "rtl"
 };

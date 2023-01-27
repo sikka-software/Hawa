@@ -7,16 +7,18 @@ type TabsTypes = {
   defaultValue?: any
   contents?: any
   orientation?: "horizontal" | "vertical"
+  direction?: "rtl" | "ltr"
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   orientation = "horizontal",
+  direction = "ltr",
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.options[0]?.value)
   // const [selectedOption, setSelectedOption] = useState(props.defaultValue - 1)
   let activeTabStyle = {
     vertical:
-      "inline-block py-2 px-4 text-white bg-buttonPrimary-default rounded-lg rounded-tl-none rounded-bl-none active",
+      "inline-block py-2 px-4 text-white bg-buttonPrimary-default active",
     horizontal:
       "inline-block py-2 px-4 text-white bg-buttonPrimary-default rounded-lg rounded-br-none rounded-bl-none active",
   }
@@ -44,12 +46,13 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   }
   let tabsStyle = {
     vertical:
-      "flex flex-col w-fit flex-wrap rounded-lg border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded-lg border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     horizontal:
       "flex w-fit flex-wrap rounded-lg rounded-br-none rounded-bl-none  border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
   }
   return (
     <div
+      dir={direction}
       className={clsx(
         containerStyle[orientation],
         props.options[selectedOption] ? "border-b-2" : "border-b-0"
@@ -58,9 +61,24 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
       <ul
         className={clsx(
           tabsStyle[orientation],
-          props.options[selectedOption] ? "border-b-2" : "border-b-0"
+          "border-buttonPrimary-default",
+          orientation === "vertical"
+            ? direction === "rtl"
+              ? "rounded-none rounded-r-lg border-l-2"
+              : "rounded-none rounded-l-lg border-r-2"
+            : "border-b-2"
         )}
       >
+        {/* 
+        if selected option
+          if vertical
+            if rtl
+              border left
+            else
+              border right
+          else
+            border bottom
+        */}
         {props.options?.map((opt: any, o) => (
           <li key={o}>
             <button
@@ -72,9 +90,13 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
               className={clsx(
                 opt.value === selectedOption
                   ? // props.options[selectedOption].value === opt.value
-                    activeTabStyle[orientation]
+                    [
+                      activeTabStyle[orientation],
+                      direction === "rtl" ? "rounded-r-lg" : "rounded-l-lg",
+                    ]
                   : inactiveTabStyle[orientation],
-                "transition-all"
+                "w-full transition-all"
+                // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >
               {opt.label}
@@ -87,7 +109,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
         {props.options.map((tab) => (
           <div
             key={tab.value}
-            className={`${selectedOption === tab.value ? "" : "hidden"}`}
+            className={clsx(selectedOption === tab.value ? "" : "hidden")}
           >
             {tab.content}
           </div>
