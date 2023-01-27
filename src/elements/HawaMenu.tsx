@@ -24,6 +24,7 @@ type MenuItems = {
     item: string
   ) => void
   isButton?: boolean
+  element?: any
 }
 
 export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
@@ -96,7 +97,11 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
               className="bg-layout-1200 py-1  text-sm text-gray-700 dark:text-gray-200"
             >
               {group?.map((item) => {
-                return (
+                return item.element ? (
+                  <li className="mx-1 cursor-pointer items-center rounded-lg hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
+                    {item.element}
+                  </li>
+                ) : (
                   <li
                     onClick={(e) => item.action(e, item.label)}
                     className={

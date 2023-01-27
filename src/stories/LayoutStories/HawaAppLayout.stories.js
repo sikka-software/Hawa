@@ -93,7 +93,12 @@ AppLayout.args = {
         label: "Billing"
       },
       {
-        label: "Settings"
+        label: "Settings",
+        element: <div className="rounded-lg bg-red-300 p-2 px-4">عربي</div>
+      },
+      {
+        label: "Sign Out",
+        isButton: true
       }
     ]
   ],
