@@ -1,20 +1,26 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import clsx from "clsx"
 import { HawaSpinner } from "./HawaSpinner"
+import { HawaTooltip } from "./HawaTooltip"
+import useHover from "../hooks/useHover"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
+  buttonID?: any
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
-  size?: "small" | "medium" | "large" | "noPadding"
+  size?: "xs" | "small" | "medium" | "large" | "noPadding"
   margins?: "none" | "1" | "2" | "3" | "4"
   tooltip?: string
+  tooltipSize?: "normal" | "small" | "large"
+  tooltipPosition?: "right" | "left" | "bottom" | "top"
   isLoading?: boolean
 }
 
-const baseStyles = "font-medium rounded-lg transition-all"
+const baseStyles = "cursor-pointer font-medium rounded-lg transition-all"
 
 const sizeStyles = {
+  xs: "px-1 py-1",
   small: "text-xs px-2.5 py-1.5",
   medium: "text-sm leading-4 px-3 py-2",
   large: "text-sm px-4 py-2",
@@ -63,12 +69,14 @@ export function HawaButton({
   width = "normal",
   disabled = false,
   isLoading = false,
+  tooltipSize = "normal",
+  tooltipPosition = "top",
   margins = "2",
   tooltip,
   children,
+  buttonID,
   ...props
 }: ButtonProps) {
-  const [isHovered, setIsHovered] = React.useState(false)
   return (
     <div
       className={clsx(
@@ -76,14 +84,8 @@ export function HawaButton({
         margins !== "none" ? `my-${margins}` : "my-0"
       )}
     >
-      {/* <div className="bg-buttonPrimary-default h-32">test</div> */}
       <button
-        onMouseEnter={() => {
-          setIsHovered(true)
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false)
-        }}
+        id={buttonID}
         className={
           disabled
             ? clsx(
@@ -119,15 +121,12 @@ export function HawaButton({
         )}
       </button>
       {tooltip && (
-        <div
-          className={
-            isHovered
-              ? "absolute top-10 left-0 z-10 inline-block w-fit min-w-max max-w-xs rounded-lg bg-gray-900 py-2 px-3 text-center text-sm font-medium text-white opacity-100 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
-              : "absolute top-10 left-0 z-10 inline-block w-fit min-w-max max-w-xs rounded-lg bg-gray-900 py-2 px-3 text-center text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
-          }
-        >
-          {tooltip}
-        </div>
+        <HawaTooltip
+          position={tooltipPosition}
+          size={tooltipSize}
+          buttonID={buttonID}
+          content={tooltip}
+        />
       )}
     </div>
   )

@@ -99,7 +99,13 @@ export const ButtonSizesStory = () => {
     <div className="card max-w-800 p-3">
       <h2 className="mt-6 text-xl">Sizes</h2>
       <div className="mt-1 flex flex-row">
-        <HawaButton variant="contained" color="primary" size="small">
+        <HawaButton
+          variant="contained"
+          color="primary"
+          size="small"
+          buttonID={"tt1"}
+          tooltip="test"
+        >
           Small
         </HawaButton>
         <HawaButton
@@ -107,6 +113,8 @@ export const ButtonSizesStory = () => {
           variant="contained"
           color="primary"
           size="medium"
+          buttonID={"tt2"}
+          tooltip="test"
         >
           Medium
         </HawaButton>
@@ -115,6 +123,8 @@ export const ButtonSizesStory = () => {
           variant="contained"
           color="primary"
           size="large"
+          buttonID={"tt4"}
+          tooltip="test"
         >
           Large
         </HawaButton>
