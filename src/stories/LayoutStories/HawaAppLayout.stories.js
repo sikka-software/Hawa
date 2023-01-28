@@ -114,7 +114,7 @@ const Template = (args) => {
       ]}
       {...args}
     >
-      <div className="flex flex-row-reverse bg-blue-400 p-4 overflow-auto">
+      <div className="flex flex-row-reverse overflow-auto bg-blue-400 p-4">
         <div className="bg-red-300">fd</div>
         <div>
           <div>
@@ -247,10 +247,14 @@ AppLayout.args = {
   direction: "ltr",
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
-  logoLink:
-    "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
   logoSymbol:
-    "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
+  logoLink:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
+  // logoLink:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
+  // logoSymbol:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
   profileItems: [
     {
       text: "Dashboard",

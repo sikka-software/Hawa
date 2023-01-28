@@ -184,7 +184,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           >
             <img
               className={clsx(
-                "fixed top-2 h-9 transition-all",
+                "fixed top-2.5 h-9 transition-all",
                 direction === "rtl" ? "right-2.5" : "left-2.5",
                 !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
               )}
