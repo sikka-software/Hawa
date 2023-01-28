@@ -80,7 +80,13 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                         // variant={isArabic ? "borderedRight" : "borderedLeft"}
                       >
                         {props.actions.map((act: any, s: any) => {
-                          return <TableActionButton key={s} action={act} />
+                          return (
+                            <TableActionButton
+                              key={s}
+                              action={act.type}
+                              handleActionClick={act.onClick}
+                            />
+                          )
                         })}
                       </td>
                     ) : null}

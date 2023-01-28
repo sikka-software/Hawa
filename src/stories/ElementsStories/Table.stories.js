@@ -103,7 +103,11 @@ export const DataWithActions = (args) => {
 
   return (
     <HawaTable
-      actions={["View", "Edit", "Delete"]}
+      actions={[
+        { type: "View", onClick: () => console.log("viewing") },
+        { type: "Edit", onClick: () => console.log("editing") },
+        { type: "Delete", onClick: () => console.log("deleting") }
+      ]}
       lang={args.lang}
       columns={["Product", "Price", "Date"]}
       noDataText={"No data"}
