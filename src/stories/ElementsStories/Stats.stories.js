@@ -46,5 +46,6 @@ export const Stats = Template.bind({});
 Stats.args = {
   label: "Profit",
   number: "SAR 333.22",
+  variant: "contained",
   helperText: "warning"
 };

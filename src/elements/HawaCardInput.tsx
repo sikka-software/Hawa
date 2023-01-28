@@ -84,6 +84,7 @@ export const HawaCardInput = ({
   }
 
   // TODO: We can improve the regex check with a better approach like in the card component.
+
   const onCardNumberChange = (event) => {
     let { value, name } = event.target
     let cardNumber = value

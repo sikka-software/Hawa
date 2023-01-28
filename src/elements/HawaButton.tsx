@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonID?: any
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
-  size?: "xs" | "small" | "medium" | "large" | "noPadding"
+  size?: "xs" | "small" | "medium" | "large" | "noPadding" | "full"
   margins?: "none" | "1" | "2" | "3" | "4"
   tooltip?: string
   tooltipSize?: "normal" | "small" | "large"
@@ -17,7 +17,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean
 }
 
-const baseStyles = "cursor-pointer font-medium rounded-lg transition-all"
+const baseStyles = "cursor-pointer font-medium rounded-lg  transition-all"
 
 const sizeStyles = {
   xs: "px-1 py-1",
@@ -25,6 +25,7 @@ const sizeStyles = {
   medium: "text-sm leading-4 px-3 py-2",
   large: "text-sm px-4 py-2",
   noPadding: "p-0",
+  full: "h-full max-h-full p-2",
 }
 
 const widthStyles = {
@@ -34,7 +35,7 @@ const widthStyles = {
   half: "w-1/2",
 }
 const variantStyles = {
-  contained: "border border-transparent",
+  contained: "border-transparent",
   outlined: "bg-transparent border",
 }
 
@@ -79,17 +80,13 @@ export function HawaButton({
 }: ButtonProps) {
   return (
     <div
-      className={clsx(
-        "relative",
-        margins !== "none" ? `my-${margins}` : "my-0"
-      )}
+      className={clsx("relative", margins !== "none" ? `my-${margins}` : "m-0")}
     >
       <button
         id={buttonID}
         className={
           disabled
             ? clsx(
-                // "brightne",
                 className,
                 baseStyles,
                 variantStyles[variant],
@@ -111,14 +108,7 @@ export function HawaButton({
         type={props.type}
         {...props}
       >
-        {!isLoading ? (
-          children
-        ) : (
-          // <div className="flex flex-row gap-x-3">
-          //   <div className="h-5 w-5 animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"></div>
-          // </div>
-          <HawaSpinner />
-        )}
+        {!isLoading ? children : <HawaSpinner />}
       </button>
       {tooltip && (
         <HawaTooltip

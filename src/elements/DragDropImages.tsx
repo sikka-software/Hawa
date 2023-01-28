@@ -11,7 +11,6 @@ const thumbsContainer = {
 }
 type DragDropImagesTypes = {
   label?: string
-  texts: any
   files: [File]
   setFiles: any
   setDeletedFiles: any
@@ -20,6 +19,12 @@ type DragDropImagesTypes = {
   onAcceptedFiles: any
   showPreview: any
   onDeleteFile: any
+  texts: {
+    clickHereToUpload: string
+    maxFileSize: string
+    tooManyFiles: string
+    fileTooLarge: string
+  }
   onClearFiles: any
   maxSize: number
   errorMessages: string
@@ -171,10 +176,10 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           className="mb-2 flex flex-col justify-center rounded-xl border border-dashed border-black"
         >
           <input {...getInputProps()} />
+          <div className="p-1 text-center">{texts.clickHereToUpload}</div>
           <div className="p-1 text-center">
-            Click here or drop files here to upload
+            {texts.maxFileSize} {max}
           </div>
-          <div className="p-1 text-center">Max file size is {max}</div>
           <div className="flex justify-center ">
             {acceptedFiles.length > 0 && (
               <HawaButton

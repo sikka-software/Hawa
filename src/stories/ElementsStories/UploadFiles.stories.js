@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DragDropImages } from "../../elements";
+import { DragDropImages, HawaButton, HawaTextField } from "../../elements";
 
 export default {
   title: "Elements/DragAndDropFiles",
@@ -20,7 +20,7 @@ const DragAndDropFiles = (args, props) => {
   return (
     <div>
       <DragDropImages
-      label={"Company Logo"}
+        label={"Company Logo"}
         setFiles={(e) => setUploadedFiles(e)}
         files={uploadedFiles}
         maxFiles={args.maxFiles}
@@ -32,7 +32,9 @@ const DragAndDropFiles = (args, props) => {
         errorMessages={args.errorMessage}
         texts={{
           tooManyFiles: "Too many files",
-          fileTooLarge: "File too large"
+          fileTooLarge: "File too large",
+          clickHereToUpload: "Click here to upload file",
+          maxFileSize: "Max File Size "
         }}
       />
     </div>
