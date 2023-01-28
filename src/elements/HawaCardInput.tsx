@@ -130,7 +130,7 @@ export const HawaCardInput = ({
               <input
                 type="tel"
                 name="cardNumber"
-                className="mb-0 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                className="mb-0 block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 autoComplete="off"
                 onChange={onCardNumberChange}
                 maxLength={19}
@@ -156,7 +156,7 @@ export const HawaCardInput = ({
             <input
               type="text"
               //   className="card-input__input"
-              className="mb-0 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              className="mb-0 block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               autoComplete="off"
               name="cardHolder"
               onChange={handleFormChange}
@@ -173,7 +173,7 @@ export const HawaCardInput = ({
               </label>
               <div className="flex flex-row gap-2">
                 <select
-                  className="rounded-lg p-2.5"
+                  className="rounded p-2.5"
                   value={cardMonth}
                   name="cardMonth"
                   onChange={handleFormChange}
@@ -193,7 +193,7 @@ export const HawaCardInput = ({
                 </select>
                 <select
                   name="cardYear"
-                  className="rounded-lg p-2.5"
+                  className="rounded p-2.5"
                   value={cardYear}
                   onChange={handleFormChange}
                   onFocus={(e) => onCardInputFocus(e, "cardDate")}
@@ -216,7 +216,7 @@ export const HawaCardInput = ({
             <label htmlFor="cardCvv">CCV</label>
             <input
               type="tel"
-              className="mb-0 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              className="mb-0 block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               maxLength={4}
               autoComplete="off"
               name="cardCvv"

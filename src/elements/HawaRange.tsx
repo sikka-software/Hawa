@@ -40,7 +40,7 @@ export const HawaRange: React.FunctionComponent<RangeTypes> = ({
             setRangeValue(e.target.value)
             handleChange(e)
           }}
-          className="h-2 w-fit cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
+          className="h-2 w-fit cursor-pointer appearance-none rounded bg-gray-200 dark:bg-gray-700"
         />
         <div className="ml-2">{endElement}</div>{" "}
       </div>

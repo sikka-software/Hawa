@@ -124,7 +124,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             <div className="flex items-center justify-center">
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className=" mr-2 cursor-pointer rounded-lg p-2  transition-all hover:bg-gray-100"
+                className=" mr-2 cursor-pointer rounded p-2  transition-all hover:bg-gray-100"
               >
                 <HiMenu size={25} />
               </div>
@@ -230,7 +230,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           props.currentPage === dItem.slug
                             ? "bg-buttonPrimary-default text-white"
                             : "hover:bg-buttonPrimary-lighter",
-                          "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded-lg p-2  pl-3 transition-all ",
+                          "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded p-2  pl-3 transition-all ",
                           direction === "rtl" ? "flex-row-reverse pr-3" : ""
                         )}
                       >
@@ -286,7 +286,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               className={clsx(
                 keepOpen ? "rotate-180" : "",
                 direction === "rtl" ? "rotate-180" : "",
-                "w-fit cursor-pointer rounded-lg bg-gray-300 p-1 transition-all"
+                "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
               )}
             >
               <FaChevronRight />
@@ -298,7 +298,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               className={clsx(
                 openSideMenu ? "visible" : "invisible",
                 direction === "rtl" ? "rotate-180" : "",
-                "w-fit cursor-pointer rounded-lg bg-gray-300 p-1 transition-all"
+                "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
               )}
             >
               <FaChevronLeft />

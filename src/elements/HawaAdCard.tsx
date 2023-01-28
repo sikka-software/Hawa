@@ -13,14 +13,14 @@ export const HawaAdCard: React.FunctionComponent<AdCardTypes> = ({
 }) => {
   let cardStyles = {
     horizontal:
-      "flex max-w-xl rounded-lg border-gray-200 bg-gray-100 shadow-md  dark:border-gray-700 dark:bg-gray-800 ",
+      "flex max-w-xl rounded border-gray-200 bg-gray-100 shadow-md  dark:border-gray-700 dark:bg-gray-800 ",
     vertical:
-      "flex max-w-xs rounded-lg border-gray-200 bg-gray-100 shadow-md  dark:border-gray-700 dark:bg-gray-800 ",
+      "flex max-w-xs rounded border-gray-200 bg-gray-100 shadow-md  dark:border-gray-700 dark:bg-gray-800 ",
   }
 
   let imageStyles = {
-    horizontal: "w-8 h-8 rounded-lg",
-    vertical: "w-14 h-14 rounded-lg",
+    horizontal: "w-8 h-8 rounded",
+    vertical: "w-14 h-14 rounded",
   }
 
   return (

@@ -29,7 +29,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
     small: "px-3 py-1",
   }
   return (
-    <div className="relative overflow-x-clip rounded-lg">
+    <div className="relative overflow-x-clip rounded">
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
         <thead className="bg-layoutPrimary-default text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>

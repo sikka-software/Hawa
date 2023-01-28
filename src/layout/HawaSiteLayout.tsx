@@ -9,7 +9,7 @@ const MenuButton = ({ handleClick }) => {
       aria-controls="drawer-navigation"
       type="button"
       onClick={handleClick()}
-      className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     >
       {/* <span className="sr-only">Open main menu</span> */}
       <svg
@@ -111,7 +111,7 @@ const CloseButton = () => {
       type="button"
       data-drawer-dismiss="drawer-navigation"
       aria-controls="drawer-navigation"
-      className="absolute top-2.5 right-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+      className="absolute top-2.5 right-2.5 inline-flex items-center rounded bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
     >
       <svg
         aria-hidden="true"
@@ -173,7 +173,7 @@ export const HawaSiteLayout: React.FunctionComponent<LayoutTypes> = (
                 setOpenSideMenu(true)
                 console.log("opening side menu")
               }}
-              className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             >
               <svg
                 aria-hidden="true"
@@ -217,7 +217,7 @@ export const HawaSiteLayout: React.FunctionComponent<LayoutTypes> = (
           onClick={() => setOpenSideMenu(false)}
           data-drawer-dismiss="drawer-navigation"
           aria-controls="drawer-navigation"
-          className="absolute top-2.5 right-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+          className="absolute top-2.5 right-2.5 inline-flex items-center rounded bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
         >
           <svg
             aria-hidden="true"
@@ -275,7 +275,7 @@ const AppLayoutNav = (props) => (
           aria-controls="drawer-navigation"
           type="button"
           onClick={() => props.handleClick()}
-          className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
         >
           <svg
             aria-hidden="true"

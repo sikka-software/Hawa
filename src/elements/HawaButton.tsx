@@ -17,7 +17,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean
 }
 
-const baseStyles = "cursor-pointer font-medium rounded-lg  transition-all"
+const baseStyles = "cursor-pointer font-medium rounded  transition-all"
 
 const sizeStyles = {
   xs: "px-1 py-1",

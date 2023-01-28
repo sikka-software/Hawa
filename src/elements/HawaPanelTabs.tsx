@@ -49,7 +49,7 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
         {props.options.map((option: any) => {
           return (
             <div
-              className="rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
+              className="rounded bg-gray-50 p-4 dark:bg-gray-800"
               id={option.value}
               role="tabpanel"
               aria-labelledby={`${option.value}-tab`}

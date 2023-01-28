@@ -34,7 +34,7 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
   ...props
 }) => {
   let defaultStyle =
-    "block rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all dark:border-gray-700 dark:bg-gray-800 "
+    "block rounded border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all dark:border-gray-700 dark:bg-gray-800 "
 
   let orientationStyles = {
     vertical: "max-w-sm",
@@ -46,7 +46,7 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
       "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
   }
   let headerActionsButtonStyle =
-    "inline-block rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+    "inline-block rounded p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 
   const [openActionHeader, setOpenActionHeader] = useState(false)
   const {isOpen : isActionOpen, onClose : onActionClose, onOpen : onActionOpen} = useDiscloser();

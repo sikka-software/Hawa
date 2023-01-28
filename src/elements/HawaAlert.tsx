@@ -77,7 +77,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
   return (
     <div
       className={clsx(
-        "mb-4 flex flex-col rounded-lg p-4 text-sm",
+        "mb-4 flex flex-col rounded p-4 text-sm",
         styleVariant[variant][props.severity]
       )}
       role="alert"

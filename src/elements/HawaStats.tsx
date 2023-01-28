@@ -12,7 +12,7 @@ type StatTypes = {
 }
 export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
   let defaultStyle =
-    "flex flex-col gap-1 rounded-lg p-4 text-sm h-fit max-h-fit"
+    "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
     contained: "bg-layoutPrimary-default w-fit",

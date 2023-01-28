@@ -69,7 +69,7 @@ export const ReferralSettlement: React.FunctionComponent<
       )}
       <div className="mt-3">
         <div className="mb-1">Settlement Accounts</div>
-        <div className="rounded-lg">
+        <div className="rounded">
           <SettlementAccountCard
             bank="Al Inma Bank"
             iban="SA10228094028098329119"
@@ -93,7 +93,7 @@ export const ReferralSettlement: React.FunctionComponent<
 }
 
 const SettlementAccountCard = (props) => (
-  <div className="mb-3 flex flex-row items-center justify-between rounded-lg border-b bg-white p-2">
+  <div className="mb-3 flex flex-row items-center justify-between rounded border-b bg-white p-2">
     <div className="flex flex-col justify-between">
       <div className="text-xs">{props.bank}</div>
       <div>{props.accountHolder}</div>

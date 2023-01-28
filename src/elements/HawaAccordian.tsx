@@ -21,14 +21,14 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
     "p-5 font-light border border-b-xl rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
 
   return (
-    <div className="rounded-lg ">
+    <div className="rounded">
       <h2 id={"accordion-collapse-heading-" + props.count}>
         <button
           type="button"
           className={clsx(
             // props.count === 0 ? roundedTop : noRounding,
             "flex w-full items-center justify-between border border-gray-200 bg-gray-100 p-5 text-left font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800",
-            !collapse ? "rounded-t-lg" : "rounded-lg"
+            !collapse ? "rounded-t-lg" : "rounded"
           )}
           onClick={() => setCollapse(!collapse)}
           data-accordion-target={"#accordion-collapse-body-" + props.count}

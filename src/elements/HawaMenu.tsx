@@ -55,7 +55,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     }
   }, [onClickOutside])
   let defaultStyles =
-    "border-none ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded-lg bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
+    "border-none ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
   let positionStyles = {
     "top-right": "top-12 right-0",
     "top-left": "top-12 left-0",
@@ -98,7 +98,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
             >
               {group?.map((item) => {
                 return item.element ? (
-                  <li className="mx-1 cursor-pointer items-center rounded-lg hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
+                  <li className="mx-1 cursor-pointer items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
                     {item.element}
                   </li>
                 ) : (
@@ -106,8 +106,8 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                     onClick={(e) => item.action(e, item.label)}
                     className={
                       item.isButton
-                        ? "mx-1 my-1 flex cursor-pointer flex-row items-center rounded-lg bg-buttonPrimary-default py-2 px-4 text-white hover:bg-buttonPrimary-darker rtl:flex-row-reverse dark:hover:bg-buttonPrimary-darker dark:hover:text-white"
-                        : "mx-1 flex cursor-pointer flex-row items-center rounded-lg py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
+                        ? "mx-1 my-1 flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-default py-2 px-4 text-white hover:bg-buttonPrimary-darker rtl:flex-row-reverse dark:hover:bg-buttonPrimary-darker dark:hover:text-white"
+                        : "mx-1 flex cursor-pointer flex-row items-center rounded py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
                     }
                   >
                     {item.icon && (

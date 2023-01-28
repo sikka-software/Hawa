@@ -12,7 +12,7 @@ export const HawaChip: React.FunctionComponent<TChipTypes> = ({
   icon,
 }) => {
   let defaultStyles =
-    "flex flex-row w-fit gap-1 items-center rounded-lg bg-blue-200 px-2.5 py-0.5  font-bold text-blue-800 dark:bg-blue-200 dark:text-blue-800"
+    "flex flex-row w-fit gap-1 items-center rounded bg-blue-200 px-2.5 py-0.5  font-bold text-blue-800 dark:bg-blue-200 dark:text-blue-800"
   let sizeStyles = {
     small: "h-fit text-xs",
     normal: "h-full leading-4 px-3 py-2 text-xs ",

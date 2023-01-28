@@ -13,7 +13,7 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
   centered = false,
   ...props
 }) => {
-  let defaultStyle = "flex w-full flex-col rounded-xl p-4"
+  let defaultStyle = "flex w-full flex-col rounded p-4"
   let maxWidthStyles: any = {
     full: "md:max-w-xl",
     small: "md:max-w-sm w-1/3 min-w-min",

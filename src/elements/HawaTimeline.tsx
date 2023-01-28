@@ -17,12 +17,12 @@ export const HawaTimeline: React.FunctionComponent<THawaTimeline> = ({
   }
   let lineStyles = {
     vertical: {
-      default: "w-1 h-32 rounded-lg bg-buttonPrimary-default ml-6 my-2",
-      selected: "w-1  h-32 rounded-lg bg-buttonPrimary-default ml-6 my-2",
+      default: "w-1 h-32 rounded bg-buttonPrimary-default ml-6 my-2",
+      selected: "w-1  h-32 rounded bg-buttonPrimary-default ml-6 my-2",
     },
     horizontal: {
-      default: "h-0.5 w-full rounded-lg bg-buttonPrimary-default",
-      selected: "h-0.5 w-full rounded-lg bg-buttonPrimary-default",
+      default: "h-0.5 w-full rounded bg-buttonPrimary-default",
+      selected: "h-0.5 w-full rounded bg-buttonPrimary-default",
     },
   }
   return (
@@ -71,7 +71,7 @@ const TimelineStep = (props) => (
   >
     <div
       className={clsx(
-        "m-2 mr-4 flex h-10 w-10 items-center justify-center rounded-xl ring-2 ring-primary-200 ring-offset-2",
+        "m-2 mr-4 flex h-10 w-10 items-center justify-center rounded ring-2 ring-primary-200 ring-offset-2",
         props.current ? "bg-buttonPrimary-default text-white" : "bg-primary-200"
       )}
     >

@@ -44,14 +44,14 @@ export const HawaModal: React.FunctionComponent<ModalTypes> = ({
         )}
       ></div>
 
-      <div className="relative w-1/2 max-w-md rounded-lg bg-white p-1 shadow-lg dark:bg-gray-700">
+      <div className="relative w-1/2 max-w-md rounded bg-white p-1 shadow-lg dark:bg-gray-700">
         <div className="flex items-start justify-between rounded-t p-3 dark:border-gray-600">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             {title}
           </h3>
           <button
             type="button"
-            className="inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+            className="inline-flex items-center rounded bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
             data-modal-toggle="defaultModal"
             onClick={(e) => {
               onClose()

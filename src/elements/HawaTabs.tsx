@@ -20,24 +20,24 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     vertical:
       "inline-block py-2 px-4 text-white bg-buttonPrimary-default active",
     horizontal:
-      "inline-block py-2 px-4 text-white bg-buttonPrimary-default rounded-lg rounded-br-none rounded-bl-none active",
+      "inline-block py-2 px-4 text-white bg-buttonPrimary-default rounded rounded-br-none rounded-bl-none active",
   }
   let inactiveTabStyle = {
     vertical:
       "inline-block py-2 px-4 rounded-none rounded-br-none rounded-tl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
     horizontal:
-      "inline-block py-2 px-4 rounded-lg rounded-br-none rounded-bl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
+      "inline-block py-2 px-4 rounded rounded-br-none rounded-bl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
   }
   console.log("selected i : ", selectedOption)
   console.log("selected object : ", props.options[selectedOption])
   let orientationStyle = {
     vertical: {
       container: "flex flex-row",
-      tabs: "flex flex-col w-fit flex-wrap rounded-lg   border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      tabs: "flex flex-col w-fit flex-wrap rounded   border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     },
     horizontal: {
       container: "",
-      tabs: "flex w-fit flex-wrap rounded-lg rounded-br-none rounded-bl-none  border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      tabs: "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     },
   }
   let containerStyle = {
@@ -46,9 +46,9 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   }
   let tabsStyle = {
     vertical:
-      "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded-lg border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     horizontal:
-      "flex w-fit flex-wrap rounded-lg rounded-br-none rounded-bl-none  border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-primary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
   }
   return (
     <div

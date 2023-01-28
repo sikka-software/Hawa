@@ -46,11 +46,11 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
   let chipSpacing = isArabic ? { left: 10 } : { right: 10 }
   let cardSizes = {
     small:
-      "mx-1 w-full max-w-fit rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full max-w-fit rounded border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
     medium:
-      "mx-1 w-full max-w-md rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full max-w-md rounded border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
     large:
-      "mx-1 w-full max-w-lg rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full max-w-lg rounded border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
   }
   return (
     <div dir={isArabic ? "rtl" : "ltr"} className={cardSizes[props.size]}>
@@ -121,7 +121,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
       </ul>
       <button
         type="button"
-        className="inline-flex w-full justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+        className="inline-flex w-full justify-center rounded bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
       >
         {props.buttonText}
       </button>

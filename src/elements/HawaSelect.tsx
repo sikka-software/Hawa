@@ -18,7 +18,7 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded-lg p-1 px-3 hover:bg-blue-200"
+    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-blue-200"
     {...innerProps}
   >
     {children}
@@ -43,7 +43,7 @@ const Control: React.FunctionComponent<ControlTypes> = ({
   return (
     <div
       ref={innerRef}
-      className="flex h-10 w-full rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      className="flex h-10 w-full rounded border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
       {...innerProps}
       // {...props}
     >
@@ -68,7 +68,7 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
 }) => {
   return (
     <div
-      className="absolute z-10 mt-2 w-full rounded-lg bg-white ring-1 ring-blue-200"
+      className="absolute z-10 mt-2 w-full rounded bg-white ring-1 ring-blue-200"
       ref={innerRef}
       {...innerProps}
       // {...props}

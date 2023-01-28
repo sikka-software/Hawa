@@ -29,12 +29,8 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
     setTooltipHeight(tooltipRef.current?.getBoundingClientRect().height)
     setTooltipWidth(tooltipRef.current?.getBoundingClientRect().width)
     if (attachedElement) {
-      attachedElement?.addEventListener("mouseenter", () =>
-        setHovered(!hovered)
-      )
-      attachedElement?.addEventListener("mouseleave", () =>
-        setHovered(!hovered)
-      )
+      attachedElement?.addEventListener("mouseenter", () => setHovered(true))
+      attachedElement?.addEventListener("mouseleave", () => setHovered(false))
       // console.log("dcnode", attachedElement?.getBoundingClientRect())
       let pos = attachedElement?.getBoundingClientRect()
       setRefHeight(pos.height)
@@ -52,8 +48,8 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
 
   let tooltipStyles = {
     default:
-      "absolute opacity-0 z-10 inline-block w-fit max-w-xs rounded-lg bg-gray-900  text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700",
-    hovered: `absolute  opacity-100  z-10 inline-block w-fit max-w-xs rounded-lg bg-gray-900 text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700`,
+      "absolute opacity-0 z-10 inline-block w-fit max-w-xs rounded bg-gray-900  text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700",
+    hovered: `absolute opacity-100  z-10 inline-block w-fit max-w-xs rounded bg-gray-900 text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700`,
   }
 
   let sizeStyles = {

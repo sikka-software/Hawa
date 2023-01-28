@@ -234,7 +234,7 @@ AppLayout.args = {
       },
       {
         label: "Settings",
-        element: <div className="rounded-lg bg-red-300 p-2 px-4">عربي</div>
+        element: <div className="rounded bg-red-300 p-2 px-4">عربي</div>
       },
       {
         label: "Sign Out",

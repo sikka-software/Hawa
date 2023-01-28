@@ -37,7 +37,7 @@ export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
       )}
       <div className="mt-3">
         <div className="mb-1">Sign ups</div>
-        <div className="rounded-lg">
+        <div className="rounded">
           {/* <HawaTable
             columns={["date", "email", "amount"]}
             rows={[
@@ -78,13 +78,13 @@ export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
 }
 
 const NumberCard = (props) => (
-  <div className="w-full rounded-lg bg-white p-2">
+  <div className="w-full rounded bg-white p-2">
     <div className="text-sm">{props.title}</div>
     <div className="font-bold">{props.number}</div>
   </div>
 )
 const ReferralSignUpCard = (props) => (
-  <div className="mb-3 rounded-lg border-b bg-white p-2">
+  <div className="mb-3 rounded border-b bg-white p-2">
     <div className="text-xs">{props.date}</div>
     <div className="flex flex-row justify-between">
       <div>{props.email}</div>

@@ -32,7 +32,7 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
   radioProps,
 }) => {
   return (
-    <div className="my-0.5 flex max-h-fit flex-row items-center justify-between rounded-xl bg-white px-4 py-2 pr-2 align-middle">
+    <div className="my-0.5 flex max-h-fit flex-row items-center justify-between rounded bg-white px-4 py-2 pr-2 align-middle">
       <HawaTypography>{settingsLabel}</HawaTypography>
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
       {settingsType === "boolean" && <HawaSwitch />}

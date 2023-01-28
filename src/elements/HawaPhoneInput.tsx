@@ -20,7 +20,7 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded-lg p-1 px-3 hover:bg-blue-200"
+    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-blue-200"
     {...innerProps}
   >
     <img className="h-8 w-8" src={props.data.image}></img>
@@ -99,7 +99,7 @@ export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
         <input
           onChange={props.handleChange}
           type="number"
-          className="block w-full appearance-none rounded-lg rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          className="block w-full appearance-none rounded rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
         />
         {props.helperText && (
           <p className="mb-1 mt-1 text-xs text-red-600 dark:text-red-500">

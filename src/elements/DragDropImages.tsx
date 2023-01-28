@@ -111,7 +111,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       )
     })
     const thumbs = files?.map((file: any, index: any) => (
-      <div className="relative m-3 rounded-lg">
+      <div className="relative m-3 rounded">
         <button
           onClick={(e) => {
             e.stopPropagation()
@@ -120,7 +120,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
             onDeleteFile(file)
           }}
           type="button"
-          className="absolute left-0 ml-auto inline-flex items-center rounded-lg rounded-tr-none rounded-bl-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+          className="absolute left-0 ml-auto inline-flex items-center rounded rounded-tr-none rounded-bl-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
           data-modal-toggle="defaultModal"
         >
           <svg
@@ -173,7 +173,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
             style: { backgroundColor: isDragActive ? "white" : "inherit" },
           })}
           // style={{ backgroundColor: isDragActive ? "white" : "inherit" }}
-          className="mb-2 flex flex-col justify-center rounded-xl border border-dashed border-black"
+          className="mb-2 flex flex-col justify-center rounded border border-dashed border-black"
         >
           <input {...getInputProps()} />
           <div className="p-1 text-center">{texts.clickHereToUpload}</div>

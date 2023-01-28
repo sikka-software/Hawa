@@ -36,9 +36,9 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
     { label: `SAR`, value: `sar` },
   ]
   let activeTabStyle =
-    "inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active"
+    "inline-block py-3 px-4 text-white bg-blue-600 rounded active"
   let inactiveTabStyle =
-    "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+    "inline-block py-3 px-4 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
   return (
     <div>
       <div className="mb-2 flex w-full justify-between">

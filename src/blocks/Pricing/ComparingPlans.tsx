@@ -68,9 +68,9 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
     { label: `SAR`, value: `sar` },
   ]
   let activeTabStyle =
-    "inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active"
+    "inline-block py-3 px-4 text-white bg-blue-600 rounded active"
   let inactiveTabStyle =
-    "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+    "inline-block py-3 px-4 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
   return (
     <div id="detailed-pricing" className="w-full overflow-x-auto">
       <div className="min-w-max overflow-hidden">
@@ -121,7 +121,7 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
           <div>
             <a
               href="#"
-              className="block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
             >
               Buy now
             </a>
@@ -129,7 +129,7 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
           <div>
             <a
               href="#"
-              className="block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
             >
               Buy now
             </a>
@@ -137,7 +137,7 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
           <div>
             <a
               href="#"
-              className="block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
             >
               Buy now
             </a>

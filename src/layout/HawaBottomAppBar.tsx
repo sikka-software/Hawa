@@ -21,12 +21,12 @@ export const HawaBottomAppBar: React.FunctionComponent<BottomAppBarTypes> = (
         //   alignContent: "center",
         //   padding: 10,
         // }}
-        className="flex w-full flex-row items-center justify-evenly rounded-lg bg-gray-200"
+        className="flex w-full flex-row items-center justify-evenly rounded bg-gray-200"
         //   variant="outlined"
       >
         {props.appBarContent.map((singleContent: any) => (
           <div
-            className="m-1 flex h-full w-full flex-col items-center justify-center rounded-lg p-2 transition-all hover:cursor-pointer hover:bg-buttonPrimary-darker hover:text-white"
+            className="m-1 flex h-full w-full flex-col items-center justify-center rounded p-2 transition-all hover:cursor-pointer hover:bg-buttonPrimary-darker hover:text-white"
             onClick={singleContent.action}
           >
             <div
