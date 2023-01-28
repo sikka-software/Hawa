@@ -32,6 +32,8 @@ type MenuItems = {
   ) => void
   isButton?: boolean
 }
+
+// TODO: fix the drawer top when no topbar
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
   ...props
@@ -69,7 +71,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    " fixed top-3 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -170,7 +172,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
       >
         <div
           className={clsx(
-            // "overflow-hidden",
+            props.topBar ? "" : "mt-2",
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
         >
@@ -220,10 +222,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                             : null
                         }
                         onClick={() => {
-                          // if()
-                          const { offsetTop } = drawerItemRef.current
-                          ref.current.scrollTop = offsetTop - 100
-
+                          ref.current.scrollTop =
+                            drawerItemRef.current?.offsetTop - 100
                           dItem.action()
                         }}
                         className={clsx(

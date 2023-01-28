@@ -1,7 +1,7 @@
 import React from "react"
 import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
-import { FaCheck } from "react-icons/fa"
+
 type TNewsletter = {
   variant?: "outlined" | "contained" | "neobrutalism"
   texts: {

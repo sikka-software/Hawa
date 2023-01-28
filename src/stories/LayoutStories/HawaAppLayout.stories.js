@@ -243,7 +243,7 @@ AppLayout.args = {
     ]
   ],
   pageTitle: "Dashboard Page",
-  topBar: true,
+  topBar: false,
   direction: "ltr",
   username: "Zakher Masri",
   userEmail: "zakhermasri@gmail.com",
