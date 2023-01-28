@@ -46,7 +46,7 @@ export const NoData = (args) => {
     <HawaTable
       size={args.size}
       lang={args.lang}
-      columns={["Product", "Price", "Date"]}
+      columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
       noDataText={"No data"}
     />
   );
@@ -62,34 +62,78 @@ export const DataOnly = (args) => {
     <HawaTable
       lang={args.lang}
       size={args.size}
-      columns={["Product", "Price", "Date"]}
-      noDataText={"No data"}
+      columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
+      // columns={["Product", "Price", "Date"]}
+      // rows={[
+      //   [
+      //     "Logo Design",
+      //     "1,200 SAR",
+      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+      //   ],
+      //   [
+      //     "Website Design",
+      //     "1,500 SAR",
+      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+      //   ],
+      //   [
+      //     "Website Development",
+      //     "900 SAR",
+      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+      //   ],
+      //   [
+      //     "Hosting",
+      //     "200 SAR",
+      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+      //   ],
+      //   [
+      //     "Social Media Management",
+      //     "700 SAR",
+      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+      //   ]
+      // ]}
       rows={[
-        [
-          "Logo Design",
-          "1,200 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Website Design",
-          "1,500 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Website Development",
-          "900 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Hosting",
-          "200 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Social Media Management",
-          "700 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ]
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32],
+        [32, 32, 32, 32, 32, 32]
       ]}
     />
   );

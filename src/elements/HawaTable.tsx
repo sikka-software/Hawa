@@ -2,7 +2,7 @@ import React from "react"
 import { HawaButton } from "./HawaButton"
 import { FaTrash, FaExclamationCircle, FaPen } from "react-icons/fa"
 import clsx from "clsx"
-// import { HiOutlineEye } from "react-icons/hi2"
+
 type TableTypes = {
   lang?: any
   columns: any[string]
@@ -12,12 +12,14 @@ type TableTypes = {
   handleActionClick?: any
   end?: any
   size?: "normal" | "small"
+  highlightFirst?: boolean
   customColor?: string
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = ({
   size = "normal",
   customColor = "white",
+  highlightFirst = false,
   ...props
 }) => {
   let isArabic = props.lang === "ar"
@@ -27,7 +29,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
     small: "px-3 py-1",
   }
   return (
-    <div className="relative overflow-x-visible rounded-xl">
+    <div className="relative overflow-x-clip rounded-lg">
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
         <thead className="bg-layoutPrimary-default text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -49,8 +51,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               <tr
                 key={j}
                 className={clsx(
-                  "border-b dark:border-gray-700 dark:bg-gray-800",
-                  "bg-" + customColor
+                  "dark:border-gray-700 dark:bg-gray-800",
+                  "bg-" + customColor,
+                  j == props.rows.length - 1 ? "" : "border-b"
                 )}
               >
                 {singleRow.map((r: any, i: any) => {
@@ -61,7 +64,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                         scope="row"
                         className={clsx(
                           sizeStyles[size],
-                          "whitespace-nowrap font-medium text-gray-900 dark:text-white"
+                          "whitespace-nowrap  dark:text-white",
+                          highlightFirst ? "font-bold" : "font-normal"
                         )}
                       >
                         {r}{" "}

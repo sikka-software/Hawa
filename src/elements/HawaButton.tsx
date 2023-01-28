@@ -108,7 +108,7 @@ export function HawaButton({
         type={props.type}
         {...props}
       >
-        {!isLoading ? children : <HawaSpinner />}
+        {!isLoading ? children : <HawaSpinner size="button" />}
       </button>
       {tooltip && (
         <HawaTooltip
