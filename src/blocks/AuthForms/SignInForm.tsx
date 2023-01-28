@@ -47,6 +47,7 @@ type SignInFormTypes = {
   handleGithubSignIn?: () => void
   handleTwitterSignIn?: () => void
 }
+// TODO: add direction to flip block
 
 export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   const {

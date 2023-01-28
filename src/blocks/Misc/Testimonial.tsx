@@ -11,7 +11,7 @@ export const Testimonial: React.FunctionComponent<TEmptyState> = ({
 }) => {
   return (
     <div
-      className="rounded flex flex-col gap-2 border-2 border-gray-200 bg-white p-4"
+      className="flex flex-col gap-2 rounded border-2 border-gray-200 bg-white p-4"
       // style={{ width: "249.708px", marginRight: "24px" }}
     >
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none">

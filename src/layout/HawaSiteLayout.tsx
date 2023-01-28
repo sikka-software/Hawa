@@ -1,297 +1,144 @@
 import clsx from "clsx"
-import React, { useState } from "react"
-
-const MenuButton = ({ handleClick }) => {
-  return (
-    <button
-      data-drawer-target="drawer-navigation"
-      data-drawer-show="drawer-navigation"
-      aria-controls="drawer-navigation"
-      type="button"
-      onClick={handleClick()}
-      className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-    >
-      {/* <span className="sr-only">Open main menu</span> */}
-      <svg
-        aria-hidden="true"
-        className="h-6 w-6"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-    </button>
-  )
-}
-const ProfileDropdown = (props: any) => {
-  return (
-    <div
-      id="userDropdown"
-      className="z-10 hidden w-44 divide-y divide-gray-100 rounded bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
-      data-popper-reference-hidden=""
-      data-popper-escaped=""
-      data-popper-placement="bottom-start"
-      // style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 295.5px, 0px);"
-    >
-      <div className="py-3 px-4 text-sm text-gray-900 dark:text-white">
-        <div>{props.username}</div>
-        <div className="truncate font-medium">{props.userEmail}</div>
-      </div>
-      <ul
-        className="py-1 text-sm text-gray-700 dark:text-gray-200"
-        aria-labelledby="avatarButton"
-      >
-        {props.profileItems.map((it: any, o) => {
-          return <ProfileItem key={o} text={it.text} link={it.slug} />
-        })}
-      </ul>
-      <div className="py-1">
-        <a
-          href="#"
-          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-        >
-          Sign out
-        </a>
-      </div>
-    </div>
-  )
-}
-const DrawerContent = (props: any) => {
-  return (
-    <div
-      id="drawer-navigation"
-      className="fixed z-40 h-screen w-80 overflow-y-auto bg-white p-4 dark:bg-gray-800"
-      tabIndex={-1}
-      aria-labelledby="drawer-navigation-label"
-    >
-      <div
-        // href={props.logoHref}
-        className="flex items-center"
-      >
-        <img
-          src={
-            "https://my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
-          }
-          // src={props.logoLink}
-          className="h-9"
-        />
-      </div>
-      <CloseButton />
-      <div className="overflow-y-auto py-4">
-        <ul className="space-y-2">
-          {props.drawerItems.map((item: any, i: any) => {
-            return <div key={i}>{item.text}</div>
-          })}
-        </ul>
-      </div>
-    </div>
-  )
+import React, { useEffect, useRef, useState } from "react"
+import useDiscloser from "../hooks/useDiscloser"
+import { HawaMenu } from "../elements"
+import { HiMenu } from "react-icons/hi"
+import useBreakpoint from "../hooks/useBreakpoint"
+import { FaChevronRight } from "react-icons/fa"
+type HawaSiteLayoutTypes = {
+  navItems: {
+    label: string
+    icon: any
+    slug: string
+    action: () => void
+    subItems?: any
+  }[]
+  direction?: "rtl" | "ltr"
+  currentPage: string
+  pageTitle?: string
+  logoSymbol?: any
+  logoLink?: string
+  logoText?: any
+  children?: any
+  stickyNav?: boolean
+  topBar?: boolean
+  navigationSize?: "sm" | "md" | "lg"
+  floating?: boolean
 }
 
-const ProfileItem = (props: any) => {
-  return (
-    <li>
-      <a
-        href={props.link}
-        className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-      >
-        {props.text}
-      </a>
-    </li>
-  )
-}
-const CloseButton = () => {
-  return (
-    <button
-      type="button"
-      data-drawer-dismiss="drawer-navigation"
-      aria-controls="drawer-navigation"
-      className="absolute top-2.5 right-2.5 inline-flex items-center rounded bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
-    >
-      <svg
-        aria-hidden="true"
-        className="h-5 w-5"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-    </button>
-  )
-}
+// TODO: fix the drawer top when no topbar
+export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
+  direction = "rtl",
+  navigationSize = "md",
 
-type LayoutTypes = {
-  logoLink: string
-  username: string
-  userEmail: string
-  drawerItems: any
-}
-export const HawaSiteLayout: React.FunctionComponent<LayoutTypes> = (
-  props: any
-) => {
+  ...props
+}) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
+  const [openSubItem, setOpenSubItem] = useState(false)
+  const { isOpen, onClose, onOpen } = useDiscloser(false)
+  const ref = useRef(null)
+  const drawerItemRef = useRef(null)
+
+  let size
+  if (typeof window !== "undefined") {
+    size = useBreakpoint()
+  } else {
+    size = 1200
+  }
+  const [keepOpen, setKeepOpen] = useState(false)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
+        // onClickOutside && onClickOutside()
+
+        setOpenSideMenu(false)
+      }
+    }
+    document.addEventListener("click", handleClickOutside, true)
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [keepOpen])
+
+  //States of the side menu
+  //larger than 600
+  //as a bar and expands when hover
+  //less than 600
+  //as nothing and expands as button is clicked
+  let ltrDrawerStyle = [
+    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    size > 600 ? "w-14 hover:w-40" : "w-0",
+    openSideMenu ? "w-40" : "w-14",
+  ]
+  let rtlDrawerStyle = [
+    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    size > 600 ? "w-14 hover:w-40" : "w-0",
+    openSideMenu ? "w-40" : "w-14",
+  ]
+
+  let navigationSizeStyles = {
+    sm: "h-10",
+    md: "",
+    lg: "h-24",
+  }
+  let ltrChildrenStyle = [
+    "w-full overflow-y-auto",
+    "top-14 h-[calc(100%-3.5rem)]",
+  ]
+  let rtlChildrenStyle = [
+    "overflow-y-auto",
+    "w-full",
+    "top-14 h-[calc(100%-3.5rem)]",
+  ]
   return (
-    <div className="font-plex">
-      <nav className="rounded border-gray-200 dark:bg-gray-900">
-        <div className="flex w-full flex-row-reverse items-center justify-between p-3">
-          <div
-            data-dropdown-toggle="userDropdown"
-            data-dropdown-placement="bottom-start"
-            className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600"
-          >
-            <svg
-              className="absolute -left-1 h-12 w-12 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </div>
-          <div>{props.pageTitle ?? "Home"}</div>
-          <div className="flex flex-row-reverse">
-            <button
-              data-drawer-target="drawer-navigation"
-              data-drawer-show="drawer-navigation"
-              aria-controls="drawer-navigation"
-              type="button"
-              onClick={() => {
-                setOpenSideMenu(true)
-                console.log("opening side menu")
-              }}
-              className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            >
-              <svg
-                aria-hidden="true"
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>{" "}
-          </div>
-        </div>
-      </nav>
+    <div className="h-full w-full">
       <div
-        id="drawer-navigation"
-        // className="fixed z-40 h-screen w-80 overflow-y-auto bg-white p-4 dark:bg-gray-800"
         className={clsx(
-          "flex w-80  flex-col items-center bg-red-300",
-          "fixed top-0 left-0 z-40 h-screen w-80 overflow-y-auto p-4 dark:bg-gray-800",
-          openSideMenu ? "visible" : "invisible"
+          "z-30 flex flex-row items-start justify-between bg-layoutPrimary-default  transition-all",
+          navigationSizeStyles[navigationSize],
+          "rounded p-3",
+          openSideMenu ? "h-44" : "",
+          // props.floating ? "rounded-[30px]" : "rounded",
+          props.stickyNav ? "sticky top-2" : "",
+          direction === "rtl" ? "flex-row" : "flex-row-reverse"
         )}
-        tabIndex={-1}
-        aria-labelledby="drawer-navigation-label"
       >
-        <div>
+        {size > 600 ? (
+          <div className="flex flex-row gap-2 ">
+            {props.navItems?.map(({ label }) => (
+              <div className="rounded bg-none p-2 transition-all hover:bg-gray-100">
+                {label}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-center ">
+            <div
+              onClick={() => setOpenSideMenu(!openSideMenu)}
+              className="cursor-pointer rounded p-1 transition-all hover:bg-gray-100"
+            >
+              <HiMenu size={25} />
+            </div>
+            {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
+          </div>
+        )}
+        <div className="h-full">
           <img
-            src={
-              "https://my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75"
-            }
-            // src={props.logoLink}
-            className="h-9"
+            className="h-10"
+            src={`https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-${
+              direction === "rtl" ? "ar" : "en"
+            }-white.svg`}
           />
         </div>
-        <button
-          type="button"
-          onClick={() => setOpenSideMenu(false)}
-          data-drawer-dismiss="drawer-navigation"
-          aria-controls="drawer-navigation"
-          className="absolute top-2.5 right-2.5 inline-flex items-center rounded bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
-        >
-          <svg
-            aria-hidden="true"
-            className="h-5 w-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </button>{" "}
-        <div className="overflow-y-auto py-4">
-          <ul className="space-y-2">
-            {props.drawerItems.map((item: any, i: any) => {
-              return <div key={i}>{item.text}</div>
-            })}
-          </ul>
-        </div>
       </div>
-      <div className="p-3">{props.children}</div>
+
+      <div
+        className={clsx(
+          direction === "rtl" ? rtlChildrenStyle : ltrChildrenStyle
+        )}
+      >
+        {props.children}
+      </div>
     </div>
   )
 }
-
-const AppLayoutNav = (props) => (
-  <nav className="rounded border-gray-200 dark:bg-gray-900">
-    <div className="flex w-full flex-row-reverse items-center justify-between p-3">
-      <div
-        data-dropdown-toggle="userDropdown"
-        data-dropdown-placement="bottom-start"
-        className="relative mr-2 h-10 w-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600"
-      >
-        <svg
-          className="absolute -left-1 h-12 w-12 text-gray-400"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-            clipRule="evenodd"
-          ></path>
-        </svg>
-      </div>
-      <div>{props.pageTitle ?? "Home"}</div>
-      <div className="flex flex-row-reverse">
-        <button
-          data-drawer-target="drawer-navigation"
-          data-drawer-show="drawer-navigation"
-          aria-controls="drawer-navigation"
-          type="button"
-          onClick={() => props.handleClick()}
-          className="inline-flex items-center rounded p-2 text-sm text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        >
-          <svg
-            aria-hidden="true"
-            className="h-6 w-6"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </button>{" "}
-      </div>
-    </div>
-  </nav>
-)

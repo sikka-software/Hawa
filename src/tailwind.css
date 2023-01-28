@@ -13,7 +13,7 @@
     --button-secondary: #ffc011;
     --button-secondary-darker: #b48d24;
 
-    --border-radius: 8px;
+    --border-radius: 13px;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
