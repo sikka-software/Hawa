@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 // const Color = require("color");
-
+// TODO: figure out why adding the same variable and adding !important in global.css not working for buttons but working for layout
 // const themeColors = {
 //   buttonPrimar
 // }
@@ -25,6 +25,9 @@ module.exports = {
     extend: {
       boxShadow: {
         neobrutalism: "10px 10px 0px 0px rgba(0,0,0,1);"
+      },
+      maxWidth: {
+        "2xs": "250px"
       },
       screens: {
         xs: "440px"
@@ -90,8 +93,8 @@ module.exports = {
         // #251b73
         buttonPrimary: {
           lighter: "#edebfd",
-          default: "var(--button-primary)",
-          darker: "var(--button-primary-darker)",
+          500: "var(--button-primary-500)",
+          700: "var(--button-primary-700)",
           1000: "#C4DEFD"
         },
         buttonSecondary: {
@@ -101,7 +104,8 @@ module.exports = {
           // 1000: "#C4DEFD"
         },
         layoutPrimary: {
-          default: "var(--layout-primary)",
+          300: "var(--layout-primary-300)",
+          500: "var(--layout-primary-500)",
           darker: "#b7aff7",
           dark: "#251b73",
           1000: "#C4DEFD"
@@ -109,44 +113,6 @@ module.exports = {
         inputPrimary: {
           default: "#EEF7FC",
           1000: "#C4DEFD"
-        },
-
-        primary: {
-          default: "#1279F8",
-          200: "#C4DEFD",
-          300: "#9CC7FC",
-          400: "#74B1FB",
-          500: "#3d93f9",
-          600: "#065CC6",
-          700: "#065CC6",
-          800: "#054A9E",
-          900: "#043777"
-        },
-        layout: {
-          default: "#9ECDEE",
-          100: "#4896DA",
-          200: "#58A4E0",
-          300: "#65ACE4",
-          400: "#74B4E6",
-          500: "#81BCE8",
-          600: "#90C3EB",
-          700: "#9ECDEE",
-          800: "#AFD6F1",
-          900: "#BEDEF3",
-          1000: "#CFE6F6",
-          1100: "#DFEDFA",
-          1200: "#EEF7FC"
-        },
-        secondary: {
-          default: "#A3D039",
-          200: "#E0EFBD",
-          300: "#D1E89C",
-          400: "#C2E07B",
-          500: "#ABD449",
-          600: "#99C62F",
-          700: "#66841F",
-          800: "#59741B",
-          900: "#405313"
         }
       }
     }

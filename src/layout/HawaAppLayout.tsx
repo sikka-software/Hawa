@@ -71,12 +71,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
   let rtlDrawerStyle = [
-    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -100,7 +100,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-30 flex h-14 flex-row items-center justify-between bg-layoutPrimary-default",
+            "fixed top-0 z-30 flex h-14 flex-row items-center justify-between bg-layoutPrimary-500",
             // size > 600 ? "w-[calc(100%-3rem)] translate-x-[3rem]" : "w-full",
             "w-full",
             "p-2",
@@ -178,7 +178,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         >
           <div
             className={clsx(
-              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-default p-2 transition-all",
+              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-500 p-2 transition-all",
               openSideMenu ? "w-40" : "w-14"
             )}
           >
@@ -228,7 +228,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                         }}
                         className={clsx(
                           props.currentPage === dItem.slug
-                            ? "bg-buttonPrimary-default text-white"
+                            ? "bg-buttonPrimary-500 text-white"
                             : "hover:bg-buttonPrimary-lighter",
                           "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded p-2  pl-3 transition-all ",
                           direction === "rtl" ? "flex-row-reverse pr-3" : ""
@@ -263,7 +263,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                   )
                 })}
                 {j !== props.drawerItems.length - 1 && (
-                  <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-default text-center "></div>
+                  <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-500 text-center "></div>
                 )}{" "}
               </div>
             ))}

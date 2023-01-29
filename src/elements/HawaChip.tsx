@@ -3,7 +3,7 @@ import React from "react"
 
 type TChipTypes = {
   label: string
-  size: "small" | "normal" | "large"
+  size?: "small" | "normal" | "large"
   icon?: JSX.Element
 }
 export const HawaChip: React.FunctionComponent<TChipTypes> = ({

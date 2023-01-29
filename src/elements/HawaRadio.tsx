@@ -14,7 +14,7 @@ type RadioTypes = {
 export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4  w-full text-white bg-buttonPrimary-default rounded active"
+    "inline-block py-2 px-4  w-full text-white bg-buttonPrimary-500 rounded active"
   let inactiveTabStyle =
     "inline-block py-2 px-4 w-full bg-gray-100 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
 

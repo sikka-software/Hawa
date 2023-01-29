@@ -1,5 +1,11 @@
 import React from "react"
 
+// TODO: make the texts in one object property
+// TODO: give it a background color (white)
+// TODO: remove title_ar
+// TODO: spicifiy features object
+// TODO: remove features_ar
+
 type PricingCardTypes = {
   lang: "ar" | "en"
   features: [any]
@@ -95,7 +101,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
         </span>
       </div>
       <ul role="list" className="my-7 space-y-0">
-        {featuresMapping?.map((feature, o) => {
+        {props.features?.map((feature, o) => {
           return (
             <li key={o} className="flex ">
               <svg

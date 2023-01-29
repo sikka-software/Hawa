@@ -15,7 +15,7 @@ export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
     "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
-    contained: "bg-layoutPrimary-default w-fit",
+    contained: "bg-layoutPrimary-500 w-fit",
     outlined: "ring-2 w-fit",
   }
   return (

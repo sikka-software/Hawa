@@ -20,7 +20,7 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
     normal: "max-w-sm md:max-w-md",
   }
   let variantStyles = {
-    contained: "bg-layoutPrimary-default dark:bg-layoutPrimary-dark",
+    contained: "bg-layoutPrimary-500 dark:bg-layoutPrimary-dark",
     outlined: "bg-transparent border-2 border-black w-fit",
     neobrutalism: "shadow-neobrutalism  border-4 border-black  bg-white",
   }

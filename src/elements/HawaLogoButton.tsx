@@ -146,17 +146,18 @@ export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
     default:
       break
   }
+
   return (
     <button
       style={{ direction: isArabic ? "rtl" : "ltr" }}
       onClick={props.onClick}
-      className="transition-all my-2 flex h-11 w-full flex-row justify-center rounded bg-white hover:ring-1 hover:ring-buttonPrimary-default hover:brightness-90 align-middle"
+      className="my-2 flex h-11 w-full flex-row justify-center rounded bg-white align-middle transition-all hover:ring-1 hover:ring-buttonPrimary-500 hover:brightness-90"
     >
       <div className="flex h-full flex-row items-center justify-end">
         {logoElement}
       </div>
       <div style={{ width: 10 }} />
-      <div className="flex h-full flex-col items-start justify-center">
+      <div className="flex h-full flex-col items-start justify-center dark:text-black">
         {props.buttonText}
       </div>
     </button>

@@ -66,12 +66,12 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
   //less than 600
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
-    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
   let rtlDrawerStyle = [
-    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-default transition-all",
+    "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
     size > 600 ? "w-14 hover:w-40" : "w-0",
     openSideMenu ? "w-40" : "w-14",
   ]
@@ -94,7 +94,7 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
     <div className="h-full w-full">
       <div
         className={clsx(
-          "z-30 flex flex-row items-start justify-between bg-layoutPrimary-default  transition-all",
+          "z-30 flex flex-row items-start justify-between bg-layoutPrimary-500  transition-all",
           navigationSizeStyles[navigationSize],
           "rounded p-3",
           openSideMenu ? "h-44" : "",

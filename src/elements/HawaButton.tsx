@@ -31,7 +31,7 @@ const sizeStyles = {
 const widthStyles = {
   full: "w-full flex justify-center px-5 py-2.5 text-center inline-flex items-center",
   normal:
-    "w-fit dark:bg-buttonPrimary-dark dark:hover:bg-buttonPrimary-darker dark:hover:brightness-90 dark:focus:ring-primary-800",
+    "w-fit dark:bg-buttonPrimary-dark dark:hover:bg-buttonPrimary-darker dark:hover:brightness-90 dark:focus:ring-buttonPrimary-500",
   half: "w-1/2",
 }
 const variantStyles = {
@@ -42,9 +42,9 @@ const variantStyles = {
 const colorStyles = {
   contained: {
     default:
-      "text-neutral-900 bg-buttonPrimary-default hover:bg-buttonPrimary-darker bg-buttonPrimary-default text-white",
+      "text-neutral-900 bg-buttonPrimary-500 hover:bg-buttonPrimary-darker bg-buttonPrimary-500 text-white",
     primary:
-      "text-white bg-buttonPrimary-default hover:bg-buttonPrimary-darker transition-all",
+      "text-white bg-buttonPrimary-500 hover:bg-buttonPrimary-darker transition-all",
     secondary:
       "text-neutral-900 bg-buttonSecondary-default hover:text-white hover:bg-buttonSecondary-darker",
   },
