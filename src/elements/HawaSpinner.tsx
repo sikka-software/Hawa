@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import React from "react"
-// TODO: Add different sizes
+
 type SpinnerTypes = {
   size?: "button" | "sm" | "normal" | "lg" | "xl"
 }

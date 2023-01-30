@@ -8,13 +8,13 @@ type TNewsletter = {
     wantToStayUpdated: string
     subscribeToNewsletter: string
   }
+  handleNewsletterSub: (e: string) => void
 }
-
-// TODO: make it a form and handle email submission
 
 export const Newsletter: React.FunctionComponent<TNewsletter> = ({
   variant = "contained",
   texts,
+  handleNewsletterSub,
 }) => {
   return (
     <HawaContainer variant={variant} centered={true}>
@@ -22,17 +22,24 @@ export const Newsletter: React.FunctionComponent<TNewsletter> = ({
         <h1 className="font-bold">{texts.wantToStayUpdated}</h1>
         <span>{texts.subscribeToNewsletter}</span>
       </div>
-      <div className="flex flex-row gap-2">
+      <form
+        className="flex flex-row gap-2"
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleNewsletterSub(e.target[0].value)
+        }}
+      >
         <HawaTextField
           width="full"
           type="email"
+          name="email"
           placeholder={"example@sikka.io"}
           margin="none"
         />
         <HawaButton size="full" margins="none">
           Submit
         </HawaButton>
-      </div>
+      </form>
     </HawaContainer>
   )
 }

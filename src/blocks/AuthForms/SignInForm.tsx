@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
 type SignInFormTypes = {
+  language?: string
   showError?: any
   errorTitle?: string
   errorText?: string
@@ -47,7 +48,6 @@ type SignInFormTypes = {
   handleGithubSignIn?: () => void
   handleTwitterSignIn?: () => void
 }
-// TODO: add direction to flip block
 
 export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   const {
@@ -57,7 +57,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
   } = useForm()
 
   return (
-    <HawaContainer>
+    <HawaContainer direction={props.language === "ar" ? "rtl" : "ltr"}>
       <form onSubmit={handleSubmit((e) => props.handleSignIn(e))}>
         {props.showError && (
           <HawaAlert

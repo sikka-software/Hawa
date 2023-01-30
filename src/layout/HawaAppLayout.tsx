@@ -33,7 +33,7 @@ type MenuItems = {
   isButton?: boolean
 }
 
-// TODO: fix the drawer top when no topbar
+
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
   ...props

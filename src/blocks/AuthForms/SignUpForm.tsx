@@ -11,6 +11,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout/HawaContainer"
 
 type SignUpFormTypes = {
+  language?: string
   texts: {
     fullNameLabel: string
     fullNamePlaceholder: string
@@ -70,7 +71,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
   } = methods
 
   return (
-    <HawaContainer>
+    <HawaContainer direction={props.language === "ar" ? "rtl" : "ltr"}>
       <div>
         {props.showError && (
           <HawaAlert
@@ -288,8 +289,8 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
             </HawaButton>
           </form>
         </FormProvider>
-        <div className="p-3 text-center text-sm font-semibold">
-          {props.texts.existingUserText}{" "}
+        <div className="flex flex-row items-center justify-center gap-1 p-3  text-center text-sm font-semibold">
+          <span>{props.texts.existingUserText}</span>
           <span
             onClick={props.handleRouteToSignIn}
             className="cursor-pointer text-blue-600"

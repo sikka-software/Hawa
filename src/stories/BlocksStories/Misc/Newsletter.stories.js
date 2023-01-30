@@ -27,7 +27,14 @@ export default {
 };
 
 export const Newsletter = (args) => {
-  return <NewsletterBlock {...args} />;
+  return (
+    <NewsletterBlock
+      handleNewsletterSub={(e) =>
+        console.log(`${e} have subscribed to the newsletter`)
+      }
+      {...args}
+    />
+  );
 };
 
 Newsletter.args = {

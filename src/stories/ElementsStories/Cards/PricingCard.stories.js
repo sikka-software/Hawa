@@ -44,11 +44,11 @@ export default {
   }
 };
 
-export const LTR = (args) => {
+export const Pricing = (args) => {
   return <HawaPricingCard {...args} />;
 };
 
-LTR.args = {
+Pricing.args = {
   lang: "en",
   title: "Pro",
   subtitle: "For small businesses",
@@ -58,25 +58,14 @@ LTR.args = {
   cycleText: "monthly",
   buttonText: "Choose Plan",
   discount: "Save 10%",
-  features: ["Unlimited Menus", "Unlimited Items", "Custom Handle"]
-};
-export const RTL = (args) => {
-  return (
-    <HawaPricingCard
-      lang="ar"
-      cycleText="monthly"
-      features_ar={["قوائم لا محدودة", "عناصر لا محدودة", "أسم مخصص"]}
-      {...args}
-    />
-  );
-};
-RTL.args = {
-  currency: "sar",
-  price: 300,
-  size: "medium",
-  discount: "خصم 10%",
-  title_ar: "الإحترافي",
-  subtitle_ar: "للمنشئات الصغيرة",
-  buttonText: "إختر الباقة",
-  cycleText: "3-months"
+  texts: {
+    buttonText: "Upgrade",
+    currencyText: "SAR",
+    cycleText: "Monthly"
+  },
+  features: [
+    { included: true, text: "Unlimited Menus" },
+    { included: true, text: "Unlimited Items" },
+    { included: false, text: "Custom Menus" }
+  ]
 };

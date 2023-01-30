@@ -26,7 +26,6 @@ type HawaSiteLayoutTypes = {
   floating?: boolean
 }
 
-// TODO: fix the drawer top when no topbar
 export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
   direction = "rtl",
   navigationSize = "md",

@@ -1,12 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// const Color = require("color");
-// TODO: figure out why adding the same variable and adding !important in global.css not working for buttons but working for layout
-// const themeColors = {
-//   buttonPrimar
-// }
-// const alpha = (clr, val) => Color(clr).alpha(val).rgb().string();
-// const lighten = (clr, val) => Color(clr).lighten(val).rgb().string();
-// const darken = (clr, val) => Color(clr).darken(val).rgb().string();
+
 const BUTTON_PRIMARY = "#C62E65";
 const LAYOUT_PRIMARY = "#EEF7FC";
 
@@ -17,10 +10,6 @@ module.exports = {
     fontFamily: {
       plex: ["IBM Plex Sans Arabic"]
     },
-    // colors: {
-    //   buttonPrimary: "--button-primary",
-    //   buttonSecondary: "rgb(var(--button-secondary) / <alpha-value>)"
-    // },
 
     extend: {
       boxShadow: {
@@ -71,7 +60,6 @@ module.exports = {
           }
         }
       },
-
       animation: {
         collapse: "collapse",
         expandDown: "expandDown 500ms ease-in-out",
@@ -111,7 +99,7 @@ module.exports = {
           1000: "#C4DEFD"
         },
         inputPrimary: {
-          default: "#EEF7FC",
+          500: "#EEF7FC",
           1000: "#C4DEFD"
         }
       }

@@ -1,21 +1,17 @@
+import clsx from "clsx"
 import React from "react"
 
-// TODO: make the texts in one object property
-// TODO: give it a background color (white)
-// TODO: remove title_ar
-// TODO: spicifiy features object
-// TODO: remove features_ar
+// TODO: if feature.included is false, show gray and x
 
 type PricingCardTypes = {
   lang: "ar" | "en"
-  features: [any]
-  features_ar: [any]
+  features: [{ included: boolean; text: string }]
   title: string
-  title_ar: string
   price: number
-  currency: string
-  buttonText: string
-  cycleText: string
+  // currency: string
+  // buttonText: string
+  // cycleText: string
+  texts: { buttonText: string; cycleText: string; currencyText: string }
   size: "small" | "medium" | "large"
 }
 type CycleTextTypes = {
@@ -48,8 +44,6 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
     usd: isArabic ? "دولار" : "$",
     sar: isArabic ? "ريال" : "SAR",
   }
-  let featuresMapping = isArabic ? props.features_ar : props.features
-  let chipSpacing = isArabic ? { left: 10 } : { right: 10 }
   let cardSizes = {
     small:
       "mx-1 w-full max-w-fit rounded border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
@@ -59,45 +53,49 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
       "mx-1 w-full max-w-lg rounded border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
   }
   return (
-    <div dir={isArabic ? "rtl" : "ltr"} className={cardSizes[props.size]}>
+    <div
+      dir={isArabic ? "rtl" : "ltr"}
+      className={clsx(cardSizes[props.size], "bg-white")}
+    >
       <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-        {isArabic ? props.title_ar : props.title}
+        {props.title}
       </h5>
       <div className="flex items-baseline text-gray-900 dark:text-white">
-        {isArabic ? (
-          <>
-            <span className="text-5xl font-extrabold tracking-tight">
-              {props.price}
-            </span>
-            <span className="mx-1 text-sm font-semibold">
-              {" "}
-              {
-                currencyMapping[
-                  props.currency?.toLowerCase() as keyof CurrencyTextTypes
-                ]
-              }
-            </span>
-          </>
-        ) : (
-          <>
-            <span className="text-sm font-semibold">
-              {" "}
-              {
-                currencyMapping[
-                  props.currency?.toLowerCase() as keyof CurrencyTextTypes
-                ]
-              }
-            </span>
-            <span className="mx-1 text-5xl font-extrabold tracking-tight">
-              {props.price}
-            </span>
-          </>
-        )}
+        {/* {isArabic ? ( */}
+        <>
+          <span className="text-5xl font-extrabold tracking-tight">
+            {props.price}
+          </span>
+          <span className="mx-1 text-sm font-semibold">
+            {" "}
+            {/* {
+              currencyMapping[
+                props.currency?.toLowerCase() as keyof CurrencyTextTypes
+              ]
+            } */}
+            {props.texts.currencyText}
+          </span>
+        </>
+        {/* // ) : (
+        //   <>
+        //     <span className="text-sm font-semibold">
+        //       {" "}
+        //       {
+        //         currencyMapping[
+        //           props.currency?.toLowerCase() as keyof CurrencyTextTypes
+        //         ]
+        //       }
+        //     </span>
+        //     <span className="mx-1 text-5xl font-extrabold tracking-tight">
+        //       {props.price}
+        //     </span>
+        //   </>
+        // )} */}
         <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
-          /{" "}
-          {isArabic
+          / {props.texts.cycleText}
+          {/* {isArabic
             ? cycleTextsArabic[props.cycleText as keyof CycleTextTypes]
-            : cycleTextsEnglish[props.cycleText as keyof CycleTextTypes]}
+            : cycleTextsEnglish[props.cycleText as keyof CycleTextTypes]} */}
         </span>
       </div>
       <ul role="list" className="my-7 space-y-0">
@@ -119,7 +117,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
                 ></path>
               </svg>
               <span className="flex items-center  text-center font-normal leading-tight text-gray-500  dark:text-gray-400">
-                {feature}
+                {feature.text}
               </span>
             </li>
           )
@@ -129,7 +127,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = (
         type="button"
         className="inline-flex w-full justify-center rounded bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
       >
-        {props.buttonText}
+        {props.texts.buttonText}
       </button>
     </div>
 

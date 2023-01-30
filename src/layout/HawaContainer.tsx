@@ -5,12 +5,14 @@ type ContainerTypes = {
   maxWidth?: "full" | "small" | "normal"
   children: React.ReactNode
   variant?: "contained" | "outlined" | "neobrutalism"
+  direction?: "rtl" | "ltr"
   centered?: boolean
 }
 export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
   maxWidth = "normal",
   variant = "contained",
   centered = false,
+  direction = "rtl",
   ...props
 }) => {
   let defaultStyle = "flex w-full flex-col rounded p-4"
@@ -34,6 +36,7 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
         variantStyles[variant],
         centered ? "flex items-center text-center" : ""
       )}
+      dir={direction}
     >
       {props.children}
     </div>
