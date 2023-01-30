@@ -31,7 +31,7 @@ const sizeStyles = {
 const widthStyles = {
   full: "w-full flex justify-center px-5 py-2.5 text-center inline-flex items-center",
   normal:
-    "w-fit dark:bg-buttonPrimary-dark dark:hover:bg-buttonPrimary-darker dark:hover:brightness-90 dark:focus:ring-buttonPrimary-500",
+    "w-fit dark:bg-buttonPrimary-dark dark:hover:bg-buttonPrimary-700 dark:hover:brightness-90 dark:focus:ring-buttonPrimary-500",
   half: "w-1/2",
 }
 const variantStyles = {
@@ -42,17 +42,17 @@ const variantStyles = {
 const colorStyles = {
   contained: {
     default:
-      "text-neutral-900 bg-buttonPrimary-500 hover:bg-buttonPrimary-darker bg-buttonPrimary-500 text-white",
+      "text-neutral-900 bg-buttonPrimary-500 hover:bg-buttonPrimary-700 bg-buttonPrimary-500 text-white",
     primary:
-      "text-white bg-buttonPrimary-500 hover:bg-buttonPrimary-darker transition-all",
+      "text-white bg-buttonPrimary-500 hover:bg-buttonPrimary-700 transition-all",
     secondary:
-      "text-neutral-900 bg-buttonSecondary-default hover:text-white hover:bg-buttonSecondary-darker",
+      "text-neutral-900 bg-buttonSecondary-default hover:text-white hover:bg-buttonSecondary-700",
   },
   outlined: {
     default: "text-gray-600 border-gray-600 hover:bg-gray-200",
     primary: "text-black hover:bg-gray-50",
     secondary:
-      "text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-darker hover:text-white",
+      "text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-700 hover:text-white",
   },
 }
 
@@ -84,6 +84,7 @@ export function HawaButton({
     >
       <button
         id={buttonID}
+        type={props.type}
         className={
           disabled
             ? clsx(
@@ -105,7 +106,6 @@ export function HawaButton({
               )
         }
         disabled={disabled}
-        type={props.type}
         {...props}
       >
         {!isLoading ? children : <HawaSpinner size="button" />}

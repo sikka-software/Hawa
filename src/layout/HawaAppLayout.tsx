@@ -229,7 +229,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                         className={clsx(
                           props.currentPage === dItem.slug
                             ? "bg-buttonPrimary-500 text-white"
-                            : "hover:bg-buttonPrimary-lighter",
+                            : "hover:bg-buttonPrimary-300",
                           "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded p-2  pl-3 transition-all ",
                           direction === "rtl" ? "flex-row-reverse pr-3" : ""
                         )}

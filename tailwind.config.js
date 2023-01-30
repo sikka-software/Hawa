@@ -80,21 +80,18 @@ module.exports = {
         // #2e218d
         // #251b73
         buttonPrimary: {
-          lighter: "#edebfd",
+          300: "var(--button-primary-300)",
           500: "var(--button-primary-500)",
-          700: "var(--button-primary-700)",
-          1000: "#C4DEFD"
+          700: "var(--button-primary-700)"
         },
         buttonSecondary: {
-          default: "var(--button-secondary)",
-          darker: "var(--button-secondary-darker)",
-          dark: "#251b73"
-          // 1000: "#C4DEFD"
+          500: "var(--button-secondary-500)",
+          700: "var(--button-secondary-700)"
         },
         layoutPrimary: {
           300: "var(--layout-primary-300)",
           500: "var(--layout-primary-500)",
-          darker: "#b7aff7",
+          700: "#b7aff7",
           dark: "#251b73",
           1000: "#C4DEFD"
         },

@@ -381,8 +381,8 @@ video {
     --button-primary-500: #4c37eb;
     --button-primary-700: #2e1dac;
 
-    --button-secondary: #ffc011;
-    --button-secondary-darker: #b48d24;
+    --button-secondary-500: #ffc011;
+    --button-secondary-700: #b48d24;
 
     --border-radius: 13px;
   }
@@ -1458,9 +1458,6 @@ video {
 .bg-buttonPrimary-500 {
   background-color: var(--button-primary-500);
 }
-.bg-buttonSecondary-default {
-  background-color: var(--button-secondary);
-}
 .bg-red-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 202 202 / var(--tw-bg-opacity));
@@ -1521,9 +1518,8 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
-.bg-buttonPrimary-lighter {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 235 253 / var(--tw-bg-opacity));
+.bg-buttonPrimary-300 {
+  background-color: var(--button-primary-300);
 }
 .bg-blue-400 {
   --tw-bg-opacity: 1;
@@ -1977,8 +1973,12 @@ body {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-buttonSecondary-darker:hover {
-  background-color: var(--button-secondary-darker);
+.hover\:bg-buttonPrimary-700:hover {
+  background-color: var(--button-primary-700);
+}
+
+.hover\:bg-buttonSecondary-700:hover {
+  background-color: var(--button-secondary-700);
 }
 
 .hover\:bg-gray-50:hover {
@@ -2009,9 +2009,8 @@ body {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-buttonPrimary-lighter:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 235 253 / var(--tw-bg-opacity));
+.hover\:bg-buttonPrimary-300:hover {
+  background-color: var(--button-primary-300);
 }
 
 .hover\:text-gray-900:hover {
@@ -2310,6 +2309,10 @@ body {
 .dark .dark\:hover\:bg-gray-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:hover\:bg-buttonPrimary-700:hover {
+  background-color: var(--button-primary-700);
 }
 
 .dark .dark\:hover\:text-white:hover {
