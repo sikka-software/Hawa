@@ -84,7 +84,7 @@ export function HawaButton({
     >
       <button
         id={buttonID}
-        type={props.type}
+        // type={props.type}
         className={
           disabled
             ? clsx(

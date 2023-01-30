@@ -150,7 +150,7 @@ export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
           color="primary"
           size="medium"
           width="full"
-          type="submit"
+          // type="submit"
           // onClick={(e) => console.log("clicking")}
         >
           {props.texts.signInText}

@@ -16,7 +16,7 @@ export const UserSettingsForm: React.FunctionComponent<
       {props.children}
       <HawaButton
         color="primary"
-        type="submit"
+        // type="submit"
         width="full"
         onClick={props.handleSaveSettings}
       >

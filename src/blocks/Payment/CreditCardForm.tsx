@@ -91,7 +91,7 @@ export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
           }}
         />
         <HawaButton
-          type="submit"
+          // type="submit"
           width="full"
           color="primary"
           onClick={props.handlePayWithCreditCard}

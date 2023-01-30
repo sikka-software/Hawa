@@ -142,7 +142,11 @@ export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
               )
             })}
 
-          <HawaButton color="primary" width="full" type="submit">
+          <HawaButton
+            color="primary"
+            width="full"
+            // type="submit"
+          >
             {props.texts.updateProfile}
           </HawaButton>
         </form>

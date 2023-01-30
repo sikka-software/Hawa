@@ -283,7 +283,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
               isLoading={props.isLoading}
               color="primary"
               width="full"
-              type="submit"
+              // type="submit"
             >
               {props.texts.signUpText}
             </HawaButton>

@@ -57,7 +57,11 @@ export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
           }}
         />
         <div className="mt-2"></div>
-        <HawaButton color="primary" width="full" type="submit">
+        <HawaButton
+          color="primary"
+          width="full"
+          // type="submit"
+        >
           {props.SignInButtonText}
         </HawaButton>
       </form>

@@ -60,7 +60,11 @@ export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
             }}
           />
 
-          <HawaButton color="primary" type="submit" width="full">
+          <HawaButton
+            color="primary"
+            // type="submit"
+            width="full"
+          >
             {props.texts.chargeWallet}
           </HawaButton>
         </form>
