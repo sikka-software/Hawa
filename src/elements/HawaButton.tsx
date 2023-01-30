@@ -106,7 +106,8 @@ export function HawaButton({
               )
         }
         disabled={disabled}
-        {...props}
+        onClick={props.onClick}
+        // {...props}
       >
         {!isLoading ? children : <HawaSpinner size="button" />}
       </button>
