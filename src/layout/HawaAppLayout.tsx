@@ -196,7 +196,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         >
           <div
             className={clsx(
-              "fixed z-50 mb-2 flex h-12 items-center justify-center bg-layoutPrimary-500 p-2 transition-all",
+              "fixed z-50 mb-2 flex h-14 items-center justify-center bg-layoutPrimary-500 p-2 transition-all",
               openSideMenu ? "w-40" : "w-14"
             )}
           >
@@ -224,7 +224,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             ) : null}
           </div>
 
-          <div className="mt-12 mb-8">
+          <div className="mt-14 mb-8">
             {props.drawerItems.map((dSection, j) => (
               <div
                 key={j}
@@ -245,12 +245,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           props.currentPage === dItem.slug
                             ? "bg-buttonPrimary-500 text-white"
                             : "hover:bg-layoutPrimary-300",
-                          // "bg-blue-300",
-                          "m-2 flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
+                          "m-2 my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
                           direction === "rtl" ? "flex-row-reverse pr-3" : ""
                         )}
                       >
-                        <div className="flex flex-row">
+                        <div className="flex flex-row" dir={direction}>
                           <div className="flex items-center justify-center">
                             {dItem.icon}
                           </div>
@@ -280,26 +279,35 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                         <div
                           className={clsx(
                             "flex flex-col gap-0 whitespace-nowrap bg-layoutPrimary-300",
-                            "cursor-pointer p-2",
+                            "m-1 cursor-pointer rounded p-1",
                             "overflow-clip transition-all",
                             openSubItem == dItem.slug && openSideMenu
                               ? ""
-                              : "py-0",
+                              : "my-0 py-0",
                             direction === "rtl" ? "text-right" : "text-left"
                           )}
                           style={{
                             height:
                               openSubItem == dItem.slug && openSideMenu
-                                ? 15 + 36 * dItem.subItems?.length
+                                ? 6 + 33 * dItem.subItems?.length
                                 : 0,
                           }}
                         >
                           {dItem.subItems?.map((subIt) => (
                             <div
-                              className="overflow-x-clip  rounded p-2 px-4 text-sm hover:bg-layoutPrimary-500"
+                              className={clsx(
+                                "flex flex-row gap-2 overflow-x-clip  rounded p-2 px-4 text-xs hover:bg-layoutPrimary-500",
+                                direction === "rtl" ? "text-right" : "text-left"
+                              )}
+                              dir={direction}
                               onClick={() => subIt.action()}
                             >
-                              {subIt.label}
+                              <div className="flex items-center justify-center">
+                                {subIt.icon}
+                              </div>
+                              <div className="flex flex-row justify-between">
+                                {subIt.label}
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -314,42 +322,31 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             ))}
           </div>
         </div>
-        <div
-          dir={direction}
-          className={clsx(
-            "fixed bottom-2 flex w-fit items-center",
-            direction === "rtl"
-              ? "right-32 justify-start"
-              : "left-32 justify-start",
-            "transition-all duration-700",
-            openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
-          )}
-        >
-          {openSideMenu && size > 600 ? (
+        {openSideMenu && size > 600 ? (
+          <div
+            dir={direction}
+            className={clsx(
+              "fixed top-4 z-50 flex w-fit items-center",
+              direction === "rtl"
+                ? "right-32 justify-start"
+                : "left-32 justify-start",
+              "transition-all duration-700",
+              openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
+            )}
+          >
             <div
               onClick={() => setKeepOpen(!keepOpen)}
               className={clsx(
-                keepOpen ? "rotate-180" : "",
+                // keepOpen ? "rotate-180" : "",
+                keepOpen ? "rotate-0" : "rotate-180",
                 direction === "rtl" ? "rotate-180" : "",
                 "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
               )}
             >
-              <FaChevronRight />
+              <FaChevronRight fontSize={11} />
             </div>
-          ) : null}
-          {/* {keepOpen && (
-            <div
-              onClick={() => setKeepOpen(false)}
-              className={clsx(
-                openSideMenu ? "visible" : "invisible",
-                direction === "rtl" ? "rotate-180" : "",
-                "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
-              )}
-            >
-              <FaChevronLeft />
-            </div>
-          )} */}
-        </div>
+          </div>
+        ) : null}
       </div>
 
       <div
