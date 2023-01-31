@@ -33,16 +33,14 @@ type MenuItems = {
   isButton?: boolean
 }
 
-
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
   ...props
 }) => {
-  const [openSideMenu, setOpenSideMenu] = useState(false)
-  const [openSubItem, setOpenSubItem] = useState(false)
+  const [openSideMenu, setOpenSideMenu] = useState(true)
+  const [openSubItem, setOpenSubitem] = useState("jobs")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
   const ref = useRef(null)
-  const drawerItemRef = useRef(null)
 
   let size
   if (typeof window !== "undefined") {
@@ -72,13 +70,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   //as nothing and expands as button is clicked
   let ltrDrawerStyle = [
     " fixed top-0 left-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
-    size > 600 ? "w-14 hover:w-40" : "w-0",
-    openSideMenu ? "w-40" : "w-14",
+    // size > 600 ? "w-14 hover:w-40" : "w-0",
+    // openSideMenu ? "w-40" : "w-14",
   ]
   let rtlDrawerStyle = [
     "fixed top-0 right-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all",
-    size > 600 ? "w-14 hover:w-40" : "w-0",
-    openSideMenu ? "w-40" : "w-14",
+    // size > 600 ? "w-14 hover:w-40" : "w-0",
+    // openSideMenu ? "w-40" : "w-14",
   ]
 
   let ltrChildrenStyle = [
@@ -169,6 +167,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         }}
         ref={ref}
         className={clsx(direction === "rtl" ? rtlDrawerStyle : ltrDrawerStyle)}
+        style={{
+          // 160px
+          width: size > 600 ? (openSideMenu ? "160px" : "56px") : "0px",
+          // openSideMenu ? "56px" : "w-14",
+          //       size > 600 ? "w-14 hover:w-40" : "w-0",
+          // openSideMenu ? "w-40" : "w-14",
+        }}
       >
         <div
           className={clsx(
@@ -216,49 +221,76 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                   return (
                     <div key={i} id={"test"} className="flex flex-col">
                       <div
-                        ref={
-                          props.currentPage === dItem.slug
-                            ? drawerItemRef
-                            : null
-                        }
                         onClick={() => {
-                          ref.current.scrollTop =
-                            drawerItemRef.current?.offsetTop - 100
-                          dItem.action()
+                          dItem.subItems
+                            ? openSubItem === dItem.slug
+                              ? setOpenSubitem("")
+                              : setOpenSubitem(dItem.slug)
+                            : dItem.action()
                         }}
                         className={clsx(
                           props.currentPage === dItem.slug
                             ? "bg-buttonPrimary-500 text-white"
-                            : "hover:bg-buttonPrimary-300",
-                          "m-2 flex cursor-pointer flex-row items-center overflow-x-clip rounded p-2  pl-3 transition-all ",
+                            : "hover:bg-layoutPrimary-300",
+                          // "bg-blue-300",
+                          "m-2 flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
                           direction === "rtl" ? "flex-row-reverse pr-3" : ""
                         )}
                       >
-                        <div className="flex items-center justify-center">
-                          {dItem.icon}
+                        <div className="flex flex-row">
+                          <div className="flex items-center justify-center">
+                            {dItem.icon}
+                          </div>
+                          <div
+                            className={clsx(
+                              "mx-2 whitespace-nowrap text-sm transition-all",
+                              openSideMenu ? "opacity-100" : "opacity-0"
+                            )}
+                          >
+                            {dItem.label}
+                          </div>
                         </div>
-                        <div
-                          className={clsx(
-                            "mx-2 whitespace-nowrap text-sm transition-all",
-                            openSideMenu ? "opacity-100" : "opacity-0"
-                          )}
-                        >
-                          {dItem.label}
-                        </div>
+                        {dItem.subItems && (
+                          <div
+                            className={clsx(
+                              openSubItem && dItem.slug === openSubItem
+                                ? "-rotate-90"
+                                : "rotate-90"
+                            )}
+                          >
+                            <FaChevronRight />
+                          </div>
+                        )}
                       </div>
-                      {/* {dItem.subItems && (openSideMenu || isOpen) ? ( */}
-                      {dItem.subItems ? (
+
+                      {dItem.subItems && (
                         <div
                           className={clsx(
-                            "flex flex-col gap-2",
+                            "flex flex-col gap-0 whitespace-nowrap bg-layoutPrimary-300",
+                            "cursor-pointer p-2",
+                            "overflow-clip transition-all",
+                            openSubItem == dItem.slug && openSideMenu
+                              ? ""
+                              : "py-0",
                             direction === "rtl" ? "text-right" : "text-left"
                           )}
+                          style={{
+                            height:
+                              openSubItem == dItem.slug && openSideMenu
+                                ? 15 + 36 * dItem.subItems?.length
+                                : 0,
+                          }}
                         >
-                          {dItem.subItems.map((subIt) => (
-                            <div className="p-2 px-4">subItems</div>
+                          {dItem.subItems?.map((subIt) => (
+                            <div
+                              className="overflow-x-clip  rounded p-2 px-4 text-sm hover:bg-layoutPrimary-500"
+                              onClick={() => subIt.action()}
+                            >
+                              {subIt.label}
+                            </div>
                           ))}
                         </div>
-                      ) : null}
+                      )}
                     </div>
                   )
                 })}

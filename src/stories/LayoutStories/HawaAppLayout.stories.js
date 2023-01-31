@@ -19,24 +19,25 @@ const Template = (args) => {
             icon: <FaHome />
           },
           {
-            label: "Files Items",
+            label: "Items",
             slug: "files",
-            icon: <FaFolderOpen />
+            icon: <FaFolderOpen />,
             // action: handleItemClick,
-            // subItems: [
-            //   {
-            //     label: "New Item",
-            //     slug: "files",
-            //     icon: <FaFolderOpen />
-            //     // action: handleItemClick
-            //   },
-            //   {
-            //     label: "Files Items",
-            //     slug: "files",
-            //     icon: <FaFolderOpen />
-            //     // action: handleItemClick
-            //   }
-            // ]
+            subItems: [
+              {
+                label: "New Item",
+                slug: "new-item",
+                icon: <FaFolderOpen />,
+                action: () => console.log("going to new item")
+              },
+              {
+                label: "Files Items",
+                slug: "file-item",
+                icon: <FaFolderOpen />,
+                action: () => console.log("going to new item")
+                // action: handleItemClick
+              }
+            ]
           },
 
           {
@@ -52,10 +53,30 @@ const Template = (args) => {
             // action: handleItemClick
           },
           {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
+            label: "Jobs",
+            slug: "jobs",
+            icon: <FaPoll />,
+            subItems: [
+              {
+                label: "New Job Item",
+                slug: "files",
+                icon: <FaFolderOpen />,
+                action: () => console.log("going to new item")
+              },
+              {
+                label: "New Item",
+                slug: "files",
+                icon: <FaFolderOpen />,
+                action: () => console.log("going to new item")
+              },
+              {
+                label: "Files Items",
+                slug: "files",
+                icon: <FaFolderOpen />,
+                action: () => console.log("going to new item")
+                // action: handleItemClick
+              }
+            ]
           },
           {
             label: "Analytics",
