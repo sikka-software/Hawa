@@ -4,7 +4,7 @@ import useDiscloser from "../hooks/useDiscloser"
 import { HawaMenu } from "../elements"
 import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { FaChevronRight } from "react-icons/fa"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 type HawaAppLayoutTypes = {
   drawerItems: {
     label: string
@@ -336,14 +336,32 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           >
             <div
               onClick={() => setKeepOpen(!keepOpen)}
-              className={clsx(
-                // keepOpen ? "rotate-180" : "",
-                keepOpen ? "rotate-0" : "rotate-180",
-                direction === "rtl" ? "rotate-180" : "",
+              className={
                 "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
-              )}
+              }
             >
-              <FaChevronRight fontSize={11} />
+              {/* {keepOpen ? ( */}
+              <FaChevronRight
+                fontSize={11}
+                className={clsx(
+                  direction === "rtl"
+                    ? keepOpen
+                      ? "rotate-0"
+                      : "rotate-180"
+                    : keepOpen
+                    ? "rotate-180"
+                    : "rotate-0"
+                  // keepOpen ? "rotate-180" : ""
+                )}
+              />
+              {/* // ) : (
+              //   <FaChevronLeft
+              //     fontSize={11}
+              //     className={clsx(
+              //       direction === "rtl" ? "rotate-0" : "rotate-180"
+              //     )}
+              //   />
+              // )} */}
             </div>
           </div>
         ) : null}

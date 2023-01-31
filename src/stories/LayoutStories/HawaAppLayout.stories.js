@@ -339,6 +339,80 @@ WithNavbar.args = {
   ],
   pageTitle: "Dashboard Page",
   topBar: true,
+  direction: "ltr",
+  username: "Zakher Masri",
+  email: "zakhermasri@gmail.com",
+  logoSymbol:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
+  logoLink:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
+  // logoLink:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
+  // logoSymbol:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
+  profileItems: [
+    {
+      text: "Dashboard",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+    {
+      text: "Billing",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+
+    {
+      text: "Analytics",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+    {
+      text: "عربي",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    }
+  ]
+};
+export const RTL = Template.bind({});
+RTL.args = {
+  currentPage: "analytics3",
+  profileMenuItems: [
+    [
+      {
+        label: "Dashboard"
+      },
+      {
+        label: "Billing"
+      },
+      {
+        label: "Settings",
+        element: <div className="rounded bg-red-300 p-2 px-4">عربي</div>
+      },
+      {
+        label: "Sign Out",
+        isButton: true
+      }
+    ]
+  ],
+  pageTitle: "Dashboard Page",
+  topBar: true,
   direction: "rtl",
   username: "Zakher Masri",
   email: "zakhermasri@gmail.com",

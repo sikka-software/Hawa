@@ -32,7 +32,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   return (
     <div className="relative overflow-x-clip rounded">
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-        <thead className=" text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <thead className=" bg-gray-100 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {props.columns.map((col: any, i: any) => (
               <th key={i} scope="col" className={clsx(sizeStyles[size])}>
