@@ -244,16 +244,15 @@ WithButton.args = {
     ],
     [
       {
+        icon: <MdAccessAlarm />,
+        label: "Logout",
+        action: () => console.log("going to settings")
+      },
+      {
         icon: <BsFillPersonFill />,
         isButton: true,
         label: "عربي",
         action: () => console.log("going to dashboard")
-      },
-
-      {
-        icon: <MdAccessAlarm />,
-        label: "Logout",
-        action: () => console.log("going to settings")
       }
     ]
   ]

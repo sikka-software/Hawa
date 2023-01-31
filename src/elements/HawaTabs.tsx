@@ -1,6 +1,8 @@
 import clsx from "clsx"
 import React, { useState } from "react"
 
+// TODO: add option to increase space between tabs and content
+// TODO: make the blued border rounded
 type TabsTypes = {
   options?: any
   onChangeTab?: any
@@ -8,17 +10,18 @@ type TabsTypes = {
   contents?: any
   orientation?: "horizontal" | "vertical"
   direction?: "rtl" | "ltr"
+  marginBetween?: any
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   orientation = "horizontal",
   direction = "ltr",
+  marginBetween = 0,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.options[0]?.value)
-  // const [selectedOption, setSelectedOption] = useState(props.defaultValue - 1)
+
   let activeTabStyle = {
-    vertical:
-      "inline-block py-2 px-4 text-white bg-buttonPrimary-500 active",
+    vertical: "inline-block py-2 px-4 text-white bg-buttonPrimary-500 active",
     horizontal:
       "inline-block py-2 px-4 text-white bg-buttonPrimary-500 rounded rounded-br-none rounded-bl-none active",
   }
@@ -60,12 +63,21 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     >
       <ul
         className={clsx(
+          // "mb-2",
+          marginBetween
+            ? orientation === "vertical"
+              ? "mb-0"
+              : "mb-" + marginBetween
+            : "",
+          marginBetween && direction === "rtl"
+            ? "ml-" + marginBetween
+            : "mr-" + marginBetween,
           tabsStyle[orientation],
           "border-buttonPrimary-500",
           orientation === "vertical"
             ? direction === "rtl"
-              ? "rounded-none rounded-r-lg border-l-2"
-              : "rounded-none rounded-l-lg border-r-2"
+              ? "rounded-none rounded-r border-l-2"
+              : "rounded-none rounded-l border-r-2"
             : "border-b-2"
         )}
       >
@@ -92,7 +104,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
                   ? // props.options[selectedOption].value === opt.value
                     [
                       activeTabStyle[orientation],
-                      direction === "rtl" ? "rounded-r-lg" : "rounded-l-lg",
+                      direction === "rtl" ? "rounded-r" : "rounded-l",
                     ]
                   : inactiveTabStyle[orientation],
                 "w-full transition-all"

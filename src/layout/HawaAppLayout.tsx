@@ -21,6 +21,8 @@ type HawaAppLayoutTypes = {
   logoText?: any
   children?: any
   topBar?: boolean
+  username?: string
+  email?: string
   profileMenuItems?: MenuItems[][]
 }
 type MenuItems = {
@@ -37,8 +39,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
   ...props
 }) => {
-  const [openSideMenu, setOpenSideMenu] = useState(true)
-  const [openSubItem, setOpenSubitem] = useState("jobs")
+  const [openSideMenu, setOpenSideMenu] = useState(false)
+  const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
   const ref = useRef(null)
 
@@ -130,28 +132,39 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             </div>
           )}
 
-          <HawaMenu
-            buttonPosition={direction === "rtl" ? "top-left" : "top-right"}
-            menuItems={props.profileMenuItems}
-            handleClose={onClose}
-            handleOpen={onOpen}
-            open={isOpen}
-          >
-            <div className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
-              <svg
-                className="absolute -left-1 h-10 w-10 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+          <div className="flex flex-row gap-2" dir={direction}>
+            <div
+              className={clsx(
+                "text-xs",
+                direction === "rtl" ? "text-left" : "text-right"
+              )}
+            >
+              <div className="font-bold">{props.username}</div>{" "}
+              <div>{props.email}</div>
             </div>
-          </HawaMenu>
+            <HawaMenu
+              buttonPosition={direction === "rtl" ? "top-left" : "top-right"}
+              menuItems={props.profileMenuItems}
+              handleClose={onClose}
+              handleOpen={onOpen}
+              open={isOpen}
+            >
+              <div className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+                <svg
+                  className="absolute -left-1 h-10 w-10 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </HawaMenu>
+          </div>
         </div>
       )}
       <div
@@ -258,7 +271,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                                 : "rotate-90"
                             )}
                           >
-                            <FaChevronRight />
+                            <FaChevronRight fontSize={11} />
                           </div>
                         )}
                       </div>

@@ -14,6 +14,7 @@ type TableTypes = {
   size?: "normal" | "small"
   highlightFirst?: boolean
   customColor?: string
+  clickable?: boolean
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = ({
@@ -31,7 +32,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   return (
     <div className="relative overflow-x-clip rounded">
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-        <thead className="bg-layoutPrimary-500 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <thead className=" text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {props.columns.map((col: any, i: any) => (
               <th key={i} scope="col" className={clsx(sizeStyles[size])}>
@@ -51,7 +52,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               <tr
                 key={j}
                 className={clsx(
-                  "dark:border-gray-700 dark:bg-gray-800",
+                  " dark:border-gray-700 dark:bg-gray-800",
+                  props.clickable ? "hover:bg-gray-100" : "",
                   "bg-" + customColor,
                   j == props.rows.length - 1 ? "" : "border-b"
                 )}
