@@ -40,10 +40,10 @@ type MenuItems = {
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
-  drawerSize = "lg",
+  drawerSize = "md",
   ...props
 }) => {
-  const [openSideMenu, setOpenSideMenu] = useState(false)
+  const [openSideMenu, setOpenSideMenu] = useState(true)
   const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
   const ref = useRef(null)
@@ -85,12 +85,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   let drawerSizeCondition =
     size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
   return (
-    <div className="absolute left-0 right-0 h-full w-full">
+    <div className="fixed">
       {/* Top Bar Component */}
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-30 flex h-14 w-full items-center justify-between bg-layoutPrimary-500 p-2",
+            "fixed top-0 left-0 right-0 z-30 flex h-14 w-full items-center justify-between bg-layoutPrimary-500 p-2",
             isRTL ? "flex-row-reverse" : "flex-row"
           )}
         >
@@ -104,6 +104,23 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                     ? [size > 600 ? "mr-14" : "mr-2", keepOpen ? "mr-40" : ""]
                     : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
                 )}
+                style={
+                  isRTL
+                    ? {
+                        marginRight: `${
+                          drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                            drawerSize
+                          ]
+                        }px`,
+                      }
+                    : {
+                        marginLeft: `${
+                          drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                            drawerSize
+                          ]
+                        }px`,
+                      }
+                }
               >
                 {props.pageTitle}
               </div>
@@ -112,16 +129,20 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             // Mobile Drawer Menu Button
             <div
               dir={direction}
-              className="flex items-center justify-center gap-2 "
+              className="flex items-center justify-center gap-0.5 "
             >
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className="mr-2 cursor-pointer rounded p-2  transition-all hover:bg-gray-100"
+                className="z-40 mx-1 cursor-pointer  rounded p-2  transition-all hover:bg-gray-100"
               >
                 <HiMenu size={25} />
               </div>
               {/* Mobile Page Title */}
-              {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
+              {props.pageTitle ? (
+                <div className="text-sm">{props.pageTitle}</div>
+              ) : (
+                <div></div>
+              )}
             </div>
           )}
 
@@ -195,20 +216,39 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
         >
-          {/* Logo Container */}
+          {/* Drawer Header  */}
           <div
+            dir={direction}
             className={clsx(
-              "fixed z-50 mb-2 flex h-14 items-center justify-center bg-transparent p-2 transition-all",
-              openSideMenu ? "w-40" : "w-14"
+              "fixed z-50 mb-2 flex h-14 flex-row items-center ",
+              size > 600 || openSideMenu
+                ? "bg-layoutPrimary-500"
+                : "w-0 bg-transparent"
             )}
+            style={{
+              width:
+                size > 600
+                  ? `${
+                      drawerSizeStyle[openSideMenu ? "opened" : "closed"][
+                        drawerSize
+                      ]
+                    }px`
+                  : "full",
+            }}
           >
             {/* Full Logo */}
             <img
               className={clsx(
-                "fixed top-2.5 h-9 transition-all",
+                "fixed top-2.5 h-9  opacity-0 transition-all",
                 isRTL ? "right-2.5" : "left-2.5",
                 !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
+                // size > 600 ? "" : "right-4"
               )}
+              // className={clsx(
+              //   "fixed top-2.5 h-9 transition-all",
+              //   isRTL ? "right-2.5" : "left-2.5",
+              //   !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
+              // )}
               src={props.logoLink}
             />
 
@@ -216,12 +256,72 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             {size > 600 ? (
               <img
                 className={clsx(
-                  "fixed top-2.5 h-9 transition-all",
+                  "fixed top-2.5 h-9  transition-all",
                   isRTL ? "right-2.5" : "left-2.5",
                   openSideMenu ? "invisible opacity-0" : "visible opacity-100"
                 )}
                 src={props.logoSymbol}
               />
+            ) : null}
+
+            {/* Expand Button */}
+            {size > 600 ? (
+              <div
+                className={clsx("fixed right-0 w-fit transition-all")}
+                // style={isRTL ? {} : {left: }}
+                style={
+                  isRTL
+                    ? {
+                        right: `${
+                          drawerSizeStyle[openSideMenu ? "opened" : "closed"][
+                            drawerSize
+                          ] - 30
+                        }px`,
+                      }
+                    : {
+                        left: `${
+                          drawerSizeStyle[openSideMenu ? "opened" : "closed"][
+                            drawerSize
+                          ] - 30
+                        }px`,
+                      }
+                }
+              >
+                <div
+                  dir={direction}
+                  className={clsx(
+                    "relative top-0 left-0",
+
+                    // "top-4   z-50 flex w-fit items-center",
+                    // isRTL
+                    //   ? // ? `left-[${drawerSizeStyle["opened"][drawerSize]}px] justify-start`
+                    //     `left-[${drawerSizeStyle["opened"][drawerSize]}px] justify-start`
+                    //   : "left-32 justify-start",
+                    "transition-all",
+                    openSideMenu ? " opacity-100" : " opacity-0"
+                  )}
+                >
+                  <div
+                    onClick={() => setKeepOpen(!keepOpen)}
+                    className={
+                      "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
+                    }
+                  >
+                    <FaChevronRight
+                      fontSize={11}
+                      className={clsx(
+                        isRTL
+                          ? keepOpen
+                            ? "rotate-0"
+                            : "rotate-180"
+                          : keepOpen
+                          ? "rotate-180"
+                          : "rotate-0"
+                      )}
+                    />
+                  </div>
+                </div>
+              </div>
             ) : null}
           </div>
           {/* Drawer Items */}
@@ -323,39 +423,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             ))}
           </div>
         </div>
-
-        {/* Expand Button */}
-        {openSideMenu && size > 600 ? (
-          <div
-            dir={direction}
-            className={clsx(
-              "fixed top-4   z-50 flex w-fit items-center",
-              isRTL ? "right-0 justify-start" : "left-32 justify-start",
-              "transition-all duration-700",
-              openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
-            )}
-          >
-            <div
-              onClick={() => setKeepOpen(!keepOpen)}
-              className={
-                "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all"
-              }
-            >
-              <FaChevronRight
-                fontSize={11}
-                className={clsx(
-                  isRTL
-                    ? keepOpen
-                      ? "rotate-0"
-                      : "rotate-180"
-                    : keepOpen
-                    ? "rotate-180"
-                    : "rotate-0"
-                )}
-              />
-            </div>
-          </div>
-        ) : null}
       </div>
       {/* 
     
@@ -365,18 +432,20 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         style={
           isRTL
             ? {
+                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,
+                left: "0px",
                 top: props.topBar ? "56px" : "0px",
               }
             : {
+                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: `${drawerSizeCondition}px`,
                 top: props.topBar ? "56px" : "0px",
               }
         }
-        // className={clsx(isRTL ? rtlChildrenStyle : ltrChildrenStyle)}
       >
-        <div className="rounded">{props.children}</div>{" "}
+        {props.children}
       </div>
     </div>
   )
