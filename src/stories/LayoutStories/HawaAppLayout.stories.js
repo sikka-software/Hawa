@@ -175,109 +175,12 @@ const Template = (args) => {
       ]}
       {...args}
     >
-      <div className="m-4 flex h-screen flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
-        {/* <div className="bg-red-300">fd</div> */}
-        {/* <div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
-            augue sit amet ex venenatis viverra id sed massa. Orci varius
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </div>
-        </div> */}
-        <span className=" font-bold capitalize text-gray-400">App Content</span>
+      <div className="p-2">
+        <div className="m-0 flex h-screen w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
+          <span className=" font-bold capitalize text-gray-400">
+            App Content
+          </span>
+        </div>
       </div>
     </HawaAppLayout>
   );

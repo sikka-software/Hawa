@@ -5,7 +5,8 @@ import { HawaMenu } from "../elements"
 import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { FaChevronRight } from "react-icons/fa"
-
+// TODO: add ability to control the width of the drawer
+// TODO: when no navbar, the drawer can't be opened
 type HawaAppLayoutTypes = {
   drawerItems: {
     label: string
@@ -24,6 +25,7 @@ type HawaAppLayoutTypes = {
   topBar?: boolean
   username?: string
   email?: string
+  drawerSize?: "sm" | "md" | "large"
   profileMenuItems?: MenuItems[][]
 }
 
@@ -38,6 +40,7 @@ type MenuItems = {
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   direction = "rtl",
+  drawerSize = "lg",
   ...props
 }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
@@ -66,31 +69,29 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
 
   let drawerDefaultStyle =
     "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all"
-  let ltrDrawerStyle = "left-0"
-  let rtlDrawerStyle = "right-0"
 
-  let ltrChildrenStyle = [
-    "fixed  overflow-y-auto",
-    size > 600 ? "left-14 w-[calc(100%-3.5rem)]" : "left-0 ",
-    props.topBar ? "top-14 h-[calc(100%-3.5rem)]" : "top-0 h-full",
-    keepOpen ? "left-40 w-[calc(100%-10rem)]" : "",
-    keepOpen && size > 600 ? "left-0 w-[calc(100%-10.01rem)]" : "w-full",
-  ]
-  let rtlChildrenStyle = [
-    "fixed overflow-y-auto",
-    size > 600 ? "right-14 w-[calc(100%-3.5rem)]" : "right-0 ",
-    props.topBar ? "top-14 h-[calc(100%-3.5rem)]" : "top-0 h-full",
-    keepOpen ? "right-40 w-[calc(100%-10rem)]" : "",
-    keepOpen && size > 600 ? "right-0 w-[calc(100%-10.01rem)]" : "w-full",
-  ]
+  let drawerSizeStyle = {
+    opened: {
+      sm: "100",
+      md: "160",
+      lg: "250",
+    },
+    closed: {
+      sm: "56",
+      md: "56",
+      lg: "56",
+    },
+  }
+  let drawerSizeCondition =
+    size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
   return (
-    <div className="fixed left-0 h-full">
+    <div className="absolute left-0 right-0 h-full w-full">
       {/* Top Bar Component */}
       {props.topBar && (
         <div
           className={clsx(
-            "fixed top-0 z-30 flex h-14 w-full flex-row items-center justify-between bg-layoutPrimary-500 p-2",
-            isRTL ? "flex-row-reverse" : ""
+            "fixed top-0 z-30 flex h-14 w-full items-center justify-between bg-layoutPrimary-500 p-2",
+            isRTL ? "flex-row-reverse" : "flex-row"
           )}
         >
           {/* Nav Side Of Navbar */}
@@ -115,7 +116,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             >
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className=" mr-2 cursor-pointer rounded p-2  transition-all hover:bg-gray-100"
+                className="mr-2 cursor-pointer rounded p-2  transition-all hover:bg-gray-100"
               >
                 <HiMenu size={25} />
               </div>
@@ -173,17 +174,17 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         ref={ref}
         className={clsx(
           drawerDefaultStyle,
-          isRTL ? rtlDrawerStyle : ltrDrawerStyle
+          drawerSizeStyle[drawerSize],
+          isRTL ? "right-0" : "left-0"
         )}
         style={{
-          // width:"160px",
           width:
             size > 600
               ? openSideMenu
-                ? "160px"
-                : "56px"
+                ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                : `${drawerSizeStyle["closed"][drawerSize]}px`
               : openSideMenu
-              ? "160px"
+              ? `${drawerSizeStyle["opened"][drawerSize]}px`
               : "0px",
         }}
       >
@@ -197,7 +198,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           {/* Logo Container */}
           <div
             className={clsx(
-              "fixed z-50 mb-2 flex h-14 items-center justify-center bg-layoutPrimary-500 p-2 transition-all",
+              "fixed z-50 mb-2 flex h-14 items-center justify-center bg-transparent p-2 transition-all",
               openSideMenu ? "w-40" : "w-14"
             )}
           >
@@ -215,7 +216,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             {size > 600 ? (
               <img
                 className={clsx(
-                  // " bg-green-500",
                   "fixed top-2.5 h-9 transition-all",
                   isRTL ? "right-2.5" : "left-2.5",
                   openSideMenu ? "invisible opacity-0" : "visible opacity-100"
@@ -329,8 +329,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           <div
             dir={direction}
             className={clsx(
-              "fixed top-4 z-50 flex w-fit items-center",
-              isRTL ? "right-32 justify-start" : "left-32 justify-start",
+              "fixed top-4   z-50 flex w-fit items-center",
+              isRTL ? "right-0 justify-start" : "left-32 justify-start",
               "transition-all duration-700",
               openSideMenu && size > 600 ? " opacity-100" : " opacity-0"
             )}
@@ -357,10 +357,26 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           </div>
         ) : null}
       </div>
-
+      {/* 
+    
       {/* Children Container */}
-      <div className={clsx(isRTL ? rtlChildrenStyle : ltrChildrenStyle)}>
-        {props.children}
+      <div
+        className="fixed overflow-y-auto"
+        style={
+          isRTL
+            ? {
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                top: props.topBar ? "56px" : "0px",
+              }
+            : {
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                left: `${drawerSizeCondition}px`,
+                top: props.topBar ? "56px" : "0px",
+              }
+        }
+        // className={clsx(isRTL ? rtlChildrenStyle : ltrChildrenStyle)}
+      >
+        <div className="rounded">{props.children}</div>{" "}
       </div>
     </div>
   )
