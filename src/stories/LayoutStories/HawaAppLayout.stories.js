@@ -19,6 +19,46 @@ const Template = (args) => {
             icon: <FaHome />
           },
           {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
+            label: "Home",
+            slug: "home",
+            icon: <FaHome />
+          },
+          {
             label: "Items",
             slug: "files",
             icon: <FaFolderOpen />,
@@ -135,9 +175,9 @@ const Template = (args) => {
       ]}
       {...args}
     >
-      <div className="flex flex-row-reverse overflow-auto bg-blue-400 p-4">
-        <div className="bg-red-300">fd</div>
-        <div>
+      <div className="m-4 flex h-screen flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
+        {/* <div className="bg-red-300">fd</div> */}
+        {/* <div>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
             turpis eleifend, vestibulum sapien id, porttitor nisi. Vivamus et
@@ -236,7 +276,8 @@ const Template = (args) => {
             natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
           </div>
-        </div>
+        </div> */}
+        <span className=" font-bold capitalize text-gray-400">App Content</span>
       </div>
     </HawaAppLayout>
   );

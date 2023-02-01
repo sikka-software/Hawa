@@ -37,11 +37,20 @@ type SignInFormTypes = {
   }
   withoutResetPassword?: boolean
   withoutSignUp?: boolean
+  /**
+   *show spinner if true
+   */
   isLoading?: any
   viaGoogle?: boolean
   viaGithub?: boolean
   viaTwitter?: boolean
+  /**
+   * Handle the sign in .
+   */
   handleSignIn?: (e: any) => void
+  /**
+   * Handle routing to sign up page
+   */
   handleRouteToSignUp?: () => void
   handleForgotPassword?: () => void
   handleGoogleSignIn?: () => void
