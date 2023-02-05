@@ -1,9 +1,27 @@
 {
   "name": "@sikka/hawa",
   "version": "0.0.187",
-  "description": "UI Kit",
+  "description": "SaaS Oriented UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
+  "author": "Sikka Software <contact@sikka.io> (http://sikka.io)",
+  "license": "MIT",
+  "keywords": [
+    "ui",
+    "kit",
+    "saas",
+    "kit",
+    "hawa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sikka-software/hawa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sikka-software/hawa/issues",
+    "email": "hawa@sikka.io"
+  },
+  "homepage": "https://hawa.style",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "start-storybook -p 6006 -s public",
@@ -14,8 +32,6 @@
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles"
   },
-  "author": "Sikka Software",
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",

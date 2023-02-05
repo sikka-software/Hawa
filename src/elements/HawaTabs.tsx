@@ -9,11 +9,12 @@ type TabsTypes = {
   orientation?: "horizontal" | "vertical"
   direction?: "rtl" | "ltr"
   marginBetween?: any
-  width: "full" | "normal"
+  width?: "full" | "normal"
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   orientation = "horizontal",
   direction = "ltr",
+  width = "normal",
   marginBetween = 0,
   ...props
 }) => {
@@ -83,7 +84,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
               ? "rounded-none rounded-r border-l-2"
               : "rounded-none rounded-l border-r-2"
             : "border-b-2",
-          widthStyles[props.width]
+          widthStyles[width]
         )}
       >
         {/* 
