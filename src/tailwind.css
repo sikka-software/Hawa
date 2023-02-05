@@ -14,7 +14,7 @@
     --button-secondary-500: #ffc011;
     --button-secondary-700: #b48d24;
 
-    --border-radius: 13px;
+    --border-radius: 0px;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

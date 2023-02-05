@@ -90,7 +90,8 @@ const SignUpTemplate = (args) => {
         existingUserText: "Existing User?",
         googleButtonLabel: "Sign up with Google",
         githubButtonLabel: "Sign up with Github",
-        twitterButtonLabel: "Sign up with Twitter"
+        twitterButtonLabel: "Sign up with Twitter",
+        refCode: "Referral Code"
       }}
       showError={args.showError}
       viaGoogle={args.viaGoogle}
@@ -114,6 +115,7 @@ SignUp.args = {
   showUserSource: true,
   showNewsletterOption: true,
   showTermsOption: true,
+  showRefCode: true,
   showError: false,
   errorTitle: "Error",
   errorText: "Something went wrong",

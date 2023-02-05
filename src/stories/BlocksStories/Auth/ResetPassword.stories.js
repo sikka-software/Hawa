@@ -26,7 +26,9 @@ ResetPassword.args = {
     emailRequiredText: "Email is required",
     emailInvalidText: "Invalid email address",
     emailSentText: "The reset password link was sent to your email",
-    resetPassword: "Reset Password"
+    resetPassword: "Reset Password",
+    signUpText:"Sign Up",
+    dontHaveAccount: "Don't have an account? "
   },
   handleResetPassword: (e) => console.log("resetting password,", e)
 };

@@ -41,6 +41,7 @@ type SignUpFormTypes = {
     googleButtonLabel: string
     githubButtonLabel: string
     twitterButtonLabel: string
+    refCode: string
   }
   showUserSource: any
   viaGoogle: boolean
@@ -194,13 +195,13 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
             {props.showRefCode && (
               <Controller
                 control={control}
-                name="password"
+                name="refCode"
                 render={({ field }) => (
                   <HawaTextField
                     width="full"
                     type="text"
                     defaultValue={field.value ?? ""}
-                    label={"Ref Code"}
+                    label={props.texts.refCode}
                     placeholder={props.texts.passwordPlaceholder}
                     helperText={errors.password?.message}
                     value={field.value ?? ""}
@@ -235,49 +236,45 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
               </div>
             )}
             {props.showTermsOption && (
-              <div>
-                <Controller
-                  control={control}
-                  name="terms_accepted"
-                  render={({ field }) => (
-                    <HawaCheckbox
-                      id="terms_accepted"
-                      helperText={errors.terms_accepted?.message}
-                      onChange={(e) => {
-                        console.log("changing ", e)
-                        field.onChange(e)
-                      }}
-                      label={
-                        <span>
-                          {props.texts.iAcceptText}{" "}
-                          <a
-                            onClick={props.handleRouteToTOS}
-                            className="cursor-pointer text-blue-800"
-                          >
-                            {props.texts.termsText}
-                          </a>
-                        </span>
-                      }
-                    />
-                  )}
-                  rules={{ required: props.texts.termsRequiredText }}
-                />
-              </div>
+              <Controller
+                control={control}
+                name="terms_accepted"
+                render={({ field }) => (
+                  <HawaCheckbox
+                    id="terms_accepted"
+                    helperText={errors.terms_accepted?.message}
+                    onChange={(e) => {
+                      console.log("changing ", e)
+                      field.onChange(e)
+                    }}
+                    label={
+                      <span>
+                        {props.texts.iAcceptText}{" "}
+                        <a
+                          onClick={props.handleRouteToTOS}
+                          className="cursor-pointer text-blue-800"
+                        >
+                          {props.texts.termsText}
+                        </a>
+                      </span>
+                    }
+                  />
+                )}
+                rules={{ required: props.texts.termsRequiredText }}
+              />
             )}
             {props.showNewsletterOption && (
-              <div className="py-2">
-                <Controller
-                  control={control}
-                  name="newsletter_accepted"
-                  render={({ field }) => (
-                    <HawaCheckbox
-                      id="newsletter_accepted"
-                      label={props.texts.subscribeToNewsletter}
-                      onChange={field.onChange}
-                    />
-                  )}
-                />
-              </div>
+              <Controller
+                control={control}
+                name="newsletter_accepted"
+                render={({ field }) => (
+                  <HawaCheckbox
+                    id="newsletter_accepted"
+                    label={props.texts.subscribeToNewsletter}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
             )}
             <HawaButton
               isLoading={props.isLoading}

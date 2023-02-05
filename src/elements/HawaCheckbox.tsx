@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React, { useEffect, useState } from "react"
 
 type TCheckBoxTypes = {
@@ -19,11 +20,11 @@ export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (
   }, [val])
   return (
     <div
-      className={
+      className={clsx(
         props.centered
           ? "flex h-full items-center justify-center"
           : "flex h-full items-start "
-      }
+      )}
     >
       <input
         type="checkbox"

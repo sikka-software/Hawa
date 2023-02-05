@@ -1,4 +1,5 @@
 import React from "react";
+import { FaSearch } from "react-icons/fa";
 import {
   HawaSearchBar,
   HawaTextField,
@@ -79,12 +80,13 @@ PhoneInput.args = {
 
 export const SearchInput = (args) => {
   return (
-    <HawaSearchBar {...args} onChange={(e) => console.log(e.target.value)} />
+    <HawaTextField {...args} onChange={(e) => console.log(e.target.value)} />
   );
 };
 
 SearchInput.args = {
-  placeholder: "Search"
+  placeholder: "Search",
+  icon: <FaSearch color="gray" />
 };
 
 // export const PinInput = (args) => {

@@ -9,6 +9,7 @@ type TabsTypes = {
   orientation?: "horizontal" | "vertical"
   direction?: "rtl" | "ltr"
   marginBetween?: any
+  width: "full" | "normal"
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   orientation = "horizontal",
@@ -27,7 +28,11 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     vertical:
       "inline-block py-2 px-4 rounded-none rounded-br-none rounded-tl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
     horizontal:
-      "inline-block py-2 px-4 rounded rounded-br-none rounded-bl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
+      "bg-gray-100 inline-block py-2 px-4 rounded rounded-br-none rounded-bl-none hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white",
+  }
+  let widthStyles = {
+    full: "w-full min-w-full",
+    normal: "w-fit",
   }
   console.log("selected i : ", selectedOption)
   console.log("selected object : ", props.options[selectedOption])
@@ -49,7 +54,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     vertical:
       "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded border-b-buttonPrimary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     horizontal:
-      "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-buttonPrimary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-buttonPrimary-500  text-center text-sm font-medium text-gray-500 dark:text-gray-400",
   }
   return (
     <div
@@ -57,6 +62,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
       className={clsx(
         containerStyle[orientation],
         props.options[selectedOption] ? "border-b-2" : "border-b-0"
+        // "bg-red-400"
       )}
     >
       <ul
@@ -76,7 +82,8 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
             ? direction === "rtl"
               ? "rounded-none rounded-r border-l-2"
               : "rounded-none rounded-l border-r-2"
-            : "border-b-2"
+            : "border-b-2",
+          widthStyles[props.width]
         )}
       >
         {/* 

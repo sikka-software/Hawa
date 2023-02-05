@@ -183,3 +183,65 @@ Vertical.args = {
   direction: "rtl",
   marginBetween: 2
 };
+
+export const FullWidth = (args) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+  return (
+    <HawaTabs
+      // onChangeTab={(e) => setSelectedOption(e)}
+      {...args}
+      options={[
+        {
+          value: "option1",
+          label: "Billing",
+          content: <div className="bg-red-300"> option 1</div>
+        },
+        {
+          value: "option2",
+          label: "Settings",
+          content: <div className="bg-red-300"> option 2</div>
+        },
+        {
+          value: "option3",
+          label: "Legal",
+          content: <div className="bg-red-300"> option 3</div>
+        },
+        {
+          value: "option4",
+          label: "Test",
+          content: (
+            <div className="flex flex-col gap-9 bg-red-300">
+              {" "}
+              option 3<div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+              <div> lorem</div>
+            </div>
+          )
+        }
+      ]}
+    />
+  );
+};
+
+FullWidth.args = {
+  orientation: "horizontal",
+  direction: "rtl",
+  marginBetween: 2,
+  width: "full"
+};

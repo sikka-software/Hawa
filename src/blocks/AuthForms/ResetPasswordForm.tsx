@@ -5,6 +5,7 @@ import { HawaContainer } from "../../layout"
 
 type ResetPasswordType = {
   handleResetPassword: () => void
+  handleRouteToSignUp: () => void
   sent: any
   texts: {
     emailLabel: string
@@ -13,6 +14,8 @@ type ResetPasswordType = {
     emailInvalidText: string
     emailSentText: string
     resetPassword: string
+    signUpText: string
+    dontHaveAccount: string
   }
 }
 
@@ -53,6 +56,15 @@ export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
               },
             }}
           />
+          <div className=" pb-2 text-left text-sm dark:text-gray-300">
+            {props.texts.dontHaveAccount ?? "Don't have an account? "}
+            <span
+              onClick={props.handleRouteToSignUp}
+              className="cursor-pointer text-blue-600 dark:text-blue-400"
+            >
+              {props.texts.signUpText ?? "Sign Up"}
+            </span>
+          </div>
           <HawaButton
             color="primary"
             width="full"

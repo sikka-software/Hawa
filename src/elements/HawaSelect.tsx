@@ -18,7 +18,7 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-blue-200"
+    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-buttonPrimary-500 hover:text-white"
     {...innerProps}
   >
     {children}
