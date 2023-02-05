@@ -5,8 +5,9 @@ import { HawaMenu } from "../elements"
 import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { FaChevronRight } from "react-icons/fa"
-// TODO: add ability to control the width of the drawer
 // TODO: when no navbar, the drawer can't be opened
+// TODO: when no pagetitle, navbar gets messy
+// TODO: the user menu avatar clickable area is exceeding the topbar
 type HawaAppLayoutTypes = {
   drawerItems: {
     label: string
@@ -46,6 +47,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   const [openSideMenu, setOpenSideMenu] = useState(true)
   const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
+  const [keepOpen, setKeepOpen] = useState(true)
   const ref = useRef(null)
   const isRTL = direction === "rtl"
   let size
@@ -54,7 +56,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   } else {
     size = 1200
   }
-  const [keepOpen, setKeepOpen] = useState(false)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
@@ -165,7 +166,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               handleOpen={onOpen}
               open={isOpen}
             >
-              <div className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+              <div className="relative  h-8 w-8 cursor-pointer overflow-hidden rounded-full dark:bg-gray-600">
                 <svg
                   className="absolute -left-1 h-10 w-10 text-gray-400"
                   fill="currentColor"
@@ -338,12 +339,19 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                         onClick={() => {
                           dItem.subItems
                             ? openSubItem === dItem.slug
-                              ? setOpenSubitem("")
+                              ? // ||
+                                // dItem.subItems.find(
+                                //   (e) => e.slug === props.currentPage
+                                // )
+                                setOpenSubitem("")
                               : setOpenSubitem(dItem.slug)
                             : dItem.action()
                         }}
                         className={clsx(
-                          props.currentPage === dItem.slug
+                          props.currentPage === dItem.slug ||
+                            dItem.subItems?.find(
+                              (e) => e.slug === props.currentPage
+                            )
                             ? "bg-buttonPrimary-500 text-white"
                             : "hover:bg-layoutPrimary-300",
                           "m-2 my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
@@ -367,7 +375,11 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           <div
                             className={clsx(
                               openSubItem && dItem.slug === openSubItem
-                                ? "-rotate-90"
+                                ? // ||
+                                  //   dItem.subItems.find(
+                                  //     (e) => e.slug === props.currentPage
+                                  //   )
+                                  "-rotate-90"
                                 : "rotate-90"
                             )}
                           >
@@ -382,6 +394,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                             "flex flex-col gap-0 whitespace-nowrap bg-layoutPrimary-300",
                             "m-1 cursor-pointer rounded p-1",
                             "overflow-clip transition-all",
+                            // dItem.subItems.find(
+                            //   (e) => e.slug === props.currentPage
+                            // ) ||
                             openSubItem == dItem.slug && openSideMenu
                               ? ""
                               : "my-0 py-0",
@@ -389,6 +404,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           )}
                           style={{
                             height:
+                              // dItem.subItems.find(
+                              //   (e) => e.slug === props.currentPage
+                              // ) ||
                               openSubItem == dItem.slug && openSideMenu
                                 ? 6 + 33 * dItem.subItems?.length
                                 : 0,
@@ -397,11 +415,17 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           {dItem.subItems?.map((subIt) => (
                             <div
                               className={clsx(
-                                "flex flex-row gap-2 overflow-x-clip  rounded p-2 px-4 text-xs hover:bg-layoutPrimary-500",
-                                isRTL ? "text-right" : "text-left"
+                                "flex flex-row gap-2 overflow-x-clip  rounded p-2 px-2 text-xs",
+                                isRTL ? "text-right" : "text-left",
+                                props.currentPage === subIt.slug
+                                  ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
+                                  : "hover:bg-layoutPrimary-500"
                               )}
                               dir={direction}
-                              onClick={() => subIt.action()}
+                              onClick={() => {
+                                subIt.action()
+                                // setOpenSubitem(dItem.slug)
+                              }}
                             >
                               <div className="flex items-center justify-center">
                                 {subIt.icon}

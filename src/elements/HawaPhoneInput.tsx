@@ -48,7 +48,7 @@ export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
           {props.label}
         </label>
       )}
-      <div className="flex flex-row">
+      <div dir="ltr" className="flex flex-row">
         <Select
           styles={{
             input: (base) => ({

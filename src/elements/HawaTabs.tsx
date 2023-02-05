@@ -1,8 +1,6 @@
 import clsx from "clsx"
 import React, { useState } from "react"
 
-// TODO: add option to increase space between tabs and content
-// TODO: make the blued border rounded
 type TabsTypes = {
   options?: any
   onChangeTab?: any

@@ -12,7 +12,7 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
   maxWidth = "normal",
   variant = "contained",
   centered = false,
-  direction = "rtl",
+  direction = "ltr",
   ...props
 }) => {
   let defaultStyle = "flex w-full flex-col rounded p-4"

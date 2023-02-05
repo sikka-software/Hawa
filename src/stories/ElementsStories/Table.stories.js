@@ -138,6 +138,7 @@ export const DataOnly = (args) => {
     />
   );
 };
+
 export const DataWithActions = (args) => {
   function randomDate(start, end) {
     return new Date(
@@ -184,5 +185,95 @@ export const DataWithActions = (args) => {
         ]
       ]}
     />
+  );
+};
+
+export const RTL = (args) => {
+  function randomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  return (
+    <div dir="rtl">
+      <HawaTable
+        lang={args.lang}
+        size={args.size}
+        columns={["المنتج", "السعر", "التاريخ", "الوزن", "الرقم التسلسلي"]}
+        // columns={["Product", "Price", "Date"]}
+        // rows={[
+        //   [
+        //     "Logo Design",
+        //     "1,200 SAR",
+        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+        //   ],
+        //   [
+        //     "Website Design",
+        //     "1,500 SAR",
+        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+        //   ],
+        //   [
+        //     "Website Development",
+        //     "900 SAR",
+        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+        //   ],
+        //   [
+        //     "Hosting",
+        //     "200 SAR",
+        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+        //   ],
+        //   [
+        //     "Social Media Management",
+        //     "700 SAR",
+        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+        //   ]
+        // ]}
+        rows={[
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32],
+          [32, 32, 32, 32, 32]
+        ]}
+      />
+    </div>
   );
 };

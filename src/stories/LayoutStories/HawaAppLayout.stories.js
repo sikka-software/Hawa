@@ -10,171 +10,7 @@ export default {
 
 const Template = (args) => {
   return (
-    <HawaAppLayout
-      drawerItems={[
-        [
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Home",
-            slug: "home",
-            icon: <FaHome />
-          },
-          {
-            label: "Items",
-            slug: "files",
-            icon: <FaFolderOpen />,
-            // action: handleItemClick,
-            subItems: [
-              {
-                label: "New Item",
-                slug: "new-item",
-                icon: <FaFolderOpen />,
-                action: () => console.log("going to new item")
-              },
-              {
-                label: "Files Items",
-                slug: "file-item",
-                icon: <FaFolderOpen />,
-                action: () => console.log("going to new item")
-                // action: handleItemClick
-              }
-            ]
-          },
-
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Jobs",
-            slug: "jobs",
-            icon: <FaPoll />,
-            subItems: [
-              {
-                label: "New Job Item",
-                slug: "files",
-                icon: <FaFolderOpen />,
-                action: () => console.log("going to new item")
-              },
-              {
-                label: "New Item",
-                slug: "files",
-                icon: <FaFolderOpen />,
-                action: () => console.log("going to new item")
-              },
-              {
-                label: "Files Items",
-                slug: "files",
-                icon: <FaFolderOpen />,
-                action: () => console.log("going to new item")
-                // action: handleItemClick
-              }
-            ]
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics",
-            icon: <FaPoll />
-            // action: handleItemClick
-          },
-          {
-            label: "Analytics",
-            slug: "analytics3",
-            icon: <FaPoll />
-          }
-        ]
-      ]}
-      {...args}
-    >
+    <HawaAppLayout {...args}>
       <div className=" h-full p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
           <span className=" font-bold capitalize text-gray-400">
@@ -377,7 +213,169 @@ const Template = (args) => {
 
 export const AppLayout = Template.bind({});
 AppLayout.args = {
-  currentPage: "analytics3",
+  currentPage: "new-item",
+  drawerItems: [
+    [
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Items",
+        slug: "files",
+        icon: <FaFolderOpen />,
+        // action: handleItemClick,
+        subItems: [
+          {
+            label: "New Item",
+            slug: "new-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "file-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Jobs",
+        slug: "jobs",
+        icon: <FaPoll />,
+        subItems: [
+          {
+            label: "New Job Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "New Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics3",
+        icon: <FaPoll />
+      }
+    ]
+  ],
   profileMenuItems: [
     [
       {
@@ -451,7 +449,149 @@ AppLayout.args = {
 };
 export const WithNavbar = Template.bind({});
 WithNavbar.args = {
-  currentPage: "analytics3",
+  currentPage: "new-item",
+  drawerItems: [
+    [
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Items",
+        slug: "files",
+        icon: <FaFolderOpen />,
+        // action: handleItemClick,
+        subItems: [
+          {
+            label: "New Item",
+            slug: "new-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "file-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Jobs",
+        slug: "jobs",
+        icon: <FaPoll />,
+        subItems: [
+          {
+            label: "New Job Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "New Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics3",
+        icon: <FaPoll />
+      }
+    ]
+  ],
   profileMenuItems: [
     [
       {

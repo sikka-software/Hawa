@@ -49,6 +49,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
         handleClose()
       }
     }
+    console.log("ref is", ref.current?.getBoundingClientRect())
     document.addEventListener("click", handleClickOutside, true)
     return () => {
       document.removeEventListener("click", handleClickOutside, true)
@@ -63,8 +64,8 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     "bottom-left": "bottom-12 left-0",
   }
   let animationStyles = {
-    opened: "max-h-fit",
-    closed: "h-0 ",
+    opened: "max-h-fit h-max visible opacity-100 block",
+    closed: "h-0 invisible opacity-0 hidden",
   }
   return (
     <div
