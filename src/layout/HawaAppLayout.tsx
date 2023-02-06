@@ -147,7 +147,13 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
             </div>
           )}
 
-          <div className="flex flex-row gap-2" dir={direction}>
+          <div
+            className={clsx(
+              "flex gap-2",
+              isRTL ? "flex-row-reverse" : "flex-row"
+            )}
+            // dir={direction}
+          >
             {/* User Info */}
             {size > 600 ? (
               <div
@@ -162,7 +168,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
 
             {/* Profile Icon & Menu */}
             <HawaMenu
-              buttonPosition={isRTL ? "top-left" : "top-right"}
+              // buttonPosition={isRTL ? "top-left" : "top-right"}
               withHeader={size > 600 ? false : true}
               headerTitle={size > 600 ? "" : props.username}
               headerSubtitle={size > 600 ? "" : props.email}
@@ -170,8 +176,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
               handleClose={onClose}
               handleOpen={onOpen}
               open={isOpen}
+              position={isRTL ? "bottom-right" : "bottom-left"}
+              // position={isRTL ? "right-bottom" : "bottom-left"}
             >
-              <div className="relative  h-8 w-8 cursor-pointer overflow-hidden rounded-full dark:bg-gray-600">
+              <div className="relative h-8 w-8  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
                 <svg
                   className="absolute -left-1 h-10 w-10 text-gray-400"
                   fill="currentColor"
@@ -296,14 +304,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                 <div
                   dir={direction}
                   className={clsx(
-                    "relative top-0 left-0",
-
-                    // "top-4   z-50 flex w-fit items-center",
-                    // isRTL
-                    //   ? // ? `left-[${drawerSizeStyle["opened"][drawerSize]}px] justify-start`
-                    //     `left-[${drawerSizeStyle["opened"][drawerSize]}px] justify-start`
-                    //   : "left-32 justify-start",
-                    "transition-all",
+                    "relative top-0 left-0 transition-all",
                     openSideMenu ? " opacity-100" : " opacity-0"
                   )}
                 >
@@ -380,11 +381,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           <div
                             className={clsx(
                               openSubItem && dItem.slug === openSubItem
-                                ? // ||
-                                  //   dItem.subItems.find(
-                                  //     (e) => e.slug === props.currentPage
-                                  //   )
-                                  "-rotate-90"
+                                ? "-rotate-90"
                                 : "rotate-90"
                             )}
                           >
@@ -396,12 +393,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                       {dItem.subItems && (
                         <div
                           className={clsx(
-                            "flex flex-col gap-0 whitespace-nowrap bg-layoutPrimary-300",
-                            "m-1 cursor-pointer rounded p-1",
-                            "overflow-clip transition-all",
-                            // dItem.subItems.find(
-                            //   (e) => e.slug === props.currentPage
-                            // ) ||
+                            "m-1 flex cursor-pointer flex-col gap-0 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
                             openSubItem == dItem.slug && openSideMenu
                               ? ""
                               : "my-0 py-0",
@@ -409,9 +401,6 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                           )}
                           style={{
                             height:
-                              // dItem.subItems.find(
-                              //   (e) => e.slug === props.currentPage
-                              // ) ||
                               openSubItem == dItem.slug && openSideMenu
                                 ? 6 + 33 * dItem.subItems?.length
                                 : 0,
@@ -447,7 +436,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                 })}
                 {j !== props.drawerItems.length - 1 && (
                   <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-500 text-center "></div>
-                )}{" "}
+                )}
               </div>
             ))}
           </div>

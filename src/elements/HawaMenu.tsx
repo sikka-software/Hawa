@@ -1,6 +1,8 @@
 import clsx from "clsx"
-import React, { ReactNode, useEffect, useRef } from "react"
-
+import React, { ReactNode, useEffect, useRef, useState } from "react"
+// TODO: add size to make it smaller
+// TODO: add width to decrease width
+// TODO: apply similar positioning algorithm like tooltip
 interface TMenuTypes {
   menuItems: MenuItems[][]
   withHeader?: boolean
@@ -13,6 +15,15 @@ interface TMenuTypes {
   anchor?: any
   children?: ReactNode
   buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  position?:
+    | "left-top"
+    | "left-bottom"
+    | "right-top"
+    | "right-bottom"
+    | "top-right"
+    | "top-left"
+    | "bottom-right"
+    | "bottom-left"
   onClickOutside?: any
 }
 
@@ -39,51 +50,113 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   buttonPosition = "top-right",
   children,
   onClickOutside,
+  position = "top-right",
 }) => {
+  const [menuOpened, setMenuOpened] = useState(open)
+
+  const childrenRef = useRef(null)
+  const [childrenHeight, setChildrenHeight] = useState(null)
+  const [childrenWidth, setChildrenWidth] = useState(null)
+
+  const menuRef = useRef(null)
+  const [menuWidth, setMenuWidth] = useState(null)
+  const [menuHeight, setMenuHeight] = useState(null)
+
   const ref = useRef(null)
 
   useEffect(() => {
+    setMenuHeight(menuRef.current?.getBoundingClientRect().height)
+    setMenuWidth(menuRef.current?.getBoundingClientRect().width)
+    setChildrenHeight(childrenRef.current?.getBoundingClientRect().height)
+    setChildrenWidth(childrenRef.current?.getBoundingClientRect().width)
+
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         // onClickOutside && onClickOutside()
         handleClose()
       }
     }
-    console.log("ref is", ref.current?.getBoundingClientRect())
+    console.log("ref is", menuRef.current?.getBoundingClientRect())
     document.addEventListener("click", handleClickOutside, true)
     return () => {
       document.removeEventListener("click", handleClickOutside, true)
     }
   }, [onClickOutside])
   let defaultStyles =
-    "border-none ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
+    "border-none absolute ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
   let positionStyles = {
-    "top-right": "top-12 right-0",
-    "top-left": "top-12 left-0",
-    "bottom-right": "bottom-12 right-0",
-    "bottom-left": "bottom-12 left-0",
+    "top-right": "top-8 right-0",
+    "top-left": "top-8 left-0",
+    "bottom-right": "bottom-8 right-0",
+    "bottom-left": "bottom-8 left-0",
   }
   let animationStyles = {
     opened: "max-h-fit h-max visible opacity-100 block",
     closed: "h-0 invisible opacity-0 hidden",
   }
+
+  let menuCoordinates
+  let spacing = 5
+  switch (position) {
+    case "top-right":
+      menuCoordinates = `0px, -${menuHeight + childrenHeight + spacing}px`
+      break
+    case "top-left":
+      menuCoordinates = `-${menuWidth - childrenWidth}px, -${
+        menuHeight + childrenHeight + spacing
+      }px`
+      break
+    case "bottom-right":
+      menuCoordinates = `0px, ${spacing}px`
+      break
+    case "bottom-left":
+      menuCoordinates = `-${menuWidth - childrenWidth}px,${spacing}px`
+      break
+    case "right-bottom":
+      menuCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
+      break
+    case "right-top":
+      menuCoordinates = `${childrenWidth + spacing}px, -${menuHeight}px`
+      break
+    case "left-bottom":
+      menuCoordinates = `-${menuWidth + spacing}px, -${childrenHeight}px`
+      break
+    case "left-top":
+      menuCoordinates = `-${menuWidth + spacing}px, -${menuHeight}px`
+      break
+
+    default:
+      menuCoordinates = `-${menuWidth / 2}px, -${
+        childrenHeight + menuHeight / 2
+      }px`
+
+      break
+  }
   return (
     <div
-      className="relative w-fit "
+      // className="relative w-fit "
       onClick={() => {
         if (open) handleClose()
         else handleOpen()
       }}
     >
-      {children}
+      <div ref={childrenRef}>{children}</div>
 
       <div
-        ref={ref}
-        className={clsx(
-          defaultStyles,
-          positionStyles[buttonPosition],
-          open ? animationStyles.opened : animationStyles.closed
-        )}
+        ref={menuRef}
+        // className={clsx(
+        //   defaultStyles,
+        //   positionStyles[buttonPosition],
+        //   open ? animationStyles.opened : animationStyles.closed
+        // )}
+        style={{
+          position: "absolute",
+          width: "max-content",
+          transform: `translate(${menuCoordinates})`,
+          opacity: open ? "1" : "0",
+          maxWidth: "200px",
+        }}
+        className={clsx(defaultStyles)}
       >
         {withHeader && (
           <div className="py-3 px-4 text-xs text-gray-900 dark:text-white">
@@ -91,7 +164,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
             <div className="truncate font-medium">{headerSubtitle}</div>
           </div>
         )}
-        {menuItems.map((group, o) => {
+        {menuItems?.map((group, o) => {
           return (
             <ul
               key={o}

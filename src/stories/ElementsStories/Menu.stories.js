@@ -73,6 +73,7 @@ const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   open: false,
+  position: "bottom-right",
   menuItems: [
     [
       {
@@ -97,6 +98,8 @@ Default.args = {
 export const WithDivider = Template.bind({});
 WithDivider.args = {
   buttonLabel: "Sign in via Google",
+  position: "bottom-right",
+
   logo: "google",
   menuItems: [
     [
@@ -138,6 +141,8 @@ WithDivider.args = {
 export const WithHeader = Template.bind({});
 WithHeader.args = {
   buttonLabel: "Sign in via Google",
+  position: "bottom-right",
+
   logo: "google",
   withHeader: true,
   headerTitle: "Zakher Masri",
@@ -182,6 +187,8 @@ WithIcons.args = {
   withHeader: true,
   withIcons: true,
   headerTitle: "Zakher Masri",
+  position: "bottom-right",
+
   headerSubtitle: "zakher@sikka.io",
   menuItems: [
     [
@@ -224,6 +231,8 @@ WithButton.args = {
   withIcons: true,
   headerTitle: "Zakher Masri",
   headerSubtitle: "zakher@sikka.io",
+  position: "bottom-right",
+
   menuItems: [
     [
       {

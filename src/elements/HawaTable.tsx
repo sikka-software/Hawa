@@ -1,12 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { HawaButton } from "./HawaButton"
 import { FaTrash, FaExclamationCircle, FaPen } from "react-icons/fa"
+import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
-
+import { HawaMenu } from "./HawaMenu"
+// TODO: make action click return row
 type TableTypes = {
   lang?: any
   columns: any[string]
-  actions?: [{ type: "view" | "update" | "delete"; onClick: (e) => void }]
+  actions?: ActionItems[][]
+
   rows?: any[any]
   noDataText?: any
   handleActionClick?: any
@@ -15,8 +18,19 @@ type TableTypes = {
   highlightFirst?: boolean
   customColor?: string
   clickable?: boolean
+  actionsText?: string
   bordersWidth?: string
   borders?: ["all" | "cols" | "rows" | "outer"]
+}
+type ActionItems = {
+  icon?: JSX.Element
+  label: string
+  action?: (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    item: string
+  ) => void
+  isButton?: boolean
+  element?: any
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = ({
@@ -27,6 +41,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   bordersWidth = "0",
   ...props
 }) => {
+  const [openActions, setOpenActions] = useState(false)
   let isArabic = props.lang === "ar"
 
   let sizeStyles = {
@@ -62,8 +77,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               </th>
             ))}
             {props.actions && size !== "small" ? (
-              <th scope="col" className={clsx(sizeStyles[size])}>
-                actions
+              <th scope="col" className={clsx(sizeStyles[size], "text-center")}>
+                {props.actionsText}
               </th>
             ) : null}
           </tr>
@@ -71,14 +86,14 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
         <tbody>
           {/* Table Rows */}
           {props.rows ? (
-            props.rows.map((singleRow: any, j: any) => (
+            props.rows.map((singleRow: any, rowIndex: any) => (
               <tr
-                key={j}
+                key={rowIndex}
                 className={clsx(
                   " dark:border-gray-700 dark:bg-gray-800",
                   props.clickable ? "hover:bg-gray-100" : "",
                   "bg-" + customColor,
-                  j == props.rows.length - 1
+                  rowIndex == props.rows.length - 1
                     ? ""
                     : borders?.find((e) => e === "all") === "all" ||
                       borders?.find((e) => e === "rows") === "rows"
@@ -111,6 +126,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                           borders?.find((e) => e === "cols") === "cols" ||
                             borders?.find((e) => e === "all") === "all"
                             ? `border-l border-l-[${bordersWidth}px]`
+                            : "",
+                          props.actions
+                            ? `border-r border-r-[${bordersWidth}px]`
                             : ""
                         )}
                       >
@@ -122,20 +140,23 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                 {props.actions && size !== "small" ? (
                   <td
                     align={isArabic ? "right" : "left"}
-                    style={{ fontWeight: 700 }}
-                    className="flex flex-row gap-1"
+                    // style={{ fontWeight: 700 }}
+                    className=""
                     // variant={isArabic ? "borderedRight" : "borderedLeft"}
                   >
-                    {props.actions.map((act: any, s: any) => {
-                      return (
-                        <TableActionButton
-                          key={s}
-                          row={j}
-                          action={act.type}
-                          handleActionClick={act.onClick}
-                        />
-                      )
-                    })}
+                    <div className="flex items-center justify-center">
+                      <HawaMenu
+                        open={rowIndex === openActions}
+                        handleOpen={() => setOpenActions(rowIndex)}
+                        handleClose={() => setOpenActions(rowIndex)}
+                        menuItems={props.actions}
+                        buttonPosition={"top-right"}
+                      >
+                        <div className="flex w-fit  items-center justify-center rounded  p-2 hover:bg-gray-200">
+                          <BsThreeDotsVertical />
+                        </div>
+                      </HawaMenu>
+                    </div>
                   </td>
                 ) : null}
               </tr>
@@ -155,26 +176,27 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   )
 }
 
-const TableActionButton = (props) => {
-  let smallAct = props.action.toLowerCase()
-  return (
-    <HawaButton
-      tooltipSize="small"
-      buttonID={props.action + props.row}
-      size="xs"
-      variant="contained"
-      tooltip={props.action}
-      onClick={() => props.handleActionClick(smallAct)}
-    >
-      {smallAct === "delete" ? (
-        <FaTrash />
-      ) : smallAct === "view" ? (
-        <FaExclamationCircle />
-      ) : smallAct === "edit" ? (
-        <FaPen />
-      ) : (
-        props.action
-      )}
-    </HawaButton>
-  )
-}
+// const TableActionButton = (props) => {
+//   let smallAct = props.action?.toLowerCase()
+//   return (
+//     <HawaButton
+//       tooltipSize="small"
+//       buttonID={props.action + props.row}
+//       tooltipPosition="top-right"
+//       size="xs"
+//       variant="contained"
+//       tooltip={props.action}
+//       onClick={() => props.handleActionClick(smallAct)}
+//     >
+//       {smallAct === "delete" ? (
+//         <FaTrash />
+//       ) : smallAct === "view" ? (
+//         <FaExclamationCircle />
+//       ) : smallAct === "edit" ? (
+//         <FaPen />
+//       ) : (
+//         props.action
+//       )}
+//     </HawaButton>
+//   )
+// }

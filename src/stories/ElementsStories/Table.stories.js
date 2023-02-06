@@ -156,10 +156,13 @@ export const DataWithActions = (args) => {
 
   return (
     <HawaTable
+      actionsText="Actions"
       actions={[
-        { type: "View", onClick: () => console.log("viewing") },
-        { type: "Edit", onClick: () => console.log("editing") },
-        { type: "Delete", onClick: () => console.log("deleting") }
+        [
+          { label: "View", onClick: () => console.log("viewing") },
+          { label: "Edit", onClick: () => console.log("editing") },
+          { label: "Delete", onClick: () => console.log("deleting") }
+        ]
       ]}
       lang={args.lang}
       columns={["Product", "Price", "Date"]}
@@ -192,8 +195,13 @@ export const DataWithActions = (args) => {
           randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
         ]
       ]}
+      {...args}
     />
   );
+};
+DataWithActions.args = {
+  borders: ["all"],
+  bordersWidth: 1
 };
 
 export const RTL = (args) => {
