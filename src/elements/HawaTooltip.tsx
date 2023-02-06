@@ -8,101 +8,101 @@ type THawaToolTip = {
   buttonRef?: any
   buttonID?: any
   size?: "normal" | "small" | "large"
-  position?: "left" | "right" | "top" | "bottom"
+  position?:
+    | "left-top"
+    | "left-bottom"
+    | "right-top"
+    | "right-bottom"
+    | "top-right"
+    | "top-left"
+    | "bottom-right"
+    | "bottom-left"
 }
 
 export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
   children,
   content,
-  buttonID,
   size = "normal",
-  position = "bottom",
+  position,
 }) => {
   const [hovered, setHovered] = useState(false)
-  const [refHeight, setRefHeight] = useState(null)
-  const [refWidth, setRefWidth] = useState(null)
+
+  const childrenRef = useRef(null)
+  const [childrenHeight, setChildrenHeight] = useState(null)
+  const [childrenWidth, setChildrenWidth] = useState(null)
+
+  const tooltipRef = useRef(null)
   const [tooltipWidth, setTooltipWidth] = useState(null)
   const [tooltipHeight, setTooltipHeight] = useState(null)
-  const tooltipRef = useRef(null)
+
   useEffect(() => {
-    let attachedElement = document.getElementById(buttonID)
     setTooltipHeight(tooltipRef.current?.getBoundingClientRect().height)
     setTooltipWidth(tooltipRef.current?.getBoundingClientRect().width)
-    if (attachedElement) {
-      attachedElement?.addEventListener("mouseenter", () => setHovered(true))
-      attachedElement?.addEventListener("mouseleave", () => setHovered(false))
-      // console.log("dcnode", attachedElement?.getBoundingClientRect())
-      let pos = attachedElement?.getBoundingClientRect()
-      setRefHeight(pos.height)
-      setRefWidth(pos.width)
-      return () => {
-        attachedElement?.removeEventListener("mouseover", () =>
-          setHovered(false)
-        )
-        attachedElement?.removeEventListener("mouseout", () =>
-          setHovered(false)
-        )
-      }
-    }
+    setChildrenHeight(childrenRef.current?.getBoundingClientRect().height)
+    setChildrenWidth(childrenRef.current?.getBoundingClientRect().width)
   })
 
-  let tooltipStyles = {
-    default:
-      "absolute opacity-0 z-10 inline-block w-fit max-w-xs rounded bg-gray-900  text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700",
-    hovered: `absolute opacity-100  z-10 inline-block w-fit max-w-xs rounded bg-gray-900 text-center text-sm font-medium text-white opacity-100 shadow-sm transition-all duration-300 dark:bg-gray-700`,
-  }
-
+  let defaultTooltipStyles =
+    "absolute z-10 inline-block w-fit max-w-xs rounded bg-gray-900  text-center text-sm font-medium text-white shadow-sm transition-all duration-300 dark:bg-gray-700"
   let sizeStyles = {
-    normal: "py-2 px-3",
-    small: "py-1 px-1 text-[10px]",
+    normal: "py-2 px-3 leading-2",
+    small: "py-2 px-2 text-[10px] leading-tight",
+    large: "py-2 px-2 text-lg leading-tight",
   }
-  let positionStyles = {
-    top: "-top-10 right-0",
-    left: `-top-2 right-8 `,
-    bottom: `top-0 translate-y-[` + 30 + `px] right-0`,
-    // bottom: `top-0 translate-y-[${38}px] right-0`,
-    right: "-top-2 left-8",
+  let tooltipCoordinates
+  let spacing = 5
+  switch (position) {
+    case "top-right":
+      tooltipCoordinates = `0px, -${tooltipHeight + childrenHeight + spacing}px`
+      break
+    case "top-left":
+      tooltipCoordinates = `-${tooltipWidth - childrenWidth}px, -${
+        tooltipHeight + childrenHeight + spacing
+      }px`
+      break
+    case "bottom-right":
+      tooltipCoordinates = `0px, ${spacing}px`
+      break
+    case "bottom-left":
+      tooltipCoordinates = `-${tooltipWidth - childrenWidth}px,${spacing}px`
+      break
+    case "right-bottom":
+      tooltipCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
+      break
+    case "right-top":
+      tooltipCoordinates = `${childrenWidth + spacing}px, -${tooltipHeight}px`
+      break
+    case "left-bottom":
+      tooltipCoordinates = `-${tooltipWidth + spacing}px, -${childrenHeight}px`
+      break
+    case "left-top":
+      tooltipCoordinates = `-${tooltipWidth + spacing}px, -${tooltipHeight}px`
+      break
+
+    default:
+      tooltipCoordinates = `-${tooltipWidth / 2}px, -${
+        childrenHeight + tooltipHeight / 2
+      }px`
+
+      break
   }
-  // console.log("pos", refHeight)
-  // const styles = {
-  //   transform: `translate(${x}px, ${y}px)`,
-  // }
-  // console.log("ref is ", tooltipRef.current?.getBoundingClientRect().width)
   return (
     <div
-      ref={tooltipRef}
-      className={clsx(
-        hovered ? tooltipStyles["hovered"] : tooltipStyles["default"],
-        // positionStyles[position],
-        // positionS,
-        sizeStyles[size]
-        // position === "top" ? `  origin-top -translate-y-[${38 * 2}px] ` : ""
-
-        // "translate-x-[100px]"
-      )}
-      style={
-        position === "right"
-          ? {
-              transform: `translate(5px,-${0}px)`,
-            }
-          : position === "left"
-          ? {
-              transform: `translate(-${refWidth + tooltipWidth + 6}px,-${0}px)`,
-            }
-          : position === "top"
-          ? {
-              transform: `translate(-${tooltipWidth}px,-${
-                tooltipHeight + 6
-              }px)`,
-            }
-          : position === "bottom"
-          ? {
-              transform: `translate(-${tooltipWidth}px,${refHeight + 6}px)`,
-            }
-          : { backgroundColor: "red" }
-      }
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      {content}
+      <div ref={childrenRef}>{children}</div>
+      <div
+        ref={tooltipRef}
+        className={clsx(defaultTooltipStyles, sizeStyles[size])}
+        style={{
+          position: "absolute",
+          transform: `translate(${tooltipCoordinates})`,
+          opacity: hovered ? "1" : "0",
+        }}
+      >
+        {content}
+      </div>
     </div>
   )
 }

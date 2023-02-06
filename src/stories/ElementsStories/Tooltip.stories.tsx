@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/react"
 import React from "react"
+import { HawaButton } from "../../elements"
 import { HawaTooltip } from "../../elements/HawaTooltip"
 
 export default {
@@ -20,14 +21,17 @@ export default {
 
 export const Tooltip: Story = (args) => {
   return (
-    <div>
-      <HawaTooltip content={args.content}>
-        <button>Show tooltip</button>
+    <div className="flex h-screen w-full items-center justify-center">
+      <HawaTooltip content={args.content} {...args}>
+        <div className="rounded bg-red-300 p-2">Show Tooltip</div>
+        {/* <HawaButton tooltip="Testing">Show Tooltip</HawaButton>{" "} */}
       </HawaTooltip>
     </div>
   )
 }
 
 Tooltip.args = {
-  content: "This is tooltip content and it can be long sometimes ",
+  content:
+    "This is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can be long sometimes ",
+  position: "top",
 }

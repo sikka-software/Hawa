@@ -82,42 +82,73 @@ export function HawaButton({
     <div
       className={clsx("relative", margins !== "none" ? `my-${margins}` : "m-0")}
     >
-      <button
-        id={buttonID}
-        // type={props.type}
-        className={
-          disabled
-            ? clsx(
-                className,
-                baseStyles,
-                variantStyles[variant],
-                sizeStyles[size],
-                widthStyles[width],
-                disabledSyles,
-                disabledVariantSyles[variant]
-              )
-            : clsx(
-                className,
-                baseStyles,
-                variantStyles[variant],
-                sizeStyles[size],
-                colorStyles[variant][color],
-                widthStyles[width]
-              )
-        }
-        disabled={disabled}
-        onClick={props.onClick}
-        // {...props}
-      >
-        {!isLoading ? children : <HawaSpinner size="button" />}
-      </button>
-      {tooltip && (
+      {tooltip ? (
         <HawaTooltip
-          position={tooltipPosition}
-          size={tooltipSize}
-          buttonID={buttonID}
+          // position={tooltipPosition}
+          // size={tooltipSize}
+          // buttonID={buttonID}
           content={tooltip}
-        />
+        >
+          <button
+            id={buttonID}
+            // type={props.type}
+            className={
+              disabled
+                ? clsx(
+                    className,
+                    baseStyles,
+                    variantStyles[variant],
+                    sizeStyles[size],
+                    widthStyles[width],
+                    disabledSyles,
+                    disabledVariantSyles[variant]
+                  )
+                : clsx(
+                    className,
+                    baseStyles,
+                    variantStyles[variant],
+                    sizeStyles[size],
+                    colorStyles[variant][color],
+                    widthStyles[width]
+                  )
+            }
+            disabled={disabled}
+            onClick={props.onClick}
+            // {...props}
+          >
+            {!isLoading ? children : <HawaSpinner size="button" />}
+          </button>
+        </HawaTooltip>
+      ) : (
+        <button
+          id={buttonID}
+          // type={props.type}
+          className={
+            disabled
+              ? clsx(
+                  className,
+                  baseStyles,
+                  variantStyles[variant],
+                  sizeStyles[size],
+                  widthStyles[width],
+                  disabledSyles,
+                  disabledVariantSyles[variant]
+                )
+              : clsx(
+                  className,
+                  baseStyles,
+                  variantStyles[variant],
+                  sizeStyles[size],
+                  colorStyles[variant][color],
+                  widthStyles[width]
+                )
+          }
+          disabled={disabled}
+          onClick={props.onClick}
+          // {...props}
+        >
+          {!isLoading ? children : <HawaSpinner size="button" />}
+        </button>
       )}
     </div>
   )
