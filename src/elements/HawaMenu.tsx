@@ -86,7 +86,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
         )}
       >
         {withHeader && (
-          <div className="py-3 px-4 text-sm text-gray-900 dark:text-white">
+          <div className="py-3 px-4 text-xs text-gray-900 dark:text-white">
             <div>{headerTitle}</div>
             <div className="truncate font-medium">{headerSubtitle}</div>
           </div>

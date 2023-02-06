@@ -44,10 +44,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
   drawerSize = "md",
   ...props
 }) => {
-  const [openSideMenu, setOpenSideMenu] = useState(true)
+  const [openSideMenu, setOpenSideMenu] = useState(false)
   const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
-  const [keepOpen, setKeepOpen] = useState(true)
+  const [keepOpen, setKeepOpen] = useState(false)
   const ref = useRef(null)
   const isRTL = direction === "rtl"
   let size
@@ -149,18 +149,23 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
 
           <div className="flex flex-row gap-2" dir={direction}>
             {/* User Info */}
-            <div
-              className={clsx(
-                isRTL ? "text-left text-xs" : "text-right text-xs"
-              )}
-            >
-              <div className="font-bold">{props.username}</div>{" "}
-              <div>{props.email}</div>
-            </div>
+            {size > 600 ? (
+              <div
+                className={clsx(
+                  isRTL ? "text-left text-xs" : "text-right text-xs"
+                )}
+              >
+                <div className="font-bold">{props.username}</div>{" "}
+                <div>{props.email}</div>
+              </div>
+            ) : null}
 
             {/* Profile Icon & Menu */}
             <HawaMenu
               buttonPosition={isRTL ? "top-left" : "top-right"}
+              withHeader={size > 600 ? false : true}
+              headerTitle={size > 600 ? "" : props.username}
+              headerSubtitle={size > 600 ? "" : props.email}
               menuItems={props.profileMenuItems}
               handleClose={onClose}
               handleOpen={onOpen}
@@ -327,12 +332,12 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           </div>
           {/* Drawer Items */}
           <div className="mt-14 mb-8">
-            {props.drawerItems.map((dSection, j) => (
+            {props.drawerItems?.map((dSection, j) => (
               <div
                 key={j}
                 className={clsx("flex flex-col items-stretch justify-center")}
               >
-                {dSection.map((dItem, i) => {
+                {dSection?.map((dItem, i) => {
                   return (
                     <div key={i} id={"test"} className="flex flex-col">
                       <div

@@ -684,6 +684,148 @@ RTL.args = {
       }
     ]
   ],
+  drawerItems: [
+    [
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Home",
+        slug: "home",
+        icon: <FaHome />
+      },
+      {
+        label: "Items",
+        slug: "files",
+        icon: <FaFolderOpen />,
+        // action: handleItemClick,
+        subItems: [
+          {
+            label: "New Item",
+            slug: "new-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "file-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Jobs",
+        slug: "jobs",
+        icon: <FaPoll />,
+        subItems: [
+          {
+            label: "New Job Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "New Item",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "Files Items",
+            slug: "files",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+            // action: handleItemClick
+          }
+        ]
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics",
+        icon: <FaPoll />
+        // action: handleItemClick
+      },
+      {
+        label: "Analytics",
+        slug: "analytics3",
+        icon: <FaPoll />
+      }
+    ]
+  ],
   pageTitle: "Dashboard Page",
   topBar: true,
   direction: "rtl",
