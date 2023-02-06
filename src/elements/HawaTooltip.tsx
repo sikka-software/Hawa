@@ -43,7 +43,7 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
   })
 
   let defaultTooltipStyles =
-    "absolute z-10 inline-block w-fit max-w-xs rounded bg-gray-900  text-center text-sm font-medium text-white shadow-sm transition-all duration-300 dark:bg-gray-700"
+    "absolute z-10   rounded bg-gray-900  text-center text-sm font-medium text-white shadow-sm transition-all duration-300 dark:bg-gray-700"
   let sizeStyles = {
     normal: "py-2 px-3 leading-2",
     small: "py-2 px-2 text-[10px] leading-tight",
@@ -94,12 +94,14 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
       <div ref={childrenRef}>{children}</div>
       <div
         ref={tooltipRef}
-        className={clsx(defaultTooltipStyles, sizeStyles[size])}
         style={{
           position: "absolute",
+          width: "max-content",
           transform: `translate(${tooltipCoordinates})`,
           opacity: hovered ? "1" : "0",
+          maxWidth: "200px",
         }}
+        className={clsx(defaultTooltipStyles, sizeStyles[size])}
       >
         {content}
       </div>

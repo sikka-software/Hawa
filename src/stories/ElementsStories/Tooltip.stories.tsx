@@ -21,11 +21,20 @@ export default {
 
 export const Tooltip: Story = (args) => {
   return (
-    <div className="flex h-screen w-full items-center justify-center">
-      <HawaTooltip content={args.content} {...args}>
-        <div className="rounded bg-red-300 p-2">Show Tooltip</div>
-        {/* <HawaButton tooltip="Testing">Show Tooltip</HawaButton>{" "} */}
-      </HawaTooltip>
+    // <div className="flex h-screen w-full items-center justify-center">
+    //   <HawaTooltip content={args.content} {...args}>
+    //     <div className="rounded bg-red-300 p-2">Show Tooltip</div>
+    //     {/* <HawaButton tooltip="Testing">Show Tooltip</HawaButton>{" "} */}
+    //   </HawaTooltip>
+    // </div>
+    <div className="flex h-screen w-full items-center justify-center bg-red-200">
+      <HawaButton
+        tooltip="Testing "
+        tooltipPosition={args.position}
+        tooltipSize={args.size}
+      >
+        Show Tooltip
+      </HawaButton>{" "}
     </div>
   )
 }

@@ -13,7 +13,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   margins?: "none" | "1" | "2" | "3" | "4"
   tooltip?: string
   tooltipSize?: "normal" | "small" | "large"
-  tooltipPosition?: "right" | "left" | "bottom" | "top"
+  tooltipPosition?:
+    | "left-top"
+    | "left-bottom"
+    | "right-top"
+    | "right-bottom"
+    | "top-right"
+    | "top-left"
+    | "bottom-right"
+    | "bottom-left"
   isLoading?: boolean
 }
 
@@ -71,7 +79,7 @@ export function HawaButton({
   disabled = false,
   isLoading = false,
   tooltipSize = "normal",
-  tooltipPosition = "top",
+  tooltipPosition = "top-left",
   margins = "2",
   tooltip,
   children,
@@ -84,13 +92,11 @@ export function HawaButton({
     >
       {tooltip ? (
         <HawaTooltip
-          // position={tooltipPosition}
-          // size={tooltipSize}
-          // buttonID={buttonID}
+          position={tooltipPosition}
+          size={tooltipSize}
           content={tooltip}
         >
           <button
-            id={buttonID}
             // type={props.type}
             className={
               disabled
@@ -121,7 +127,6 @@ export function HawaButton({
         </HawaTooltip>
       ) : (
         <button
-          id={buttonID}
           // type={props.type}
           className={
             disabled

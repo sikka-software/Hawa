@@ -163,8 +163,7 @@ const TableActionButton = (props) => {
       buttonID={props.action + props.row}
       size="xs"
       variant="contained"
-      // tooltip={props.action}
-      tooltip={"testing tooltip"}
+      tooltip={props.action}
       onClick={() => props.handleActionClick(smallAct)}
     >
       {smallAct === "delete" ? (
