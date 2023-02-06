@@ -9,6 +9,7 @@ export default {
       control: "array",
       description: "An array of column names"
     },
+
     rows: {
       control: "array",
       description:
@@ -28,10 +29,10 @@ export default {
     }
   },
   parameters: {
-    backgrounds: {
-      default: "light",
-      values: [{ name: "light", value: "#ECEBE4" }]
-    }
+    // backgrounds: {
+    //   default: "light",
+    //   values: [{ name: "light", value: "#ECEBE4" }]
+    // }
   }
 };
 
@@ -60,6 +61,9 @@ export const DataOnly = (args) => {
 
   return (
     <HawaTable
+      // borders=""
+
+      bordersWidth="1"
       lang={args.lang}
       size={args.size}
       columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
@@ -135,10 +139,14 @@ export const DataOnly = (args) => {
         [32, 32, 32, 32, 32, 32],
         [32, 32, 32, 32, 32, 32]
       ]}
+      {...args}
     />
   );
 };
 
+DataOnly.args = {
+  borders: ["all"]
+};
 export const DataWithActions = (args) => {
   function randomDate(start, end) {
     return new Date(

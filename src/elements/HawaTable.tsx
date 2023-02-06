@@ -15,12 +15,16 @@ type TableTypes = {
   highlightFirst?: boolean
   customColor?: string
   clickable?: boolean
+  bordersWidth?: string
+  borders?: ["all" | "cols" | "rows" | "outer"]
 }
 
 export const HawaTable: React.FunctionComponent<TableTypes> = ({
   size = "normal",
   customColor = "white",
+  borders,
   highlightFirst = false,
+  bordersWidth = "0",
   ...props
 }) => {
   let isArabic = props.lang === "ar"
@@ -31,11 +35,29 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   }
   return (
     <div className="relative overflow-x-clip rounded">
-      <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+      <table
+        className={clsx(
+          "w-full  text-left text-sm text-gray-500 dark:text-gray-400",
+          borders?.find((e) => e === "all") === "all" ||
+            borders?.find((e) => e === "outer") === "outer"
+            ? `border-[${bordersWidth}px]`
+            : ""
+        )}
+      >
         <thead className=" bg-gray-100 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {props.columns.map((col: any, i: any) => (
-              <th key={i} scope="col" className={clsx(sizeStyles[size])}>
+              <th
+                key={i}
+                scope="col"
+                className={clsx(
+                  sizeStyles[size],
+                  (i !== 0 && borders?.find((e) => e === "cols") === "cols") ||
+                    borders?.find((e) => e === "all") === "all"
+                    ? `border-l border-l-[${bordersWidth}px]`
+                    : ""
+                )}
+              >
                 {col}
               </th>
             ))}
@@ -47,6 +69,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
           </tr>
         </thead>
         <tbody>
+          {/* Table Rows */}
           {props.rows ? (
             props.rows.map((singleRow: any, j: any) => (
               <tr
@@ -55,7 +78,12 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                   " dark:border-gray-700 dark:bg-gray-800",
                   props.clickable ? "hover:bg-gray-100" : "",
                   "bg-" + customColor,
-                  j == props.rows.length - 1 ? "" : "border-b"
+                  j == props.rows.length - 1
+                    ? ""
+                    : borders?.find((e) => e === "all") === "all" ||
+                      borders?.find((e) => e === "rows") === "rows"
+                    ? `border-b border-b-[${bordersWidth}px]`
+                    : ""
                 )}
               >
                 {singleRow.map((r: any, i: any) => {
@@ -75,7 +103,17 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                     )
                   } else {
                     return (
-                      <td key={i} className={clsx(sizeStyles[size])}>
+                      <td
+                        key={i}
+                        className={clsx(
+                          sizeStyles[size],
+
+                          borders?.find((e) => e === "cols") === "cols" ||
+                            borders?.find((e) => e === "all") === "all"
+                            ? `border-l border-l-[${bordersWidth}px]`
+                            : ""
+                        )}
+                      >
                         {r}
                       </td>
                     )
