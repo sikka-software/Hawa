@@ -1,6 +1,5 @@
 import clsx from "clsx"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
-// TODO: add size to make it smaller
 // TODO: add width to decrease width
 
 interface TMenuTypes {
@@ -41,7 +40,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   direction = "ltr",
   headerTitle,
   headerSubtitle,
-  size = "small",
+  size = "normal",
   children,
   onClickOutside,
   position = "top-right",
@@ -88,8 +87,8 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     closed: "h-0 invisible opacity-0 hidden",
   }
   let sizeStyles = {
-    small: "text-xs",
-    normal: "",
+    small: "text-[11px] p-1 m-0",
+    normal: "py-2 px-4",
     large: "",
   }
   let menuCoordinates
@@ -156,49 +155,11 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
 
       break
   }
-  // switch (position) {
-  //   case "top-right":
-  //     menuCoordinates = `0px, -${menuHeight + childrenHeight + spacing}px`
-  //     break
-  //   case "top-left":
-  //     menuCoordinates = `-${menuWidth - childrenWidth}px, -${
-  //       menuHeight + childrenHeight + spacing
-  //     }px`
-  //     break
-  //   case "bottom-right":
-  //     menuCoordinates = `0px, ${spacing}px`
-  //     break
-  //   case "bottom-left":
-  //     menuCoordinates = `-${menuWidth - childrenWidth}px,${spacing}px`
-  //     break
-  //   case "right-bottom":
-  //     menuCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
-  //     break
-  //   case "right-top":
-  //     menuCoordinates = `${childrenWidth + spacing}px, -${menuHeight}px`
-  //     break
-  //   case "left-bottom":
-  //     menuCoordinates = `-${menuWidth + spacing}px, -${childrenHeight}px`
-  //     break
-  //   case "left-top":
-  //     menuCoordinates = `-${menuWidth + spacing}px, -${menuHeight}px`
-  //     break
-
-  //   default:
-  //     menuCoordinates = `-${menuWidth / 2}px, -${
-  //       childrenHeight + menuHeight / 2
-  //     }px`
-
-  //     break
-  // }
   return (
     <div
-      // className="relative w-fit "
       onClick={() => {
         if (menuOpened) setMenuOpened(false)
         else setMenuOpened(true)
-        // if (open) handleClose()
-        // else handleOpen()
       }}
     >
       <div ref={childrenRef}>{children}</div>
@@ -213,7 +174,6 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
         }}
         className={clsx(
           defaultStyles,
-          sizeStyles[size],
           menuOpened ? "opacity-100" : "invisible opacity-0"
         )}
       >
@@ -227,7 +187,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
           return (
             <ul
               key={o}
-              className="bg-layout-1200 flex flex-col gap-1 py-1 text-sm text-gray-700 dark:text-gray-200"
+              className="bg-layout-1200 flex flex-col gap-1 p-1 text-gray-700 dark:text-gray-200"
             >
               {group?.map((item) => {
                 return item.element ? (
@@ -237,11 +197,12 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                 ) : (
                   <li
                     onClick={(e) => item.action(e, item.label)}
-                    className={
+                    className={clsx(
                       item.isButton
                         ? "mx-1 flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 py-2 px-4 text-white hover:bg-buttonPrimary-700 rtl:flex-row-reverse dark:hover:bg-buttonPrimary-700 dark:hover:text-white"
-                        : "mx-1 flex cursor-pointer flex-row items-center rounded py-2 px-4 hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
-                    }
+                        : " flex cursor-pointer flex-row items-center rounded  hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white",
+                      sizeStyles[size]
+                    )}
                   >
                     {item.icon && (
                       <div className="mr-2 rtl:ml-2">{item.icon}</div>

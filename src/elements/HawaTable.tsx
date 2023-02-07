@@ -51,7 +51,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
     small: "px-3 py-1",
   }
   return (
-    <div className="relative overflow-x-clip rounded">
+    <div className="relative rounded">
       <table
         className={clsx(
           "w-full  text-left text-sm text-gray-500 dark:text-gray-400",
@@ -143,6 +143,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                   <td align={isArabic ? "right" : "left"} className="">
                     <div className="flex items-center justify-center">
                       <HawaMenu
+                        size="small"
                         menuItems={props.actions}
                         position={
                           direction === "rtl" ? "right-bottom" : "left-bottom"

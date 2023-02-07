@@ -155,7 +155,7 @@ export const DataWithActions = (args) => {
   }
 
   return (
-    <div dir="ltr">
+    <div dir="ltr" className="bg-red-300">
       <HawaTable
         direction="ltr"
         actionsText="Actions"

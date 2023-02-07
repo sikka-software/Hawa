@@ -39,15 +39,9 @@ export default {
 };
 
 const Template = (args) => {
-  const { isOpen, onClose, onOpen } = useDiscloser(args.open);
   return (
     <div className="flex h-96 items-center justify-center">
-      <HawaMenu
-        {...args}
-        handleClose={onClose}
-        handleOpen={onOpen}
-        open={isOpen}
-      >
+      <HawaMenu {...args}>
         {/* <HawaButton width="normal" variant="contained">
           Open Menu
         </HawaButton> */}
@@ -73,20 +67,18 @@ const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   position: "bottom-right",
+  size: "normal",
   menuItems: [
     [
       {
-        icon: BsFillPersonFill,
         label: "Dashboard",
         action: () => console.log("going to dashboard")
       },
       {
-        icon: MdBookOnline,
         label: "Billing",
         action: () => console.log("going to billing")
       },
       {
-        icon: MdAccessAlarm,
         label: "Settings",
         action: () => console.log("going to settings")
       }
