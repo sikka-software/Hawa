@@ -7,6 +7,7 @@ import useHover from "../hooks/useHover"
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
   buttonID?: any
+  tooltipDirection?: "rtl" | "ltr"
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
   size?: "xs" | "small" | "medium" | "large" | "noPadding" | "full"
@@ -78,10 +79,11 @@ export function HawaButton({
   width = "normal",
   disabled = false,
   isLoading = false,
+  tooltip,
   tooltipSize = "normal",
   tooltipPosition = "top-left",
+  tooltipDirection = "ltr",
   margins = "2",
-  tooltip,
   children,
   buttonID,
   ...props
@@ -92,6 +94,7 @@ export function HawaButton({
     >
       {tooltip ? (
         <HawaTooltip
+          direction={tooltipDirection}
           position={tooltipPosition}
           size={tooltipSize}
           content={tooltip}

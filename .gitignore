@@ -3,5 +3,6 @@
 /dist
 /es
 /lib
+/.vscode
 package-lock.json
 yarn.lock

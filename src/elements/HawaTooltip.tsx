@@ -1,12 +1,15 @@
 import clsx from "clsx"
 import React, { useEffect, useRef, useState } from "react"
 
+// TODO: fix it in RTL
+
 type THawaToolTip = {
   children?: React.ReactElement
   content?: string
   btnHovered?: any
   buttonRef?: any
   buttonID?: any
+  direction?: "rtl" | "ltr"
   size?: "normal" | "small" | "large"
   position?:
     | "left-top"
@@ -24,6 +27,7 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
   content,
   size = "normal",
   position,
+  direction = "ltr",
 }) => {
   const [hovered, setHovered] = useState(false)
 
@@ -53,30 +57,53 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
   let spacing = 5
   switch (position) {
     case "top-right":
-      tooltipCoordinates = `0px, -${tooltipHeight + childrenHeight + spacing}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `${tooltipWidth - childrenWidth}px, -${
+              tooltipHeight + childrenHeight + spacing
+            }px`
+          : `0px, -${tooltipHeight + childrenHeight + spacing}px`
       break
     case "top-left":
-      tooltipCoordinates = `-${tooltipWidth - childrenWidth}px, -${
-        tooltipHeight + childrenHeight + spacing
-      }px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `${0}px, -${tooltipHeight + childrenHeight + spacing}px`
+          : `-${tooltipWidth - childrenWidth}px, -${
+              tooltipHeight + childrenHeight + spacing
+            }px`
       break
     case "bottom-right":
-      tooltipCoordinates = `0px, ${spacing}px`
+      tooltipCoordinates = `${tooltipWidth - childrenWidth}px, ${spacing}px`
       break
     case "bottom-left":
-      tooltipCoordinates = `-${tooltipWidth - childrenWidth}px,${spacing}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `0px, ${spacing}px`
+          : `-${tooltipWidth - childrenWidth}px,${spacing}px`
       break
     case "right-bottom":
-      tooltipCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `${tooltipWidth + spacing}px, -${childrenHeight}px`
+          : `${childrenWidth + spacing}px, -${childrenHeight}px`
       break
     case "right-top":
-      tooltipCoordinates = `${childrenWidth + spacing}px, -${tooltipHeight}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `${tooltipWidth + spacing}px, -${tooltipHeight}px`
+          : `${childrenWidth + spacing}px, -${tooltipHeight}px`
       break
     case "left-bottom":
-      tooltipCoordinates = `-${tooltipWidth + spacing}px, -${childrenHeight}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `-${childrenWidth + spacing}px, -${childrenHeight}px`
+          : `-${tooltipWidth + spacing}px, -${childrenHeight}px`
       break
     case "left-top":
-      tooltipCoordinates = `-${tooltipWidth + spacing}px, -${tooltipHeight}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `-${childrenWidth + spacing}px, -${tooltipHeight}px`
+          : `-${tooltipWidth + spacing}px, -${tooltipHeight}px`
       break
 
     default:

@@ -1,9 +1,9 @@
 import React from "react";
-import { HawaAccordian } from "../../elements";
+import { HawaAccordion } from "../../elements";
 
 export default {
-  title: "Elements/Accordian",
-  component: [HawaAccordian],
+  title: "Elements/Accordion",
+  component: [HawaAccordion],
   argTypes: {
     content: {
       control: "array",
@@ -12,11 +12,11 @@ export default {
   }
 };
 
-export const Accordian = (args) => {
-  return <HawaAccordian {...args} />;
+export const Accordion = (args) => {
+  return <HawaAccordion {...args} />;
 };
 
-Accordian.args = {
+Accordion.args = {
   content: [
     {
       title: "Question 1",

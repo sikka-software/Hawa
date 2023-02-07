@@ -7,7 +7,7 @@ import useBreakpoint from "../hooks/useBreakpoint"
 import { FaChevronRight } from "react-icons/fa"
 // TODO: when no navbar, the drawer can't be opened
 // TODO: when no pagetitle, navbar gets messy
-// TODO: the user menu avatar clickable area is exceeding the topbar
+
 type HawaAppLayoutTypes = {
   drawerItems: {
     label: string
@@ -168,15 +168,17 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
 
             {/* Profile Icon & Menu */}
             <HawaMenu
+              direction={direction}
               // buttonPosition={isRTL ? "top-left" : "top-right"}
               withHeader={size > 600 ? false : true}
               headerTitle={size > 600 ? "" : props.username}
               headerSubtitle={size > 600 ? "" : props.email}
               menuItems={props.profileMenuItems}
-              handleClose={onClose}
-              handleOpen={onOpen}
-              open={isOpen}
-              position={isRTL ? "bottom-right" : "bottom-left"}
+              // handleClose={onClose}
+              // handleOpen={onOpen}
+              // open={isOpen}
+              position={"bottom-left"}
+              // position={isRTL ? "bottom-left" : "bottom-left"}
               // position={isRTL ? "right-bottom" : "bottom-left"}
             >
               <div className="relative h-8 w-8  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">

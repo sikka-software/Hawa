@@ -27,10 +27,14 @@ export const Tooltip: Story = (args) => {
     //     {/* <HawaButton tooltip="Testing">Show Tooltip</HawaButton>{" "} */}
     //   </HawaTooltip>
     // </div>
-    <div className="flex h-screen w-full items-center justify-center bg-red-200">
+    <div
+      dir={args.direction}
+      className="flex h-screen w-full items-center justify-center bg-red-200"
+    >
       <HawaButton
-        tooltip="Testing "
+        tooltip={args.content}
         tooltipPosition={args.position}
+        tooltipDirection={args.direction}
         tooltipSize={args.size}
       >
         Show Tooltip

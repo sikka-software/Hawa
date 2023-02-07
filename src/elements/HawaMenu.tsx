@@ -2,19 +2,19 @@ import clsx from "clsx"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
 // TODO: add size to make it smaller
 // TODO: add width to decrease width
-// TODO: apply similar positioning algorithm like tooltip
 interface TMenuTypes {
   menuItems: MenuItems[][]
   withHeader?: boolean
-  withIcons?: boolean
+  // withIcons?: boolean
   headerTitle?: string
   headerSubtitle?: string
-  open?: boolean
-  handleClose?: () => void
-  handleOpen: () => void
+  direction?: "rtl" | "ltr"
+  // open?: boolean
+  // handleClose?: () => void
+  // handleOpen: () => void
   anchor?: any
   children?: ReactNode
-  buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
+  // buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
   position?:
     | "left-top"
     | "left-bottom"
@@ -41,18 +41,19 @@ type MenuItems = {
 export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   menuItems,
   withHeader,
-  withIcons,
+  // withIcons,
+  direction = "ltr",
   headerTitle,
   headerSubtitle,
-  open,
-  handleClose,
-  handleOpen,
-  buttonPosition = "top-right",
+  // open,
+  // handleClose,
+  // handleOpen,
+  // buttonPosition = "top-right",
   children,
   onClickOutside,
   position = "top-right",
 }) => {
-  const [menuOpened, setMenuOpened] = useState(open)
+  const [menuOpened, setMenuOpened] = useState(false)
 
   const childrenRef = useRef(null)
   const [childrenHeight, setChildrenHeight] = useState(null)
@@ -73,7 +74,8 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         // onClickOutside && onClickOutside()
-        handleClose()
+        // handleClose()
+        setMenuOpened(false)
       }
     }
     console.log("ref is", menuRef.current?.getBoundingClientRect())
@@ -99,30 +101,53 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   let spacing = 5
   switch (position) {
     case "top-right":
-      menuCoordinates = `0px, -${menuHeight + childrenHeight + spacing}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `${menuWidth - childrenWidth}px, -${
+              menuHeight + childrenHeight + spacing
+            }px`
+          : `0px, -${menuHeight + childrenHeight + spacing}px`
       break
     case "top-left":
-      menuCoordinates = `-${menuWidth - childrenWidth}px, -${
-        menuHeight + childrenHeight + spacing
-      }px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `${0}px, -${menuHeight + childrenHeight + spacing}px`
+          : `-${menuWidth - childrenWidth}px, -${
+              menuHeight + childrenHeight + spacing
+            }px`
       break
     case "bottom-right":
-      menuCoordinates = `0px, ${spacing}px`
+      menuCoordinates = `${menuWidth - childrenWidth}px, ${spacing}px`
       break
     case "bottom-left":
-      menuCoordinates = `-${menuWidth - childrenWidth}px,${spacing}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `0px, ${spacing}px`
+          : `-${menuWidth - childrenWidth}px,${spacing}px`
       break
     case "right-bottom":
-      menuCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `${menuWidth + spacing}px, -${childrenHeight}px`
+          : `${childrenWidth + spacing}px, -${childrenHeight}px`
       break
     case "right-top":
-      menuCoordinates = `${childrenWidth + spacing}px, -${menuHeight}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `${menuWidth + spacing}px, -${menuHeight}px`
+          : `${childrenWidth + spacing}px, -${menuHeight}px`
       break
     case "left-bottom":
-      menuCoordinates = `-${menuWidth + spacing}px, -${childrenHeight}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `-${childrenWidth + spacing}px, -${childrenHeight}px`
+          : `-${menuWidth + spacing}px, -${childrenHeight}px`
       break
     case "left-top":
-      menuCoordinates = `-${menuWidth + spacing}px, -${menuHeight}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `-${childrenWidth + spacing}px, -${menuHeight}px`
+          : `-${menuWidth + spacing}px, -${menuHeight}px`
       break
 
     default:
@@ -132,12 +157,49 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
 
       break
   }
+  // switch (position) {
+  //   case "top-right":
+  //     menuCoordinates = `0px, -${menuHeight + childrenHeight + spacing}px`
+  //     break
+  //   case "top-left":
+  //     menuCoordinates = `-${menuWidth - childrenWidth}px, -${
+  //       menuHeight + childrenHeight + spacing
+  //     }px`
+  //     break
+  //   case "bottom-right":
+  //     menuCoordinates = `0px, ${spacing}px`
+  //     break
+  //   case "bottom-left":
+  //     menuCoordinates = `-${menuWidth - childrenWidth}px,${spacing}px`
+  //     break
+  //   case "right-bottom":
+  //     menuCoordinates = `${childrenWidth + spacing}px, -${childrenHeight}px`
+  //     break
+  //   case "right-top":
+  //     menuCoordinates = `${childrenWidth + spacing}px, -${menuHeight}px`
+  //     break
+  //   case "left-bottom":
+  //     menuCoordinates = `-${menuWidth + spacing}px, -${childrenHeight}px`
+  //     break
+  //   case "left-top":
+  //     menuCoordinates = `-${menuWidth + spacing}px, -${menuHeight}px`
+  //     break
+
+  //   default:
+  //     menuCoordinates = `-${menuWidth / 2}px, -${
+  //       childrenHeight + menuHeight / 2
+  //     }px`
+
+  //     break
+  // }
   return (
     <div
       // className="relative w-fit "
       onClick={() => {
-        if (open) handleClose()
-        else handleOpen()
+        if (menuOpened) setMenuOpened(false)
+        else setMenuOpened(true)
+        // if (open) handleClose()
+        // else handleOpen()
       }}
     >
       <div ref={childrenRef}>{children}</div>
@@ -153,10 +215,13 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
           position: "absolute",
           width: "max-content",
           transform: `translate(${menuCoordinates})`,
-          opacity: open ? "1" : "0",
+          // opacity: open ? "1" : "0",
           maxWidth: "200px",
         }}
-        className={clsx(defaultStyles)}
+        className={clsx(
+          defaultStyles,
+          menuOpened ? "opacity-100" : "invisible opacity-0"
+        )}
       >
         {withHeader && (
           <div className="py-3 px-4 text-xs text-gray-900 dark:text-white">

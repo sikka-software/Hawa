@@ -5,6 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 // TODO: make action click return row
+// fix menu pop up
 type TableTypes = {
   lang?: any
   columns: any[string]

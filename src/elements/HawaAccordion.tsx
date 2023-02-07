@@ -71,7 +71,7 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
 type AccordionTypes = {
   content: any
 }
-export const HawaAccordian: React.FunctionComponent<AccordionTypes> = (
+export const HawaAccordion: React.FunctionComponent<AccordionTypes> = (
   props
 ) => {
   return (
