@@ -10,7 +10,7 @@ type TableTypes = {
   lang?: any
   columns: any[string]
   actions?: ActionItems[][]
-
+  direction?: "rtl" | "ltr"
   rows?: any[any]
   noDataText?: any
   handleActionClick?: any
@@ -39,6 +39,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   customColor = "white",
   borders,
   highlightFirst = false,
+  direction = "ltr",
   bordersWidth = "0",
   ...props
 }) => {
@@ -139,19 +140,14 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                   }
                 })}
                 {props.actions && size !== "small" ? (
-                  <td
-                    align={isArabic ? "right" : "left"}
-                    // style={{ fontWeight: 700 }}
-                    className=""
-                    // variant={isArabic ? "borderedRight" : "borderedLeft"}
-                  >
+                  <td align={isArabic ? "right" : "left"} className="">
                     <div className="flex items-center justify-center">
                       <HawaMenu
-                        open={rowIndex === openActions}
-                        handleOpen={() => setOpenActions(rowIndex)}
-                        handleClose={() => setOpenActions(rowIndex)}
                         menuItems={props.actions}
-                        buttonPosition={"top-right"}
+                        position={
+                          direction === "rtl" ? "right-bottom" : "left-bottom"
+                        }
+                        direction={direction}
                       >
                         <div className="flex w-fit  items-center justify-center rounded  p-2 hover:bg-gray-200">
                           <BsThreeDotsVertical />

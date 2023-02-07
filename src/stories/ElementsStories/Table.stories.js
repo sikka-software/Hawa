@@ -155,48 +155,51 @@ export const DataWithActions = (args) => {
   }
 
   return (
-    <HawaTable
-      actionsText="Actions"
-      actions={[
-        [
-          { label: "View", onClick: () => console.log("viewing") },
-          { label: "Edit", onClick: () => console.log("editing") },
-          { label: "Delete", onClick: () => console.log("deleting") }
-        ]
-      ]}
-      lang={args.lang}
-      columns={["Product", "Price", "Date"]}
-      noDataText={"No data"}
-      size={args.size}
-      rows={[
-        [
-          "Logo Design",
-          "1,200 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Website Design",
-          "1,500 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Website Development",
-          "900 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Hosting",
-          "200 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ],
-        [
-          "Social Media Management",
-          "700 SAR",
-          randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        ]
-      ]}
-      {...args}
-    />
+    <div dir="ltr">
+      <HawaTable
+        direction="ltr"
+        actionsText="Actions"
+        actions={[
+          [
+            { label: "View", onClick: () => console.log("viewing") },
+            { label: "Edit", onClick: () => console.log("editing") },
+            { label: "Delete", onClick: () => console.log("deleting") }
+          ]
+        ]}
+        lang={args.lang}
+        columns={["Product", "Price", "Date"]}
+        noDataText={"No data"}
+        size={args.size}
+        rows={[
+          [
+            "Logo Design",
+            "1,200 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Website Design",
+            "1,500 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Website Development",
+            "900 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Hosting",
+            "200 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Social Media Management",
+            "700 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ]
+        ]}
+        {...args}
+      />
+    </div>
   );
 };
 DataWithActions.args = {

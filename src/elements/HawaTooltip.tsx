@@ -73,7 +73,10 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
             }px`
       break
     case "bottom-right":
-      tooltipCoordinates = `${tooltipWidth - childrenWidth}px, ${spacing}px`
+      tooltipCoordinates =
+        direction === "rtl"
+          ? `${tooltipWidth - childrenWidth}px, ${spacing}px`
+          : `-${childrenWidth - tooltipWidth}px, ${spacing}px`
       break
     case "bottom-left":
       tooltipCoordinates =

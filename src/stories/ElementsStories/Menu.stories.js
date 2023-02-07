@@ -72,7 +72,6 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  open: false,
   position: "bottom-right",
   menuItems: [
     [
@@ -183,11 +182,11 @@ WithHeader.args = {
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   buttonLabel: "Sign in via Google",
+  direction: "ltr",
   logo: "google",
   withHeader: true,
-  withIcons: true,
   headerTitle: "Zakher Masri",
-  position: "bottom-right",
+  position: "bottom-left",
 
   headerSubtitle: "zakher@sikka.io",
   menuItems: [

@@ -2,19 +2,15 @@ import clsx from "clsx"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
 // TODO: add size to make it smaller
 // TODO: add width to decrease width
+
 interface TMenuTypes {
   menuItems: MenuItems[][]
   withHeader?: boolean
-  // withIcons?: boolean
   headerTitle?: string
   headerSubtitle?: string
   direction?: "rtl" | "ltr"
-  // open?: boolean
-  // handleClose?: () => void
-  // handleOpen: () => void
   anchor?: any
   children?: ReactNode
-  // buttonPosition?: "top-right" | "top-left" | "bottom-right" | "bottom-left"
   position?:
     | "left-top"
     | "left-bottom"
@@ -25,6 +21,7 @@ interface TMenuTypes {
     | "bottom-right"
     | "bottom-left"
   onClickOutside?: any
+  size?: "small" | "normal" | "large"
 }
 
 type MenuItems = {
@@ -41,14 +38,10 @@ type MenuItems = {
 export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   menuItems,
   withHeader,
-  // withIcons,
   direction = "ltr",
   headerTitle,
   headerSubtitle,
-  // open,
-  // handleClose,
-  // handleOpen,
-  // buttonPosition = "top-right",
+  size = "small",
   children,
   onClickOutside,
   position = "top-right",
@@ -73,8 +66,6 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
 
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        // onClickOutside && onClickOutside()
-        // handleClose()
         setMenuOpened(false)
       }
     }
@@ -96,7 +87,11 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     opened: "max-h-fit h-max visible opacity-100 block",
     closed: "h-0 invisible opacity-0 hidden",
   }
-
+  let sizeStyles = {
+    small: "text-xs",
+    normal: "",
+    large: "",
+  }
   let menuCoordinates
   let spacing = 5
   switch (position) {
@@ -117,7 +112,11 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
             }px`
       break
     case "bottom-right":
-      menuCoordinates = `${menuWidth - childrenWidth}px, ${spacing}px`
+      menuCoordinates =
+        direction === "rtl"
+          ? `-${0}px, ${spacing}px`
+          : `-${childrenWidth - menuWidth}px, ${spacing}px`
+
       break
     case "bottom-left":
       menuCoordinates =
@@ -206,20 +205,15 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
 
       <div
         ref={menuRef}
-        // className={clsx(
-        //   defaultStyles,
-        //   positionStyles[buttonPosition],
-        //   open ? animationStyles.opened : animationStyles.closed
-        // )}
         style={{
           position: "absolute",
           width: "max-content",
           transform: `translate(${menuCoordinates})`,
-          // opacity: open ? "1" : "0",
           maxWidth: "200px",
         }}
         className={clsx(
           defaultStyles,
+          sizeStyles[size],
           menuOpened ? "opacity-100" : "invisible opacity-0"
         )}
       >

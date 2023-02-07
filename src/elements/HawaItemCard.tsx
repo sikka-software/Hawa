@@ -49,9 +49,17 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
     "inline-block rounded p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 
   const [openActionHeader, setOpenActionHeader] = useState(false)
-  const {isOpen : isActionOpen, onClose : onActionClose, onOpen : onActionOpen} = useDiscloser();
-  const {isOpen : isDropDownOpen, onClose : onDropDownClose, onOpen : onDropDownOpen} = useDiscloser();
-  const [openDropDown, setOpenDropDown] = useState(false)
+  // const {
+  //   isOpen: isActionOpen,
+  //   onClose: onActionClose,
+  //   onOpen: onActionOpen,
+  // } = useDiscloser()
+  // const {
+  //   isOpen: isDropDownOpen,
+  //   onClose: onDropDownClose,
+  //   onOpen: onDropDownOpen,
+  // } = useDiscloser()
+  // const [openDropDown, setOpenDropDown] = useState(false)
 
   function handleOpenActionHeader() {
     setOpenActionHeader(!openActionHeader)
@@ -84,13 +92,7 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
       <div className="relative w-full  px-6 pt-6">
         {headerActions && (
           <div className="max-h- bg-red absolute right-0 top-0 flex justify-end pt-3 pr-3">
-            <HawaMenu
-              buttonPosition="top-right"
-              menuItems={headerActions}
-              handleOpen={onDropDownOpen}
-              handleClose={onDropDownClose}
-              open={isDropDownOpen}
-            >
+            <HawaMenu position="top-right" menuItems={headerActions}>
               <div
                 className={clsx(headerActionsButtonStyle)}
                 onClick={handleOpenActionHeader}
