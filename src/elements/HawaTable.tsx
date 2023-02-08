@@ -3,7 +3,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 // TODO: make action click return row
-
+// TODO: make action column width max fit
 type TableTypes = {
   columns: any[string]
   actions?: ActionItems[][]
@@ -77,7 +77,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
             ) : null}
           </tr>
         </thead>
-        <tbody className={customColor ? `bg-${customColor}` : "bg-white"}>
+        <tbody
+        // className={customColor ? `bg-${customColor}` : "bg-transparent"}
+        >
           {/* Table Rows */}
           {props.rows ? (
             props.rows.map((singleRow: any, rowIndex: any) => {
@@ -170,9 +172,14 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               )
             })
           ) : (
-            <tr>
+            <tr className="bg-transparent">
               <td colSpan={props.columns.length}>
-                <div className="w-full rounded-b bg-white p-5 text-center">
+                <div
+                  className={clsx(
+                    "w-full rounded-b bg-white p-5 text-center",
+                    customColor ? `bg-${customColor}` : "bg-white"
+                  )}
+                >
                   {props.noDataText}
                 </div>
               </td>
