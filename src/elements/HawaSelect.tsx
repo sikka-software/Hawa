@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
@@ -7,6 +8,7 @@ type OptionTypes = {
   getStyles: any
   innerProps: any
   innerRef: any
+  size?: "small" | "normal" | "large"
 }
 const Option: React.FunctionComponent<OptionTypes> = ({
   cx,
@@ -14,11 +16,12 @@ const Option: React.FunctionComponent<OptionTypes> = ({
   getStyles,
   innerProps,
   innerRef,
+  size = "normal",
   ...props
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-buttonPrimary-500 hover:text-white"
+    className="m-2 flex flex-row items-center justify-between rounded  p-1 px-3 hover:bg-buttonPrimary-500 hover:text-white"
     {...innerProps}
   >
     {children}
@@ -31,6 +34,7 @@ type ControlTypes = {
   getStyles: any
   innerProps: any
   innerRef: any
+  size?: "small" | "normal" | "large"
 }
 const Control: React.FunctionComponent<ControlTypes> = ({
   cx,
@@ -38,12 +42,21 @@ const Control: React.FunctionComponent<ControlTypes> = ({
   getStyles,
   innerProps,
   innerRef,
+  size = "normal",
   ...props
 }) => {
+  let sizeStyles = {
+    small: "h-7 text-xs",
+    normal: "h-10  text-sm",
+    large: "",
+  }
   return (
     <div
       ref={innerRef}
-      className="flex h-10 w-full rounded border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      className={clsx(
+        sizeStyles[size],
+        "flex  w-full rounded border border-gray-300 bg-gray-50 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      )}
       {...innerProps}
       // {...props}
     >
@@ -93,10 +106,11 @@ type SelectTypes = {
   value?: any
   children?: any
   getOptionLabel?: any
+  // size?
 }
 export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (
-    <div className="mb-3">
+    <div className="">
       {props.label && (
         <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {props.label}

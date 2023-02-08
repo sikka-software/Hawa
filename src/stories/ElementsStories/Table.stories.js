@@ -36,6 +36,34 @@ export default {
   }
 };
 
+const makeDummyData = (len) => {
+  let products = [];
+  for (let i = 0; i < len; i++) {
+    products.push({
+      name: "Product " + (i + 1),
+      price: "$" + (i + 1) + ".00",
+      id: "P" + ("000" + (i + 1)).slice(-4)
+    });
+  }
+
+  let arrays = [];
+
+  for (let i = 0; i < products.length; i += 4) {
+    let subArray = products.slice(i, i + 4).map((product) => {
+      let randomNumber = Math.floor(Math.random() * 100);
+      return [
+        { hidden: false, value: product.name },
+        { hidden: false, value: product.price },
+        { hidden: true, value: product.id },
+        { hidden: false, value: randomNumber }
+      ];
+    });
+    arrays = arrays.concat(subArray);
+  }
+
+  console.log(arrays);
+  return arrays;
+};
 let dummyRowData = [
   [
     { hidden: false, value: "Logo Design" },
@@ -112,25 +140,12 @@ export const DataOnly = (args) => {
       direction={args.direction}
       size={args.size}
       columns={[
-        { hidden: false, value: "rere" },
-        { hidden: false, value: "rere" }
+        { hidden: false, value: "Product" },
+        { hidden: true, value: "ID" },
+        { hidden: false, value: "Price" },
+        { hidden: false, value: "Times Bought" }
       ]}
-      rows={[
-        [
-          { hidden: false, value: "rere" },
-          { hidden: false, value: "rere" }
-        ],
-        [
-          { hidden: false, value: "rere" },
-          { hidden: false, value: "rere" }
-        ],
-        [
-          { hidden: false, value: "rere" },
-          { hidden: false, value: "rere" }
-        ],
-      ]}
-      // columns={dummyColsData}
-      // rows={dummyRowData}
+      rows={makeDummyData(40)}
       {...args}
     />
   );
