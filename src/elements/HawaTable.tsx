@@ -78,7 +78,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
           </tr>
         </thead>
         <tbody
-        // className={customColor ? `bg-${customColor}` : "bg-transparent"}
+          className={
+            customColor && props.rows ? `bg-${customColor}` : "bg-transparent"
+          }
         >
           {/* Table Rows */}
           {props.rows ? (
