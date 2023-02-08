@@ -33,10 +33,7 @@ type HawaAppLayoutTypes = {
 type MenuItems = {
   icon?: JSX.Element
   label: string
-  action?: (
-    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    item: string
-  ) => void
+  action?: (e: any) => void
   isButton?: boolean
 }
 export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({

@@ -26,8 +26,7 @@ type InvoiceAccordionTypes = {
     icon?: JSX.Element
     label: string
     action?: (
-      e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-      item: string
+      e: any
     ) => void
     isButton?: boolean
     element?: any
