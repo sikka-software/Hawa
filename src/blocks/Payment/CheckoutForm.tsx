@@ -66,7 +66,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
           {props.texts.orderDetails}
         </div>
         <HawaTable
-          lang={props.lang}
+          direction={isArabic ? "rtl" : "ltr"}
           columns={["Product", "Price"]}
           rows={props.products}
           end={["Total", props.total]}
