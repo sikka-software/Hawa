@@ -15,13 +15,13 @@ export default {
       description:
         "A array of arrays. Each array inside the main array is a single row"
     },
-    lang: {
+    direction: {
       control: "select",
       options: ["ar", "en"],
       description:
         "A array of arrays. Each array inside the main array is a single row"
     },
-    lang: {
+    direction: {
       control: "select",
       options: ["normal", "small"],
       description:
@@ -46,7 +46,7 @@ export const NoData = (args) => {
   return (
     <HawaTable
       size={args.size}
-      lang={args.lang}
+      direction={args.direction}
       columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
       noDataText={"No data"}
     />
@@ -62,7 +62,7 @@ export const DataOnly = (args) => {
   return (
     <HawaTable
       bordersWidth="1"
-      lang={args.lang}
+      direction={args.direction}
       size={args.size}
       columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
       rows={[
@@ -136,7 +136,6 @@ export const DataWithActions = (args) => {
             { label: "Delete", onClick: () => console.log("deleting") }
           ]
         ]}
-        lang={args.lang}
         columns={["Product", "Price", "Date"]}
         noDataText={"No data"}
         size={args.size}
@@ -187,37 +186,9 @@ export const RTL = (args) => {
   return (
     <div dir="rtl">
       <HawaTable
-        lang={args.lang}
+        direction={"rtl"}
         size={args.size}
         columns={["المنتج", "السعر", "التاريخ", "الوزن", "الرقم التسلسلي"]}
-        // columns={["Product", "Price", "Date"]}
-        // rows={[
-        //   [
-        //     "Logo Design",
-        //     "1,200 SAR",
-        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        //   ],
-        //   [
-        //     "Website Design",
-        //     "1,500 SAR",
-        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        //   ],
-        //   [
-        //     "Website Development",
-        //     "900 SAR",
-        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        //   ],
-        //   [
-        //     "Hosting",
-        //     "200 SAR",
-        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        //   ],
-        //   [
-        //     "Social Media Management",
-        //     "700 SAR",
-        //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-        //   ]
-        // ]}
         rows={[
           [32, 32, 32, 32, 32],
           [32, 32, 32, 32, 32],
@@ -262,6 +233,65 @@ export const RTL = (args) => {
           [32, 32, 32, 32, 32],
           [32, 32, 32, 32, 32]
         ]}
+        {...args}
+      />
+    </div>
+  );
+};
+RTL.args = {
+  borders: "inner"
+};
+
+export const RTLWithActions = (args) => {
+  function randomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  return (
+    <div dir="rtl" className="">
+      <HawaTable
+        direction="rtl"
+        actionsText="Actions"
+        actions={[
+          [
+            { label: "View", onClick: () => console.log("viewing") },
+            { label: "Edit", onClick: () => console.log("editing") },
+            { label: "Delete", onClick: () => console.log("deleting") }
+          ]
+        ]}
+        columns={["Product", "Price", "Date"]}
+        noDataText={"No data"}
+        size={args.size}
+        rows={[
+          [
+            "Logo Design",
+            "1,200 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Website Design",
+            "1,500 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Website Development",
+            "900 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Hosting",
+            "200 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ],
+          [
+            "Social Media Management",
+            "700 SAR",
+            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
+          ]
+        ]}
+        {...args}
       />
     </div>
   );

@@ -5,7 +5,6 @@ import { HawaMenu } from "./HawaMenu"
 // TODO: make action click return row
 
 type TableTypes = {
-  lang?: any
   columns: any[string]
   actions?: ActionItems[][]
   direction?: "rtl" | "ltr"
@@ -41,7 +40,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   bordersWidth = "1",
   ...props
 }) => {
-  let isArabic = props.lang === "ar"
+  let isRTL = direction === "rtl"
 
   let sizeStyles = {
     normal: "py-3 px-6",
@@ -52,13 +51,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
     <div className="relative">
       <table
         className={clsx(
-          "w-full rounded bg-layoutPrimary-500  text-left text-sm text-gray-500 dark:text-gray-400"
-          // borders === "all" || borders === "outer"
-          //   ? `border-[${bordersWidth}px] bg-red-300 p-2`
-          //   : ""
-          // `ring-[${bordersWidth}px] ring-blue-300`
-          // `ring-[${10}px] ring-blue-300`
-          // ` ring-[10px] ring-blue-300`
+          "w-full rounded bg-layoutPrimary-500 text-left text-sm text-gray-500 dark:text-gray-400"
         )}
       >
         <thead className="  text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -84,61 +77,64 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
             ) : null}
           </tr>
         </thead>
-        <tbody
-        // style={{
-        //   borderWidth: bordersWidth,
-        //   border: "1px solid black",
-        // }}
-        // className="bg-yellow-400"
-        >
+        <tbody className={customColor ? `bg-${customColor}` : "bg-white"}>
           {/* Table Rows */}
           {props.rows ? (
             props.rows.map((singleRow: any, rowIndex: any) => {
-              let firstRow
               let lastRow = rowIndex == props.rows.length - 1
-
               return (
                 <tr
                   key={rowIndex}
                   className={clsx(
                     " dark:border-gray-700 dark:bg-gray-800",
                     props.clickable ? "hover:bg-gray-100" : "",
-                    "bg-" + customColor,
                     !lastRow &&
                       (borders === "all" ||
                         borders === "rows" ||
                         borders === "inner")
                       ? `border-b border-b-[${bordersWidth}px]`
                       : ""
-                    // "bg-yellow-400"
                   )}
                 >
                   {singleRow.map((r: any, i: any) => {
                     let firstCell = i === 0
                     let lastCell = i === singleRow.length - 1
+                    let isRTLLastCell =
+                      isRTL && lastRow && lastCell && !props.actions
+                    let isRTLFirstCell = isRTL && lastRow && firstCell
+                    let isLTRFirstCell = !isRTL && lastRow && firstCell
+                    let isLTRLastCell =
+                      !isRTL && lastRow && lastCell && !props.actions
 
                     return (
                       <td
                         key={i}
                         className={clsx(
+                          sizeStyles[size],
                           highlightFirst && firstCell
                             ? "font-bold"
                             : "font-normal",
-                          lastRow && firstCell ? "rounded-b" : "",
-                          firstCell ? "rounded-br-none" : "",
-                          lastCell ? "rounded-bl-none" : "",
-                          sizeStyles[size],
-                          !firstCell &&
-                            (borders === "cols" || borders === "inner")
-                            ? `border-l border-l-[${bordersWidth}px]`
+                          isRTLFirstCell
+                            ? "rounded-bl-none rounded-br"
+                            : isRTLLastCell
+                            ? "rounded-br-none rounded-bl"
+                            : isLTRFirstCell
+                            ? "rounded-br-none rounded-bl"
+                            : isLTRLastCell
+                            ? "rounded-bl-none rounded-br"
                             : "",
 
-                          // borders === "all"
-                          //   ? `border border-[${bordersWidth}px]`
-                          //   : "",
-                          props.actions
-                            ? `border-r border-r-[${bordersWidth}px]`
+                          !firstCell &&
+                            !lastCell &&
+                            (borders === "cols" || borders === "inner")
+                            ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
+                            : !firstCell &&
+                              props.actions &&
+                              (borders === "cols" || borders === "inner")
+                            ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
                             : ""
+
+                          // customColor ? `bg-${customColor}` : "bg-white"
                         )}
                       >
                         {r}
@@ -148,8 +144,11 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                   })}
                   {props.actions && size !== "small" ? (
                     <td
-                      align={isArabic ? "right" : "left"}
-                      className={lastRow ? "rounded-br" : ""}
+                      align={isRTL ? "right" : "left"}
+                      className={clsx(
+                        isRTL && lastRow ? "rounded-br-none rounded-bl" : "",
+                        !isRTL && lastRow ? "rounded-bl-none rounded-br" : ""
+                      )}
                     >
                       <div className="flex items-center justify-center">
                         <HawaMenu
@@ -173,7 +172,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
           ) : (
             <tr>
               <td colSpan={props.columns.length}>
-                <div className="w-full bg-white p-5 text-center">
+                <div className="w-full rounded-b bg-white p-5 text-center">
                   {props.noDataText}
                 </div>
               </td>
