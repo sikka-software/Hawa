@@ -61,40 +61,10 @@ export const DataOnly = (args) => {
 
   return (
     <HawaTable
-      // borders=""
-
       bordersWidth="1"
       lang={args.lang}
       size={args.size}
       columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
-      // columns={["Product", "Price", "Date"]}
-      // rows={[
-      //   [
-      //     "Logo Design",
-      //     "1,200 SAR",
-      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-      //   ],
-      //   [
-      //     "Website Design",
-      //     "1,500 SAR",
-      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-      //   ],
-      //   [
-      //     "Website Development",
-      //     "900 SAR",
-      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-      //   ],
-      //   [
-      //     "Hosting",
-      //     "200 SAR",
-      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-      //   ],
-      //   [
-      //     "Social Media Management",
-      //     "700 SAR",
-      //     randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-      //   ]
-      // ]}
       rows={[
         [32, 32, 32, 32, 32, 32],
         [32, 32, 32, 32, 32, 32],
@@ -145,7 +115,7 @@ export const DataOnly = (args) => {
 };
 
 DataOnly.args = {
-  borders: ["all"]
+  borders: "all"
 };
 export const DataWithActions = (args) => {
   function randomDate(start, end) {
@@ -155,7 +125,7 @@ export const DataWithActions = (args) => {
   }
 
   return (
-    <div dir="ltr" className="bg-red-300">
+    <div dir="ltr" className="">
       <HawaTable
         direction="ltr"
         actionsText="Actions"

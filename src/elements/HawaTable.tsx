@@ -1,11 +1,9 @@
-import React, { useState } from "react"
-import { HawaButton } from "./HawaButton"
-import { FaTrash, FaExclamationCircle, FaPen } from "react-icons/fa"
+import React from "react"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 // TODO: make action click return row
-// fix menu pop up
+
 type TableTypes = {
   lang?: any
   columns: any[string]
@@ -21,7 +19,7 @@ type TableTypes = {
   clickable?: boolean
   actionsText?: string
   bordersWidth?: string
-  borders?: ["all" | "cols" | "rows" | "outer"]
+  borders?: "all" | "cols" | "rows" | "outer" | "inner"
 }
 type ActionItems = {
   icon?: JSX.Element
@@ -40,28 +38,30 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   borders,
   highlightFirst = false,
   direction = "ltr",
-  bordersWidth = "0",
+  bordersWidth = "1",
   ...props
 }) => {
-  const [openActions, setOpenActions] = useState(false)
   let isArabic = props.lang === "ar"
 
   let sizeStyles = {
     normal: "py-3 px-6",
     small: "px-3 py-1",
   }
+
   return (
-    <div className="relative rounded">
+    <div className="relative">
       <table
         className={clsx(
-          "w-full  text-left text-sm text-gray-500 dark:text-gray-400",
-          borders?.find((e) => e === "all") === "all" ||
-            borders?.find((e) => e === "outer") === "outer"
-            ? `border-[${bordersWidth}px]`
-            : ""
+          "w-full rounded bg-layoutPrimary-500  text-left text-sm text-gray-500 dark:text-gray-400"
+          // borders === "all" || borders === "outer"
+          //   ? `border-[${bordersWidth}px] bg-red-300 p-2`
+          //   : ""
+          // `ring-[${bordersWidth}px] ring-blue-300`
+          // `ring-[${10}px] ring-blue-300`
+          // ` ring-[10px] ring-blue-300`
         )}
       >
-        <thead className=" bg-gray-100 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="  text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {props.columns.map((col: any, i: any) => (
               <th
@@ -69,8 +69,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                 scope="col"
                 className={clsx(
                   sizeStyles[size],
-                  (i !== 0 && borders?.find((e) => e === "cols") === "cols") ||
-                    borders?.find((e) => e === "all") === "all"
+                  i !== 0 && (borders === "cols" || borders === "all")
                     ? `border-l border-l-[${bordersWidth}px]`
                     : ""
                 )}
@@ -85,50 +84,58 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
             ) : null}
           </tr>
         </thead>
-        <tbody>
+        <tbody
+        // style={{
+        //   borderWidth: bordersWidth,
+        //   border: "1px solid black",
+        // }}
+        // className="bg-yellow-400"
+        >
           {/* Table Rows */}
           {props.rows ? (
-            props.rows.map((singleRow: any, rowIndex: any) => (
-              <tr
-                key={rowIndex}
-                className={clsx(
-                  " dark:border-gray-700 dark:bg-gray-800",
-                  props.clickable ? "hover:bg-gray-100" : "",
-                  "bg-" + customColor,
-                  rowIndex == props.rows.length - 1
-                    ? ""
-                    : borders?.find((e) => e === "all") === "all" ||
-                      borders?.find((e) => e === "rows") === "rows"
-                    ? `border-b border-b-[${bordersWidth}px]`
-                    : ""
-                )}
-              >
-                {singleRow.map((r: any, i: any) => {
-                  if (i === 0) {
-                    return (
-                      <th
-                        key={i}
-                        scope="row"
-                        className={clsx(
-                          sizeStyles[size],
-                          "whitespace-nowrap  dark:text-white",
-                          highlightFirst ? "font-bold" : "font-normal"
-                        )}
-                      >
-                        {r}{" "}
-                      </th>
-                    )
-                  } else {
+            props.rows.map((singleRow: any, rowIndex: any) => {
+              let firstRow
+              let lastRow = rowIndex == props.rows.length - 1
+
+              return (
+                <tr
+                  key={rowIndex}
+                  className={clsx(
+                    " dark:border-gray-700 dark:bg-gray-800",
+                    props.clickable ? "hover:bg-gray-100" : "",
+                    "bg-" + customColor,
+                    !lastRow &&
+                      (borders === "all" ||
+                        borders === "rows" ||
+                        borders === "inner")
+                      ? `border-b border-b-[${bordersWidth}px]`
+                      : ""
+                    // "bg-yellow-400"
+                  )}
+                >
+                  {singleRow.map((r: any, i: any) => {
+                    let firstCell = i === 0
+                    let lastCell = i === singleRow.length - 1
+
                     return (
                       <td
                         key={i}
                         className={clsx(
+                          highlightFirst && firstCell
+                            ? "font-bold"
+                            : "font-normal",
+                          lastRow && firstCell ? "rounded-b" : "",
+                          firstCell ? "rounded-br-none" : "",
+                          lastCell ? "rounded-bl-none" : "",
                           sizeStyles[size],
-
-                          borders?.find((e) => e === "cols") === "cols" ||
-                            borders?.find((e) => e === "all") === "all"
+                          !firstCell &&
+                            (borders === "cols" || borders === "inner")
                             ? `border-l border-l-[${bordersWidth}px]`
                             : "",
+
+                          // borders === "all"
+                          //   ? `border border-[${bordersWidth}px]`
+                          //   : "",
                           props.actions
                             ? `border-r border-r-[${bordersWidth}px]`
                             : ""
@@ -137,28 +144,32 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                         {r}
                       </td>
                     )
-                  }
-                })}
-                {props.actions && size !== "small" ? (
-                  <td align={isArabic ? "right" : "left"} className="">
-                    <div className="flex items-center justify-center">
-                      <HawaMenu
-                        size="small"
-                        menuItems={props.actions}
-                        position={
-                          direction === "rtl" ? "right-bottom" : "left-bottom"
-                        }
-                        direction={direction}
-                      >
-                        <div className="flex w-fit  items-center justify-center rounded  p-2 hover:bg-gray-200">
-                          <BsThreeDotsVertical />
-                        </div>
-                      </HawaMenu>
-                    </div>
-                  </td>
-                ) : null}
-              </tr>
-            ))
+                    // }
+                  })}
+                  {props.actions && size !== "small" ? (
+                    <td
+                      align={isArabic ? "right" : "left"}
+                      className={lastRow ? "rounded-br" : ""}
+                    >
+                      <div className="flex items-center justify-center">
+                        <HawaMenu
+                          size="small"
+                          menuItems={props.actions}
+                          position={
+                            direction === "rtl" ? "right-bottom" : "left-bottom"
+                          }
+                          direction={direction}
+                        >
+                          <div className="flex w-fit  items-center justify-center rounded  p-2 hover:bg-gray-200">
+                            <BsThreeDotsVertical />
+                          </div>
+                        </HawaMenu>
+                      </div>
+                    </td>
+                  ) : null}
+                </tr>
+              )
+            })
           ) : (
             <tr>
               <td colSpan={props.columns.length}>
