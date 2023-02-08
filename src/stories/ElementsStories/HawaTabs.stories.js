@@ -69,17 +69,17 @@ export const Horizontal = (args) => {
         {
           value: "option1",
           label: "Billing",
-          content: <div className="bg-red-300"> option 1</div>
+          content: <div className="bg-red-300 p-4"> option 1</div>
         },
         {
           value: "option2",
           label: "Settings",
-          content: <div className="bg-red-300"> option 2</div>
+          content: <div className="bg-red-300 p-4"> option 2</div>
         },
         {
           value: "option3",
           label: "Legal",
-          content: <div className="bg-red-300"> option 3</div>
+          content: <div className="bg-red-300 p-4"> option 3</div>
         },
         {
           value: "option4",
@@ -194,23 +194,23 @@ export const FullWidth = (args) => {
         {
           value: "option1",
           label: "Billing",
-          content: <div className="bg-red-300"> option 1</div>
+          content: <div> option 1</div>
         },
         {
           value: "option2",
           label: "Settings",
-          content: <div className="bg-red-300"> option 2</div>
+          content: <div> option 2</div>
         },
         {
           value: "option3",
           label: "Legal",
-          content: <div className="bg-red-300"> option 3</div>
+          content: <div> option 3</div>
         },
         {
           value: "option4",
           label: "Test",
           content: (
-            <div className="flex flex-col gap-9 bg-red-300">
+            <div className="flex flex-col gap-9 ">
               {" "}
               option 3<div> lorem</div>
               <div> lorem</div>

@@ -123,7 +123,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
         ))}
       </ul>
 
-      <div className="flex-1 bg-white transition-all">
+      <div className="flex-1 transition-all">
         {props.options.map((tab) => (
           <div
             key={tab.value}
