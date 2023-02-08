@@ -175,8 +175,9 @@ export const WithIcons = Template.bind({});
 WithIcons.args = {
   buttonLabel: "Sign in via Google",
   direction: "ltr",
+  size: "small",
   logo: "google",
-  withHeader: true,
+  withHeader: false,
   headerTitle: "Zakher Masri",
   position: "bottom-left",
 

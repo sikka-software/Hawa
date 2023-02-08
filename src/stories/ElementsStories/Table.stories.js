@@ -131,11 +131,12 @@ export const DataWithActions = (args) => {
         actionsText="Actions"
         actions={[
           [
-            { label: "View", onClick: () => console.log("viewing") },
-            { label: "Edit", onClick: () => console.log("editing") },
-            { label: "Delete", onClick: () => console.log("deleting") }
+            { label: "View", action: (e) => console.log("viewing", e) },
+            { label: "Edit", action: (e) => console.log("editing", e) },
+            { label: "Delete", action: (e) => console.log("deleting", e) }
           ]
         ]}
+        onActionClicked={(row) => console.log("row is", row)}
         columns={["Product", "Price", "Date"]}
         noDataText={"No data"}
         size={args.size}

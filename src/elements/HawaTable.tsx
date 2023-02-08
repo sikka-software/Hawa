@@ -2,8 +2,9 @@ import React from "react"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
-// TODO: make action click return row
+
 // TODO: make action column width max fit
+
 type TableTypes = {
   columns: any[string]
   actions?: ActionItems[][]
@@ -18,15 +19,13 @@ type TableTypes = {
   clickable?: boolean
   actionsText?: string
   bordersWidth?: string
+  onActionClicked?: any
   borders?: "all" | "cols" | "rows" | "outer" | "inner"
 }
 type ActionItems = {
   icon?: JSX.Element
   label: string
-  action?: (
-    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    item: string
-  ) => void
+  action?: (e: any) => void
   isButton?: boolean
   element?: any
 }
@@ -157,6 +156,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                       <div className="flex items-center justify-center">
                         <HawaMenu
                           size="small"
+                          actionedItem={[rowIndex, singleRow]}
                           menuItems={props.actions}
                           position={
                             direction === "rtl" ? "right-bottom" : "left-bottom"
@@ -192,28 +192,3 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
     </div>
   )
 }
-
-// const TableActionButton = (props) => {
-//   let smallAct = props.action?.toLowerCase()
-//   return (
-//     <HawaButton
-//       tooltipSize="small"
-//       buttonID={props.action + props.row}
-//       tooltipPosition="top-right"
-//       size="xs"
-//       variant="contained"
-//       tooltip={props.action}
-//       onClick={() => props.handleActionClick(smallAct)}
-//     >
-//       {smallAct === "delete" ? (
-//         <FaTrash />
-//       ) : smallAct === "view" ? (
-//         <FaExclamationCircle />
-//       ) : smallAct === "edit" ? (
-//         <FaPen />
-//       ) : (
-//         props.action
-//       )}
-//     </HawaButton>
-//   )
-// }

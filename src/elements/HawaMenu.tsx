@@ -20,16 +20,15 @@ interface TMenuTypes {
     | "bottom-right"
     | "bottom-left"
   onClickOutside?: any
+  actionedItem?: any
   size?: "small" | "normal" | "large"
 }
 
 type MenuItems = {
   icon?: JSX.Element
   label: string
-  action?: (
-    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    item: string
-  ) => void
+  // action?: (item: any) => void
+  action?: (e: any) => void
   isButton?: boolean
   element?: any
 }
@@ -43,6 +42,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   size = "normal",
   children,
   onClickOutside,
+  actionedItem,
   position = "top-right",
 }) => {
   const [menuOpened, setMenuOpened] = useState(false)
@@ -196,7 +196,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                   </li>
                 ) : (
                   <li
-                    onClick={(e) => item.action(e, item.label)}
+                    onClick={() => item?.action(actionedItem)}
                     className={clsx(
                       item.isButton
                         ? "flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 py-2 px-4 text-white hover:bg-buttonPrimary-700 rtl:flex-row-reverse dark:hover:bg-buttonPrimary-700 dark:hover:text-white"
@@ -205,7 +205,13 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                     )}
                   >
                     {item.icon && (
-                      <div className="mr-2 rtl:ml-2">{item.icon}</div>
+                      <div
+                        className={
+                          size === "small" ? "mr-1 rtl:ml-1" : "mr-2 rtl:ml-2"
+                        }
+                      >
+                        {item.icon}
+                      </div>
                     )}
                     {item.label}
                   </li>
