@@ -65,12 +65,19 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
         <div className="mb-2 text-center text-xl font-semibold">
           {props.texts.orderDetails}
         </div>
-        <HawaTable
-          direction={isArabic ? "rtl" : "ltr"}
-          columns={["Product", "Price"]}
-          rows={props.products}
-          end={["Total", props.total]}
-        />
+        <div className="rounded border border-gray-300">
+          <HawaTable
+            direction={isArabic ? "rtl" : "ltr"}
+            columns={[
+              { hidden: false, value: "Product" },
+              { hidden: true, value: "ID" },
+              { hidden: false, value: "Price" },
+            ]}
+            borders="inner"
+            rows={props.products}
+            bordersWidth="1"
+          />
+        </div>
       </div>
       <div>
         <div className="my-2 text-center text-xl font-semibold">

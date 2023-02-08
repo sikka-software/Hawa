@@ -192,7 +192,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
             })
           ) : (
             <tr className="bg-transparent">
-              <td colSpan={props.columns.length}>
+              {/* {console.log('props', props.columns.length)} */}
+              <td colSpan={20}>
                 <div
                   className={clsx(
                     "w-full rounded-b bg-white p-5 text-center",

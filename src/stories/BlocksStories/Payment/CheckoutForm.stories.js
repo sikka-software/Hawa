@@ -34,11 +34,21 @@ export const Checkout = (args) => {
         handlePayNow={(e) => console.log("submitting checkout", e)}
         countriesList={["Saudi Arabia", "Qatar", "Kuwait"]}
         products={[
-          ["Logo Design", "1,200 SAR"],
-          ["Website Design", "1,500 SAR"],
-          ["Website Development", "900 SAR"],
-          ["Hosting", "200 SAR"],
-          ["Social Media Management", "700 SAR"]
+          [
+            { hidden: false, value: "Logo Design" },
+            { hidden: true, value: "230423847239838" },
+            { hidden: false, value: "1,200 SAR" }
+          ],
+          [
+            { hidden: false, value: "Logo Design" },
+            { hidden: true, value: "230423847239838" },
+            { hidden: false, value: "1,200 SAR" }
+          ],
+          [
+            { hidden: false, value: "Logo Design" },
+            { hidden: true, value: "230423847239838" },
+            { hidden: false, value: "1,200 SAR" }
+          ]
         ]}
         total={"5,330 SAR"}
         texts={{

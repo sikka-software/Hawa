@@ -38,14 +38,6 @@ export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
       <div className="mt-3">
         <div className="mb-1">Sign ups</div>
         <div className="rounded">
-          {/* <HawaTable
-            columns={["date", "email", "amount"]}
-            rows={[
-              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
-              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
-              ["2020/10/11 @ 9:45 pm", "sadsd", "dsodk"],
-            ]}
-          /> */}
           <ReferralSignUpCard
             date="2020/10/11 @ 9:45 pm"
             email="zakher@sikka.io"

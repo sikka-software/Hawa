@@ -65,7 +65,10 @@ export const ConfirmationPage: React.FunctionComponent<
         {props.products && (
           <HawaTable
             direction={isArabic ? "rtl" : "ltr"}
-            columns={["Product", "Price"]}
+            columns={[
+              { hidden: false, value: "Product" },
+              { hidden: false, value: "Price" },
+            ]}
             rows={props.products}
             // end={["Total", props.total]}
           />

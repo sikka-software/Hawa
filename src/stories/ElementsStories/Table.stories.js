@@ -38,8 +38,8 @@ export default {
 
 let dummyRowData = [
   [
-    { hidden: true, value: "230423847239838" },
     { hidden: false, value: "Logo Design" },
+    { hidden: true, value: "230423847239838" },
     { hidden: false, value: "1,200 SAR" },
     {
       hidden: false,
@@ -47,8 +47,8 @@ let dummyRowData = [
     }
   ],
   [
-    { hidden: true, value: "2340238402374" },
     { hidden: false, value: "Website Design" },
+    { hidden: true, value: "2340238402374" },
     { hidden: false, value: "2,200 SAR" },
     {
       hidden: false,
@@ -56,8 +56,8 @@ let dummyRowData = [
     }
   ],
   [
-    { hidden: true, value: "2309487209483274" },
     { hidden: false, value: "Hosting" },
+    { hidden: true, value: "2309487209483274" },
     { hidden: false, value: "200 SAR" },
     {
       hidden: false,
@@ -65,8 +65,8 @@ let dummyRowData = [
     }
   ],
   [
-    { hidden: true, value: "3432042304382" },
     { hidden: false, value: "Social Media Management" },
+    { hidden: true, value: "3432042304382" },
     { hidden: false, value: "1,800 SAR" },
     {
       hidden: false,
@@ -75,8 +75,8 @@ let dummyRowData = [
   ]
 ];
 let dummyColsData = [
-  { hidden: true, value: "ID" },
   { hidden: false, value: "Product" },
+  { hidden: true, value: "ID" },
   { hidden: false, value: "Price" },
   { hidden: false, value: "Date" }
 ];
@@ -86,7 +86,15 @@ export const NoData = (args) => {
     <HawaTable
       size={args.size}
       direction={args.direction}
-      columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
+      columns={[
+        { hidden: false, value: "Product" },
+        { hidden: false, value: "Price" },
+        { hidden: false, value: "Date" },
+        { hidden: false, value: "Another" },
+        { hidden: false, value: "Price" },
+        { hidden: false, value: "Date" },
+        { hidden: false, value: "Another" }
+      ]}
       noDataText={"No data"}
     />
   );
@@ -103,51 +111,26 @@ export const DataOnly = (args) => {
       bordersWidth="1"
       direction={args.direction}
       size={args.size}
-      columns={["Product", "Price", "Date", "Another", "Another", "Another"]}
-      rows={[
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32],
-        [32, 32, 32, 32, 32, 32]
+      columns={[
+        { hidden: false, value: "rere" },
+        { hidden: false, value: "rere" }
       ]}
+      rows={[
+        [
+          { hidden: false, value: "rere" },
+          { hidden: false, value: "rere" }
+        ],
+        [
+          { hidden: false, value: "rere" },
+          { hidden: false, value: "rere" }
+        ],
+        [
+          { hidden: false, value: "rere" },
+          { hidden: false, value: "rere" }
+        ],
+      ]}
+      // columns={dummyColsData}
+      // rows={dummyRowData}
       {...args}
     />
   );
@@ -176,36 +159,11 @@ export const DataWithActions = (args) => {
           ]
         ]}
         onActionClicked={(row) => console.log("row is", row)}
-        columns={["Product", "Price", "Date"]}
+        columns={dummyColsData}
+        // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
         noDataText={"No data"}
         size={args.size}
-        rows={[
-          [
-            "Logo Design",
-            "1,200 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Website Design",
-            "1,500 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Website Development",
-            "900 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Hosting",
-            "200 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Social Media Management",
-            "700 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ]
-        ]}
+        rows={dummyRowData}
         {...args}
       />
     </div>
@@ -228,51 +186,12 @@ export const RTL = (args) => {
       <HawaTable
         direction={"rtl"}
         size={args.size}
-        columns={["المنتج", "السعر", "التاريخ", "الوزن", "الرقم التسلسلي"]}
-        rows={[
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32],
-          [32, 32, 32, 32, 32]
+        columns={[
+          { hidden: false, value: "المنتج" },
+          { hidden: false, value: "السعر" },
+          { hidden: false, value: "الوزن" }
         ]}
+        rows={dummyRowData}
         {...args}
       />
     </div>
@@ -293,7 +212,7 @@ export const RTLWithActions = (args) => {
     <div dir="rtl" className="">
       <HawaTable
         direction="rtl"
-        actionsText="Actions"
+        actionsText="الإجراءات"
         actions={[
           [
             { label: "View", action: (e) => console.log("viewing", e) },
@@ -301,7 +220,11 @@ export const RTLWithActions = (args) => {
             { label: "Delete", action: (e) => console.log("deleting", e) }
           ]
         ]}
-        columns={dummyColsData}
+        columns={[
+          { hidden: false, value: "المنتج" },
+          { hidden: false, value: "السعر" },
+          { hidden: false, value: "الوزن" }
+        ]}
         noDataText={"No data"}
         size={args.size}
         rows={dummyRowData}
