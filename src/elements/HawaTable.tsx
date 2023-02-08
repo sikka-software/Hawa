@@ -3,8 +3,6 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 
-// TODO: make action column width max fit
-
 type TableTypes = {
   columns: any[string]
   actions?: ActionItems[][]
@@ -55,22 +53,32 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
       >
         <thead className="  text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            {props.columns.map((col: any, i: any) => (
-              <th
-                key={i}
-                scope="col"
-                className={clsx(
-                  sizeStyles[size],
-                  i !== 0 && (borders === "cols" || borders === "all")
-                    ? `border-l border-l-[${bordersWidth}px]`
-                    : ""
-                )}
-              >
-                {col}
-              </th>
-            ))}
+            {props.columns.map((col: any, i: any) => {
+              if (col.hidden) {
+                return
+              } else {
+                return (
+                  <th
+                    key={i}
+                    scope="col"
+                    colSpan={2}
+                    className={clsx(
+                      sizeStyles[size],
+                      i !== 0 && (borders === "cols" || borders === "all")
+                        ? `border-l border-l-[${bordersWidth}px]`
+                        : ""
+                    )}
+                  >
+                    {col.value}
+                  </th>
+                )
+              }
+            })}
             {props.actions && size !== "small" ? (
-              <th scope="col" className={clsx(sizeStyles[size], "text-center")}>
+              <th
+                scope="col"
+                className={clsx(sizeStyles[size], "w-[calc(1%)] text-center")}
+              >
                 {props.actionsText}
               </th>
             ) : null}
@@ -84,7 +92,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
           {/* Table Rows */}
           {props.rows ? (
             props.rows.map((singleRow: any, rowIndex: any) => {
+              console.log("single row is ", singleRow)
               let lastRow = rowIndex == props.rows.length - 1
+
               return (
                 <tr
                   key={rowIndex}
@@ -109,40 +119,45 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                     let isLTRLastCell =
                       !isRTL && lastRow && lastCell && !props.actions
 
-                    return (
-                      <td
-                        key={i}
-                        className={clsx(
-                          sizeStyles[size],
-                          highlightFirst && firstCell
-                            ? "font-bold"
-                            : "font-normal",
-                          isRTLFirstCell
-                            ? "rounded-bl-none rounded-br"
-                            : isRTLLastCell
-                            ? "rounded-br-none rounded-bl"
-                            : isLTRFirstCell
-                            ? "rounded-br-none rounded-bl"
-                            : isLTRLastCell
-                            ? "rounded-bl-none rounded-br"
-                            : "",
+                    if (r.hidden) {
+                      return
+                    } else {
+                      return (
+                        <td
+                          colSpan={2}
+                          key={i}
+                          className={clsx(
+                            sizeStyles[size],
+                            highlightFirst && firstCell
+                              ? "font-bold"
+                              : "font-normal",
+                            isRTLFirstCell
+                              ? "rounded-bl-none rounded-br"
+                              : isRTLLastCell
+                              ? "rounded-br-none rounded-bl"
+                              : isLTRFirstCell
+                              ? "rounded-br-none rounded-bl"
+                              : isLTRLastCell
+                              ? "rounded-bl-none rounded-br"
+                              : "",
 
-                          !firstCell &&
-                            !lastCell &&
-                            (borders === "cols" || borders === "inner")
-                            ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
-                            : !firstCell &&
-                              props.actions &&
+                            !firstCell &&
+                              !lastCell &&
                               (borders === "cols" || borders === "inner")
-                            ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
-                            : ""
+                              ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
+                              : !firstCell &&
+                                props.actions &&
+                                (borders === "cols" || borders === "inner")
+                              ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
+                              : ""
 
-                          // customColor ? `bg-${customColor}` : "bg-white"
-                        )}
-                      >
-                        {r}
-                      </td>
-                    )
+                            // customColor ? `bg-${customColor}` : "bg-white"
+                          )}
+                        >
+                          {r.value}
+                        </td>
+                      )
+                    }
                     // }
                   })}
                   {props.actions && size !== "small" ? (
@@ -151,7 +166,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                       className={clsx(
                         isRTL && lastRow ? "rounded-br-none rounded-bl" : "",
                         !isRTL && lastRow ? "rounded-bl-none rounded-br" : ""
+                        // "w-fit bg-red-400"
                       )}
+                      colSpan={1}
                     >
                       <div className="flex items-center justify-center">
                         <HawaMenu

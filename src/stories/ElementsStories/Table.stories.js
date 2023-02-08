@@ -36,13 +36,52 @@ export default {
   }
 };
 
-export const NoData = (args) => {
-  function randomDate(start, end) {
-    return new Date(
-      start.getTime() + Math.random() * (end.getTime() - start.getTime())
-    );
-  }
+let dummyRowData = [
+  [
+    { hidden: true, value: "230423847239838" },
+    { hidden: false, value: "Logo Design" },
+    { hidden: false, value: "1,200 SAR" },
+    {
+      hidden: false,
+      value: 414
+    }
+  ],
+  [
+    { hidden: true, value: "2340238402374" },
+    { hidden: false, value: "Website Design" },
+    { hidden: false, value: "2,200 SAR" },
+    {
+      hidden: false,
+      value: 414
+    }
+  ],
+  [
+    { hidden: true, value: "2309487209483274" },
+    { hidden: false, value: "Hosting" },
+    { hidden: false, value: "200 SAR" },
+    {
+      hidden: false,
+      value: 414
+    }
+  ],
+  [
+    { hidden: true, value: "3432042304382" },
+    { hidden: false, value: "Social Media Management" },
+    { hidden: false, value: "1,800 SAR" },
+    {
+      hidden: false,
+      value: 414
+    }
+  ]
+];
+let dummyColsData = [
+  { hidden: true, value: "ID" },
+  { hidden: false, value: "Product" },
+  { hidden: false, value: "Price" },
+  { hidden: false, value: "Date" }
+];
 
+export const NoData = (args) => {
   return (
     <HawaTable
       size={args.size}
@@ -257,41 +296,15 @@ export const RTLWithActions = (args) => {
         actionsText="Actions"
         actions={[
           [
-            { label: "View", onClick: () => console.log("viewing") },
-            { label: "Edit", onClick: () => console.log("editing") },
-            { label: "Delete", onClick: () => console.log("deleting") }
+            { label: "View", action: (e) => console.log("viewing", e) },
+            { label: "Edit", action: (e) => console.log("editing", e) },
+            { label: "Delete", action: (e) => console.log("deleting", e) }
           ]
         ]}
-        columns={["Product", "Price", "Date"]}
+        columns={dummyColsData}
         noDataText={"No data"}
         size={args.size}
-        rows={[
-          [
-            "Logo Design",
-            "1,200 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Website Design",
-            "1,500 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Website Development",
-            "900 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Hosting",
-            "200 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ],
-          [
-            "Social Media Management",
-            "700 SAR",
-            randomDate(new Date(2012, 0, 1), new Date()).toLocaleString()
-          ]
-        ]}
+        rows={dummyRowData}
         {...args}
       />
     </div>
