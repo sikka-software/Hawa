@@ -48,6 +48,7 @@ export default {
 export const Confirmation = (args) => {
   return (
     <CodeConfirmation
+      submitConfirmation={(e) => console.log("submitting e", e)}
       error={args.showError}
       texts={{
         codeLabel: "Code",

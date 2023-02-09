@@ -1,33 +1,39 @@
-import React from "react"
-import { HawaTextField, HawaAlert, HawaButton } from "../../elements"
+import React, { useState } from "react"
+import {
+  HawaTextField,
+  HawaAlert,
+  HawaButton,
+  HawaPinInput,
+} from "../../elements"
 import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
-type CodeConfirmationTypes = {
-  showError: any
-  errorTitle: any
-  errorText: any
-  texts: {
+type TConfirmation = {
+  showError?: any
+  errorTitle?: any
+  errorText?: any
+  texts?: {
+    checkYourPhone: string
+    weSentCode: string
+    didntGetCode: string
+    resendCode: string
     codeLabel: string
     codePlaceholder: string
     codeRequiredText: string
-    confirmText: string
+    confirm: string
+    cancel
   }
-  handleSignIn: any
+  phoneNumber?: string
+  submitConfirmation?: any
+  handleSignIn?: any
 }
-export const CodeConfirmation: React.FunctionComponent<
-  CodeConfirmationTypes
-> = (props) => {
-  const methods = useForm()
-  const {
-    formState: { errors },
-    handleSubmit,
-    control,
-  } = methods
 
+export const CodeConfirmation: React.FunctionComponent<TConfirmation> = (
+  props
+) => {
+  const [pins, setPins] = useState(null)
   return (
     <HawaContainer>
-      {" "}
       {props.showError && (
         <HawaAlert
           title={props.errorTitle}
@@ -35,33 +41,38 @@ export const CodeConfirmation: React.FunctionComponent<
           severity="error"
         />
       )}
-      <form onSubmit={handleSubmit(props.handleSignIn)}>
-        <Controller
-          control={control}
-          name="code"
-          render={({ field }) => (
-            <HawaTextField
-              width="full"
-              type="number"
-              label={props.texts.codeLabel}
-              helperText={errors.email?.message}
-              placeholder={props.texts.codePlaceholder}
-              {...field}
-              value={field.value ?? ""}
-            />
-          )}
-          rules={{
-            required: props.texts.codeRequiredText,
-          }}
-        />
-
-        <HawaButton
-          color="primary"
-          // type="submit"
-          width="full"
-        >
-          {props.texts.confirmText}
-        </HawaButton>
+      <div className="mb-4">
+        <div className="text-lg font-bold">
+          {props.texts.checkYourPhone ?? "Please check your phone"}
+        </div>
+        <div className="text-gray-500">
+          <span>{props.texts.weSentCode ?? "We've sent a code to "}</span>
+          <span>{props.phoneNumber}</span>
+        </div>{" "}
+      </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          if (pins) {
+            props.submitConfirmation(pins)
+          }
+        }}
+      >
+        <HawaPinInput width="full" digits={6} getPins={(e) => setPins(e)} />
+        <div className=" py-2 text-center text-xs">
+          <span>{props.texts.didntGetCode ?? "Didn't get the code?"}</span>{" "}
+          <span className="cursor-pointer text-buttonPrimary-500">
+            {props.texts.resendCode ?? "Click to resend"}
+          </span>
+        </div>
+        <div className="mt-4  grid grid-cols-2 gap-2">
+          <HawaButton margins={"none"} variant="outlined" width="full">
+            {props.texts.cancel ?? "Cancel"}
+          </HawaButton>
+          <HawaButton margins={"none"} color="primary" width="full">
+            {props.texts.confirm ?? "Confirm"}
+          </HawaButton>
+        </div>
       </form>
     </HawaContainer>
   )

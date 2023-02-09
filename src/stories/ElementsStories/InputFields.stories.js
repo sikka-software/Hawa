@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import {
-  HawaSearchBar,
+  HawaPinInput,
   HawaTextField,
   HawaSelect,
   HawaPhoneInput,
@@ -89,29 +89,25 @@ SearchInput.args = {
   icon: <FaSearch color="gray" />
 };
 
-// export const PinInput = (args) => {
-//   return (
-//     <HawaPinInput
-//       type={args.isAlphanumeric ? "alphanumeric" : null}
-//       onChange={args.onChange}
-//       onComplete={args.onComplete}
-//     >
-//       <HawaPinInputField />
-//       <HawaPinInputField />
-//       <HawaPinInputField />
-//       <HawaPinInputField />
-//       <HawaPinInputField />
-//       <HawaPinInputField />
-//     </HawaPinInput>
-//   );
-// };
+export const PinInput = (args) => {
+  return (
+    <HawaPinInput
+      type={args.isAlphanumeric ? "alphanumeric" : null}
+      onChange={args.onChange}
+      onComplete={args.onComplete}
+      {...args}
+    />
+  );
+};
 
-// PinInput.args = {
-//   defaultValue: "1234",
-//   isAlphanumeric: false,
-//   onChange: (value) => console.log("current value : ", value),
-//   onComplete: (value) => console.log("final value :", value)
-// };
+PinInput.args = {
+  defaultValue: "1234",
+  digits: 4,
+  isAlphanumeric: false,
+  onChange: (value) => console.log("current value : ", value),
+  onComplete: (value) => console.log("final value :", value)
+};
+
 export const SelectInput = (args) => {
   return (
     <HawaSelect

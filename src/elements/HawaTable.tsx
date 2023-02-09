@@ -339,6 +339,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
         )}
         {/* Pagination Settings */}
         <div className="w-fit ">
+          {/* TODO: Hide it when props.pagination is true */}
           <select
             value={perPage}
             className="h-6 rounded text-xs"

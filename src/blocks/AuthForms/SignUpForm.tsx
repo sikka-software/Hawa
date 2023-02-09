@@ -11,7 +11,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout/HawaContainer"
 
 type SignUpFormTypes = {
-  language?: string
+  direction?: "rtl" | "ltr"
   texts: {
     fullNameLabel: string
     fullNamePlaceholder: string
@@ -72,7 +72,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
   } = methods
 
   return (
-    <HawaContainer direction={props.language === "ar" ? "rtl" : "ltr"}>
+    <HawaContainer direction={props.direction}>
       <div>
         {props.showError && (
           <HawaAlert

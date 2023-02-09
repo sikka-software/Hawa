@@ -29,12 +29,12 @@ export default {
         "a boolean that changes the main button into a loading button",
       table: { defaultValue: { summary: "false" } }
     },
-    lang: {
+    direction: {
       default: true,
       control: "select",
-      options: ["ar", "en"],
-      description: "The language of the form",
-      table: { defaultValue: { summary: "en" } }
+      options: ["rtl", "ltr"],
+      description: "The direction of the form",
+      table: { defaultValue: { summary: "ltr" } }
     },
     viaGoogle: {
       default: true,
@@ -125,7 +125,7 @@ SignIn.args = {
   signInType: "email",
   errorTitle: "Error",
   errorText: "Something went wrong",
-  lang: "en",
+  direction: "en",
   texts: {
     emailLabel: "Email",
     emailPlaceholder: "Enter your email",

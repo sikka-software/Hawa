@@ -12,12 +12,12 @@ export default {
     }
   },
   argTypes: {
-    lang: {
+    direction: {
       default: true,
       control: "select",
-      options: ["ar", "en"],
-      description: "The language of the form",
-      table: { defaultValue: { summary: "en" } }
+      options: ["rtl", "ltr"],
+      description: "The direction of the form",
+      table: { defaultValue: { summary: "ltr" } }
     },
     viaGoogle: {
       default: true,
@@ -119,5 +119,5 @@ SignUp.args = {
   showError: false,
   errorTitle: "Error",
   errorText: "Something went wrong",
-  lang: "en"
+  direction: "en"
 };
