@@ -13,7 +13,11 @@ export default {
 };
 
 export const Accordion = (args) => {
-  return <HawaAccordion {...args} />;
+  return (
+    <div>
+      <HawaAccordion {...args} />
+    </div>
+  );
 };
 
 Accordion.args = {

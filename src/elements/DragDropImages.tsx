@@ -3,12 +3,6 @@ import { useDropzone } from "react-dropzone"
 import { HawaAlert } from "./HawaAlert"
 import { HawaButton } from "./HawaButton"
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 10,
-}
 type DragDropImagesTypes = {
   label?: string
   files: [File]
@@ -79,17 +73,14 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       },
       [files]
     )
-
     useEffect(() => {
       setFiles(acceptedFiles)
     }, [acceptedFiles, cmp])
-
     onClearFiles = () => {
       acceptedFiles.length = 0
       acceptedFiles.splice(0, acceptedFiles.length)
       setFiles([])
     }
-
     useEffect(() => {
       if (maxSize > 0) {
         const k = 1024
@@ -111,7 +102,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       )
     })
     const thumbs = files?.map((file: any, index: any) => (
-      <div className="relative m-3 rounded">
+      <div className="relative m-3 rounded ">
         <button
           onClick={(e) => {
             e.stopPropagation()
@@ -158,8 +149,6 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       </div>
     ))
 
-    console.log("error", fileRejections)
-
     return (
       <div>
         {label && (
@@ -168,22 +157,17 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           </div>
         )}
         <div
-          // variant="drop-area"
-          {...getRootProps({
-            style: { backgroundColor: isDragActive ? "white" : "inherit" },
-          })}
-          // style={{ backgroundColor: isDragActive ? "white" : "inherit" }}
-          className="mb-2 flex flex-col justify-center rounded border border-dashed border-black"
+          {...getRootProps({})}
+          className="flex flex-col justify-center rounded border border-dashed border-black bg-white transition-all hover:bg-gray-100 "
         >
           <input {...getInputProps()} />
-          <div className="p-1 text-center">{texts.clickHereToUpload}</div>
-          <div className="p-1 text-center">
+          <div className="pt-4 text-center">{texts.clickHereToUpload}</div>
+          <div className="pb-4 text-center text-xs">
             {texts.maxFileSize} {max}
           </div>
           <div className="flex justify-center ">
             {acceptedFiles.length > 0 && (
               <HawaButton
-                // style={{ color: "black" }}
                 onClick={(e) => {
                   e.stopPropagation()
                   onClearFiles(acceptedFiles)

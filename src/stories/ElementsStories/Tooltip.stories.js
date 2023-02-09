@@ -1,25 +1,35 @@
-import { Meta, Story } from "@storybook/react"
-import React from "react"
-import { HawaButton } from "../../elements"
-import { HawaTooltip } from "../../elements/HawaTooltip"
+import { Meta, Story } from "@storybook/react";
+import React from "react";
+import { HawaButton } from "../../elements";
+import { HawaTooltip } from "../../elements/HawaTooltip";
 
 export default {
   title: "Elements/Tooltip",
   component: HawaTooltip,
-  // argTypes: {
-  //   content: {
-  //     control: "text",
-  //     description: "The title of the dialog"
-  //   },
-  //   children: {
-  //     control: "object",
-  //     description:
-  //       "The children element that will be contained by the dialog component"
-  //   }
-  // }
-} as Meta
+  argTypes: {
+    position: {
+      control: "select",
+      options: [
+        "top-right",
+        "top-left",
+        "bottom-right",
+        "bottom-left",
+        "right-top",
+        "right-bottom",
+        "left-top",
+        "left-bottom"
+      ],
+      description: "The title of the dialog"
+    },
+    children: {
+      control: "object",
+      description:
+        "The children element that will be contained by the dialog component"
+    }
+  }
+};
 
-export const Tooltip: Story = (args) => {
+export const Tooltip = (args) => {
   return (
     // <div className="flex h-screen w-full items-center justify-center">
     //   <HawaTooltip content={args.content} {...args}>
@@ -40,11 +50,12 @@ export const Tooltip: Story = (args) => {
         Show Tooltip
       </HawaButton>{" "}
     </div>
-  )
-}
+  );
+};
 
 Tooltip.args = {
   content:
     "This is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can be long sometimes ",
-  position: "top",
-}
+  position: "top-right",
+  direction: "ltr"
+};

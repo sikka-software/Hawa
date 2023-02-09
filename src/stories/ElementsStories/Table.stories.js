@@ -53,7 +53,21 @@ const makeDummyData = (len) => {
       let randomNumber = Math.floor(Math.random() * 100);
       return [
         { hidden: false, value: product.name },
-        { hidden: false, value: product.price },
+        {
+          hidden: false,
+          value: (
+            <div className="mt-2 h-2.5 w-full rounded bg-gray-200 dark:bg-gray-700">
+              <div
+                className="h-2.5 rounded bg-buttonPrimary-500"
+                style={{
+                  width: `${randomNumber ?? 0}%`
+                }}
+              ></div>
+            </div>
+          )
+        },
+
+        // { hidden: false, value: product.price },
         { hidden: true, value: product.id },
         { hidden: false, value: randomNumber }
       ];
