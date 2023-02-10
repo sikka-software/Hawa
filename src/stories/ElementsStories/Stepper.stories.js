@@ -1,14 +1,14 @@
 import React from "react";
-import { HawaTimeline } from "../../elements";
+import { HawaStepper } from "../../elements";
 
 export default {
-  title: "Elements/Timeline",
-  component: [HawaTimeline],
+  title: "Elements/Stepper",
+  component: [HawaStepper],
   argTypes: {
     orientation: {
       control: "select",
       options: ["vertical", "horizontal"],
-      description: "The orientation of the timeline"
+      description: "The orientation of the stepper"
     }
   },
   parameters: {
@@ -19,12 +19,12 @@ export default {
   }
 };
 
-export const Timeline = (args) => {
+export const Default = (args) => {
   return (
-    <HawaTimeline
-      currentStep={2}
+    <HawaStepper
+      currentStep={1}
       orientation={args.orientation}
-      steps={["Billing Info", "Payment Info", "Confirmation"]}
+      steps={["Billing Info", "Payment Info", "Confirmation", "Checkup"]}
     />
   );
 };

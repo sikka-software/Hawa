@@ -68,10 +68,7 @@ const DrawerHeader: FC<TDrawerHeader> = (props) => {
       {props.children}
       <div
         className="justify-self-end rounded border p-1 hover:cursor-pointer"
-        onClick={() => {
-          console.log("running")
-          props.setOpen(false)
-        }}
+        onClick={() => props.setOpen(false)}
       >
         {props.direction == "left" ? (
           <FaChevronLeft size={20} strokeWidth={2} />

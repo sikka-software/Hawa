@@ -1,7 +1,8 @@
 import React from "react"
 import clsx from "clsx"
+// TODO: make icon based on direction
+// TODO: Preferebly usse context to pass direction rtl | ltr
 
-import { FaSearch } from "react-icons/fa"
 type TextFieldTypes = {
   margin?: "none" | "normal" | "large"
   width?: "small" | "normal" | "full"
@@ -69,15 +70,15 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
         />
       ) : (
         <div className="relative">
-          <input
-            {...props}
-            className={clsx(defaultInputStyle, props.icon ? "pr-10" : "")}
-          />
           {props.icon && (
-            <div className="absolute top-1/2 right-3 -translate-y-1/2">
+            <div className="absolute top-1/2 left-3 -translate-y-1/2">
               {props.icon}
             </div>
           )}
+          <input
+            {...props}
+            className={clsx(defaultInputStyle, props.icon ? "pl-10" : "")}
+          />
         </div>
       )}
 

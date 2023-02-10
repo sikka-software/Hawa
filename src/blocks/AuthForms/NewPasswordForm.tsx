@@ -31,7 +31,6 @@ export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
   } = methods
 
   const handleSubmission = (e: any) => {
-    console.log("handling subb", e)
     if (e.password === e.confirmPassword) {
       props.handleNewPassword()
     } else {

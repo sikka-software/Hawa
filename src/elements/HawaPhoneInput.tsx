@@ -91,10 +91,7 @@ export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
           placeholder="+966"
           defaultValue={props.preferredCountry}
           value={selectedCountry}
-          onChange={(newValue, action) => {
-            console.log("test n", newValue)
-            setSelectedCountry(newValue)
-          }}
+          onChange={(newValue, action) => setSelectedCountry(newValue)}
         />
         <input
           onChange={props.handleChange}

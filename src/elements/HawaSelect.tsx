@@ -175,14 +175,10 @@ export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
           onCreateOption={() => console.log("im changing")}
-          onChange={(newValue, action) => {
-            console.log("this is onChange", newValue)
-            props.onChange(newValue, action)
-          }}
-          onInputChange={(newValue, action) => {
-            console.log("onInputChange====", newValue)
+          onChange={(newValue, action) => props.onChange(newValue, action)}
+          onInputChange={(newValue, action) =>
             props.onInputChange(newValue, action)
-          }}
+          }
         />
       )}
       {props.helperText && (

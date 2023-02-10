@@ -22,7 +22,11 @@ const Breadcrumb: FC<TBreadcrumb> = ({
         <div className="flex flex-row items-center justify-center gap-2">
           <a
             href={singleBreadcrumbLink.href}
-            className="hover:underline hover:decoration-2"
+            className={
+              index + 1 === breadcrumbLink.length
+                ? "pointer-events-none"
+                : "underline-offset-4 transition-all hover:text-buttonPrimary-500 hover:underline hover:decoration-2"
+            }
           >
             {singleBreadcrumbLink.label}
           </a>

@@ -55,16 +55,17 @@ const makeDummyData = (len) => {
         { hidden: false, value: product.name },
         {
           hidden: false,
-          value: (
-            <div className="mt-2 h-2.5 w-full rounded bg-gray-200 dark:bg-gray-700">
-              <div
-                className="h-2.5 rounded bg-buttonPrimary-500"
-                style={{
-                  width: `${randomNumber ?? 0}%`
-                }}
-              ></div>
-            </div>
-          )
+          value: "Product " + i
+          // value: (
+          //   <div className="mt-2 h-2.5 w-full rounded bg-gray-200 dark:bg-gray-700">
+          //     <div
+          //       className="h-2.5 rounded bg-buttonPrimary-500"
+          //       style={{
+          //         width: `${randomNumber ?? 0}%`
+          //       }}
+          //     ></div>
+          //   </div>
+          // )
         },
 
         // { hidden: false, value: product.price },
@@ -159,7 +160,7 @@ export const DataOnly = (args) => {
         { hidden: false, value: "Price" },
         { hidden: false, value: "Times Bought" }
       ]}
-      rows={makeDummyData(40)}
+      rows={makeDummyData(12)}
       {...args}
     />
   );
@@ -220,6 +221,12 @@ export const RTL = (args) => {
           { hidden: false, value: "السعر" },
           { hidden: false, value: "الوزن" }
         ]}
+        texts={{
+          actions: "الإحرائات",
+          items: "عناصر",
+          noData: "لا توجد عناصر",
+          page: "صفحة"
+        }}
         rows={dummyRowData}
         {...args}
       />
@@ -241,7 +248,12 @@ export const RTLWithActions = (args) => {
     <div dir="rtl" className="">
       <HawaTable
         direction="rtl"
-        actionsText="الإجراءات"
+        texts={{
+          actions: "الإحرائات",
+          items: "عناصر",
+          noData: "لا توجد عناصر",
+          page: "صفحة"
+        }}
         actions={[
           [
             { label: "View", action: (e) => console.log("viewing", e) },
@@ -254,7 +266,6 @@ export const RTLWithActions = (args) => {
           { hidden: false, value: "السعر" },
           { hidden: false, value: "الوزن" }
         ]}
-        noDataText={"No data"}
         size={args.size}
         rows={dummyRowData}
         {...args}

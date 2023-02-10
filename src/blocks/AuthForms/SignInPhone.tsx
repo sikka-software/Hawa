@@ -40,16 +40,8 @@ export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
             <HawaPhoneInput
               country={props.country ?? ""}
               label={props.label ?? ""}
-              handleChange={(e: any) => {
-                console.log("test")
-                setUserPhone(e.target.value)
-              }}
+              handleChange={(e: any) => setUserPhone(e.target.value)}
               {...field}
-              // handleChange={(e: any) => {
-              //   // props.handlePhoneChange(e.target.value)
-              //   setUserPhone(e.target.value)
-              // }}
-              // value={props.value ?? props.value}
             />
           )}
           rules={{
@@ -57,11 +49,7 @@ export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
           }}
         />
         <div className="mt-2"></div>
-        <HawaButton
-          color="primary"
-          width="full"
-          // type="submit"
-        >
+        <HawaButton color="primary" width="full">
           {props.SignInButtonText}
         </HawaButton>
       </form>

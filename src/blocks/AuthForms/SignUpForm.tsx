@@ -243,10 +243,7 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
                   <HawaCheckbox
                     id="terms_accepted"
                     helperText={errors.terms_accepted?.message}
-                    onChange={(e) => {
-                      console.log("changing ", e)
-                      field.onChange(e)
-                    }}
+                    onChange={(e) => field.onChange(e)}
                     label={
                       <span>
                         {props.texts.iAcceptText}{" "}
@@ -280,7 +277,6 @@ export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
               isLoading={props.isLoading}
               color="primary"
               width="full"
-              // type="submit"
             >
               {props.texts.signUpText}
             </HawaButton>

@@ -23,8 +23,6 @@ export const HawaModal: React.FunctionComponent<ModalTypes> = ({
     if (closeOnClickOutside && open) {
       window.onclick = (e) => {
         e.stopPropagation()
-        console.log("open : ", open)
-        console.log("Im clicing")
         onClose()
       }
     }

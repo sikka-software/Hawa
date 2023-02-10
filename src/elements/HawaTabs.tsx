@@ -35,8 +35,6 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     full: "w-full min-w-full",
     normal: "w-fit",
   }
-  console.log("selected i : ", selectedOption)
-  console.log("selected object : ", props.options[selectedOption])
   let orientationStyle = {
     vertical: {
       container: "flex flex-row",

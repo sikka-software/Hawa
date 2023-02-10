@@ -69,7 +69,6 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
         setMenuOpened(false)
       }
     }
-    console.log("ref is", menuRef.current?.getBoundingClientRect())
     document.addEventListener("click", handleClickOutside, true)
     return () => {
       document.removeEventListener("click", handleClickOutside, true)
@@ -88,7 +87,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
     closed: "h-0 invisible opacity-0 hidden",
   }
   let sizeStyles = {
-    small: "text-[11px] p-1 m-0",
+    small: "text-[11px] p-1 px-4 m-0",
     normal: "py-2 px-4",
     large: "",
   }
