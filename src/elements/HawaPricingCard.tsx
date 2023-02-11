@@ -8,9 +8,6 @@ type PricingCardTypes = {
   features: [{ included: boolean; text: string }]
   title: string
   price: number
-  // currency: string
-  // buttonText: string
-  // cycleText: string
   texts: { buttonText: string; cycleText: string; currencyText: string }
   size: "small" | "medium" | "large"
 }

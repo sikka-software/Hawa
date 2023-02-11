@@ -26,7 +26,6 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
         id={"accordion-collapse-heading-" + props.count}
         type="button"
         className={clsx(
-          // props.count === 0 ? roundedTop : noRounding,
           collapse ? "rounded" : "rounded-t",
           "flex w-full items-center justify-between  border border-gray-200 bg-gray-100 p-5 text-left font-medium text-gray-900 hover:bg-gray-100  dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800"
         )}

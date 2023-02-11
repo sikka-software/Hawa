@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ReactNode, useEffect, useState } from "react"
+import React, { FC, ReactElement, ReactNode } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import clsx from "clsx"
 

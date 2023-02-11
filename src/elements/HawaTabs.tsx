@@ -85,16 +85,6 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
           widthStyles[width]
         )}
       >
-        {/* 
-        if selected option
-          if vertical
-            if rtl
-              border left
-            else
-              border right
-          else
-            border bottom
-        */}
         {props.options?.map((opt: any, o) => (
           <li key={o}>
             <button

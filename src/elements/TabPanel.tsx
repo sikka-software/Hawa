@@ -1,18 +1,5 @@
 import React from "react"
 
-// const useStyles = makeStyles((theme) => ({
-//   panelsContainer: {
-//     height: "100%",
-//     width: "100%"
-//   },
-//   panel: {
-//     backgroundColor: "var(--lightGrey)",
-//     height: "100%",
-//     width: "100%",
-//     padding: 10
-//   }
-// }));
-
 type TabPanelTypes = {
   children: any
   value: any

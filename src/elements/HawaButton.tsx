@@ -1,8 +1,7 @@
-import React, { useEffect } from "react"
+import React from "react"
 import clsx from "clsx"
 import { HawaSpinner } from "./HawaSpinner"
 import { HawaTooltip } from "./HawaTooltip"
-import useHover from "../hooks/useHover"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
@@ -111,7 +110,6 @@ export const HawaButton: React.FunctionComponent<ButtonProps> = ({
           content={tooltip}
         >
           <button
-            // type={props.type}
             className={
               disabled
                 ? clsx(
@@ -134,14 +132,12 @@ export const HawaButton: React.FunctionComponent<ButtonProps> = ({
             }
             disabled={disabled}
             onClick={props.onClick}
-            // {...props}
           >
             {!isLoading ? children : <HawaSpinner size="button" />}
           </button>
         </HawaTooltip>
       ) : (
         <button
-          // type={props.type}
           className={
             disabled
               ? clsx(

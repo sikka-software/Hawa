@@ -40,8 +40,6 @@ export const HawaChip: React.FunctionComponent<TChipTypes> = ({
         defaultStyles,
         sizeStyles[size],
         color ? `bg-${color}-100 text-${color}-500` : "bg-layoutPrimary-500"
-        // `bg-[${color}]`
-        // `bg-[#c92424]`
       )}
     >
       {dot && (

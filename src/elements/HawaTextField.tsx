@@ -44,7 +44,6 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
 
   return (
     <div
-      // ref={props.ref}
       className={clsx(defaultStyle, marginStyles[margin], widthStyles[width])}
     >
       {props.label && (
@@ -84,7 +83,6 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
 
       {props.helperText && (
         <p className="mb-0 mt-1 text-xs text-red-600 dark:text-red-500">
-          {/* <span className="font-medium">Oh, snapp!</span> */}
           {props.helperText}
         </p>
       )}

@@ -1,5 +1,4 @@
 import React, { FC, ReactNode } from "react"
-import { IconType } from "react-icons"
 
 type TBreadcrumItem = {
   label: string

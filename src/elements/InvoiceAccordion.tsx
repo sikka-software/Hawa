@@ -25,9 +25,7 @@ type InvoiceAccordionTypes = {
   invoiceActions?: {
     icon?: JSX.Element
     label: string
-    action?: (
-      e: any
-    ) => void
+    action?: (e: any) => void
     isButton?: boolean
     element?: any
   }[][]
@@ -78,9 +76,7 @@ export const InvoiceAccordion: React.FunctionComponent<
         <div className="flex w-full flex-col gap-0 ">
           <div className="flex flex-row items-center gap-2">
             <span className="bg-white-200">{props.invoiceTitle}</span>
-            {props.status && (
-              <HawaChip size="small" label={props.status} />
-            )}{" "}
+            {props.status && <HawaChip size="small" label={props.status} />}
           </div>
           <div className="font-sm text-gray-400">{props.invoiceSubtitle}</div>
         </div>
@@ -89,7 +85,6 @@ export const InvoiceAccordion: React.FunctionComponent<
           <HawaMenu
             direction={direction}
             position={direction === "rtl" ? "bottom-right" : "bottom-left"}
-            // menuItems={[[{ label: "Download PDF" }]]}
             menuItems={props.invoiceActions}
           >
             <div className=" p-2">

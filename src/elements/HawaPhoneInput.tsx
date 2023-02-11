@@ -84,7 +84,6 @@ export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
             IndicatorSeparator: () => null,
           }}
           options={Countries}
-          // isCreatable={false}
           isMulti={false}
           isSearchable={true}
           isClearable={false}

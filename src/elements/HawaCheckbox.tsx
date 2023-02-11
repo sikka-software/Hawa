@@ -6,7 +6,6 @@ type TCheckBoxTypes = {
   label?: any
   helperText?: any
   id: string
-  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   onChange?: (e) => void
 }
 

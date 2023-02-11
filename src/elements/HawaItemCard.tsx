@@ -1,7 +1,6 @@
 import clsx from "clsx"
 import React, { useEffect } from "react"
 import { useState } from "react"
-import useDiscloser from "../hooks/useDiscloser"
 import { HawaMenu } from "./HawaMenu"
 
 interface ItemCardTypes {
@@ -46,17 +45,6 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
     "inline-block rounded p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 
   const [openActionHeader, setOpenActionHeader] = useState(false)
-  // const {
-  //   isOpen: isActionOpen,
-  //   onClose: onActionClose,
-  //   onOpen: onActionOpen,
-  // } = useDiscloser()
-  // const {
-  //   isOpen: isDropDownOpen,
-  //   onClose: onDropDownClose,
-  //   onOpen: onDropDownOpen,
-  // } = useDiscloser()
-  // const [openDropDown, setOpenDropDown] = useState(false)
 
   function handleOpenActionHeader() {
     setOpenActionHeader(!openActionHeader)
