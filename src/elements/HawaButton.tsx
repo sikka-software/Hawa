@@ -6,7 +6,6 @@ import useHover from "../hooks/useHover"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
-  buttonID?: any
   tooltipDirection?: "rtl" | "ltr"
   color?: "default" | "primary" | "secondary"
   width?: "full" | "normal" | "half"
@@ -49,7 +48,6 @@ export const HawaButton: React.FunctionComponent<ButtonProps> = ({
   tooltipDirection = "ltr",
   margins = "2",
   children,
-  buttonID,
   badge,
   ...props
 }) => {

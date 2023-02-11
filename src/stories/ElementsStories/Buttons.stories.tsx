@@ -105,7 +105,6 @@ export const ButtonSizesStory = () => {
           variant="contained"
           color="primary"
           size="small"
-          buttonID={"tt1"}
           tooltip="test"
         >
           Small
@@ -115,7 +114,6 @@ export const ButtonSizesStory = () => {
           variant="contained"
           color="primary"
           size="medium"
-          buttonID={"tt2"}
           tooltip="test"
         >
           Medium
@@ -125,7 +123,6 @@ export const ButtonSizesStory = () => {
           variant="contained"
           color="primary"
           size="large"
-          buttonID={"tt4"}
           tooltip="test"
         >
           Large

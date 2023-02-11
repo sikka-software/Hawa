@@ -8,7 +8,6 @@ type THawaToolTip = {
   content?: string
   btnHovered?: any
   buttonRef?: any
-  buttonID?: any
   direction?: "rtl" | "ltr"
   size?: "normal" | "small" | "large"
   position?:

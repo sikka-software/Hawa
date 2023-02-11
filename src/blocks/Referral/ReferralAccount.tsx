@@ -19,7 +19,6 @@ export const ReferralAccount: React.FunctionComponent<ReferralAccount> = ({
         <div className="flex flex-row items-center justify-between rounded bg-white">
           <span className="ml-3 font-bold">{referralCode}</span>
           <HawaButton
-            buttonID={"refCode"}
             tooltip="Copy"
             className="mr-1.5"
             onClick={() => navigator.clipboard.writeText(referralCode)}
@@ -35,7 +34,6 @@ export const ReferralAccount: React.FunctionComponent<ReferralAccount> = ({
         <div className="flex flex-row items-center justify-between rounded bg-white">
           <span className="ml-3 font-bold">{referralLink}</span>
           <HawaButton
-            buttonID={"refLink"}
             className="mr-1.5"
             onClick={() => navigator.clipboard.writeText(referralLink)}
           >
