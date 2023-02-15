@@ -4,11 +4,11 @@ import React from "react"
 // TODO: if feature.included is false, show gray and x
 
 type PricingCardTypes = {
-  lang: "ar" | "en"
+  direction?: "rtl" | "ltr"
   features: [{ included: boolean; text: string }]
-  title: string
   price: number
   texts: {
+    title: string
     subtitle: string
     buttonText: string
     cycleText: string
@@ -28,9 +28,10 @@ type CurrencyTextTypes = {
 }
 export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
   size = "medium",
+  direction = "ltr",
   ...props
 }) => {
-  let isArabic = props.lang === "ar"
+  let isArabic = direction === "rtl"
   let cycleTextsArabic: CycleTextTypes = {
     monthly: "شهرياً",
     "3-months": "كل 3 أشهر",
@@ -64,7 +65,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
       )}
     >
       <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
-        {props.title}
+        {props.texts.title}
       </h5>
       <div className=" flex items-baseline  text-gray-900 dark:text-white">
         <>

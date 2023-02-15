@@ -22,14 +22,17 @@ export const PlanCards = (args) => {
       {...args}
       plans={[
         {
-          title: "Free",
-          title_ar: "تجريبي",
-          subtitle: "For everyone",
-          subtitle_ar: "للعرب",
           price: 0,
           currency: "SAR",
           cycleText: "month",
           buttonText: "Select Plan",
+          texts: {
+            buttonText: "Upgrade",
+            currencyText: "sar",
+            cycleText: "month",
+            subtitle: "For Everyone",
+            title: "Free Plan"
+          },
           features: [
             { included: true, text: "Unlimited Menus" },
             { included: true, text: "Unlimited Items" },
@@ -37,15 +40,18 @@ export const PlanCards = (args) => {
           ]
         },
         {
-          title: "Intro",
-          title_ar: "شركات",
-          subtitle: "For beginners",
-          subtitle_ar: "للعرب",
           selectedPlan: true,
           price: 10,
           currency: "SAR",
           cycleText: "month",
           buttonText: "Current Plan",
+          texts: {
+            buttonText: "Current Plan",
+            currencyText: "sar",
+            cycleText: "month",
+            subtitle: "For Beginners",
+            title: "Intro Plan"
+          },
           features: [
             { included: true, text: "Unlimited Menus" },
             { included: true, text: "Unlimited Items" },
@@ -53,14 +59,14 @@ export const PlanCards = (args) => {
           ]
         },
         {
-          title: "Pro",
-          title_ar: "المحترفين",
-          subtitle: "For professionals",
-          subtitle_ar: "للعرب",
           price: 30,
-          currency: "SAR",
-          cycleText: "month",
-          buttonText: "Select Plan",
+          texts: {
+            buttonText: "Upgrade",
+            currencyText: "sar",
+            cycleText: "month",
+            subtitle: "For businesses",
+            title: "Professional Plan"
+          },
           features: [
             { included: true, text: "Unlimited Menus" },
             { included: true, text: "Unlimited Items" },

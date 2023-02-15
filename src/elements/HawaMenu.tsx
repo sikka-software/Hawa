@@ -47,16 +47,12 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
   position = "top-right",
 }) => {
   const [menuOpened, setMenuOpened] = useState(false)
-
   const childrenRef = useRef(null)
   const [childrenHeight, setChildrenHeight] = useState(null)
   const [childrenWidth, setChildrenWidth] = useState(null)
-
   const menuRef = useRef(null)
   const [menuWidth, setMenuWidth] = useState(null)
   const [menuHeight, setMenuHeight] = useState(null)
-
-  const ref = useRef(null)
 
   useEffect(() => {
     setMenuHeight(menuRef.current?.getBoundingClientRect().height)
@@ -74,18 +70,9 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
       document.removeEventListener("click", handleClickOutside, true)
     }
   }, [onClickOutside])
+  
   let defaultStyles =
     "border-none absolute ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
-  let positionStyles = {
-    "top-right": "top-8 right-0",
-    "top-left": "top-8 left-0",
-    "bottom-right": "bottom-8 right-0",
-    "bottom-left": "bottom-8 left-0",
-  }
-  let animationStyles = {
-    opened: "max-h-fit h-max visible opacity-100 block",
-    closed: "h-0 invisible opacity-0 hidden",
-  }
   let sizeStyles = {
     small: "text-[11px] p-1 px-4 m-0",
     normal: "py-2 px-4",
@@ -191,7 +178,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
             >
               {group?.map((item) => {
                 return item.element ? (
-                  <li className="mx-1 cursor-pointer items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
+                  <li className="cursor-pointer items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
                     {item.element}
                   </li>
                 ) : (

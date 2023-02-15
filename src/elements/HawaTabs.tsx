@@ -105,7 +105,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
                     ]
                   : inactiveTabStyle[orientation],
                 "w-full  transition-all",
-                pill ? "rounded bg-green-400" : ""
+                pill ? "rounded" : ""
                 // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >

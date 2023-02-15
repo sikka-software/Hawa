@@ -49,13 +49,12 @@ export const Pricing = (args) => {
 };
 
 Pricing.args = {
-  lang: "en",
-  title: "Professional Plan",
-  subtitle: "For small businesses",
+  direction: "ltr",
   price: "300",
-  size: "medium",
+  size: "small",
   discount: "Save 10%",
   texts: {
+    title: "Professional Plan",
     buttonText: "Upgrade",
     currencyText: "SAR",
     cycleText: "month",

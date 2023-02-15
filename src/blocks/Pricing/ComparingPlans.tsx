@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { HawaPricingCard, HawaPanelTabs, HawaTabs } from "../../elements"
 
 const CheckMark = () => (
   <svg

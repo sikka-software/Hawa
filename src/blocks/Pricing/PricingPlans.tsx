@@ -1,23 +1,23 @@
 import React, { useState } from "react"
 import { HawaPricingCard, HawaTabs } from "../../elements"
-
+// TODO: make lang into direction rtl | ltr
+// TODO: shape the type of plans
 type PricingPlansTypes = {
-  plans: any
-  // plans: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string,
-  //     title_ar: PropTypes.string,
-  //     subtitle: PropTypes.string,
-  //     subtitle_ar: PropTypes.string,
-  //     price: PropTypes.number,
-  //     currency: PropTypes.string,
-  //     cycleText: PropTypes.string,
-  //     buttonText: PropTypes.string,
-  //     features: PropTypes.array,
-  //     features_ar: PropTypes.array,
-  //     selectedPlan: PropTypes.bool,
-  //   })
-  // ),
+  plans: [
+    {
+      direction: "rtl" | "ltr"
+      features: [{ included: boolean; text: string }]
+      price: number
+      texts: {
+        title: string
+        subtitle: string
+        buttonText: string
+        cycleText: string
+        currencyText: string
+      }
+      size: "small" | "medium" | "large"
+    }
+  ]
   lang: any
 }
 export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
@@ -62,13 +62,13 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
             <HawaPricingCard
               // size="large"
               // features={plan.features}
-              lang={props.lang}
+              // lang={props.lang}
               {...plan}
-              texts={{
-                buttonText: "Upgrade",
-                currencyText: currentCurrency,
-                cycleText: currentCycle,
-              }}
+              // texts={{
+              //   buttonText: "Upgrade",
+              //   currencyText: currentCurrency,
+              //   cycleText: currentCycle,
+              // }}
             />
           )
         })}
