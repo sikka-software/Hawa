@@ -20,8 +20,19 @@ export const PlanCards = (args) => {
   return (
     <PricingPlans
       {...args}
+      billingCycles={[
+        { label: `Month`, value: `month` },
+        // { label: `3 Months`, value: `3-months` },
+        // { label: `6 Months`, value: `6-months` },
+        { label: `Year`, value: `annually` }
+      ]}
+      currencies={[
+        { label: `USD`, value: `usd` },
+        { label: `SAR`, value: `sar` }
+      ]}
       plans={[
         {
+          currentPlan: false,
           price: 0,
           currency: "SAR",
           cycleText: "month",
@@ -29,7 +40,7 @@ export const PlanCards = (args) => {
           texts: {
             buttonText: "Upgrade",
             currencyText: "sar",
-            cycleText: "month",
+            cycleText: "Month",
             subtitle: "For Everyone",
             title: "Free Plan"
           },
@@ -40,7 +51,7 @@ export const PlanCards = (args) => {
           ]
         },
         {
-          selectedPlan: true,
+          currentPlan: true,
           price: 10,
           currency: "SAR",
           cycleText: "month",
@@ -59,11 +70,13 @@ export const PlanCards = (args) => {
           ]
         },
         {
+          currentPlan: false,
+
           price: 30,
           texts: {
             buttonText: "Upgrade",
             currencyText: "sar",
-            cycleText: "month",
+            cycleText: "Month",
             subtitle: "For businesses",
             title: "Professional Plan"
           },

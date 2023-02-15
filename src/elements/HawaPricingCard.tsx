@@ -1,7 +1,9 @@
 import clsx from "clsx"
 import React from "react"
+import { HawaButton } from "./HawaButton"
 
-// TODO: if feature.included is false, show gray and x
+// TODO: if feature.excluded is false, show gray and x
+// TODO: add badge to feature if soon
 
 type PricingCardTypes = {
   direction?: "rtl" | "ltr"
@@ -14,45 +16,22 @@ type PricingCardTypes = {
     cycleText: string
     currencyText: string
   }
+  currentPlan?: boolean
   size: "small" | "medium" | "large"
 }
-type CycleTextTypes = {
-  monthly: string
-  "3-months": string
-  "6-months": string
-  annually: string
-}
-type CurrencyTextTypes = {
-  usd: string
-  sar: string
-}
+
 export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
   size = "medium",
   direction = "ltr",
+  currentPlan = true,
   ...props
 }) => {
   let isArabic = direction === "rtl"
-  let cycleTextsArabic: CycleTextTypes = {
-    monthly: "شهرياً",
-    "3-months": "كل 3 أشهر",
-    "6-months": "كل 6 أشهر",
-    annually: "سنوياً",
-  }
-  let cycleTextsEnglish: CycleTextTypes = {
-    monthly: "Monthly",
-    "3-months": "3 Months",
-    "6-months": "6 Months",
-    annually: "Annually",
-  }
-  let currencyMapping: CurrencyTextTypes = {
-    usd: isArabic ? "دولار" : "$",
-    sar: isArabic ? "ريال" : "SAR",
-  }
   let cardSizes = {
     small:
       "mx-1 w-full  max-w-sm rounded border shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
     medium:
-      "mx-1 w-full rounded min-w-fit border bg-white  dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full rounded min-w-fit border  dark:border-gray-700 dark:bg-gray-800 sm:p-8",
     large:
       "mx-1 w-full max-w-lg rounded border  p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
   }
@@ -60,8 +39,11 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
     <div
       dir={isArabic ? "rtl" : "ltr"}
       className={clsx(
+        currentPlan
+          ? "border-buttonPrimary-500 bg-layoutPrimary-500 p-0"
+          : "bg-white",
         cardSizes[size],
-        "flex flex-col gap-4 border-2 bg-white p-4"
+        "flex flex-col gap-4 rounded border-2  p-4"
       )}
     >
       <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
@@ -76,9 +58,9 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
             {props.texts.currencyText}
           </span>
         </>
-        {/* <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
+        <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
           / {props.texts.cycleText}
-        </span> */}
+        </span>
       </div>
       <h5 className="text-md  font-normal text-gray-500 dark:text-gray-400">
         {props.texts.subtitle}
@@ -111,12 +93,16 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
           })}
         </ul>
       )}
-      <button
+      {/* <button
+        disabled={currentPlan}
         type="button"
         className="inline-flex w-full justify-center rounded bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
       >
         {props.texts.buttonText}
-      </button>
+      </button> */}
+      <HawaButton disabled={currentPlan} width="full">
+        {props.texts.buttonText}
+      </HawaButton>
     </div>
   )
 }

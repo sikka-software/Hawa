@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { HawaPricingCard, HawaTabs } from "../../elements"
 // TODO: make lang into direction rtl | ltr
-// TODO: shape the type of plans
+
 type PricingPlansTypes = {
   plans: [
     {
@@ -18,41 +18,48 @@ type PricingPlansTypes = {
       size: "small" | "medium" | "large"
     }
   ]
-  lang: any
+  currencies: [
+    {
+      label: string
+      value: string
+    }
+  ]
+  billingCycles: [
+    {
+      label: string
+      value: string
+    }
+  ]
+  onCycleChange?: (e) => void
+  onCurrencyChange?: (e) => void
+  direction?: "rtl" | "ltr"
 }
 export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
   props
 ) => {
   const [currentCurrency, setCurrentCurrency] = useState("SAR")
   const [currentCycle, setCurrentCycle] = useState("month")
-  let cycleOptions = [
-    { label: `Monthly`, value: `month` },
-    // { label: `3 Months`, value: `3-months` },
-    // { label: `6 Months`, value: `6-months` },
-    { label: `Annually`, value: `annually` },
-  ]
-  let currencyOptions = [
-    { label: `USD`, value: `usd` },
-    { label: `SAR`, value: `sar` },
-  ]
-  let activeTabStyle =
-    "inline-block py-3 px-4 text-white bg-blue-600 rounded active"
-  let inactiveTabStyle =
-    "inline-block py-3 px-4 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+
   return (
     <div>
       <div className="mb-2 flex w-full justify-between">
         <HawaTabs
           pill
           defaultValue={currentCycle}
-          options={cycleOptions}
-          onChangeTab={(e: any) => setCurrentCycle(e.label)}
+          options={props.billingCycles}
+          onChangeTab={(e: any) => {
+            setCurrentCycle(e.label)
+            props.onCycleChange(e)
+          }}
         />
         <HawaTabs
           pill
           defaultValue={currentCurrency}
-          options={currencyOptions}
-          onChangeTab={(e: any) => setCurrentCurrency(e.label)}
+          options={props.currencies}
+          onChangeTab={(e: any) => {
+            setCurrentCurrency(e.label)
+            props.onCurrencyChange(e)
+          }}
         />
       </div>
 
@@ -60,15 +67,12 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
         {props.plans.map((plan: any) => {
           return (
             <HawaPricingCard
-              // size="large"
-              // features={plan.features}
-              // lang={props.lang}
               {...plan}
-              // texts={{
-              //   buttonText: "Upgrade",
-              //   currencyText: currentCurrency,
-              //   cycleText: currentCycle,
-              // }}
+              texts={{
+                ...plan.texts,
+                currencyText: currentCurrency,
+                cycleText: currentCycle,
+              }}
             />
           )
         })}
