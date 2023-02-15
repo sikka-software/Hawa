@@ -94,18 +94,71 @@ export const PlanCards = (args) => {
 export const PlansCompare = (args) => {
   return (
     <ComparingPlans
+      billingCycles={[
+        { label: `Month`, value: `month` },
+        // { label: `3 Months`, value: `3-months` },
+        // { label: `6 Months`, value: `6-months` },
+        { label: `Year`, value: `annually` }
+      ]}
+      currencies={[
+        { label: `USD`, value: `usd` },
+        { label: `SAR`, value: `sar` }
+      ]}
       plans={[
         {
-          title: "Beginner",
-          availableIn: 3
+          currentPlan: false,
+          price: 0,
+          currency: "SAR",
+          cycleText: "month",
+          buttonText: "Select Plan",
+          texts: {
+            buttonText: "Upgrade",
+            currencyText: "sar",
+            cycleText: "Month",
+            subtitle: "For Everyone",
+            title: "Free Plan"
+          },
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         },
         {
-          title: "Professional",
-          availableIn: 3
+          currentPlan: true,
+          price: 10,
+          currency: "SAR",
+          cycleText: "month",
+          buttonText: "Current Plan",
+          texts: {
+            buttonText: "Current Plan",
+            currencyText: "sar",
+            cycleText: "month",
+            subtitle: "For Beginners",
+            title: "Intro Plan"
+          },
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         },
         {
-          title: "Enterprise",
-          availableIn: 3
+          currentPlan: false,
+
+          price: 30,
+          texts: {
+            buttonText: "Upgrade",
+            currencyText: "sar",
+            cycleText: "Month",
+            subtitle: "For businesses",
+            title: "Professional Plan"
+          },
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         }
       ]}
     />

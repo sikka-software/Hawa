@@ -23,27 +23,27 @@ type PricingCardTypes = {
 export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
   size = "medium",
   direction = "ltr",
-  currentPlan = true,
+  currentPlan = false,
   ...props
 }) => {
   let isArabic = direction === "rtl"
   let cardSizes = {
     small:
-      "mx-1 w-full  max-w-sm rounded border shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full  max-w-sm rounded border dark:border-gray-700 dark:bg-gray-800 ",
     medium:
-      "mx-1 w-full rounded min-w-fit border  dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full rounded min-w-fit border dark:border-gray-700 dark:bg-gray-800 ",
     large:
-      "mx-1 w-full max-w-lg rounded border  p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8",
+      "mx-1 w-full max-w-lg rounded border dark:border-gray-700 dark:bg-gray-800 ",
   }
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
       className={clsx(
         currentPlan
-          ? "border-buttonPrimary-500 bg-layoutPrimary-500 p-0"
+          ? "border-buttonPrimary-500 bg-layoutPrimary-500"
           : "bg-white",
         cardSizes[size],
-        "flex flex-col gap-4 rounded border-2  p-4"
+        "flex flex-col gap-4 rounded border-2 p-4"
       )}
     >
       <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
@@ -100,7 +100,7 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
       >
         {props.texts.buttonText}
       </button> */}
-      <HawaButton disabled={currentPlan} width="full">
+      <HawaButton margins="none" disabled={currentPlan} width="full">
         {props.texts.buttonText}
       </HawaButton>
     </div>

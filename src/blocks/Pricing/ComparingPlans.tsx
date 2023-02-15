@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { HawaTabs } from "../../elements"
 
 const CheckMark = () => (
   <svg
@@ -33,115 +34,111 @@ const UncheckMark = () => (
 )
 
 type ComparingPlansTypes = {
-  plans: any
-  // plans: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string,
-  //     title_ar: PropTypes.string,
-  //     subtitle: PropTypes.string,
-  //     subtitle_ar: PropTypes.string,
-  //     price: PropTypes.number,
-  //     currency: PropTypes.string,
-  //     cycleText: PropTypes.string,
-  //     buttonText: PropTypes.string,
-  //     features: PropTypes.array,
-  //     features_ar: PropTypes.array,
-  //     selectedPlan: PropTypes.bool,
-  //   })
-  // ),
-  lang: any
+  plans: [
+    {
+      direction: "rtl" | "ltr"
+      features: [{ included: boolean; text: string }]
+      price: number
+      texts: {
+        title: string
+        subtitle: string
+        buttonText: string
+        cycleText: string
+        currencyText: string
+      }
+      size: "small" | "medium" | "large"
+    }
+  ]
+  currencies: [
+    {
+      label: string
+      value: string
+    }
+  ]
+  billingCycles: [
+    {
+      label: string
+      value: string
+    }
+  ]
+  onCycleChange?: (e) => void
+  onCurrencyChange?: (e) => void
+  direction?: "rtl" | "ltr"
 }
 export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
   props
 ) => {
-  const [currentCurrency, setCurrentCurrency] = useState("sar")
-  const [currentCycle, setCurrentCycle] = useState("monthly")
-  let cycleOptions = [
-    { label: `Monthly`, value: `monthly` },
-    { label: `3 Months`, value: `3-months` },
-    { label: `6 Months`, value: `6-months` },
-    { label: `Annually`, value: `annually` },
-  ]
-  let currencyOptions = [
-    { label: `USD`, value: `usd` },
-    { label: `SAR`, value: `sar` },
-  ]
-  let activeTabStyle =
-    "inline-block py-3 px-4 text-white bg-blue-600 rounded active"
-  let inactiveTabStyle =
-    "inline-block py-3 px-4 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+  const [currentCurrency, setCurrentCurrency] = useState("SAR")
+  const [currentCycle, setCurrentCycle] = useState("month")
+
   return (
     <div id="detailed-pricing" className="w-full overflow-x-auto">
+      <div className="mb-2 flex w-full justify-between">
+        <HawaTabs
+          pill
+          defaultValue={currentCycle}
+          options={props.billingCycles}
+          onChangeTab={(e: any) => {
+            // setCurrentCycle(e.label)
+            props.onCycleChange(e)
+          }}
+        />
+        <HawaTabs
+          pill
+          defaultValue={currentCurrency}
+          options={props.currencies}
+          onChangeTab={(e: any) => {
+            // setCurrentCurrency(e.label)
+            props.onCurrencyChange(e)
+          }}
+        />
+      </div>
       <div className="min-w-max overflow-hidden">
         <div className="grid grid-cols-4 gap-x-16 border-t border-b border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
           <div className="flex items-center"></div>
           {props.plans.map((plan: any) => (
-            <div>{plan.title}</div>
+            <div>
+              <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
+                {plan.texts.title}
+              </h5>
+
+              <div className=" flex items-baseline  text-gray-900 dark:text-white">
+                <>
+                  <span className="text-5xl font-extrabold tracking-tight">
+                    {plan.price}
+                  </span>
+                  <span className="mx-1 text-sm font-semibold">
+                    {plan.texts.currencyText}
+                  </span>
+                </>
+                <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
+                  / {plan.texts.cycleText}
+                </span>
+              </div>
+              <h5 className="text-md  font-normal text-gray-500 dark:text-gray-400">
+                {plan.texts.subtitle}
+              </h5>
+            </div>
           ))}
         </div>
-        {props.plans.map(() => {
-          return (
-            <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
-              <div className="text-gray-500 dark:text-gray-400">
-                Basic components (
-                <a href="#" className="text-blue-600 hover:underline">
-                  view all
-                </a>
-                )
+        {props.plans?.map((plan) => {
+          return plan.features.map((feature) => {
+            return (
+              <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
+                <div className="text-gray-500 dark:text-gray-400">
+                  {feature.text} (
+                  <a href="#" className="text-blue-600 hover:underline">
+                    view demo
+                  </a>
+                  )
+                </div>
+                <UncheckMark />
+                <CheckMark />
+                <UncheckMark />
               </div>
-              <CheckMark />
-              <CheckMark />
-              <CheckMark />
-            </div>
-          )
-        })}
-        <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
-          <div className="text-gray-500 dark:text-gray-400">
-            Application UI (
-            <a href="#" className="text-blue-600 hover:underline">
-              view demo
-            </a>
             )
-          </div>
-          <UncheckMark />
-          <CheckMark />
-          <UncheckMark />
-        </div>
-        <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
-          <div className="text-gray-500 dark:text-gray-400">
-            Marketing UI pre-order
-          </div>
-          <UncheckMark />
-          <CheckMark />
-          <UncheckMark />
-        </div>
-        <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
-          <div className="text-gray-500 dark:text-gray-400"></div>
-          <div>
-            <a
-              href="#"
-              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
-            >
-              Buy now
-            </a>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
-            >
-              Buy now
-            </a>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="block w-full rounded bg-blue-600 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
-            >
-              Buy now
-            </a>
-          </div>
-        </div>
+          })
+        })}
       </div>
     </div>
   )
