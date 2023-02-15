@@ -20,6 +20,7 @@ export const PlanCards = (args) => {
   return (
     <PricingPlans
       {...args}
+      onPlanClicked={(e) => console.log("upgradign to ", e)}
       billingCycles={[
         { label: `Month`, value: `month` },
         // { label: `3 Months`, value: `3-months` },

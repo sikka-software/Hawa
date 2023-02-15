@@ -16,6 +16,7 @@ type PricingCardTypes = {
     cycleText: string
     currencyText: string
   }
+  onPlanClicked?: () => void
   currentPlan?: boolean
   size: "small" | "medium" | "large"
 }
@@ -100,7 +101,12 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
       >
         {props.texts.buttonText}
       </button> */}
-      <HawaButton margins="none" disabled={currentPlan} width="full">
+      <HawaButton
+        onClick={props.onPlanClicked}
+        margins="none"
+        disabled={currentPlan}
+        width="full"
+      >
         {props.texts.buttonText}
       </HawaButton>
     </div>

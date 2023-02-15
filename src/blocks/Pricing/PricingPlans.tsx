@@ -30,6 +30,7 @@ type PricingPlansTypes = {
       value: string
     }
   ]
+  onPlanClicked?: (e) => void
   onCycleChange?: (e) => void
   onCurrencyChange?: (e) => void
   direction?: "rtl" | "ltr"
@@ -67,6 +68,7 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
         {props.plans.map((plan: any) => {
           return (
             <HawaPricingCard
+              onPlanClicked={() => props.onPlanClicked(plan)}
               {...plan}
               texts={{
                 ...plan.texts,
