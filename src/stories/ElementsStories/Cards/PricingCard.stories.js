@@ -50,18 +50,16 @@ export const Pricing = (args) => {
 
 Pricing.args = {
   lang: "en",
-  title: "Pro",
+  title: "Professional Plan",
   subtitle: "For small businesses",
   price: "300",
-  size: "small",
-  currency: "sar",
-  cycleText: "monthly",
-  buttonText: "Choose Plan",
+  size: "medium",
   discount: "Save 10%",
   texts: {
     buttonText: "Upgrade",
     currencyText: "SAR",
-    cycleText: "Monthly"
+    cycleText: "month",
+    subtitle: "Includes up to 4 users + 200 GB"
   },
   features: [
     { included: true, text: "Unlimited Menus" },

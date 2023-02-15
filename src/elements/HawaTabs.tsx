@@ -1,21 +1,22 @@
 import clsx from "clsx"
 import React, { useState } from "react"
-
+// TODO: fix wrapping issue when small screen
 type TabsTypes = {
   options?: any
   onChangeTab?: any
   defaultValue?: any
-  contents?: any
   orientation?: "horizontal" | "vertical"
   direction?: "rtl" | "ltr"
   marginBetween?: any
   width?: "full" | "normal"
+  pill?: boolean
 }
 export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
   orientation = "horizontal",
   direction = "ltr",
   width = "normal",
   marginBetween = 0,
+  pill = true,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.options[0]?.value)
@@ -66,7 +67,6 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
     >
       <ul
         className={clsx(
-          // "mb-2",
           marginBetween
             ? orientation === "vertical"
               ? "mb-0"
@@ -77,12 +77,15 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
             : "mr-" + marginBetween,
           tabsStyle[orientation],
           "border-buttonPrimary-500",
+
           orientation === "vertical"
             ? direction === "rtl"
               ? "rounded-none rounded-r border-l-2"
               : "rounded-none rounded-l border-r-2"
             : "border-b-2",
-          widthStyles[width]
+          widthStyles[width],
+          // "bg-red-400",
+          pill ? "overflow-clip rounded border-none" : ""
         )}
       >
         {props.options?.map((opt: any, o) => (
@@ -91,7 +94,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
               aria-current="page"
               onClick={() => {
                 setSelectedOption(opt.value)
-                // props.onChangeTab(opt.value)
+                props.onChangeTab(opt)
               }}
               className={clsx(
                 opt.value === selectedOption
@@ -101,7 +104,8 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
                       direction === "rtl" ? "rounded-r" : "rounded-l",
                     ]
                   : inactiveTabStyle[orientation],
-                "w-full transition-all"
+                "w-full  transition-all",
+                pill ? "rounded bg-green-400" : ""
                 // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >

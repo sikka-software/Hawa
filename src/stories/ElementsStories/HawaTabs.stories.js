@@ -33,37 +33,10 @@ export default {
   }
 };
 
-// export const PanelTabs = (args) => {
-//   let allOptions = Array.from({ length: args.options }, (v, i) => {
-//     return {
-//       label: `Option ${i}`,
-//       value: `option${i}`,
-//       content: (
-//         <>
-//           <div>
-//             <h1>This option is number {i}</h1>
-//             <p> lorem ipsume</p>
-//             <p>test here lore</p>
-//           </div>
-//         </>
-//       )
-//     };
-//   });
-//   return (
-//     <HawaPanelTabs
-//       {...args}
-//       // handleChange={(e) => console.log("changing to ", e)}
-//       defaultValue="option1"
-//       options={allOptions}
-//     />
-//   );
-// };
-
 export const Horizontal = (args) => {
   const [selectedOption, setSelectedOption] = useState(null);
   return (
     <HawaTabs
-      // onChangeTab={(e) => setSelectedOption(e)}
       {...args}
       options={[
         {

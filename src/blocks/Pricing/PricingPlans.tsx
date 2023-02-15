@@ -23,12 +23,12 @@ type PricingPlansTypes = {
 export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
   props
 ) => {
-  const [currentCurrency, setCurrentCurrency] = useState("sar")
-  const [currentCycle, setCurrentCycle] = useState("monthly")
+  const [currentCurrency, setCurrentCurrency] = useState("SAR")
+  const [currentCycle, setCurrentCycle] = useState("month")
   let cycleOptions = [
-    { label: `Monthly`, value: `monthly` },
-    { label: `3 Months`, value: `3-months` },
-    { label: `6 Months`, value: `6-months` },
+    { label: `Monthly`, value: `month` },
+    // { label: `3 Months`, value: `3-months` },
+    // { label: `6 Months`, value: `6-months` },
     { label: `Annually`, value: `annually` },
   ]
   let currencyOptions = [
@@ -43,14 +43,16 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
     <div>
       <div className="mb-2 flex w-full justify-between">
         <HawaTabs
+          pill
           defaultValue={currentCycle}
           options={cycleOptions}
-          onChangeTab={(e: any) => setCurrentCycle(e)}
+          onChangeTab={(e: any) => setCurrentCycle(e.label)}
         />
         <HawaTabs
+          pill
           defaultValue={currentCurrency}
           options={currencyOptions}
-          onChangeTab={(e: any) => setCurrentCurrency(e)}
+          onChangeTab={(e: any) => setCurrentCurrency(e.label)}
         />
       </div>
 
@@ -58,11 +60,15 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
         {props.plans.map((plan: any) => {
           return (
             <HawaPricingCard
-              size="large"
+              // size="large"
+              // features={plan.features}
               lang={props.lang}
               {...plan}
-              currency={currentCurrency}
-              cycleText={currentCycle}
+              texts={{
+                buttonText: "Upgrade",
+                currencyText: currentCurrency,
+                cycleText: currentCycle,
+              }}
             />
           )
         })}

@@ -251,9 +251,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
               </tr>
             )}
           </tbody>
-          <div></div>
         </table>
       </div>
+
       <div className="flex flex-row items-center justify-between ">
         {/* Pagination Pages  */}
         {range.length > 1 ? (

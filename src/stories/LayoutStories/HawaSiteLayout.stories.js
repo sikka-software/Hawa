@@ -13,7 +13,7 @@ const Template = (args) => {
         <h1>Job Title: Software Engineer</h1>
         <h2>Company: XYZ Inc.</h2>
         <h3>Location: San Francisco, CA (Remote work option available)</h3>
-        <p>
+        <div>
           <b>Job Description:</b>
           <br />
           We are seeking a highly skilled software engineer to join our team. In
@@ -49,14 +49,14 @@ const Template = (args) => {
               technologies
             </li>
           </ul>
-        </p>
-        <p>
+        </div>
+        <div>
           <b>About the Company:</b>
           <br />
           XYZ Inc. is a leader in the technology industry, with a focus on
           developing innovative software solutions. We are a fast-paced and
           dynamic company, with a strong emphasis on teamwork and collaboration.
-        </p>
+        </div>
       </div>
     </HawaSiteLayout>
   );

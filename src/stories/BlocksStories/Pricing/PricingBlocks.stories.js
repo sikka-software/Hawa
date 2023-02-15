@@ -28,10 +28,13 @@ export const PlanCards = (args) => {
           subtitle_ar: "للعرب",
           price: 0,
           currency: "SAR",
-          cycleText: "Monthly",
+          cycleText: "month",
           buttonText: "Select Plan",
-          features: ["one", "two", "three"],
-          features_ar: ["واحد", "اثنين", "ثلاثة"]
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         },
         {
           title: "Intro",
@@ -41,10 +44,13 @@ export const PlanCards = (args) => {
           selectedPlan: true,
           price: 10,
           currency: "SAR",
-          cycleText: "Monthly",
+          cycleText: "month",
           buttonText: "Current Plan",
-          features: ["one", "two", "three"],
-          features_ar: ["واحد", "اثنين", "ثلاثة"]
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         },
         {
           title: "Pro",
@@ -53,10 +59,13 @@ export const PlanCards = (args) => {
           subtitle_ar: "للعرب",
           price: 30,
           currency: "SAR",
-          cycleText: "Monthly",
+          cycleText: "month",
           buttonText: "Select Plan",
-          features: ["one", "two", "three"],
-          features_ar: ["واحد", "اثنين", "ثلاثة"]
+          features: [
+            { included: true, text: "Unlimited Menus" },
+            { included: true, text: "Unlimited Items" },
+            { included: false, text: "Custom Menus" }
+          ]
         }
       ]}
     />
