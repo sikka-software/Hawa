@@ -120,9 +120,13 @@ export const PlansCompare = (args) => {
             title: "Free Plan"
           },
           features: [
-            { included: true, text: "Unlimited Menus" },
-            { included: true, text: "Unlimited Items" },
-            { included: false, text: "Custom Menus" }
+            {
+              description: "Make as many menus as you want",
+              included: true,
+              text: "Unlimited Menus"
+            },
+            { description: "", included: true, text: "Unlimited Items" },
+            { description: "", included: false, text: "Custom Menus" }
           ]
         },
         {

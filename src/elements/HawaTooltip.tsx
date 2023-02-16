@@ -25,7 +25,7 @@ export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
   children,
   content,
   size = "normal",
-  position,
+  position = "top-right",
   direction = "ltr",
 }) => {
   const [hovered, setHovered] = useState(false)

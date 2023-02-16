@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { HawaTabs } from "../../elements"
+import { BsExclamationCircleFill } from "react-icons/bs"
+import { HawaTabs, HawaTooltip } from "../../elements"
 
 const CheckMark = () => (
   <svg
@@ -37,7 +38,7 @@ type ComparingPlansTypes = {
   plans: [
     {
       direction: "rtl" | "ltr"
-      features: [{ included: boolean; text: string }]
+      features: [{ included: boolean; text: string; description?: string }]
       price: number
       texts: {
         title: string
@@ -93,8 +94,8 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
           }}
         />
       </div>
-      <div className="min-w-max overflow-hidden">
-        <div className="grid grid-cols-4 gap-x-16 border-t border-b border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+      <div className=" overflow-hidden rounded">
+        <div className="grid grid-cols-4 gap-x-2 border-t border-b border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
           <div className="flex items-center"></div>
           {props.plans.map((plan: any) => (
             <div>
@@ -125,12 +126,16 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
           return plan.features.map((feature) => {
             return (
               <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
-                <div className="text-gray-500 dark:text-gray-400">
-                  {feature.text} (
-                  <a href="#" className="text-blue-600 hover:underline">
-                    view demo
-                  </a>
-                  )
+                <div className="  flex flex-row items-center gap-2  text-gray-500 dark:text-gray-400">
+                  {feature.text}
+                  {feature.description && (
+                    <HawaTooltip
+                      position="top-right"
+                      content={feature.description}
+                    >
+                      <BsExclamationCircleFill />
+                    </HawaTooltip>
+                  )}
                 </div>
                 <UncheckMark />
                 <CheckMark />
