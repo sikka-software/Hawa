@@ -1,5 +1,6 @@
 import React from "react"
 import clsx from "clsx"
+
 // TODO: make icon based on direction
 // TODO: Preferebly usse context to pass direction rtl | ltr
 

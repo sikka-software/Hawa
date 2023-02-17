@@ -1,5 +1,5 @@
-import clsx from "clsx"
 import React, { ReactElement, useEffect } from "react"
+import clsx from "clsx"
 
 type ModalTypes = {
   open: boolean

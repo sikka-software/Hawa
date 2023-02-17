@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { BsChevronRight, BsFilter, BsPlus, BsThreeDots } from "react-icons/bs"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 import useTable from "../hooks/useTable"
 import { HawaTextField } from "./HawaTextField"
 import { HawaButton } from "./HawaButton"
 import { FaSearch } from "react-icons/fa"
+import { BsChevronRight, BsFilter, BsPlus, BsThreeDots } from "react-icons/bs"
+
 // TODO: translate header tools and make it more customizable
 // TODO: pass the onSearch handler to the parent
+
 type TableTypes = {
   columns: any[string]
   actions?: ActionItems[][]

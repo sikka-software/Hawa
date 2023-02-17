@@ -1,5 +1,4 @@
 import React from "react"
-import { HawaTypography } from "./HawaTypography"
 import { HawaTextField } from "./HawaTextField"
 import { HawaSwitch } from "./HawaSwitch"
 import { HawaColorPicker } from "./HawaColorPicker"
@@ -7,7 +6,7 @@ import { HawaRange } from "./HawaRange"
 import { HawaRadio } from "./HawaRadio"
 
 type SettingsRowTypes = {
-  settingsLabel: any
+  settingsLabel: string
   settingsType: "text" | "radio" | "boolean" | "color" | "range"
   radioProps: {
     defaultValue: any
@@ -32,10 +31,13 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
   radioProps,
 }) => {
   return (
-    <div className="my-0.5 flex max-h-fit flex-row items-center justify-between rounded bg-white px-4 py-2 pr-2 align-middle">
-      <HawaTypography>{settingsLabel}</HawaTypography>
+    <div className="my-0.5  flex h-20 max-h-fit flex-row items-center justify-between rounded bg-white p-6 align-middle">
+      <div>
+        <div>{settingsLabel}</div>
+        <div className="text-sm">Text here like a description</div>
+      </div>
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
-      {settingsType === "boolean" && <HawaSwitch />}
+      {settingsType === "boolean" && <HawaSwitch size="large" />}
       {settingsType === "range" && <HawaRange {...rangeProps} />}
       {settingsType === "color" && <HawaColorPicker {...colorProps} />}
       {settingsType === "radio" && <HawaRadio {...radioProps} />}

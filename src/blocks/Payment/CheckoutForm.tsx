@@ -109,7 +109,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.lastNameLabel + " *"}
@@ -125,7 +124,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
               name="email"
               render={({ field }) => (
                 <HawaTextField
-                  // inForm
                   width="full"
                   type="text"
                   label={props.texts?.emailLabel + " *"}
@@ -150,7 +148,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.streetAddressLabel + " *"}
@@ -168,7 +165,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.buildingNumberLabel + " *"}
@@ -187,7 +183,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.stateLabel + " *"}
@@ -205,7 +200,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="text"
                     label={props.texts?.cityLabel + " *"}
@@ -223,10 +217,8 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaTextField
-                    // inForm
                     width="full"
                     type="number"
-                    // variant="unscrollable"
                     label={props.texts?.zipCodeLabel + " *"}
                     helperText={errors.zipCode?.message}
                     {...field}
@@ -248,7 +240,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                     helperText={errors.country?.message}
                     options={countries}
                     getOptionLabel={(countries) => countries.country_label}
-                    // {...field}
                     onChange={(e) => field.onChange(e.country_label)}
                     value={field.value ?? ""}
                   >
@@ -260,11 +251,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 )}
               />
             </div>
-            <HawaButton
-              color="primary"
-              // type="submit"
-              width="full"
-            >
+            <HawaButton color="primary" width="full">
               {props.texts.payNow}
             </HawaButton>
           </form>

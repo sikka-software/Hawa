@@ -90,39 +90,22 @@ SearchInput.args = {
 };
 
 export const PinInput = (args) => {
-  return (
-    <HawaPinInput
-      type={args.isAlphanumeric ? "alphanumeric" : null}
-      onChange={args.onChange}
-      onComplete={args.onComplete}
-      {...args}
-    />
-  );
+  return <HawaPinInput {...args} />;
 };
 
 PinInput.args = {
-  defaultValue: "1234",
-  digits: 4,
-  isAlphanumeric: false,
-  onChange: (value) => console.log("current value : ", value),
-  onComplete: (value) => console.log("final value :", value)
+  getPins: () => console.log("getting pins"),
+  width: "normal",
+  digits: 6
 };
 
 export const SelectInput = (args) => {
-  return (
-    <HawaSelect
-      options={args.options}
-      isCreatable={args.isCreatable}
-      isMulti={args.isMulti ?? false}
-      isSearchable={args.isSearchable}
-      isClearable={args.isClearable ?? false}
-      onChange={(e, o) => console.log("chooo", e)}
-      onInputChange={(e, o) => console.log("changing", e)}
-    />
-  );
+  return <HawaSelect {...args} />;
 };
 
 SelectInput.args = {
+  label: "Pin Input",
+
   isCreatable: false,
   isMulti: false,
   isClearable: false,

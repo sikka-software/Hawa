@@ -4,21 +4,29 @@ import { HawaContainer } from "../../layout"
 
 type NotFoundTypes = {
   variant?: "outlined" | "contained" | "neobrutalism"
+  texts?: {
+    pageNotFound: string
+    ifLost: string
+    home: string
+  }
 }
 
 export const NotFound: React.FunctionComponent<NotFoundTypes> = ({
   variant,
+  texts,
 }) => {
   return (
     <HawaContainer variant={variant}>
       <div className="flex flex-col items-center dark:text-white">
         <div className="text-center text-6xl font-bold ">404</div>
-        <div className="m-2 text-center text-xl font-bold ">Page Not Found</div>
+        <div className="m-2 text-center text-xl font-bold ">
+          {texts.pageNotFound ?? "Page Not Found"}
+        </div>
         <div className="text-center ">
-          If you're lost please contact us help@sikka.io{" "}
+          {texts.ifLost ?? "If you're lost please contact us help@sikka.io"}
         </div>
         <HawaButton color="primary" width="full">
-          Home
+          {texts.home ?? "Home"}
         </HawaButton>
       </div>
     </HawaContainer>

@@ -1,5 +1,5 @@
-import clsx from "clsx"
 import React from "react"
+import clsx from "clsx"
 
 type SpinnerTypes = {
   size?: "button" | "sm" | "normal" | "lg" | "xl"
@@ -21,7 +21,7 @@ export const HawaSpinner: React.FunctionComponent<SpinnerTypes> = ({
       <div
         className={clsx(
           sizeStyles[size],
-          "animate-spin rounded-full  border-2 border-gray-400 border-t-white text-white"
+          "animate-spin rounded-full border-4 border-gray-400 border-t-white text-white"
         )}
       ></div>
     </div>

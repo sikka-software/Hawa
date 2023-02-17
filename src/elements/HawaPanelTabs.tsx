@@ -2,13 +2,7 @@ import React, { useState } from "react"
 
 type PanelTabsTypes = {
   defaultValue: any
-  options: any
-  //   options: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       label: PropTypes.string,
-  //       value: PropTypes.string,
-  //     })
-  //   ),
+  options: [{ label: string; value: string }]
   lang: any
   handleChange: any
   location: any

@@ -7,6 +7,7 @@ type TNewsletter = {
   texts: {
     wantToStayUpdated: string
     subscribeToNewsletter: string
+    submit: string
   }
   handleNewsletterSub: (e: string) => void
 }
@@ -19,8 +20,12 @@ export const Newsletter: React.FunctionComponent<TNewsletter> = ({
   return (
     <HawaContainer variant={variant} centered={true}>
       <div className="p-4 pt-0">
-        <h1 className="font-bold">{texts.wantToStayUpdated}</h1>
-        <span>{texts.subscribeToNewsletter}</span>
+        <h1 className="font-bold">
+          {texts.wantToStayUpdated ?? "Want to stay updated?"}
+        </h1>
+        <span>
+          {texts.subscribeToNewsletter ?? "Subscribe to our newsletter"}
+        </span>
       </div>
       <form
         className="flex flex-row gap-2"
@@ -37,7 +42,7 @@ export const Newsletter: React.FunctionComponent<TNewsletter> = ({
           margin="none"
         />
         <HawaButton size="full" margins="none">
-          Submit
+          {texts.submit ?? "Submit"}
         </HawaButton>
       </form>
     </HawaContainer>

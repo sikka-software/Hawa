@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 type ColorPickerTypes = {
   color?: any
-  handleChange?: (e : React.ChangeEvent<HTMLInputElement>) => void
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
@@ -10,7 +10,7 @@ export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
 ) => {
   const [selectedColor, setSelectedColor] = useState(props.color)
   return (
-    <div className={`flex w-fit flex-row p-0`}>
+    <div className={`flex w-fit flex-row rounded border-2 border-gray-200 p-0`}>
       <div
         style={{ backgroundColor: selectedColor }}
         className="rounded-tl-lg rounded-bl-lg"
@@ -29,10 +29,8 @@ export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
       <input
         type="text"
         value={selectedColor}
-        className="w-24 rounded-tr-lg rounded-br-lg pr-2 pl-2"
+        className="w-24  rounded-tr-lg rounded-br-lg pr-2 pl-2"
       />
     </div>
   )
 }
-
-

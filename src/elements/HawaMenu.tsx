@@ -1,5 +1,5 @@
-import clsx from "clsx"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
+import clsx from "clsx"
 
 // TODO: add width to decrease width
 
@@ -28,7 +28,6 @@ interface TMenuTypes {
 type MenuItems = {
   icon?: JSX.Element
   label: string
-  // action?: (item: any) => void
   action?: (e: any) => void
   isButton?: boolean
   element?: any
@@ -70,7 +69,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
       document.removeEventListener("click", handleClickOutside, true)
     }
   }, [onClickOutside])
-  
+
   let defaultStyles =
     "border-none absolute ring-offset-1 absolute z-10 w-44 divide-y divide-gray-100 overflow-y-clip rounded bg-gray-50 shadow-lg transition-all dark:bg-gray-700"
   let sizeStyles = {

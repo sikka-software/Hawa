@@ -2,6 +2,7 @@ import React from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 import { FaCheck } from "react-icons/fa"
+
 type TEmptyState = {
   variant?: "outlined" | "contained" | "neobrutalism"
 }

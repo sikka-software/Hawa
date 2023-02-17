@@ -1,11 +1,5 @@
 import React, { useState } from "react"
-import {
-  HawaTextField,
-  HawaAlert,
-  HawaButton,
-  HawaPinInput,
-} from "../../elements"
-import { Controller, useForm } from "react-hook-form"
+import { HawaAlert, HawaButton, HawaPinInput } from "../../elements"
 import { HawaContainer } from "../../layout"
 
 type TConfirmation = {

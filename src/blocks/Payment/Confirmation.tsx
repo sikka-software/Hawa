@@ -70,7 +70,6 @@ export const ConfirmationPage: React.FunctionComponent<
               { hidden: false, value: "Price" },
             ]}
             rows={props.products}
-            // end={["Total", props.total]}
           />
         )}
       </div>

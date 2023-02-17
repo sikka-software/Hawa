@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { HawaPricingCard, HawaTabs } from "../../elements"
+
 // TODO: make lang into direction rtl | ltr
 
 type PricingPlansTypes = {

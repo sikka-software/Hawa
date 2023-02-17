@@ -1,6 +1,8 @@
 import clsx from "clsx"
 import React, { useState } from "react"
+
 // TODO: fix wrapping issue when small screen
+
 type TabsTypes = {
   options?: any
   onChangeTab?: any

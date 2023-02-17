@@ -39,6 +39,7 @@ export const Newsletter = (args) => {
 
 Newsletter.args = {
   texts: {
+    submit: "Submit",
     wantToStayUpdated: "Want to stay updated?",
     subscribeToNewsletter: "Subscribe to our newsletter"
   }

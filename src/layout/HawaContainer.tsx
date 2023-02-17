@@ -31,7 +31,6 @@ export const HawaContainer: React.FunctionComponent<ContainerTypes> = ({
     <div
       className={clsx(
         defaultStyle,
-        // "shadow-3xl",
         maxWidthStyles[maxWidth],
         variantStyles[variant],
         centered ? "flex items-center text-center" : ""

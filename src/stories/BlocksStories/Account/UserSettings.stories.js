@@ -23,6 +23,7 @@ export const UserSettings = (args) => {
       saveSettingsText="Save Settings"
       handleSaveSettings={() => console.log("saving settings")}
     >
+      <div className="mb-3 text-sm font-bold">Primary Settings</div>
       <HawaSettingsRow
         settingsType="boolean"
         settingsLabel="Hide Watermark"
@@ -48,6 +49,8 @@ export const UserSettings = (args) => {
           ]
         }}
       />
+      <div className="my-3 text-sm font-bold">Primary Settings</div>
+
       <HawaSettingsRow
         settingsType="radio"
         settingsLabel="Language"

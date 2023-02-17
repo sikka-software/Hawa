@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+
 type DraggableCardTypes = {
   children: ReactElement
 }
@@ -7,7 +8,7 @@ export const DraggableCard: React.FunctionComponent<DraggableCardTypes> = (
   props
 ) => {
   return (
-    <div className="bg-layoutPrimary-500 flex flex-row rounded p-4">
+    <div className="flex flex-row rounded bg-layoutPrimary-500 p-4">
       <button
         className="inline-flex items-center rounded bg-white p-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-50 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
         type="button"

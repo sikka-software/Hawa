@@ -1,6 +1,6 @@
 import { useState } from "@storybook/addons"
-import clsx from "clsx"
 import { FC, ReactNode } from "react"
+import clsx from "clsx"
 
 type TSimpleGrid = {
   columns: number
@@ -23,7 +23,6 @@ const SimpleGrid: FC<TSimpleGrid> = ({
   const grid_spacing_x = "gap-x-" + spacingX
   const grid_spacing_y = "gap-y-" + spacingY
 
-
   return (
     <div
       className={clsx(
@@ -31,7 +30,7 @@ const SimpleGrid: FC<TSimpleGrid> = ({
         cols_num,
         spacing ?? grid_spacing,
         grid_spacing_x,
-       grid_spacing_y
+        grid_spacing_y
       )}
     >
       {children}

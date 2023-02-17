@@ -17,7 +17,6 @@ export const PayWithWallet: React.FunctionComponent<PayWithWalletTypes> = (
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
       </div>
       <HawaButton
-        // type="submit"
         width="full"
         color="primary"
         onClick={props.handlePayWithWallet}

@@ -25,5 +25,5 @@ export const Switch = Template.bind({});
 Switch.args = {
   title: "Success",
   text: "The text of the toggle option",
-  severity: "success"
+  size: 'normal'
 };

@@ -1,10 +1,9 @@
 import clsx from "clsx"
 import React, { useEffect, useRef, useState } from "react"
 import useDiscloser from "../hooks/useDiscloser"
-import { HawaMenu } from "../elements"
 import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { FaChevronRight } from "react-icons/fa"
+
 type HawaSiteLayoutTypes = {
   navItems: {
     label: string
@@ -29,7 +28,6 @@ type HawaSiteLayoutTypes = {
 export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
   direction = "rtl",
   navigationSize = "md",
-
   ...props
 }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)

@@ -1,10 +1,11 @@
-import clsx from "clsx"
 import React, { useEffect, useRef, useState } from "react"
-import useDiscloser from "../hooks/useDiscloser"
-import { HawaMenu } from "../elements"
+import clsx from "clsx"
 import { HiMenu } from "react-icons/hi"
-import useBreakpoint from "../hooks/useBreakpoint"
 import { FaChevronRight } from "react-icons/fa"
+import useDiscloser from "../hooks/useDiscloser"
+import useBreakpoint from "../hooks/useBreakpoint"
+import { HawaMenu } from "../elements"
+
 // TODO: when no navbar, the drawer can't be opened
 // TODO: when no pagetitle, navbar gets messy
 

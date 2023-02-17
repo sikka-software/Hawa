@@ -5,7 +5,7 @@ type RangeTypes = {
   handleChange?: any
   startElement?: any
   endElement?: any
-  label?: any
+  label?: string
   min?: any
   max?: any
 }

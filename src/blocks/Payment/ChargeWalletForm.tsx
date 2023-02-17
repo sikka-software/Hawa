@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { HawaButton, HawaTextField } from "../../elements"
-import { Controller, FormProvider, useForm } from "react-hook-form"
+import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
 type ChargeWalletTypes = {
@@ -16,21 +15,28 @@ export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
   props
 ) => {
   const [walletAmount, setWalletAmount] = useState(0)
-  const methods = useForm()
-  const {
-    formState: { errors },
-    handleSubmit,
-    control,
-  } = methods
 
   return (
     <HawaContainer>
-      {" "}
-      <div className="text-center text-5xl font-extrabold">
-        {Number(walletAmount).toLocaleString("en") || "0"}
+      <div className="p-4 text-center">
+        <div className=" text-5xl font-extrabold">
+          {Number(walletAmount).toLocaleString("en") || "0"}
+        </div>
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
       </div>
-      <FormProvider {...methods}>
+      <div className="mb-2 flex w-full flex-row gap-2 text-center">
+        <div className="w-40 whitespace-nowrap rounded bg-gray-100 p-4">
+          10 SAR
+        </div>
+        <div className="w-40 whitespace-nowrap rounded bg-gray-100 p-4">
+          100 SAR
+        </div>
+        <input
+          placeholder="Custom"
+          className="h-auto rounded bg-gray-100 p-4"
+        />
+      </div>
+      {/* <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleChargeWallet)}>
           <Controller
             control={control}
@@ -67,8 +73,11 @@ export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
           >
             {props.texts.chargeWallet}
           </HawaButton>
-        </form>
-      </FormProvider>
+          </form>
+        </FormProvider> */}
+      <HawaButton color="primary" width="full">
+        {props.texts.chargeWallet}
+      </HawaButton>
     </HawaContainer>
   )
 }

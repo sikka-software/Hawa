@@ -1,6 +1,6 @@
 import React from "react"
 import { FaClone } from "react-icons/fa"
-import { HawaAlert, HawaButton, HawaTable, HawaTooltip } from "../../elements"
+import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
 type ReferralAccount = {

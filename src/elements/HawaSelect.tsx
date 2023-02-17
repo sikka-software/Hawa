@@ -2,32 +2,8 @@ import clsx from "clsx"
 import React from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
-type OptionTypes = {
-  cx: any
-  children: any
-  getStyles: any
-  innerProps: any
-  innerRef: any
-  size?: "small" | "normal" | "large"
-}
-const Option: React.FunctionComponent<OptionTypes> = ({
-  cx,
-  children,
-  getStyles,
-  innerProps,
-  innerRef,
-  size = "normal",
-  ...props
-}) => (
-  <div
-    ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded  p-1 px-3 hover:bg-buttonPrimary-500 hover:text-white"
-    {...innerProps}
-  >
-    {children}
-  </div>
-)
 
+// The select bar
 type ControlTypes = {
   cx: any
   children: any
@@ -64,6 +40,7 @@ const Control: React.FunctionComponent<ControlTypes> = ({
     </div>
   )
 }
+// The options container
 type MenuTypes = {
   cx: any
   children: any
@@ -81,7 +58,7 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
 }) => {
   return (
     <div
-      className="absolute z-10 mt-2 w-full rounded bg-white ring-1 ring-blue-200"
+      className="absolute z-10 mt-2 flex  w-full flex-col  justify-start  rounded bg-white p-1 px-1.5 ring-1 ring-blue-200"
       ref={innerRef}
       {...innerProps}
       // {...props}
@@ -90,14 +67,40 @@ const Menu: React.FunctionComponent<MenuTypes> = ({
     </div>
   )
 }
-
+// The single options
+type OptionTypes = {
+  cx: any
+  children: any
+  getStyles: any
+  innerProps: any
+  innerRef: any
+  size?: "small" | "normal" | "large"
+}
+const Option: React.FunctionComponent<OptionTypes> = ({
+  cx,
+  children,
+  getStyles,
+  innerProps,
+  innerRef,
+  size = "normal",
+  ...props
+}) => (
+  <div
+    ref={innerRef}
+    className="flex flex-row items-center justify-between rounded p-1 px-2 hover:bg-buttonPrimary-500 hover:text-white"
+    {...innerProps}
+  >
+    {children}
+  </div>
+)
+// The main element
 type SelectTypes = {
-  label?: any
-  isCreatable?: any
+  label?: string
   options?: any[any]
-  isClearable?: any
-  isMulti?: any
-  isSearchable?: any
+  isCreatable?: boolean
+  isClearable?: boolean
+  isMulti?: boolean
+  isSearchable?: boolean
   onChange?: any
   helperText?: any
   onInputChange?: any
@@ -106,15 +109,14 @@ type SelectTypes = {
   value?: any
   children?: any
   getOptionLabel?: any
-  // size?
 }
 export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (
-    <div className="">
+    <div>
       {props.label && (
-        <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+        <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {props.label}
-        </label>
+        </div>
       )}
       {!props.isCreatable && (
         <Select

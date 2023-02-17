@@ -1,8 +1,6 @@
 import clsx from "clsx"
 import React, { useEffect, useRef, useState } from "react"
 
-// TODO: fix it in RTL
-
 type THawaToolTip = {
   children?: React.ReactElement
   content?: string

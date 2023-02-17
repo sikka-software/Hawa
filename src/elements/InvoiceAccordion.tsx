@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import clsx from "clsx"
 import { HiChevronRight } from "react-icons/hi"
-import { HawaChip } from "./HawaChip"
 import { BsThreeDotsVertical } from "react-icons/bs"
+import { HawaChip } from "./HawaChip"
 import { HawaMenu } from "./HawaMenu"
 
 type InvoiceAccordionTypes = {
@@ -19,9 +19,9 @@ type InvoiceAccordionTypes = {
     amount: string
     price: string
   }
-  invoiceTitle: any
-  invoiceSubtitle: any
-  invoiceDescription?: any
+  invoiceTitle: string
+  invoiceSubtitle: string
+  invoiceDescription?: string
   invoiceActions?: {
     icon?: JSX.Element
     label: string
@@ -29,7 +29,7 @@ type InvoiceAccordionTypes = {
     isButton?: boolean
     element?: any
   }[][]
-  total: string
+  total: any
   direction?: "rtl" | "ltr"
   status?: "paid" | "pending" | "overdue"
 }

@@ -4,6 +4,7 @@ import { HawaButton } from "./HawaButton"
 
 // TODO: if feature.excluded is false, show gray and x
 // TODO: add badge to feature if soon
+// TODO: add a discount element
 
 type PricingCardTypes = {
   direction?: "rtl" | "ltr"
@@ -94,13 +95,6 @@ export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
           })}
         </ul>
       )}
-      {/* <button
-        disabled={currentPlan}
-        type="button"
-        className="inline-flex w-full justify-center rounded bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
-      >
-        {props.texts.buttonText}
-      </button> */}
       <HawaButton
         onClick={props.onPlanClicked}
         margins="none"

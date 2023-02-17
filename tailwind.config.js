@@ -85,13 +85,15 @@ module.exports = {
           700: "var(--button-primary-700)"
         },
         buttonSecondary: {
+          300: "var(--button-secondary-300)",
           500: "var(--button-secondary-500)",
           700: "var(--button-secondary-700)"
         },
         layoutPrimary: {
           300: "var(--layout-primary-300)",
           500: "var(--layout-primary-500)",
-          700: "#b7aff7",
+          700: "var(--layout-primary-700)",
+          // 700: "#b7aff7",
           dark: "#251b73",
           1000: "#C4DEFD"
         },
