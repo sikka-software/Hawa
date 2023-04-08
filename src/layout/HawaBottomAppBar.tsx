@@ -24,8 +24,9 @@ export const HawaBottomAppBar: React.FunctionComponent<BottomAppBarTypes> = (
         className="flex w-full flex-row items-center justify-evenly rounded bg-gray-200"
         //   variant="outlined"
       >
-        {props.appBarContent.map((singleContent: any) => (
+        {props.appBarContent.map((singleContent: any, i) => (
           <div
+            key={i}
             className="m-1 flex h-full w-full flex-col items-center justify-center rounded p-2 transition-all hover:cursor-pointer hover:bg-buttonPrimary-700 hover:text-white"
             onClick={singleContent.action}
           >

@@ -90,8 +90,9 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
           <div className="text-sm font-normal">{description}</div>
           {actions && (
             <div className="mt-2 flex flex-row gap-2">
-              {actions.map((act) => (
+              {actions.map((act, i) => (
                 <HawaButton
+                  key={i}
                   variant={act.variant}
                   onClick={act.onClick()}
                   margins="none"

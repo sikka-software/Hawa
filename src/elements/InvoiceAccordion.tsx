@@ -101,8 +101,8 @@ export const InvoiceAccordion: React.FunctionComponent<
           )}
         >
           <div className="border-b pb-2">{props.invoiceDescription}</div>
-          {props.products?.map((product) => (
-            <div className="flex flex-row border-b  pb-4">
+          {props.products?.map((product, i) => (
+            <div key={i} className="flex flex-row border-b  pb-4">
               <div className="w-full">
                 <InvoiceItemProp start label={texts.plan} text={product.plan} />
               </div>

@@ -127,9 +127,9 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
       </ul>
 
       <div className="flex-1 transition-all">
-        {props.options.map((tab) => (
+        {props.options.map((tab, i) => (
           <div
-            key={tab.value}
+            key={i}
             className={clsx(selectedOption === tab.value ? "" : "hidden")}
           >
             {tab.content}

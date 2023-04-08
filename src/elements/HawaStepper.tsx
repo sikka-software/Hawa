@@ -29,7 +29,10 @@ export const HawaStepper: React.FunctionComponent<THawaTimeline> = ({
     >
       {props.steps.map((step: any, i: number) => {
         return (
-          <div className="my-2 flex w-auto flex-row flex-wrap justify-start  ">
+          <div
+            key={i}
+            className="my-2 flex w-auto flex-row flex-wrap justify-start  "
+          >
             <div
               className={
                 orientation === "vertical"

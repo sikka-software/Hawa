@@ -21,8 +21,9 @@ export const AppSidebar: React.FC<Props> = ({ isOpen, onClose, items }) => {
           Close
         </button>
         <nav>
-          {items.map((item) => (
+          {items.map((item, i) => (
             <a
+              key={i}
               href="#"
               onClick={item.onClick}
               className="block p-4 font-bold text-white hover:bg-gray-700 hover:text-gray-400"

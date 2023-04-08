@@ -102,8 +102,11 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
       >
         {size > 600 ? (
           <div className="flex flex-row gap-2 ">
-            {props.navItems?.map(({ label }) => (
-              <div className="rounded bg-none p-2 transition-all hover:bg-gray-100">
+            {props.navItems?.map(({ label }, i) => (
+              <div
+                key={i}
+                className="rounded bg-none p-2 transition-all hover:bg-gray-100"
+              >
                 {label}
               </div>
             ))}

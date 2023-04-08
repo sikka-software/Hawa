@@ -40,9 +40,10 @@ export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
         </ul>
       </div>
       <div id="myTabContent">
-        {props.options.map((option: any) => {
+        {props.options.map((option: any, indx) => {
           return (
             <div
+              key={indx}
               className="rounded bg-gray-50 p-4 dark:bg-gray-800"
               id={option.value}
               role="tabpanel"

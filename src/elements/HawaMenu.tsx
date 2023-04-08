@@ -175,13 +175,17 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
               key={o}
               className="bg-layout-1200 flex flex-col gap-1 p-1 text-gray-700 dark:text-gray-200"
             >
-              {group?.map((item) => {
+              {group?.map((item, indx) => {
                 return item.element ? (
-                  <li className="cursor-pointer items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white">
+                  <li
+                    key={indx}
+                    className="cursor-pointer items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
                     {item.element}
                   </li>
                 ) : (
                   <li
+                    key={indx}
                     onClick={() => item?.action(actionedItem)}
                     className={clsx(
                       item.isButton

@@ -24,11 +24,12 @@ export const SubsectionList: React.FunctionComponent<SubsectionListTypes> = ({
   const [selectedSection, setSelectedSection] = useState(null)
   return (
     <div className="w-full max-w-2xs rounded bg-layoutPrimary-500 p-4 ">
-      {subsections.map((ss) => (
-        <div className="my-0">
+      {subsections.map((ss, i) => (
+        <div key={i} className="my-0">
           {ss.title && <div className="my-4 font-bold">{ss.title}</div>}
-          {ss.sections.map((s) => (
+          {ss.sections.map((s, i) => (
             <SubsectionItem
+              key={i}
               onItemClick={() => setSelectedSection(s.value)}
               selected={selectedSection}
               value={s.value}

@@ -333,9 +333,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           </div>
           {/* Drawer Items */}
           <div className="mt-14 mb-8">
-            {props.drawerItems?.map((dSection, j) => (
+            {props.drawerItems?.map((dSection, dIndex) => (
               <div
-                key={j}
+                key={dIndex}
                 className={clsx("flex flex-col items-stretch justify-center")}
               >
                 {dSection?.map((dItem, i) => {
@@ -435,7 +435,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                     </div>
                   )
                 })}
-                {j !== props.drawerItems.length - 1 && (
+                {dIndex !== props.drawerItems.length - 1 && (
                   <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-500 text-center "></div>
                 )}
               </div>

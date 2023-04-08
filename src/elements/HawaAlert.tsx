@@ -87,8 +87,9 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
       <span>{" " + props.text}</span>
       {props.actions && (
         <div className="mt-2 flex flex-row gap-2">
-          {props.actions.map((act) => (
+          {props.actions.map((act, index) => (
             <HawaButton
+              key={index}
               variant={act.variant}
               onClick={act.onClick()}
               margins="none"
