@@ -67,6 +67,7 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
         </div>
         <div className="rounded border border-gray-300">
           <HawaTable
+            pagination={false}
             direction={isArabic ? "rtl" : "ltr"}
             columns={[
               { hidden: false, value: "Product" },

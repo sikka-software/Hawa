@@ -406,8 +406,9 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                                 : 0,
                           }}
                         >
-                          {dItem.subItems?.map((subIt) => (
+                          {dItem.subItems?.map((subIt, s) => (
                             <div
+                              key={s}
                               className={clsx(
                                 "flex flex-row gap-2 overflow-x-clip  rounded p-2 px-2 text-xs",
                                 isRTL ? "text-right" : "text-left",

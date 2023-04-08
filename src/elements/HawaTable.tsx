@@ -11,6 +11,7 @@ import { BsChevronRight, BsFilter, BsPlus, BsThreeDots } from "react-icons/bs"
 // TODO: pass the onSearch handler to the parent
 
 type TableTypes = {
+  pagination?: boolean
   columns: any[string]
   actions?: ActionItems[][]
   direction?: "rtl" | "ltr"
@@ -47,6 +48,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   highlightFirst = false,
   direction = "ltr",
   bordersWidth = "1",
+  pagination = true,
   ...props
 }) => {
   const [perPage, setPerPage] = useState(10)
@@ -256,71 +258,92 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
         </table>
       </div>
 
-      <div className="flex flex-row items-center justify-between ">
-        {/* Pagination Pages  */}
-        {range.length > 1 ? (
-          <div className="flex w-fit  flex-row items-stretch justify-center gap-2 overflow-clip rounded ">
-            {/* Previous Page Button */}
-            <div
-              className={clsx(
-                "flex h-6 w-6 rotate-180 items-center justify-center rounded bg-gray-100 p-1  text-xs hover:bg-layoutPrimary-700 "
-              )}
-              onClick={() =>
-                page <= 1 ? setPage(range.length) : setPage(page - 1)
-              }
-            >
-              <BsChevronRight />
-            </div>
-            {/* Numbered Pagination */}
-            <div className="flex flex-row items-center  overflow-clip rounded  transition-all">
-              {/* The first page */}
-              {range.length > 6 &&
-                range.map((el, index) => {
-                  if (index <= 0) {
-                    return (
-                      <button
-                        key={index}
-                        className={clsx(
-                          "w-10 p-1 text-xs hover:bg-gray-200",
-                          page === el
-                            ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
-                            : "bg-gray-100"
-                        )}
-                        onClick={() => setPage(el)}
-                      >
-                        {el}
-                      </button>
-                    )
-                  }
-                })}
-              {/* The Current Page / Input  */}
-              {range?.length > 6 && (
-                <input
-                  type={"text"}
-                  className=" w-10  bg-gray-100 p-1 text-center text-xs"
-                  defaultValue={
-                    page !== 0 || page !== range.length - 1 ? page : "..."
-                  }
-                  value={
-                    page == 1 || page == range.length
-                      ? "..."
-                      : enteredPage
-                      ? enteredPage
-                      : page
-                  }
-                  onChange={(e) => setEnteredPage(parseInt(e.target.value))}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      setPage(enteredPage)
-                      setEnteredPage(null)
+      {pagination && (
+        <div className="flex flex-row items-center justify-between ">
+          {/* Pagination Pages  */}
+          {range.length > 1 ? (
+            <div className="flex w-fit  flex-row items-stretch justify-center gap-2 overflow-clip rounded ">
+              {/* Previous Page Button */}
+              <div
+                className={clsx(
+                  "flex h-6 w-6 rotate-180 items-center justify-center rounded bg-gray-100 p-1  text-xs hover:bg-layoutPrimary-700 "
+                )}
+                onClick={() =>
+                  page <= 1 ? setPage(range.length) : setPage(page - 1)
+                }
+              >
+                <BsChevronRight />
+              </div>
+              {/* Numbered Pagination */}
+              <div className="flex flex-row items-center  overflow-clip rounded  transition-all">
+                {/* The first page */}
+                {range.length > 6 &&
+                  range.map((el, index) => {
+                    if (index <= 0) {
+                      return (
+                        <button
+                          key={index}
+                          className={clsx(
+                            "w-10 p-1 text-xs hover:bg-gray-200",
+                            page === el
+                              ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
+                              : "bg-gray-100"
+                          )}
+                          onClick={() => setPage(el)}
+                        >
+                          {el}
+                        </button>
+                      )
                     }
-                  }}
-                />
-              )}
-              {/* The last page */}
-              {range?.length > 6 &&
-                range.map((el, index) => {
-                  if (index >= range.length - 1) {
+                  })}
+                {/* The Current Page / Input  */}
+                {range?.length > 6 && (
+                  <input
+                    type={"text"}
+                    className=" w-10  bg-gray-100 p-1 text-center text-xs"
+                    defaultValue={
+                      page !== 0 || page !== range.length - 1 ? page : "..."
+                    }
+                    value={
+                      page == 1 || page == range.length
+                        ? "..."
+                        : enteredPage
+                        ? enteredPage
+                        : page
+                    }
+                    onChange={(e) => setEnteredPage(parseInt(e.target.value))}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        setPage(enteredPage)
+                        setEnteredPage(null)
+                      }
+                    }}
+                  />
+                )}
+                {/* The last page */}
+                {range?.length > 6 &&
+                  range.map((el, index) => {
+                    if (index >= range.length - 1) {
+                      return (
+                        <button
+                          key={index}
+                          className={clsx(
+                            "w-10 p-1 text-xs hover:bg-gray-200",
+                            page === el
+                              ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
+                              : "bg-gray-100"
+                          )}
+                          onClick={() => setPage(el)}
+                        >
+                          {el}
+                        </button>
+                      )
+                    }
+                  })}
+
+                {/* All Pages if less than 6 pages */}
+                {range?.length <= 6 &&
+                  range.map((el, index) => {
                     return (
                       <button
                         key={index}
@@ -335,78 +358,59 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                         {el}
                       </button>
                     )
-                  }
-                })}
+                  })}
+              </div>
+              {/* Next Page Button */}
+              <div
+                onClick={() =>
+                  page >= range.length ? setPage(1) : setPage(page + 1)
+                }
+                className={clsx(
+                  "flex h-6 w-6 items-center  justify-center rounded bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700 "
+                )}
+              >
+                <BsChevronRight />
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {/* Pagination Settings */}
+          {props.rows ? (
+            <div className="flex w-fit flex-row items-center gap-2 ">
+              <div className="text-xs ">
+                {props.rows.length} {props.texts?.items ?? "Items"}
+              </div>
 
-              {/* All Pages if less than 6 pages */}
-              {range?.length <= 6 &&
-                range.map((el, index) => {
-                  return (
-                    <button
-                      key={index}
-                      className={clsx(
-                        "w-10 p-1 text-xs hover:bg-gray-200",
-                        page === el
-                          ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
-                          : "bg-gray-100"
-                      )}
-                      onClick={() => setPage(el)}
-                    >
-                      {el}
-                    </button>
-                  )
-                })}
+              <select
+                value={perPage}
+                className="h-6 rounded text-xs"
+                onChange={(e) => {
+                  setPerPage(parseInt(e.target.value))
+                }}
+              >
+                <option value={10} style={{ fontSize: 10 }}>
+                  10 / {props.texts?.page ?? "Page"}
+                </option>
+                <option value={20} style={{ fontSize: 10 }}>
+                  20 / {props.texts?.page ?? "Page"}
+                </option>
+                <option value={30} style={{ fontSize: 10 }}>
+                  30 / {props.texts?.page ?? "Page"}
+                </option>
+                <option value={50} style={{ fontSize: 10 }}>
+                  50 / {props.texts?.page ?? "Page"}
+                </option>
+                <option value={100} style={{ fontSize: 10 }}>
+                  100 / {props.texts?.page ?? "Page"}
+                </option>
+              </select>
             </div>
-            {/* Next Page Button */}
-            <div
-              onClick={() =>
-                page >= range.length ? setPage(1) : setPage(page + 1)
-              }
-              className={clsx(
-                "flex h-6 w-6 items-center  justify-center rounded bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700 "
-              )}
-            >
-              <BsChevronRight />
-            </div>
-          </div>
-        ) : (
-          <div></div>
-        )}
-        {/* Pagination Settings */}
-        {props.rows ? (
-          <div className="flex w-fit flex-row items-center gap-2 ">
-            <div className="text-xs ">
-              {props.rows.length} {props.texts?.items ?? "Items"}
-            </div>
-
-            <select
-              value={perPage}
-              className="h-6 rounded text-xs"
-              onChange={(e) => {
-                setPerPage(parseInt(e.target.value))
-              }}
-            >
-              <option value={10} style={{ fontSize: 10 }}>
-                10 / {props.texts?.page ?? "Page"}
-              </option>
-              <option value={20} style={{ fontSize: 10 }}>
-                20 / {props.texts?.page ?? "Page"}
-              </option>
-              <option value={30} style={{ fontSize: 10 }}>
-                30 / {props.texts?.page ?? "Page"}
-              </option>
-              <option value={50} style={{ fontSize: 10 }}>
-                50 / {props.texts?.page ?? "Page"}
-              </option>
-              <option value={100} style={{ fontSize: 10 }}>
-                100 / {props.texts?.page ?? "Page"}
-              </option>
-            </select>
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
+      )}
     </div>
   )
 }

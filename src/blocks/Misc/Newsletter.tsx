@@ -21,10 +21,10 @@ export const Newsletter: React.FunctionComponent<TNewsletter> = ({
     <HawaContainer variant={variant} centered={true}>
       <div className="p-4 pt-0">
         <h1 className="font-bold">
-          {texts.wantToStayUpdated ?? "Want to stay updated?"}
+          {texts?.wantToStayUpdated ?? "Want to stay updated?"}
         </h1>
         <span>
-          {texts.subscribeToNewsletter ?? "Subscribe to our newsletter"}
+          {texts?.subscribeToNewsletter ?? "Subscribe to our newsletter"}
         </span>
       </div>
       <form
@@ -42,7 +42,7 @@ export const Newsletter: React.FunctionComponent<TNewsletter> = ({
           margin="none"
         />
         <HawaButton size="full" margins="none">
-          {texts.submit ?? "Submit"}
+          {texts?.submit ?? "Submit"}
         </HawaButton>
       </form>
     </HawaContainer>

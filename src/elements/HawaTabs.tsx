@@ -5,7 +5,7 @@ import React, { useState } from "react"
 
 type TabsTypes = {
   options?: any
-  onChangeTab?: any
+  onChangeTab?: (option) => void
   defaultValue?: any
   orientation?: "horizontal" | "vertical"
   direction?: "rtl" | "ltr"
@@ -101,7 +101,7 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
               aria-current="page"
               onClick={() => {
                 setSelectedOption(opt.value)
-                props.onChangeTab(opt)
+                props?.onChangeTab(opt)
               }}
               className={clsx(
                 opt.value === selectedOption
