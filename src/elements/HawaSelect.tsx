@@ -96,7 +96,10 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 // The main element
 type SelectTypes = {
   label?: string
-  options?: any[any]
+  options?: {
+    value: any
+    label: any
+  }[]
   isCreatable?: boolean
   isClearable?: boolean
   isMulti?: boolean

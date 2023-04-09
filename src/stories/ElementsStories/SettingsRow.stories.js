@@ -1,5 +1,6 @@
 // import { Canvas, Meta, Story } from "@storybook/addon-docs";
 // import { LinkTo, linkTo } from "@storybook/addon-links";
+import { Controller, useForm } from "react-hook-form";
 import { HawaSettingsRow } from "../../elements";
 import { useState } from "react";
 // import { HawaRadio } from "../../elements/HawaRadio";
@@ -71,7 +72,6 @@ export const RadioSettings = (args) => {
     <HawaSettingsRow
       settingsType="radio"
       settingsLabel="Radio Setting"
-      
       radioProps={{
         options: allOptions,
         onChangeTab: () => console.log(),
@@ -93,6 +93,34 @@ export const ColorSettings = (args) => {
         },
         color: currentColor
       }}
+    />
+  );
+};
+export const SelectSettings = (args) => {
+  const [currentColor, setCurrentColor] = useState("#f0f049");
+  const methods = useForm();
+  const {
+    formState: { errors },
+    handleSubmit,
+    control
+  } = methods;
+
+  return (
+    <Controller
+      control={control}
+      name="reference"
+      render={({ field }) => (
+        <HawaSettingsRow
+          settingsType="select"
+          settingsLabel="Color Setting"
+          selectProps={{
+            options: [{ value: "test", label: "Test 1" }],
+            onChange: (e) => {
+              field.onChange(e.value);
+            }
+          }}
+        />
+      )}
     />
   );
 };
