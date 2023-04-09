@@ -50,7 +50,8 @@ export const HawaButton: React.FunctionComponent<ButtonProps> = ({
   badge,
   ...props
 }) => {
-  const baseStyles = "cursor-pointer font-medium rounded h-full  transition-all"
+  const baseStyles =
+    "cursor-pointer h-[2.36rem] justify-center items-center text-center font-medium rounded transition-all"
 
   const sizeStyles = {
     xs: "px-1 py-1",

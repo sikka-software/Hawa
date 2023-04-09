@@ -23,7 +23,7 @@ const Control: React.FunctionComponent<ControlTypes> = ({
 }) => {
   let sizeStyles = {
     small: "h-7 text-xs",
-    normal: "h-[2.33rem]  text-sm",
+    normal: "h-[2.36rem]  text-sm",
     large: "",
   }
   return (
