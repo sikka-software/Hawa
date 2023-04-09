@@ -53,6 +53,8 @@ TextField.args = {
   label: "Label test",
   helperText: "something invalid",
   placeholder: "input placeholder",
+  value: "3434",
+  preview: true,
   type: "text"
 };
 
