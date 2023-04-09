@@ -102,7 +102,13 @@ PinInput.args = {
 };
 
 export const SelectInput = (args) => {
-  return <HawaSelect {...args} />;
+  return (
+    <div className="grid grid-cols-3">
+      <HawaTextField {...args} width="full" label="Full Width" />
+
+      <HawaSelect {...args} />
+    </div>
+  );
 };
 
 SelectInput.args = {

@@ -8,6 +8,7 @@ import { HawaRadio } from "./HawaRadio"
 type SettingsRowTypes = {
   settingsLabel: string
   settingsType: "text" | "radio" | "boolean" | "color" | "range"
+  settingsDescription?: string
   radioProps: {
     defaultValue: any
     onChangeTab: any
@@ -26,6 +27,7 @@ type SettingsRowTypes = {
 export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
   settingsLabel,
   settingsType,
+  settingsDescription,
   colorProps,
   rangeProps,
   radioProps,
@@ -34,7 +36,9 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
     <div className="my-0.5  flex h-20 max-h-fit flex-row items-center justify-between rounded bg-white p-6 align-middle">
       <div>
         <div>{settingsLabel}</div>
-        <div className="text-sm">Text here like a description</div>
+        {settingsDescription && (
+          <div className="text-sm">{settingsDescription}</div>
+        )}{" "}
       </div>
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
       {settingsType === "boolean" && <HawaSwitch size="large" />}

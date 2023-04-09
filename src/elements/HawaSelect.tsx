@@ -23,7 +23,7 @@ const Control: React.FunctionComponent<ControlTypes> = ({
 }) => {
   let sizeStyles = {
     small: "h-7 text-xs",
-    normal: "h-10  text-sm",
+    normal: "h-[2.33rem]  text-sm",
     large: "",
   }
   return (
@@ -109,6 +109,7 @@ type SelectTypes = {
   value?: any
   children?: any
   getOptionLabel?: any
+  disabled?: boolean
 }
 export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
   return (
@@ -120,6 +121,7 @@ export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
       )}
       {!props.isCreatable && (
         <Select
+          isDisabled={props.disabled}
           options={props.options}
           isClearable={props.isClearable}
           isMulti={props.isMulti}
