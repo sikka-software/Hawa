@@ -35,16 +35,17 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
     large: "mb-5",
   }
   let widthStyles = {
-    small: "w-full max-w-xs",
+
+    small: "w-full max-w-2xs",
     normal: "w-1/2",
     full: "w-full",
   }
 
   let defaultStyle = "flex h-fit max-h-fit flex-col justify-center"
   let defaultInputStyle =
-    "block w-full rounded border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+    "block w-full rounded border border-gray-300 bg-white p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
   let previewInputStyle =
-    "block w-full rounded border border-gray-300  p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+    "block w-full rounded bg-gray-50  p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
   // "mb-0 block w-full rounded border border-gray-300 bg-gray-50 p-2  text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500",
 
   return (

@@ -18,60 +18,66 @@ export default {
 };
 export const UserSettings = (args) => {
   return (
-    <UserSettingsForm
-      {...args}
-      saveSettingsText="Save Settings"
-      handleSaveSettings={() => console.log("saving settings")}
-    >
-      <div className="mb-3 text-sm font-bold">Primary Settings</div>
-      <HawaSettingsRow
-        settingsType="boolean"
-        settingsLabel="Hide Watermark"
-        onChange={(e) =>
-          console.log("checkbox settings value is ", e.target.checked)
-        }
-      />
-      <HawaSettingsRow
-        settingsType="text"
-        placeholder="Your handle"
-        settingsLabel="Custom Handle"
-        onChange={(e) => console.log("text settings value is ", e.target.value)}
-      />
-      <HawaSettingsRow
-        settingsType="radio"
-        settingsLabel="Currency"
-        radioProps={{
-          onChangeTab: () => console.log("changing tab"),
-          defaultValue: "sar",
-          options: [
-            { value: "sar", label: "SAR" },
-            { value: "usd", label: "USD" }
-          ]
-        }}
-      />
-      <div className="my-3 text-sm font-bold">Primary Settings</div>
-
-      <HawaSettingsRow
-        settingsType="radio"
-        settingsLabel="Language"
-        radioProps={{
-          onChangeTab: () => console.log("changing tab"),
-          defaultValue: "en",
-          options: [
-            { value: "en", label: "English" },
-            { value: "ar", label: "Arabic" }
-          ]
-        }}
-      />
-      <HawaSettingsRow
-        settingsType="boolean"
-        placeholder="Your handle"
-        settingsLabel="Show Analytics"
-        onChange={(e) => console.log("changing to ", e.target.checked)}
-      />
-    </UserSettingsForm>
+    <div className="flex flex-col gap-2">
+      <UserSettingsForm
+        saveSettingsText="Save Settings"
+        blockTitle="General Settings"
+        handleSaveSettings={() => console.log("saving settings")}
+      >
+        <HawaSettingsRow
+          settingsType="boolean"
+          settingsLabel="Hide Watermark"
+          settingsDescription="hide the watermark from exported documents"
+          onChange={(e) =>
+            console.log("checkbox settings value is ", e.target.checked)
+          }
+          />
+        <HawaSettingsRow
+          settingsType="text"
+          placeholder="Your handle"
+          settingsLabel="Custom Handle"
+          settingsDescription="hide the watermark from exported documents"
+          onChange={(e) =>
+            console.log("text settings value is ", e.target.value)
+          }
+        />
+        <HawaSettingsRow
+          settingsType="radio"
+          settingsLabel="Currency"
+          radioProps={{
+            onChangeTab: () => console.log("changing tab"),
+            defaultValue: "sar",
+            options: [
+              { value: "sar", label: "SAR" },
+              { value: "usd", label: "USD" }
+            ]
+          }}
+        />
+      </UserSettingsForm>
+      <UserSettingsForm
+        saveSettingsText="Save Settings"
+        blockTitle="Secondary Settings"
+        handleSaveSettings={() => console.log("saving settings")}
+      >
+        <HawaSettingsRow
+          settingsType="radio"
+          settingsLabel="Language"
+          radioProps={{
+            onChangeTab: () => console.log("changing tab"),
+            defaultValue: "en",
+            options: [
+              { value: "en", label: "English" },
+              { value: "ar", label: "Arabic" }
+            ]
+          }}
+        />
+        <HawaSettingsRow
+          settingsType="boolean"
+          placeholder="Your handle"
+          settingsLabel="Show Analytics"
+          onChange={(e) => console.log("changing to ", e.target.checked)}
+        />
+      </UserSettingsForm>
+    </div>
   );
-};
-UserSettings.args = {
-  title: "red"
 };

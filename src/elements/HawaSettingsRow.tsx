@@ -22,6 +22,9 @@ type SettingsRowTypes = {
     min?: any
     max?: any
   }
+  switchProps: {
+    size: "small" | "normal" | "large"
+  }
 }
 
 export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
@@ -31,17 +34,18 @@ export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
   colorProps,
   rangeProps,
   radioProps,
+  switchProps,
 }) => {
   return (
-    <div className="my-0.5  flex h-20 max-h-fit flex-row items-center justify-between rounded bg-white p-6 align-middle">
+    <div className="flex max-h-fit flex-row items-center justify-between rounded  align-middle">
       <div>
-        <div>{settingsLabel}</div>
+        <div className="text-sm">{settingsLabel}</div>
         {settingsDescription && (
-          <div className="text-sm">{settingsDescription}</div>
+          <div className="text-xs">{settingsDescription}</div>
         )}{" "}
       </div>
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
-      {settingsType === "boolean" && <HawaSwitch size="large" />}
+      {settingsType === "boolean" && <HawaSwitch {...switchProps} />}
       {settingsType === "range" && <HawaRange {...rangeProps} />}
       {settingsType === "color" && <HawaColorPicker {...colorProps} />}
       {settingsType === "radio" && <HawaRadio {...radioProps} />}
