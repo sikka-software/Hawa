@@ -7,21 +7,30 @@ type StatTypes = {
   number?: string
   helperText?: string
   variant?: "plain" | "contained" | "outlined"
+  width?: "full" | "min" | "normal"
   isLoading?: boolean
   handleClick?: () => void
 }
 export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
-  let defaultStyle =
-    "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
+  let defaultStyle = "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
     contained: "bg-layoutPrimary-500 w-fit",
     outlined: "ring-2 w-fit",
   }
+  let widthStyles = {
+    full: "w-full",
+    min: "w-fit",
+    normal: "w-full max-w-[200px]",
+  }
   return (
     <div
       onClick={props.handleClick}
-      className={clsx(defaultStyle, statStyles[props.variant])}
+      className={clsx(
+        defaultStyle,
+        widthStyles[props.width],
+        statStyles[props.variant]
+      )}
     >
       <div>{props.label}</div>
       {props.isLoading ? (

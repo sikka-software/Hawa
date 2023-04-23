@@ -27,12 +27,13 @@ export default {
 
 const Template = (args) => {
   return (
-    <div className="flex flex-wrap items-start justify-start gap-2">
+    <div className="grid grid-cols-2 gap-2 bg-red-300">
+      {/* <div className="flex flex-wrap items-start justify-start gap-2 bg-red-300"> */}
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
-      <HawaStats {...args} />
+      <HawaStats {...args} number={"SAR " + '4,392,888'} />
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
@@ -45,6 +46,7 @@ const Template = (args) => {
 export const Stats = Template.bind({});
 Stats.args = {
   label: "Profit",
+  width: "min",
   number: "SAR 333.22",
   variant: "contained",
   helperText: "warning"
