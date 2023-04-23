@@ -108,7 +108,7 @@ type SelectTypes = {
   helperText?: any
   onInputChange?: any
   native?: any
-  fullWidth?: any
+  width?: "full" | "small"
   value?: any
   children?: any
   getOptionLabel?: any
