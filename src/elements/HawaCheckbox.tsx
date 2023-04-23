@@ -7,16 +7,17 @@ type TCheckBoxTypes = {
   helperText?: any
   id: string
   onChange?: (e) => void
+  val?: boolean
 }
 
 export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (
   props
 ) => {
-  const [val, setVal] = useState(false)
+  const [isChecked, setVal] = useState(props.val)
 
   useEffect(() => {
-    props.onChange(val)
-  }, [val])
+    props.onChange(isChecked)
+  }, [isChecked])
   return (
     <div
       className={clsx(
@@ -27,7 +28,7 @@ export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (
     >
       <input
         type="checkbox"
-        checked={val}
+        checked={isChecked}
         onChange={(e) => setVal(e.target.checked)}
         id={props.id}
         aria-label={props.label}
@@ -36,7 +37,7 @@ export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (
       {(props.label || props.helperText) && (
         <div
           className=" flex cursor-pointer flex-col py-2"
-          onClick={(e) => setVal(!val)}
+          onClick={(e) => setVal(!isChecked)}
         >
           {props.label && (
             <label className="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
