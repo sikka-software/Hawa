@@ -27,6 +27,7 @@ type TableTypes = {
     noData?: any
     items?: string
     page?: string
+    filter?: string
   }
   bordersWidth?: string
   onActionClicked?: any
@@ -76,30 +77,33 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   }
 
   return (
-    <div className="relative flex flex-col gap-2 ">
+    <div className="relative flex flex-col gap-2 overflow-auto ">
       <div className="rounded bg-gray-200">
         {props.headerTools && (
-          <div className="flex flex-row items-center justify-between px-4 py-2">
-            <div className="w-1/2">
-              <HawaTextField
-                icon={<FaSearch color="gray" />}
-                placeholder={"Search"}
-                width="full"
-                margin="none"
-              />
-            </div>
+          <div className="flex flex-row items-center justify-between gap-2 px-4 py-2">
+            {/* <div className="w-1/2">
+            </div> */}
+            <HawaTextField
+              icon={<FaSearch color="gray" />}
+              placeholder={"Search"}
+              width="full"
+              margin="none"
+            />
             <div className="flex flex-row items-center justify-between gap-2">
-              <HawaButton startIcon={<BsPlus />}>Add Item</HawaButton>
-              <HawaButton startIcon={<BsChevronRight />}>Actions</HawaButton>
+              {/* <HawaButton startIcon={<BsPlus />}>Add Item</HawaButton> */}
+              {/* <HawaButton startIcon={<BsChevronRight />}>Actions</HawaButton> */}
               <HawaButton startIcon={<BsFilter />} endIcon={<BsChevronRight />}>
-                Filter
+                {props.texts?.filter ?? "Filter"}
               </HawaButton>
             </div>
           </div>
         )}
         <table
           className={clsx(
-            "w-full rounded bg-gray-300 text-left text-sm text-gray-500 dark:text-gray-400"
+            borders === "outer" || borders === "all"
+              ? `outline outline-gray-300 -outline-offset-${bordersWidth}`
+              : "",
+            "w-full  rounded  bg-gray-300 text-left text-sm text-gray-500 dark:text-gray-400"
           )}
         >
           <thead className="  text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -115,8 +119,11 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                       colSpan={2}
                       className={clsx(
                         sizeStyles[size],
-                        i !== 0 && (borders === "cols" || borders === "all")
-                          ? `border-l border-l-[${bordersWidth}px]`
+                        i !== 0 &&
+                          (borders === "cols" ||
+                            borders === "all" ||
+                            borders === "inner")
+                          ? `border-r border-r-[${bordersWidth}px] border-l border-l-[${bordersWidth}px]`
                           : ""
                       )}
                     >
@@ -176,6 +183,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                             colSpan={2}
                             key={i}
                             className={clsx(
+                              // borders === "outer" ? "border" : "",
                               sizeStyles[size],
                               highlightFirst && firstCell
                                 ? "font-bold"
@@ -192,14 +200,17 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
 
                               !firstCell &&
                                 !lastCell &&
-                                (borders === "cols" || borders === "inner")
+                                (borders === "cols" ||
+                                  borders === "inner" ||
+                                  borders === "all")
                                 ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
                                 : !firstCell &&
                                   props.actions &&
-                                  (borders === "cols" || borders === "inner")
+                                  (borders === "cols" ||
+                                    borders === "inner" ||
+                                    borders === "all")
                                 ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
                                 : ""
-
                               // customColor ? `bg-${customColor}` : "bg-white"
                             )}
                           >
