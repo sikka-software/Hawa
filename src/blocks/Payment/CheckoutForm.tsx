@@ -235,7 +235,6 @@ export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
                 rules={{ required: props.texts?.required }}
                 render={({ field }) => (
                   <HawaSelect
-                    fullWidth
                     native
                     label={props.texts?.countryLabel + " *"}
                     helperText={errors.country?.message}
