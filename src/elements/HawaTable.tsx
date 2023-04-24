@@ -77,8 +77,8 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
   }
 
   return (
-    <div className="relative flex flex-col gap-2 overflow-auto ">
-      <div className="rounded bg-gray-200">
+    <div className="relative flex flex-col gap-2 ">
+      <div className="overflow-x-auto rounded  bg-gray-200">
         {props.headerTools && (
           <div className="flex flex-row items-center justify-between gap-2 px-4 py-2">
             {/* <div className="w-1/2">
@@ -101,7 +101,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
         <table
           className={clsx(
             borders === "outer" || borders === "all"
-              ? `outline outline-gray-300 -outline-offset-${bordersWidth}`
+              ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300`
               : "",
             "w-full  rounded  bg-gray-300 text-left text-sm text-gray-500 dark:text-gray-400"
           )}
@@ -191,9 +191,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                               isRTLFirstCell
                                 ? "rounded-bl-none rounded-br"
                                 : isRTLLastCell
-                                ? "rounded-br-none rounded-bl"
+                                ? "rounded-bl rounded-br-none"
                                 : isLTRFirstCell
-                                ? "rounded-br-none rounded-bl"
+                                ? "rounded-bl rounded-br-none"
                                 : isLTRLastCell
                                 ? "rounded-bl-none rounded-br"
                                 : "",
@@ -223,7 +223,7 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                       <td
                         align={isRTL ? "right" : "left"}
                         className={clsx(
-                          isRTL && lastRow ? "rounded-br-none rounded-bl" : "",
+                          isRTL && lastRow ? "rounded-bl rounded-br-none" : "",
                           !isRTL && lastRow ? "rounded-bl-none rounded-br" : ""
                           // "w-fit bg-red-400"
                         )}

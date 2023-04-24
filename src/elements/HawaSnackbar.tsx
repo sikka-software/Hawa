@@ -85,7 +85,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
           closed ? "opacity-0" : "opacity-100"
         )}
       >
-        <div className="p-3">
+        <div className="p-3 w-full">
           <div className="text-sm font-bold">{title}</div>
           <div className="text-sm font-normal">{description}</div>
           {actions && (
@@ -105,7 +105,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
         </div>
         <button
           type="button"
-          className="inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="inline-flex h-8 w-8 rounded p-1.5 right-0 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
           data-dismiss-target="#toast-default"
           aria-label="Close"
           onClick={() => setClosed(true)}
