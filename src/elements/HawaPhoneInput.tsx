@@ -20,10 +20,13 @@ const Option: React.FunctionComponent<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded p-1 px-3 hover:bg-blue-200"
+    className="m-2 flex flex-row items-center justify-between rounded p-1 px-2 hover:bg-blue-200"
     {...innerProps}
   >
-    <img className="h-8 w-8" src={props.data.image}></img>
+    <div className="flex flex-row items-center justify-center gap-1">
+      <img className="h-8 w-8" src={props.data.image}></img>
+      <span className="text-[10px]">{props.data.country_label}</span>
+    </div>
     {children}
   </div>
 )

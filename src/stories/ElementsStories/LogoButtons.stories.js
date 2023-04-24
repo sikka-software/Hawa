@@ -2,7 +2,7 @@ import React from "react";
 import {  HawaLogoButton } from "../../elements";
 
 export default {
-  title: "Elements/Buttons/LogoButtons",
+  title: "Elements/Buttons/Logo Buttons",
   component: HawaLogoButton,
   argTypes: {
     lang: {
