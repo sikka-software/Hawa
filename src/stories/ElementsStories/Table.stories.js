@@ -177,10 +177,10 @@ export const DataWithActions = (args) => {
   }
 
   return (
-    <div dir="ltr" className="">
+    <div dir="ltr" className="bg-red-400">
+      <div>something here</div>
       <HawaTable
         direction="ltr"
-        actionsText="Actions"
         actions={[
           [
             { label: "View", action: (e) => console.log("viewing", e) },
@@ -191,11 +191,11 @@ export const DataWithActions = (args) => {
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
         // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
-        noDataText={"No data"}
         size={args.size}
         rows={dummyRowData}
         {...args}
       />
+      <div>something here</div>
     </div>
   );
 };
