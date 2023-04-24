@@ -177,8 +177,7 @@ export const DataWithActions = (args) => {
   }
 
   return (
-    <div dir="ltr" className="bg-red-400">
-      <div>something here</div>
+    <div dir="ltr" className="">
       <HawaTable
         direction="ltr"
         actions={[
@@ -195,7 +194,6 @@ export const DataWithActions = (args) => {
         rows={dummyRowData}
         {...args}
       />
-      <div>something here</div>
     </div>
   );
 };

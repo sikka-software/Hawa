@@ -37,6 +37,7 @@ export * from "./HawaPinInput"
 export * from "./HawaItemCard"
 export * from "./HawaPricingCard"
 export * from "./HawaAdCard"
+export * from "./HawaLandingCard"
 //Buttons
 export * from "./HawaButton"
 export * from "./HawaLogoButton"
