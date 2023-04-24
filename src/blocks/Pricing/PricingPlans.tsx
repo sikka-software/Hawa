@@ -66,9 +66,10 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
       </div>
 
       <div className="flex flex-row justify-between">
-        {props.plans.map((plan: any) => {
+        {props.plans.map((plan: any, index) => {
           return (
             <HawaPricingCard
+              key={index}
               onPlanClicked={() => props.onPlanClicked(plan)}
               {...plan}
               texts={{
