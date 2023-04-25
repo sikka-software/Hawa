@@ -199,7 +199,7 @@ export const DataWithActions = (args) => {
 };
 DataWithActions.args = {
   borders: ["all"],
-  bordersWidth: 1
+  bordersWidth: 1,
 };
 
 export const RTL = (args) => {
