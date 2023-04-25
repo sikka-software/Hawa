@@ -7,19 +7,27 @@ import clsx from "clsx"
 type TextFieldTypes = {
   margin?: "none" | "normal" | "large"
   width?: "small" | "normal" | "full"
+  /** The label of the input field   */
   label?: any
-  multiline?: any
+  /** Disable/Enable multiple line text input field   */
+  multiline?: boolean
+  /** The small red text under the input field to show validation or a hint.   */
   helperText?: any
+  /** The value of the input field */
   value?: any
   props?: React.PropsWithRef<"input">
+  /** The type of input field. Same as the types of <input/> component   */
   type?: any
+  /** The placeholder of the input field  */
   placeholder?: any
   defaultValue?: any
   name?: any
   inputProps?: any
   onChange?: any
   ref?: any
+  /** The icon inside the input field */
   icon?: any
+  /** Boolean to enable/disable editing the input field and using it as a text field   */
   preview?: boolean
 }
 
@@ -77,7 +85,7 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
           ) : (
             <div className="relative">
               {props.icon && (
-                <div className="absolute top-1/2 left-3 -translate-y-1/2">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2">
                   {props.icon}
                 </div>
               )}
@@ -108,7 +116,7 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
           ) : (
             <div className="relative">
               {props.icon && (
-                <div className="absolute top-1/2 left-3 -translate-y-1/2">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2">
                   {props.icon}
                 </div>
               )}

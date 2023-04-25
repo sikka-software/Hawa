@@ -2,12 +2,31 @@ import React, { ReactElement, useEffect } from "react"
 import clsx from "clsx"
 
 type ModalTypes = {
+  /**
+   * The boolean to open and close the modal
+   */
   open: boolean
+  /**
+   * The title of the modal, it will appear in the header of the modal
+   */
   title: string
+  /**
+   * a function that's triggered when the modal is closed either by the clicking the close button or outside the modal.
+   * @returns void
+   */
   onClose: () => void
+  /**
+   * Boolean to enable/disable closing the modal upon clicking outside the modal
+   */
   closeOnClickOutside?: boolean
+  /**
+   * The id of the modal
+   */
   modalID?: string
   children: ReactElement
+  /**
+   * The array of actions for the modal, it will appear in the footer of the modal
+   */
   actions: any
 }
 export const HawaModal: React.FunctionComponent<ModalTypes> = ({
