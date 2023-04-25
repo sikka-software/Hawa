@@ -6,7 +6,8 @@ import {
   HawaSelect,
   HawaPhoneInput,
   HawaColorPicker,
-  HawaCardInput
+  HawaCardInput,
+  HawaDatepicker
 } from "../../elements";
 
 export default {
@@ -141,4 +142,11 @@ export const CardInput = (args) => {
 
 CardInput.args = {
   color: "#f0f0f0"
+};
+export const Datepicker = (args) => {
+  return <HawaDatepicker {...args} />;
+};
+
+Datepicker.args = {
+  // color: "#f0f0f0"
 };
