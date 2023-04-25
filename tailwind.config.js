@@ -13,7 +13,7 @@ module.exports = {
 
     extend: {
       boxShadow: {
-        neobrutalism: "10px 10px 0px 0px rgba(0,0,0,1);"
+        neobrutalism: "5px 5px 0px 0px rgba(0,0,0,1);"
       },
       maxWidth: {
         "2xs": "250px"

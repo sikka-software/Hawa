@@ -4,9 +4,10 @@ import { HawaSpinner } from "./HawaSpinner"
 
 type StatTypes = {
   label?: string
+  color?: string
   number?: string
   helperText?: string
-  variant?: "plain" | "contained" | "outlined"
+  variant?: "plain" | "contained" | "outlined" | "brutalist" | "dropshadow"
   width?: "full" | "min" | "normal"
   isLoading?: boolean
   handleClick?: () => void
@@ -15,8 +16,11 @@ export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
   let defaultStyle = "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
-    contained: "bg-layoutPrimary-500 w-fit",
+    contained: "bg-layoutPrimary-500",
+    // contained: props.color ? `bg-[${props.color}]` : "bg-layoutPrimary-500",
     outlined: "ring-2 w-fit",
+    neobrutalism: "shadow-neobrutalism  border-4 border-black  bg-white",
+    dropshadow: "bg-white drop-shadow-md",
   }
   let widthStyles = {
     full: "w-full",
@@ -31,6 +35,13 @@ export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
         widthStyles[props.width],
         statStyles[props.variant]
       )}
+      style={{
+        backgroundColor: props.color
+          ? props.color
+          : props.variant === "contained"
+          ? "var(--layout-primary-500)"
+          : "",
+      }}
     >
       <div>{props.label}</div>
       {props.isLoading ? (

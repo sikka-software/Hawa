@@ -20,20 +20,20 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["plain", "contained", "outlined"]
+      options: ["plain", "contained", "outlined", "dropshadow", "neobrutalism"]
     }
   }
 };
 
 const Template = (args) => {
   return (
-    <div className="grid grid-cols-2 gap-2 bg-red-300">
+    <div className="grid grid-cols-2 gap-2 ">
       {/* <div className="flex flex-wrap items-start justify-start gap-2 bg-red-300"> */}
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
-      <HawaStats {...args} number={"SAR " + '4,392,888'} />
+      <HawaStats {...args} number={"SAR " + "4,392,888"} />
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
@@ -46,8 +46,9 @@ const Template = (args) => {
 export const Stats = Template.bind({});
 Stats.args = {
   label: "Profit",
-  width: "min",
+  width: "full",
   number: "SAR 333.22",
-  variant: "contained",
-  helperText: "warning"
+  variant: "neobrutalism",
+  helperText: "warning",
+  // color:'#9a00ff'
 };
