@@ -1,7 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import { HawaPricingCard, HawaTabs } from "../../elements"
-
-// TODO: make lang into direction rtl | ltr
 
 type PricingPlansTypes = {
   plans: [
@@ -32,6 +30,14 @@ type PricingPlansTypes = {
     }
   ]
   onPlanClicked?: (e) => void
+  currentCycle: {
+    label: string
+    value: string
+  }
+  currentCurrency: {
+    label: string
+    value: string
+  }
   onCycleChange?: (e) => void
   onCurrencyChange?: (e) => void
   direction?: "rtl" | "ltr"
@@ -39,29 +45,20 @@ type PricingPlansTypes = {
 export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
   props
 ) => {
-  const [currentCurrency, setCurrentCurrency] = useState("SAR")
-  const [currentCycle, setCurrentCycle] = useState("month")
-
   return (
     <div>
       <div className="mb-2 flex w-full justify-between">
         <HawaTabs
           pill
-          defaultValue={currentCycle}
+          defaultValue={props.currentCycle}
           options={props.billingCycles}
-          onChangeTab={(e: any) => {
-            setCurrentCycle(e.label)
-            props.onCycleChange(e)
-          }}
+          onChangeTab={(e: any) => props.onCycleChange(e)}
         />
         <HawaTabs
           pill
-          defaultValue={currentCurrency}
+          defaultValue={props.currentCurrency}
           options={props.currencies}
-          onChangeTab={(e: any) => {
-            setCurrentCurrency(e.label)
-            props.onCurrencyChange(e)
-          }}
+          onChangeTab={(e: any) => props.onCurrencyChange(e)}
         />
       </div>
 
@@ -74,8 +71,8 @@ export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
               {...plan}
               texts={{
                 ...plan.texts,
-                currencyText: currentCurrency,
-                cycleText: currentCycle,
+                currencyText: props.currentCurrency,
+                cycleText: props.currentCycle,
               }}
             />
           )
