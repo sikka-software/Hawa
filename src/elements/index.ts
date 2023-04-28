@@ -30,6 +30,7 @@ export * from "./SubsectionList"
 export * from "./UsageCard"
 export * from "./InvoiceAccordion"
 export * from "./HawaDatepicker"
+export * from "./UserFeedback"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"

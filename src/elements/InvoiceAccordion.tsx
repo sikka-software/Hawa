@@ -73,7 +73,10 @@ export const InvoiceAccordion: React.FunctionComponent<
             <HiChevronRight fontSize={30} />
           </div>
         )}
-        <div className="flex w-full flex-col gap-0 ">
+        <div
+          className="flex w-full cursor-pointer flex-col gap-0"
+          onClick={() => setExpanded(!expanded)}
+        >
           <div className="flex flex-row items-center gap-2">
             <span className="bg-white-200">{props.invoiceTitle}</span>
             {props.status && <HawaChip size="small" label={props.status} />}
