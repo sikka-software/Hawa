@@ -27,6 +27,7 @@ interface TMenuTypes {
 
 type MenuItems = {
   icon?: JSX.Element
+  disabled?: boolean
   label: string
   action?: (e: any) => void
   isButton?: boolean
@@ -186,12 +187,21 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                 ) : (
                   <li
                     key={indx}
-                    onClick={() => item?.action(actionedItem)}
+                    onClick={() => {
+                      if (item.disabled) {
+                        console.log("button is disabled")
+                      } else {
+                        item?.action(actionedItem)
+                      }
+                    }}
                     className={clsx(
                       item.isButton
                         ? "flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 py-2 px-4 text-white hover:bg-buttonPrimary-700 rtl:flex-row-reverse dark:hover:bg-buttonPrimary-700 dark:hover:text-white"
-                        : " flex cursor-pointer flex-row items-center rounded  hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600 dark:hover:text-white",
-                      sizeStyles[size]
+                        : " flex  flex-row items-center rounded  rtl:flex-row-reverse ",
+                      sizeStyles[size],
+                      item.disabled
+                        ? "text-gray-300"
+                        : " cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                     )}
                   >
                     {item.icon && (

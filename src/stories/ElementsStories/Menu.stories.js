@@ -72,11 +72,13 @@ Default.args = {
     [
       {
         label: "Dashboard",
-        action: () => console.log("going to dashboard")
+        action: () => console.log("going to dashboard"),
+        disabled: false
       },
       {
         label: "Billing",
-        action: () => console.log("going to billing")
+        action: () => console.log("going to billing"),
+        disabled: true
       },
       {
         label: "Settings",
