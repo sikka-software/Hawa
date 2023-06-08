@@ -1,10 +1,12 @@
-import React from "react"
-import { HawaSnackbar } from "../../elements"
-import { Story, Meta } from "@storybook/react"
+import React from "react";
+import { HawaSnackbar } from "../../elements";
+import { Story, Meta } from "@storybook/react";
+import { FaEdit } from "react-icons/fa";
+import { BsGoogle, BsTwitter } from "react-icons/bs";
 
 export default {
   title: "Elements/Snackbar",
-  component: HawaSnackbar,
+  component: HawaSnackbar
   // argTypes: {
   //   title: {
   //     control: "text",
@@ -26,9 +28,9 @@ export default {
   //     control: { type: "select" }
   //   }
   // }
-} as Meta
+};
 
-const Template: Story = (args) => {
+const Template = (args) => {
   return (
     <HawaSnackbar
       title={args.title}
@@ -37,50 +39,49 @@ const Template: Story = (args) => {
       position={args.position}
       {...args}
     />
-  )
-}
-export const Plain = Template.bind({})
+  );
+};
+export const Plain = Template.bind({});
 Plain.args = {
   title: "Plain",
   description: "This is an alert indicating that there was a successful action",
   severity: "none",
-  position: "bottom-left",
-}
-Plain.storyName = "None"
-export const Success = Template.bind({})
+  position: "bottom-left"
+};
+export const Success = Template.bind({});
 Success.args = {
   title: "Success",
   description: "This is an alert indicating that there was a successful action",
   severity: "success",
   duration: 5000,
-  position: "bottom-left",
-}
-export const Warning = Template.bind({})
+  position: "bottom-left"
+};
+export const Warning = Template.bind({});
 Warning.args = {
   title: "Warning",
   description: "This is an alert indicating that there was a warning action",
   severity: "warning",
   duration: 0,
-  position: "bottom-left",
-}
-export const Info = Template.bind({})
+  position: "bottom-left"
+};
+export const Info = Template.bind({});
 Info.args = {
   title: "Info",
   description: "This is an alert indicating that there was a info action",
   severity: "info",
   duration: 0,
-  position: "bottom-left",
-}
-export const Error = Template.bind({})
+  position: "bottom-left"
+};
+export const Error = Template.bind({});
 Error.args = {
   title: "Offline",
   description: "This is an alert indicating that there was a error action",
   severity: "error",
   duration: 0,
-  position: "bottom-left",
-}
+  position: "bottom-left"
+};
 
-export const WithActions = Template.bind({})
+export const WithActions = Template.bind({});
 WithActions.args = {
   title: "Info",
   description: "This is an alert indicating that there was a info action",
@@ -91,12 +92,42 @@ WithActions.args = {
     {
       label: "Upgrade",
       onClick: () => console.log("testing"),
-      variant: "outlined",
+      variant: "outlined"
     },
     {
       label: "Disable",
       onClick: () => console.log("testing"),
-      variant: "outlined",
+      variant: "outlined"
+    }
+  ]
+};
+
+export const SignUp = Template.bind({});
+SignUp.args = {
+  title: "Welcome to our Application",
+  description: "This is an alert indicating that there was a info action",
+  severity: "info",
+  duration: 0,
+  position: "bottom-left",
+  actions: [
+    {
+      label: "Sign up with Email",
+      onClick: () => console.log("testing"),
+      variant: "contained"
     },
-  ],
-}
+    {
+      // label: "Disable",
+      // icon: <FaEdit />,
+      icon: <BsGoogle />,
+      onClick: () => console.log("testing"),
+      variant: "outlined"
+    },
+    {
+      // label: "Disable",
+      // icon: <FaEdit />,
+      icon: <BsTwitter />,
+      onClick: () => console.log("testing"),
+      variant: "outlined"
+    }
+  ]
+};
