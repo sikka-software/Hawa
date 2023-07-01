@@ -26,7 +26,7 @@ const styleClasses = {
   strike: "line-through",
 }
 
-export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
+export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
   props
 ) => {
   const [text, setText] = useState({
@@ -37,13 +37,35 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
 
   const field = useRef(null)
 
+  const getFieldSelection = () => {
+    if (document.activeElement != field.current) return [0, 0]
+
+    let selection = window.getSelection()
+    let start
+    let end
+
+    console.log(selection)
+    console.log(document.activeElement)
+    console.log(`Range count when fetching selection: ${selection.rangeCount}`)
+    if (selection.rangeCount) {
+      let range = selection.getRangeAt(0)
+      start = range.startOffset
+      end = range.endOffset
+    }
+
+    return [start, end]
+  }
+
   useEffect(() => {
+    // return
     let [start, end] = text.revert
 
     if (start == 0 && end == 0) return
 
-    console.log(start)
-    console.log(end)
+    let oldStart = start
+    let oldEnd = end
+
+    let [newStart, newEnd] = getFieldSelection()
 
     // TODO: To get the child node based on the index, get lengths of each child node
     // add to each child node the sum of all previous child nodes
@@ -53,38 +75,45 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     let startNode = null
     let endNode = null
 
+    let startNodeIndex = 0
+    let endNodeIndex = 0
+
     let total = 0
     let nodes = Array.from(field.current.childNodes)
+
+    console.log(
+      `Current nodes: ${nodes.map((e: any) => e.textContent.length).join(", ")}`
+    )
+
     for (let i = 0; i < nodes.length; i++) {
       let node: any = nodes[i]
       let sum = node.textContent.length + total
 
-      if (start > total && start <= sum) {
+      if (startNode == null && start > total && start <= sum) {
         startNode = nodes[i]
+        startNodeIndex = i
+        start -= total
       }
 
-      if (end > total && end <= sum) {
+      if (endNode == null && end > total && end <= sum) {
         endNode = nodes[i]
+        endNodeIndex = i
+        end -= total
       }
 
       total += node.textContent.length
     }
 
-    // console.log(
-    //   Array.from(field.current.childNodes).map(
-    //     (item) => item.textContent.length
-    //   )
-    // )
-
-    console.log(startNode)
-    console.log(endNode)
+    console.log(
+      `Reverting (${newStart} -> ${newEnd}) to (${oldStart} - ${start} - [node ${startNodeIndex}] -> ${oldEnd} - ${end} - [node ${endNodeIndex}])`
+    )
 
     var range = document.createRange()
     var sel = window.getSelection()
 
     range.setStart(startNode.firstChild, start)
     range.setEnd(endNode.firstChild, end)
-    range.collapse(true)
+    // range.collapse(true)
 
     sel.removeAllRanges()
     sel.addRange(range)
@@ -247,6 +276,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     setText({
       ...text,
       stylings: result,
+      revert: [selectionStart, selectionEnd],
     })
   }
 
@@ -355,24 +385,8 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     return result
   }
 
-  const getFieldSelection = () => {
-    if (document.activeElement != field.current) return [0, 0]
-
-    let selection = window.getSelection()
-    let start
-    let end
-
-    if (selection.rangeCount) {
-      let range = selection.getRangeAt(0)
-      start = range.startOffset
-      end = range.endOffset
-    }
-
-    return [start, end]
-  }
-
   return (
-    <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded bg-gray-300 shadow-md">
+    <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded bg-blue-300 shadow-md">
       <div className={clsx("flex w-full flex-row justify-start p-2")}>
         <Property
           name="B"
@@ -405,6 +419,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
         <div
           ref={field}
           contentEditable="true"
+          role="textbox"
           dangerouslySetInnerHTML={{
             __html: getContent()
               .map((_data, index) => {
@@ -425,7 +440,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
                 //     ${data}
                 //   </span>`
               })
-              .join(" "),
+              .join(""),
           }}
           className="h-[150px] w-full resize-none border-none p-2 outline-none"
           onInput={(event) => {

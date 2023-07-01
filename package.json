@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.231",
+  "version": "0.0.232",
   "description": "SaaS Oriented UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -113,6 +113,9 @@
     "react-select": "^5.3.2",
     "rich-textarea": "^0.21.1",
     "rollup-plugin-typescript2": "^0.34.1",
+    "slate": "^0.94.1",
+    "slate-history": "^0.93.0",
+    "slate-react": "^0.97.1",
     "start": "^5.1.0"
   }
 }
