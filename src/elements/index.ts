@@ -32,6 +32,7 @@ export * from "./InvoiceAccordion"
 export * from "./HawaDatepicker"
 export * from "./UserFeedback"
 export * from "./ArrowCarousel"
+export * from "./FloatingComment"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"
