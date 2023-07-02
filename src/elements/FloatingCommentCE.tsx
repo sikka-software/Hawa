@@ -17,8 +17,6 @@ type ComponentTypes = {
   foo?: string
 }
 
-// TODO: Handle copy pasting by assigning to local storage ?
-
 const styleClasses = {
   bold: "font-bold",
   italic: "italic",
@@ -29,94 +27,98 @@ const styleClasses = {
 export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
   props
 ) => {
-  const [text, setText] = useState({
+  const [text, _setText] = useState({
     content: "",
     stylings: [], // A styling is an object with 2 indices specifying a substring of text, and the applied effect
     revert: [0, 0],
   })
 
   const field = useRef(null)
+  const _text = useRef(text)
+  const setText = (data) => {
+    _text.current = data
+    _setText(data)
+  }
 
+  // Full reversion achieved !
   const getFieldSelection = () => {
     if (document.activeElement != field.current) return [0, 0]
 
     let selection = window.getSelection()
-    let start
-    let end
+    let nodes = Array.from(field.current.childNodes)
+    nodes = nodes.filter(
+      (item: any) => !["#text", "BR"].includes(item.nodeName)
+    )
 
-    console.log(selection)
-    console.log(document.activeElement)
-    console.log(`Range count when fetching selection: ${selection.rangeCount}`)
-    if (selection.rangeCount) {
-      let range = selection.getRangeAt(0)
-      start = range.startOffset
-      end = range.endOffset
-    }
+    let startParent: any = selection.anchorNode.parentNode
+    let startNodeIndex =
+      startParent == field.current
+        ? nodes.length
+        : parseInt(startParent.dataset.childIndex)
 
-    return [start, end]
+    let startPrecedingSum = nodes
+      .slice(0, startNodeIndex)
+      .map((span: any) => span.textContent.length)
+      .reduce((a, b) => a + b, 0)
+
+    let endParent: any = selection.anchorNode.parentNode
+    let endNodeIndex =
+      endParent == field.current
+        ? nodes.length
+        : parseInt(endParent.dataset.childIndex)
+
+    let endPrecedingSum = nodes
+      .slice(0, endNodeIndex)
+      .map((span: any) => span.textContent.length)
+      .reduce((a, b) => a + b, 0)
+
+    let result = [
+      startPrecedingSum + selection.anchorOffset,
+      endPrecedingSum + selection.focusOffset,
+    ]
+
+    // Sort to make the minimum selection the start selection
+    return result.sort((a, b) => a - b)
   }
 
   useEffect(() => {
-    // return
-    let [start, end] = text.revert
+    setTimeout(function () {
+      let [start, end] = text.revert
 
-    if (start == 0 && end == 0) return
+      if (start == 0 && end == 0) return
 
-    let oldStart = start
-    let oldEnd = end
+      let startNode = null
+      let endNode = null
 
-    let [newStart, newEnd] = getFieldSelection()
+      let total = 0
+      let nodes = Array.from(field.current.childNodes)
 
-    // TODO: To get the child node based on the index, get lengths of each child node
-    // add to each child node the sum of all previous child nodes
-    // Create ranges for 0 - n, n - n1, n - n2, ... where nx is the length of a child node
-    // Add 1 to the index
-    // Iterate through each range, and check if the index is greater than the start of the range, and less than or equal the end of the range
-    let startNode = null
-    let endNode = null
+      for (let i = 0; i < nodes.length; i++) {
+        let node: any = nodes[i]
+        let sum = node.textContent.length + total
 
-    let startNodeIndex = 0
-    let endNodeIndex = 0
+        if (startNode == null && start >= total && start <= sum) {
+          startNode = nodes[i]
+          start -= total
+        }
 
-    let total = 0
-    let nodes = Array.from(field.current.childNodes)
+        if (endNode == null && end > total && end <= sum) {
+          endNode = nodes[i]
+          end -= total
+        }
 
-    console.log(
-      `Current nodes: ${nodes.map((e: any) => e.textContent.length).join(", ")}`
-    )
-
-    for (let i = 0; i < nodes.length; i++) {
-      let node: any = nodes[i]
-      let sum = node.textContent.length + total
-
-      if (startNode == null && start > total && start <= sum) {
-        startNode = nodes[i]
-        startNodeIndex = i
-        start -= total
+        total += node.textContent.length
       }
 
-      if (endNode == null && end > total && end <= sum) {
-        endNode = nodes[i]
-        endNodeIndex = i
-        end -= total
-      }
+      var range = document.createRange()
+      var sel = window.getSelection()
 
-      total += node.textContent.length
-    }
+      range.setStart(startNode.firstChild, start)
+      range.setEnd(endNode.firstChild, end)
 
-    console.log(
-      `Reverting (${newStart} -> ${newEnd}) to (${oldStart} - ${start} - [node ${startNodeIndex}] -> ${oldEnd} - ${end} - [node ${endNodeIndex}])`
-    )
-
-    var range = document.createRange()
-    var sel = window.getSelection()
-
-    range.setStart(startNode.firstChild, start)
-    range.setEnd(endNode.firstChild, end)
-    // range.collapse(true)
-
-    sel.removeAllRanges()
-    sel.addRange(range)
+      sel.removeAllRanges()
+      sel.addRange(range)
+    }, 0)
   }, [text.revert])
 
   // utility functions
@@ -309,9 +311,11 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
   }
 
   const onChange = (value) => {
+    let [selectionStart, selectionEnd] = getFieldSelection()
+
     let difference = value.length - text.content.length
 
-    let selection = field.current.selectionStart - difference
+    let selection = selectionStart - difference
 
     let stylings = text.stylings.slice()
     let succeeding = getSucceedStylings(selection)
@@ -350,14 +354,21 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
 
     stylings = stylings.filter((_, index) => !spliced.includes(index))
 
-    setText({ ...text, content: value, stylings: stylings })
+    // if (difference == 1) difference = 0
+
+    setText({
+      ...text,
+      content: value,
+      stylings: stylings,
+      revert: [selectionStart, selectionEnd],
+    })
   }
 
   const getContent = () => {
-    let content = text.content
+    let content = _text.current.content
 
     // Get all styling indices
-    let indices = text.stylings
+    let indices = _text.current.stylings
       .map(({ start, finish }) => [start, finish])
       .flat()
 
@@ -373,7 +384,7 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
     if (indices[0] != 0) indices.unshift(0)
 
     // Add last index if not present
-    let last = text.content.length
+    let last = content.length
     if (indices[indices.length - 1] != last) indices.push(last)
 
     let result = []
@@ -384,6 +395,24 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
 
     return result
   }
+
+  // dangerouslySetInnerHTML incorrectly renders when the entire text is highlighted, copied, and then pasted in succession
+  useEffect(() => {
+    let html = getContent()
+      .map((_data, index) => {
+        let [start, data] = _data
+
+        // Get stylings encompassing an index within it's range
+        let stylings = getIntersectStylings(start)
+
+        return `<span class="${stylings
+          .map((styling) => styleClasses[styling.type])
+          .join(" ")}" data-child-index="${index}">${data}</span>`
+      })
+      .join("")
+
+    field.current.innerHTML = html
+  }, [text])
 
   return (
     <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded bg-blue-300 shadow-md">
@@ -397,19 +426,22 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
         />
         <Property
           name="I"
-          onClick={() => {
+          onMouseDown={(event) => {
+            event.preventDefault()
             perform("italic")
           }}
         />
         <Property
           name="U"
-          onClick={() => {
+          onMouseDown={(event) => {
+            event.preventDefault()
             perform("under")
           }}
         />
         <Property
           name="S"
-          onClick={() => {
+          onMouseDown={(event) => {
+            event.preventDefault()
             perform("strike")
           }}
         />
@@ -419,106 +451,11 @@ export const FloatingCommentCE: React.FunctionComponent<ComponentTypes> = (
         <div
           ref={field}
           contentEditable="true"
-          role="textbox"
-          dangerouslySetInnerHTML={{
-            __html: getContent()
-              .map((_data, index) => {
-                let [start, data] = _data
-
-                // Get stylings encompassing an index within it's range
-                let stylings = getIntersectStylings(start)
-
-                return `<span class="${stylings
-                  .map((styling) => styleClasses[styling.type])
-                  .join("")}">${data}</span>`
-                // return `<span
-                //     class="${stylings
-                //       .map((styling) => styleClasses[styling.type])
-                //       .join(" ")}"
-
-                //   >
-                //     ${data}
-                //   </span>`
-              })
-              .join(""),
-          }}
           className="h-[150px] w-full resize-none border-none p-2 outline-none"
-          onInput={(event) => {
-            let target: any = event.target
-
-            let [start, end] = getFieldSelection()
-
-            // console.log(target)
-            // console.log(target.selectionStart)
-            // console.log(target.selectionEnd)
-
-            setText({
-              ...text,
-              content: target.textContent,
-              revert: [start, end],
-            })
+          onInput={(event: any) => {
+            onChange(event.target.textContent)
           }}
         ></div>
-
-        {/* <RichTextarea
-          ref={field}
-          value={text.content}
-          style={{ width: "100%" }} // tailwind w-full does not work
-          className="order-none h-[150px] resize-none p-2 outline-none"
-          onChange={(e) => {
-            onChange(e.target.value)
-          }}
-        >
-          {(value) => {
-            // Get all styling indices
-            let indices = text.stylings
-              .map(({ start, finish }) => [start, finish])
-              .flat()
-
-            // Sort ascendingly
-            indices = indices.sort((a, b) => a - b)
-
-            // Remove duplicates
-            indices = indices.filter(
-              (element, index) => indices.indexOf(element) == index
-            )
-
-            // Add first index if not present
-            if (indices[0] != 0) indices.unshift(0)
-
-            // Add last index if not present
-            let last = text.content.length
-            if (indices[indices.length - 1] != last) indices.push(last)
-
-            let result = []
-
-            for (let i = 0; i < indices.length - 1; i++) {
-              result.push([
-                indices[i],
-                value.substring(indices[i], indices[i + 1]),
-              ])
-            }
-
-            return result.map((_data, index) => {
-              let [start, data] = _data
-
-              // Get stylings encompassing an index within it's range
-              let stylings = getIntersectStylings(start)
-
-              return (
-                <span
-                  key={index}
-                  className={`${stylings
-                    .map((styling) => styleClasses[styling.type])
-                    .join(" ")}
-                  `}
-                >
-                  {data}
-                </span>
-              )
-            })
-          }}
-        </RichTextarea> */}
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
       <button className="my-1 rounded bg-cyan-800 p-2 py-1 text-white">
