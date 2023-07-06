@@ -32,28 +32,10 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans Arabic";
   font-size: 16px;
   line-height: 1.5;
   color: #606c71;
-}
-
-#skip-to-content {
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  overflow: hidden;
-  top: -10px;
-
-  &:focus {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    height: auto;
-    width: auto;
-    background: invert(#1e6bb8);
-    outline: thick solid invert(#1e6bb8);
-  }
 }
 
 a {
@@ -75,7 +57,7 @@ a {
   border-width: 1px;
   border-radius: 0.3rem;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-
+  padding: 10px;
   &:hover {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
@@ -110,10 +92,10 @@ a {
 }
 
 .page-header {
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
-  background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957);
+  /* background-color: #159957; */
+  /* background-image: linear-gradient(120deg, #155799, #159957); */
   /* 
   @include large {
     padding: 5rem 6rem;
