@@ -49,25 +49,27 @@ a {
 
 .btn {
   display: inline-block;
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  border-style: solid;
-  border-width: 1px;
+  margin-bottom: 10rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(78, 78, 78);
+  /* border-color: rgba(255, 255, 255, 0.2); */
+  /* border-style: solid; */
+  /* border-width: 1px; */
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 0.3rem;
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
   padding: 10px;
   &:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgb(0, 0, 0);
+    /* border-color: rgba(255, 255, 255, 0.3); */
   }
 
-  + .btn {
+  /* + .btn {
     margin-left: 1rem;
-  }
+  } */
   /* 
   @include large {
     padding: 0.75rem 1rem;
