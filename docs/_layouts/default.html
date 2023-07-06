@@ -5,14 +5,19 @@
     <!-- {% seo %} -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link
       rel="preload"
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
       as="style"
       type="text/css"
       crossorigin
-    />
+    /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#157878" />
     <meta
@@ -27,8 +32,6 @@
     <title>Hawa | هواء</title>
   </head>
   <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
-
     <header class="page-header" role="banner">
       <p align="center">
         <img
@@ -37,7 +40,6 @@
         />
       </p>
 
-      <h1>LOGO HERE</h1>
       <h1 class="project-name">
         {{ page.title | default: site.title | default:
         site.github.repository_name }}
