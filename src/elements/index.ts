@@ -33,7 +33,6 @@ export * from "./HawaDatepicker"
 export * from "./UserFeedback"
 export * from "./ArrowCarousel"
 export * from "./FloatingComment"
-export * from "./FloatingCommentCE"
 export * from "./FloatingCommentSlate"
 // Inputs
 export * from "./HawaTextField"
