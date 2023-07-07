@@ -23,7 +23,9 @@ const Template = (args) => {
 };
 
 export const FloatingComment = Template.bind({});
-FloatingComment.args = {};
+FloatingComment.args = {
+  rtl: "disabled"
+};
 
 const Template2 = (args) => {
   return (

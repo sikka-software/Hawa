@@ -4,7 +4,7 @@ import clsx from "clsx"
 const Property = (props) => {
   return (
     <div
-      className="border-box mr-[5px] flex h-[32px] w-[32px] items-center justify-center rounded bg-gray-400 p-2"
+      className="border-box mr-[10px] flex h-[32px] w-[32px] items-center justify-center rounded bg-gray-300 p-2"
       onMouseDown={props.onMouseDown}
     >
       {props.name}
@@ -13,14 +13,18 @@ const Property = (props) => {
 }
 
 type ComponentTypes = {
-  foo?: string
+  rtl?: "enabled" | "disabled" | "auto"
+  onSubmit?: (
+    content: string,
+    stylings: { type: keyof typeof stylers; start: number; finish: number }[]
+  ) => void
 }
 
-const styleClasses = {
-  bold: "font-bold",
-  italic: "italic",
-  under: "underline",
-  strike: "line-through",
+const stylers = {
+  bold: { css: "font-bold", content: "B" },
+  italic: { id: "italic", css: "italic", content: "I" },
+  under: { id: "under", css: "underline", content: "U" },
+  strike: { id: "strike", css: "line-through", content: "S" },
 }
 
 // FIXME: Highlighting a part of styled text with a bit on the left with an overall length not equal to clipboard copied text will result in paste issues
@@ -847,7 +851,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
         // console.log(data)
         // console.log(stylings)
         return `<span class="${stylings
-          .map((styling) => styleClasses[styling.type])
+          .map((styling) => stylers[styling.type].css)
           .join(" ")}" data-child-index="${index}">${data}</span>`
       })
       .join("")
@@ -855,10 +859,36 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     field.current.innerHTML = html
   }, [text.content, text.stylings, text.revert])
 
+  const getTextDirection = () => {
+    let value = props.rtl || "disabled"
+
+    switch (value) {
+      case "enabled":
+        return "rtl"
+      case "disabled":
+        return "ltr"
+      case "auto":
+        return "ltr"
+    }
+  }
+
   return (
-    <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded bg-blue-300 shadow-md">
+    <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded shadow-md">
       <div className={clsx("flex w-full flex-row justify-start p-2")}>
-        <Property
+        {Object.entries(stylers).map(([id, data]) => {
+          return (
+            <Property
+              name={data.content}
+              key={`property-${id}`}
+              onMouseDown={(event) => {
+                event.preventDefault()
+                perform(id)
+              }}
+            />
+          )
+        })}
+
+        {/* <Property
           name="B"
           onMouseDown={(event) => {
             event.preventDefault() // This does not take focus away from field which allows the function to retrieve the current selection data
@@ -885,14 +915,17 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
             event.preventDefault()
             perform("strike")
           }}
-        />
+        /> */}
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
       <div className="w-full">
         <div
           ref={field}
           contentEditable="true"
-          className="h-[150px] w-full resize-none overflow-auto overflow-x-hidden border-none p-2 outline-none"
+          className="rtl h-[150px] w-full resize-none overflow-auto overflow-x-hidden border-none p-2 outline-none"
+          style={{
+            direction: getTextDirection(),
+          }}
           onPaste={(event) => {
             // pastes all copied text from the content editable as plain text
             event.preventDefault()
@@ -980,7 +1013,14 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
         ></div>
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
-      <button className="my-1 rounded bg-cyan-800 p-2 py-1 text-white">
+      <button
+        className="my-1 rounded bg-cyan-800 p-2 py-1 text-white"
+        onClick={() => {
+          let onSubmit = props.onSubmit || (() => {})
+
+          onSubmit(text.content, text.stylings)
+        }}
+      >
         Submit
       </button>
     </div>
