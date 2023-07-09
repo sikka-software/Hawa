@@ -27,10 +27,18 @@ const stylers = {
   strike: { id: "strike", css: "line-through", content: "S" },
 }
 
-// FIXME: Highlighting a part of styled text with a bit on the left with an overall length not equal to clipboard copied text will result in paste issues
+// FIXME: ? Highlighting a part of styled text with a bit on the left with an overall length not equal to clipboard copied text will result in paste issues
 
 // FIXME: Highlighting the beginning characters of styled text and then pasting text sometimes doesn't register as right intersecting
 // This expecially happens when the selection is for example, [0, 2] and the styling is [0, 3], this might be failure of addition which doesn't offset the styling
+
+// TODO: Refactor styling splicing into one method
+// TODO: Refactor function that simplifies a list of stylings
+// TODO: Turn stylings into a class, this should also change .finish to .end
+
+// Possible logic changes:
+// Paste = Removal + Addition -> Styling Removal + Styling Addition
+// Drag & Drop = Removal + Addition -> Styling Removal + Styling Addition
 
 export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   props
@@ -41,6 +49,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     revert: [0, 0],
     lastCopy: [],
     pasted: { status: false, length: 0 },
+    dropped: { status: false, text: "", previous: [0, 0] },
   })
 
   const field = useRef(null)
@@ -55,42 +64,101 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     return i
   }
 
-  // Full reversion achieved !
-  const getFieldSelection = () => {
-    if (document.activeElement != field.current) return [0, 0]
-
+  const getSelectionPrecedingSum = (name) => {
     let selection = window.getSelection()
     let nodes = Array.from(field.current.childNodes)
+
+    // All current occurences for text or br:
+    // Pasting on empty text (text)
+    // Cutting/removing all text (br)
+    // Typing the first character in empty text (text)
+    // Dragging text to the end of the text (text)
 
     nodes = nodes.filter(
       (item: any) => !["#text", "BR"].includes(item.nodeName)
     )
 
-    let startParent: any = selection.anchorNode.parentNode
+    let parent: any = selection[name].parentNode
+    let special = 0
 
-    let startNodeIndex =
-      startParent == field.current
-        ? nodes.length
-        : // : parseInt(startParent.dataset.childIndex)
-          getChildIndex(startParent)
+    // Special case for empty text
+    // if (parent == field.current) {
+    //   console.log("hi")
+    // }
 
-    let startPrecedingSum = nodes
-      .slice(0, startNodeIndex)
-      .map((span: any) => span.textContent.length)
-      .reduce((a, b) => a + b, 0)
+    // Special case for dropping text near or inside styled text
+    if (!Array.from(parent.parentNode.classList).includes("selection-ignore")) {
+      parent = parent.parentNode
 
-    let endParent: any = selection.focusNode.parentNode
-    let endNodeIndex =
-      endParent == field.current
-        ? nodes.length
-        : // : parseInt(endParent.dataset.childIndex)
-          getChildIndex(endParent)
+      let index = getChildIndex(selection[name].parentNode)
+      special = Array.from(parent.childNodes)
+        .slice(0, index)
+        .map((e: any) => e.textContent.length)
+        .reduce((a, b) => a + b, 0)
+    }
 
-    let endPrecedingSum = nodes
-      .slice(0, endNodeIndex)
-      .map((span: any) => span.textContent.length)
-      .reduce((a, b) => a + b, 0)
+    let index = parent == field.current ? nodes.length : getChildIndex(parent)
 
+    let sum =
+      nodes
+        .slice(0, index)
+        .map((span: any) => span.textContent.length)
+        .reduce((a, b) => a + b, 0) + special
+
+    return sum
+  }
+
+  const getFieldSelection = () => {
+    if (document.activeElement != field.current) return [0, 0]
+
+    let selection = window.getSelection()
+    // let nodes = Array.from(field.current.childNodes)
+
+    // console.log(nodes)
+
+    // nodes = nodes.filter(
+    //   (item: any) => !["#text", "BR"].includes(item.nodeName)
+    // )
+
+    // console.log(selection.anchorNode)
+    // console.log(selection.focusNode)
+    // console.log(selection.anchorNode.parentNode)
+    // console.log(selection.focusNode.parentNode)
+    // console.log(selection.anchorNode.parentNode.parentNode)
+    // console.log(selection.focusNode.parentNode.parentNode)
+    // console.log(selection.anchorOffset)
+    // console.log(selection.focusOffset)
+
+    // let startParent: any = selection.anchorNode.parentNode
+
+    // let startNodeIndex =
+    //   startParent == field.current
+    //     ? nodes.length
+    //     : // : parseInt(startParent.dataset.childIndex)
+    //       getChildIndex(startParent)
+
+    // let startPrecedingSum = nodes
+    //   .slice(0, startNodeIndex)
+    //   .map((span: any) => span.textContent.length)
+    //   .reduce((a, b) => a + b, 0)
+
+    let startPrecedingSum = getSelectionPrecedingSum("anchorNode")
+
+    // let endParent: any = selection.focusNode.parentNode
+    // let endNodeIndex =
+    //   endParent == field.current
+    //     ? nodes.length
+    //     : // : parseInt(endParent.dataset.childIndex)
+    //       getChildIndex(endParent)
+
+    // let endPrecedingSum = nodes
+    //   .slice(0, endNodeIndex)
+    //   .map((span: any) => span.textContent.length)
+    //   .reduce((a, b) => a + b, 0)
+
+    let endPrecedingSum = getSelectionPrecedingSum("focusNode")
+
+    console.log([startPrecedingSum, endPrecedingSum])
     let result = [
       startPrecedingSum + selection.anchorOffset,
       endPrecedingSum + selection.focusOffset,
@@ -528,11 +596,11 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     })
     changes.push(succeeding)
 
-    console.log(`Addition (${length})`)
-    console.log([start, end])
-    if (stylings.length > 0) {
-      console.log([stylings[0].start, stylings[0].finish])
-    }
+    // console.log(`Addition (${length})`)
+    // console.log([start, end])
+    // if (stylings.length > 0) {
+    //   console.log([stylings[0].start, stylings[0].finish])
+    // }
 
     // console.log(succeeding)
 
@@ -561,12 +629,12 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
 
     changes.push(encapsulated)
 
-    console.log(length)
+    // console.log(length)
 
-    console.log(`Encapsulated: ${encapsulated.length}`)
+    // console.log(`Encapsulated: ${encapsulated.length}`)
 
-    console.log(`Succeeding: ${succeeding.length}`)
-    console.log(`Preceding: ${preceding.length}`)
+    // console.log(`Succeeding: ${succeeding.length}`)
+    // console.log(`Preceding: ${preceding.length}`)
     // console.log(preceding)
 
     changes.flat().map(({ index, start, finish }) => {
@@ -581,13 +649,12 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   }
 
   const handlePaste = (stylings, difference, start, end) => {
-    console.log(`Paste:`)
-    console.log([start, end])
-    console.log(stylings)
+    // console.log(`Paste:`)
+    // console.log([start, end])
+    // console.log(stylings)
     let changes = []
 
     // Get stylings being encapsulated by pasting range
-
     let encapsulating = handleScenario(
       stylings,
       (_start, _end) => start <= _start && end >= _end // This is needed because of conflict with addition/deletion
@@ -659,10 +726,10 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
 
     changes.push(right)
 
-    console.log(`Encapsulating: ${encapsulating.length}`)
-    console.log(`Encapsulated: ${encapsulated.length}`)
-    console.log(`Left Intersecting: ${left.length}`)
-    console.log(`Right Intersecting: ${right.length}`)
+    // console.log(`Encapsulating: ${encapsulating.length}`)
+    // console.log(`Encapsulated: ${encapsulated.length}`)
+    // console.log(`Left Intersecting: ${left.length}`)
+    // console.log(`Right Intersecting: ${right.length}`)
 
     changes = changes.flat()
     changes.map((styling) => {
@@ -683,15 +750,225 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
       }
     })
 
-    console.log(stylings)
+    // console.log(stylings)
 
     return stylings
   }
 
+  const handleDrop = (value) => {
+    let [dropStart, dropEnd] = getFieldSelection()
+
+    let stylings = _text.current.stylings.slice()
+    let dropped = _text.current.dropped.text
+
+    let changes = []
+
+    let [dragStart, dragEnd] = _text.current.dropped.previous
+
+    console.log(`Drag: ${[dragStart, dragEnd]}`)
+    console.log(`Drop: ${[dropStart, dropEnd]}`)
+    console.log(stylings)
+
+    // negative - right, positive - left
+    // let direction = dragStart - dropStart < 0 ? -1 : 1
+
+    // Possible refactorization:
+    // Since the drop invokes the onInput event twice, the first is the removal of dragged text, and the second is the addition of dropped text
+    // If the handling occurs at the second occurence of onInput, the first could be handled naturally by the handleDeletion function
+
+    // offset: length * direction
+
+    // To be offset in right conditions:
+    // (_start >= dg.end && _end > dg.end)
+    // (_end <= dp.start && _start < dp.start)
+
+    // To be offset in left conditions:
+    // (_end <= dg.start && _start < dg.start)
+    // (_start >= dp.end && _end > dp.end)
+
+    // Get all intersecting stylings
+    let dragStylings = stylings.filter(
+      ({ start, finish }) =>
+        !(
+          (start < dragStart && finish <= dragStart) ||
+          (start >= dragEnd && finish > dragEnd)
+        )
+    )
+
+    // Offset stylings between drag and drop locations
+    stylings
+      .filter(({ start, finish }) => start >= dragEnd && finish > dragEnd)
+      .map((styling) => {
+        changes.push({
+          original: styling,
+          changed: {
+            ...styling,
+            start: styling.start - dropped.length,
+            finish: styling.finish - dropped.length,
+          },
+        })
+      })
+
+    // Handle complete encapsulation over styling
+    stylings
+      .filter(({ start, finish }) => dragStart <= start && dragEnd >= finish)
+      .map((styling) => {
+        changes.push({
+          original: styling,
+          changed: { ...styling, start: styling.start, finish: styling.start },
+        })
+      })
+
+    // Handle drag range being encapsulated by styling
+    stylings
+      .filter(
+        ({ start, finish }) =>
+          (dragStart > start && dragEnd <= finish) ||
+          (dragStart >= start && dragEnd < finish)
+      )
+      .map((styling) => {
+        changes.push({
+          original: styling,
+          changed: {
+            ...styling,
+            start: styling.start,
+            finish: styling.finish - dropped.length,
+          },
+        })
+      })
+
+    // Handle resumptions
+    let resumptions = stylings.filter(
+      ({ start, finish }) =>
+        (finish > dragStart &&
+          start > dragStart &&
+          start < dragEnd &&
+          finish > dragEnd) ||
+        (start < dragEnd &&
+          finish < dragEnd &&
+          finish > dragStart &&
+          start < dragStart)
+    )
+
+    resumptions.map((styling) => {
+      let right =
+        styling.start < dragEnd &&
+        styling.finish < dragEnd &&
+        styling.finish > dragStart &&
+        styling.start < dragStart
+
+      changes.push({
+        original: styling,
+        changed: {
+          ...styling,
+          start: !right
+            ? getMaximum([dragEnd, styling.start]) - dropped.length // Only decrease if the drag
+            : styling.start,
+          finish: right
+            ? getMinimum([dragStart, styling.finish])
+            : styling.finish - dropped.length,
+        },
+      })
+    })
+
+    // Apply drag changes
+    changes.map(({ original, changed }) => {
+      let index = stylings.findIndex((styling) =>
+        compareStylings(original, styling)
+      )
+
+      stylings[index] = changed
+    })
+
+    changes = []
+
+    // Positive offset succeeding stylings
+    stylings
+      .filter(({ start, finish }) => start >= dropStart && finish > dropStart)
+      .map((styling) => {
+        changes.push({
+          original: styling,
+          changed: {
+            ...styling,
+            start: styling.start + dropped.length,
+            finish: styling.finish + dropped.length,
+          },
+        })
+      })
+
+    // Splice intersecting stylings
+    stylings
+      .filter(({ start, finish }) => start < dropStart && finish > dropStart)
+      .map((styling) => {
+        changes.push({
+          original: styling,
+          changed: {
+            ...styling,
+            start: styling.start,
+            finish: dropStart,
+          },
+        })
+
+        changes.push({
+          original: null,
+          changed: {
+            ...styling,
+            start: dropEnd,
+            finish: styling.finish + dropped.length,
+          },
+        })
+      })
+
+    // Apply drop changes
+    changes.map(({ original, changed }) => {
+      if (original == null) {
+        stylings.push(changed)
+        return
+      }
+
+      let index = stylings.findIndex((styling) =>
+        compareStylings(original, styling)
+      )
+
+      stylings[index] = changed
+    })
+
+    // Remove empty stylings
+    stylings = stylings.filter((styling) => styling.start != styling.finish)
+
+    // Clamp start and end values, negative offset by dragStart, and positive offset by dropStart
+    dragStylings = dragStylings.map((styling) => {
+      return {
+        ...styling,
+        start: getMaximum([styling.start, dragStart]) - dragStart + dropStart,
+        finish: getMinimum([styling.finish, dragEnd]) - dragStart + dropStart,
+      }
+    })
+
+    // Push to current stylings
+    stylings = stylings.concat(dragStylings)
+
+    setText({
+      ..._text.current,
+      content: value,
+      stylings: stylings,
+      revert: [dropStart, dropEnd],
+      pasted: { status: false, length: 0 },
+      dropped: { status: false, text: "", previous: [0, 0] },
+    })
+  }
+
   const onChange = (value) => {
     setTimeout(function () {
-      let [selectionStart, selectionEnd] = getFieldSelection()
+      if (_text.current.dropped.status) {
+        // Drops from text in the content editable invoke the onChange function twice
+        if (value.length == _text.current.content.length) {
+          handleDrop(value)
+        }
+        return
+      }
 
+      let [selectionStart, selectionEnd] = getFieldSelection()
       let difference = value.length - _text.current.content.length
 
       let start = selectionStart - difference
@@ -773,6 +1050,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
         stylings: stylings,
         revert: [selectionStart, selectionEnd],
         pasted: { status: false, length: 0 },
+        dropped: { status: false, text: "", previous: [0, 0] },
       })
     }, 0)
   }
@@ -872,6 +1150,22 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     }
   }
 
+  const calculateTextWidth = (
+    text: string,
+    font: { size: number; family: string }
+  ) => {
+    let element = document.createElement("div")
+    let { size, family } = font
+
+    element.className = `text-[${size}px] font-['${family}'] absolute float-left whitespace-nowrap invisible`
+    element.innerHTML = text
+
+    document.body.appendChild(element)
+
+    let rect = element.getBoundingClientRect()
+    return rect.width
+  }
+
   return (
     <div className="align-center box-border flex h-min w-[400px] flex-col items-center justify-center rounded shadow-md">
       <div className={clsx("flex w-full flex-row justify-start p-2")}>
@@ -887,42 +1181,13 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
             />
           )
         })}
-
-        {/* <Property
-          name="B"
-          onMouseDown={(event) => {
-            event.preventDefault() // This does not take focus away from field which allows the function to retrieve the current selection data
-            perform("bold")
-          }}
-        />
-        <Property
-          name="I"
-          onMouseDown={(event) => {
-            event.preventDefault()
-            perform("italic")
-          }}
-        />
-        <Property
-          name="U"
-          onMouseDown={(event) => {
-            event.preventDefault()
-            perform("under")
-          }}
-        />
-        <Property
-          name="S"
-          onMouseDown={(event) => {
-            event.preventDefault()
-            perform("strike")
-          }}
-        /> */}
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
-      <div className="w-full">
+      <div className="selection-ignore box-border w-full p-2">
         <div
           ref={field}
           contentEditable="true"
-          className="rtl h-[150px] w-full resize-none overflow-auto overflow-x-hidden border-none p-2 outline-none"
+          className="selection-ignore rtl h-[150px] w-full resize-none overflow-auto overflow-x-hidden border-none font-['Arial'] text-[16px] outline-none"
           style={{
             direction: getTextDirection(),
           }}
@@ -938,60 +1203,6 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
               ..._text.current,
               pasted: { status: true, length: data.length },
             })
-
-            // let [start, end] = getFieldSelection()
-
-            // console.log(index)
-            // console.log(start)
-
-            // let index = start - data.length
-            // let stylings = text.stylings.slice()
-
-            // FIXME:
-            // stylings.push({
-            //   type: "bold",
-            //   start: 5,
-            //   finish: 7,
-            // })
-
-            // let copy = text.lastCopy
-            // if (copy.length != 0) {
-            //   for (let styling of copy) {
-            //     stylings.push({
-            //       type: styling.type,
-            //       start: styling.start + start,
-            //       finish: styling.finish + start,
-            //     })
-            //   }
-            // }
-
-            // let content: any = text.content
-            // let original = content.length
-
-            // // If not collapsed, insert text
-            // if (start == end) {
-            //   content = content.split("")
-            //   content.splice(start, 0, data)
-            //   content = content.join("")
-            // } else {
-            //   console.log(content)
-            //   // Otherwise, replace substring
-            //   content =
-            //     content.substring(0, start) +
-            //     data +
-            //     content.substring(end, content.length)
-            // }
-
-            // let difference = content.length - original
-
-            // stylings = handleDeletion()
-
-            // setText({
-            //   ...text,
-            //   content: content,
-            //   stylings: stylings,
-            //   revert: [start + data.length, start + data.length],
-            // })
           }}
           onInput={(event: any) => {
             onChange(event.target.textContent)
@@ -1006,10 +1217,24 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
               lastCopy: data,
             })
           }}
-          // onKeyDown={(event: any) => {
-          //   event.preventDefault()
-          //   console.log(event)
-          // }}
+          onDrop={(event) => {
+            let text = event.dataTransfer.getData("text")
+
+            if (text.trim() == "") return
+
+            // console.log(getSelectionPrecedingSum("anchorNode"))
+            // console.log(getSelectionPrecedingSum("focusNode"))
+            // console.log(window.getSelection())
+
+            setText({
+              ..._text.current,
+              dropped: {
+                status: true,
+                text: text,
+                previous: getFieldSelection(),
+              },
+            })
+          }}
         ></div>
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
