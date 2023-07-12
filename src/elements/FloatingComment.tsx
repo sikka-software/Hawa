@@ -40,6 +40,22 @@ const stylers = {
 // Paste = Removal + Addition -> Styling Removal + Styling Addition
 // Drag & Drop = Removal + Addition -> Styling Removal + Styling Addition
 
+// FIXME:
+// - Creating a new line, and typing data in it, and then setting two different stylings on the same text
+// FIXME:
+// - Type characters, create new line, remove the new line immediately
+
+// FIXME: Line at first index of content editable
+
+// FIXME: Typing behind a line break identifier
+// One way to prevent it, is to check in the onChange event if the data added (removed might not be needed here), is behind a line break identifier
+// if  so, move the start and end index by the length of the added, and replace the added, and then add the added back in the offset index
+
+// FIXME:
+// Deleting all text in a line removes that line entirely
+
+const lineBreakIdentifier = "​"
+
 export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   props
 ) => {
@@ -66,6 +82,28 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     return i
   }
 
+  const getRelativePrecedingSum = (element, endIndex) => {
+    let nodes: any = Array.from(element.childNodes)
+    let sum = nodes
+      .slice(0, endIndex)
+      .map((node) => node.textContent.length)
+      .reduce((a, b) => a + b, 0)
+    return sum
+  }
+
+  const getLinePrecedingSum = (endIndex) => {
+    let fieldNodes = Array.from(field.current.childNodes)
+    let sum = fieldNodes
+      .slice(0, endIndex)
+      .map((lineNode: any) => {
+        let lineNodes = Array.from(lineNode.childNodes)
+        return getRelativePrecedingSum(lineNode, lineNodes.length)
+      })
+      .reduce((a, b) => a + b, 0)
+
+    return sum
+  }
+
   const getSelectionPrecedingSum = (name) => {
     let selection = window.getSelection()
     let nodes = Array.from(field.current.childNodes)
@@ -80,39 +118,83 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
       (item: any) => !["#text", "BR"].includes(item.nodeName)
     )
 
-    let parent: any = selection[name].parentNode
-    let special = 0
+    let node = selection[name]
+    let parent: any = node.parentNode
+    let sum = 0
+    // let special = 0
 
-    // Special case for empty text
-    // if (parent == field.current) {
-    //   console.log("hi")
-    // }
+    const isNodeLine =
+      node.nodeName == "DIV" && Array.from(node.classList).includes("line")
 
-    // Special case for dropping text near or inside styled text
-    if (!Array.from(parent.parentNode.classList).includes("selection-ignore")) {
-      parent = parent.parentNode
+    // If the parent node is a span, this must be a text node
+    if (parent.nodeName == "SPAN") {
+      // Get index of span within line
+      let spanIndex = getChildIndex(parent)
 
-      let index = getChildIndex(selection[name].parentNode)
-      special = Array.from(parent.childNodes)
-        .slice(0, index)
-        .map((e: any) => e.textContent.length)
-        .reduce((a, b) => a + b, 0)
+      // Get relative sum within line
+      sum += getRelativePrecedingSum(parent.parentNode, spanIndex)
+
+      // Get parent line index
+      let lineIndex = getChildIndex(parent.parentNode)
+
+      // Get relative sum within entire field
+      sum += getLinePrecedingSum(lineIndex)
     }
 
-    let index = parent == field.current ? nodes.length : getChildIndex(parent)
+    // If the parent node is a line element, this must be a new line, so return the preceding sum
+    if (Array.from(parent.classList).includes("line")) {
+      // If the node is a text node, then that must mean this is a non-styled drop
+      if (node.nodeName == "#text") {
+        let spanIndex = getChildIndex(node)
 
-    let sum =
-      nodes
-        .slice(0, index)
-        .map((span: any) => span.textContent.length)
-        .reduce((a, b) => a + b, 0) + special
+        sum += getRelativePrecedingSum(parent, spanIndex)
+      }
+
+      // Get line element index
+      let lineIndex = getChildIndex(parent)
+
+      // Get relative sum within entire field
+      sum += getLinePrecedingSum(lineIndex)
+    }
+
+    if (isNodeLine) {
+      // Get line element index
+      let lineIndex = getChildIndex(node)
+
+      // Get relative sum within entire field
+      sum = getLinePrecedingSum(lineIndex)
+    }
+
+    // If the parent is the field, return zero
+    // FIXME: Should we return zero here?
+    if (parent == field.current && !isNodeLine) {
+      return 0
+    }
+
+    // // Special case for dropping text near or inside styled text
+    // if (!Array.from(parent.parentNode.classList).includes("selection-ignore")) {
+    //   parent = parent.parentNode
+
+    //   let index = getChildIndex(selection[name].parentNode)
+    //   special = Array.from(parent.childNodes)
+    //     .slice(0, index)
+    //     .map((e: any) => e.textContent.length)
+    //     .reduce((a, b) => a + b, 0)
+    // }
+
+    // let index = parent == field.current ? nodes.length : getChildIndex(parent)
+
+    // let sum =
+    //   nodes
+    //     .slice(0, index)
+    //     .map((span: any) => span.textContent.length)
+    //     .reduce((a, b) => a + b, 0) + special
 
     return sum
   }
 
   const getFieldSelection = () => {
     if (document.activeElement != field.current) return [0, 0]
-
     let selection = window.getSelection()
 
     let startPrecedingSum = getSelectionPrecedingSum("anchorNode")
@@ -137,7 +219,8 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
       let endNode = null
 
       let total = 0
-      let nodes = Array.from(field.current.childNodes)
+      // let nodes = Array.from(field.current.childNodes)
+      let nodes = Array.from(field.current.getElementsByTagName("span"))
 
       for (let i = 0; i < nodes.length; i++) {
         let node: any = nodes[i]
@@ -329,9 +412,14 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   }
 
   // Get stylings encompassing an index within it's range
-  const getIntersectStylings = (index, startOffset = 0, finishOffset = 0) => {
+  const getIntersectStylings = (
+    stylings,
+    index,
+    startOffset = 0,
+    finishOffset = 0
+  ) => {
     // Find all stylings with encompassing range
-    let matches = text.stylings.filter(
+    let matches = stylings.filter(
       ({ start, finish }) =>
         index >= start + startOffset && index < finish + finishOffset
     )
@@ -514,6 +602,17 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   const processPaste = (stylings, difference, selectionStart, selectionEnd) => {
     let pasteLength = _text.current.events.paste.length
 
+    // console.log(
+    //   `Pasting for length ${pasteLength} at [${selectionStart}, ${selectionEnd}]`
+    // )
+    // console.log(
+    //   `Accompanied stylings: ${JSON.stringify(
+    //     _text.current.clipboard,
+    //     null,
+    //     2
+    //   )}`
+    // )
+
     // Get addition start index
     let additionStart = selectionStart - pasteLength
 
@@ -538,10 +637,14 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
       })
     )
 
+    // console.log(`End result: ${JSON.stringify(stylings, null, 2)}`)
+
     return stylings
   }
 
   const processDrop = (stylings, difference, dropStart, dropEnd) => {
+    console.log(`Dropped at: ${[dropStart, dropEnd]}`)
+
     let dropLength = _text.current.events.drop.text.length
 
     let [dragStart, dragEnd] = _text.current.events.drop.drag
@@ -593,7 +696,7 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     return stylings
   }
 
-  const onChange = (value) => {
+  const onChange = (value, selectionStart, selectionEnd) => {
     // Since drop events cause onChange to invoke twice, ignore the first incomplete event
     if (
       _text.current.events.drop.is &&
@@ -601,8 +704,10 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
     )
       return
 
+    console.log(`Changed at: ${[selectionStart, selectionEnd]}`)
+
     setTimeout(function () {
-      let [selectionStart, selectionEnd] = getFieldSelection()
+      // let [selectionStart, selectionEnd] = getFieldSelection()
       let difference = value.length - _text.current.content.length
       let stylings = _text.current.stylings
 
@@ -644,33 +749,100 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   }
 
   const getContent = () => {
+    // console.clear()
     let content = _text.current.content
-
-    // Get all styling indices
-    let indices = _text.current.stylings
-      .map(({ start, finish }) => [start, finish])
-      .flat()
-
-    // Sort ascendingly
-    indices = indices.sort((a, b) => a - b)
-
-    // Remove duplicates
-    indices = indices.filter(
-      (element, index) => indices.indexOf(element) == index
-    )
-
-    // Add first index if not present
-    if (indices[0] != 0) indices.unshift(0)
-
-    // Add last index if not present
-    let last = content.length
-    if (indices[indices.length - 1] != last) indices.push(last)
+    let stylings = [..._text.current.stylings]
 
     let result = []
 
-    for (let i = 0; i < indices.length - 1; i++) {
-      result.push([indices[i], content.substring(indices[i], indices[i + 1])])
+    // Get line indices
+    let lineIndices = content
+      .split("")
+      .map((character, index) => {
+        if (character == lineBreakIdentifier) return index
+        return null
+      })
+      .filter((item) => item)
+
+    // Add end point
+    lineIndices.unshift(0)
+    lineIndices.push(content.length)
+
+    // Ignore last element
+    for (let i = 0; i < lineIndices.length - 1; i++) {
+      let lineStart = lineIndices[i]
+      let lineEnd = lineIndices[i + 1]
+
+      let lineContent = content.slice(lineStart, lineEnd)
+
+      // console.log(
+      //   `Line: ${lineStart} -> ${lineEnd}, with content: ${lineContent}`
+      // )
+
+      // Get all stylings within line
+      let lineStylings = getStylingsInRange(stylings, lineStart, lineEnd)
+
+      // Collect all spans relative to stylings within line
+      let spans = []
+
+      // Acquire all flattened unique indices
+      let indices = lineStylings
+        .map(({ start, finish }) => [start, finish])
+        .flat()
+        .sort((a, b) => a - b)
+
+      indices = indices.filter(
+        (element, index) => indices.indexOf(element) == index
+      )
+
+      // Add first index if not present
+      if (indices[0] != 0) indices.unshift(0)
+
+      // Add last index if not present
+      let last = lineContent.length
+      if (indices[indices.length - 1] != last) indices.push(last)
+
+      // Iterate through all indices except the last
+      for (let i = 0; i < indices.length - 1; i++) {
+        let startIndex = indices[i]
+        let endIndex = indices[i + 1]
+
+        spans.push({
+          content: lineContent.substring(startIndex, endIndex),
+          types: getIntersectStylings(lineStylings, startIndex).map(
+            (styling) => styling.type
+          ),
+        })
+      }
+
+      result.push(spans)
     }
+
+    // // Get all styling indices
+    // let indices = _text.current.stylings
+    //   .map(({ start, finish }) => [start, finish])
+    //   .flat()
+
+    // // Sort ascendingly
+    // indices = indices.sort((a, b) => a - b)
+
+    // // Remove duplicates
+    // indices = indices.filter(
+    //   (element, index) => indices.indexOf(element) == index
+    // )
+
+    // // Add first index if not present
+    // if (indices[0] != 0) indices.unshift(0)
+
+    // // Add last index if not present
+    // let last = content.length
+    // if (indices[indices.length - 1] != last) indices.push(last)
+
+    // // let result = []
+
+    // for (let i = 0; i < indices.length - 1; i++) {
+    //   result.push([indices[i], content.substring(indices[i], indices[i + 1])])
+    // }
 
     return result
   }
@@ -678,16 +850,28 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
   // dangerouslySetInnerHTML incorrectly renders when the entire text is highlighted, copied, and then pasted in succession
   useEffect(() => {
     let html = getContent()
-      .map((_data, index) => {
-        let [start, data] = _data
-
-        // Get stylings encompassing an index within it's range
-        let stylings = getIntersectStylings(start)
-        return `<span class="${stylings
-          .map((styling) => stylers[styling.type].css)
-          .join(" ")}" data-child-index="${index}">${data}</span>`
+      .map((line, index) => {
+        return `<div class="line" data-line-index="${index}">${line
+          .map((span, _index) => {
+            return `<span class="${span.types
+              .map((type) => stylers[type].css)
+              .join(" ")}" data-child-index="${_index}">${span.content}</span>`
+          })
+          .join("")}</div>`
       })
       .join("")
+
+    // let html = getContent()
+    //   .map((_data, index) => {
+    //     let [start, data] = _data
+
+    //     // Get stylings encompassing an index within it's range
+    //     let stylings = getIntersectStylings(_text.current.stylings, start)
+    //     return `<span class="${stylings
+    //       .map((styling) => stylers[styling.type].css)
+    //       .join(" ")}" data-child-index="${index}">${data}</span>`
+    //   })
+    //   .join("")
 
     field.current.innerHTML = html
   }, [text.content, text.stylings, text.revert])
@@ -722,6 +906,17 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
         })}
       </div>
       <div className="h-[1px] w-full bg-slate-600">&nbsp;</div>
+      {/* <div className="selection-ignore rtl h-[150px] w-full resize-none overflow-auto overflow-x-hidden border-none font-['Arial'] text-[16px] outline-none">
+        <div className="line" data-line-index="0">
+          <span className="" data-child-index="0">
+            asd
+          </span>
+        </div>
+        <div className="line" data-line-index="1">
+          <br />
+        </div>
+      </div>
+       */}
       <div className="selection-ignore box-border w-full p-2">
         <div
           ref={field}
@@ -733,8 +928,44 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
           onPaste={(event) => {
             // pastes all copied text from the content editable as plain text
             event.preventDefault()
-            const data = event.clipboardData.getData("text/plain")
+            let data = event.clipboardData.getData("text/plain")
+            data = data.replaceAll("\n", "")
+            data = data.replaceAll("\r", "")
+
             document.execCommand("insertHTML", false, data)
+
+            //   selection.anchorOffset <= 1 &&
+            //   selection.focusOffset <= 1
+            // ) {
+            //   let lineIndex = getChildIndex(anchorNode.parentNode.parentNode)
+
+            //   let _content = content
+            //   if (content.startsWith(lineBreakIdentifier)) {
+            //     _content = _content.slice(1)
+            //   }
+
+            //   let originalLine: any =
+            //     _content.split(lineBreakIdentifier)[lineIndex]
+
+            //   console.log(_content.split(lineBreakIdentifier))
+
+            //   originalLine = originalLine.split("")
+            //   originalLine.splice(0, 0, eventData)
+            //   originalLine = originalLine.join("")
+
+            //   let lines = _content.split(lineBreakIdentifier)
+
+            //   lines[lineIndex] = originalLine
+
+            //   textContent = lines.join(lineBreakIdentifier)
+
+            //   if (content.startsWith(lineBreakIdentifier)) {
+            //     textContent = lineBreakIdentifier + textContent
+            //   }
+
+            //   start += 1
+            //   end += 1
+            // }
 
             setText({
               ..._text.current,
@@ -745,7 +976,94 @@ export const FloatingComment: React.FunctionComponent<ComponentTypes> = (
             })
           }}
           onInput={(event: any) => {
-            onChange(event.target.textContent)
+            // console.log(event)
+            // console.log(event.target.textContent)
+            // console.log(event.target.textContent.split(""))
+
+            let [start, end] = getFieldSelection()
+            let textContent = event.target.textContent
+            let content = _text.current.content
+            // Try creating twice the lines if the index is at 0,0
+            // if (!textContent.startsWith(lineBreakIdentifier)) {
+            //   textContent = lineBreakIdentifier + textContent
+            // }
+
+            let eventType = event.nativeEvent.inputType
+
+            if (eventType == "insertParagraph") {
+              console.log(`Inserted new line at [${start}, ${end}]`)
+
+              let split = textContent.split("")
+
+              split.splice(start, 0, lineBreakIdentifier)
+              if (start == 0 && !content.startsWith(lineBreakIdentifier)) {
+                split.splice(start, 0, lineBreakIdentifier)
+                start += 1
+                end += 1
+              }
+
+              textContent = split.join("")
+
+              // Increase selection by one to accomodate for the new line
+              start += 1
+              end += 1
+            } else {
+              let selection = window.getSelection()
+              let { anchorNode, focusNode } = selection
+
+              let eventData = event.nativeEvent.data
+
+              // Handle typing behind lines
+              if (
+                anchorNode.parentNode == focusNode.parentNode &&
+                anchorNode.parentNode.nodeName == "SPAN" &&
+                selection.anchorOffset <= 1 &&
+                selection.focusOffset <= 1 &&
+                eventType == "insertText"
+              ) {
+                let lineIndex = getChildIndex(anchorNode.parentNode.parentNode)
+
+                let _content = content
+                if (content.startsWith(lineBreakIdentifier)) {
+                  _content = _content.slice(1)
+                }
+
+                let originalLine: any =
+                  _content.split(lineBreakIdentifier)[lineIndex]
+
+                console.log(_content.split(lineBreakIdentifier))
+
+                originalLine = originalLine.split("")
+                originalLine.splice(0, 0, eventData)
+                originalLine = originalLine.join("")
+
+                let lines = _content.split(lineBreakIdentifier)
+
+                lines[lineIndex] = originalLine
+
+                textContent = lines.join(lineBreakIdentifier)
+
+                if (content.startsWith(lineBreakIdentifier)) {
+                  textContent = lineBreakIdentifier + textContent
+                }
+
+                start += 1
+                end += 1
+              }
+            }
+
+            // if (
+            //   eventData != null &&
+            //   start - eventData.length == 0 &&
+            //   end - eventData.length == 0 &&
+            //   content.startsWith(lineBreakIdentifier)
+            // ) {
+            //   console.log("STOP")
+            // }
+
+            // console.log(event.nativeEvent.inputType)
+
+            onChange(textContent, start, end)
           }}
           onCopy={() => {
             let [start, end] = getFieldSelection()
