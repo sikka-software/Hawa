@@ -1,38 +1,38 @@
 import React from "react"
 import clsx from "clsx"
 
-type AccordionItemTypes = {
-  title: any
-  count: any
+type AccordionTypes = {
+  /**
+   * The title of the clickable accordion bar
+   */
+  title: string
+  /**
+   * The content inside the accordion to be visible once the bar is clicked
+   */
   content: any
+  /**
+   * The index of each accordion, must be unique for each usage of this component
+   */
+  index: any
 }
-
-const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
+export const HawaAccordion: React.FunctionComponent<AccordionTypes> = (
+  props
+) => {
   const [collapse, setCollapse] = React.useState(false)
-  let noRounding =
-    "flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-  let roundedTop =
-    "rounded-t-xl border-b-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-  let roundedBottom =
-    "rounded-b-xl border-t-0 flex items-center justify-between w-full p-5 font-medium text-left border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-  let accPaper =
-    "p-5 font-light border border-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
-  let accPaperRounded =
-    "p-5 font-light border border-b-xl rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900"
 
   return (
-    <div>
+    <div className="h-fit w-full">
       <button
-        id={"accordion-collapse-heading-" + props.count}
+        id={"accordion-collapse-heading-" + props.index}
         type="button"
         className={clsx(
           collapse ? "rounded" : "rounded-t",
           "flex w-full items-center justify-between  border border-gray-200 bg-gray-100 p-5 text-left font-medium text-gray-900 hover:bg-gray-100  dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800"
         )}
         onClick={() => setCollapse(!collapse)}
-        data-accordion-target={"#accordion-collapse-body-" + props.count}
+        data-accordion-target={"#accordion-collapse-body-" + props.index}
         aria-expanded="true"
-        aria-controls={"accordion-collapse-body-" + props.count}
+        aria-controls={"accordion-collapse-body-" + props.index}
       >
         <span>{props.title}</span>
         <svg
@@ -52,39 +52,15 @@ const AccordionItem: React.FunctionComponent<AccordionItemTypes> = (props) => {
         </svg>
       </button>
       <div
-        id={"accordion-collapse-body-" + props.count}
-        aria-labelledby={"accordion-collapse-heading-" + props.count}
+        id={"accordion-collapse-body-" + props.index}
+        aria-labelledby={"accordion-collapse-heading-" + props.index}
         className={clsx(
-          collapse ? "invisible hidden h-0 p-0" : " visible h-full",
-          "rounded-b border border-t-0 border-gray-200 p-5 font-light dark:border-gray-700 dark:bg-gray-900"
+          collapse ? "invisible hidden h-0 p-0" : "visible h-full",
+          "w-full rounded-b border border-t-0 border-gray-200 p-5 font-light dark:border-gray-700 dark:bg-gray-900"
         )}
       >
         <p className="mb-2 text-gray-500 dark:text-gray-400">{props.content}</p>
       </div>
-    </div>
-  )
-}
-type AccordionTypes = {
-  content: any
-}
-export const HawaAccordion: React.FunctionComponent<AccordionTypes> = (
-  props
-) => {
-  return (
-    <div
-      id="accordion-collapse"
-      data-accordion="collapse"
-      className="flex flex-col gap-3"
-    >
-      {props.content.map((acc: any, i: any) => {
-        return (
-          <AccordionItem
-            title={acc.title}
-            content={acc.content}
-            count={props.content.length - 1 === i ? -1 : i}
-          />
-        )
-      })}
     </div>
   )
 }

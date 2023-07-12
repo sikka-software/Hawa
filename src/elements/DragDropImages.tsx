@@ -4,6 +4,9 @@ import { HawaAlert } from "./HawaAlert"
 import { HawaButton } from "./HawaButton"
 
 type DragDropImagesTypes = {
+  /**
+   * The text label above the component. Consistant with the other form input fields
+   */
   label?: string
   files: [File]
   setFiles: any
@@ -13,15 +16,18 @@ type DragDropImagesTypes = {
   onAcceptedFiles: any
   showPreview: any
   onDeleteFile: any
+  onClearFiles: any
+  maxSize: number
+  errorMessages: string
+  /**
+   * The translation object, use this to replace the default text with any translated text you want.
+   */
   texts: {
     clickHereToUpload: string
     maxFileSize: string
     tooManyFiles: string
     fileTooLarge: string
   }
-  onClearFiles: any
-  maxSize: number
-  errorMessages: string
 }
 
 export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
@@ -109,7 +115,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           onDeleteFile(file)
         }}
         type="button"
-        className="absolute left-0 ml-auto inline-flex items-center rounded rounded-tr-none rounded-bl-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+        className="absolute left-0 ml-auto inline-flex items-center rounded rounded-bl-none rounded-tr-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
         data-modal-toggle="defaultModal"
       >
         <svg

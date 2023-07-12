@@ -9,15 +9,13 @@
 
 > Opinionated UI Kit for web apps and websites built with TailwindCSS
 
+[hawa.style](https://hawa.style)
+
 ## Install
 
 ```bash
 npm install --save @sikka/hawa
 ```
-
-# Roadmap
-
-- Organize code
 
 </br>
 

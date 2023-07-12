@@ -1,35 +1,34 @@
 import React, { FC, ReactNode } from "react"
 
-type TBreadcrumItem = {
-  label: string
-  href: string
-}
-
 type TBreadcrumb = {
-  breadcrumbLink: TBreadcrumItem[]
+  /**
+   * The array of crumbs, each one with a label and a href link
+   */
+  breadcrumbLinks: [{ label: string; href: string }]
+  /** The separator between each crumb, can be character or React Node */
   separator?: string | ReactNode
 }
 
-const Breadcrumb: FC<TBreadcrumb> = ({
-  breadcrumbLink,
-  separator = "/",
+const HawaBreadcrumb: FC<TBreadcrumb> = ({
+  breadcrumbLinks,
+  separator = ">",
   ...props
 }) => {
   return (
     <div className="flex flex-row items-center gap-2 text-sm">
-      {breadcrumbLink.map((singleBreadcrumbLink, index) => (
+      {breadcrumbLinks.map((singleBreadcrumbLink, index) => (
         <div className="flex flex-row items-center justify-center gap-2">
           <a
             href={singleBreadcrumbLink.href}
             className={
-              index + 1 === breadcrumbLink.length
+              index + 1 === breadcrumbLinks.length
                 ? "pointer-events-none"
                 : "underline-offset-4 transition-all hover:text-buttonPrimary-500 hover:underline hover:decoration-2"
             }
           >
             {singleBreadcrumbLink.label}
           </a>
-          {index != breadcrumbLink.length - 1 ? (
+          {index != breadcrumbLinks.length - 1 ? (
             typeof separator == "string" ? (
               <div>{separator}</div>
             ) : (
@@ -42,4 +41,4 @@ const Breadcrumb: FC<TBreadcrumb> = ({
   )
 }
 
-export default Breadcrumb
+export default HawaBreadcrumb

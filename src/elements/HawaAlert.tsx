@@ -4,7 +4,11 @@ import { HawaButton } from "./HawaButton"
 
 type AlertTypes = {
   severity: "info" | "warning" | "error" | "success"
+  /** The title of the alert placed above the text of the alert. Can be used alone */
   title?: any
+  /** The text of the alert placed below the title of the alert. Can be used alone */
+  text: any
+  // hideIcon?: any //TODO: an X button to delete the alert
   variant?:
     | "normal"
     | "solid"
@@ -12,9 +16,7 @@ type AlertTypes = {
     | "left-accent"
     | "right-accent"
     | "bottom-accent"
-  text: any
   direction?: "rtl" | "ltr"
-  hideIcon?: any
   actions?: [
     {
       label: string

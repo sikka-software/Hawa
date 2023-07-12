@@ -1,17 +1,16 @@
 import React from "react"
-import Breadcrumb from "../../elements/Breadcrumb"
+import HawaBreadcrumb from "../../elements/Breadcrumb"
 import { Story, Meta } from "@storybook/react"
-import { BsChevronRight } from "react-icons/bs"
 
 export default {
   title: "Elements/Breadcrumb",
-  component: Breadcrumb,
+  component: HawaBreadcrumb,
 } as Meta
 
 const Template: Story = (args) => {
   return (
-    <Breadcrumb
-      breadcrumbLink={args.breadcrumbLink}
+    <HawaBreadcrumb
+      breadcrumbLinks={args.breadcrumbLink}
       separator={args.separator}
     />
   )
@@ -56,7 +55,6 @@ BreadcrumbIconSeparator.args = {
       ></path>
     </svg>
   ),
-  // separator: <BsChevronRight />,
   breadcrumbLink: [
     { label: "test", href: "/test" },
     { label: "test1", href: "/test1" },

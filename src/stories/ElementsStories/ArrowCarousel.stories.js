@@ -21,7 +21,7 @@ const Template = (args) => {
 
 const AfghanistanFlag = () => {
   return (
-    <svg width="160" height="120" viewBox="0 0 640 480">
+    <svg width="52" height="52" viewBox="0 0 640 480">
       <g fill-rule="evenodd" stroke-width="1pt">
         <path d="M0 0h640v480H0z" />
         <path fill="#090" d="M426.7 0H640v480H426.7z" />
@@ -159,7 +159,7 @@ const AfghanistanFlag = () => {
 };
 const AlbaniaFlag = () => {
   return (
-    <svg width="160" height="120" viewBox="0 0 640 480">
+    <svg width="52" height="52" viewBox="0 0 640 480">
       <path fill="#f00" d="M0 0h640v480H0z" />
       <path
         id="a"
@@ -176,7 +176,7 @@ const AlbaniaFlag = () => {
 };
 const AngolaFlag = () => {
   return (
-    <svg width="160" height="120" viewBox="0 0 640 480">
+    <svg width="52" height="52" viewBox="0 0 640 480">
       <g fill-rule="evenodd" stroke-width="1pt">
         <path fill="red" d="M0 0h640v243.6H0z" />
         <path d="M0 236.4h640V480H0z" />
