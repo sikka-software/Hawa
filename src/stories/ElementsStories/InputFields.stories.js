@@ -46,6 +46,28 @@ export const TextField = (args) => {
       <HawaTextField {...args} width="full" label="Full Width" />
       <HawaTextField {...args} width="normal" label="Normal Width" />
       <HawaTextField {...args} width="small" label="Small Width" />
+
+      <h1 className="text-xl font-bold">Preview Mode</h1>
+      <div className="flex flex-row gap-2">
+        <HawaTextField
+          label="Label test"
+          helperText="something invalid"
+          placeholder="input placeholder"
+          // value="3434"
+          type="text"
+          width="small"
+          preview={true}
+        />
+        <HawaTextField
+          label="Label test"
+          // helperText="something invalid"
+          placeholder="input placeholder"
+          // value="3434"
+          type="text"
+          width="small"
+          // preview={true}
+        />
+      </div>
     </div>
   );
 };

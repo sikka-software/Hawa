@@ -2,7 +2,7 @@ import React from "react"
 import clsx from "clsx"
 
 // TODO: make icon based on direction
-// TODO: Preferebly usse context to pass direction rtl | ltr
+// TODO: Preferebly use context to pass direction rtl | ltr
 
 type TextFieldTypes = {
   margin?: "none" | "normal" | "large"
@@ -52,7 +52,7 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
   let defaultInputStyle =
     "block w-full rounded border border-gray-300 bg-white p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
   let previewInputStyle =
-    "block w-full rounded bg-gray-50  p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+    "block w-full rounded bg-gray-50 h-9  p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
   // "mb-0 block w-full rounded border border-gray-300 bg-gray-50 p-2  text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500",
 
   return (
@@ -61,7 +61,7 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
     >
       {props.label && (
         <label
-          htmlFor="first_name"
+          // htmlFor="first_name"
           className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           {props.label}
@@ -89,6 +89,10 @@ export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
                   {props.icon}
                 </div>
               )}
+                  {/* <input
+                {...props}
+                className={clsx(previewInputStyle, props.icon ? "pl-10" : "")}
+              /> */}
               <div
                 // {...props}
                 className={clsx(previewInputStyle, props.icon ? "pl-10" : "")}
