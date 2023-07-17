@@ -34,6 +34,7 @@ export * from "./UserFeedback"
 export * from "./ArrowCarousel"
 export * from "./FloatingComment"
 export * from "./FloatingCommentSlate"
+export * from "./BackToTop"
 // Inputs
 export * from "./HawaTextField"
 export * from "./HawaCardInput"
