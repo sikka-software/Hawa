@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState, FC } from "react"
 
 type TCheckBoxTypes = {
   centered?: boolean
@@ -10,9 +10,7 @@ type TCheckBoxTypes = {
   val?: boolean
 }
 
-export const HawaCheckbox: React.FunctionComponent<TCheckBoxTypes> = (
-  props
-) => {
+export const HawaCheckbox: FC<TCheckBoxTypes> = (props) => {
   const [isChecked, setVal] = useState(props.val)
 
   useEffect(() => {

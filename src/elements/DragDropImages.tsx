@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { HawaAlert } from "./HawaAlert"
 import { HawaButton } from "./HawaButton"
-
+//TODO: This element needs more improvements and testing
 type DragDropImagesTypes = {
-  /**
-   * The text label above the component. Consistant with the other form input fields
-   */
+  /**  The text label above the component. Consistant with the other form input fields   */
   label?: string
   files: [File]
   setFiles: any
@@ -19,9 +17,7 @@ type DragDropImagesTypes = {
   onClearFiles: any
   maxSize: number
   errorMessages: string
-  /**
-   * The translation object, use this to replace the default text with any translated text you want.
-   */
+  /** The translation object, use this to replace the default text with any translated text you want.*/
   texts: {
     clickHereToUpload: string
     maxFileSize: string

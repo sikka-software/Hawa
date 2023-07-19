@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import clsx from "clsx"
 import { HawaSpinner } from "./HawaSpinner"
 
@@ -12,7 +12,7 @@ type StatTypes = {
   isLoading?: boolean
   handleClick?: () => void
 }
-export const HawaStats: React.FunctionComponent<StatTypes> = (props) => {
+export const HawaStats: FC<StatTypes> = (props) => {
   let defaultStyle = "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",

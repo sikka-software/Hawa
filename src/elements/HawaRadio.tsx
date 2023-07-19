@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import clsx from "clsx"
 
 type RadioTypes = {
@@ -11,7 +11,7 @@ type RadioTypes = {
   onChangeTab?: any
   defaultValue?: any
 }
-export const HawaRadio: React.FunctionComponent<RadioTypes> = (props) => {
+export const HawaRadio: FC<RadioTypes> = (props) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
     "inline-block py-2 px-4  w-full text-white bg-buttonPrimary-500 rounded active"

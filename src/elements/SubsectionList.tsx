@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { HawaChip } from "./HawaChip"
 
 type SubsectionListTypes = {
@@ -18,9 +18,7 @@ type SubsectionListTypes = {
     }
   ]
 }
-export const SubsectionList: React.FunctionComponent<SubsectionListTypes> = ({
-  subsections,
-}) => {
+export const SubsectionList: FC<SubsectionListTypes> = ({ subsections }) => {
   const [selectedSection, setSelectedSection] = useState(null)
   return (
     <div className="w-full max-w-2xs rounded bg-layoutPrimary-500 p-4 ">
@@ -52,7 +50,7 @@ type TSubsectionItem = {
   selected?: any
   onItemClick?: () => void
 }
-const SubsectionItem: React.FunctionComponent<TSubsectionItem> = ({
+const SubsectionItem: FC<TSubsectionItem> = ({
   title,
   value,
   icon,

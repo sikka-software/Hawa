@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react"
+import { ReactNode, useEffect, useRef, useState, FC } from "react"
 import clsx from "clsx"
 
 // TODO: add width to decrease width
@@ -34,7 +34,7 @@ type MenuItems = {
   element?: any
 }
 
-export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
+export const HawaMenu: FC<TMenuTypes> = ({
   menuItems,
   withHeader,
   direction = "ltr",
@@ -165,7 +165,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
         )}
       >
         {withHeader && (
-          <div className="py-3 px-4 text-xs text-gray-900 dark:text-white">
+          <div className="px-4 py-3 text-xs text-gray-900 dark:text-white">
             <div>{headerTitle}</div>
             <div className="truncate font-medium">{headerSubtitle}</div>
           </div>
@@ -196,7 +196,7 @@ export const HawaMenu: React.FunctionComponent<TMenuTypes> = ({
                     }}
                     className={clsx(
                       item.isButton
-                        ? "flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 py-2 px-4 text-white hover:bg-buttonPrimary-700 rtl:flex-row-reverse dark:hover:bg-buttonPrimary-700 dark:hover:text-white"
+                        ? "flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 px-4 py-2 text-white hover:bg-buttonPrimary-700 rtl:flex-row-reverse dark:hover:bg-buttonPrimary-700 dark:hover:text-white"
                         : " flex  flex-row items-center rounded  rtl:flex-row-reverse ",
                       sizeStyles[size],
                       item.disabled

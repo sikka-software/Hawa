@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import clsx from "clsx"
 import { FaCheck } from "react-icons/fa"
 
@@ -8,7 +8,7 @@ type THawaTimeline = {
   orientation: "vertical" | "horizontal"
 }
 
-export const HawaStepper: React.FunctionComponent<THawaTimeline> = ({
+export const HawaStepper: FC<THawaTimeline> = ({
   orientation = "horizontal",
   ...props
 }) => {

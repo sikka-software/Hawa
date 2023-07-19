@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { useState } from "react"
+import { useState, FC } from "react"
 
 // TODO: fix wrapping issue when small screen
 
@@ -13,7 +13,7 @@ type TabsTypes = {
   width?: "full" | "normal"
   pill?: boolean
 }
-export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
+export const HawaTabs: FC<TabsTypes> = ({
   orientation = "horizontal",
   direction = "ltr",
   width = "normal",
@@ -115,8 +115,8 @@ export const HawaTabs: React.FunctionComponent<TabsTypes> = ({
                 pill
                   ? "rounded"
                   : orientation === "vertical"
-                  ? "rounded rounded-tl-none rounded-bl-none"
-                  : "rounded rounded-br-none rounded-bl-none"
+                  ? "rounded rounded-bl-none rounded-tl-none"
+                  : "rounded rounded-bl-none rounded-br-none"
                 // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >

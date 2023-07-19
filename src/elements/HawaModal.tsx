@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react"
+import { ReactElement, useEffect, FC } from "react"
 import clsx from "clsx"
 
 type ModalTypes = {
@@ -29,7 +29,7 @@ type ModalTypes = {
    */
   actions: any
 }
-export const HawaModal: React.FunctionComponent<ModalTypes> = ({
+export const HawaModal: FC<ModalTypes> = ({
   open,
   title,
   onClose,

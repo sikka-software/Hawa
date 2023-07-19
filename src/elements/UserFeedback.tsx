@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 
 type ComponentTypes = {
   title?: string
@@ -10,9 +10,7 @@ type ComponentTypes = {
   }
   onOptionClicked?: (option) => void
 }
-export const UserFeedback: React.FunctionComponent<ComponentTypes> = ({
-  ...props
-}) => {
+export const UserFeedback: FC<ComponentTypes> = ({ ...props }) => {
   return (
     <div className="relative flex w-full max-w-sm flex-col gap-2 rounded bg-white p-4 shadow-md">
       <div className="absolute left-2 top-2 p-1.5 text-sm">{props.title}</div>

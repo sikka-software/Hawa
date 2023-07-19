@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React from "react"
+import { FC } from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 
@@ -12,7 +12,7 @@ type ControlTypes = {
   innerRef: any
   size?: "small" | "normal" | "large"
 }
-const Control: React.FunctionComponent<ControlTypes> = ({
+const Control: FC<ControlTypes> = ({
   cx,
   children,
   getStyles,
@@ -48,7 +48,7 @@ type MenuTypes = {
   innerProps: any
   innerRef: any
 }
-const Menu: React.FunctionComponent<MenuTypes> = ({
+const Menu: FC<MenuTypes> = ({
   cx,
   children,
   getStyles,
@@ -76,7 +76,7 @@ type OptionTypes = {
   innerRef: any
   size?: "small" | "normal" | "large"
 }
-const Option: React.FunctionComponent<OptionTypes> = ({
+const Option: FC<OptionTypes> = ({
   cx,
   children,
   getStyles,
@@ -114,7 +114,7 @@ type SelectTypes = {
   getOptionLabel?: any
   disabled?: boolean
 }
-export const HawaSelect: React.FunctionComponent<SelectTypes> = (props) => {
+export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
     <div>
       {props.label && (

@@ -1,4 +1,4 @@
-import React from "react"
+import { FC, useState } from "react"
 
 type RangeTypes = {
   value?: any
@@ -10,7 +10,7 @@ type RangeTypes = {
   max?: any
 }
 
-export const HawaRange: React.FunctionComponent<RangeTypes> = ({
+export const HawaRange: FC<RangeTypes> = ({
   value,
   handleChange,
   startElement,
@@ -18,7 +18,7 @@ export const HawaRange: React.FunctionComponent<RangeTypes> = ({
   label,
   ...props
 }) => {
-  const [rangeValue, setRangeValue] = React.useState(value)
+  const [rangeValue, setRangeValue] = useState(value)
 
   return (
     <div {...props}>

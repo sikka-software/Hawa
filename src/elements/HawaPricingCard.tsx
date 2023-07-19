@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React from "react"
+import { FC } from "react"
 import { HawaButton } from "./HawaButton"
 
 // TODO: if feature.excluded is false, show gray and x
@@ -22,7 +22,7 @@ type PricingCardTypes = {
   size: "small" | "medium" | "large"
 }
 
-export const HawaPricingCard: React.FunctionComponent<PricingCardTypes> = ({
+export const HawaPricingCard: FC<PricingCardTypes> = ({
   size = "medium",
   direction = "ltr",
   currentPlan = false,

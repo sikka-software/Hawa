@@ -1,8 +1,8 @@
+import { useEffect, useRef, useState, ReactElement, FC } from "react"
 import clsx from "clsx"
-import React, { useEffect, useRef, useState } from "react"
 
 type THawaToolTip = {
-  children?: React.ReactElement
+  children?: ReactElement
   content?: string
   btnHovered?: any
   buttonRef?: any
@@ -19,7 +19,7 @@ type THawaToolTip = {
     | "bottom-left"
 }
 
-export const HawaTooltip: React.FunctionComponent<THawaToolTip> = ({
+export const HawaTooltip: FC<THawaToolTip> = ({
   children,
   content,
   size = "normal",

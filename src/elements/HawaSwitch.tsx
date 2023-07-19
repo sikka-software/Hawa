@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import clsx from "clsx"
 
 type SwitchTypes = {
@@ -6,10 +6,7 @@ type SwitchTypes = {
   size?: "small" | "normal" | "large"
 }
 
-export const HawaSwitch: React.FunctionComponent<SwitchTypes> = ({
-  size = "normal",
-  ...props
-}) => {
+export const HawaSwitch: FC<SwitchTypes> = ({ size = "normal", ...props }) => {
   let sizeStyles = {
     small: "",
     normal:

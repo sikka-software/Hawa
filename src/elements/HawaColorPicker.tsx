@@ -1,19 +1,19 @@
-import React, { useState } from "react"
+import { useState, FC, ChangeEvent } from "react"
 
 type ColorPickerTypes = {
+  /** The hex code for the color */
   color?: any
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  /** Fires everytime the color changes */
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
-  props
-) => {
+export const HawaColorPicker: FC<ColorPickerTypes> = (props) => {
   const [selectedColor, setSelectedColor] = useState(props.color)
   return (
     <div className={`flex w-fit flex-row rounded border-2 border-gray-200 p-0`}>
       <div
         style={{ backgroundColor: selectedColor }}
-        className="rounded-tl-lg rounded-bl-lg"
+        className="rounded-bl-lg rounded-tl-lg"
       >
         <input
           type="color"
@@ -29,7 +29,7 @@ export const HawaColorPicker: React.FunctionComponent<ColorPickerTypes> = (
       <input
         type="text"
         value={selectedColor}
-        className="w-24  rounded-tr-lg rounded-br-lg pr-2 pl-2"
+        className="w-24  rounded-br-lg rounded-tr-lg pl-2 pr-2"
       />
     </div>
   )

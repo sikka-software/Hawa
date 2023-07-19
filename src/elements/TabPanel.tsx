@@ -1,11 +1,11 @@
-import React from "react"
+import { FC } from "react"
 
 type TabPanelTypes = {
   children: any
   value: any
   index: any
 }
-export const TabPanel: React.FunctionComponent<TabPanelTypes> = (props) => {
+export const TabPanel: FC<TabPanelTypes> = (props) => {
   const { children, value, index, ...other } = props
   return (
     <div

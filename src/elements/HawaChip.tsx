@@ -1,18 +1,24 @@
-import React from "react"
+import { FC } from "react"
 import clsx from "clsx"
 
 type TChipTypes = {
+  /** The text inside the chip */
   label: string
-  size?: "small" | "normal" | "large"
+  /** The small icon before the chip label  */
   icon?: JSX.Element
+  /** The color of the chip, must be a tailwind color */
   color?: string
+  /** The size of the chip */
+  size?: "small" | "normal" | "large"
+  /** Enable/Disable the dot before the label of the chip */
   dot?: boolean
+  /** Red/Green dot next to the label of the chip indicating online/offline or available/unavailable */
   dotType?: "available" | "unavailable"
 }
 
-export const HawaChip: React.FunctionComponent<TChipTypes> = ({
-  size = "normal",
+export const HawaChip: FC<TChipTypes> = ({
   label,
+  size = "normal",
   icon,
   color,
   dot,

@@ -1,12 +1,10 @@
-import React, { ReactElement } from "react"
+import { ReactElement, FC } from "react"
 
 type DraggableCardTypes = {
   children: ReactElement
 }
 
-export const DraggableCard: React.FunctionComponent<DraggableCardTypes> = (
-  props
-) => {
+export const DraggableCard: FC<DraggableCardTypes> = (props) => {
   return (
     <div className="flex flex-row rounded bg-layoutPrimary-500 p-4">
       <button

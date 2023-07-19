@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useEffect, useState, FunctionComponent } from "react"
+import { useEffect, useState, FC } from "react"
 
 type Item = {
   label?: string
@@ -41,7 +41,7 @@ const Arrow = (props: {
   )
 }
 
-export const ArrowCarousel: FunctionComponent<ComponentTypes> = (props) => {
+export const ArrowCarousel: FC<ComponentTypes> = (props) => {
   const [index, setIndex] = useState(props.index || 0)
 
   useEffect(() => {

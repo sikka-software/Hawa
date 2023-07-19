@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 
 type AdCardTypes = {
   orientation: "vertical" | "horizontal"
@@ -7,10 +7,7 @@ type AdCardTypes = {
   imageURL: string
   handleHide: any
 }
-export const HawaAdCard: React.FunctionComponent<AdCardTypes> = ({
-  orientation,
-  ...props
-}) => {
+export const HawaAdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
   let cardStyles = {
     horizontal:
       "flex max-w-xl rounded border-gray-200 bg-gray-100 shadow-md  dark:border-gray-700 dark:bg-gray-800 ",

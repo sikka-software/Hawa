@@ -1,12 +1,10 @@
-import React from "react"
+import { FC } from "react"
 
 type StoreButtonsTypes = {
   store: "apple" | "google"
   mode: "dark" | "light"
 }
-export const HawaStoreButtons: React.FunctionComponent<StoreButtonsTypes> = (
-  props
-) => {
+export const HawaStoreButtons: FC<StoreButtonsTypes> = (props) => {
   return (
     <div className="flex justify-center">
       <div>
@@ -77,7 +75,7 @@ export const HawaStoreButtons: React.FunctionComponent<StoreButtonsTypes> = (
             </div>
           </div>
         ) : (
-          <div className="mt-3 flex h-14 w-48 items-center justify-center rounded-lg bg-white border border-black text-black">
+          <div className="mt-3 flex h-14 w-48 items-center justify-center rounded-lg border border-black bg-white text-black">
             <div className="mr-3">
               <svg viewBox="30 336.7 120.9 129.2" width="30">
                 <path

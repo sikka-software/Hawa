@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState, FC } from "react"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 import { HawaButton } from "./HawaButton"
-import { FaReply } from "react-icons/fa"
 
 interface ItemCardTypes {
-  actions?: any
-  content?: any
   headerActions?: THeaderActions[][]
   header?: any
-  lang?: string
+  content?: any
+  /** a URL for the image of the card */
   cardImage?: string
+  /** a function that fires when the card is clicked anywhere */
   onCardClick?: any
-  counts?: any
+  /** a React node with HawaIconCount children to have counters at the bottom of the card */
+  counts?: JSX.Element
+  /** The action buttons on the bottom right of the card */
+  actions?: JSX.Element
+  /** The orientation of the card */
   orientation?: "horizontal" | "vertical"
   /** Enabling this blurs the image on hover and shows an action button */
   clickableImage?: boolean
@@ -30,7 +33,7 @@ type THeaderActions = {
   action?: (e: any) => void
   isButton?: boolean
 }
-export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
+export const HawaItemCard: FC<ItemCardTypes> = ({
   actions,
   counts,
   content,
@@ -147,9 +150,6 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
             {actions}
           </div>
         ) : null}
-        {/* {counts && (
-          <div className="flex justify-end rounded-b-lg">{counts}</div>
-        )} */}
       </div>
     </div>
   )
