@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import {
   HawaPinInput,
@@ -7,7 +7,8 @@ import {
   HawaPhoneInput,
   HawaColorPicker,
   HawaCardInput,
-  HawaDatepicker
+  HawaDatepicker,
+  HawaButton
 } from "../../elements";
 
 export default {
@@ -41,6 +42,7 @@ export default {
 };
 
 export const TextField = (args) => {
+  const [editable, setEditable] = useState(false);
   return (
     <div>
       <HawaTextField {...args} width="full" label="Full Width" />
@@ -48,25 +50,30 @@ export const TextField = (args) => {
       <HawaTextField {...args} width="small" label="Small Width" />
 
       <h1 className="text-xl font-bold">Preview Mode</h1>
-      <div className="flex flex-row gap-2">
-        <HawaTextField
-          label="Label test"
-          helperText="something invalid"
-          placeholder="input placeholder"
-          // value="3434"
-          type="text"
-          width="small"
-          preview={true}
-        />
-        <HawaTextField
-          label="Label test"
-          // helperText="something invalid"
-          placeholder="input placeholder"
-          // value="3434"
-          type="text"
-          width="small"
-          // preview={true}
-        />
+      <div>
+        <HawaButton onClick={() => setEditable(!editable)}>
+          Edit mode
+        </HawaButton>
+        <div className="flex flex-row gap-2">
+          <HawaTextField
+            label="Label test"
+            // helperText="something invalid"
+            placeholder="input placeholder"
+            // value="3434"
+            type="text"
+            width="small"
+            preview={editable}
+          />
+          <HawaTextField
+            label="Label test"
+            // helperText="something invalid"
+            placeholder="input placeholder"
+            // value="3434"
+            type="text"
+            width="small"
+            // preview={true}
+          />
+        </div>
       </div>
     </div>
   );
