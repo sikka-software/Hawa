@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaTooltip } from "./HawaTooltip"
 import { BsExclamationCircleFill } from "react-icons/bs"
 
@@ -8,7 +8,7 @@ type UsageCardTypes = {
   percent: any
   currentUsage: any
 }
-export const UsageCard: React.FunctionComponent<UsageCardTypes> = (props) => {
+export const UsageCard: FC<UsageCardTypes> = (props) => {
   return (
     <div className="flex w-full flex-col gap-0 border p-4">
       <div className="flex flex-row items-center gap-2">

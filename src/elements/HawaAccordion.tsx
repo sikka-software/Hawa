@@ -1,24 +1,16 @@
-import React from "react"
+import { useState, FC } from "react"
 import clsx from "clsx"
 
 type AccordionTypes = {
-  /**
-   * The title of the clickable accordion bar
-   */
+  /** The title of the clickable accordion bar   */
   title: string
-  /**
-   * The content inside the accordion to be visible once the bar is clicked
-   */
+  /** The content inside the accordion to be visible once the bar is clicked   */
   content: any
-  /**
-   * The index of each accordion, must be unique for each usage of this component
-   */
+  /** The index of each accordion, must be unique for each usage of this component   */
   index: any
 }
-export const HawaAccordion: React.FunctionComponent<AccordionTypes> = (
-  props
-) => {
-  const [collapse, setCollapse] = React.useState(false)
+export const HawaAccordion: FC<AccordionTypes> = (props) => {
+  const [collapse, setCollapse] = useState(false)
 
   return (
     <div className="h-fit w-full">

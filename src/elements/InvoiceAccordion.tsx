@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import clsx from "clsx"
 import { HiChevronRight } from "react-icons/hi"
 import { BsThreeDotsVertical } from "react-icons/bs"
@@ -33,9 +33,7 @@ type InvoiceAccordionTypes = {
   direction?: "rtl" | "ltr"
   status?: "paid" | "pending" | "overdue"
 }
-export const InvoiceAccordion: React.FunctionComponent<
-  InvoiceAccordionTypes
-> = ({
+export const InvoiceAccordion: FC<InvoiceAccordionTypes> = ({
   direction = "ltr",
   texts = {
     total: "Total",

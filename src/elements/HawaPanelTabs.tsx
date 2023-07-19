@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 
 type PanelTabsTypes = {
   defaultValue: any
@@ -7,9 +7,7 @@ type PanelTabsTypes = {
   handleChange: any
   location: any
 }
-export const HawaPanelTabs: React.FunctionComponent<PanelTabsTypes> = (
-  props
-) => {
+export const HawaPanelTabs: FC<PanelTabsTypes> = (props) => {
   const [value, setValue] = useState(props.defaultValue)
   return (
     <div>

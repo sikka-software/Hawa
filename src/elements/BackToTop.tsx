@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from "react"
+import { FC, RefObject, useState, useEffect } from "react"
 import { clsx } from "clsx"
 
 type ComponentTypes = {
@@ -6,10 +6,10 @@ type ComponentTypes = {
   paddingY?: number // Vertical padding relative to the attached corner
   paddingThreshold?: number // Increase to the threshold of the scroll value that has to be passed for the button to appear
   corner?: "top-left" | "top-right" | "bottom-left" | "bottom-right"
-  anchor: React.RefObject<HTMLInputElement>
+  anchor: RefObject<HTMLInputElement>
 }
 
-export const BackToTop: FunctionComponent<ComponentTypes> = ({ ...props }) => {
+export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
   const [visible, setVisible] = useState<boolean>(false)
 
   const getCoords = () => {

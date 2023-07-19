@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import Countries from "../countries"
 import Select from "react-select"
 
@@ -10,7 +10,7 @@ type OptionTypes = {
   innerProps: any
   innerRef: any
 }
-const Option: React.FunctionComponent<OptionTypes> = ({
+const Option: FC<OptionTypes> = ({
   cx,
   children,
   getStyles,
@@ -39,9 +39,7 @@ type HawaPhoneInputTypes = {
   country?: any
   handleChange?: any
 }
-export const HawaPhoneInput: React.FunctionComponent<HawaPhoneInputTypes> = (
-  props
-) => {
+export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
   const [selectedCountry, setSelectedCountry] = useState("+966")
 
   return (

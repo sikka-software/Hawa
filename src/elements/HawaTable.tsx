@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState, FC } from "react"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 import useTable from "../hooks/useTable"
@@ -43,7 +43,7 @@ type ActionItems = {
   element?: any
 }
 
-export const HawaTable: React.FunctionComponent<TableTypes> = ({
+export const HawaTable: FC<TableTypes> = ({
   size = "normal",
   bodyColor = "white",
   headerColor = "gray-200",
@@ -265,7 +265,9 @@ export const HawaTable: React.FunctionComponent<TableTypes> = ({
                       ) : (
                         <div className="flex flex-row  items-center justify-center gap-2 p-1">
                           {props.actions[0].map((act) => (
-                            <div className=" p-1 hover:bg-gray-100 transition-all">{act.icon}</div>
+                            <div className=" p-1 transition-all hover:bg-gray-100">
+                              {act.icon}
+                            </div>
                           ))}
                         </div>
                       )

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
 
@@ -86,7 +86,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
           closed ? "opacity-0" : "opacity-100"
         )}
       >
-        <div className="w-full p-3  flex flex-col gap-2">
+        <div className="flex w-full  flex-col gap-2 p-3">
           <div className="text-sm font-bold">{title}</div>
           <div className="text-sm font-normal">{description}</div>
           {actions && (

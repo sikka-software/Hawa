@@ -1,18 +1,15 @@
-import React, { FC, ReactNode } from "react"
+import { FC, ReactNode } from "react"
 
 type TBreadcrumb = {
-  /**
-   * The array of crumbs, each one with a label and a href link
-   */
+  /** The array of crumbs, each one with a label and a href link */
   breadcrumbLinks: [{ label: string; href: string }]
-  /** The separator between each crumb, can be character or React Node */
+  /** The separator between each crumb, can be character or React Node. The default is ">" */
   separator?: string | ReactNode
 }
 
 const HawaBreadcrumb: FC<TBreadcrumb> = ({
   breadcrumbLinks,
   separator = ">",
-  ...props
 }) => {
   return (
     <div className="flex flex-row items-center gap-2 text-sm">

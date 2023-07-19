@@ -1,7 +1,7 @@
-import React, { FC, ReactElement, ReactNode } from "react"
+import { FC, ReactElement, ReactNode } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import clsx from "clsx"
-
+// TODO: This element should either be removed or improved
 type TDrawerTypes = {
   open: boolean
   setOpen: any
@@ -13,7 +13,7 @@ type TDrawerTypes = {
   drawerFooter?: any
 }
 
-export const HawaDrawer: React.FunctionComponent<TDrawerTypes> = ({
+export const HawaDrawer: FC<TDrawerTypes> = ({
   open,
   setOpen,
   position,

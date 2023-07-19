@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React from "react"
+import { FC } from "react"
 
 type LandingCardTypes = {
   orientation: "vertical" | "horizontal"
@@ -15,7 +15,7 @@ type LandingCardTypes = {
   }
   buttonLink?: string
 }
-export const HawaLandingCard: React.FunctionComponent<LandingCardTypes> = ({
+export const HawaLandingCard: FC<LandingCardTypes> = ({
   orientation,
   ...props
 }) => {
@@ -54,7 +54,7 @@ export const HawaLandingCard: React.FunctionComponent<LandingCardTypes> = ({
         <div className="mt-2 text-lg font-medium">{props.texts.title} </div>
       )}
       {props.texts.description && (
-        <div className="mt-4 text-sm z-10">{props.texts.description}</div>
+        <div className="z-10 mt-4 text-sm">{props.texts.description}</div>
       )}
       {props.texts.linkText && (
         <div className="z-10 mt-6 text-sm underline underline-offset-8">

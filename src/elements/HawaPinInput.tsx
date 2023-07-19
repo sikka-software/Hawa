@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState, FC } from "react"
 
 type PinInputTypes = {
   label?: string
@@ -8,7 +8,7 @@ type PinInputTypes = {
   width?: "normal" | "full"
   getPins?: any
 }
-export const HawaPinInput: React.FunctionComponent<PinInputTypes> = ({
+export const HawaPinInput: FC<PinInputTypes> = ({
   label,
   icon,
   digits,

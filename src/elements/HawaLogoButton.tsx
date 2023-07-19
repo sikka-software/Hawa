@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 
 type LogoButtonTypes = {
   lang?: any
@@ -16,9 +16,7 @@ type LogoButtonTypes = {
   onClick?: any
   buttonText?: any
 }
-export const HawaLogoButton: React.FunctionComponent<LogoButtonTypes> = (
-  props
-) => {
+export const HawaLogoButton: FC<LogoButtonTypes> = (props) => {
   let isArabic = props.lang === "ar"
   let logoElement: any = ""
   switch (props.logo?.toLowerCase()) {

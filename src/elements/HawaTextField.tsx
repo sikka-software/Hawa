@@ -1,4 +1,4 @@
-import React from "react"
+import { FC, PropsWithRef } from "react"
 import clsx from "clsx"
 
 // TODO: make icon based on direction
@@ -15,7 +15,7 @@ type TextFieldTypes = {
   helperText?: any
   /** The value of the input field */
   value?: any
-  props?: React.PropsWithRef<"input">
+  props?: PropsWithRef<"input">
   /** The type of input field. Same as the types of <input/> component   */
   type?: any
   /** The placeholder of the input field  */
@@ -31,7 +31,7 @@ type TextFieldTypes = {
   preview?: boolean
 }
 
-export const HawaTextField: React.FunctionComponent<TextFieldTypes> = ({
+export const HawaTextField: FC<TextFieldTypes> = ({
   margin = "normal",
   width = "full",
   preview = false,

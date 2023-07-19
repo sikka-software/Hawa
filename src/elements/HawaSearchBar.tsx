@@ -1,9 +1,7 @@
-import React from "react"
+import { FC } from "react"
 import { HawaTextField } from "./HawaTextField"
 
 type SearchBarTypes = {}
-export const HawaSearchBar: React.FunctionComponent<SearchBarTypes> = (
-  props
-) => {
+export const HawaSearchBar: FC<SearchBarTypes> = (props) => {
   return <HawaTextField type={"search"} {...props} />
 }

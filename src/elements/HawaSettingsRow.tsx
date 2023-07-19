@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaTextField } from "./HawaTextField"
 import { HawaSwitch } from "./HawaSwitch"
 import { HawaColorPicker } from "./HawaColorPicker"
@@ -45,7 +45,7 @@ type SettingsRowTypes = {
   }
 }
 
-export const HawaSettingsRow: React.FunctionComponent<SettingsRowTypes> = ({
+export const HawaSettingsRow: FC<SettingsRowTypes> = ({
   settingsLabel,
   settingsType,
   settingsDescription,

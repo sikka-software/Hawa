@@ -1,14 +1,11 @@
-import React from "react"
+import { FC } from "react"
 import clsx from "clsx"
 
 type SpinnerTypes = {
   size?: "button" | "sm" | "normal" | "lg" | "xl"
 }
 
-export const HawaSpinner: React.FunctionComponent<SpinnerTypes> = ({
-  size = "sm",
-  ...props
-}) => {
+export const HawaSpinner: FC<SpinnerTypes> = ({ size = "sm", ...props }) => {
   let sizeStyles = {
     button: "h-4 w-4",
     sm: "h-6 w-6",
