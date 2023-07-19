@@ -41,7 +41,7 @@ export const Newsletter: FC<TNewsletter> = ({
           placeholder={"example@sikka.io"}
           margin="none"
         />
-        <HawaButton size="full" margins="none">
+        <HawaButton  margins="none">
           {texts?.submit ?? "Submit"}
         </HawaButton>
       </form>

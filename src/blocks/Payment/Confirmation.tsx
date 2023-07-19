@@ -56,7 +56,7 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
         <div className="text-center">{props.texts.yourOrderNumber}</div>
         <div className="text-center font-bold">{props.orderNumber}</div>
       </div>
-      <div className="py-5">
+      {/* <div className="py-5">
         <div className="mb-3 text-center text-xl font-semibold">
           {props.texts.orderDetails}
         </div>
@@ -70,8 +70,8 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
             rows={props.products}
           />
         )}
-      </div>
-      <div className="flex flex-col justify-center py-5 pt-0">
+      </div> */}
+      <div className="flex flex-col items-center justify-center py-5 pt-0">
         <HawaButton color="primary" width="full" onClick={props.handlePrint}>
           {props.texts.print}
         </HawaButton>
@@ -85,7 +85,7 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
           {props.texts.fasterPaymentNote}
         </div>
         <a
-          className="w-fit cursor-pointer text-center text-xs font-normal"
+          className="w-fit cursor-pointer  text-center text-xs font-normal"
           onClick={props.handleRefundPolicyLink}
         >
           {props.texts.refundPolicy}

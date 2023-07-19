@@ -37,9 +37,7 @@ export const LeadGenerator: FC<TLeadGenerator> = ({
           placeholder={"example@sikka.io"}
           margin="none"
         />
-        <HawaButton size="full" margins="none">
-          {texts?.submit ?? "Submit"}
-        </HawaButton>
+        <HawaButton margins="none">{texts?.submit ?? "Submit"}</HawaButton>
       </form>
     </HawaContainer>
   )

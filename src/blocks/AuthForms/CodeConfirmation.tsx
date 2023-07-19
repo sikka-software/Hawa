@@ -15,7 +15,7 @@ type TConfirmation = {
     codePlaceholder: string
     codeRequiredText: string
     confirm: string
-    cancel
+    cancel: string
   }
   phoneNumber?: string
   submitConfirmation?: any

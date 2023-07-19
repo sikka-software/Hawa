@@ -95,14 +95,19 @@ export const ReferralSettlement: FC<TReferralSettlement> = ({
 }
 
 const SettlementAccountCard = (props) => (
-  <div className="mb-3 flex flex-row items-center justify-between rounded border-b bg-white p-2">
+  <div className="mb-3 flex flex-row items-center justify-between rounded border-b bg-white p-3">
     <div className="flex flex-col justify-between">
       <div className="text-xs">{props.bank}</div>
       <div>{props.accountHolder}</div>
       <div className="text-xs">{props.iban}</div>
     </div>
-    <div className="flex flex-row items-center justify-center gap-1">
-      {props.default && <HawaChip size="normal" label="Default" />}
+    <div className="flex flex-row items-center justify-center gap-2">
+      {props.default && (
+        <HawaButton disabled variant="outlined" size="small">
+          Default
+        </HawaButton>
+      )}
+      {/* {props.default && <HawaChip size="normal" label="Default" />} */}
       {!props.default && <HawaButton size="small">Make Default</HawaButton>}
       <HawaButton tooltip="Delete">
         <FaTimes />
