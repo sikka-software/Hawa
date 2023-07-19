@@ -7,28 +7,9 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "`<SignInForm/>` Authentication block for user sign in"
+        component:
+          "`<EmptyState/>` block shows up when the user completed all actions and there's nothing more for them to do in that page"
       }
-    }
-  },
-
-  argTypes: {
-    variant: {
-      default: "contained",
-      control: "select",
-      options: ["contained", "outlined", "neobrutalism"],
-      description: "The theme style of the block"
-    },
-    lang: {
-      default: true,
-      control: "select",
-      options: ["ar", "en"],
-      description: "The language of the form",
-      table: { defaultValue: { summary: "en" } }
-    },
-    handleRouteToHome: {
-      action: "Redirecting to home page",
-      description: "Directing user to home page"
     }
   }
 };

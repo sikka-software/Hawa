@@ -22,10 +22,10 @@ export const NotFound: FC<NotFoundTypes> = ({
         <div className="m-2 text-center text-xl font-bold ">
           {texts?.pageNotFound ?? "Page Not Found"}
         </div>
-        <div className="text-center ">
+        <div className="text-center mb-4">
           {texts?.ifLost ?? "If you're lost please contact us help@sikka.io"}
         </div>
-        <HawaButton color="primary" width="full">
+        <HawaButton color="primary" width="full" margins="none">
           {texts?.home ?? "Home"}
         </HawaButton>
       </div>

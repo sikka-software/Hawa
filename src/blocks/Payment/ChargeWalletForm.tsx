@@ -22,16 +22,17 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
         </div>
         <div className="text-sm font-normal">{props.currency || "SAR"}</div>
       </div>
-      <div className="mb-2 flex w-full flex-row gap-2 text-center">
-        <div className="w-40 whitespace-nowrap rounded bg-gray-100 p-4">
+      <div className="mb-2 flex w-full flex-row gap-4 text-center">
+        <HawaButton variant="outlined" margins="none" className="h-full">
           10 SAR
-        </div>
-        <div className="w-40 whitespace-nowrap rounded bg-gray-100 p-4">
+        </HawaButton>
+        <HawaButton variant="outlined" margins="none" className="h-full">
           100 SAR
-        </div>
+        </HawaButton>
+
         <input
           placeholder="Custom"
-          className="h-auto rounded bg-gray-100 p-4"
+          className="h-auto w-full rounded bg-gray-100 p-4"
         />
       </div>
       {/* <FormProvider {...methods}>

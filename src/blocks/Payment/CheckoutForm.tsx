@@ -156,23 +156,6 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                   />
                 )}
               />
-              <div style={{ width: 20 }} />
-
-              <Controller
-                control={control}
-                name="buildingNumber"
-                rules={{ required: props.texts?.required }}
-                render={({ field }) => (
-                  <HawaTextField
-                    width="full"
-                    type="text"
-                    label={props.texts?.buildingNumberLabel + " *"}
-                    helperText={errors.buildingNumber?.message}
-                    {...field}
-                    value={field.value ?? ""}
-                  />
-                )}
-              />
             </div>
 
             <div className="flex flex-col md:flex-row">
@@ -209,7 +192,23 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                 )}
               />
             </div>
-            <div className="mb-3">
+            <div className="flex flex-col md:flex-row">
+              <Controller
+                control={control}
+                name="buildingNumber"
+                rules={{ required: props.texts?.required }}
+                render={({ field }) => (
+                  <HawaTextField
+                    width="full"
+                    type="text"
+                    label={props.texts?.buildingNumberLabel + " *"}
+                    helperText={errors.buildingNumber?.message}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                )}
+              />
+              <div style={{ width: 20 }} />
               <Controller
                 control={control}
                 name="zipCode"
@@ -225,8 +224,9 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                   />
                 )}
               />
-              <div style={{ width: 20 }} />
-
+              {/* <div style={{ width: 20 }} /> */}
+            </div>
+            <div className="mb-3">
               <Controller
                 control={control}
                 name="country"

@@ -2,29 +2,17 @@ import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { HawaApiBox, HawaTable } from "../../elements";
+import { HawaApiBox, HawaTable } from "../../../elements";
 
 export default {
-  title: "Elements/API Box",
+  title: "Blocks/Account/API Box",
   component: HawaApiBox
-  //   argTypes: {
-  //     label: {
-  //       control: "text",
-  //       description: "The button text",
-  //       table: {
-  //         defaultValue: { summary: "Click" }
-  //       }
-  //     }
-  //   },
-  //   args: {
-  //     label: "Text"
-  //   }
 };
 let dummyRowData = [
   [
-    { hidden: false, value: "Social Media Management" },
+    { hidden: false, value: "My First API Key" },
     { hidden: true, value: "3432042304382" },
-    { hidden: false, value: "1,800 SAR" },
+    { hidden: false, value: "83EWhTXLSwSPwhYE" },
     {
       hidden: false,
       value: "22/11/2023"
@@ -35,9 +23,9 @@ let dummyRowData = [
     }
   ],
   [
-    { hidden: false, value: "Social Media Management" },
+    { hidden: false, value: "My Second API Key" },
     { hidden: true, value: "3432042304382" },
-    { hidden: false, value: "1,800 SAR" },
+    { hidden: false, value: "5QKByF3KkjPaKGQx" },
     {
       hidden: false,
       value: "22/11/2023"
@@ -46,7 +34,7 @@ let dummyRowData = [
       hidden: false,
       value: "30/11/2023"
     }
-  ],
+  ]
 ];
 let dummyColsData = [
   { hidden: false, value: "Name" },
