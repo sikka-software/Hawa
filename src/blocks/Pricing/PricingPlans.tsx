@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaPricingCard, HawaTabs } from "../../elements"
 
 type PricingPlansTypes = {
@@ -42,9 +42,7 @@ type PricingPlansTypes = {
   onCurrencyChange?: (e) => void
   direction?: "rtl" | "ltr"
 }
-export const PricingPlans: React.FunctionComponent<PricingPlansTypes> = (
-  props
-) => {
+export const PricingPlans: FC<PricingPlansTypes> = (props) => {
   return (
     <div>
       <div className="mb-2 flex w-full justify-between">

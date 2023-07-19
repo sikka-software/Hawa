@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton, HawaPhoneInput, HawaTextField } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
@@ -9,9 +9,7 @@ type UserProfileFormTypes = {
   handleUpdateProfile: any
 }
 
-export const UserProfileForm: React.FunctionComponent<UserProfileFormTypes> = (
-  props
-) => {
+export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
   const methods = useForm()
   const { inputs } = props
   const {

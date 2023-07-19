@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { HawaButton, HawaPhoneInput } from "../../elements"
 import { HawaContainer } from "../../layout"
@@ -14,9 +14,7 @@ type SignInPhoneTypes = {
   handleSignIn: any
 }
 
-export const SignInPhone: React.FunctionComponent<SignInPhoneTypes> = (
-  props
-) => {
+export const SignInPhone: FC<SignInPhoneTypes> = (props) => {
   const methods = useForm()
   const {
     formState: { errors },

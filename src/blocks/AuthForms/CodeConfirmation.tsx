@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { HawaAlert, HawaButton, HawaPinInput } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -22,9 +22,7 @@ type TConfirmation = {
   handleSignIn?: any
 }
 
-export const CodeConfirmation: React.FunctionComponent<TConfirmation> = (
-  props
-) => {
+export const CodeConfirmation: FC<TConfirmation> = (props) => {
   const [pins, setPins] = useState(null)
   return (
     <HawaContainer>

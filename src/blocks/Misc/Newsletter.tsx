@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -12,7 +12,7 @@ type TNewsletter = {
   handleNewsletterSub: (e: string) => void
 }
 
-export const Newsletter: React.FunctionComponent<TNewsletter> = ({
+export const Newsletter: FC<TNewsletter> = ({
   variant = "contained",
   texts,
   handleNewsletterSub,

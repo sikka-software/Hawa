@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -12,14 +12,14 @@ type TLeadGenerator = {
   handleNewsletterSub: (e: string) => void
 }
 
-export const LeadGenerator: React.FunctionComponent<TLeadGenerator> = ({
+export const LeadGenerator: FC<TLeadGenerator> = ({
   variant = "contained",
   texts,
   handleNewsletterSub,
 }) => {
   return (
     <HawaContainer variant={variant}>
-      <div className="p-0 mb-4 pt-0">
+      <div className="mb-4 p-0 pt-0">
         <h1 className="font-bold">{texts?.title}</h1>
         <span>{texts?.subtitle}</span>
       </div>

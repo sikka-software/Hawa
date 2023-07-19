@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton, HawaTable } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -40,9 +40,7 @@ type ConfirmationPageTypes = {
   handleRefundPolicyLink: any
 }
 
-export const ConfirmationPage: React.FunctionComponent<
-  ConfirmationPageTypes
-> = (props) => {
+export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
   let isArabic = props.lang === "ar"
 
   return (
@@ -83,7 +81,7 @@ export const ConfirmationPage: React.FunctionComponent<
         <HawaButton color="primary" width="full" onClick={props.handleHome}>
           {props.texts.homePage}
         </HawaButton>
-        <div className="mt-5 mb-5 text-center text-sm">
+        <div className="mb-5 mt-5 text-center text-sm">
           {props.texts.fasterPaymentNote}
         </div>
         <a

@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout/HawaContainer"
 
@@ -13,7 +13,7 @@ type AppLandingTypes = {
   }
   size: "small" | "normal" | "full"
 }
-export const AppLanding: React.FunctionComponent<AppLandingTypes> = (props) => {
+export const AppLanding: FC<AppLandingTypes> = (props) => {
   return (
     <HawaContainer maxWidth={props.size}>
       {props.handleSignIn && (

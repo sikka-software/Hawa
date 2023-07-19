@@ -1,15 +1,12 @@
-import React from "react"
-import { HawaButton } from "../../elements"
+import { FC } from "react"
 import { HawaContainer } from "../../layout"
-import {  FaLock } from "react-icons/fa"
+import { FaLock } from "react-icons/fa"
 
 type TNoPermission = {
   variant?: "outlined" | "contained" | "neobrutalism"
 }
 
-export const NoPermission: React.FunctionComponent<TNoPermission> = ({
-  variant = "contained",
-}) => {
+export const NoPermission: FC<TNoPermission> = ({ variant = "contained" }) => {
   return (
     <HawaContainer variant={variant} centered={true}>
       <div className="flex flex-col items-center justify-center text-center dark:text-white">

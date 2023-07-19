@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 import { FaCheck } from "react-icons/fa"
@@ -7,9 +7,7 @@ type TEmptyState = {
   variant?: "outlined" | "contained" | "neobrutalism"
 }
 
-export const EmptyState: React.FunctionComponent<TEmptyState> = ({
-  variant = "contained",
-}) => {
+export const EmptyState: FC<TEmptyState> = ({ variant = "contained" }) => {
   return (
     <HawaContainer variant={variant} centered={true}>
       <div className="flex flex-col items-center justify-center text-center dark:text-white">

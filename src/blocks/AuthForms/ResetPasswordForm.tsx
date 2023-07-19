@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
@@ -19,9 +19,7 @@ type ResetPasswordType = {
   }
 }
 
-export const ResetPasswordForm: React.FunctionComponent<ResetPasswordType> = (
-  props
-) => {
+export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
   const methods = useForm()
   const {
     formState: { errors },

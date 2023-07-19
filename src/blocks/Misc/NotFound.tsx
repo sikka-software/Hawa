@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -11,7 +11,7 @@ type NotFoundTypes = {
   }
 }
 
-export const NotFound: React.FunctionComponent<NotFoundTypes> = ({
+export const NotFound: FC<NotFoundTypes> = ({
   variant = "contained",
   texts,
 }) => {

@@ -1,14 +1,12 @@
-import React from "react"
-import { HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
-import { FaCheck } from "react-icons/fa"
+import { FC } from "react"
+// import { HawaButton } from "../../elements"
+// import { HawaContainer } from "../../layout"
+// import { FaCheck } from "react-icons/fa"
 type TEmptyState = {
   variant?: "outlined" | "contained" | "neobrutalism"
 }
 
-export const Testimonial: React.FunctionComponent<TEmptyState> = ({
-  variant = "contained",
-}) => {
+export const Testimonial: FC<TEmptyState> = ({ variant = "contained" }) => {
   return (
     <div
       className="flex flex-col gap-2 rounded border-2 border-gray-200 bg-white p-4"

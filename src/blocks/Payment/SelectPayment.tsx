@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaTypography, HawaLogoButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -26,9 +26,7 @@ type SelectPaymentTypes = {
   handleGooglePay: any
 }
 
-export const SelectPayment: React.FunctionComponent<SelectPaymentTypes> = (
-  props
-) => {
+export const SelectPayment: FC<SelectPaymentTypes> = (props) => {
   return (
     <HawaContainer>
       <HawaTypography>Choose Payment Method</HawaTypography>

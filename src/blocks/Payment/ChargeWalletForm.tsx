@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -11,9 +11,7 @@ type ChargeWalletTypes = {
     chargeWallet: string
   }
 }
-export const ChargeWalletForm: React.FunctionComponent<ChargeWalletTypes> = (
-  props
-) => {
+export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
   const [walletAmount, setWalletAmount] = useState(0)
 
   return (
