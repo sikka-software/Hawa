@@ -1,6 +1,6 @@
 import React from "react";
-import { HawaButton, HawaItemCard } from "../../../elements";
-import { FaClone, FaTrash } from "react-icons/fa";
+import { HawaButton, HawaIconCount, HawaItemCard } from "../../../elements";
+import { FaClone, FaComment, FaReply, FaShare, FaTrash } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 
 export default {
@@ -25,6 +25,21 @@ export default {
       control: "object",
       description:
         "HTML elements as the card actions,, make sure to add e.stopPropagation() in buttons onClick function"
+    },
+    clickableImage: {
+      control: "boolean",
+      description:
+        "A boolean that blurs the image when hovering on it and shows an action button on top of it."
+    },
+    clickableImageAction: {
+      control: "function",
+      description:
+        "The function of the button that appears on top of the blured image on hover"
+    },
+    clickableImageActionText: {
+      control: "string",
+      description:
+        "The text of the button that appears on top of the blurred image on hover"
     },
     onCardClick: {
       control: "function",
@@ -73,51 +88,30 @@ export const VerticalCard = (args) => {
         </div>
       }
       actions={
-        <>
-          <HawaButton tooltip="dublicate">
+        <div className="flex flex-row ">
+          <HawaButton margins="none" tooltip="dublicate">
             <FaClone />
           </HawaButton>
-          <HawaButton className="mx-2" tooltip="delete">
+          <HawaButton margins="none" className="mx-2" tooltip="delete">
             <FaTrash />
           </HawaButton>
-          <HawaButton tooltip="edit">
+          <HawaButton margins="none" tooltip="edit">
             <FiEdit3 />
           </HawaButton>
-        </>
-        //   <>
-        //     <Button
-        //       variant="contained"
-        //       onClick={(e) => {
-        //         e.stopPropagation();
-        //         console.log("clicking test");
-        //       }}
-        //     >
-        //       TEST
-        //     </Button>
-        //     <div style={{ width: 5 }}></div>
-        //     <Button
-        //       variant="contained"
-        //       onClick={(e) => {
-        //         e.stopPropagation();
-        //         console.log("clicking tost");
-        //       }}
-        //     >
-        //       TEST
-        //     </Button>
-        //     <div style={{ width: 5 }}></div>
-        //     <AdaptiveButton
-        //       buttonText="Something"
-        //       showText={true}
-        //       icon={<InboxOutlined />}
-        //       onClick={(e) => {
-        //         e.stopPropagation();
-        //         console.log("clicking something");
-        //       }}
-        //     />
-        //   </>
+        </div>
+      }
+      counts={
+        <div className="flex flex-row ">
+          <HawaIconCount icon={<FaComment />} count="30" />
+          <HawaIconCount icon={<FaReply />} count="20" />
+        </div>
       }
     />
   );
+};
+VerticalCard.args = {
+  clickableImageActionText: "Share",
+  clickableImageActionIcon: <FaShare />
 };
 
 export const HorizontalCard = (args) => {

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
+import { HawaButton } from "./HawaButton"
+import { FaReply } from "react-icons/fa"
 
 interface ItemCardTypes {
   actions?: any
@@ -10,7 +12,16 @@ interface ItemCardTypes {
   lang?: string
   cardImage?: string
   onCardClick?: any
+  counts?: any
   orientation?: "horizontal" | "vertical"
+  /** Enabling this blurs the image on hover and shows an action button */
+  clickableImage?: boolean
+  /** The function of the action button on the image of the card */
+  clickableImageAction?: () => void
+  /** The text of the action button on the image of the card */
+  clickableImageActionText: string
+  /** The icon of the action button on the image of the card */
+  clickableImageActionIcon?: any
 }
 
 type THeaderActions = {
@@ -21,8 +32,13 @@ type THeaderActions = {
 }
 export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
   actions,
+  counts,
   content,
   headerActions,
+  clickableImage,
+  clickableImageAction,
+  clickableImageActionText,
+  clickableImageActionIcon,
   header,
   cardImage,
   orientation = "vertical",
@@ -64,17 +80,32 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
       {...props}
     >
       {cardImage && (
-        <img
-          src={"https://via.placeholder.com/50"}
-          // className=" h-full w-full max-w-sm bg-red-500  bg-[url('https://via.placeholder.com/50')] bg-cover bg-no-repeat"
-          className={clsx(imageStyles[orientation])}
-          // className="h-40 w-fit rounded-tl-lg rounded-bl-lg bg-[url('https://via.placeholder.com/50')] bg-cover bg-no-repeat          "
-          // className="h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-        />
+        <div className="group relative overflow-clip rounded-t">
+          <img
+            src={"https://via.placeholder.com/50"}
+            className={clsx(
+              imageStyles[orientation],
+              clickableImage
+                ? "overflow-clip transition-all group-hover:blur-lg"
+                : ""
+            )}
+          />
+          {clickableImage && (
+            <div className="absolute left-0 top-0 flex h-full w-full items-center  justify-center opacity-0 transition-all group-hover:opacity-100 ">
+              <HawaButton
+                startIcon={clickableImageActionIcon}
+                variant="outlined"
+                onClick={clickableImageAction}
+              >
+                {clickableImageActionText}
+              </HawaButton>
+            </div>
+          )}
+        </div>
       )}
-      <div className="relative w-full  px-6 pt-6">
+      <div className="relative w-full p-6">
         {headerActions && (
-          <div className="max-h- bg-red absolute right-0 top-0 flex justify-end pt-3 pr-3">
+          <div className="max-h- bg-red absolute right-0 top-0 flex justify-end pr-3 pt-3">
             <HawaMenu position="top-right" menuItems={headerActions}>
               <div
                 className={clsx(headerActionsButtonStyle)}
@@ -105,9 +136,20 @@ export const HawaItemCard: React.FunctionComponent<ItemCardTypes> = ({
             {content}
           </p>
         )}
-        {actions && (
-          <div className="flex justify-end rounded-b-lg p-3">{actions}</div>
-        )}
+        {actions || counts ? (
+          <div
+            className={clsx(
+              "mt-3 flex items-center rounded-b-lg ",
+              actions && counts ? "justify-between" : "justify-end"
+            )}
+          >
+            {counts}
+            {actions}
+          </div>
+        ) : null}
+        {/* {counts && (
+          <div className="flex justify-end rounded-b-lg">{counts}</div>
+        )} */}
       </div>
     </div>
   )
