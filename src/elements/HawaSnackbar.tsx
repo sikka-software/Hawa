@@ -6,7 +6,7 @@ type THawaSnackBar = {
   severity: "info" | "warning" | "error" | "success" | "none"
   title: string
   description: string
-  handleClose?: () => void
+  // handleClose?: () => void
   duration?: number
   position?:
     | "top-left"
@@ -31,7 +31,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
   severity = "info",
   position = "bottom-left",
   actions,
-  handleClose,
+  // handleClose,
   duration,
 }) => {
   let defaultStyle =

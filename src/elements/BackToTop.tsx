@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useState, useEffect } from "react"
+import React, { FunctionComponent, useState, useEffect } from "react"
 import { clsx } from "clsx"
 
 type ComponentTypes = {
@@ -33,7 +33,7 @@ export const BackToTop: FunctionComponent<ComponentTypes> = ({ ...props }) => {
     props.anchor.current.addEventListener("scroll", onScroll)
 
     return () => {
-      props.anchor.current.removeEventListener("scroll", onScroll)
+      props.anchor.current?.removeEventListener("scroll", onScroll)
     }
   }, [])
 
@@ -72,14 +72,26 @@ export const BackToTop: FunctionComponent<ComponentTypes> = ({ ...props }) => {
   return (
     <div
       className={clsx(
-        "fixed rounded bg-blue-300 p-2 text-black transition-all hover:bg-blue-500",
-        `${visible ? "block" : "hidden"}`
-        // getClasses()
+        "fixed w-fit rounded bg-blue-300 p-2 text-black transition-all hover:bg-blue-500 ",
+        `${visible ? "inline-block" : "hidden"}`
       )}
       style={getStyles()}
       onClick={backToTop}
     >
-      Back to top
+      {/* Back to top arrow 👇*/}
+      <svg
+        className={clsx(
+          "h-6 w-6 shrink-0 rotate-180 transition-all  disabled:bg-gray-200"
+        )}
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
     </div>
   )
 }

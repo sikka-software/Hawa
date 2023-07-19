@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useState, useEffect } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
 
@@ -8,6 +8,8 @@ type AlertTypes = {
   title?: any
   /** The text of the alert placed below the title of the alert. Can be used alone */
   text: any
+  /** The duration for the alert to stay on the screen */
+  duration?: number
   // hideIcon?: any //TODO: an X button to delete the alert
   variant?:
     | "normal"
@@ -28,8 +30,31 @@ type AlertTypes = {
 export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
   variant = "normal",
   direction = "ltr",
+  duration,
   ...props
 }) => {
+  const alertRef = useRef(null)
+  const [closed, setClosed] = useState(false)
+
+  useEffect(() => {
+    if (duration) {
+      //To change opacity and hide the component
+      const timeoutHide = setTimeout(() => {
+        setClosed(true)
+      }, duration)
+      //To destroy the component after hiding it
+      const timeoutDestroy = setTimeout(() => {
+        setClosed(true)
+        alertRef.current.removeChild(alertRef.current.children[0])
+      }, duration + 1000)
+
+      return () => {
+        clearTimeout(timeoutHide)
+        clearTimeout(timeoutDestroy)
+      }
+    }
+  }, [duration])
+
   let styleVariant = {
     normal: {
       info: "text-blue-700 bg-blue-100 dark:bg-blue-200 dark:text-blue-800",
@@ -77,30 +102,58 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
     },
   }
   return (
-    <div
-      className={clsx(
-        "mb-4 flex flex-col rounded p-4 text-sm",
-        styleVariant[variant][props.severity]
-      )}
-      role="alert"
-      dir={direction}
-    >
-      <span className="font-medium">{props.title}</span>
-      <span>{" " + props.text}</span>
-      {props.actions && (
-        <div className="mt-2 flex flex-row gap-2">
-          {props.actions.map((act, index) => (
-            <HawaButton
-              key={index}
-              variant={act.variant}
-              onClick={act.onClick()}
-              margins="none"
-            >
-              {act.label}
-            </HawaButton>
-          ))}
-        </div>
-      )}
+    <div ref={alertRef}>
+      <div
+        className={clsx(
+          "mb-4 flex flex-col rounded p-4 text-sm",
+          styleVariant[variant][props.severity],
+          closed ? "opacity-0" : "opacity-100"
+        )}
+        role="alert"
+        dir={direction}
+      >
+        <span className="font-medium">{props.title}</span>
+        <span>{" " + props.text}</span>
+        {props.actions && (
+          <div className="mt-2 flex flex-row gap-2">
+            {props.actions.map((act, index) => (
+              <HawaButton
+                key={index}
+                variant={act.variant}
+                onClick={act.onClick()}
+                margins="none"
+              >
+                {act.label}
+              </HawaButton>
+            ))}
+          </div>
+        )}
+        <button
+          type="button"
+          className="absolute right-8 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          data-dismiss-target="#alert-default"
+          aria-label="Close"
+          onClick={() => {
+            setClosed(true)
+            alertRef.current.removeChild(alertRef.current.children[0])
+          }}
+        >
+          <span className="sr-only">Close</span>
+          <svg
+            aria-hidden="true"
+            className="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </div>
   )
 }

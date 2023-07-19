@@ -31,15 +31,7 @@ export default {
 };
 
 const Template = (args) => {
-  return (
-    <HawaSnackbar
-      title={args.title}
-      description={args.description}
-      severity={args.severity}
-      position={args.position}
-      {...args}
-    />
-  );
+  return <HawaSnackbar {...args} />;
 };
 export const Plain = Template.bind({});
 Plain.args = {

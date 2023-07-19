@@ -8,19 +8,17 @@ export default {
   argTypes: {}
 };
 
-const Template = (args) => {
+const FullPageTemplate = (args) => {
   const ref = useRef(null);
 
-  console.log(args);
   return (
     <div
       dir={args.direction}
-      className="fixed left-0 top-0 flex h-screen w-screen flex-wrap items-start justify-start gap-2 overflow-y-scroll bg-red-900"
+      className="bg-primaryLayout-500 fixed left-0 top-0 flex h-screen w-screen flex-wrap items-start justify-start gap-2 overflow-y-scroll p-4"
       ref={ref}
     >
       <BT anchor={ref} {...args} />
 
-      <div></div>
       <div>
         {new Array(1000).fill(0).map((e) => {
           return (
@@ -35,5 +33,49 @@ const Template = (args) => {
   );
 };
 
-export const BackToTop = Template.bind({});
-BackToTop.args = {};
+export const InFullPage = FullPageTemplate.bind({});
+InFullPage.args = {};
+
+const ContainerTemplate = (args) => {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+
+  return (
+    <div
+      dir={args.direction}
+      // className="bg-primaryLayout-500 left-0 top-0 flex flex-wrap items-start justify-start gap-2 overflow-y-scroll p-4"
+      className="flex flex-row gap-4"
+    >
+      <div
+        className="relative h-64 w-2/4 overflow-auto rounded bg-red-200 p-4"
+        ref={ref1}
+      >
+        <BT anchor={ref1} {...args} />
+        {new Array(300).fill(0).map((e) => {
+          return (
+            <div>
+              {Math.random()}
+              <br />
+            </div>
+          );
+        })}
+      </div>
+      <div
+        className="h-64 w-1/4 overflow-auto rounded bg-red-200 p-4"
+        ref={ref2}
+      >
+        <BT anchor={ref2} {...args} />
+        {new Array(300).fill(0).map((e) => {
+          return (
+            <div>
+              {Math.random()}
+              <br />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+export const InSmallContainer = ContainerTemplate.bind({});
+InSmallContainer.args = {};
