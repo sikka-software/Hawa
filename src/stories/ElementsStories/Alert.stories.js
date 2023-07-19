@@ -38,7 +38,15 @@ export default {
 };
 
 const Template = (args) => {
-  return <HawaAlert {...args} />;
+  return (
+    <div>
+      <HawaAlert {...args} />
+      <HawaAlert {...args} />
+      <HawaAlert {...args} />
+  
+      <HawaAlert {...args} />
+    </div>
+  );
 };
 
 export const Success = Template.bind({});
