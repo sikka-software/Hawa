@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton, HawaTextField } from "../../elements"
 import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
@@ -8,9 +8,7 @@ type CreditCardFormTypes = {
   handlePayWithCreditCard: any
 }
 
-export const CreditCardForm: React.FunctionComponent<CreditCardFormTypes> = (
-  props
-) => {
+export const CreditCardForm: FC<CreditCardFormTypes> = (props) => {
   const methods = useForm()
   const {
     formState: { errors },

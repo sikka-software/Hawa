@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import {
   HawaTextField,
   HawaLogoButton,
@@ -63,7 +63,7 @@ type SignUpFormTypes = {
   isLoading?: boolean
 }
 
-export const SignUpForm: React.FunctionComponent<SignUpFormTypes> = (props) => {
+export const SignUpForm: FC<SignUpFormTypes> = (props) => {
   const methods = useForm()
   const {
     formState: { errors },

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { HawaTextField, HawaAlert, HawaButton } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
@@ -19,9 +19,7 @@ type NewPasswordTypes = {
   }
 }
 
-export const NewPasswordForm: React.FunctionComponent<NewPasswordTypes> = (
-  props
-) => {
+export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
   const [matchError, setMatchError] = useState(false)
   const methods = useForm()
   const {

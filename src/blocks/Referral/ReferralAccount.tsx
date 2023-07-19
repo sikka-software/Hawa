@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { FaClone } from "react-icons/fa"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
@@ -8,7 +8,7 @@ type ReferralAccount = {
   referralCode: string
 }
 
-export const ReferralAccount: React.FunctionComponent<ReferralAccount> = ({
+export const ReferralAccount: FC<ReferralAccount> = ({
   referralLink,
   referralCode,
 }) => {

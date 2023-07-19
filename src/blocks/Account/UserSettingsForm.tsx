@@ -1,6 +1,4 @@
-import React from "react"
-import { HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { FC } from "react"
 
 type UserSettingsFormTypes = {
   children: any
@@ -9,9 +7,7 @@ type UserSettingsFormTypes = {
   blockTitle?: string
 }
 
-export const UserSettingsForm: React.FunctionComponent<
-  UserSettingsFormTypes
-> = (props) => {
+export const UserSettingsForm: FC<UserSettingsFormTypes> = (props) => {
   return (
     <div>
       <div className="mb-2 text-sm font-bold">{props.blockTitle}</div>

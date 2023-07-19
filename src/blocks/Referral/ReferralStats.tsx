@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaAlert, HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -8,7 +8,7 @@ type TReferralStats = {
   withdrawError?: string
 }
 
-export const ReferralStats: React.FunctionComponent<TReferralStats> = ({
+export const ReferralStats: FC<TReferralStats> = ({
   referralLink,
   referralCode,
   withdrawError,

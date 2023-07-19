@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
 
@@ -7,9 +7,7 @@ type PayWithWalletTypes = {
   currency: any
   handlePayWithWallet: any
 }
-export const PayWithWallet: React.FunctionComponent<PayWithWalletTypes> = (
-  props
-) => {
+export const PayWithWallet: FC<PayWithWalletTypes> = (props) => {
   return (
     <HawaContainer>
       <div className="text-center text-5xl font-extrabold">

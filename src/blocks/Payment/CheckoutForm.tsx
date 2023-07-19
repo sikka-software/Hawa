@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import {
   HawaTextField,
   HawaTable,
@@ -34,9 +34,7 @@ type CheckoutFormTypes = {
   }
 }
 
-export const CheckoutForm: React.FunctionComponent<CheckoutFormTypes> = (
-  props
-) => {
+export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
   let isArabic = props.lang === "ar"
   const methods = useForm()
   const {

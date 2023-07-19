@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import { FaTimes } from "react-icons/fa"
 import {
   HawaAlert,
@@ -16,9 +16,11 @@ type TReferralSettlement = {
   withdrawError?: string
 }
 
-export const ReferralSettlement: React.FunctionComponent<
-  TReferralSettlement
-> = ({ referralLink, referralCode, withdrawError }) => {
+export const ReferralSettlement: FC<TReferralSettlement> = ({
+  referralLink,
+  referralCode,
+  withdrawError,
+}) => {
   const methods = useForm()
   const {
     formState: { errors },

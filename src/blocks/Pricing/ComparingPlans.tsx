@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState, FC } from "react"
 import { BsExclamationCircleFill } from "react-icons/bs"
 import { HawaTabs, HawaTooltip } from "../../elements"
 
@@ -66,9 +66,7 @@ type ComparingPlansTypes = {
   onCurrencyChange?: (e) => void
   direction?: "rtl" | "ltr"
 }
-export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
-  props
-) => {
+export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("SAR")
   const [currentCycle, setCurrentCycle] = useState("month")
 
@@ -95,7 +93,7 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
         />
       </div>
       <div className=" overflow-hidden rounded">
-        <div className="grid grid-cols-4 gap-x-2 border-t border-b border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+        <div className="grid grid-cols-4 gap-x-2 border-b border-t border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
           <div className="flex items-center"></div>
           {props.plans.map((plan: any) => (
             <div>
@@ -125,7 +123,7 @@ export const ComparingPlans: React.FunctionComponent<ComparingPlansTypes> = (
         {props.plans?.map((plan) => {
           return plan.features.map((feature) => {
             return (
-              <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 py-5 px-4 text-sm text-gray-700 dark:border-gray-700">
+              <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 px-4 py-5 text-sm text-gray-700 dark:border-gray-700">
                 <div className="  flex flex-row items-center gap-2  text-gray-500 dark:text-gray-400">
                   {feature.text}
                   {feature.description && (

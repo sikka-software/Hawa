@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import {
   HawaTextField,
   HawaLogoButton,
@@ -9,7 +9,7 @@ import {
 import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
 
-export const SignInForm: React.FunctionComponent<SignInFormTypes> = (props) => {
+export const SignInForm: FC<SignInFormTypes> = (props) => {
   const {
     formState: { errors },
     handleSubmit,
