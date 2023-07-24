@@ -43,7 +43,7 @@ export const HawaPanelTabs: FC<PanelTabsTypes> = (props) => {
             <div
               key={indx}
               className="rounded bg-gray-50 p-4 dark:bg-gray-800"
-              id={option.value}
+              id={`${option.value}`}
               role="tabpanel"
               aria-labelledby={`${option.value}-tab`}
             >

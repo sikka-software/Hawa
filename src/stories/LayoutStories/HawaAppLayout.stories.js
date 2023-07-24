@@ -1,3 +1,4 @@
+import { UserFeedback } from "../../elements";
 import { HawaAppLayout } from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
 
@@ -13,6 +14,16 @@ const Template = (args) => {
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
           <span className=" font-bold capitalize text-gray-400">
             App Content
+            <UserFeedback
+              question="How much do you like this Layout component?"
+              options={[1, 2, 3, 4, 5]}
+              texts={{
+                least: "not much",
+                most: "Very much"
+              }}
+              title="Quick question"
+              onOptionClicked={(op) => console.log("option is clicked: ", op)}
+            />
           </span>
         </div>
         {/* <div className=" outline-1 outline-black">
@@ -661,7 +672,33 @@ WithNavbar.args = {
     }
   ]
 };
-export const RTL = Template.bind({});
+
+const RTLTemplate = (args) => {
+  return (
+    <HawaAppLayout {...args}>
+      <div className=" h-full p-4">
+        <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
+          <span className=" font-bold capitalize text-gray-400">
+            App Content
+            <UserFeedback
+              question="How much do you like this Layout component?"
+              options={[1, 2, 3, 4, 5]}
+              texts={{
+                least: "not much",
+                most: "Very much"
+              }}
+              position="bottom-left"
+              title="Quick question"
+              onOptionClicked={(op) => console.log("option is clicked: ", op)}
+            />
+          </span>
+        </div>
+      </div>
+    </HawaAppLayout>
+  );
+};
+
+export const RTL = RTLTemplate.bind({});
 RTL.args = {
   currentPage: "analytics3",
   profileMenuItems: [
