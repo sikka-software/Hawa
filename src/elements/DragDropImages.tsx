@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { HawaAlert } from "./HawaAlert"
 import { HawaButton } from "./HawaButton"
+import { TbDragDrop } from "react-icons/tb"
+import clsx from "clsx"
 //TODO: This element needs more improvements and testing
 type DragDropImagesTypes = {
   /**  The text label above the component. Consistant with the other form input fields   */
@@ -19,10 +21,11 @@ type DragDropImagesTypes = {
   errorMessages: string
   /** The translation object, use this to replace the default text with any translated text you want.*/
   texts: {
-    clickHereToUpload: string
-    maxFileSize: string
-    tooManyFiles: string
-    fileTooLarge: string
+    errorUploading: any
+    clickHereToUpload: any
+    maxFileSize: any
+    tooManyFiles: any
+    fileTooLarge: any
   }
 }
 
@@ -102,7 +105,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     )
   })
   const thumbs = files?.map((file: any, index: any) => (
-    <div className="relative m-3 rounded ">
+    <div className="relative m-3 rounded  ">
       <button
         onClick={(e) => {
           e.stopPropagation()
@@ -158,11 +161,17 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       )}
       <div
         {...getRootProps({})}
-        className="flex flex-col justify-center rounded border border-dashed border-black bg-white transition-all hover:bg-gray-100 "
+        className={clsx(
+          "flex flex-col justify-center rounded border border-dashed border-black  transition-all hover:bg-gray-100 ",
+          isDragActive ? "bg-layoutPrimary-500" : "bg-white"
+        )}
       >
         <input {...getInputProps()} />
-        <div className="pt-4 text-center">{texts.clickHereToUpload}</div>
-        <div className="pb-4 text-center text-xs">
+        <div className="flex flex-col items-center justify-center gap-2 pt-4 text-center">
+          <TbDragDrop size={22} />
+          {<texts.clickHereToUpload />}
+        </div>
+        <div className="py-4 text-center text-xs">
           {texts.maxFileSize} {max}
         </div>
         <div className="flex justify-center ">
@@ -190,11 +199,19 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
             {thumbs}
           </aside>
         ) : null}
-        <div className="px-2">
+        <div className="px-4">
           {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
-            <HawaAlert text={texts.tooManyFiles} severity="error" />
+            <HawaAlert
+              title={texts.errorUploading}
+              text={texts.tooManyFiles}
+              severity="error"
+            />
           ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
-            <HawaAlert text={texts.fileTooLarge} severity="error" />
+            <HawaAlert
+              title={texts.errorUploading}
+              text={texts.fileTooLarge}
+              severity="error"
+            />
           ) : (
             errs
           )}

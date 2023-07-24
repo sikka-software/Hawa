@@ -33,7 +33,17 @@ const DragAndDropFiles = (args, props) => {
         texts={{
           tooManyFiles: "Too many files",
           fileTooLarge: "File too large",
-          clickHereToUpload: "Click here to upload file",
+          errorUploading: "Error Uploading Files",
+          clickHereToUpload: () => {
+            return (
+              <>
+                Drag & Drop files here <br />
+                <span className="text-sm">
+                  or click to browse your computer
+                </span>
+              </>
+            );
+          },
           maxFileSize: "Max File Size "
         }}
       />

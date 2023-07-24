@@ -105,7 +105,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
     <div ref={alertRef}>
       <div
         className={clsx(
-          "mb-4 flex flex-col rounded p-4 text-sm",
+          "relative mb-4 flex flex-col rounded p-4 text-sm transition-all",
           styleVariant[variant][props.severity],
           closed ? "opacity-0" : "opacity-100"
         )}
@@ -114,6 +114,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
       >
         <span className="font-medium">{props.title}</span>
         <span>{" " + props.text}</span>
+
         {props.actions && (
           <div className="mt-2 flex flex-row gap-2">
             {props.actions.map((act, index) => (
@@ -130,12 +131,14 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
         )}
         <button
           type="button"
-          className="absolute right-8 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="absolute right-4 top-4  inline-flex  h-8 w-8 translate-y-1 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
           data-dismiss-target="#alert-default"
           aria-label="Close"
           onClick={() => {
             setClosed(true)
-            alertRef.current.removeChild(alertRef.current.children[0])
+            setTimeout(() => {
+              alertRef.current.removeChild(alertRef.current.children[0])
+            }, 200)
           }}
         >
           <span className="sr-only">Close</span>
