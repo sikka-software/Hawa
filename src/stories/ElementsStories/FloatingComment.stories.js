@@ -2,7 +2,8 @@ import React from "react";
 
 import {
   FloatingComment as FC,
-  FloatingCommentSlate as FCS
+  FloatingCommentSlate as FCS,
+  FloatingCommentExec as FCE
 } from "../../elements";
 
 export default {
@@ -27,7 +28,7 @@ FloatingComment.args = {
   rtl: "disabled"
 };
 
-const Template2 = (args) => {
+const Template1 = (args) => {
   return (
     <div
       dir={args.direction}
@@ -39,5 +40,20 @@ const Template2 = (args) => {
   );
 };
 
-export const FloatingCommentSlate = Template2.bind({});
+export const FloatingCommentSlate = Template1.bind({});
 FloatingCommentSlate.args = {};
+
+const Template2 = (args) => {
+  return (
+    <div
+      dir={args.direction}
+      className="flex flex-col flex-wrap items-start justify-start gap-2"
+    >
+      <h3>.execCommand</h3>
+      <FCE {...args} />
+    </div>
+  );
+};
+
+export const FloatingCommentExec = Template2.bind({});
+FloatingCommentExec.args = {};
