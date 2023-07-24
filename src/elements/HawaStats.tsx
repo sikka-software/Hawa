@@ -17,7 +17,6 @@ export const HawaStats: FC<StatTypes> = (props) => {
   let statStyles = {
     plain: "",
     contained: "bg-layoutPrimary-500",
-    // contained: props.color ? `bg-[${props.color}]` : "bg-layoutPrimary-500",
     outlined: "ring-2 w-fit",
     neobrutalism: "shadow-neobrutalism  border-4 border-black  bg-white",
     dropshadow: "bg-white drop-shadow-md",
