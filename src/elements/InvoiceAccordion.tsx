@@ -1,4 +1,4 @@
-import { useState, FC } from "react"
+import React, { useState, FC } from "react"
 import clsx from "clsx"
 import { HiChevronRight } from "react-icons/hi"
 import { BsThreeDotsVertical } from "react-icons/bs"

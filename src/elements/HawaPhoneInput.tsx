@@ -1,4 +1,4 @@
-import { useState, FC } from "react"
+import React, { useState, FC } from "react"
 import Countries from "../countries"
 import Select from "react-select"
 

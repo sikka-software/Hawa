@@ -1,8 +1,5 @@
-import { useState } from "@storybook/addons"
-import { FC, ReactNode } from "react"
-import clsx from "clsx"
 import { BsInstagram, BsTwitter } from "react-icons/bs"
-import { FaSnapchat, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
+import { FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 
 type FooterTypes = {
   logoText?: string
@@ -24,7 +21,7 @@ type FooterTypes = {
 
 export const Footer: React.FunctionComponent<FooterTypes> = ({ ...props }) => {
   return (
-    <div className="sticky  left-0 bottom-0 flex w-full flex-row gap-8  bg-blue-200 p-4">
+    <div className="sticky  bottom-0 left-0 flex w-full flex-row gap-8  bg-blue-200 p-4">
       {props.logoText && (
         <div>
           <div className="text-2xl font-bold">{props.logoText}</div>

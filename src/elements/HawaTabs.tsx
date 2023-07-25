@@ -1,5 +1,5 @@
+import React, { useState, FC } from "react"
 import clsx from "clsx"
-import { useState, FC } from "react"
 
 // TODO: fix wrapping issue when small screen
 

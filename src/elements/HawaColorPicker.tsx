@@ -1,4 +1,4 @@
-import { useState, FC, ChangeEvent } from "react"
+import React, { useState, FC, ChangeEvent } from "react"
 
 type ColorPickerTypes = {
   /** The hex code for the color */

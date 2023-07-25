@@ -1,4 +1,4 @@
-import { useEffect, useState, FC } from "react"
+import React, { useEffect, useState, FC } from "react"
 import clsx from "clsx"
 import { HawaMenu } from "./HawaMenu"
 import useTable from "../hooks/useTable"

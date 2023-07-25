@@ -1,4 +1,4 @@
-import { useState, FC } from "react"
+import React, { useState, FC } from "react"
 import { BsExclamationCircleFill } from "react-icons/bs"
 import { HawaTabs, HawaTooltip } from "../../elements"
 

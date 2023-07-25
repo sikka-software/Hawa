@@ -1,9 +1,9 @@
-import React from "react"
+import { FC, ButtonHTMLAttributes } from "react"
 import clsx from "clsx"
 import { HawaSpinner } from "./HawaSpinner"
 import { HawaTooltip } from "./HawaTooltip"
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
   tooltipDirection?: "rtl" | "ltr"
   color?: "default" | "primary" | "secondary"
@@ -33,7 +33,7 @@ const disabledVariantSyles = {
   outlined: "text-gray-300 border-gray-300",
 }
 
-export const HawaButton: React.FunctionComponent<ButtonProps> = ({
+export const HawaButton: FC<ButtonProps> = ({
   className,
   variant = "contained",
   color = "default",
@@ -174,7 +174,7 @@ export const HawaButton: React.FunctionComponent<ButtonProps> = ({
         </button>
       )}
       {badge && (
-        <div className="absolute -top-3 -right-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900">
+        <div className="absolute -right-3 -top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900">
           {badge}
         </div>
       )}

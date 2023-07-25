@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactElement, FC } from "react"
+import React, { useEffect, useRef, useState, ReactElement, FC } from "react"
 import clsx from "clsx"
 
 type THawaToolTip = {

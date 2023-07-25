@@ -1,7 +1,4 @@
-// import { useState } from "react";
 import { Footer as HawaFooter } from "../../layout";
-import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
-// import { useState } from "@storybook/addons";
 
 export default {
   title: "Layout/Footer",

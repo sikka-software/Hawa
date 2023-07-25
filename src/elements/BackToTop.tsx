@@ -1,4 +1,4 @@
-import { FC, RefObject, useState, useEffect } from "react"
+import React, { FC, RefObject, useState, useEffect } from "react"
 import { clsx } from "clsx"
 
 type ComponentTypes = {

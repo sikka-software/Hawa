@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState, FC } from "react"
+import React, { ReactNode, useEffect, useRef, useState, FC } from "react"
 import clsx from "clsx"
 
 // TODO: add width to decrease width

@@ -1,5 +1,5 @@
+import React, { useEffect, useState, FC } from "react"
 import clsx from "clsx"
-import { useEffect, useState, FC } from "react"
 
 type Item = {
   label?: string
