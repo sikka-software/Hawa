@@ -57,7 +57,7 @@ export const TextField = (args) => {
         <div className="flex flex-row gap-2">
           <HawaTextField
             label="Label test"
-            // helperText="something invalid"
+            // helpertext="something invalid"
             placeholder="input placeholder"
             // value="3434"
             type="text"
@@ -66,7 +66,7 @@ export const TextField = (args) => {
           />
           <HawaTextField
             label="Label test"
-            // helperText="something invalid"
+            // helpertext="something invalid"
             placeholder="input placeholder"
             // value="3434"
             type="text"
@@ -81,19 +81,18 @@ export const TextField = (args) => {
 
 TextField.args = {
   label: "Label test",
-  helperText: "something invalid",
+  helpertext: "something invalid",
   placeholder: "input placeholder",
-  value: "3434",
   // preview: true,
   type: "text"
 };
 
 export const TextArea = (args) => {
-  return <HawaTextField multiline {...args} />;
+  return <HawaTextField multiline={true} {...args} />;
 };
 TextArea.args = {
   label: "Label test",
-  helperText: "something invalid",
+  helpertext: "something invalid",
   placeholder: "input placeholder",
   type: "text",
   fullWidth: false
@@ -159,9 +158,18 @@ SelectInput.args = {
   }
 };
 export const ColorPicker = (args) => {
-  return <HawaColorPicker {...args} />;
+  const [currentColor, setCurrentColor] = useState("#f0f0f0");
+  return (
+    <HawaColorPicker
+      color={currentColor}
+      handleChange={(e) => {
+        console.log("changing color to: ", e.target.value);
+        setCurrentColor(e.target.value);
+      }}
+      {...args}
+    />
+  );
 };
-
 ColorPicker.args = {
   color: "#f0f0f0"
 };

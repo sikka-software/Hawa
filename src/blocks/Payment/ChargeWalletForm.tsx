@@ -57,7 +57,7 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
                   field.onChange(parseFloat(e.target.value))
                   setWalletAmount(e.target.value)
                 }}
-                helperText={errors.amount?.message}
+                helpertext={errors.amount?.message}
               />
             )}
             rules={{

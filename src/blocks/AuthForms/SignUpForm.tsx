@@ -84,10 +84,11 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit((e) => props.handleSignUp(e))}>
             <div>
-              {props.signUpFields.map((fld) => {
+              {props.signUpFields.map((fld, i) => {
                 if (fld === "fullname") {
                   return (
                     <Controller
+                      key={i}
                       control={control}
                       name="fullName"
                       render={({ field }) => (
@@ -96,7 +97,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                           type="text"
                           label={props.texts.fullNameLabel}
                           placeholder={props.texts.fullNamePlaceholder}
-                          helperText={errors.fullName?.message}
+                          helpertext={errors.fullName?.message}
                           onChange={field.onChange}
                           value={field.value ?? ""}
                         />
@@ -116,8 +117,9 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                         <HawaTextField
                           width="full"
                           type="text"
+                          autoComplete="email"
                           label={props.texts.emailLabel}
-                          helperText={errors.email?.message}
+                          helpertext={errors.email?.message}
                           placeholder={props.texts.emailPlaceholder}
                           onChange={field.onChange}
                           value={field.value ?? ""}
@@ -143,8 +145,9 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                         <HawaTextField
                           width="full"
                           type="text"
+                          autoComplete="username"
                           label={props.texts.usernameLabel}
-                          helperText={errors.username?.message}
+                          helpertext={errors.username?.message}
                           placeholder={props.texts.usernamePlaceholder}
                           onChange={field.onChange}
                           value={field.value ?? ""}
@@ -165,10 +168,11 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
+                  autoComplete="new-password"
                   // defaultValue={field.value ?? ""}
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
-                  helperText={errors.password?.message}
+                  helpertext={errors.password?.message}
                   onChange={field.onChange}
                   value={field.value ?? ""}
                 />
@@ -182,10 +186,11 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
+                  autoComplete="new-password"
                   // defaultValue={field.value ?? ""}
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}
-                  helperText={errors.confirm_password?.message}
+                  helpertext={errors.confirm_password?.message}
                   onChange={field.onChange}
                   value={field.value ?? ""}
                 />
@@ -203,7 +208,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                     defaultValue={field.value ?? ""}
                     label={props.texts.refCode}
                     placeholder={props.texts.passwordPlaceholder}
-                    helperText={errors.password?.message}
+                    helpertext={errors.password?.message}
                     value={field.value ?? ""}
                     onChange={field.onChange}
                   />

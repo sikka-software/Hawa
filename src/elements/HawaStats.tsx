@@ -13,7 +13,8 @@ type StatTypes = {
   handleClick?: () => void
 }
 export const HawaStats: FC<StatTypes> = (props) => {
-  let defaultStyle = "flex flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
+  let defaultStyle =
+    "flex transition-all flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
   let statStyles = {
     plain: "",
     contained: "bg-layoutPrimary-500",
@@ -26,6 +27,7 @@ export const HawaStats: FC<StatTypes> = (props) => {
     min: "w-fit",
     normal: "w-full max-w-[200px]",
   }
+
   return (
     <div
       onClick={props.handleClick}
@@ -33,7 +35,10 @@ export const HawaStats: FC<StatTypes> = (props) => {
         defaultStyle,
         widthStyles[props.width],
         statStyles[props.variant],
-        props.handleClick ? "cursor-pointer" : "cursor-default"
+        props.handleClick ? "cursor-pointer" : "cursor-default",
+        props.handleClick && props.variant === "dropshadow"
+          ? "hover:drop-shadow-lg"
+          : ""
       )}
       style={{
         backgroundColor: props.color
@@ -48,8 +53,10 @@ export const HawaStats: FC<StatTypes> = (props) => {
         <HawaSpinner />
       ) : (
         <div className="text-2xl font-bold">{props.number}</div>
-      )}{" "}
-      {props.helperText && <div className="text-xs">{props.helperText}</div>}{" "}
+      )}
+      {props.helperText ? (
+        <div className="text-xs">{props.helperText}</div>
+      ) : null}
     </div>
   )
 }

@@ -32,7 +32,7 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
                 type="text"
                 label={props.texts.fullNameLabel}
                 placeholder={props.texts.fullNamePlaceholder}
-                helperText={errors.fullName?.message}
+                helpertext={errors.fullName?.message}
                 {...field}
                 value={field.value ?? ""}
               />
@@ -51,7 +51,7 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
                 width="full"
                 type="text"
                 label={props.texts.emailLabel}
-                helperText={errors.email?.message}
+                helpertext={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
                 {...field}
                 value={field.value ?? ""}
@@ -75,7 +75,7 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
                 type="password"
                 label={props.texts.passwordLabel}
                 placeholder={props.texts.passwordPlaceholder}
-                helperText={errors.password?.message}
+                helpertext={errors.password?.message}
                 {...field}
                 value={field.value ?? ""}
               />
@@ -93,7 +93,7 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
                 type="password"
                 label={props.texts.confirmPasswordLabel}
                 placeholder={props.texts.confirmPasswordPlaceholder}
-                helperText={errors.confirmPassword?.message}
+                helpertext={errors.confirmPassword?.message}
                 {...field}
                 value={field.value ?? ""}
               />

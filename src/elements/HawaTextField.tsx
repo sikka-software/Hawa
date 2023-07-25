@@ -12,7 +12,7 @@ type TextFieldTypes = {
   /** Disable/Enable multiple line text input field   */
   multiline?: boolean
   /** The small red text under the input field to show validation or a hint.   */
-  helperText?: any
+  helpertext?: any
   /** The value of the input field */
   value?: any
   props?: PropsWithRef<"input">
@@ -29,6 +29,8 @@ type TextFieldTypes = {
   icon?: any
   /** Boolean to enable/disable editing the input field and using it as a text field   */
   preview?: boolean
+  autoComplete?: any
+  maxLength?: any
 }
 
 export const HawaTextField: FC<TextFieldTypes> = ({
@@ -132,11 +134,11 @@ export const HawaTextField: FC<TextFieldTypes> = ({
             </div>
           )}
 
-          {props.helperText && (
+          {props.helpertext ? (
             <p className="mb-0 mt-1 text-xs text-red-600 dark:text-red-500">
-              {props.helperText}
+              {props.helpertext}
             </p>
-          )}
+          ) : null}
         </>
       )}
     </div>

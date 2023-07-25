@@ -28,6 +28,10 @@ export const HawaColorPicker: FC<ColorPickerTypes> = (props) => {
 
       <input
         type="text"
+        onChange={(e) => {
+          setSelectedColor(e.target.value)
+          props.handleChange(e)
+        }}
         value={selectedColor}
         className="w-24  rounded-br-lg rounded-tr-lg pl-2 pr-2"
       />

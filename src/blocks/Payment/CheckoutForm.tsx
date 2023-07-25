@@ -94,7 +94,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                   <HawaTextField
                     type="text"
                     label={props.texts?.firstNameLabel + " *"}
-                    helperText={errors.firstName?.message}
+                    helpertext={errors.firstName?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -111,7 +111,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.lastNameLabel + " *"}
-                    helperText={errors.lastName?.message}
+                    helpertext={errors.lastName?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -126,7 +126,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                   width="full"
                   type="text"
                   label={props.texts?.emailLabel + " *"}
-                  helperText={errors.email?.message}
+                  helpertext={errors.email?.message}
                   {...field}
                   value={field.value ?? ""}
                 />
@@ -150,7 +150,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.streetAddressLabel + " *"}
-                    helperText={errors.streetAddress?.message}
+                    helpertext={errors.streetAddress?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -168,7 +168,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.stateLabel + " *"}
-                    helperText={errors.province?.message}
+                    helpertext={errors.province?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -185,7 +185,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.cityLabel + " *"}
-                    helperText={errors.city?.message}
+                    helpertext={errors.city?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -202,7 +202,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.buildingNumberLabel + " *"}
-                    helperText={errors.buildingNumber?.message}
+                    helpertext={errors.buildingNumber?.message}
                     {...field}
                     value={field.value ?? ""}
                   />
@@ -218,7 +218,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
                     width="full"
                     type="number"
                     label={props.texts?.zipCodeLabel + " *"}
-                    helperText={errors.zipCode?.message}
+                    helpertext={errors.zipCode?.message}
                     {...field}
                     value={field.value ?? ""}
                   />

@@ -20,23 +20,46 @@ export const CreditCardForm: FC<CreditCardFormTypes> = (props) => {
     <HawaContainer>
       {" "}
       <form onSubmit={handleSubmit(props.handle)}>
-        <Controller
-          control={control}
-          name="cardName"
-          render={({ field }) => (
-            <HawaTextField
-              width="full"
-              name="password"
-              placeholder="Enter password"
-              type="tel"
-              label="Card Number"
-              helperText={errors.password?.message}
+        <div className="flex flex-row gap-4">
+          <Controller
+            control={control}
+            name="cardName"
+            render={({ field }) => (
+              <HawaTextField
+                width="full"
+                name="password"
+                placeholder="Enter password"
+                type="tel"
+                label="Card Number"
+                helpertext={errors.password?.message}
+              />
+            )}
+            rules={{
+              required: "Password is rquired",
+            }}
+          />
+          <div className="w-1/4">
+            <Controller
+              control={control}
+              name="cardName"
+              render={({ field }) => (
+                <HawaTextField
+                  width="full"
+                  name="password"
+                  maxLength="3"
+                  autoComplete="cc-number"
+                  placeholder=""
+                  type="password"
+                  label="CCV"
+                  helpertext={errors.password?.message}
+                />
+              )}
+              rules={{
+                required: "Password is rquired",
+              }}
             />
-          )}
-          rules={{
-            required: "Password is rquired",
-          }}
-        />
+          </div>
+        </div>
         <Controller
           control={control}
           name="cardName"
@@ -45,9 +68,9 @@ export const CreditCardForm: FC<CreditCardFormTypes> = (props) => {
               width="full"
               name="password"
               placeholder="Enter password"
-              type="password"
+              type="text"
               label="Name On Card"
-              helperText={errors.password?.message}
+              helpertext={errors.password?.message}
             />
           )}
           rules={{
@@ -64,30 +87,14 @@ export const CreditCardForm: FC<CreditCardFormTypes> = (props) => {
               placeholder="Enter password"
               type="password"
               label="Expiry Date"
-              helperText={errors.password?.message}
+              helpertext={errors.password?.message}
             />
           )}
           rules={{
             required: "Password is rquired",
           }}
         />
-        <Controller
-          control={control}
-          name="cardName"
-          render={({ field }) => (
-            <HawaTextField
-              width="full"
-              name="password"
-              placeholder="Enter password"
-              type="password"
-              label="CCV"
-              helperText={errors.password?.message}
-            />
-          )}
-          rules={{
-            required: "Password is rquired",
-          }}
-        />
+
         <HawaButton
           // type="submit"
           width="full"

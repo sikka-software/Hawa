@@ -54,9 +54,10 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
+                  autoComplete="new-password"
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
-                  helperText={errors.password?.message}
+                  helpertext={errors.password?.message}
                   {...field}
                   value={field.value ?? ""}
                 />
@@ -72,9 +73,10 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="password"
+                  autoComplete="new-password"
                   label={props.texts.confirmPasswordLabel}
                   placeholder={props.texts.confirmPasswordPlaceholder}
-                  helperText={errors.confirmPassword?.message}
+                  helpertext={errors.confirmPassword?.message}
                   {...field}
                   value={field.value ?? ""}
                 />

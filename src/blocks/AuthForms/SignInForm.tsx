@@ -34,8 +34,9 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               <HawaTextField
                 width="full"
                 type="text"
+                autoComplete="email"
                 label={props.texts.emailLabel}
-                helperText={errors.email?.message}
+                helpertext={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
                 value={field.value ?? ""}
                 onChange={field.onChange}
@@ -59,8 +60,9 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 <HawaTextField
                   width="full"
                   type="text"
+                  autoComplete="username"
                   label={props.texts.usernameLabel}
-                  helperText={errors.username?.message}
+                  helpertext={errors.username?.message}
                   placeholder={props.texts.usernamePlaceholder}
                   onChange={field.onChange}
                   value={field.value ?? ""}
@@ -87,10 +89,11 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               render={({ field }) => (
                 <HawaTextField
                   width="full"
+                  autoComplete="current-password"
                   type="password"
                   label={props.texts.passwordLabel}
                   placeholder={props.texts.passwordPlaceholder}
-                  helperText={errors.password?.message}
+                  helpertext={errors.password?.message}
                   onChange={field.onChange}
                   value={field.value ?? ""}
                 />

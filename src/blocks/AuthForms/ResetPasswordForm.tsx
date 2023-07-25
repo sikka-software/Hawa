@@ -39,7 +39,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                 width="full"
                 type="text"
                 label={props.texts.emailLabel}
-                helperText={errors.email?.message}
+                helpertext={errors.email?.message}
                 placeholder={props.texts.emailPlaceholder}
                 {...field}
                 value={field.value ?? ""}
