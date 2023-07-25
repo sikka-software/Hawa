@@ -1,4 +1,4 @@
-import { ReactElement, FC } from "react"
+import React, { ReactElement, FC } from "react"
 
 type DraggableCardTypes = {
   children: ReactElement

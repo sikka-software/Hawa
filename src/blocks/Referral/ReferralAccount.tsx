@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import { FaClone } from "react-icons/fa"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"

@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { FC } from "react"
+import React, { FC } from "react"
 
 type LandingCardTypes = {
   orientation: "vertical" | "horizontal"

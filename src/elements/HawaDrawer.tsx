@@ -1,4 +1,4 @@
-import { FC, ReactElement, ReactNode } from "react"
+import React, { FC, ReactElement, ReactNode } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import clsx from "clsx"
 // TODO: This element should either be removed or improved

@@ -1,4 +1,4 @@
-import { FC, PropsWithRef } from "react"
+import React, { FC, PropsWithRef } from "react"
 import clsx from "clsx"
 
 // TODO: make icon based on direction

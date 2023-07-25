@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react"
+import React, { FC, ReactNode } from "react"
 
 type TBreadcrumb = {
   /** The array of crumbs, each one with a label and a href link */

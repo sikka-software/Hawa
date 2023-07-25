@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 
 type CopyRightsTypes = {
   /** A text used as the version of the app, for example: v1.0.0 */

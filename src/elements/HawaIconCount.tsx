@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 
 type IconCountTypes = {
   /** The icon of the counter */

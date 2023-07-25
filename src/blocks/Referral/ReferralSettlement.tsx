@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import { FaTimes } from "react-icons/fa"
 import {
   HawaAlert,

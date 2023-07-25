@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import clsx from "clsx"
 import { HawaSpinner } from "./HawaSpinner"
 
