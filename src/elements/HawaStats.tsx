@@ -32,7 +32,8 @@ export const HawaStats: FC<StatTypes> = (props) => {
       className={clsx(
         defaultStyle,
         widthStyles[props.width],
-        statStyles[props.variant]
+        statStyles[props.variant],
+        props.handleClick ? "cursor-pointer" : "cursor-default"
       )}
       style={{
         backgroundColor: props.color

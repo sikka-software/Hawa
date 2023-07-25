@@ -88,6 +88,7 @@
     "react-dom": "^18.2.0"
   },
   "resolutions": {
+    "@storybook/react-docgen-typescript-plugin": "npm:react-docgen-typescript-plugin@1.0.2",
     "@storybook/react/webpack": "^5",
     "@storybook/core-common/webpack": "^5",
     "@storybook/core-server/webpack": "^5",

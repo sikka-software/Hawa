@@ -10,7 +10,6 @@ module.exports = {
     "./../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
-    "storybook-tailwind-dark-mode",
     "@storybook/addon-links",
     "@storybook/addon-docs",
     "@storybook/addon-essentials",

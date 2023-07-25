@@ -28,8 +28,7 @@ export default {
 const Template = (args) => {
   return (
     <div className="grid grid-cols-2 gap-2 ">
-      {/* <div className="flex flex-wrap items-start justify-start gap-2 bg-red-300"> */}
-      <HawaStats {...args} />
+      <HawaStats {...args} handleClick={() => console.log("test")} />
       <HawaStats {...args} />
       <HawaStats {...args} />
       <HawaStats {...args} />
@@ -49,6 +48,6 @@ Stats.args = {
   width: "full",
   number: "SAR 333.22",
   variant: "neobrutalism",
-  helperText: "warning",
+  helperText: "warning"
   // color:'#9a00ff'
 };
