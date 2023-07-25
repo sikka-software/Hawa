@@ -54,7 +54,12 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
       }
     }
   }, [duration])
-
+  let closeButtonStyle = {
+    info: "hover:bg-blue-300",
+    warning: "hover:bg-yellow-300",
+    error: "hover:bg-red-300",
+    success: "hover:bg-green-300",
+  }
   let styleVariant = {
     normal: {
       info: "text-blue-700 bg-blue-100 dark:bg-blue-200 dark:text-blue-800",
@@ -131,7 +136,10 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
         )}
         <button
           type="button"
-          className="absolute right-4 top-4  inline-flex  h-8 w-8 translate-y-1 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          className={clsx(
+            "absolute right-2 top-2 inline-flex h-9  w-9 items-center justify-center rounded p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
+            closeButtonStyle[props.severity]
+          )}
           data-dismiss-target="#alert-default"
           aria-label="Close"
           onClick={() => {
