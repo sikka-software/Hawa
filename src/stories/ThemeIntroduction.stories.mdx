@@ -3,8 +3,9 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
 
 <Meta title="Theme/Theme Introduction" />
 
-<style>{`
-  .subheading {
+<style>
+  {`
+.subheading {
     --mediumdark: '#999999';
     font-weight: 900;
     font-size: 13px;
@@ -15,14 +16,12 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
     margin-bottom: 12px;
     margin-top: 40px;
   }
-
   .link-list {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 10px;
   }
-
   @media (min-width: 620px) {
     .link-list {
       row-gap: 20px;
@@ -106,10 +105,48 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   }
 
   
-`}</style>
+`}
+</style>
 
 # Theme Configuration
 
 <div className="tip-wrapper">
-  <span className="tip">Notice</span>This page is still in progress
+  <span className="tip">Notice</span>This page is still in progress.
 </div>
+
+If you want to customize the entirety of Hawa UI kit with a few lines of code, you
+can do so by changing the colors, and the border radius. In order to customize Hawa,
+you can do so using one of the following methods:
+
+## Method 1:
+
+Overwrite the `root:` global variables in your project css file. The variables are as follows:
+
+```css
+:root {
+  /* Primary Layout Colors */
+  --layout-primary-700: #b7aff7;
+  --layout-primary-500: #dfdcfc;
+  --layout-primary-300: #e7e5fa;
+
+  /* Secondary Layout Colors */
+  --layout-secondary: #d2cdfa;
+
+  /* Primary Button Colors */
+  --button-primary-300: #6555e3;
+  --button-primary-500: #4c37eb;
+  --button-primary-700: #2e1dac;
+
+  /* Secondary Button Colors */
+  --button-secondary-500: #ffc011;
+  --button-secondary-700: #b48d24;
+
+  /* Global Border Radius */
+  --border-radius: 10px;
+}
+```
+
+## Method 2:
+
+Copy the content of Hawa [tailwind.config.js](https://github.com/sikka-software/Hawa/blob/main/tailwind.config.js) and use it in your
+project tailwind configuration file. And you can replace the global variables with your own static values. Or simply using the first method
