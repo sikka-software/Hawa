@@ -1,16 +1,12 @@
-import { Meta } from "@storybook/addon-docs"
-import { LinkTo, linkTo } from "@storybook/addon-links"
-// import Colors from './assets/colors.svg';
-// import Comments from './assets/comments.svg';
-// import Direction from './assets/direction.svg';
-// import Flow from './assets/flow.svg';
-// import Plugin from './assets/plugin.svg';
-// import Repo from './assets/repo.svg';
-// import StackAlt from './assets/stackalt.svg';
+import React from "react"
+import { storiesOf } from "@storybook/react"
+import "../stories-styles.css"
 
-<Meta title="Blocks/Blocks Introduction" />
-
-<style>{`
+const Installation = () => {
+  return (
+    <div>
+      <style>
+        {`
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -47,6 +43,7 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
   }
 
   .link-item {
+    cursor:pointer;
     display: block;
     padding: 20px 30px 20px 15px;
     border: 1px solid #00000010;
@@ -106,33 +103,37 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
     margin-top: 40px;
     margin-bottom: 40px;
   }
-
-  .tip-wrapper code {
-    font-size: 12px;
-    display: inline-block;
-  }
-
   
-`}</style>
+`}
+      </style>
+      # Getting Started
+      <div className="tip-wrapper">
+        <span className="tip">Notice</span>This page is still in progress
+      </div>
+      ## Install Package
+      <>
+        <pre>
+          <code
+            className="language-js"
+            // meta='filename="index.js"'
+          >
+            npm install @sikka/hawa
+          </code>
+        </pre>
+      </>
+      ## Import Hawa Styles Add the following line of code to your main project
+      file `index.js` or `_app.js` for next.js projects: ``` import
+      "@sikka/hawa/src/styles.css"; ``` ## Use Package ``` import{" "}
+      {/* {HawaAccordion} from '@sikka/hawa ``` */}
+    </div>
+  )
+}
 
-# Blocks Components
-
-<div className="tip-wrapper">
-  <span className="tip">Notice</span>This page is still in progress
-</div>
-
-Hawa layout components are used as the foundation for Hawa blocks and can be used to organize and structure your web app.
-
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-# Concept
-
-### Elements
-
-The smallest components of this UI kit are the typical low-level components.
-
-### Blocks
-
-Blocks are commonly used collection of components.
+storiesOf("Getting Started / Installation", module)
+  .addParameters({
+    docs: {
+      page: () => <Installation />,
+    },
+    docsOnly: true,
+  })
+  .add("Getting Started / Installation", () => <Installation />)

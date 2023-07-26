@@ -11,13 +11,11 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Introduction",
         "Getting Started",
-        "Theme",
-        ["Theme Introduction", "Theme Configuration"],
+        ["Overview", "Installation", "Usage", "Customization"],
         "Blocks",
         [
-          "Blocks Introduction",
+          "Introduction",
           "Auth",
           ["Landing", "Sign In", "Sign Up", "Reset Password", "New Pasword"],
           "Account",
@@ -26,10 +24,10 @@ export const parameters = {
           ["Payment Selection", "User Settings"]
         ],
         "Layout",
-        ["Layout Introduction", "App Layout", "Container", "Dialog"],
+        ["Introduction", "App Layout", "Container", "Dialog"],
         "Elements",
         [
-          "Elements Introduction",
+          "Introduction",
           "Buttons",
           ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
           "Cards",

@@ -27,5 +27,5 @@
     "*.js+(|x)",
     "**/*.js+(|x)"
   ],
-  "exclude": ["node_modules", "**/*.mdx"]
+  "exclude": ["node_modules"]
 }
