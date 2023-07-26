@@ -32,15 +32,31 @@ const UsagePage = () => {
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress.
       </div>
-      <h4>Use Components</h4>
+      <h4>Importing Styles</h4>
       <p>
         Add the following line of code to your main project file `index.js` or
         `_app.js` for next.js projects
       </p>
       <HawaCodeBlock code={'import "@sikka/hawa/src/styles.css";'} />
-      <h4>Use Components</h4>
-      ``` ## Use Package ``` import{" "}
-      {/* {HawaAccordion} from '@sikka/hawa ``` */}
+      <br />
+      <h4>Using Components</h4>
+      <p>
+        You can import directly from the package in React and Next.js projects.
+      </p>
+      <HawaCodeBlock code={'import { HawaAccordion } from "@sikka/hawa"'} />
+      <br />
+      <h4>Editor Setup</h4>
+      <p>
+        In order to save time and be more efficent while working with Hawa kit,
+        we recommend installing{" "}
+        <a
+          className="text-link"
+          href="https://code.visualstudio.com/docs/editor/intellisense"
+        >
+          IntelliSense
+        </a>{" "}
+        extension for VSCode{" "}
+      </p>
     </div>
   )
 }

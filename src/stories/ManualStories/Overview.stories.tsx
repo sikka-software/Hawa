@@ -4,6 +4,16 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
 import { HawaLogoButton } from "../../elements"
 
+const DocCard = ({ title, subtitle, handleClick }) => (
+  <div
+    onClick={handleClick}
+    className="block w-full transform-gpu cursor-pointer rounded border border-gray-200 bg-white p-5 transition-all  hover:drop-shadow-lg"
+  >
+    <h3 className="font-bold">{title}</h3>
+    {subtitle && <span>{subtitle}</span>}{" "}
+  </div>
+)
+
 const OverviewPage = () => {
   return (
     <div>
@@ -27,38 +37,48 @@ const OverviewPage = () => {
         elements. Below you'll find the individual break-down of the structure
         of Hawa UI kit
       </p>
-      <div className="subheading">Structure</div>
-      <div className="link-list">
-        <div
-          onClick={linkTo("Blocks/Blocks Introduction")}
-          className="link-item"
-        >
-          <h3>Layout</h3>
-          <span>
-            <strong>Components for different web app layouts</strong>
-          </span>
-        </div>
-        <div
-          onClick={linkTo("Layout/Layout Introduction")}
-          className="link-item"
-        >
-          <h3>Blocks</h3>
-          <span>
-            <strong>Pre-made blocks that are commonly used in web apps</strong>
-          </span>
-        </div>
-        <div
-          onClick={linkTo("Elements/Elements Introduction")}
-          className="link-item"
-        >
-          <h3>Elements</h3>
-          <span>
-            <strong>
-              The individual UI components used in blocks and other places
-            </strong>
-          </span>
-        </div>
+      <div className="subheading">Introduction</div>
+      <div className="flex flex-row gap-4">
+        <DocCard
+          title="Installation"
+          subtitle={"Simple installation guide for React and Next projects"}
+          handleClick={linkTo("Getting Started/Installation")}
+        />
+        <DocCard
+          title="Usage"
+          subtitle={"Simple installation guide for React and Next projects"}
+          handleClick={linkTo("Getting Started/Usage")}
+        />
+        <DocCard
+          title="Customization"
+          subtitle={
+            "a few methods to use to customize Hawa kit in your project"
+          }
+          handleClick={linkTo("Getting Started/Customization")}
+        />
       </div>
+      <div className="subheading">Structure</div>
+
+      <div className="flex flex-row gap-4">
+        <DocCard
+          title="Blocks"
+          subtitle={"Pre-made blocks that are commonly used in web apps"}
+          handleClick={linkTo("Blocks/Introduction")}
+        />
+        <DocCard
+          title="Layout"
+          subtitle={"Components for different web app layouts"}
+          handleClick={linkTo("Layout/Introduction")}
+        />
+        <DocCard
+          title="Elements"
+          subtitle={
+            "The individual UI components used in blocks and other places"
+          }
+          handleClick={linkTo("Elements/Introduction")}
+        />
+      </div>
+
       <p className="mt-4">
         <a className="text-link" href="https://github.com/sikka-software/Hawa">
           Github

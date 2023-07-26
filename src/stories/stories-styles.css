@@ -108,8 +108,8 @@
   justify-content: center;
 }
 .text-link {
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
   color: rgb(25, 25, 255);
   transition: all;
   transition-duration: 100ms;
@@ -122,4 +122,14 @@
 h1 {
   font-size:xx-large;
   font-weight: 800;
+}
+h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: larger;
+}
+
+p {
+   margin-bottom: 10px;
 }

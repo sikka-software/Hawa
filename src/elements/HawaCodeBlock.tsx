@@ -59,13 +59,13 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
       <pre>
         <code
           className={clsx(
-            "flex flex-row items-center justify-between rounded bg-gray-800 py-4 pr-4  text-left text-sm text-white sm:text-base",
+            "flex flex-row items-start justify-between rounded bg-gray-800 py-4 pr-4  text-left text-sm text-white sm:text-base",
             // `language-${language}`,
             tabs ? "" : "pl-4"
           )}
         >
           <span className="flex">{tabs ? tabs[selectedTab].code : code}</span>
-          <div className="cursor-pointer rounded p-2 hover:bg-gray-700">
+          <div className=" cursor-pointer rounded p-2 hover:bg-gray-700">
             <svg
               onClick={() =>
                 navigator.clipboard.writeText(
