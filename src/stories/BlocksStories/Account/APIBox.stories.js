@@ -2,11 +2,11 @@ import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { HawaApiBox, HawaTable } from "../../../elements";
+import { HawaTable } from "../../../elements";
 
 export default {
   title: "Blocks/Account/API Box",
-  component: HawaApiBox
+  component: HawaTable
 };
 let dummyRowData = [
   [
@@ -46,7 +46,6 @@ let dummyColsData = [
 export const APIBox = (args) => {
   return (
     <div>
-      {/* <HawaApiBox /> */}
       <div dir="ltr" className="">
         <HawaTable
           headerColor="white"
