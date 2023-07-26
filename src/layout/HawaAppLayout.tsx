@@ -7,7 +7,6 @@ import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { HawaButton, HawaMenu } from "../elements"
 
-// TODO: when no navbar, the drawer can't be opened
 // TODO: when no pagetitle, navbar gets messy
 
 type HawaAppLayoutTypes = {
@@ -229,6 +228,8 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
         {/* Drawer Content Container */}
         <div
           className={clsx(
+            "no-scrollbar",
+
             props.topBar ? "" : "mt-2",
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
@@ -395,9 +396,10 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
           {openSideMenu && (
             <div
               className={clsx(
-                "fixed bottom-0 left-0 right-0 flex flex-row items-center bg-layoutPrimary-500 p-4",
-                openSideMenu ? "bg-layoutPrimary-500" : "bg-transparent",
-                onSettingsClick ? "justify-between" : "justify-end"
+                "fixed bottom-0 flex flex-row items-center bg-layoutPrimary-500 p-4 transition-all",
+                openSideMenu ? "bg-layoutPrimary-500 " : "bg-red-500",
+                onSettingsClick ? "justify-between" : "justify-end",
+                direction === "rtl" ? "right-0" : "left-0"
               )}
               style={{
                 width: `${
@@ -454,6 +456,7 @@ export const HawaAppLayout: React.FunctionComponent<HawaAppLayoutTypes> = ({
                       <FaChevronRight
                         fontSize={14}
                         className={clsx(
+                          "transition-all",
                           isRTL
                             ? keepOpen
                               ? "rotate-0"
