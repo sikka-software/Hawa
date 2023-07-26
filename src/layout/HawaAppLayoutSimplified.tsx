@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import { HiMenu } from "react-icons/hi"
 import { FaChevronRight } from "react-icons/fa"
-import { FiSettings } from "react-icons/fi"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { HawaButton, HawaMenu } from "../elements"
@@ -83,7 +82,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
   let drawerSizeCondition =
     size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
   return (
-    <div className="fixed left-0 bg-red-500">
+    <div className="fixed left-0">
       {props.topBar && (
         <div
           className={clsx(
@@ -126,7 +125,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
             // Mobile Drawer Menu Button
             <div
               dir={direction}
-              className="flex items-center justify-center gap-0.5 "
+              className="flex items-center justify-center gap-0.5"
             >
               <div
                 onClick={() => setOpenSideMenu(true)}
@@ -189,9 +188,9 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         className={clsx(
           "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip  transition-all",
           // drawerDefaultStyle,
-          "bg-green-400"
+          // "bg-green-400",
           // drawerSizeStyle[drawerSize],
-          // isRTL ? "right-0" : "left-0"
+          isRTL ? "right-0" : "left-0"
         )}
         style={{
           width:
@@ -215,30 +214,21 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         <div
           dir={direction}
           className={clsx(
-            "fixed z-50  flex h-14 w-full flex-row items-center bg-blue-400 transition-all",
-            "mb-2"
-            // openSideMenu ? "w-[56px]" : "w-[160px]"
-            // size > 600 || openSideMenu
-            //   ? "bg-layoutPrimary-500"
-            //   : "w-0 bg-transparent"
+            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-layoutPrimary-500 transition-all"
+            // "bg-blue-400",
           )}
           style={{
             width:
               size > 600
-                ? `${
-                    // drawerSizeStyle[openSideMenu ? "opened" : "closed"][
-                    //   drawerSize
-                    // ] - 16
-                    openSideMenu ? 160 : 56
-                  }px`
-                : "full",
+                ? `${openSideMenu ? 160 : 56}px`
+                : `${openSideMenu ? 160 : 0}px`,
           }}
         >
           {/* Full Logo */}
           <img
             className={clsx(
-              "fixed top-2.5 h-9  opacity-0 transition-all",
-              isRTL ? "right-2.5" : "left-2.5",
+              "h-9  opacity-0 transition-all",
+              // isRTL ? "right-2.5" : "left-2.5",
               !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
               // size > 600 ? "" : "right-4"
             )}
@@ -265,26 +255,20 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         {/* Drawer Content Container */}
         <div
           className={clsx(
-            // "no-scrollbar",
-            "fixed bottom-14 top-14 bg-yellow-400 py-2 transition-all",
-            // props.topBar ? "" : "mt-2",
+            // "no-scrollbar", TODO: make this optional to hide scrollbar or not
+            "fixed bottom-14 top-14 bg-layoutPrimary-500 py-2 transition-all",
+            // bg-yellow-400
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
           style={{
             height: "calc(100% - 112px)",
             width:
               size > 600
-                ? `${
-                    // drawerSizeStyle[openSideMenu ? "opened" : "closed"][
-                    //   drawerSize
-                    // ] - 16
-                    openSideMenu ? 160 : 56
-                  }px`
-                : "full",
+                ? `${openSideMenu ? 160 : 56}px`
+                : `${openSideMenu ? 160 : 0}px`,
           }}
         >
           {/* Drawer Items */}
-          {/* <div className="mb-10 mt-14"> */}
           {props.drawerItems?.map((dSection, dIndex) => (
             <div
               key={dIndex}
@@ -337,7 +321,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                               : "rotate-90"
                           )}
                         >
-                          <FaChevronRight fontSize={11} />
+                          {/* <FaChevronRight fontSize={11} /> */}
                         </div>
                       )}
                     </div>
@@ -395,14 +379,12 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         </div>
         {/* Drawer Footer */}
         <div
-          className="fixed bottom-0 flex h-14 w-full items-center justify-center bg-stone-600 transition-all"
+          className="fixed bottom-0 flex h-14 w-full items-center justify-center bg-layoutPrimary-500 transition-all"
           style={{
-            width: `${
-              openSideMenu ? 160 : 56
-
-              // drawerSizeStyle[openSideMenu ? "opened" : "closed"][drawerSize] -
-              // 16
-            }px`,
+            width:
+              size > 600
+                ? `${openSideMenu ? 160 : 56}px`
+                : `${openSideMenu ? 160 : 0}px`,
           }}
         >
           {onSettingsClick && (
@@ -410,7 +392,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
               className=" cursor-pointer rounded p-2 transition-all hover:bg-layoutPrimary-700"
               onClick={() => onSettingsClick()}
             >
-              <FiSettings />
+              <SettingsIcon />
             </div>
           )}
           {/* Expand Button */}
@@ -449,7 +431,17 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     "w-fit cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-gray-400"
                   }
                 >
-                  <ArrowIcon pointing={keepOpen ? "left" : "right"} />
+                  <ArrowIcon
+                    pointing={
+                      keepOpen
+                        ? isRTL
+                          ? "right"
+                          : "left"
+                        : isRTL
+                        ? "left"
+                        : "right"
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -460,7 +452,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
     
       {/* Children Container */}
       <div
-        className="fixed overflow-y-auto bg-yellow-500 p-2"
+        className="fixed overflow-y-auto p-2"
         style={
           isRTL
             ? {
@@ -512,5 +504,22 @@ const ArrowIcon = ({ pointing }) => (
       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
       clipRule="evenodd"
     ></path>
+  </svg>
+)
+
+const SettingsIcon = () => (
+  <svg
+    stroke="currentColor"
+    fill="none"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    height="1em"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="12" cy="12" r="3"></circle>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
   </svg>
 )

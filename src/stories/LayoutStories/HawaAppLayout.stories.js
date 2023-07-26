@@ -1145,7 +1145,7 @@ Simplified.args = {
   ],
   pageTitle: "Dashboard Page",
   topBar: true,
-  direction: "ltr",
+  direction: "rtl",
   username: "Zakher Masri",
   email: "zakhermasri@gmail.com",
   logoSymbol:
