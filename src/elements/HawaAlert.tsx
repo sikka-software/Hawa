@@ -137,8 +137,9 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
         <button
           type="button"
           className={clsx(
-            "absolute right-2 top-2 inline-flex h-9  w-9 items-center justify-center rounded p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
-            closeButtonStyle[props.severity]
+            "absolute  top-2 inline-flex h-9  w-9 items-center justify-center rounded p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
+            closeButtonStyle[props.severity],
+            direction === "rtl" ? "left-2" : "right-2"
           )}
           data-dismiss-target="#alert-default"
           aria-label="Close"
