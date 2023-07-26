@@ -44,7 +44,7 @@ const ContainerTemplate = (args) => {
     <div
       dir={args.direction}
       // className="bg-primaryLayout-500 left-0 top-0 flex flex-wrap items-start justify-start gap-2 overflow-y-scroll p-4"
-      className="flex flex-row gap-4"
+      className="fixed left-0 top-0 flex h-screen w-screen flex-row gap-4 overflow-y-scroll"
     >
       <div
         className="relative h-64 w-2/4 overflow-auto rounded bg-red-200 p-4"
@@ -65,6 +65,16 @@ const ContainerTemplate = (args) => {
         ref={ref2}
       >
         <BT anchor={ref2} {...args} />
+        {new Array(300).fill(0).map((e) => {
+          return (
+            <div>
+              {Math.random()}
+              <br />
+            </div>
+          );
+        })}
+      </div>
+      <div className="h-full w-[12px]">
         {new Array(300).fill(0).map((e) => {
           return (
             <div>
