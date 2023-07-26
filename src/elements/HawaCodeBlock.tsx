@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react"
 import clsx from "clsx"
+import { HawaButton } from "./HawaButton"
 
 type CodeBlockTypes = {
   color?: "dark" | "light"
@@ -20,6 +21,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
   width = "full",
 }) => {
   const [selectedTab, setSelectedTab] = useState(0)
+  const [showTooltip, setShowTooltip] = useState(0)
   let widthStyles = {
     full: "w-full",
     md: "w-full max-w-md",
@@ -65,13 +67,13 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
           )}
         >
           <span className="flex">{tabs ? tabs[selectedTab].code : code}</span>
-          <div className=" cursor-pointer rounded p-2 hover:bg-gray-700">
+          <HawaButton margins="none">
             <svg
-              onClick={() =>
+              onClick={() => {
                 navigator.clipboard.writeText(
                   tabs ? tabs[selectedTab].code : code
                 )
-              }
+              }}
               stroke="currentColor"
               fill="none"
               stroke-width="2"
@@ -85,7 +87,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
               <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
               <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
             </svg>
-          </div>
+          </HawaButton>
         </code>
       </pre>
       {/* {tabs.map((tab) => (
