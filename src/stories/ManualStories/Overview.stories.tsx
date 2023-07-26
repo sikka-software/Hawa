@@ -2,8 +2,9 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
+import { HawaLogoButton } from "../../elements"
 
-const Overview = () => {
+const OverviewPage = () => {
   return (
     <div>
       <p className="logo">
@@ -12,16 +13,19 @@ const Overview = () => {
           alt="Hawa | هواء"
         />
       </p>
-      <h1>Welcome to Hawa</h1>
+      {/* <div className="flex flex-row gap-2">
+        <HawaLogoButton logo="github" buttonText={"Github"} />
+        <HawaLogoButton logo="npm" buttonText={"Github"} />
+      </div> */}
       <div className="tip-wrapper">
-        <span className="tip">Notice</span>This page is still in progress
+        <span className="tip">In Progress</span>
       </div>
       <p>
-        This is an opinionated UI kit built with TailwindCSS with the focus of
+        Hawa is an opinionated UI kit built with TailwindCSS with the focus of
         making it easier to build web apps using common components. Web apps
         need a layout and a collection of blocks that are made of single
-        elements. Below you'll find the individual break-down of each component
-        of Hawa UI structure.
+        elements. Below you'll find the individual break-down of the structure
+        of Hawa UI kit
       </p>
       <div className="subheading">Structure</div>
       <div className="link-list">
@@ -55,11 +59,11 @@ const Overview = () => {
           </span>
         </div>
       </div>
-      <p>
-        For bug reporting and contribution
+      <p className="mt-4">
         <a className="text-link" href="https://github.com/sikka-software/Hawa">
           Github
         </a>
+        <span className="text-sm"> For bug reporting and contribution</span>{" "}
       </p>
     </div>
   )
@@ -68,8 +72,8 @@ const Overview = () => {
 storiesOf("Getting Started / Overview", module)
   .addParameters({
     docs: {
-      page: () => <Overview />,
+      page: () => <OverviewPage />,
     },
     docsOnly: true,
   })
-  .add("Getting Started / Overview", () => <Overview />)
+  .add("Getting Started / Overview", () => <OverviewPage />)

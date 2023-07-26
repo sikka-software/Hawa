@@ -6,7 +6,7 @@ import "../stories-styles.css"
 const BlocksIntroduction = () => {
   return (
     <div>
-      # Blocks Components
+      <h1>Blocks Components</h1>
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress
       </div>

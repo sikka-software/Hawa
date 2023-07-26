@@ -66,7 +66,8 @@ module.exports = {
         expandUp: "expandUp 100ms ease-in-out"
       },
       borderRadius: {
-        DEFAULT: "var(--border-radius)"
+        DEFAULT: "var(--border-radius)",
+        inner: "var(--border-radius-inner)"
       },
       colors: {
         // #f6f5fe

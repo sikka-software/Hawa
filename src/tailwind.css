@@ -18,6 +18,9 @@
     --button-secondary-700: #b48d24;
 
     --border-radius: 10px;
+    --border-radius-inner: calc(
+      var(--border-radius) - calc(var(--border-radius) / 3)
+    );
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

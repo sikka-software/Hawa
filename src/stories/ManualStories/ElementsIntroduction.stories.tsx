@@ -7,7 +7,7 @@ import "../stories-styles.css"
 const ElementsIntroduction = () => {
   return (
     <div>
-      # Elements Components
+      <h1>Elements Components</h1>
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress
       </div>

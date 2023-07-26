@@ -116,5 +116,10 @@
 }
 
 .text-link:hover {
-    color: rgb(2, 2, 172);
+  color: rgb(2, 2, 172);
+}
+
+h1 {
+  font-size:xx-large;
+  font-weight: 800;
 }
