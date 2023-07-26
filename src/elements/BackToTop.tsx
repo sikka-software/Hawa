@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useState, useEffect } from "react"
+import React, { FC, RefObject, useState, useEffect, useRef } from "react"
 import { clsx } from "clsx"
 
 type ComponentTypes = {
@@ -11,6 +11,14 @@ type ComponentTypes = {
 
 export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
   const [visible, setVisible] = useState<boolean>(false)
+  const [rect, _setRect] = useState<DOMRect>(null)
+  const _rect = useRef(rect)
+  const setRect = (data) => {
+    _rect.current = data
+    _setRect(data)
+  }
+
+  const self = useRef(null)
 
   const getCoords = () => {
     let anchor = props.anchor.current
@@ -29,42 +37,59 @@ export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
     props.anchor.current.scrollTo(0, 0)
   }
 
+  // FIXME: Observers and listeners run twice
   useEffect(() => {
+    if (!props.anchor.current) return
+
     props.anchor.current.addEventListener("scroll", onScroll)
+
+    // Listens to rect changes. Alternatives like ResizeObserver & IntersectionObserver fail to detect positional changes consistently
+    let interval = setInterval(() => {
+      if (!props.anchor.current) return
+
+      let newRect = props.anchor.current.getBoundingClientRect()
+      if (_rect.current == null) return setRect(newRect)
+
+      if (
+        !(
+          _rect.current.top == newRect.top &&
+          _rect.current.left == newRect.left &&
+          _rect.current.width == newRect.width &&
+          _rect.current.height == newRect.height
+        )
+      ) {
+        setRect(newRect)
+      }
+    }, 1)
 
     return () => {
       props.anchor.current?.removeEventListener("scroll", onScroll)
+      clearInterval(interval)
     }
   }, [])
 
-  // // Reference to tailwind classes of corners
-  // const corners = {
-  //   "top-left": ["top-0 left-0", "ml", "mt"],
-  //   "top-right": ["top-0 right-0", "mr", "mt"],
-  //   "bottom-left": ["bottom-0 left-0", "ml", "mb"],
-  //   "bottom-right": ["bottom-0 right-0", "mr", "mb"],
-  // }
-
-  // const getClasses = () => {
-  //   let [corner, horizontal, vertical] = corners[props.corner || "bottom-right"]
-
-  //   return clsx(
-  //     `${horizontal}-[${props.paddingX || 100}px]`,
-  //     `${vertical}-[${props.paddingY || 0}px]`,
-  //     `${corner}`,
-  //     `${visible ? "block" : "hidden"}`
-  //   )
-  // }
-
-  // Had to use react styles because tailwind didn't update top & left
   const getStyles = () => {
+    if (!props.anchor.current) return {}
+
     let corner = props.corner || "bottom-right"
     let [vertical, horizontal] = corner.split("-")
 
-    let style = {}
+    let anchorRect = props.anchor.current.getBoundingClientRect()
+    let selfRect = self.current.getBoundingClientRect()
 
-    style[vertical] = props.paddingY || 15
-    style[horizontal] = props.paddingX || 30
+    let width = horizontal == "right" ? anchorRect.width - selfRect.width : 0
+    let height = vertical == "bottom" ? anchorRect.height - selfRect.height : 0
+
+    let style = {
+      top:
+        anchorRect.y +
+        height +
+        (vertical == "bottom" ? -1 : 1) * (props.paddingX || 10),
+      left:
+        anchorRect.x +
+        width +
+        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25),
+    }
 
     return style
   }
@@ -72,11 +97,19 @@ export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
   return (
     <div
       className={clsx(
-        "fixed w-fit rounded bg-blue-300 p-2 text-black transition-all hover:bg-blue-500 ",
-        `${visible ? "inline-block" : "hidden"}`
+        "fixed w-fit rounded bg-blue-300 p-2 text-black transition-all hover:bg-blue-500",
+        `${
+          visible
+            ? "pointer-events-all opacity-100"
+            : "pointer-events-none opacity-0"
+        }`
       )}
-      style={getStyles()}
+      style={{
+        ...getStyles(),
+        transitionProperty: "opacity, background-color",
+      }}
       onClick={backToTop}
+      ref={self}
     >
       {/* Back to top arrow 👇*/}
       <svg
