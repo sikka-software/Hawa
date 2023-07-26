@@ -272,7 +272,9 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
           {props.drawerItems?.map((dSection, dIndex) => (
             <div
               key={dIndex}
-              className={clsx("flex flex-col select-none items-stretch justify-center")}
+              className={clsx(
+                "flex select-none flex-col items-stretch justify-center transition-all"
+              )}
             >
               {dSection?.map((dItem, i) => {
                 return (
