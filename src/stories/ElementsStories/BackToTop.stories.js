@@ -74,7 +74,7 @@ const ContainerTemplate = (args) => {
           );
         })}
       </div>
-      <div className="h-full w-[12px]">
+      {/* <div className="h-full w-[12px]">
         {new Array(300).fill(0).map((e) => {
           return (
             <div>
@@ -83,7 +83,7 @@ const ContainerTemplate = (args) => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

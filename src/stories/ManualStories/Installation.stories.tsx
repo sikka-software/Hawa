@@ -10,7 +10,7 @@ const Installation = () => {
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress
       </div>
-      ## Install Package
+      <p>Run one of the following commands to add Hawa to your project:</p>
       <HawaCodeBlock
         tabs={[
           {
@@ -27,20 +27,7 @@ const Installation = () => {
           },
         ]}
       />
-      <>
-        <pre>
-          <code
-            className="language-js"
-            // meta='filename="index.js"'
-          >
-            npm install @sikka/hawa
-          </code>
-        </pre>
-      </>
-      ## Import Hawa Styles Add the following line of code to your main project
-      file `index.js` or `_app.js` for next.js projects: ``` import
-      "@sikka/hawa/src/styles.css"; ``` ## Use Package ``` import{" "}
-      {/* {HawaAccordion} from '@sikka/hawa ``` */}
+     
     </div>
   )
 }

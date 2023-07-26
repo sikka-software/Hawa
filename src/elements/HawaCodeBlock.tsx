@@ -4,6 +4,7 @@ import clsx from "clsx"
 type CodeBlockTypes = {
   color?: "dark" | "light"
   language?: string
+  width?: "full" | "md" | "sm"
   tabs?: TabsTypes[]
   code?: string
 }
@@ -12,11 +13,27 @@ type TabsTypes = {
   code: string
 }
 
-export const HawaCodeBlock: FC<CodeBlockTypes> = ({ tabs, language, code }) => {
+export const HawaCodeBlock: FC<CodeBlockTypes> = ({
+  tabs,
+  language,
+  code,
+  width = "full",
+}) => {
   const [selectedTab, setSelectedTab] = useState(0)
-
+  let widthStyles = {
+    full: "w-full",
+    md: "w-full max-w-md",
+    sm: "w-full max-w-sm",
+    xs: "w-full max-w-xs",
+  }
   return (
-    <div className="w-full max-w-md flex-col items-center space-x-4 rounded bg-gray-800 text-left text-sm text-white sm:text-base">
+    <div
+      className={clsx(
+        widthStyles[width],
+        "w-full flex-col items-center space-x-4 rounded bg-gray-800 text-left text-sm text-white sm:text-base"
+      )}
+    >
+      {" "}
       {tabs && (
         <div className="flex flex-row gap-2 rounded-t bg-gray-700  p-2 pb-0">
           {tabs.map((tab, i) => (
