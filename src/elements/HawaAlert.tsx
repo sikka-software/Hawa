@@ -117,7 +117,11 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
         role="alert"
         dir={direction}
       >
-        <span className="font-medium">{props.title}</span>
+        <span
+          className={clsx("font-medium", direction === "rtl" ? "ml-8" : "mr-8")}
+        >
+          {props.title}
+        </span>
         <span>{" " + props.text}</span>
 
         {props.actions && (
@@ -137,7 +141,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
         <button
           type="button"
           className={clsx(
-            "absolute  top-2 inline-flex h-9  w-9 items-center justify-center rounded p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
+            "absolute  top-2 inline-flex h-9 w-9 items-center justify-center rounded-inner p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
             closeButtonStyle[props.severity],
             direction === "rtl" ? "left-2" : "right-2"
           )}
