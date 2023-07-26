@@ -1,15 +1,14 @@
-import React, { FC, useEffect, useRef, useState } from "react"
+import React, { FC, useState } from "react"
 import clsx from "clsx"
 
 type CodeBlockTypes = {
   color?: "dark" | "light"
-  language: string
-  tabs?: [
-    {
-      title: string
-      code: string
-    }
-  ]
+  language?: string
+  tabs?: TabsTypes[]
+  code?: string
+}
+type TabsTypes = {
+  title: string
   code: string
 }
 
