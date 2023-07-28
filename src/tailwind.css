@@ -22,6 +22,24 @@
       var(--border-radius) - calc(var(--border-radius) / 3)
     );
   }
+
+  .inline-code {
+    font-size: 0.75rem;
+    /* color: theme("colors.slate.500"); */
+    /* background-color: theme("colors.stone.100"); */
+    border-radius: theme("borderRadius.DEFAULT");
+    /* padding-left: theme("spacing[1.5]");
+    padding-right: theme("spacing[1.5]");
+    padding-top: theme("spacing.1");
+    padding-bottom: theme("spacing.1"); */
+    padding: theme("spacing.1") theme("spacing[1.5]");
+    /* margin: theme("spacing.0") theme("spacing.1");  */
+
+    border: theme("colors.gray.300") 1px solid;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      Liberation Mono, Courier New, monospace;
+  }
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;

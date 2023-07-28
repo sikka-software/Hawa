@@ -38,6 +38,7 @@ export * from "./FloatingComment"
 export * from "./FloatingCommentSlate"
 export * from "./FloatingCommentExec"
 export * from "./BackToTop"
+export * from "./HawaInlineCode"
 export * from "./Timeline"
 // Inputs
 export * from "./HawaTextField"

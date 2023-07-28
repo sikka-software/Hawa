@@ -1,7 +1,7 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
 import "../stories-styles.css"
-import { HawaCodeBlock } from "../../elements"
+import { HawaCodeBlock, HawaInlineCode } from "../../elements"
 
 const UsagePage = () => {
   const codeSnippet = `
@@ -34,8 +34,9 @@ const UsagePage = () => {
       </div>
       <h4>Importing Styles</h4>
       <p>
-        Add the following line of code to your main project file `index.js` or
-        `_app.js` for next.js projects
+        Add the following line of code to your main project file{" "}
+        <HawaInlineCode text="index.js" /> or <HawaInlineCode text="_app.js" />{" "}
+        for next.js projects
       </p>
       <HawaCodeBlock code={'import "@sikka/hawa/src/styles.css";'} />
       <br />
