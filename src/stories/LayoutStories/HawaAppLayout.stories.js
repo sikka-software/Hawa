@@ -915,7 +915,7 @@ RTL.args = {
 const SimplifiedTemplate = (args) => {
   return (
     <HawaAppLayoutSimplified {...args}>
-      <div className=" h-full bg-green-300 p-4">
+      <div className=" h-full  p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
           <span className=" font-bold capitalize text-gray-400">
             App Content

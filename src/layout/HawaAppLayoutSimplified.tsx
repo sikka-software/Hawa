@@ -298,7 +298,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                           )
                           ? "bg-buttonPrimary-500 text-white"
                           : "hover:bg-layoutPrimary-300",
-                        "m-2 my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
+                        "m-1 my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
                         isRTL ? "flex-row-reverse pr-3" : ""
                       )}
                     >
@@ -316,15 +316,13 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                         </div>
                       </div>
                       {dItem.subItems && (
-                        <div
-                          className={clsx(
+                        <ArrowIcon
+                          pointing={
                             openSubItem && dItem.slug === openSubItem
-                              ? "-rotate-90"
-                              : "rotate-90"
-                          )}
-                        >
-                          {/* <FaChevronRight fontSize={11} /> */}
-                        </div>
+                              ? "up"
+                              : "down"
+                          }
+                        />
                       )}
                     </div>
 
@@ -348,7 +346,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                           <div
                             key={s}
                             className={clsx(
-                              "flex flex-row gap-2 overflow-x-clip  rounded p-2 px-2 text-xs",
+                              "flex flex-row gap-2 overflow-x-clip  rounded-inner p-2 px-2 text-xs",
                               isRTL ? "text-right" : "text-left",
                               props.currentPage === subIt.slug
                                 ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
@@ -381,7 +379,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         </div>
         {/* Drawer Footer */}
         <div
-          className="fixed bottom-0 flex h-14 gap-2 w-full items-center justify-center bg-layoutPrimary-500  transition-all"
+          className="fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 bg-layoutPrimary-500  transition-all"
           style={{
             width:
               size > 600
@@ -389,14 +387,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 : `${openSideMenu ? 160 : 0}px`,
           }}
         >
-          {onSettingsClick && (
+          {size > 600 && onSettingsClick ? (
             <div
-              className=" cursor-pointer rounded p-2 bg-gray-300 transition-all hover:bg-layoutPrimary-700"
+              className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700"
               onClick={() => onSettingsClick()}
             >
               <SettingsIcon />
             </div>
-          )}
+          ) : null}
           {/* Expand Button */}
           {size > 600 && openSideMenu ? (
             <div
@@ -492,22 +490,42 @@ const AvatarIcon = () => (
   </svg>
 )
 
-const ArrowIcon = ({ pointing }) => (
-  <svg
-    className={clsx(
-      "h-6 w-6 shrink-0  transition-all  disabled:bg-gray-200",
-      pointing === "right" ? "-rotate-90" : "rotate-90"
-    )}
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fillRule="evenodd"
-      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-      clipRule="evenodd"
-    ></path>
-  </svg>
-)
+const ArrowIcon = ({ pointing }) => {
+  let directionStyle
+  switch (pointing) {
+    case "right":
+      directionStyle = "-rotate-90"
+      break
+    case "left":
+      directionStyle = "rotate-90"
+      break
+    case "up":
+      directionStyle = "-rotate-180"
+      break
+    case "down":
+      directionStyle = "rotate-0"
+      break
+
+    default:
+      break
+  }
+  return (
+    <svg
+      className={clsx(
+        "h-6 w-6 shrink-0  transition-all  disabled:bg-gray-200",
+        directionStyle
+      )}
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  )
+}
 
 const SettingsIcon = () => (
   <svg
