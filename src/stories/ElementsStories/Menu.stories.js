@@ -1,8 +1,7 @@
 import React from "react";
-import { HawaButton, HawaMenu } from "../../elements";
+import { HawaMenu } from "../../elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
-import useDiscloser from "../../hooks/useDiscloser";
 
 export default {
   title: "Elements/Menu",
@@ -260,3 +259,17 @@ WithButton.args = {
     ]
   ]
 };
+
+// const Something = () => <div>test</div>;
+// storiesOf("Elements/Menu", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <Template />
+//     }
+//   })
+//   .addDecorator((Story) => (
+//     <div >
+//       <Story />
+//     </div>
+//   ))
+//   .add("Default", () => <Template />, { notes: "note test",options:{} });

@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
   feedback?: string
   tooltipDirection?: "rtl" | "ltr"
-  color?: "default" | "primary" | "secondary"
+  color?: "default" | "primary" | "secondary" | "light" | "dark"
   width?: "full" | "normal" | "half"
   size?: "xs" | "small" | "medium" | "large" | "noPadding" | "full"
   margins?: "none" | "1" | "2" | "3" | "4"
@@ -26,6 +26,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   endIcon?: any
   isLoading?: boolean
   badge?: any
+  edgeCorner?: any
 }
 
 const disabledSyles = "cursor-default pointer-events-none"
@@ -34,7 +35,7 @@ const disabledVariantSyles = {
   outlined: "text-gray-300 border-gray-300",
 }
 const baseStyles =
-  "cursor-pointer h-[2.36rem] justify-center items-center text-center font-medium rounded transition-all"
+  "cursor-pointer h-[2.36rem] justify-center items-center text-center font-medium transition-all"
 const sizeStyles = {
   xs: "px-1 py-1",
   small: "text-xs px-2.5 py-1.5",
@@ -65,13 +66,17 @@ const colorStyles = {
     primary:
       "text-white bg-buttonPrimary-500 hover:bg-buttonPrimary-700 transition-all",
     secondary:
-      "text-neutral-900 bg-buttonSecondary-default hover:text-white hover:bg-buttonSecondary-700",
+      "bg-buttonSecondary-500 hover:text-white hover:bg-buttonSecondary-700",
+    gray: "text-neutral-900 bg-gray-200 hover:bg-gray-300",
+    dark: "text-neutral-900 bg-gray-200 hover:bg-gray-300",
   },
   outlined: {
     default: "text-gray-600 border-gray-600 hover:bg-gray-200",
     primary: "text-black hover:bg-gray-50",
     secondary:
       "text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-700 hover:text-white",
+    gray: "border-gray-300 hover:bg-gray-200  ",
+    dark: "border-gray-900 hover:bg-gray-700  ",
   },
 }
 
@@ -90,6 +95,7 @@ export const HawaButton: FC<ButtonProps> = ({
   margins = "2",
   children,
   badge,
+  edgeCorner = false,
   feedback,
   ...props
 }) => {
@@ -136,6 +142,8 @@ export const HawaButton: FC<ButtonProps> = ({
                 ? clsx(
                     className,
                     baseStyles,
+                    edgeCorner ? "rounded-inner" : "rounded",
+
                     variantStyles[variant],
                     sizeStyles[size],
                     widthStyles[width],
@@ -145,6 +153,8 @@ export const HawaButton: FC<ButtonProps> = ({
                 : clsx(
                     className,
                     baseStyles,
+                    edgeCorner ? "rounded-inner" : "rounded",
+
                     variantStyles[variant],
                     sizeStyles[size],
                     colorStyles[variant][color],
@@ -165,6 +175,8 @@ export const HawaButton: FC<ButtonProps> = ({
               ? clsx(
                   className,
                   baseStyles,
+                  edgeCorner ? "rounded-inner" : "rounded",
+
                   variantStyles[variant],
                   sizeStyles[size],
                   widthStyles[width],
@@ -175,6 +187,7 @@ export const HawaButton: FC<ButtonProps> = ({
                   className,
                   "overflow-x-clip",
                   baseStyles,
+                  edgeCorner ? "rounded-inner" : "rounded",
                   variantStyles[variant],
                   sizeStyles[size],
                   colorStyles[variant][color],
@@ -188,7 +201,7 @@ export const HawaButton: FC<ButtonProps> = ({
           {!isLoading ? (
             <div
               className={clsx(
-                " flex flex-col-reverse items-start justify-center gap-4 s transition-all",
+                " s flex flex-col-reverse items-start justify-center gap-4 transition-all",
                 isClicked && feedback
                   ? " -translate-y-8 pb-1 pt-1"
                   : "translate-y-0"

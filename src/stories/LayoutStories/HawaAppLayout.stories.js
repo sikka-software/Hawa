@@ -929,7 +929,7 @@ const SimplifiedTemplate = (args) => {
 export const Simplified = SimplifiedTemplate.bind({});
 Simplified.args = {
   onSettingsClick: () => console.log("going to settings"),
-  currentPage: "analytics3",
+  currentPage: "files",
   profileMenuItems: [
     [
       {
@@ -939,8 +939,8 @@ Simplified.args = {
         label: "Billing"
       },
       {
-        label: "Settings",
-        element: <div className="rounded bg-red-300 p-2 px-4">عربي</div>
+        label: "عربي"
+        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
       },
       {
         label: "Sign Out",
@@ -956,78 +956,8 @@ Simplified.args = {
         icon: <FaHome />
       },
       {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
-        label: "Home",
-        slug: "home",
-        icon: <FaHome />
-      },
-      {
         label: "Items",
-        slug: "files",
+        slug: "items",
         icon: <FaFolderOpen />,
         // action: handleItemClick,
         subItems: [
@@ -1054,28 +984,17 @@ Simplified.args = {
         // action: handleItemClick
       },
       {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
         label: "Jobs",
         slug: "jobs",
         icon: <FaPoll />,
         subItems: [
           {
             label: "New Job Item",
-            slug: "files",
+            slug: "new-job",
             icon: <FaFolderOpen />,
             action: () => console.log("going to new item")
           },
-          {
-            label: "New Item",
-            slug: "files",
-            icon: <FaFolderOpen />,
-            action: () => console.log("going to new item")
-          },
+
           {
             label: "Files Items",
             slug: "files",
@@ -1086,65 +1005,57 @@ Simplified.args = {
         ]
       },
       {
-        label: "Analytics",
-        slug: "analytics",
+        label: "Activity",
+        slug: "activity",
         icon: <FaPoll />
         // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics",
-        icon: <FaPoll />
-        // action: handleItemClick
-      },
-      {
-        label: "Analytics",
-        slug: "analytics3",
-        icon: <FaPoll />
       }
     ]
   ],
-  pageTitle: "Dashboard Page",
+  // pageTitle: "Dashboard Page",
   topBar: true,
   direction: "rtl",
   username: "Zakher Masri",
   email: "zakher@sikka.io",
+  DrawerFooterActions: (
+    <>
+      <div
+        className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700"
+        // onClick={() => onSettingsClick()}
+      >
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>{" "}
+      </div>
+      <div className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>{" "}
+      </div>
+    </>
+  ),
   logoSymbol:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:

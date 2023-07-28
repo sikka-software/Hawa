@@ -197,10 +197,10 @@ export const HawaMenu: FC<TMenuTypes> = ({
                     className={clsx(
                       "transition-all",
                       item.isButton
-                        ? "flex cursor-pointer flex-row items-center rounded bg-buttonPrimary-500 px-4 py-2 text-white  hover:bg-buttonPrimary-700 rtl:flex-row-reverse"
+                        ? "flex cursor-pointer flex-row items-center rounded-inner bg-buttonPrimary-500 px-4 py-2 text-white  hover:bg-buttonPrimary-700 rtl:flex-row-reverse"
                         : item.disabled
                         ? "text-gray-300"
-                        : " flex cursor-pointer flex-row items-center rounded hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600  dark:hover:text-white ",
+                        : " flex cursor-pointer flex-row items-center rounded-inner hover:bg-gray-200 rtl:flex-row-reverse dark:hover:bg-gray-600  dark:hover:text-white ",
                       sizeStyles[size]
                     )}
                   >

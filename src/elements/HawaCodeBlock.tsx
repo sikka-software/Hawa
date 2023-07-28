@@ -112,6 +112,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
             </div>
             <HawaButton
               variant="outlined"
+              color="dark"
               onClick={() => {
                 handleCopyClick()
                 navigator.clipboard.writeText(

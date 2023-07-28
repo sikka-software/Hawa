@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import { HiMenu } from "react-icons/hi"
-import { FaChevronRight } from "react-icons/fa"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { HawaButton, HawaMenu } from "../elements"
-
-// TODO: when no pagetitle, navbar gets messy
+import { HawaMenu } from "../elements"
 
 type HawaAppLayoutTypes = {
+  /** The pages of the side drawer */
   drawerItems: {
     label: string
     icon: any
@@ -16,7 +14,9 @@ type HawaAppLayoutTypes = {
     action: () => void
     subItems?: any
   }[][]
+  // The direction of the layout
   direction?: "rtl" | "ltr"
+  // The title of the current selected page, make sure it's the same as the drawerItem slug
   currentPage: string
   pageTitle?: string
   logoSymbol?: any
@@ -29,6 +29,7 @@ type HawaAppLayoutTypes = {
   drawerSize?: "sm" | "md" | "large"
   profileMenuItems?: MenuItems[][]
   onSettingsClick?: () => void
+  DrawerFooterActions: any
 }
 
 type MenuItems = {
@@ -39,7 +40,13 @@ type MenuItems = {
 }
 export const HawaAppLayoutSimplified: React.FunctionComponent<
   HawaAppLayoutTypes
-> = ({ direction = "rtl", drawerSize = "md", onSettingsClick, ...props }) => {
+> = ({
+  direction = "rtl",
+  drawerSize = "md",
+  onSettingsClick,
+  DrawerFooterActions,
+  ...props
+}) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
@@ -92,35 +99,32 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         >
           {/* Nav Side Of Navbar */}
           {size > 600 ? (
-            props.pageTitle ? (
-              // Title of the page
-              <div
-                className={clsx(
-                  isRTL
-                    ? [size > 600 ? "mr-14" : "mr-2", keepOpen ? "mr-40" : ""]
-                    : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
-                )}
-                style={
-                  isRTL
-                    ? {
-                        marginRight: `${
-                          drawerSizeStyle[keepOpen ? "opened" : "closed"][
-                            drawerSize
-                          ]
-                        }px`,
-                      }
-                    : {
-                        marginLeft: `${
-                          drawerSizeStyle[keepOpen ? "opened" : "closed"][
-                            drawerSize
-                          ]
-                        }px`,
-                      }
-                }
-              >
-                {props.pageTitle}
-              </div>
-            ) : null
+            <div
+              className={clsx(
+                isRTL
+                  ? [size > 600 ? "mr-14" : "mr-2", keepOpen ? "mr-40" : ""]
+                  : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
+              )}
+              style={
+                isRTL
+                  ? {
+                      marginRight: `${
+                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                          drawerSize
+                        ]
+                      }px`,
+                    }
+                  : {
+                      marginLeft: `${
+                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                          drawerSize
+                        ]
+                      }px`,
+                    }
+              }
+            >
+              {props.pageTitle}
+            </div>
           ) : (
             // Mobile Drawer Menu Button
             <div
@@ -147,14 +151,11 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
               "flex gap-2",
               isRTL ? "flex-row-reverse" : "flex-row"
             )}
-            // dir={direction}
           >
             {/* User Info */}
             {size > 600 ? (
               <div
-                className={clsx(
-                  isRTL ? "text-left text-xs" : "text-right text-xs"
-                )}
+                className={isRTL ? "text-left text-xs" : "text-right text-xs"}
               >
                 <div className="font-bold">{props.username}</div>{" "}
                 <div>{props.email}</div>
@@ -187,9 +188,6 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
       <div
         className={clsx(
           "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip  transition-all",
-          // drawerDefaultStyle,
-          // "bg-green-400",
-          // drawerSizeStyle[drawerSize],
           isRTL ? "right-0" : "left-0"
         )}
         style={{
@@ -298,8 +296,9 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                           )
                           ? "bg-buttonPrimary-500 text-white"
                           : "hover:bg-layoutPrimary-300",
-                        "m-1 my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
-                        isRTL ? "flex-row-reverse pr-3" : ""
+                        "my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
+                        isRTL ? "flex-row-reverse pr-3" : "",
+                        openSideMenu ? "m-2" : "m-2"
                       )}
                     >
                       <div className="flex flex-row" dir={direction}>
@@ -329,7 +328,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     {dItem.subItems && (
                       <div
                         className={clsx(
-                          "m-1 flex cursor-pointer flex-col gap-0 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
+                          "m-1 mx-2 flex cursor-pointer flex-col gap-0 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
                           openSubItem == dItem.slug && openSideMenu
                             ? ""
                             : "my-0 py-0",
@@ -391,19 +390,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 : `${openSideMenu ? 160 : 0}px`,
           }}
         >
-          {size > 600 && onSettingsClick ? (
-            <div
-              className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700"
-              onClick={() => onSettingsClick()}
-            >
-              <SettingsIcon />
-            </div>
+          {size > 600 && DrawerFooterActions && openSideMenu ? (
+            <>{DrawerFooterActions}</>
           ) : null}
+
           {/* Expand Button */}
           {size > 600 && openSideMenu ? (
             <div
               className={clsx("w-fit transition-all")}
-              // style={isRTL ? {} : {left: }}
               style={
                 isRTL
                   ? {
