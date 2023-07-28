@@ -407,7 +407,7 @@ Default.args = {
   topBar: false,
   direction: "ltr",
   username: "Zakher Masri",
-  email: "zakhermasri@gmail.com",
+  email: "zakher@sikka.io",
   logoSymbol:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:
@@ -623,15 +623,12 @@ WithNavbar.args = {
   topBar: true,
   direction: "ltr",
   username: "Zakher Masri",
-  email: "zakhermasri@gmail.com",
+  email: "zakher@sikka.io",
   logoSymbol:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
-  // logoLink:
-  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
-  // logoSymbol:
-  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
+
   profileItems: [
     {
       text: "Dashboard",
@@ -865,7 +862,7 @@ RTL.args = {
   topBar: true,
   direction: "rtl",
   username: "Zakher Masri",
-  email: "zakhermasri@gmail.com",
+  email: "zakher@sikka.io",
   logoSymbol:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:
@@ -918,11 +915,10 @@ RTL.args = {
 const SimplifiedTemplate = (args) => {
   return (
     <HawaAppLayoutSimplified {...args}>
-      <div className=" h-full p-4 bg-green-300">
+      <div className=" h-full bg-green-300 p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
           <span className=" font-bold capitalize text-gray-400">
             App Content
-          
           </span>
         </div>
       </div>
@@ -932,6 +928,7 @@ const SimplifiedTemplate = (args) => {
 
 export const Simplified = SimplifiedTemplate.bind({});
 Simplified.args = {
+  onSettingsClick: () => console.log("going to settings"),
   currentPage: "analytics3",
   profileMenuItems: [
     [
@@ -1147,7 +1144,7 @@ Simplified.args = {
   topBar: true,
   direction: "rtl",
   username: "Zakher Masri",
-  email: "zakhermasri@gmail.com",
+  email: "zakher@sikka.io",
   logoSymbol:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:

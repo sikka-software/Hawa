@@ -381,7 +381,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         </div>
         {/* Drawer Footer */}
         <div
-          className="fixed bottom-0 flex h-14 w-full items-center justify-center bg-layoutPrimary-500 transition-all"
+          className="fixed bottom-0 flex h-14 gap-2 w-full items-center justify-center bg-layoutPrimary-500  transition-all"
           style={{
             width:
               size > 600
@@ -391,14 +391,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         >
           {onSettingsClick && (
             <div
-              className=" cursor-pointer rounded p-2 transition-all hover:bg-layoutPrimary-700"
+              className=" cursor-pointer rounded p-2 bg-gray-300 transition-all hover:bg-layoutPrimary-700"
               onClick={() => onSettingsClick()}
             >
               <SettingsIcon />
             </div>
           )}
           {/* Expand Button */}
-          {size > 600 ? (
+          {size > 600 && openSideMenu ? (
             <div
               className={clsx("w-fit transition-all")}
               // style={isRTL ? {} : {left: }}
@@ -430,7 +430,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 <div
                   onClick={() => setKeepOpen(!keepOpen)}
                   className={
-                    "w-fit cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-gray-400"
+                    "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all hover:bg-gray-400"
                   }
                 >
                   <ArrowIcon
@@ -454,7 +454,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
     
       {/* Children Container */}
       <div
-        className="fixed overflow-y-auto p-2"
+        className="fixed overflow-y-auto"
         style={
           isRTL
             ? {
