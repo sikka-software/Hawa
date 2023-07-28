@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Meta } from "@storybook/react"
-import { HawaButton } from "../../elements/HawaButton"
-import { FaBars } from "react-icons/fa"
+import * as React from "react";
+import { HawaButton } from "../../elements/HawaButton";
+import { FaBars } from "react-icons/fa";
+
 export default {
   title: "Elements/Buttons",
   component: HawaButton,
-  argTypes: { onClick: { action: "clicked" } },
-} as Meta
+  argTypes: { onClick: { action: "clicked" } }
+};
 
 export const ButtonVariationsStory = () => {
   return (
@@ -39,8 +39,19 @@ export const ButtonVariationsStory = () => {
         </HawaButton>
       </div>
     </div>
-  )
-}
+  );
+};
+export const ButtonFeedbackStory = () => {
+  return (
+    <div className="card max-w-800 p-3">
+      <h2 className="mt-6 text-xl">Click button for feedback</h2>
+      <div className="mt-1 flex flex-row">
+        <HawaButton feedback="Clicked">Default</HawaButton>
+      </div>
+    </div>
+  );
+};
+
 export const ButtonLoadingStory = () => {
   return (
     <div className="card max-w-800 p-3">
@@ -57,8 +68,8 @@ export const ButtonLoadingStory = () => {
         </HawaButton>
       </div>
     </div>
-  )
-}
+  );
+};
 export const ButtonWidthStory = () => {
   return (
     <div className="card max-w-800 p-3">
@@ -94,8 +105,8 @@ export const ButtonWidthStory = () => {
         </HawaButton>
       </div>
     </div>
-  )
-}
+  );
+};
 export const ButtonSizesStory = () => {
   return (
     <div className="card max-w-800 p-3">
@@ -129,8 +140,8 @@ export const ButtonSizesStory = () => {
         </HawaButton>
       </div>
     </div>
-  )
-}
+  );
+};
 export const ButtonIconsStory = () => {
   return (
     <div>
@@ -143,11 +154,12 @@ export const ButtonIconsStory = () => {
         <FaBars />
       </HawaButton>
     </div>
-  )
-}
+  );
+};
 
-ButtonIconsStory.storyName = "Icons"
-ButtonLoadingStory.storyName = "Loading"
-ButtonWidthStory.storyName = "Widths"
-ButtonSizesStory.storyName = "Sizes"
-ButtonVariationsStory.storyName = "Variations"
+ButtonIconsStory.storyName = "Icons";
+ButtonLoadingStory.storyName = "Loading";
+ButtonWidthStory.storyName = "Widths";
+ButtonSizesStory.storyName = "Sizes";
+ButtonVariationsStory.storyName = "Variations";
+ButtonFeedbackStory.storyName = "With Feedback";

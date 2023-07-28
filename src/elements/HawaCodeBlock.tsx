@@ -67,7 +67,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
           )}
         >
           <span className="flex">{tabs ? tabs[selectedTab].code : code}</span>
-          <HawaButton margins="none">
+          <HawaButton margins="none" feedback="Copied!">
             <svg
               onClick={() => {
                 navigator.clipboard.writeText(

@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.264",
+  "version": "0.0.265",
   "description": "SaaS Oriented UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -11,6 +11,7 @@
     "kit",
     "saas",
     "kit",
+    "tailwind",
     "hawa"
   ],
   "repository": {
