@@ -22,11 +22,23 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
 }) => {
   const [selectedTab, setSelectedTab] = useState(0)
   const [showTooltip, setShowTooltip] = useState(0)
+  const [copyClicked, setCopyClicked] = useState(false)
   let widthStyles = {
     full: "w-full",
     md: "w-full max-w-md",
     sm: "w-full max-w-sm",
     xs: "w-full max-w-xs",
+  }
+
+  const handleCopyClick = () => {
+    if (!copyClicked) {
+      setCopyClicked(true)
+      console.log("copy button clicked")
+      // Reset the button text after 2 seconds (adjust the time as needed).
+      setTimeout(() => {
+        setCopyClicked(false)
+      }, 2000)
+    }
   }
   return (
     <div
@@ -61,33 +73,47 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
       <pre>
         <code
           className={clsx(
-            "flex flex-row items-start justify-between rounded bg-gray-800 py-4 pr-4  text-left text-sm text-white sm:text-base",
+            "flex flex-row items-center justify-between rounded bg-gray-800 py-4 pr-4  text-left text-sm text-white sm:text-base",
             // `language-${language}`,
+
             tabs ? "" : "pl-4"
           )}
         >
           <span className="flex">{tabs ? tabs[selectedTab].code : code}</span>
-          <HawaButton margins="none" feedback="Copied!">
-            <svg
+          <div className="flex flex-row items-center gap-2">
+            <div className={clsx("transition-all",copyClicked ? "opacity-100" : "opacity-0")}>
+              Copied!
+            </div>
+            <HawaButton
               onClick={() => {
+                handleCopyClick()
                 navigator.clipboard.writeText(
                   tabs ? tabs[selectedTab].code : code
                 )
               }}
-              stroke="currentColor"
-              fill="none"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+              margins="none"
             >
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-            </svg>
-          </HawaButton>
+              <svg
+                // onClick={() => {
+                //   navigator.clipboard.writeText(
+                //     tabs ? tabs[selectedTab].code : code
+                //   )
+                // }}
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+            </HawaButton>
+          </div>
         </code>
       </pre>
       {/* {tabs.map((tab) => (

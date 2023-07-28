@@ -110,7 +110,7 @@ export const HawaButton: FC<ButtonProps> = ({
         }, 2000)
       }
     } else {
-      props.onClick
+      props.onClick(null)
       console.log("hawa button clicked")
     }
   }
