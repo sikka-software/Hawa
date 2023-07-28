@@ -7,6 +7,7 @@ type CodeBlockTypes = {
   language?: string
   width?: "full" | "md" | "sm"
   tabs?: TabsTypes[]
+  fileName?: string
   code?: string
 }
 type TabsTypes = {
@@ -18,6 +19,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
   tabs,
   language,
   code,
+  fileName,
   width = "full",
 }) => {
   const [selectedTab, setSelectedTab] = useState(0)
@@ -44,7 +46,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={clsx(
         widthStyles[width],
-        "w-full flex-col items-center space-x-4 rounded bg-gray-800 text-left text-sm text-white sm:text-base"
+        "w-full flex-col items-center rounded bg-gray-800 text-left text-sm text-white sm:text-base"
       )}
     >
       {" "}
@@ -70,21 +72,46 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
           ))}
         </div>
       )}
+      {fileName && (
+        <div className="flex flex-row gap-2 rounded-t bg-gray-700  p-2 pb-0">
+          <div
+          // className={clsx(
+          //   selectedTab === i
+          //     ? "border-buttonPrimary-400 border-b-2"
+          //     : "bg-transparent"
+          // )}
+          >
+            <div
+              className={clsx(
+                "mb-1 w-full max-w-[52px] rounded-inner p-2 py-1 text-center text-[0.75rem] "
+              )}
+            >
+              {fileName}
+            </div>
+          </div>
+        </div>
+      )}
       <pre>
         <code
           className={clsx(
-            "flex flex-row items-center justify-between rounded bg-gray-800 py-4 pr-4  text-left text-sm text-white sm:text-base",
+            "flex w-full flex-row items-start justify-between rounded bg-gray-800 p-2  text-left text-sm text-white sm:text-base"
             // `language-${language}`,
-
-            tabs ? "" : "pl-4"
           )}
         >
-          <span className="flex">{tabs ? tabs[selectedTab].code : code}</span>
-          <div className="flex flex-row items-center gap-2">
-            <div className={clsx("transition-all",copyClicked ? "opacity-100" : "opacity-0")}>
+          <div className="flex min-h-[37.75px] w-full  flex-col  justify-center p-4 ">
+            {tabs ? tabs[selectedTab].code : code}
+          </div>
+          <div className="flex flex-row items-center gap-2  p-2">
+            <div
+              className={clsx(
+                "transition-all",
+                copyClicked ? "opacity-100" : "opacity-0"
+              )}
+            >
               Copied!
             </div>
             <HawaButton
+              variant="outlined"
               onClick={() => {
                 handleCopyClick()
                 navigator.clipboard.writeText(
@@ -94,11 +121,6 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
               margins="none"
             >
               <svg
-                // onClick={() => {
-                //   navigator.clipboard.writeText(
-                //     tabs ? tabs[selectedTab].code : code
-                //   )
-                // }}
                 stroke="currentColor"
                 fill="none"
                 stroke-width="2"

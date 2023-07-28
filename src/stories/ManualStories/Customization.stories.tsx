@@ -44,7 +44,7 @@ const ThemeIntroduction = () => {
         Overwrite the `root:` global variables in your project css file. The
         variables are as follows:
       </p>
-      <HawaCodeBlock code={codeSnippet} />
+      <HawaCodeBlock fileName="styles/globals.css" code={codeSnippet} />
       <br />
       <h2 className="font-bold">Method 2</h2>
       Copy the content of Hawa{" "}

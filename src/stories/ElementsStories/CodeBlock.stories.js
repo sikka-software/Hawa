@@ -2,7 +2,7 @@ import React from "react";
 import { HawaCodeBlock } from "../../elements";
 
 export default {
-  title: "Elements/Code",
+  title: "Elements/Code/CodeBlock",
   component: [HawaCodeBlock],
   argTypes: {
     content: {
@@ -12,35 +12,70 @@ export default {
   }
 };
 
-export const Code = (args) => {
+export const Default = (args) => {
   return (
-    <div className="flex flex-col gap-4">
-      <div>
-        <h1>With Tabs</h1>
-        <HawaCodeBlock
-          language="js"
-          tabs={[
-            {
-              title: "npm",
-              code: "npm install @sikka/hawa"
-            },
-            {
-              title: "yarn",
-              code: "yarn add @sikka/hawa"
-            },
-            {
-              title: "pnpm",
-              code: "pnpm add @sikka/hawa"
-            }
-          ]}
-        />
-      </div>
-      <div>
-        <h1 className="mt-4">Without Tabs</h1>
-        <HawaCodeBlock language="js" code="npm install @sikka/hawa" />
-      </div>
+    <div>
+      <h1 className="mt-4">Default CodeBlock</h1>
+      <HawaCodeBlock language="js" code="npm install @sikka/hawa" />
     </div>
   );
 };
 
-Code.args = {};
+Default.args = {};
+export const WithTabs = (args) => {
+  return (
+    <div>
+      <h1>Codeblock with tabs</h1>
+      <HawaCodeBlock
+        language="js"
+        tabs={[
+          {
+            title: "npm",
+            code: "npm install @sikka/hawa"
+          },
+          {
+            title: "yarn",
+            code: "yarn add @sikka/hawa"
+          },
+          {
+            title: "pnpm",
+            code: "pnpm add @sikka/hawa"
+          }
+        ]}
+      />
+    </div>
+  );
+};
+
+WithTabs.args = {};
+export const WithFilename = (args) => {
+  const codeSnippet = `:root {
+    /* Primary Layout Colors */
+    --layout-primary-700: #b7aff7;
+    --layout-primary-500: #dfdcfc;
+    --layout-primary-300: #e7e5fa;
+
+    /* Secondary Layout Colors */
+    --layout-secondary: #d2cdfa;
+
+    /* Primary Button Colors */
+    --button-primary-300: #6555e3;
+    --button-primary-500: #4c37eb;
+    --button-primary-700: #2e1dac;
+
+    /* Secondary Button Colors */
+    --button-secondary-500: #ffc011;
+    --button-secondary-700: #b48d24;
+
+    /* Global Border Radius */
+    --border-radius: 10px;
+}`;
+  return (
+    <div>
+      <h1>Codeblock with filename</h1>
+      <HawaCodeBlock language="js" code={codeSnippet} fileName="src/index.js" />
+    </div>
+  );
+};
+
+WithFilename.args = {};
