@@ -21,7 +21,7 @@ jobs:
          else 
           npm install
          fi
-         npm build-storybook
+         npm run build-storybook
          npm run deploy-storybook -- --ci
         env : 
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
