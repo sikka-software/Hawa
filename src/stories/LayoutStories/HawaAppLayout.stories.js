@@ -1021,7 +1021,6 @@ Simplified.args = {
     <>
       <div
         className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700"
-        // onClick={() => onSettingsClick()}
       >
         <svg
           stroke="currentColor"
