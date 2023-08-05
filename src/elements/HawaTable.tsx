@@ -10,12 +10,22 @@ import { BsChevronRight, BsFilter, BsPlus, BsThreeDots } from "react-icons/bs"
 // TODO: translate header tools and make it more customizable
 // TODO: pass the onSearch handler to the parent
 
+type RowTypes = {
+  hidden: boolean
+  value: any
+  suffix?: any
+}
+type ColTypes = {
+  hidden: boolean
+  value: any
+  sortable?: boolean
+}
 type TableTypes = {
   pagination?: boolean
   columns: any[string]
   actions?: ActionItems[][]
   direction?: "rtl" | "ltr"
-  rows?: any[any]
+  rows?: RowTypes[][]
   handleActionClick?: any
   end?: any
   size?: "normal" | "small"
@@ -57,8 +67,56 @@ export const HawaTable: FC<TableTypes> = ({
   const [perPage, setPerPage] = useState(10)
   const [enteredPage, setEnteredPage] = useState(null)
   const [page, setPage] = useState(1)
+  const [sortingCol, setSortingCol] = useState(null)
 
-  const { slice, range } = useTable(props.rows, page, perPage)
+  const [sortedRows, setSortedRows] = useState(props.rows)
+  const [sortColumn, setSortColumn] = useState(null)
+  const [sortDirection, setSortDirection] = useState(null)
+
+  const handleSort = (colIndex, sortable) => {
+    if (sortable) {
+      setSortColumn(colIndex)
+      setSortDirection((prevDirection) =>
+        prevDirection === "asc" ? "desc" : "asc"
+      )
+    }
+    // const newDirection =
+    //   sortColumn === colIndex && sortDirection === "asc" ? "desc" : "asc"
+
+    // const sortedData = [...sortedRows].sort((a, b) => {
+    //   const aValue = a[colIndex].value
+    //   const bValue = b[colIndex].value
+
+    //   // You can enhance the sorting logic based on the data type
+    //   if (newDirection === "asc") {
+    //     return aValue.localeCompare(bValue)
+    //   } else {
+    //     return bValue.localeCompare(aValue)
+    //   }
+    // })
+
+    // setSortedRows(sortedData)
+    // setSortColumn(colIndex)
+    // setSortDirection(newDirection)
+  }
+
+  // const { slice, range } = useTable(props.rows, page, perPage)
+  // Use the custom hook to get paginated and sorted data
+  const { slice, range } = useTable(
+    props.rows,
+    page,
+    perPage,
+    sortColumn,
+    sortDirection
+  )
+  let isRTL = direction === "rtl"
+
+  let sizeStyles = {
+    normal: "py-3 px-6",
+    small: "px-3 py-1",
+  }
+  // let sortedRows = props.rows
+
   const changePage = () => {
     if (slice?.length < 1 && page !== 1) {
       setPage(page - 1)
@@ -70,14 +128,6 @@ export const HawaTable: FC<TableTypes> = ({
   useEffect(() => {
     changePage()
   }, [slice, page])
-
-  let isRTL = direction === "rtl"
-
-  let sizeStyles = {
-    normal: "py-3 px-6",
-    small: "px-3 py-1",
-  }
-
   return (
     <div className="relative flex flex-col gap-2 ">
       <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
@@ -124,10 +174,14 @@ export const HawaTable: FC<TableTypes> = ({
                 } else {
                   return (
                     <th
+                      onClick={() =>
+                        col.sortable && handleSort(i, col.sortable)
+                      }
                       key={i}
                       scope="col"
                       colSpan={2}
                       className={clsx(
+                        col.sortable ? "cursor-pointer hover:bg-gray-300" : "",
                         sizeStyles[size],
                         i !== 0 &&
                           (borders === "cols" ||
@@ -137,7 +191,11 @@ export const HawaTable: FC<TableTypes> = ({
                           : ""
                       )}
                     >
+                      {/* TODO: add arrow icon for sorting */}
                       {col.value}
+                      {sortColumn === i && (
+                        <span>{sortDirection === "asc" ? " ▲" : " ▼"}</span>
+                      )}
                     </th>
                   )
                 }
@@ -158,7 +216,7 @@ export const HawaTable: FC<TableTypes> = ({
             }
           >
             {/* Table Rows */}
-            {props.rows ? (
+            {sortedRows ? (
               slice?.map((singleRow: any, rowIndex: any) => {
                 let lastRow = rowIndex == slice?.length - 1
                 return (
@@ -224,7 +282,7 @@ export const HawaTable: FC<TableTypes> = ({
                               // bodyColor ? `bg-${bodyColor}` : "bg-white"
                             )}
                           >
-                            {r.value}
+                            {r.value} {r.suffix && r.suffix}
                           </td>
                         )
                       }

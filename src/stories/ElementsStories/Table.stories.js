@@ -83,45 +83,50 @@ let dummyRowData = [
   [
     { hidden: false, value: "Logo Design" },
     { hidden: true, value: "230423847239838" },
-    { hidden: false, value: "1,200 SAR" },
+    { hidden: false, value: 1200, suffix: "SAR" },
+    { hidden: false, value: 1200, suffix: "SAR" },
     {
       hidden: false,
-      value: 414
+      value: 544
     }
   ],
   [
     { hidden: false, value: "Website Design" },
     { hidden: true, value: "2340238402374" },
-    { hidden: false, value: "2,200 SAR" },
+    { hidden: false, value: 2200, suffix: "SAR" },
+    { hidden: false, value: 2200, suffix: "SAR" },
     {
       hidden: false,
-      value: 414
+      value: 55
     }
   ],
   [
     { hidden: false, value: "Hosting" },
     { hidden: true, value: "2309487209483274" },
-    { hidden: false, value: "200 SAR" },
+    { hidden: false, value: 200, suffix: "SAR" },
+    { hidden: false, value: 200, suffix: "SAR" },
     {
       hidden: false,
-      value: 414
+      value: 12
     }
   ],
   [
     { hidden: false, value: "Social Media Management" },
     { hidden: true, value: "3432042304382" },
-    { hidden: false, value: "1,800 SAR" },
+    { hidden: false, value: 1800, suffix: "SAR" },
+    { hidden: false, value: 1800, suffix: "SAR" },
     {
       hidden: false,
-      value: 414
+      value: 4564
     }
   ]
 ];
 let dummyColsData = [
-  { hidden: false, value: "Product" },
-  { hidden: true, value: "ID" },
-  { hidden: false, value: "Price" },
-  { hidden: false, value: "Date" }
+  { hidden: false, value: "Product", sortable: false },
+  { hidden: true, value: "ID", sortable: false },
+  { hidden: false, value: "Price", sortable: true },
+  { hidden: false, value: "Date", sortable: false },
+  { hidden: false, value: "Gate", sortable: false }
 ];
 
 export const NoData = (args) => {
@@ -199,7 +204,72 @@ export const DataWithActions = (args) => {
 };
 DataWithActions.args = {
   borders: ["all"],
-  bordersWidth: 1,
+  bordersWidth: 1
+};
+export const SortableData = (args) => {
+  function randomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  return (
+    <div dir="ltr" className="">
+      <HawaTable
+        direction="ltr"
+        actions={[
+          [
+            { label: "View", action: (e) => console.log("viewing", e) },
+            { label: "Edit", action: (e) => console.log("editing", e) },
+            { label: "Delete", action: (e) => console.log("deleting", e) }
+          ]
+        ]}
+        onActionClicked={(row) => console.log("row is", row)}
+        columns={dummyColsData}
+        // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
+        size={args.size}
+        rows={dummyRowData}
+        {...args}
+      />
+    </div>
+  );
+};
+SortableData.args = {
+  borders: ["all"],
+  bordersWidth: 1
+};
+export const WithHeader = (args) => {
+  function randomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  return (
+    <div dir="ltr" className="">
+      <HawaTable
+        headerTools={true}
+        direction="ltr"
+        actions={[
+          [
+            { label: "View", action: (e) => console.log("viewing", e) },
+            { label: "Edit", action: (e) => console.log("editing", e) },
+            { label: "Delete", action: (e) => console.log("deleting", e) }
+          ]
+        ]}
+        onActionClicked={(row) => console.log("row is", row)}
+        columns={dummyColsData}
+        // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
+        size={args.size}
+        rows={dummyRowData}
+        {...args}
+      />
+    </div>
+  );
+};
+WithHeader.args = {
+  borders: ["all"],
+  bordersWidth: 1
 };
 
 export const RTL = (args) => {
