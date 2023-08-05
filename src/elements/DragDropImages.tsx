@@ -26,6 +26,8 @@ type DragDropImagesTypes = {
     maxFileSize: any
     tooManyFiles: any
     fileTooLarge: any
+    acceptedFileTypes: any
+    invalidFileType: any
   }
 }
 
@@ -46,7 +48,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
 }) => {
   const [cmp, setCmp] = useState(0)
   const [max, setMax] = useState<any>(0)
-  //const [thumbs, setThumbs] = useState("");
+
   const {
     getRootProps,
     getInputProps,
@@ -84,6 +86,12 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     acceptedFiles.splice(0, acceptedFiles.length)
     setFiles([])
   }
+
+  const clearAllFiles = () => {
+    acceptedFiles.length = 0
+    setFiles([])
+  }
+
   useEffect(() => {
     if (maxSize > 0) {
       const k = 1024
@@ -96,16 +104,44 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
     }
   }, [maxSize])
   const errs = fileRejections.map((rej, i) => {
-    return (
-      <HawaAlert
-        text={rej.file.name}
-        title={rej.errors[0].code}
-        severity="error"
-      />
-    )
+    switch (rej.errors[0].code) {
+      case "file-too-large":
+        return (
+          <HawaAlert
+            text={rej.file.name}
+            title={texts.fileTooLarge}
+            severity="error"
+          />
+        )
+      case "too-many-files":
+        return (
+          <HawaAlert
+            text={rej.file.name}
+            title={texts.tooManyFiles}
+            severity="error"
+          />
+        )
+      case "file-invalid-type":
+        return (
+          <HawaAlert
+            text={rej.file.name}
+            title={texts.invalidFileType}
+            severity="error"
+          />
+        )
+
+      default:
+        return (
+          <HawaAlert
+            text={rej.file.name}
+            title={rej.errors[0].code}
+            severity="error"
+          />
+        )
+    }
   })
   const thumbs = files?.map((file: any, index: any) => (
-    <div className="relative m-3 rounded  ">
+    <div className="relative rounded">
       <button
         onClick={(e) => {
           e.stopPropagation()
@@ -114,7 +150,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           onDeleteFile(file)
         }}
         type="button"
-        className="absolute left-0 ml-auto inline-flex items-center rounded rounded-bl-none rounded-tr-none bg-gray-900 p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+        className="absolute left-0 ml-auto inline-flex items-center rounded-inner rounded-bl-none rounded-tr-none bg-gray-900 p-1.5 text-sm text-gray-400 transition-all hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
         data-modal-toggle="defaultModal"
       >
         <svg
@@ -160,63 +196,35 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
         </div>
       )}
       <div
-        {...getRootProps({})}
         className={clsx(
           "flex flex-col justify-center rounded border border-dashed border-black  transition-all hover:bg-gray-100 ",
           isDragActive ? "bg-layoutPrimary-500" : "bg-white"
         )}
       >
-        <input {...getInputProps()} />
-        <div className="flex flex-col items-center justify-center gap-2 pt-4 text-center">
-          <TbDragDrop size={22} />
-          {<texts.clickHereToUpload />}
+        <div {...getRootProps({})}>
+          <p {...getInputProps()} />
+          <div className="flex flex-col items-center justify-center gap-2 pt-4 text-center">
+            <TbDragDrop size={22} />
+            {<texts.clickHereToUpload />}
+          </div>
+          <div className="pt-2 text-center text-xs">
+            {texts.acceptedFileTypes} {accept.split(",")}
+          </div>
+          <div className="pb-2 pt-1 text-center text-xs">
+            {texts.maxFileSize} {max}
+          </div>
         </div>
-        <div className="py-4 text-center text-xs">
-          {texts.maxFileSize} {max}
-        </div>
-        <div className="flex justify-center ">
-          {acceptedFiles.length > 0 && (
-            <HawaButton
-              onClick={(e) => {
-                e.stopPropagation()
-                onClearFiles(acceptedFiles)
-              }}
-            >
-              Clear All
-            </HawaButton>
-          )}
-        </div>
-        {thumbs && showPreview ? (
-          <aside
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              // marginTop: 10,
-            }}
-            className="rounded-lg border-red-500"
-          >
+        {acceptedFiles.length > 0 && (
+          <div className="flex justify-center rounded-lg  p-2 ">
+            <HawaButton onClick={clearAllFiles}>Clear All</HawaButton>
+          </div>
+        )}
+        {acceptedFiles.length > 0 && thumbs && showPreview ? (
+          <aside className="flex flex-row flex-wrap justify-center  gap-2 rounded-lg  p-2">
             {thumbs}
           </aside>
         ) : null}
-        <div className="px-4">
-          {fileRejections[0]?.errors[0]?.code === "too-many-files" ? (
-            <HawaAlert
-              title={texts.errorUploading}
-              text={texts.tooManyFiles}
-              severity="error"
-            />
-          ) : fileRejections[0]?.errors[0]?.code === "file-too-large" ? (
-            <HawaAlert
-              title={texts.errorUploading}
-              text={texts.fileTooLarge}
-              severity="error"
-            />
-          ) : (
-            errs
-          )}
-        </div>
-        {}
+        <div className="px-4">{fileRejections[0]?.errors[0]?.code && errs}</div>
       </div>
     </div>
   )

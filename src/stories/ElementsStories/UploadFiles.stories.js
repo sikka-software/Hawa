@@ -9,7 +9,7 @@ export default {
       name: "accept",
       type: { name: "string", required: false },
       description: "file's type, splited by ,",
-      table: { defaultValue: "image/*,application/pdf" }
+      table: { defaultValue: ".pdf, .jpg" }
     }
   }
 };
@@ -23,17 +23,13 @@ const DragAndDropFiles = (args, props) => {
         label={"Company Logo"}
         setFiles={(e) => setUploadedFiles(e)}
         files={uploadedFiles}
-        maxFiles={args.maxFiles}
-        maxSize={args.maxSize}
-        accept={args.accept ? args.accept.split(",") : null}
-        onDeleteFile={args.onRemoveFile}
-        onClearFiles={args.onClearAll}
-        showPreview={args.showPreview}
-        errorMessages={args.errorMessage}
         texts={{
           tooManyFiles: "Too many files",
           fileTooLarge: "File too large",
+          invalidFileType: "Invalid File Type",
           errorUploading: "Error Uploading Files",
+          maxFileSize: "Max File Size ",
+          acceptedFileTypes: "Accepted File Types:",
           clickHereToUpload: () => {
             return (
               <>
@@ -43,9 +39,9 @@ const DragAndDropFiles = (args, props) => {
                 </span>
               </>
             );
-          },
-          maxFileSize: "Max File Size "
+          }
         }}
+        {...args}
       />
     </div>
   );
@@ -54,9 +50,12 @@ const DragAndDropFiles = (args, props) => {
 export const Default = DragAndDropFiles.bind({});
 
 Default.args = {
+  errorMessages: "error msg here",
   maxFiles: 5,
   maxSize: 5000000,
   showPreview: true,
-  onRemoveFile: () => {},
-  onClearAll: () => {}
+  accept: ".jpeg, .jpg, .png",
+
+  onDeleteFile: () => {},
+  onClearFiles: () => {}
 };
