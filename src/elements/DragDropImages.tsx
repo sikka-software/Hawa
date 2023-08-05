@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { HawaAlert } from "./HawaAlert"
 import { HawaButton } from "./HawaButton"
-import { TbDragDrop } from "react-icons/tb"
 import clsx from "clsx"
+
 //TODO: This element needs more improvements and testing
+
 type DragDropImagesTypes = {
   /**  The text label above the component. Consistant with the other form input fields   */
   label?: string
@@ -204,7 +205,28 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
         <div {...getRootProps({})}>
           <p {...getInputProps()} />
           <div className="flex flex-col items-center justify-center gap-2 pt-4 text-center">
-            <TbDragDrop size={22} />
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              height="1.5em"
+              width="1.5em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M19 11v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+              <path d="M13 13l9 3l-4 2l-2 4l-3 -9"></path>
+              <path d="M3 3l0 .01"></path>
+              <path d="M7 3l0 .01"></path>
+              <path d="M11 3l0 .01"></path>
+              <path d="M15 3l0 .01"></path>
+              <path d="M3 7l0 .01"></path>
+              <path d="M3 11l0 .01"></path>
+              <path d="M3 15l0 .01"></path>
+            </svg>
             {<texts.clickHereToUpload />}
           </div>
           <div className="pt-2 text-center text-xs">

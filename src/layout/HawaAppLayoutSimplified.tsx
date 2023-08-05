@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
-import { HiMenu } from "react-icons/hi"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { HawaMenu } from "../elements"
@@ -135,7 +134,22 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 onClick={() => setOpenSideMenu(true)}
                 className="z-40 mx-1 cursor-pointer  rounded p-2  transition-all hover:bg-gray-100"
               >
-                <HiMenu size={25} />
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  height="1.6em"
+                  width="1.6em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
               </div>
               {/* Mobile Page Title */}
               {props.pageTitle ? (
@@ -316,6 +330,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                       </div>
                       {dItem.subItems && (
                         <ArrowIcon
+                          color={
+                            props.currentPage === dItem.slug ||
+                            dItem.subItems?.find(
+                              (e) => e.slug === props.currentPage
+                            )
+                              ? "white"
+                              : "black"
+                          }
                           pointing={
                             openSubItem && dItem.slug === openSubItem
                               ? "up"
@@ -328,7 +350,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     {dItem.subItems && (
                       <div
                         className={clsx(
-                          "m-1 mx-2 flex cursor-pointer flex-col gap-0 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
+                          "m-1 mx-2 flex cursor-pointer flex-col gap-1 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
                           openSubItem == dItem.slug && openSideMenu
                             ? ""
                             : "my-0 py-0",
@@ -337,7 +359,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                         style={{
                           height:
                             openSubItem == dItem.slug && openSideMenu
-                              ? 6 + 33 * dItem.subItems?.length
+                              ? 6 + 35 * dItem.subItems?.length
                               : 0,
                         }}
                       >
@@ -430,6 +452,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                   }
                 >
                   <ArrowIcon
+                    color={"black"}
                     pointing={
                       keepOpen
                         ? isRTL
@@ -488,7 +511,7 @@ const AvatarIcon = () => (
   </svg>
 )
 
-const ArrowIcon = ({ pointing }) => {
+const ArrowIcon = ({ pointing, color }) => {
   let directionStyle
   switch (pointing) {
     case "right":
@@ -513,6 +536,7 @@ const ArrowIcon = ({ pointing }) => {
         "h-6 w-6 shrink-0  transition-all  disabled:bg-gray-200",
         directionStyle
       )}
+      fill={color}
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >

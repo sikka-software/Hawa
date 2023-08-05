@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
-import { HiMenu } from "react-icons/hi"
 import useBreakpoint from "../hooks/useBreakpoint"
 
 type HawaSiteLayoutTypes = {
@@ -117,8 +116,22 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
               onClick={() => setOpenSideMenu(!openSideMenu)}
               className="cursor-pointer rounded p-1 transition-all hover:bg-gray-100"
             >
-              <HiMenu size={25} />
-            </div>
+ <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  height="1.6em"
+                  width="1.6em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>            </div>
             {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
           </div>
         )}

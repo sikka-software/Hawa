@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
-import { FiAlertCircle } from "react-icons/fi"
 
 type AlertTypes = {
   severity: "info" | "warning" | "error" | "success"

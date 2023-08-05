@@ -968,6 +968,18 @@ Simplified.args = {
             action: () => console.log("going to new item")
           },
           {
+            label: "New Item",
+            slug: "new-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
+            label: "New Item",
+            slug: "new-item",
+            icon: <FaFolderOpen />,
+            action: () => console.log("going to new item")
+          },
+          {
             label: "Files Items",
             slug: "file-item",
             icon: <FaFolderOpen />,
@@ -1019,9 +1031,7 @@ Simplified.args = {
   email: "zakher@sikka.io",
   DrawerFooterActions: (
     <>
-      <div
-        className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700"
-      >
+      <div className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700">
         <svg
           stroke="currentColor"
           fill="none"
