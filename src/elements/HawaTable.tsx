@@ -22,7 +22,7 @@ type ColTypes = {
 }
 type TableTypes = {
   pagination?: boolean
-  columns: any[string]
+  columns: ColTypes[]
   actions?: ActionItems[][]
   direction?: "rtl" | "ltr"
   rows?: RowTypes[][]
