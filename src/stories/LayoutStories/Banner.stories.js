@@ -28,7 +28,7 @@ const Template = (args) => {
       <div
         className={
           args.position === "top"
-            ? "fixed top-6 left-10"
+            ? "fixed left-10 top-6"
             : "fixed bottom-6 left-10"
         }
       >

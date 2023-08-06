@@ -11,25 +11,39 @@ type BannerTypes = {
   actionText?: string
   onActionClick?: () => void
   position?: "top" | "bottom"
+  design: "default" | "floating"
 }
 
-export const HawaBanner: FC<BannerTypes> = (props) => {
+export const HawaBanner: FC<BannerTypes> = ({
+  design = "floating",
+  ...props
+}) => {
   const bannerRef = useRef(null)
   const [closed, setClosed] = useState(false)
-  //   "https://flowbite.com/docs/images/logo.svg"
+  let bannerStyle = {
+    floating:
+      "left-1/2  z-50  w-[calc(100%-2rem)] -translate-x-1/2 lg:max-w-7xl p-4 rounded",
+    default: "w-[calc(100%)] left-0 z-50 right-0 rounded-none p-2",
+  }
   return (
     <div ref={bannerRef}>
       <div
         dir={props.direction}
         className={clsx(
-          "fixed left-1/2  z-50 flex w-[calc(100%-2rem)] -translate-x-1/2 flex-col justify-between rounded border border-gray-100 bg-white p-4 shadow-sm transition-all dark:border-gray-600 dark:bg-gray-700 md:flex-row md:gap-4 lg:max-w-7xl",
-          props.position === "top" ? "top-6" : "bottom-6",
+          bannerStyle[design],
+          "fixed flex  flex-col justify-between  border  border-gray-100 bg-white  shadow-sm transition-all dark:border-gray-600 dark:bg-gray-700 md:flex-row md:gap-4 ",
+          props.position === "top"
+            ? design === "floating"
+              ? "top-6"
+              : "top-0"
+            : design === "floating"
+            ? "bottom-6"
+            : "bottom-0",
           closed ? "opacity-0" : "opacity-100"
         )}
       >
         <div className="mb-3 flex w-full flex-col items-center  justify-start   md:mb-0 md:flex-row md:items-center">
           <div
-            // href="https://flowbite.com/"
             className={clsx(
               props.direction === "rtl"
                 ? "md:ml-4 md:border-l  md:pl-4"
