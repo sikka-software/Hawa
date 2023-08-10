@@ -51,7 +51,6 @@ export const ButtonFeedbackStory = () => {
     </div>
   );
 };
-
 export const ButtonLoadingStory = () => {
   return (
     <div className="card max-w-800 p-3">
@@ -65,6 +64,59 @@ export const ButtonLoadingStory = () => {
           isLoading={true}
         >
           Normal Width
+        </HawaButton>
+      </div>
+    </div>
+  );
+};
+export const ButtonBadgeStory = () => {
+  return (
+    <div className="card max-w-800 p-3">
+      <div className="flex flex-col gap-4">
+        <HawaButton
+          variant="contained"
+          color="primary"
+          size="medium"
+          width="normal"
+          // isLoading={true}
+          badge={500}
+        >
+          Number Badge
+        </HawaButton>
+        <HawaButton
+          variant="contained"
+          color="primary"
+          size="medium"
+          width="normal"
+          // isLoading={true}
+          badge={10}
+        >
+          Number Badge
+        </HawaButton>
+        <HawaButton
+          variant="contained"
+          color="primary"
+          size="medium"
+          width="normal"
+          // isLoading={true}
+          badge={"New"}
+        >
+          Text Badge
+        </HawaButton>
+        <HawaButton
+          variant="contained"
+          color="primary"
+          size="medium"
+          width="normal"
+          // isLoading={true}
+          badge={true}
+        >
+          Boolean Badge
+        </HawaButton>
+
+        <h1>Icon Only</h1>
+        <HawaButton badge={true}>
+          <FaBars />
         </HawaButton>
       </div>
     </div>
@@ -157,6 +209,7 @@ export const ButtonIconsStory = () => {
   );
 };
 
+ButtonBadgeStory.storyName = "With Badge";
 ButtonIconsStory.storyName = "Icons";
 ButtonLoadingStory.storyName = "Loading";
 ButtonWidthStory.storyName = "Widths";

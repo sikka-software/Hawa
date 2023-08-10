@@ -222,8 +222,17 @@ export const HawaButton: FC<ButtonProps> = ({
         </button>
       )}
       {badge && (
-        <div className="absolute -right-3 -top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900">
-          {badge}
+        <div
+          className={clsx(
+            typeof badge === "boolean"
+              ? "h-5 w-5"
+              : typeof badge === "string"
+              ? "h-5 w-7"
+              : "h-6 w-6",
+            "absolute -right-2 select-none -top-2 inline-flex  items-center justify-center rounded-full border-2 border-white bg-red-500 text-[9px] font-bold text-white dark:border-gray-900"
+          )}
+        >
+          {typeof badge === "number" && badge > 100 ? "+99" : badge}
         </div>
       )}
     </div>
