@@ -108,10 +108,16 @@ export const HawaRadio: FC<RadioTypes> = ({
                 value={opt.value.toString()}
                 className="peer hidden"
                 required
+                disabled={opt.disabled}
               />
               <label
                 htmlFor={opt.value.toString()}
-                className="inline-flex h-full w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-5 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-blue-500"
+                className={clsx(
+                  "inline-flex h-full w-full  items-center justify-between rounded-lg border border-gray-200 bg-white p-5                    text-gray-500  peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-blue-500",
+                  opt.disabled
+                    ? "opacity-50"
+                    : "cursor-pointer hover:bg-gray-100 hover:text-gray-600"
+                )}
               >
                 <div className="block  h-full w-full">
                   <div className="w-full text-lg font-semibold">

@@ -78,66 +78,68 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
     lg: "h-24",
   }
   let ltrChildrenStyle = [
-    "w-full overflow-y-auto",
-    "top-14 h-[calc(100%-3.5rem)]",
+    // "w-full overflow-y-auto",
+    // "top-14 h-[calc(100%-3.5rem)]",
   ]
   let rtlChildrenStyle = [
-    "overflow-y-auto",
-    "w-full",
-    "top-14 h-[calc(100%-3.5rem)]",
+    // "overflow-y-auto",
+    // "w-full",
+    // "top-14 h-[calc(100%-3.5rem)]",
   ]
   return (
     <div className="h-full w-full">
       <div
         className={clsx(
-          "z-30 flex flex-row items-start justify-between bg-layoutPrimary-500  transition-all",
+          "z-30 flex w-auto select-none flex-row items-start justify-between bg-layoutPrimary-500  transition-all",
           navigationSizeStyles[navigationSize],
-          "rounded p-3",
-          openSideMenu ? "h-44" : "",
+          "rounded p-3 ",
+          openSideMenu ? "h-44" : "h-14",
           // props.floating ? "rounded-[30px]" : "rounded",
-          props.stickyNav ? "sticky top-2" : "",
+          props.stickyNav ? "fixed left-4 right-4 top-4" : "",
           direction === "rtl" ? "flex-row" : "flex-row-reverse"
         )}
       >
         {size > 600 ? (
-          <div className="flex flex-row gap-2 ">
+          <div className="flex  flex-row h-8    items-center  gap-4 px-3">
             {props.navItems?.map(({ label }, i) => (
               <div
+                onClick={() => setOpenSideMenu(!openSideMenu)}
                 key={i}
-                className="rounded bg-none p-2 transition-all hover:bg-gray-100"
+                className="cursor-pointer rounded bg-none text-gray-600 transition-all hover:text-black"
               >
                 {label}
               </div>
             ))}
           </div>
         ) : (
-          <div className="flex items-center justify-center ">
+          <div className="flex items-center justify-center">
             <div
               onClick={() => setOpenSideMenu(!openSideMenu)}
-              className="cursor-pointer rounded p-1 transition-all hover:bg-gray-100"
+              className="cursor-pointer  rounded p-1  transition-all hover:bg-gray-100"
             >
- <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                  height="1.6em"
-                  width="1.6em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>            </div>
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+                height="1.6em"
+                width="1.6em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>{" "}
+            </div>
             {props.pageTitle ? <div>{props.pageTitle}</div> : <div></div>}
           </div>
         )}
         <div className="h-full">
           <img
-            className="h-10"
+            className="h-full max-h-8 "
             src={`https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-${
               direction === "rtl" ? "ar" : "en"
             }-white.svg`}
@@ -146,9 +148,10 @@ export const HawaSiteLayout: React.FunctionComponent<HawaSiteLayoutTypes> = ({
       </div>
 
       <div
-        className={clsx(
-          direction === "rtl" ? rtlChildrenStyle : ltrChildrenStyle
-        )}
+        className={clsx(" relative top-14")}
+        // className={clsx(
+        //   direction === "rtl" ? rtlChildrenStyle : ltrChildrenStyle
+        // )}
       >
         {props.children}
       </div>

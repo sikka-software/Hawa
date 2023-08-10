@@ -8,7 +8,14 @@ export default {
 const Template = (args) => {
   return (
     <HawaSiteLayout {...args}>
-      <div className="w-full bg-red-400 text-xs">Content here</div>
+      <div className="h-screen pt-2">
+        <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
+          <span className=" font-bold capitalize text-gray-400">
+            App Content
+          </span>
+        </div>
+      </div>
+      {/* <div className="w-full bg-red-400 text-xs">Content here</div>
       <div>
         <h1>Job Title: Software Engineer</h1>
         <h2>Company: XYZ Inc.</h2>
@@ -57,7 +64,7 @@ const Template = (args) => {
           developing innovative software solutions. We are a fast-paced and
           dynamic company, with a strong emphasis on teamwork and collaboration.
         </div>
-      </div>
+      </div> */}
     </HawaSiteLayout>
   );
 };
