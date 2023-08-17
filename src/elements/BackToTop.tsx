@@ -117,7 +117,6 @@ export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
           "h-6 w-6 shrink-0 rotate-180 transition-all  disabled:bg-gray-200"
         )}
         viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fillRule="evenodd"

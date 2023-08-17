@@ -1,5 +1,5 @@
-import React from "react";
-import { HawaSnackbar } from "../../elements";
+import React, { useState } from "react";
+import { HawaButton, HawaSnackbar } from "../../elements";
 import { Story, Meta } from "@storybook/react";
 import { FaEdit } from "react-icons/fa";
 import { BsGoogle, BsTwitter } from "react-icons/bs";
@@ -33,7 +33,64 @@ export default {
 const Template = (args) => {
   return <HawaSnackbar {...args} />;
 };
-export const Plain = Template.bind({});
+const SnackbarTemplate = (args) => {
+  const [bars, setBars] = useState([
+    {
+      title: "Plain",
+      description:
+        "This is an alert indicating that there was a successful action",
+      severity: "none",
+      position: "bottom-left"
+    }
+  ]);
+  return (
+    <div>
+      <HawaButton
+        onClick={() =>
+          setBars([
+            ...bars,
+            {
+              title: "Plain #" + Math.floor(Math.random() * 100),
+              description:
+                "This is an second alert indicating that there was a successful action",
+              severity: "none",
+              position: "bottom-left"
+            }
+          ])
+        }
+      >
+        Add Snackbar
+      </HawaButton>
+      {bars.map((bar, i) => (
+        <HawaSnackbar
+          {...bar}
+          onCloseSnakbar={() => {
+            setBars([
+              {
+                title: "Plain #" + Math.floor(Math.random() * 100),
+                description:
+                  "This is an second alert indicating that there was a successful action",
+                severity: "none",
+                position: "bottom-left"
+              }
+            ]);
+            console.log("closing");
+          }}
+        />
+      ))}
+      {/* {bars && (
+        <HawaSnackbar
+          {...bar}
+          onCloseSnakbar={() => {
+            setBar(null);
+            console.log("closing");
+          }}
+        />
+      )}{" "} */}
+    </div>
+  );
+};
+export const Plain = SnackbarTemplate.bind({});
 Plain.args = {
   title: "Plain",
   description: "This is an alert indicating that there was a successful action",

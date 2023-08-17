@@ -159,7 +159,6 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
           className="h-5 w-5"
           fill="currentColor"
           viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             fillRule="evenodd"
@@ -214,7 +213,6 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
               stroke-linejoin="round"
               height="1.5em"
               width="1.5em"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <path d="M19 11v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>

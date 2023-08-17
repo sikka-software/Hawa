@@ -20,34 +20,40 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["plain", "contained", "outlined", "dropshadow", "neobrutalism"]
+      options: [
+        "default",
+        "plain",
+        "contained",
+        "outlined",
+        "dropshadow",
+        "neobrutalism"
+      ]
     }
   }
 };
 
 const Template = (args) => {
   return (
-    <div className="grid grid-cols-2 gap-2 ">
-      <HawaStats {...args} handleClick={() => console.log("test")} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
-      <HawaStats {...args} number={"SAR " + "4,392,888"} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
-      <HawaStats {...args} />
+    <div className="flex flex-row gap-2 ">
+      {/* <HawaStats {...args} handleClick={() => console.log("test")} /> */}
+      <HawaStats
+        {...args}
+        number="15,231.89 SAR"
+        label="Total Revenue"
+        helperText="+20.1% from last month"
+      />
+      <HawaStats
+        {...args}
+        number="+2350"
+        label="Subscriptions"
+        helperText="+180.1% from last month"
+      />
     </div>
   );
 };
 
 export const Stats = Template.bind({});
 Stats.args = {
-  label: "Profit",
   width: "full",
-  number: "SAR 333.22",
-  variant: "neobrutalism",
-  helperText: "warning"
-  // color:'#9a00ff'
+  variant: "default"
 };

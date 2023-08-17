@@ -17,6 +17,13 @@
     --button-secondary-500: #ffc011;
     --button-secondary-700: #b48d24;
 
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
     --border-radius: 10px;
     --border-radius-inner: calc(
       var(--border-radius) - calc(var(--border-radius) / 3)

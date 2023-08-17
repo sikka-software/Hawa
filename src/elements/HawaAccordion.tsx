@@ -34,7 +34,6 @@ export const HawaAccordion: FC<AccordionTypes> = (props) => {
           }  shrink-0 transition-all`}
           fill="currentColor"
           viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             fillRule="evenodd"

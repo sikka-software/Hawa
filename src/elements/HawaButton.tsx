@@ -210,7 +210,7 @@ export const HawaButton: FC<ButtonProps> = ({
               {isClicked && feedback ? (
                 <div className="w-full  text-center">{buttonText}</div>
               ) : null}
-              <div className="flex w-full flex-row items-center justify-center gap-2 whitespace-nowrap">
+              <div className="flex w-full flex-row items-center select-none justify-center gap-2 whitespace-nowrap">
                 {props.startIcon && props.startIcon}
                 {children}
                 {props.endIcon && props.endIcon}

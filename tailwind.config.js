@@ -5,7 +5,7 @@ const LAYOUT_PRIMARY = "#EEF7FC";
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
+  darkMode: ["class"],
   theme: {
     fontFamily: {
       plex: ["IBM Plex Sans Arabic"]
@@ -93,6 +93,14 @@ module.exports = {
         inner: "var(--border-radius-inner)"
       },
       colors: {
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
         // #f6f5fe
         // #edebfd lighter
         // #d2cdfa

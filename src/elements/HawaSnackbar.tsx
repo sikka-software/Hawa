@@ -6,7 +6,7 @@ type THawaSnackBar = {
   severity: "info" | "warning" | "error" | "success" | "none"
   title: string
   description: string
-  // handleClose?: () => void
+  onCloseSnakbar?: () => void
   duration?: number
   position?:
     | "top-left"
@@ -31,6 +31,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
   severity = "info",
   position = "bottom-left",
   actions,
+  onCloseSnakbar,
   // handleClose,
   duration,
 }) => {
@@ -110,7 +111,10 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
           className="right-0 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
           data-dismiss-target="#toast-default"
           aria-label="Close"
-          onClick={() => setClosed(true)}
+          onClick={() => {
+            onCloseSnakbar()
+            setClosed(true)
+          }}
         >
           <span className="sr-only">Close</span>
           <svg
@@ -118,7 +122,6 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
             className="h-5 w-5"
             fill="currentColor"
             viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               fillRule="evenodd"

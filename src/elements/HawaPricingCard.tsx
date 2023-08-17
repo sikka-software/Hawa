@@ -78,7 +78,6 @@ export const HawaPricingCard: FC<PricingCardTypes> = ({
                   className="m-2 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <title>Check icon</title>
                   <path

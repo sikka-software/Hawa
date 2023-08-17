@@ -46,7 +46,6 @@ BreadcrumbIconSeparator.args = {
       className="h-6 w-6 text-gray-400"
       fill="currentColor"
       viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <path
         fill-rule="evenodd"
