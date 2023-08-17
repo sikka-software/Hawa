@@ -72,9 +72,10 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
 
   let drawerDefaultStyle =
     "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all"
-
+  //The width of the drawer when closed
+  let closeDrawerWidth = 56
+  //The width of the drawer when opened
   let openDrawerWidth = 200
-  //make the opened drawer size dynamic
   let drawerSizeStyle = {
     opened: {
       sm: "100",
