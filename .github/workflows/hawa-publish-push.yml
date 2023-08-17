@@ -5,7 +5,7 @@ name: Hawa Publish Package Push
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,15 +15,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: | 
-         if [ -e 'package-lock.json' ]; then 
-          npm ci
-         else 
-          npm install
-         fi
-         npm run build-storybook
-         npm run deploy-storybook -- --ci
-        env : 
+      - run: |
+          if [ -e 'package-lock.json' ]; then 
+           npm ci
+          else 
+           npm install
+          fi
+          npm run build-storybook
+        env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   publish-npm:
@@ -35,12 +34,12 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: | 
-         if [ -e 'package-lock.json' ]; then 
-          npm ci
-         else 
-          npm install
-         fi
+      - run: |
+          if [ -e 'package-lock.json' ]; then 
+           npm ci
+          else 
+           npm install
+          fi
       - run: npm run build-lib
       - run: npm run build:styles
       - run: npm run generate-css
