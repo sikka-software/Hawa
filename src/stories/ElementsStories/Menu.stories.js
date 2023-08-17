@@ -1,11 +1,11 @@
 import React from "react";
-import { HawaMenu } from "../../elements";
+import { HawaDropdownMenu, HawaMenu } from "../../elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
 
 export default {
   title: "Elements/Menu",
-  component: [HawaMenu],
+  component: [HawaMenu, HawaDropdownMenu],
   argTypes: {
     title: {
       control: "text",
@@ -260,16 +260,33 @@ WithButton.args = {
   ]
 };
 
-// const Something = () => <div>test</div>;
-// storiesOf("Elements/Menu", module)
-//   .addParameters({
-//     docs: {
-//       page: () => <Template />
-//     }
-//   })
-//   .addDecorator((Story) => (
-//     <div >
-//       <Story />
-//     </div>
-//   ))
-//   .add("Default", () => <Template />, { notes: "note test",options:{} });
+const DropdownTemplate = (args) => {
+  return (
+    <div className="flex h-96 w-full flex-col items-center justify-center p-4">
+      <HawaDropdownMenu direction={args.direction}>
+        {/* <HawaButton width="normal" variant="contained">
+          Open Menu
+        </HawaButton> */}
+        <div className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+          <svg
+            className="absolute -left-1 h-10 w-10 text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </div>
+      </HawaDropdownMenu>
+    </div>
+  );
+};
+
+export const Dropdown = DropdownTemplate.bind({});
+Dropdown.args = {
+  direction: "rtl"
+};

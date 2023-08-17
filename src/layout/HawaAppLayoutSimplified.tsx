@@ -73,10 +73,12 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
   let drawerDefaultStyle =
     "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all"
 
+  let openDrawerWidth = 200
+  //make the opened drawer size dynamic
   let drawerSizeStyle = {
     opened: {
       sm: "100",
-      md: "160",
+      md: openDrawerWidth,
       lg: "250",
     },
     closed: {
@@ -85,6 +87,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
       lg: "56",
     },
   }
+
   let drawerSizeCondition =
     size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
   return (
@@ -232,8 +235,8 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
           style={{
             width:
               size > 600
-                ? `${openSideMenu ? 160 : 56}px`
-                : `${openSideMenu ? 160 : 0}px`,
+                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
         >
           {/* Full Logo */}
@@ -276,8 +279,8 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
             height: "calc(100% - 112px)",
             width:
               size > 600
-                ? `${openSideMenu ? 160 : 56}px`
-                : `${openSideMenu ? 160 : 0}px`,
+                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
         >
           {/* Drawer Items */}
@@ -401,15 +404,15 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         {/* Drawer Footer */}
         <div
           className={clsx(
-            "fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 bg-layoutPrimary-500  transition-all",
+            "fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-layoutPrimary-500  transition-all",
 
             direction === "rtl" ? "flex-row-reverse" : "flex-row"
           )}
           style={{
             width:
               size > 600
-                ? `${openSideMenu ? 160 : 56}px`
-                : `${openSideMenu ? 160 : 0}px`,
+                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
         >
           {size > 600 && DrawerFooterActions && openSideMenu ? (

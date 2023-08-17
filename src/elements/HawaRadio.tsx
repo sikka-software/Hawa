@@ -59,7 +59,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                       : inactiveTabStyle
                   )}
                 >
-                  {opt.icon}
+                  {/* {opt.icon} */}
                   {opt.label}
                 </button>
               </li>
