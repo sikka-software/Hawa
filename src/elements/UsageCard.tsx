@@ -1,6 +1,5 @@
 import React, { FC } from "react"
 import { HawaTooltip } from "./HawaTooltip"
-import { BsExclamationCircleFill } from "react-icons/bs"
 
 type UsageCardTypes = {
   tooltip?: any
@@ -15,7 +14,18 @@ export const UsageCard: FC<UsageCardTypes> = (props) => {
         <span className="bg-white-200">{props.title}</span>
         {props.tooltip && (
           <HawaTooltip content={props.tooltip} position="right-top">
-            <BsExclamationCircleFill />
+            <svg
+              stroke="currentColor"
+              aria-label="Exclamation Circle"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+            </svg>
           </HawaTooltip>
         )}
       </div>

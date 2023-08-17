@@ -1,7 +1,5 @@
 import React, { useState, FC } from "react"
 import clsx from "clsx"
-import { HiChevronRight } from "react-icons/hi"
-import { BsThreeDotsVertical } from "react-icons/bs"
 import { HawaChip } from "./HawaChip"
 import { HawaMenu } from "./HawaMenu"
 
@@ -68,7 +66,22 @@ export const InvoiceAccordion: FC<InvoiceAccordionTypes> = ({
             )}
             onClick={() => setExpanded(!expanded)}
           >
-            <HiChevronRight fontSize={30} />
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              height="2em"
+              width="2em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
           </div>
         )}
         <div
@@ -89,7 +102,18 @@ export const InvoiceAccordion: FC<InvoiceAccordionTypes> = ({
             menuItems={props.invoiceActions}
           >
             <div className=" p-2">
-              <BsThreeDotsVertical />
+              {/* <BsThreeDotsVertical /> */}
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 16 16"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+              </svg>
             </div>
           </HawaMenu>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { HawaCodeBlock } from "../../elements";
 
 export default {
-  title: "Elements/Code/CodeBlock",
+  title: "Elements/Code/Code Block",
   component: [HawaCodeBlock],
   argTypes: {
     content: {

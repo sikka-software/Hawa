@@ -1,6 +1,5 @@
 import React, { FC } from "react"
 import clsx from "clsx"
-import { FaCheck } from "react-icons/fa"
 
 type THawaTimeline = {
   steps: any[any]
@@ -53,7 +52,18 @@ export const HawaStepper: FC<THawaTimeline> = ({
                   )}
                 >
                   {i + 1 <= props.currentStep ? (
-                    <FaCheck fontSize={11} />
+                    <svg
+                      aria-label="Check Mark"
+                      stroke="currentColor"
+                      fill="white"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      height="0.60em"
+                      width="0.60em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                    </svg>
                   ) : (
                     i + 1
                   )}
@@ -69,32 +79,32 @@ export const HawaStepper: FC<THawaTimeline> = ({
   )
 }
 
-const TimelineStep = (props) => {
-  let defaultStyles = {
-    vertical: "",
-    horizontal: "",
-  }
-  return (
-    <div
-      className={
-        props.orientation === "vertical"
-          ? "flex w-full flex-row items-center"
-          : props.stepNumber === props.steps
-          ? "flex items-center"
-          : "after:border-1 flex items-center after:mx-6 after:hidden after:h-1 after:w-10 after:border-b after:border-gray-200  dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10"
-      }
-    >
-      <div
-        className={clsx(
-          "ring-buttonPrimary-200 m-2 mr-4 flex h-6 w-6 items-center justify-center rounded ring-2 ring-offset-2",
-          props.current
-            ? "bg-buttonPrimary-500 text-white"
-            : "bg-buttonPrimary-200"
-        )}
-      >
-        {props.current ? <FaCheck fontSize={11} /> : props.stepNumber}
-      </div>
-      <div className="whitespace-nowrap">{props.stepName}</div>
-    </div>
-  )
-}
+// const TimelineStep = (props) => {
+//   let defaultStyles = {
+//     vertical: "",
+//     horizontal: "",
+//   }
+//   return (
+//     <div
+//       className={
+//         props.orientation === "vertical"
+//           ? "flex w-full flex-row items-center"
+//           : props.stepNumber === props.steps
+//           ? "flex items-center"
+//           : "after:border-1 flex items-center after:mx-6 after:hidden after:h-1 after:w-10 after:border-b after:border-gray-200  dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10"
+//       }
+//     >
+//       <div
+//         className={clsx(
+//           "ring-buttonPrimary-200 m-2 mr-4 flex h-6 w-6 items-center justify-center rounded ring-2 ring-offset-2",
+//           props.current
+//             ? "bg-buttonPrimary-500 text-white"
+//             : "bg-buttonPrimary-200"
+//         )}
+//       >
+//         {props.current ? <FaCheck fontSize={11} /> : props.stepNumber}
+//       </div>
+//       <div className="whitespace-nowrap">{props.stepName}</div>
+//     </div>
+//   )
+// }

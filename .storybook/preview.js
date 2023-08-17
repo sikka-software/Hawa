@@ -32,6 +32,8 @@ export const parameters = {
           ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
           "Cards",
           ["User Profile", "User Settings"],
+          "Code",
+          ["Inline Code", "Code Block"],
           "Notifications",
           "Selections",
           "SettingsRow",
