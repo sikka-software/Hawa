@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HawaTabs } from "../../elements/HawaTabs";
-
+import { FiSettings, FiActivity, FiAirplay, FiSave } from "react-icons/fi";
 export default {
   title: "Elements/Selections/Tabs",
   component: [HawaTabs],
@@ -42,21 +42,25 @@ export const Horizontal = (args) => {
         {
           value: "option1",
           label: "Billing",
+          icon: <FiSettings />,
           content: <div className="bg-red-300 p-4"> option 1</div>
         },
         {
           value: "option2",
           label: "Settings",
+          icon: <FiSave />,
           content: <div className="bg-red-300 p-4"> option 2</div>
         },
         {
           value: "option3",
           label: "Legal",
+          icon: <FiActivity />,
           content: <div className="bg-red-300 p-4"> option 3</div>
         },
         {
           value: "option4",
           label: "Test",
+          icon: <FiAirplay />,
           content: (
             <div className="flex flex-col gap-9 bg-red-300">
               {" "}

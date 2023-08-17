@@ -1,6 +1,7 @@
 import React from "react";
 
 import { HawaRadio } from "../../elements";
+import { FiSettings, FiActivity, FiAirplay, FiSave } from "react-icons/fi";
 
 export default {
   title: "Elements/Radio",
@@ -92,9 +93,14 @@ export const Tabs = (args) => {
           design={"tabs"}
           // {...args}
           options={[
-            { label: `Option 1`, value: `option1` },
-            { label: `Option 2`, value: `option2`, disabled: true },
-            { label: `Option 3`, value: `option3` }
+            { label: `Option 1`, value: `option1`, icon: <FiSettings /> },
+            {
+              label: `Option 2`,
+              value: `option2`,
+              icon: <FiActivity />,
+              disabled: true
+            },
+            { label: `Option 3`, value: `option3`, icon: <FiSave /> }
           ]}
         />
       </div>

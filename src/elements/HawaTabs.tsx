@@ -104,6 +104,7 @@ export const HawaTabs: FC<TabsTypes> = ({
                 props?.onChangeTab(opt)
               }}
               className={clsx(
+                "flex flex-row gap-2 items-center",
                 opt.value === selectedOption
                   ? // props.options[selectedOption].value === opt.value
                     [
@@ -120,6 +121,7 @@ export const HawaTabs: FC<TabsTypes> = ({
                 // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >
+              {opt.icon}
               {opt.label}
             </button>
           </li>

@@ -52,12 +52,14 @@ export const HawaRadio: FC<RadioTypes> = ({
                     setSelectedOption(opt.value)
                     props.onChangeTab(opt.value)
                   }}
-                  className={
+                  className={clsx(
+                    "flex flex-row items-center justify-center gap-2",
                     selectedOption === opt.value
                       ? activeTabStyle
                       : inactiveTabStyle
-                  }
+                  )}
                 >
+                  {opt.icon}
                   {opt.label}
                 </button>
               </li>
