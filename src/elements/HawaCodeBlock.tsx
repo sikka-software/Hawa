@@ -46,24 +46,24 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={clsx(
         widthStyles[width],
-        "w-full flex-col items-center rounded bg-gray-800 text-left text-sm text-white sm:text-base"
+        "w-full flex-col items-center rounded bg-gray-200 text-left text-sm text-white dark:bg-gray-800 sm:text-base"
       )}
     >
       {" "}
       {tabs && (
-        <div className="flex flex-row gap-2 rounded-t bg-gray-700  p-2 pb-0">
+        <div className="flex flex-row gap-2 rounded-t bg-gray-100 p-2 pb-0 text-black   dark:bg-gray-700 dark:text-white">
           {tabs.map((tab, i) => (
             <div
               className={clsx(
                 selectedTab === i
-                  ? "border-buttonPrimary-400 border-b-2"
+                  ? "dark:border-buttonPrimary-400 border-b-2   border-buttonPrimary-700"
                   : "bg-transparent"
               )}
             >
               <div
                 onClick={() => setSelectedTab(i)}
                 className={clsx(
-                  "mb-1 w-full max-w-[52px] cursor-pointer rounded-inner p-2 py-1 text-center text-[0.75rem] hover:bg-gray-500"
+                  "mb-1 w-full max-w-[52px] cursor-pointer rounded-inner p-2 py-1 text-center text-[0.75rem] hover:bg-gray-300 dark:hover:bg-gray-500"
                 )}
               >
                 {tab.title}
@@ -73,7 +73,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
         </div>
       )}
       {fileName && (
-        <div className="flex flex-row gap-2 rounded-t bg-gray-700  p-2 pb-0">
+        <div className="flex flex-row gap-2 rounded-t p-2 pb-0 text-black bg-gray-100  dark:bg-gray-700 dark:text-white">
           <div
             className={clsx(
               "mb-1 w-full max-w-[52px] rounded-inner p-2 py-1 text-center text-[0.75rem]"
@@ -86,7 +86,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
       <pre>
         <code
           className={clsx(
-            "flex w-full flex-row items-start justify-between rounded bg-gray-800 p-2  text-left text-sm text-white sm:text-base"
+            "flex w-full flex-row items-start justify-between rounded bg-gray-200 p-2 text-left  text-sm text-black dark:bg-gray-800 dark:text-white sm:text-base"
             // `language-${language}`,
           )}
         >

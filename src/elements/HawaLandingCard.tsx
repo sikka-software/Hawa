@@ -37,7 +37,7 @@ export const HawaLandingCard: FC<LandingCardTypes> = ({
       className={clsx(
         cardStyles[orientation],
         "flex flex-col p-10",
-        "relative overflow-hidden",
+        "relative overflow-hidden dark:text-white",
         props.className
       )}
       {...props}

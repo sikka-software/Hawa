@@ -57,7 +57,9 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
   let imageStyles = {
     vertical: "h-auto max-h-56 w-full rounded-t-lg object-cover",
     horizontal:
-      "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
+      // "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
+      // "h-full w-full rounded-l-lg object-cover md:w-48 md:rounded-none md:rounded-l-lg",
+      "h-full w-48 rounded-l object-cover",
   }
   let headerActionsButtonStyle =
     "inline-block rounded p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
@@ -83,7 +85,7 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
       {...props}
     >
       {cardImage && (
-        <div className="group relative overflow-clip rounded-t">
+        <div className="group relative overflow-clip">
           <img
             src={"https://via.placeholder.com/50"}
             className={clsx(
@@ -141,7 +143,7 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
         {actions || counts ? (
           <div
             className={clsx(
-              "mt-3 flex items-center rounded-b-lg ",
+              "mt-3 flex items-center rounded-b-lg dark:text-white ",
               actions && counts ? "justify-between" : "justify-end"
             )}
           >

@@ -11,7 +11,7 @@ export default {
 export const ButtonVariationsStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl">Contained Buttons</h2>
+      <h2 className="mt-6 text-xl dark:text-white">Contained Buttons</h2>
       <div className="mt-1 flex flex-row">
         <HawaButton>Default</HawaButton>
         <HawaButton tooltip="This is a test" className="ml-2" color="primary">
@@ -25,7 +25,7 @@ export const ButtonVariationsStory = () => {
         </HawaButton>
       </div>
 
-      <h2 className="mt-6 text-xl">Outlined Buttons</h2>
+      <h2 className="mt-6 text-xl dark:text-white">Outlined Buttons</h2>
       <div className="mt-1 flex flex-row">
         <HawaButton variant="outlined">Default</HawaButton>
         <HawaButton className="ml-2" variant="outlined" color="primary">
@@ -44,7 +44,9 @@ export const ButtonVariationsStory = () => {
 export const ButtonFeedbackStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl">Click button for feedback</h2>
+      <h2 className="mt-6 text-xl dark:text-white">
+        Click button for feedback
+      </h2>
       <div className="mt-1 flex flex-row">
         <HawaButton feedback="Clicked">Default</HawaButton>
       </div>
@@ -54,7 +56,7 @@ export const ButtonFeedbackStory = () => {
 export const ButtonLoadingStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl">Loading</h2>
+      <h2 className="mt-6 text-xl dark:text-white">Loading</h2>
       <div className="mt-2 flex flex-col">
         <HawaButton
           variant="contained"
@@ -114,7 +116,7 @@ export const ButtonBadgeStory = () => {
           Boolean Badge
         </HawaButton>
 
-        <h1>Icon Only</h1>
+        <h1 className="dark:text-white">Icon Only</h1>
         <HawaButton badge={true}>
           <FaBars />
         </HawaButton>
@@ -125,7 +127,7 @@ export const ButtonBadgeStory = () => {
 export const ButtonWidthStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl">Width</h2>
+      <h2 className="mt-6 text-xl dark:text-white">Width</h2>
 
       <div className="mt-2 flex flex-col gap-4 ">
         <HawaButton
@@ -162,7 +164,7 @@ export const ButtonWidthStory = () => {
 export const ButtonSizesStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl">Sizes</h2>
+      <h2 className="mt-6 text-xl dark:text-white">Sizes</h2>
       <div className="mt-1 flex flex-row">
         <HawaButton
           variant="contained"
@@ -197,11 +199,11 @@ export const ButtonSizesStory = () => {
 export const ButtonIconsStory = () => {
   return (
     <div>
-      <h1>Right Icon</h1>
+      <h1 className="dark:text-white">Right Icon</h1>
       <HawaButton startIcon={<FaBars />}>Click</HawaButton>
-      <h1>Left Icon</h1>
+      <h1 className="dark:text-white">Left Icon</h1>
       <HawaButton endIcon={<FaBars />}>Click</HawaButton>
-      <h1>Icon Only</h1>
+      <h1 className="dark:text-white">Icon Only</h1>
       <HawaButton>
         <FaBars />
       </HawaButton>

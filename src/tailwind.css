@@ -11,6 +11,7 @@
     --layout-primary-700: #b7aff7;
     /* --layout-primary-500: #dfdcfc; */
     --layout-primary-500: #fdfdfd;
+    --layout-primary-600: #f7f7f7;
     --layout-primary-300: #e7e5fa;
 
     --layout-secondary: #d2cdfa;
@@ -36,6 +37,7 @@
 
   .dark {
     --layout-primary-500: #363636;
+    --layout-primary-600: #2d2d2d;
     --layout-primary-700: #1d1d1d;
     --layout-primary-300: #4a4a4a;
 

@@ -71,10 +71,10 @@ const colorStyles = {
     dark: "text-neutral-900 bg-gray-200 hover:bg-gray-300",
   },
   outlined: {
-    default: "text-gray-600 border-gray-600 hover:bg-gray-200",
-    primary: "text-black hover:bg-gray-50",
+    default: "text-gray-600 border-gray-600 hover:bg-gray-200 dark:text-white",
+    primary: "text-black hover:bg-gray-50  dark:text-white",
     secondary:
-      "text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-700 hover:text-white",
+      " dark:text-white text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-700 hover:text-white",
     gray: "border-gray-300 hover:bg-gray-200  ",
     dark: "border-gray-900 hover:bg-gray-700  ",
   },

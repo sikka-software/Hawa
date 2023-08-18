@@ -195,7 +195,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
               // position={isRTL ? "bottom-left" : "bottom-left"}
               // position={isRTL ? "right-bottom" : "bottom-left"}
             >
-              <div className="relative h-8 w-8 mx-2  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
+              <div className="relative mx-2 h-8 w-8  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
                 <AvatarIcon />
               </div>
             </HawaMenu>
@@ -333,14 +333,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                       </div>
                       {dItem.subItems && (
                         <ArrowIcon
-                          color={
-                            props.currentPage === dItem.slug ||
-                            dItem.subItems?.find(
-                              (e) => e.slug === props.currentPage
-                            )
-                              ? "white"
-                              : "black"
-                          }
+                          // color={
+                          //   props.currentPage === dItem.slug ||
+                          //   dItem.subItems?.find(
+                          //     (e) => e.slug === props.currentPage
+                          //   )
+                          //     ? "white"
+                          //     : "black"
+                          // }
                           pointing={
                             openSubItem && dItem.slug === openSubItem
                               ? "up"
@@ -451,11 +451,11 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 <div
                   onClick={() => setKeepOpen(!keepOpen)}
                   className={
-                    "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all hover:bg-gray-400"
+                    "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all hover:bg-gray-400 bg-layoutPrimary-600 dark:hover:bg-layoutPrimary-700"
                   }
                 >
                   <ArrowIcon
-                    color={"black"}
+                    // color={"black"}
                     pointing={
                       keepOpen
                         ? isRTL
@@ -513,7 +513,7 @@ const AvatarIcon = () => (
   </svg>
 )
 
-const ArrowIcon = ({ pointing, color }) => {
+const ArrowIcon = ({ pointing }) => {
   let directionStyle
   switch (pointing) {
     case "right":

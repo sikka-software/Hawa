@@ -15,7 +15,7 @@ export default {
 export const Default = (args) => {
   return (
     <div>
-      <h1 className="mt-4">Default CodeBlock</h1>
+      <h1 className="mt-4 dark:text-white">Default CodeBlock</h1>
       <HawaCodeBlock language="js" code="npm install @sikka/hawa" />
     </div>
   );
@@ -25,7 +25,7 @@ Default.args = {};
 export const WithTabs = (args) => {
   return (
     <div>
-      <h1>Codeblock with tabs</h1>
+      <h1 className="dark:text-white">Codeblock with tabs</h1>
       <HawaCodeBlock
         language="js"
         tabs={[
@@ -72,7 +72,7 @@ export const WithFilename = (args) => {
 }`;
   return (
     <div>
-      <h1>Codeblock with filename</h1>
+      <h1 className="dark:text-white">Codeblock with filename</h1>
       <HawaCodeBlock language="js" code={codeSnippet} fileName="src/index.js" />
     </div>
   );

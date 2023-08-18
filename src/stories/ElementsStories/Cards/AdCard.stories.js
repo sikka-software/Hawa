@@ -14,11 +14,15 @@ export const Ad = (args) => {
   return (
     <>
       <div>
-        <div className="m-2 ml-0 text-lg font-bold">Horizontal</div>
+        <div className="m-2 ml-0 text-lg font-bold dark:text-white">
+          Horizontal
+        </div>
         <HawaAdCard orientation={"horizontal"} {...args} />
       </div>
       <div>
-        <div className="m-2 ml-0 text-lg font-bold">Vertical</div>
+        <div className="m-2 ml-0 text-lg font-bold dark:text-white">
+          Vertical
+        </div>
         <HawaAdCard orientation={"vertical"} {...args} />
       </div>
     </>

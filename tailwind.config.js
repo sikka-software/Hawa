@@ -183,6 +183,7 @@ module.exports = {
         layoutPrimary: {
           300: "var(--layout-primary-300)",
           500: "var(--layout-primary-500)",
+          600: "var(--layout-primary-600)",
           700: "var(--layout-primary-700)",
           // 700: "#b7aff7",
           dark: "#251b73",
