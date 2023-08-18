@@ -93,14 +93,22 @@ export const Tabs = (args) => {
           design={"tabs"}
           // {...args}
           options={[
-            { label: `Option 1`, value: `option1`, icon: <FiSettings /> },
+            {
+              label: `Option 1`,
+              value: `option1`
+              // icon: <FiSettings />
+            },
             {
               label: `Option 2`,
               value: `option2`,
-              icon: <FiActivity />,
+              // icon: <FiActivity />,
               disabled: true
             },
-            { label: `Option 3`, value: `option3`, icon: <FiSave /> }
+            {
+              label: `Option 3`,
+              value: `option3`
+              //  icon: <FiSave />
+            }
           ]}
         />
       </div>

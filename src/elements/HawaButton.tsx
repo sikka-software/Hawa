@@ -1,6 +1,6 @@
 import React, { FC, ButtonHTMLAttributes, useState } from "react"
 import clsx from "clsx"
-import { HawaSpinner } from "./HawaSpinner"
+import { HawaLoading } from "./HawaLoading"
 import { HawaTooltip } from "./HawaTooltip"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -165,7 +165,7 @@ export const HawaButton: FC<ButtonProps> = ({
             onClick={props.onClick}
             // onClick={handleClick}
           >
-            {!isLoading ? children : <HawaSpinner size="button" />}
+            {!isLoading ? children : <HawaLoading size="button" />}
           </button>
         </HawaTooltip>
       ) : (
@@ -210,14 +210,18 @@ export const HawaButton: FC<ButtonProps> = ({
               {isClicked && feedback ? (
                 <div className="w-full  text-center">{buttonText}</div>
               ) : null}
-              <div className="flex w-full flex-row items-center select-none justify-center gap-2 whitespace-nowrap">
+              <div className="flex w-full select-none flex-row items-center justify-center gap-2 whitespace-nowrap">
                 {props.startIcon && props.startIcon}
                 {children}
                 {props.endIcon && props.endIcon}
               </div>
             </div>
           ) : (
-            <HawaSpinner size="button" />
+            <HawaLoading
+              design="dots-pulse"
+              color={"bg-white"}
+              size="button"
+            />
           )}
         </button>
       )}
@@ -229,7 +233,7 @@ export const HawaButton: FC<ButtonProps> = ({
               : typeof badge === "string"
               ? "h-5 w-7"
               : "h-6 w-6",
-            "absolute -right-2 select-none -top-2 inline-flex  items-center justify-center rounded-full border-2 border-white bg-red-500 text-[9px] font-bold text-white dark:border-gray-900"
+            "absolute -right-2 -top-2 inline-flex select-none  items-center justify-center rounded-full border-2 border-white bg-red-500 text-[9px] font-bold text-white dark:border-gray-900"
           )}
         >
           {typeof badge === "number" && badge > 100 ? "+99" : badge}

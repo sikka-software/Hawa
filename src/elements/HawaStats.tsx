@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import clsx from "clsx"
-import { HawaSpinner } from "./HawaSpinner"
-import { BsFilesAlt } from "react-icons/bs"
+import { HawaLoading } from "./HawaLoading"
+// import { BsFilesAlt } from "react-icons/bs"
 
 type StatTypes = {
   label?: string
@@ -60,7 +60,7 @@ export const HawaStats: FC<StatTypes> = ({ variant = "default", ...props }) => {
       {props.icon && <div className="mb-2">{props.icon} </div>}
       <div>{props.label}</div>
       {props.isLoading ? (
-        <HawaSpinner />
+        <HawaLoading />
       ) : (
         <div className="text-2xl font-bold">{props.number}</div>
       )}

@@ -60,6 +60,7 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
               },
               lineHeight: "1.25rem",
               padding: "0.37rem",
+              paddingLeft: 0,
             }),
             singleValue: (base) => ({
               ...base,
@@ -84,6 +85,8 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
           }}
+          // className="bg-red-500"
+
           options={Countries}
           isMulti={false}
           isSearchable={true}
@@ -96,7 +99,8 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
         <input
           onChange={props.handleChange}
           type="number"
-          className="block w-full appearance-none rounded rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          placeholder="531045453"
+          className="block w-full appearance-none rounded rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
         />
         {props.helperText && (
           <p className="mb-1 mt-1 text-xs text-red-600 dark:text-red-500">

@@ -43,5 +43,4 @@ Landing.args = {
       "Use your favorite tech stack to give your marketing team a powerful and flexible custom page builder of their own",
     linkText: "Prismic for developers"
   },
-  imageURL: "https://pngimg.com/uploads/honda/honda_PNG102940.png"
 };

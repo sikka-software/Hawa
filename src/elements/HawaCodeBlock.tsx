@@ -75,19 +75,11 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
       {fileName && (
         <div className="flex flex-row gap-2 rounded-t bg-gray-700  p-2 pb-0">
           <div
-          // className={clsx(
-          //   selectedTab === i
-          //     ? "border-buttonPrimary-400 border-b-2"
-          //     : "bg-transparent"
-          // )}
+            className={clsx(
+              "mb-1 w-full max-w-[52px] rounded-inner p-2 py-1 text-center text-[0.75rem]"
+            )}
           >
-            <div
-              className={clsx(
-                "mb-1 w-full max-w-[52px] rounded-inner p-2 py-1 text-center text-[0.75rem] "
-              )}
-            >
-              {fileName}
-            </div>
+            {fileName}
           </div>
         </div>
       )}

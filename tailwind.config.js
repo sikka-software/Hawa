@@ -59,6 +59,17 @@ module.exports = {
             height: "0rem"
           }
         },
+        blink: {
+          "0%": {
+            opacity: "0.2"
+          },
+          "50%": {
+            opacity: "1"
+          },
+          "100%": {
+            opacity: " 0.2"
+          }
+        },
         slideDownAndFade: {
           from: { opacity: 0, transform: "translateY(-2px)" },
           to: { opacity: 1, transform: "translateY(0)" }
@@ -77,6 +88,8 @@ module.exports = {
         }
       },
       animation: {
+        blink: "blink 2s infinite ease-in-out",
+
         collapse: "collapse",
         expandDown: "expandDown 500ms ease-in-out",
         expandUp: "expandUp 100ms ease-in-out",
@@ -95,11 +108,11 @@ module.exports = {
       colors: {
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          foreground: "hsl(var(--muted-foreground))"
         },
         card: {
           DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          foreground: "hsl(var(--card-foreground))"
         },
         // #f6f5fe
         // #edebfd lighter
@@ -112,7 +125,7 @@ module.exports = {
         // #2e218d
         // #251b73
 
-        blackA:{
+        blackA: {
           1: "hsla(0, 0%, 0%, 0.012)",
           2: "hsla(0, 0%, 0%, 0.024)",
           3: "hsla(0, 0%, 0%, 0.055)",
@@ -124,9 +137,9 @@ module.exports = {
           9: "hsla(0, 0%, 0%, 0.447)",
           10: "hsla(0, 0%, 0%, 0.498)",
           11: "hsla(0, 0%, 0%, 0.608)",
-          12: "hsla(0, 0%, 0%, 0.875)",
+          12: "hsla(0, 0%, 0%, 0.875)"
         },
-        mauve:{
+        mauve: {
           1: "hsl(300, 26.0%, 99.0%)",
           2: "hsl(270, 20.0%, 98.0%)",
           3: "hsl(267, 13.8%, 95.3%)",
@@ -138,9 +151,9 @@ module.exports = {
           9: "hsl(252, 6.0%, 57.3%)",
           10: "hsl(250, 5.0%, 52.3%)",
           11: "hsl(252, 5.0%, 40.7%)",
-          12: "hsl(260, 10.0%, 13.5%)",
+          12: "hsl(260, 10.0%, 13.5%)"
         },
-        violet:{
+        violet: {
           1: "hsl(255, 65.0%, 99.4%)",
           2: "hsl(252, 100%, 99.0%)",
           3: "hsl(252, 96.9%, 97.4%)",
@@ -152,7 +165,7 @@ module.exports = {
           9: "hsl(252, 56.0%, 57.5%)",
           10: "hsl(251, 48.1%, 53.5%)",
           11: "hsl(250, 43.0%, 48.0%)",
-          12: "hsl(250, 43.0%, 26.0%)",
+          12: "hsl(250, 43.0%, 26.0%)"
         },
 
         buttonPrimary: {
@@ -180,5 +193,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require("tailwindcss-animate")]
 };

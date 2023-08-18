@@ -1,9 +1,6 @@
-// import { Canvas, Meta, Story } from "@storybook/addon-docs";
-// import { LinkTo, linkTo } from "@storybook/addon-links";
 import { Controller, useForm } from "react-hook-form";
 import { HawaSettingsRow } from "../../elements";
 import React, { useState } from "react";
-// import { HawaRadio } from "../../elements/HawaRadio";
 
 export default {
   title: "Elements/Settings",

@@ -14,9 +14,10 @@ type LandingCardTypes = {
     linkText?: string
   }
   buttonLink?: string
+  className?: any
 }
 export const HawaLandingCard: FC<LandingCardTypes> = ({
-  orientation,
+  orientation = "horizontal",
   ...props
 }) => {
   let cardStyles = {
@@ -36,12 +37,13 @@ export const HawaLandingCard: FC<LandingCardTypes> = ({
       className={clsx(
         cardStyles[orientation],
         "flex flex-col p-10",
-        "relative overflow-hidden"
+        "relative overflow-hidden",
+        props.className
       )}
       {...props}
     >
-      {props.texts.titleTip && (
-        <div className="text-sm text-red-600">{props.texts.titleTip}</div>
+      {props.texts?.titleTip && (
+        <div className="text-sm text-red-600">{props.texts?.titleTip}</div>
       )}
       {props.imageURL && (
         <img
@@ -50,15 +52,15 @@ export const HawaLandingCard: FC<LandingCardTypes> = ({
         />
       )}
 
-      {props.texts.title && (
-        <div className="mt-2 text-lg font-medium">{props.texts.title} </div>
+      {props.texts?.title && (
+        <div className="mt-2 text-lg font-medium">{props.texts?.title} </div>
       )}
-      {props.texts.description && (
-        <div className="z-10 mt-4 text-sm">{props.texts.description}</div>
+      {props.texts?.description && (
+        <div className="z-10 mt-4 text-sm">{props.texts?.description}</div>
       )}
-      {props.texts.linkText && (
+      {props.texts?.linkText && (
         <div className="z-10 mt-6 text-sm underline underline-offset-8">
-          {props.texts.linkText}
+          {props.texts?.linkText}
         </div>
       )}
     </div>

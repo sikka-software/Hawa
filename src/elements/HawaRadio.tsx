@@ -4,16 +4,14 @@ import clsx from "clsx"
 type RadioTypes = {
   orientation?: "vertical" | "horizontal"
   design?: "default" | "tabs" | "cards" | "bordered"
-  options?: [
-    {
-      value: any
-      label: any
-      disabled?: any
-      sublabel?: any
-      beforeIcon?: any
-      afterIcon?: any
-    }
-  ]
+  options?: {
+    value: any
+    label: any
+    disabled?: any
+    sublabel?: any
+    icon?: any
+  }[]
+
   onChangeTab?: any
   defaultValue?: any
 }
@@ -59,7 +57,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                       : inactiveTabStyle
                   )}
                 >
-                  {/* {opt.icon} */}
+                  {opt.icon && opt.icon}
                   {opt.label}
                 </button>
               </li>
