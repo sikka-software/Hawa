@@ -102,22 +102,17 @@ export const HawaButton: FC<ButtonProps> = ({
   const [isClicked, setIsClicked] = useState(false)
   const [buttonText, setButtonText] = useState(children)
 
-  const handleClick = () => {
-    if (feedback) {
-      if (!isClicked) {
-        props.onClick
-        setButtonText(feedback)
-        setIsClicked(true)
-        console.log("hawa button clicked")
-        // Reset the button text after 2 seconds (adjust the time as needed).
-        setTimeout(() => {
-          setButtonText(children)
-          setIsClicked(false)
-        }, 2000)
-      }
-    } else {
-      props.onClick(null)
-      console.log("hawa button clicked")
+  const handleClick = (event) => {
+    if (props.onClick) {
+      props.onClick(event)
+    }
+    if (feedback && !isClicked) {
+      setButtonText(feedback)
+      setIsClicked(true)
+      setTimeout(() => {
+        setButtonText(children)
+        setIsClicked(false)
+      }, 2000)
     }
   }
 
@@ -217,11 +212,7 @@ export const HawaButton: FC<ButtonProps> = ({
               </div>
             </div>
           ) : (
-            <HawaLoading
-              design="dots-pulse"
-              color={"bg-white"}
-              size="button"
-            />
+            <HawaLoading design="dots-pulse" color={"bg-white"} size="button" />
           )}
         </button>
       )}
