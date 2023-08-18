@@ -5,9 +5,14 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
     --layout-primary-700: #b7aff7;
-    --layout-primary-500: #dfdcfc;
+    /* --layout-primary-500: #dfdcfc; */
+    --layout-primary-500: #fdfdfd;
     --layout-primary-300: #e7e5fa;
+
     --layout-secondary: #d2cdfa;
 
     --button-primary-300: #6555e3;
@@ -30,7 +35,12 @@
   }
 
   .dark {
+    --layout-primary-500: #363636;
+    --layout-primary-700: #1d1d1d;
+    --layout-primary-300: #4a4a4a;
+
     --background: 240 10% 3.9%;
+
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;

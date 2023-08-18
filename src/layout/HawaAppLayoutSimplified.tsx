@@ -104,6 +104,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
           {size > 600 ? (
             <div
               className={clsx(
+                "dark:text-white",
                 isRTL
                   ? [size > 600 ? "mr-14" : "mr-2", keepOpen ? "mr-40" : ""]
                   : [size > 600 ? "ml-14" : "ml-2", keepOpen ? "ml-40" : ""]
@@ -165,7 +166,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
 
           <div
             className={clsx(
-              "flex gap-2",
+              "flex gap-2 dark:text-white",
               isRTL ? "flex-row-reverse" : "flex-row"
             )}
           >
@@ -194,7 +195,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
               // position={isRTL ? "bottom-left" : "bottom-left"}
               // position={isRTL ? "right-bottom" : "bottom-left"}
             >
-              <div className="relative h-8 w-8  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
+              <div className="relative h-8 w-8 mx-2  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
                 <AvatarIcon />
               </div>
             </HawaMenu>
@@ -229,8 +230,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         <div
           dir={direction}
           className={clsx(
-            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-layoutPrimary-500 transition-all"
-            // "bg-blue-400",
+            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-layoutPrimary-500  transition-all"
           )}
           style={{
             width:
@@ -319,12 +319,12 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                       )}
                     >
                       <div className="flex flex-row" dir={direction}>
-                        <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center dark:text-white">
                           {dItem.icon}
                         </div>
                         <div
                           className={clsx(
-                            "mx-2 whitespace-nowrap text-sm transition-all",
+                            "mx-2 whitespace-nowrap text-sm transition-all dark:text-white",
                             openSideMenu ? "opacity-100" : "opacity-0"
                           )}
                         >
@@ -353,7 +353,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     {dItem.subItems && (
                       <div
                         className={clsx(
-                          "m-1 mx-2 flex cursor-pointer flex-col gap-1 overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
+                          "m-1 mx-2 flex cursor-pointer flex-col gap-[2px] overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
                           openSubItem == dItem.slug && openSideMenu
                             ? ""
                             : "my-0 py-0",
@@ -374,7 +374,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                               isRTL ? "text-right" : "text-left",
                               props.currentPage === subIt.slug
                                 ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
-                                : "hover:bg-layoutPrimary-500"
+                                : "hover:bg-layoutPrimary-500 dark:text-white"
                             )}
                             dir={direction}
                             onClick={() => {
@@ -535,10 +535,11 @@ const ArrowIcon = ({ pointing, color }) => {
   return (
     <svg
       className={clsx(
-        "h-6 w-6 shrink-0  transition-all  disabled:bg-gray-200",
+        "h-6 w-6 shrink-0 transition-all   disabled:bg-gray-200  dark:text-white",
         directionStyle
       )}
-      fill={color}
+      // fill={color}
+      fill="currentColor"
       viewBox="0 0 20 20"
     >
       <path

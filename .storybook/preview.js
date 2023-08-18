@@ -8,6 +8,11 @@ export const parameters = {
       date: /Date$/
     }
   },
+  darkMode: {
+    darkClass: 'dark',
+    lightClass: 'light',
+    stylePreview: true,
+  },
   options: {
     storySort: {
       order: [
@@ -48,6 +53,6 @@ export const parameters = {
   }
 };
 
-export const globalTypes = {
-  darkMode: true
-};
+// export const globalTypes = {
+//   darkMode: true
+// };
