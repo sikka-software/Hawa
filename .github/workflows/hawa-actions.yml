@@ -5,26 +5,26 @@ on:
     branches: [main]
 
 jobs:
-#   setup_build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
+  #   setup_build:
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - name: Checkout repository
+  #         uses: actions/checkout@v2
 
-#       - name: Setup Node.js v16
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: 16
+  #       - name: Setup Node.js v16
+  #         uses: actions/setup-node@v2
+  #         with:
+  #           node-version: 16
 
-#       - name: Install dependencies
-#         run: |
-#           if [ -e 'package-lock.json' ]; then 
-#             npm ci
-#           else 
-#             npm install
-#           fi
+  #       - name: Install dependencies
+  #         run: |
+  #           if [ -e 'package-lock.json' ]; then
+  #             npm ci
+  #           else
+  #             npm install
+  #           fi
 
-  build_storybook:
+  build_deploy_storybook:
     # needs: setup_build
     runs-on: ubuntu-latest
     steps:
@@ -47,19 +47,29 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-  deploy_storybook:
-    needs: build_storybook
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy Storybook to GitHub Pages
+        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.0
         with:
-          branch: gh-pages
-          folder: docs
-          token: ${{ secrets.GH_TOKEN }}
+          # Specifies if this action should checkout the code
+          checkout: # optional, default is true
+          # Specifies the path of the static assets after building
+          # optional, default is dist/storybook
+          path: docs
+    # Specifies the command to run after npm ci for the build
+
+    #   deploy_storybook:
+    # needs: build_storybook
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v2
+
+    #   - name: Deploy to GitHub Pages
+    #     uses: JamesIves/github-pages-deploy-action@v4
+    #     with:
+    #       branch: gh-pages
+    #       folder: docs
+    #       token: ${{ secrets.GH_TOKEN }}
 
   npm_publish:
     # needs: setup_build
@@ -77,16 +87,16 @@ jobs:
       - name: Setup Node.js v16
         uses: actions/setup-node@v2
         with:
-            node-version: 16
-  
+          node-version: 16
+
       - name: Install dependencies
         run: |
-            if [ -e 'package-lock.json' ]; then 
-              npm ci
-            else 
-              npm install
-            fi
-  
+          if [ -e 'package-lock.json' ]; then 
+            npm ci
+          else 
+            npm install
+          fi
+
       - name: Build Library
         run: npm run build-lib
 
