@@ -117,16 +117,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"
         },
-        // #f6f5fe
-        // #edebfd lighter
-        // #d2cdfa
-        // #b7aff7
-        // #8273f1
-        // #4c37eb default
-        // #4432d4
-        // #3929b0 700 (darker)
-        // #2e218d
-        // #251b73
 
         blackA: {
           1: "hsla(0, 0%, 0%, 0.012)",
@@ -172,9 +162,9 @@ module.exports = {
         },
 
         buttonPrimary: {
-          300: "var(--button-primary-300)",
-          500: "var(--button-primary-500)",
-          700: "var(--button-primary-700)"
+          300: "hsl(var(--button-primary-300))",
+          500: "hsl(var(--button-primary-500))",
+          700: "hsl(var(--button-primary-700))"
         },
         buttonSecondary: {
           300: "var(--button-secondary-300)",

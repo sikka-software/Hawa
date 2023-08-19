@@ -1,7 +1,35 @@
 import React, { useState, FC } from "react"
 import Countries from "../countries"
 import Select from "react-select"
-
+type MenuTypes = {
+  cx: any
+  children: any
+  getStyles: any
+  innerProps: any
+  innerRef: any
+}
+const Menu: FC<MenuTypes> = ({
+  cx,
+  children,
+  getStyles,
+  innerProps,
+  innerRef,
+  ...props
+}) => {
+  return (
+    <div
+      // width: 190,
+      // borderRadius: "0.5rem",
+      className="absolute z-50 w-[190px] rounded border bg-background"
+      // "absolute z-10 mt-2 flex  w-full flex-col  justify-start  rounded bg-white p-1 px-1.5 ring-1 ring-blue-200"
+      ref={innerRef}
+      {...innerProps}
+      // {...props}
+    >
+      {children}
+    </div>
+  )
+}
 type OptionTypes = {
   cx: any
   data: any
@@ -20,7 +48,7 @@ const Option: FC<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="m-2 flex flex-row items-center justify-between rounded p-1 px-2 hover:bg-blue-200"
+    className="m-2 flex cursor-pointer flex-row items-center justify-between rounded-inner p-1 px-2 hover:bg-buttonPrimary-500/30 dark:text-white dark:hover:bg-buttonPrimary-500/60"
     {...innerProps}
   >
     <div className="flex flex-row items-center justify-center gap-1">
@@ -45,45 +73,69 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
   return (
     <div className="mb-3 flex flex-col">
       {props.label && (
-        <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+        <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
           {props.label}
         </label>
       )}
-      <div dir="ltr" className="flex flex-row">
+      <div dir="ltr" className="flex flex-row ">
         <Select
+          classNames={{
+            control: () => "w-[64px] border rounded-l bg-background text-right pr-2",
+            placeholder: (state) => "text-muted-foreground text-right pr-2",
+            input: (state) =>
+              "bg-transparent text-white  p-2  rounded-l text-[0.875rem]",
+            valueContainer: () => " rounded-l h-auto text-[0.875rem]",
+            // container: () => "bg-orange-400 border-none",
+            // control: () => "bg-blue-500",
+            // menu: () => "bg-red-900",
+          }}
           styles={{
-            input: (base) => ({
-              ...base,
-              fontSize: "0.875rem",
-              "input:focus": {
-                boxShadow: "none",
-              },
-              lineHeight: "1.25rem",
-              padding: "0.37rem",
-              paddingLeft: 0,
-            }),
-            singleValue: (base) => ({
+            // input: (base) => ({
+            //   ...base,
+            //   fontSize: "0.875rem",
+            //   "input:focus": {
+            //     boxShadow: "none",
+            //   },
+            //   lineHeight: "1.25rem",
+            //   padding: "0.37rem",
+            //   paddingLeft: 0,
+            //   textAlign: "right",
+            //   direction: "ltr",
+            // }),
+            // singleValue: (base) => ({
+            //   ...base,
+            //   fontSize: "0.875rem",
+            //   // textAlign: "right",
+            // }),
+            placeholder: (base) => ({
               ...base,
               fontSize: "0.875rem",
               textAlign: "right",
             }),
-            control: (base) => ({
-              ...base,
-              width: 64,
-              borderRadius: "0.5rem",
-              borderTopRightRadius: 0,
-              borderBottomRightRadius: 0,
-            }),
-            menu: (base) => ({
-              ...base,
-              width: 190,
-              borderRadius: "0.5rem",
-            }),
+            // control: (base) => ({
+            //   ...base,
+            //   width: 64,
+            //   borderRadius: "0.5rem",
+            //   borderTopRightRadius: 0,
+            //   borderBottomRightRadius: 0,
+            // }),
+            // menu: (base) => ({
+            //   ...base,
+            //   width: 190,
+            //   borderRadius: "0.5rem",
+            // }),
           }}
           components={{
             Option,
+            Menu,
+            // SelectContainer,
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
+            // Placeholder: () => <div className="bg-red-400">test</div>,
+            // SelectContainer:
+            //   () =>
+            //   ({ innerProps, innerRef }) =>
+            //     <div ref={innerRef} {...innerProps} />,
           }}
           // className="bg-red-500"
 
@@ -92,6 +144,7 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
           isSearchable={true}
           isClearable={false}
           placeholder="+966"
+          unstyled
           defaultValue={props.preferredCountry}
           value={selectedCountry}
           onChange={(newValue, action) => setSelectedCountry(newValue)}
@@ -100,7 +153,10 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
           onChange={props.handleChange}
           type="number"
           placeholder="531045453"
-          className="block w-full appearance-none rounded rounded-l-none border border-l-0 border-gray-300 bg-gray-50 p-2.5 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          // text-gray-900 dark:text-gray-300
+          // dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500
+          className="block w-full appearance-none rounded rounded-l-none border border-l-0
+            bg-background p-2 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:text-white "
         />
         {props.helperText && (
           <p className="mb-1 mt-1 text-xs text-red-600 dark:text-red-500">

@@ -21,10 +21,10 @@ export default {
     HawaCardInput
   ],
   parameters: {
-    backgrounds: {
-      default: "light",
-      values: [{ name: "light", value: "#ECEBE4" }]
-    }
+    // backgrounds: {
+    //   default: "light",
+    //   values: [{ name: "light", value: "#ECEBE4" }]
+    // }
   },
   argsTypes: {
     type: {
@@ -132,8 +132,16 @@ PinInput.args = {
 
 export const SelectInput = (args) => {
   return (
-    <div className="grid">
-      <HawaSelect {...args} />
+    <div className="flex flex-row gap-2">
+      <HawaSelect {...args} />{" "}
+      <HawaTextField
+        helpertext="something invalid"
+        placeholder="input placeholder"
+        // preview: true,
+        type="text"
+        width="full"
+        label="Full Width"
+      />
     </div>
   );
 };

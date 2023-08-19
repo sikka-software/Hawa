@@ -58,7 +58,7 @@ const Menu: FC<MenuTypes> = ({
 }) => {
   return (
     <div
-      className="absolute z-10 mt-2 flex  w-full flex-col  justify-start  rounded bg-white p-1 px-1.5 ring-1 ring-blue-200"
+      className="absolute z-10 mt-2 flex w-full  flex-col justify-start  rounded  border  bg-background p-1  px-1.5"
       ref={innerRef}
       {...innerProps}
       // {...props}
@@ -87,7 +87,7 @@ const Option: FC<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="flex flex-row items-center justify-between rounded p-1 px-2 hover:bg-buttonPrimary-500 hover:text-white"
+    className="flex flex-row items-center justify-between rounded-inner p-1 px-2 hover:bg-buttonPrimary-500/50 hover:text-white"
     {...innerProps}
   >
     {children}
@@ -116,7 +116,7 @@ type SelectTypes = {
 }
 export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
-    <div>
+    <div className=" w-96">
       {props.label && (
         <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {props.label}
@@ -124,6 +124,15 @@ export const HawaSelect: FC<SelectTypes> = (props) => {
       )}
       {!props.isCreatable && (
         <Select
+          classNames={{
+            // control: () => "text-white",
+            placeholder: (state) => "px-2 text-muted-foreground",
+            input: (state) => "text-white px-2",
+            valueContainer: () => "text-white dark:text-muted-foreground",
+            singleValue: () => "text-black dark:text-white px-2",
+            indicatorsContainer: () => " px-2 cursor-pointer text-muted-foreground",
+          }}
+          unstyled
           isDisabled={props.disabled}
           options={props.options}
           isClearable={props.isClearable}
