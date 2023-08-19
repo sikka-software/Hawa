@@ -1,0 +1,22 @@
+{
+  "plain": "Plain",
+  "plain-subtitle": "This is an snackbar-style notification in plain style",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Enter your email",
+  "emailRequiredText": "Email is required",
+  "emailInvalidText": "Invalid email address",
+  "usernameLabel": "Username",
+  "usernamePlaceholder": "Enter your username",
+  "usernameRequired": " Username is required",
+  "phoneRequiredText": "Phone is required",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Enter password",
+  "passwordRequiredText": "Password is required",
+  "forgotPasswordText": "Forgot password?",
+  "newUserText": "New user?",
+  "signUpText": "Sign up",
+  "signInText": "Sign in",
+  "googleButtonLabel": "Sign in with Google",
+  "githubButtonLabel": "Sign in with Github",
+  "twitterButtonLabel": "Sign in with Twitter"
+}

@@ -3,6 +3,7 @@ import { HawaButton, HawaSnackbar } from "../../elements";
 import { Story, Meta } from "@storybook/react";
 import { FaEdit } from "react-icons/fa";
 import { BsGoogle, BsTwitter } from "react-icons/bs";
+import { t, setLocale } from "../../translations/i18n";
 
 export default {
   title: "Elements/Snackbar",
@@ -30,10 +31,14 @@ export default {
   // }
 };
 
-const Template = (args) => {
+const Template = (args, globals) => {
+  let isAr = globals.globals.locale === "ar";
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   return <HawaSnackbar {...args} />;
 };
-const SnackbarTemplate = (args) => {
+const SnackbarTemplate = (args, globals) => {
   const [bars, setBars] = useState([
     {
       title: "Plain",
@@ -43,14 +48,18 @@ const SnackbarTemplate = (args) => {
       position: "bottom-left"
     }
   ]);
+  let isAr = globals.globals.locale === "ar";
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   return (
-    <div>
+    <div dir={isAr ? "rtl" : "ltr"}>
       <HawaButton
         onClick={() =>
           setBars([
             ...bars,
             {
-              title: "Plain #" + Math.floor(Math.random() * 100),
+              title: t("plain") + "#" + Math.floor(Math.random() * 100),
               description:
                 "This is an second alert indicating that there was a successful action",
               severity: "none",
@@ -59,7 +68,7 @@ const SnackbarTemplate = (args) => {
           ])
         }
       >
-        Add Snackbar
+        {isAr ? "إضافة شريط" : "Add Snackbar"}
       </HawaButton>
       {bars.map((bar, i) => (
         <HawaSnackbar
@@ -67,7 +76,7 @@ const SnackbarTemplate = (args) => {
           onCloseSnakbar={() => {
             setBars([
               {
-                title: "Plain #" + Math.floor(Math.random() * 100),
+                title: t("plain") + "#" + Math.floor(Math.random() * 100),
                 description:
                   "This is an second alert indicating that there was a successful action",
                 severity: "none",
@@ -91,12 +100,7 @@ const SnackbarTemplate = (args) => {
   );
 };
 export const Plain = SnackbarTemplate.bind({});
-Plain.args = {
-  title: "Plain",
-  description: "This is an alert indicating that there was a successful action",
-  severity: "none",
-  position: "bottom-left"
-};
+
 export const Success = Template.bind({});
 Success.args = {
   title: "Success",

@@ -108,7 +108,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
         </div>
         <button
           type="button"
-          className="right-0 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="right-0 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
           data-dismiss-target="#toast-default"
           aria-label="Close"
           onClick={() => {
@@ -118,6 +118,7 @@ export const HawaSnackbar: FC<THawaSnackBar> = ({
         >
           <span className="sr-only">Close</span>
           <svg
+            aria-label="Close Button"
             aria-hidden="true"
             className="h-5 w-5"
             fill="currentColor"

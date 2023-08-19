@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SignInForm } from "../../../blocks/AuthForms";
+import { t, setLocale } from "../../../translations/i18n";
 
 export default {
   title: "Blocks/Auth/Sign In",
@@ -100,16 +101,40 @@ export default {
   }
 };
 
-const SignInTemplate = (args) => {
+const SignInTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   const [isLoading, setIsLoading] = useState(false);
   return (
     <SignInForm
+      direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
       isLoading={isLoading}
       handleForgotPassword={() => console.log("forgot password")}
       handleSignIn={(e) => {
         console.log("Form result: ", e);
       }}
       {...args}
+      texts={{
+        emailLabel: t("emailLabel"),
+        emailPlaceholder: t("emailPlaceholder"),
+        emailRequiredText: t("emailRequiredText"),
+        emailInvalidText: t("emailInvalidText"),
+        usernameLabel: t("usernameLabel"),
+        usernamePlaceholder: t("usernamePlaceholder"),
+        usernameRequired: t("usernameRequired"),
+        phoneRequiredText: t("phoneRequiredText"),
+        passwordLabel: t("passwordLabel"),
+        passwordPlaceholder: t("passwordPlaceholder"),
+        passwordRequiredText: t("passwordRequiredText"),
+        forgotPasswordText: t("forgotPasswordText"),
+        newUserText: t("newUserText"),
+        signUpText: t("signUpText"),
+        signInText: t("signInText"),
+        googleButtonLabel: t("googleButtonLabel"),
+        githubButtonLabel: t("githubButtonLabel"),
+        twitterButtonLabel: t("twitterButtonLabel")
+      }}
     />
   );
 };
@@ -124,26 +149,26 @@ SignIn.args = {
   withoutResetPassword: false,
   signInType: "email",
   errorTitle: "Error",
-  errorText: "Something went wrong",
-  direction: "en",
-  texts: {
-    emailLabel: "Email",
-    emailPlaceholder: "Enter your email",
-    emailRequiredText: "Email is required",
-    emailInvalidText: "Invalid email address",
-    usernameLabel: "Username",
-    usernamePlaceholder: "Enter your username",
-    usernameRequired: " Username is required",
-    phoneRequiredText: "Phone is required",
-    passwordLabel: "Password",
-    passwordPlaceholder: "Enter password",
-    passwordRequiredText: "Password is required",
-    forgotPasswordText: "Forgot password?",
-    newUserText: "New user?",
-    signUpText: "Sign up",
-    signInText: "Sign in",
-    googleButtonLabel: "Sign in with Google",
-    githubButtonLabel: "Sign in with Github",
-    twitterButtonLabel: "Sign in with Twitter"
-  }
+  errorText: "Something went wrong"
+  // direction: "en"
+  // texts: {
+  //   emailLabel: "Email",
+  //   emailPlaceholder: "Enter your email",
+  //   emailRequiredText: "Email is required",
+  //   emailInvalidText: "Invalid email address",
+  //   usernameLabel: "Username",
+  //   usernamePlaceholder: "Enter your username",
+  //   usernameRequired: " Username is required",
+  //   phoneRequiredText: "Phone is required",
+  //   passwordLabel: "Password",
+  //   passwordPlaceholder: "Enter password",
+  //   passwordRequiredText: "Password is required",
+  //   forgotPasswordText: "Forgot password?",
+  //   newUserText: "New user?",
+  //   signUpText: "Sign up",
+  //   signInText: "Sign in",
+  //   googleButtonLabel: "Sign in with Google",
+  //   githubButtonLabel: "Sign in with Github",
+  //   twitterButtonLabel: "Sign in with Twitter"
+  // }
 };

@@ -8,10 +8,12 @@ module.exports = {
 
   stories: ["./../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
+    "./custom-toolbar.js",
+
     "@storybook/addon-links",
     "@storybook/addon-docs",
     "@storybook/addon-essentials",
-    'storybook-dark-mode',
+    "storybook-dark-mode",
     {
       name: "@storybook/addon-postcss",
       options: {

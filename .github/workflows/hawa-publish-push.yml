@@ -4,10 +4,8 @@
 name: Hawa Build, Deploy, and Publish on Push
 
 on:
-  # push:
-  # branches: [main]
-  release:
-    types: [created]
+  push:
+    branches: [main]
 
 jobs:
   build:
@@ -28,23 +26,23 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-  # Deployment job
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-        # with:
-        # branch: gh-pages
-        # folder: docs
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v2
+  # # Deployment job
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v2
+  #       # with:
+  #       # branch: gh-pages
+  #       # folder: docs
+  #     # - name: Deploy to GitHub Pages
+  #     #   id: deployment
+  #     #   uses: actions/deploy-pages@v2
 
   # Publishing to NPM
   publish:

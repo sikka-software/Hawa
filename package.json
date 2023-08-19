@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.0.283",
+  "version": "0.0.284",
   "description": "SaaS Oriented UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -46,6 +46,7 @@
     "@storybook/addon-links": "^6.5.8",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addons": "^6.5.8",
+    "@storybook/api": "^7.3.2",
     "@storybook/builder-webpack5": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.13",
     "@storybook/react": "^6.5.8",

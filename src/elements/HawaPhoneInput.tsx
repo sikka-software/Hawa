@@ -80,11 +80,13 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
       <div dir="ltr" className="flex flex-row ">
         <Select
           classNames={{
-            control: () => "w-[64px] border rounded-l bg-background text-right pr-2",
-            placeholder: (state) => "text-muted-foreground text-right pr-2",
+            // container: () => "cursor-pointer z-10 border rounded-l bg-background",
+            control: () =>
+              "w-[64px] text-right pr-2 cursor-pointer z-10 border rounded-l bg-background",
+            placeholder: (state) => "text-muted-foreground text-right ",
             input: (state) =>
-              "bg-transparent text-white  p-2  rounded-l text-[0.875rem]",
-            valueContainer: () => " rounded-l h-auto text-[0.875rem]",
+              "bg-transparent cursor-pointer dark:text-white p-2 rounded-l text-[0.875rem] ",
+            valueContainer: () => "rounded-l h-auto text-[0.875rem]",
             // container: () => "bg-orange-400 border-none",
             // control: () => "bg-blue-500",
             // menu: () => "bg-red-900",
@@ -155,7 +157,7 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
           placeholder="531045453"
           // text-gray-900 dark:text-gray-300
           // dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500
-          className="block w-full appearance-none rounded rounded-l-none border border-l-0
+          className="block  w-full  appearance-none rounded rounded-l-none border border-l-0
             bg-background p-2 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:text-white "
         />
         {props.helperText && (

@@ -1,0 +1,22 @@
+{
+  "plain": "سادة",
+  "plain-subtitle": "هذا إشعار يظهر لما نبغى نعطي المستخدم خبر عن حدوث شيء معين",
+  "emailLabel": "البريد الإلكتروني",
+  "emailPlaceholder": "ادخل البريد الإلكتروني",
+  "emailRequiredText": "البريد الإلكتروني مطلوب",
+  "emailInvalidText": "البريد الإلكتروني غير صحيح",
+  "usernameLabel": "اسم المستخدم",
+  "usernamePlaceholder": "ادخل المستخدم",
+  "usernameRequired": " اسم المستخدم مطلوب",
+  "phoneRequiredText": "رقم الجوال مطلوب",
+  "passwordLabel": "كلمة المرور",
+  "passwordPlaceholder": "أدخل كلمة المرور",
+  "passwordRequiredText": "كبمة المرور مطلوبة",
+  "forgotPasswordText": "نسيت كلمة المرور؟",
+  "newUserText": "مستخدم جديد؟",
+  "signUpText": "تسجيل جديد",
+  "signInText": "تسجيل الدخول",
+  "googleButtonLabel": "Sign in with Google",
+  "githubButtonLabel": "Sign in with Github",
+  "twitterButtonLabel": "Sign in with Twitter"
+}

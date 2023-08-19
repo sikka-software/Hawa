@@ -116,7 +116,7 @@ type SelectTypes = {
 }
 export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
-    <div className=" w-96">
+    <div className=" w-full">
       {props.label && (
         <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {props.label}
@@ -125,12 +125,14 @@ export const HawaSelect: FC<SelectTypes> = (props) => {
       {!props.isCreatable && (
         <Select
           classNames={{
-            // control: () => "text-white",
-            placeholder: (state) => "px-2 text-muted-foreground",
-            input: (state) => "text-white px-2",
+            // control: () => "bg-blue-500 w-full",
+            // container: () => "bg-red-500 w-full",
+            placeholder: () => "px-2 text-muted-foreground",
+            input: () => "text-white px-2",
             valueContainer: () => "text-white dark:text-muted-foreground",
             singleValue: () => "text-black dark:text-white px-2",
-            indicatorsContainer: () => " px-2 cursor-pointer text-muted-foreground",
+            indicatorsContainer: () =>
+              " px-2 cursor-pointer text-muted-foreground",
           }}
           unstyled
           isDisabled={props.disabled}

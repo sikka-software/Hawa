@@ -2,7 +2,7 @@ name: Build, Deploy Storybook and Publish to NPM
 
 on:
   push:
-    branches: [main]
+    branches: [gogo]
 
 jobs:
   #   setup_build:
