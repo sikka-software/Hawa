@@ -60,7 +60,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
   return (
     <HawaContainer>
       <div>
-        <div className="mb-2 text-center text-xl font-semibold">
+        <div className="mb-2 text-center text-xl font-semibold dark:text-white">
           {props.texts.orderDetails}
         </div>
         <div className="rounded border border-gray-300">
@@ -79,7 +79,7 @@ export const CheckoutForm: FC<CheckoutFormTypes> = (props) => {
         </div>
       </div>
       <div>
-        <div className="my-2 text-center text-xl font-semibold">
+        <div className="my-2 text-center text-xl font-semibold dark:text-white">
           {props.texts.billingAddress}
         </div>
 

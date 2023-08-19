@@ -287,7 +287,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
             </HawaButton>
           </form>
         </FormProvider>
-        <div className="flex flex-row items-center justify-center gap-1 p-3  text-center text-sm font-semibold">
+        <div className="flex flex-row items-center justify-center gap-1 p-3 text-center  text-sm font-semibold dark:text-white">
           <span>{props.texts.existingUserText}</span>
           <span
             onClick={props.handleRouteToSignIn}

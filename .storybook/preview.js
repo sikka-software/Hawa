@@ -8,10 +8,23 @@ export const parameters = {
       date: /Date$/
     }
   },
+  // backgrounds: {
+  //   default: "light",
+  //   values: [
+  //     {
+  //       name: "light",
+  //       value: "#ffffff"
+  //     },
+  //     {
+  //       name: "dark",
+  //       value: "#1d1d1d"
+  //     }
+  //   ]
+  // },
   darkMode: {
-    darkClass: 'dark',
-    lightClass: 'light',
-    stylePreview: true,
+    darkClass: "dark",
+    lightClass: "light",
+    stylePreview: true
   },
   options: {
     storySort: {

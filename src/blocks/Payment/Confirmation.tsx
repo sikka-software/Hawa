@@ -10,8 +10,6 @@ type ConfirmationPageTypes = {
     successMessage: string
     orderDetails: string
     fasterPaymentNote: string
-    billingAddress: string
-    payNow: string
     yourOrderNumber: string
     emailLabel: string
     emailRequiredText: string
@@ -46,10 +44,10 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
   return (
     <HawaContainer>
       {" "}
-      <div className="py-5 text-center text-3xl font-bold">
+      <div className="py-5 text-center text-3xl font-bold dark:text-white">
         {props.confirmationTitle}
       </div>
-      <div className="py-5">
+      <div className="py-5 dark:text-white">
         <div className="mb-2 text-center">
           {props.texts.successMessage} <strong>{props.userEmail}</strong>
         </div>
@@ -81,11 +79,11 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
         <HawaButton color="primary" width="full" onClick={props.handleHome}>
           {props.texts.homePage}
         </HawaButton>
-        <div className="mb-5 mt-5 text-center text-sm">
+        <div className="mb-5 mt-5 text-center text-sm dark:text-white">
           {props.texts.fasterPaymentNote}
         </div>
         <a
-          className="w-fit cursor-pointer  text-center text-xs font-normal"
+          className="w-fit cursor-pointer text-center  text-xs font-normal dark:text-white"
           onClick={props.handleRefundPolicyLink}
         >
           {props.texts.refundPolicy}
