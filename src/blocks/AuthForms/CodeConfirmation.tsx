@@ -33,11 +33,11 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           severity="error"
         />
       )}
-      <div className="mb-4">
+      <div className="mb-4 dark:text-white">
         <div className="text-lg font-bold">
           {props.texts.checkYourPhone ?? "Please check your phone"}
         </div>
-        <div className="text-gray-500">
+        <div className="text-muted-foreground">
           <span>{props.texts.weSentCode ?? "We've sent a code to "}</span>
           <span>{props.phoneNumber}</span>
         </div>{" "}
@@ -51,7 +51,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
         }}
       >
         <HawaPinInput width="full" digits={6} getPins={(e) => setPins(e)} />
-        <div className=" py-2 text-center text-xs">
+        <div className=" py-2 text-center text-xs text-muted-foreground">
           <span>{props.texts.didntGetCode ?? "Didn't get the code?"}</span>{" "}
           <span className="cursor-pointer text-buttonPrimary-500">
             {props.texts.resendCode ?? "Click to resend"}

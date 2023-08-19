@@ -20,7 +20,6 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
 
   return (
     <HawaContainer>
-      {" "}
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit((e) => props.handleUpdateProfile(e))}>
           <Controller

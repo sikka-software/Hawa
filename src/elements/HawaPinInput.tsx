@@ -64,7 +64,7 @@ export const HawaPinInput: FC<PinInputTypes> = ({
           id={`input-${index}`}
           pattern="[0-9]*"
           className={clsx(
-            "h-10 rounded bg-white text-center",
+            "h-10 rounded border bg-background text-center",
             width === "full" ? "w-full" : "w-10"
           )}
           onChange={(e) => handleChange(e, index)}

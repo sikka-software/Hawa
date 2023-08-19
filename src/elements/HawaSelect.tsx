@@ -31,7 +31,7 @@ const Control: FC<ControlTypes> = ({
       ref={innerRef}
       className={clsx(
         sizeStyles[size],
-        "flex  w-full rounded border border-gray-300 bg-gray-50 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+        "flex  w-full rounded border bg-background text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:focus:ring-blue-500"
       )}
       {...innerProps}
       // {...props}

@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { HawaContainer } from "../../layout"
 
 type UserSettingsFormTypes = {
   children: any
@@ -9,7 +10,7 @@ type UserSettingsFormTypes = {
 
 export const UserSettingsForm: FC<UserSettingsFormTypes> = (props) => {
   return (
-    <div>
+    <HawaContainer>
       <div className="mb-2 text-sm font-bold">{props.blockTitle}</div>
       <div className="flex flex-col gap-4 rounded bg-white p-2">
         {props.children}
@@ -23,6 +24,6 @@ export const UserSettingsForm: FC<UserSettingsFormTypes> = (props) => {
       >
         {props.saveSettingsText}
       </HawaButton> */}
-    </div>
+    </HawaContainer>
   )
 }

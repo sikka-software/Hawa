@@ -106,6 +106,7 @@ module.exports = {
         inner: "var(--border-radius-inner)"
       },
       colors: {
+        border: "hsl(var(--border))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         muted: {
