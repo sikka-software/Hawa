@@ -27,36 +27,43 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-  # # Deployment job
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v2
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
-  publish-npm:
+  # Publishing to NPM
+  publish:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Use Node.js v16
+        uses: actions/setup-node@v2
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: |
+      - name: Install dependencies
+        run: |
           if [ -e 'package-lock.json' ]; then 
            npm ci
           else 
            npm install
           fi
-      - run: npm run build-lib
-      - run: npm run build:styles
-      - run: npm run generate-css
-      - run: npm publish
+      - name: Build Library
+        run: npm run build-lib
+      - name: Build Styles
+        run: npm run build:styles
+      - name: Generate Tailwind Styles
+        run: npm run generate-css
+      - name: Publish to NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
