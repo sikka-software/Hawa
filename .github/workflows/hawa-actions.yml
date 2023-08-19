@@ -5,7 +5,27 @@ on:
     branches: [main]
 
 jobs:
-  setup_build:
+#   setup_build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js v16
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+
+#       - name: Install dependencies
+#         run: |
+#           if [ -e 'package-lock.json' ]; then 
+#             npm ci
+#           else 
+#             npm install
+#           fi
+
+  build_storybook:
+    # needs: setup_build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,16 +44,8 @@ jobs:
             npm install
           fi
 
-  build_storybook:
-    needs: setup_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Build Storybook
         run: npm run build-storybook
-        # assuming your build command is `npm run build-storybook`
 
   deploy_storybook:
     needs: build_storybook
@@ -43,14 +55,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.x
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: docs
           token: ${{ secrets.GH_TOKEN }}
 
   npm_publish:
-    needs: setup_build
+    # needs: setup_build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -62,6 +74,19 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
+      - name: Setup Node.js v16
+        uses: actions/setup-node@v2
+        with:
+            node-version: 16
+  
+      - name: Install dependencies
+        run: |
+            if [ -e 'package-lock.json' ]; then 
+              npm ci
+            else 
+              npm install
+            fi
+  
       - name: Build Library
         run: npm run build-lib
 
