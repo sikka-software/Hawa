@@ -69,13 +69,13 @@ export const ReferralStats: FC<TReferralStats> = ({
 }
 
 const NumberCard = (props) => (
-  <div className="w-full rounded bg-white p-2">
+  <div className="w-full rounded border bg-background p-2">
     <div className="text-sm">{props.title}</div>
     <div className="font-bold">{props.number}</div>
   </div>
 )
 const ReferralSignUpCard = (props) => (
-  <div className="mb-3 rounded border-b bg-white p-2">
+  <div className="mb-3 rounded border-b bg-background p-2">
     <div className="text-xs">{props.date}</div>
     <div className="flex flex-row justify-between">
       <div>{props.email}</div>

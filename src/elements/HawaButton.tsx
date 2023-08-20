@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   tooltipDirection?: "rtl" | "ltr"
   color?: "default" | "primary" | "secondary" | "light" | "dark"
   width?: "full" | "normal" | "half"
-  size?: "xs" | "small" | "medium" | "large" | "noPadding" | "full"
+  size?: "xs" | "small" | "medium" | "large" | "noPadding" | "full" | "icon"
   margins?: "none" | "1" | "2" | "3" | "4"
   tooltip?: string
   tooltipSize?: "normal" | "small" | "large"
@@ -36,11 +36,13 @@ const disabledVariantSyles = {
   outlined: "text-gray-300 border-gray-300",
 }
 const baseStyles =
-  "cursor-pointer h-[2.36rem] justify-center items-center text-center font-medium transition-all"
+  "cursor-pointer  justify-center items-center text-center font-medium transition-all "
 const sizeStyles = {
-  xs: "px-1 py-1",
+  icon: "h-10 w-10",
+  xs: "px-1.5 py-2 text-[9px] h-fit",
   small: "text-xs px-2.5 py-1.5",
   medium: "text-sm leading-4 px-3 py-2",
+  default: "h-10 px-4 py-2",
   large: "text-sm px-4 py-2",
   noPadding: "p-0",
   full: "h-full max-h-full p-2",
@@ -58,7 +60,9 @@ const containerWidthStyles = {
 }
 const variantStyles = {
   contained: "border-transparent",
-  outlined: "bg-transparent border",
+  // outlined: "bg-transparent border",
+  outlined:
+    "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
 }
 const colorStyles = {
   contained: {
@@ -77,8 +81,8 @@ const colorStyles = {
     primary: "text-black hover:bg-gray-50  dark:text-white",
     secondary:
       " dark:text-white text-secondary-800 border-secondary-800 hover:bg-buttonSecondary-700 hover:text-white",
-    gray: "border-gray-300 hover:bg-gray-200  ",
-    dark: "border-gray-900 hover:bg-gray-700  ",
+    gray: "border-gray-300 hover:bg-gray-200",
+    dark: "border-gray-900 hover:bg-gray-700",
   },
 }
 
@@ -86,7 +90,7 @@ export const HawaButton: FC<ButtonProps> = ({
   className,
   variant = "contained",
   color = "default",
-  size = "medium",
+  size = "default",
   width = "normal",
   disabled = false,
   isLoading = false,

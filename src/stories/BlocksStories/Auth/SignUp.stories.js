@@ -1,5 +1,6 @@
 import React from "react";
 import { SignUpForm } from "../../../blocks/AuthForms";
+import { t, setLocale } from "../../../translations/i18n";
 
 export default {
   title: "Blocks/Auth/Sign Up",
@@ -58,24 +59,28 @@ export default {
   }
 };
 
-const SignUpTemplate = (args) => {
+const SignUpTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   return (
     <SignUpForm
+      direction={locale === "ar" ? "rtl" : "ltr"}
       {...args}
       texts={{
-        fullNameLabel: "Full Name",
-        fullNamePlaceholder: "Fulan AlFulani",
-        fullNameRequiredText: "Full Name is required",
-        emailLabel: "Email",
-        emailPlaceholder: "Enter your email",
-        emailRequiredText: "Email is required",
-        emailInvalidText: "Invalid email address",
-        usernameLabel: "Username",
-        usernamePlaceholder: "Enter your username",
-        usernameRequired: " Username is required",
-        passwordLabel: "Password",
-        passwordPlaceholder: "Minimum 8 characters",
-        passwordRequiredText: "Password is required",
+        fullNameLabel: t("fullNameLabel"),
+        fullNamePlaceholder: t("fullNamePlaceholder"),
+        fullNameRequiredText: t("fullNameRequiredText"),
+        emailLabel: t("emailLabel"),
+        emailPlaceholder: t("emailPlaceholder"),
+        emailRequiredText: t("emailRequiredText"),
+        emailInvalidText: t("emailInvalidText"),
+        usernameLabel: t("usernameLabel"),
+        usernamePlaceholder: t("usernamePlaceholder"),
+        usernameRequired: t("usernameRequired"),
+        passwordLabel: t("passwordLabel"),
+        passwordPlaceholder: t("passwordPlaceholder"),
+        passwordRequiredText: t("passwordRequiredText"),
         passwordTooShortText: "Password too short",
         subscribeToNewsletter: "Subscribe to newsletter?",
         confirmPasswordLabel: "Confirm Password",
@@ -88,9 +93,9 @@ const SignUpTemplate = (args) => {
         signUpText: "Sign up",
         signInText: "Sign in",
         existingUserText: "Existing User?",
-        googleButtonLabel: "Sign up with Google",
-        githubButtonLabel: "Sign up with Github",
-        twitterButtonLabel: "Sign up with Twitter",
+        signUpViaGoogleLabel: t("signUpViaGoogleLabel"),
+        signUpViaGithubLabel: t("signUpViaGithubLabel"),
+        signUpViaTwitterLabel: t("signUpViaTwitterLabel"),
         refCode: "Referral Code"
       }}
       showError={args.showError}
@@ -118,6 +123,5 @@ SignUp.args = {
   showRefCode: true,
   showError: false,
   errorTitle: "Error",
-  errorText: "Something went wrong",
-  direction: "en"
+  errorText: "Something went wrong"
 };

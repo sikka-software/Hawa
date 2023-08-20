@@ -39,7 +39,7 @@ export const Tooltip = (args) => {
     // </div>
     <div
       dir={args.direction}
-      className="flex h-screen w-full items-center justify-center bg-red-200"
+      className="flex h-screen w-full items-center justify-center"
     >
       <HawaButton
         tooltip={args.content}

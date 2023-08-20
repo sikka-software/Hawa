@@ -197,8 +197,8 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       )}
       <div
         className={clsx(
-          "flex flex-col justify-center rounded border border-dashed border-black  transition-all hover:bg-gray-100 ",
-          isDragActive ? "bg-layoutPrimary-500" : "bg-white"
+          "flex flex-col justify-center rounded border border-dashed  transition-all hover:bg-gray-100 dark:hover:bg-gray-800 ",
+          isDragActive ? "bg-gray-200 dark:bg-gray-700" : "bg-background"
         )}
       >
         <div {...getRootProps({})}>

@@ -5,21 +5,7 @@ import React, { useState } from "react";
 export default {
   title: "Elements/Settings",
   component: [HawaSettingsRow],
-  parameters: {
-    backgrounds: {
-      default: "twitter",
-      values: [
-        {
-          name: "twitter",
-          value: "#C2FBEF"
-        },
-        {
-          name: "facebook",
-          value: "#3b5998"
-        }
-      ]
-    }
-  },
+
   argTypes: {
     options: {
       control: "array",

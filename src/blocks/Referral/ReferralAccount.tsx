@@ -15,7 +15,7 @@ export const ReferralAccount: FC<ReferralAccount> = ({
     <HawaContainer>
       <div className="my-2 mt-0">
         <div className="mb-1">Referral Code</div>
-        <div className="flex flex-row items-center justify-between rounded bg-white">
+        <div className="flex flex-row items-center justify-between rounded border bg-background">
           <span className="ml-3 font-bold">{referralCode}</span>
           <HawaButton
             tooltip="Copy"
@@ -39,7 +39,7 @@ export const ReferralAccount: FC<ReferralAccount> = ({
       </div>
       <div className="my-2 mt-0">
         <div className="mb-1">Referral Link</div>
-        <div className="flex flex-row items-center justify-between rounded bg-white">
+        <div className="flex flex-row items-center justify-between rounded border bg-background">
           <span className="ml-3 font-bold">{referralLink}</span>
           <HawaButton
             className="mr-1.5"

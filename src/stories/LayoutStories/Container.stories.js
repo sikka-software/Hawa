@@ -3,16 +3,7 @@ import { HawaContainer } from "../../layout";
 
 export default {
   title: "Layout/Container",
-  component: <HawaContainer />,
-  parameters: {
-    backgrounds: {
-      default: "light"
-      // values: [
-      //   { name: "light", value: theme.lightBackground },
-      //   { name: "dark", value: theme.darkBackground }
-      // ]
-    }
-  }
+  component: <HawaContainer />
 };
 
 const Template = (args) => {

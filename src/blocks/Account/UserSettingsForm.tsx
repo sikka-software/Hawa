@@ -12,9 +12,7 @@ export const UserSettingsForm: FC<UserSettingsFormTypes> = (props) => {
   return (
     <HawaContainer>
       <div className="mb-2 text-sm font-bold">{props.blockTitle}</div>
-      <div className="flex flex-col gap-4 rounded bg-white p-2">
-        {props.children}
-      </div>
+      <div className="flex flex-col gap-4 rounded  p-2">{props.children}</div>
       {/* <HawaButton
         color="primary"
         // type="submit"

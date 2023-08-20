@@ -19,6 +19,7 @@
 
     --button-primary-300: 247 72% 61%;
     --button-primary-500: 247 82% 57%;
+    --button-primary-500-hsl: hsl(247, 82%, 57%);
     --button-primary-700: 247 71% 39%;
 
     --button-secondary-500: #ffc011;
@@ -41,9 +42,11 @@
     --layout-primary-600: #2d2d2d;
     --layout-primary-700: #1d1d1d;
     --layout-primary-300: #4a4a4a;
+    /* --layout-primary-300: hsl(240, 8%, 10%); */
     --border: 240 3.7% 15.9%;
 
-    --background: 240 10% 3.9%;
+    /* --background: 240 10% 3.9%; //odd */
+    --background: 240 8% 10%;
 
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -72,10 +75,10 @@
     margin-right: 0.25em;
     width: 0.75em;
     vertical-align: middle;
-    color: var(--button-primary-500);
+    color: var(--button-primary-500-hsl);
   }
   .link {
-    color: var(--button-primary-500);
+    color: var(--button-primary-500-hsl);
   }
   .link:hover {
     text-decoration: underline;
@@ -136,7 +139,7 @@
     left: 11px;
     content: " ";
     display: block;
-    background: var(--button-primary-500);
+    background: var(--button-primary-500-hsl);
   }
   .radio-item-bordered input[type="radio"]:checked + label:after {
     border-radius: 100%;
@@ -147,7 +150,7 @@
     left: 23px;
     content: " ";
     display: block;
-    background: var(--button-primary-500);
+    background: var(--button-primary-500-hsl);
   }
 }
 @layer base {

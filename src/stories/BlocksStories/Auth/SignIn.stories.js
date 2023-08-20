@@ -131,9 +131,9 @@ const SignInTemplate = (args, globals) => {
         newUserText: t("newUserText"),
         signUpText: t("signUpText"),
         signInText: t("signInText"),
-        googleButtonLabel: t("googleButtonLabel"),
-        githubButtonLabel: t("githubButtonLabel"),
-        twitterButtonLabel: t("twitterButtonLabel")
+        signInViaGoogleLabel: t("signInViaGoogleLabel"),
+        signInViaGithubLabel: t("signInViaGithubLabel"),
+        signInViaTwitterLabel: t("signInViaTwitterLabel")
       }}
     />
   );

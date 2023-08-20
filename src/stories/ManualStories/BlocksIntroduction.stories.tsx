@@ -30,7 +30,7 @@ export default {
 }
 const BlocksIntroduction = () => {
   return (
-    <div>
+    <div className="dark:text-white">
       <h1>Blocks Components</h1>
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress

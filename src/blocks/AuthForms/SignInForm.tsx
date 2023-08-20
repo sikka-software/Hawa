@@ -142,21 +142,24 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
           {props.viaGoogle && (
             <HawaLogoButton
               logo="google"
-              buttonText={props.texts.googleButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signInViaGoogleLabel}
               onClick={props.handleGoogleSignIn}
             />
           )}
           {props.viaGithub && (
             <HawaLogoButton
               logo="github"
-              buttonText={props.texts.githubButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signInViaGithubLabel}
               onClick={props.handleGithubSignIn}
             />
           )}
           {props.viaTwitter && (
             <HawaLogoButton
               logo="twitter"
-              buttonText={props.texts.twitterButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signInViaTwitterLabel}
               onClick={props.handleTwitterSignIn}
             />
           )}
@@ -188,9 +191,9 @@ type SignInFormTypes = {
     newUserText?: string
     signUpText?: string
     signInText?: string
-    googleButtonLabel?: string
-    githubButtonLabel?: string
-    twitterButtonLabel?: string
+    signInViaGoogleLabel?: string
+    signInViaGithubLabel?: string
+    signInViaTwitterLabel?: string
   }
   withoutResetPassword?: boolean
   withoutSignUp?: boolean

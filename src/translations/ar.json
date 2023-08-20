@@ -5,6 +5,9 @@
   "emailPlaceholder": "ادخل البريد الإلكتروني",
   "emailRequiredText": "البريد الإلكتروني مطلوب",
   "emailInvalidText": "البريد الإلكتروني غير صحيح",
+  "fullNameLabel": "الإسم الكامل",
+  "fullNamePlaceholder": "فلان الفلاني",
+  "fullNameRequired": "الإسم الكامل مطلوب",
   "usernameLabel": "اسم المستخدم",
   "usernamePlaceholder": "ادخل المستخدم",
   "usernameRequired": " اسم المستخدم مطلوب",
@@ -16,7 +19,11 @@
   "newUserText": "مستخدم جديد؟",
   "signUpText": "تسجيل جديد",
   "signInText": "تسجيل الدخول",
-  "googleButtonLabel": "Sign in with Google",
-  "githubButtonLabel": "Sign in with Github",
-  "twitterButtonLabel": "Sign in with Twitter"
+
+  "signInViaGoogleLabel": "الدخول بواسطة Google",
+  "signInViaGithubLabel": "الدخول بواسطة Github",
+  "signInViaTwitterLabel": "الدخول بواسطة Twitter",
+  "signUpViaGoogleLabel": "التسجيل بواسطة Google",
+  "signUpViaGithubLabel": "التسجيل بواسطة Github",
+  "signUpViaTwitterLabel": "التسجيل بواسطة Twitter"
 }

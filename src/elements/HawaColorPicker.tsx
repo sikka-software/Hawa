@@ -10,7 +10,7 @@ type ColorPickerTypes = {
 export const HawaColorPicker: FC<ColorPickerTypes> = (props) => {
   const [selectedColor, setSelectedColor] = useState(props.color)
   return (
-    <div className={`flex w-fit flex-row rounded border-2 border-gray-200 p-0`}>
+    <div className={`flex w-fit flex-row rounded border p-0`}>
       <div
         style={{ backgroundColor: selectedColor }}
         className="rounded-bl-lg rounded-tl-lg"
@@ -33,7 +33,7 @@ export const HawaColorPicker: FC<ColorPickerTypes> = (props) => {
           props.handleChange(e)
         }}
         value={selectedColor}
-        className="w-24  rounded-br-lg rounded-tr-lg pl-2 pr-2"
+        className="w-24 bg-background  rounded-br-lg rounded-tr-lg pl-2 pr-2"
       />
     </div>
   )

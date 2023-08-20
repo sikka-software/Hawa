@@ -9,6 +9,15 @@
 />
 
 <style>
+  /* #getting-started-installation--installation,
+  #getting-started-usage--usage,
+  #getting-started-customization--customization,
+  #blocks-introduction--introduction,
+  #layout-introduction--introduction,
+  #elements-introduction--introduction,
+  #getting-started-overview--overview {
+    padding-top: 6px;
+  } */
   #getting-started-installation--installation,
   #getting-started-usage--usage,
   #getting-started-customization--customization,
@@ -38,7 +47,17 @@
   #elements-introduction--introduction::before,
   #getting-started-overview--overview::before {
     position: relative;
+    /* content: url("/assets/doc-icon.svg"); */
     content: url("/doc-icon.svg");
     margin-right: 5px;
+  }
+  #getting-started-installation--installation:focus::before,
+  #getting-started-usage--usage:focus::before,
+  #getting-started-customization--customization:focus::before,
+  #blocks-introduction--introduction:focus::before,
+  #layout-introduction--introduction:focus::before,
+  #elements-introduction--introduction:focus::before,
+  #getting-started-overview--overview:focus::before {
+    color: white;
   }
 </style>

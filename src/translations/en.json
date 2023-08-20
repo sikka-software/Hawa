@@ -5,9 +5,12 @@
   "emailPlaceholder": "Enter your email",
   "emailRequiredText": "Email is required",
   "emailInvalidText": "Invalid email address",
+  "fullNameLabel": "Full Name",
+  "fullNamePlaceholder": "Fulan AlFulani",
+  "fullNameRequired": "Full Name is required",
   "usernameLabel": "Username",
   "usernamePlaceholder": "Enter your username",
-  "usernameRequired": " Username is required",
+  "usernameRequired": "Username is required",
   "phoneRequiredText": "Phone is required",
   "passwordLabel": "Password",
   "passwordPlaceholder": "Enter password",
@@ -16,7 +19,10 @@
   "newUserText": "New user?",
   "signUpText": "Sign up",
   "signInText": "Sign in",
-  "googleButtonLabel": "Sign in with Google",
-  "githubButtonLabel": "Sign in with Github",
-  "twitterButtonLabel": "Sign in with Twitter"
+  "signInViaGoogleLabel": "Sign in with Google",
+  "signInViaGithubLabel": "Sign in with Github",
+  "signInViaTwitterLabel": "Sign in with Twitter",
+  "signUpViaGoogleLabel": "Sign up with Google",
+  "signUpViaGithubLabel": "Sign up with Github",
+  "signUpViaTwitterLabel": "Sign up with Twitter"
 }

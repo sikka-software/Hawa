@@ -69,9 +69,9 @@ export const HawaRadio: FC<RadioTypes> = ({
       return (
         <div className={clsx(orientationStyle[orientation], "gap-4")}>
           {props.options.map((opt, i) => (
-            <div className="rounded border border-gray-200  ">
+            <div className="rounded border border-gray-200   ">
               <div
-                className="radio-item radio-item-bordered flex items-center   transition-all"
+                className="radio-item radio-item-bordered flex items-center    transition-all"
                 key={i + 1}
               >
                 <input
@@ -85,7 +85,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                 <label
                   htmlFor={opt.value.toString()}
                   className={clsx(
-                    "ml-2 w-full  p-4 pl-3  text-sm font-medium",
+                    "ml-2 w-full  p-4 pl-3  text-sm font-medium dark:text-white",
                     opt.disabled ? "opacity-50" : "cursor-pointer text-gray-900"
                   )}
                 >
@@ -164,7 +164,7 @@ export const HawaRadio: FC<RadioTypes> = ({
               <label
                 htmlFor={opt.value.toString()}
                 className={clsx(
-                  "ml-2 text-sm font-medium ",
+                  "ml-2 text-sm font-medium dark:text-white",
                   opt.disabled
                     ? "text-gray-400"
                     : "cursor-pointer text-gray-900"

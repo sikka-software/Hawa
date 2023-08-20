@@ -44,7 +44,7 @@ export const HawaTooltip: FC<THawaToolTip> = ({
   })
 
   let defaultTooltipStyles =
-    "absolute z-10   rounded bg-gray-900  text-center text-sm font-medium text-white shadow-sm transition-all duration-300 dark:bg-gray-700"
+    "absolute z-10   rounded bg-gray-100  text-center text-sm font-medium text-foreground dark:text-white  shadow-sm transition-all duration-300 dark:bg-gray-700"
   let sizeStyles = {
     normal: "py-2 px-3 leading-2",
     small: "py-2 px-2 text-[10px] leading-tight",

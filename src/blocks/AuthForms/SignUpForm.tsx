@@ -38,9 +38,9 @@ type SignUpFormTypes = {
     signUpText: string
     signInText: string
     existingUserText: string
-    googleButtonLabel: string
-    githubButtonLabel: string
-    twitterButtonLabel: string
+    signUpViaGoogleLabel: string
+    signUpViaGithubLabel: string
+    signUpViaTwitterLabel: string
     refCode: string
   }
   showUserSource: any
@@ -302,21 +302,24 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
           {props.viaGoogle && (
             <HawaLogoButton
               logo="google"
-              buttonText={props.texts.googleButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signUpViaGoogleLabel}
               onClick={props.handleGoogleSignUp}
             />
           )}
           {props.viaGithub && (
             <HawaLogoButton
               logo="github"
-              buttonText={props.texts.githubButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signUpViaGithubLabel}
               onClick={props.handleGithubSignUp}
             />
           )}
           {props.viaTwitter && (
             <HawaLogoButton
               logo="twitter"
-              buttonText={props.texts.twitterButtonLabel}
+              direction={props.direction}
+              buttonText={props.texts.signUpViaTwitterLabel}
               onClick={props.handleTwitterSignUp}
             />
           )}

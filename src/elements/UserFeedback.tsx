@@ -47,11 +47,11 @@ export const UserFeedback: FC<ComponentTypes> = ({
   return (
     <div
       ref={popUpRef}
-      className={clsx("fixed bottom-4", boxPosition[position])}
+      className={clsx("fixed bottom-4 ", boxPosition[position])}
     >
       <div
         className={clsx(
-          "relative flex w-full max-w-sm flex-col gap-2 rounded bg-white p-4 shadow-md transition-all",
+          "relative flex w-full max-w-sm flex-col gap-2 rounded border bg-background p-4 shadow-md transition-all",
           closed ? "opacity-0" : "opacity-100"
         )}
       >
@@ -96,7 +96,7 @@ export const UserFeedback: FC<ComponentTypes> = ({
                 "w-full cursor-pointer rounded border  p-4 text-center transition-all ",
                 clickedOption === op
                   ? "bg-gray-500 text-white"
-                  : "bg-white hover:bg-gray-100"
+                  : "border bg-background hover:bg-gray-300 dark:hover:bg-gray-700"
               )}
             >
               {op}

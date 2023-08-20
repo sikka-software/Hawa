@@ -66,7 +66,11 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
           />
         </div>
         {data.map((d) => (
-          <label htmlFor={d.title} onClick={() => setSelectedCard(d.title)}>
+          <label
+            htmlFor={d.title}
+            className=""
+            onClick={() => setSelectedCard(d.title)}
+          >
             <input
               type="radio"
               name="radio"
@@ -76,7 +80,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             <div
               className={clsx(
                 selectedCard === d.title ? "peer-checked:border-blue-500" : "",
-                "peer flex cursor-pointer items-center justify-between rounded-xl border-2 border-transparent bg-white px-5 py-4 shadow  peer-checked:[&_.active]:block peer-checked:[&_.default]:hidden"
+                "peer flex cursor-pointer items-center justify-between  rounded-xl border bg-background px-5   py-4 shadow dark:text-white  peer-checked:[&_.active]:block peer-checked:[&_.default]:hidden"
               )}
             >
               <div className="peer flex items-center gap-4">
@@ -125,13 +129,17 @@ const CheckIcons = () => (
   </>
 )
 const CardText = (props) => (
-  <div className="peer flex flex-col items-start">
-    <h2 className="font-medium text-neutral-700 sm:text-xl">{props.title}</h2>
-    <p className="text-sm text-neutral-500">{props.subtitle} </p>
+  <div className="peer flex flex-col items-start ">
+    <h2 className="font-medium text-neutral-700 dark:text-gray-100 sm:text-xl">
+      {props.title}
+    </h2>
+    <p className="text-sm text-neutral-500 dark:text-gray-300">
+      {props.subtitle}{" "}
+    </p>
   </div>
 )
 const CardPrice = (props) => (
-  <h2 className="peer text-xl font-semibold text-neutral-900 sm:text-2xl">
+  <h2 className="peer text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
     {props.amount}
     <span className="text-base font-medium text-neutral-400">
       {props.cycle}
