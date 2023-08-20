@@ -83,6 +83,7 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
               required: props.texts.passwordRequiredText,
             }}
           />
+
           <Controller
             control={control}
             name="confirmPassword"
@@ -101,49 +102,8 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
               required: props.texts.confirmPasswordRequiredText,
             }}
           />
-          {inputs.length > 0 &&
-            inputs.map((singleInput: any) => {
-              if (singleInput.type === "textArea") {
-                return (
-                  <Controller
-                    control={control}
-                    name={singleInput.name}
-                    render={({ field }) => (
-                      <HawaTextField
-                        width="full"
-                        type="text"
-                        defaultValue={singleInput.defaultValue ?? null}
-                        label={singleInput.label ?? null}
-                        placeholder={singleInput.placeHolder ?? null}
-                      />
-                    )}
-                    rules={singleInput.rules ?? null}
-                  />
-                )
-              }
-              return (
-                <Controller
-                  control={control}
-                  name={singleInput.name}
-                  render={({ field }) => (
-                    <HawaTextField
-                      width="full"
-                      type={singleInput.type}
-                      defaultValue={singleInput.defaultValue ?? null}
-                      label={singleInput.label ?? null}
-                      placeholder={singleInput.placeHolder ?? null}
-                    />
-                  )}
-                  rules={singleInput.rules ?? null}
-                />
-              )
-            })}
 
-          <HawaButton
-            color="primary"
-            width="full"
-            // type="submit"
-          >
+          <HawaButton color="primary" width="full">
             {props.texts.updateProfile}
           </HawaButton>
         </form>

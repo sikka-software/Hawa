@@ -2,6 +2,7 @@ import "../src/tailwind.css";
 import { useEffect, useContext } from "react";
 import { setLocale } from "../src/translations/i18n";
 // import { Context } from "@storybook/addon-context";
+import { themes } from "@storybook/theming";
 
 const withI18n = (StoryFn, context) => {
   const locale = context.globals.locale || "en";
@@ -21,12 +22,29 @@ export const parameters = {
   },
 
   darkMode: {
+    current: "light",
+    light: {
+      ...themes.light,
+      brandTitle: "Hawa UI",
+      brandUrl: "https://sikka.io",
+      brandImage:
+        "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png"
+    },
+    dark: {
+      ...themes.dark,
+      brandTitle: "Hawa UI",
+      brandUrl: "https://sikka.io",
+      brandImage:
+        "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo-dark-mode.png"
+    },
     darkClass: "dark",
     lightClass: "light",
     stylePreview: true
   },
 
   options: {
+    showPanel: false,
+
     storySort: {
       order: [
         "Getting Started",
@@ -66,27 +84,9 @@ export const parameters = {
   }
 };
 export const globalTypes = {
-  // theme: {
-  //   description: "Global theme for components",
-  //   defaultValue: "light",
-  //   toolbar:
-  //     // The label to show for this toolbar item
-
-  //     {
-  //       title: "Color Mode",
-  //       icon: "circlehollow",
-  //       // Array of plain string values or MenuItem shape (see below)
-  //       items: ["light", "dark"],
-  //       // Change title based on selected value
-  //       dynamicTitle: true,
-  //       onClick: () => console.log("Logging data!"),
-  //       right: true, // Places this on the right side of the toolbar
-  //       onChange: (value) => console.log(value)
-  //     }
-  // },
   locale: {
     name: "Locale",
-    description: "Internationalization locale",
+    description: "Langauge Switcher",
     defaultValue: "en",
     toolbar: {
       icon: "globe",

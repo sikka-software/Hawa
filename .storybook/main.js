@@ -5,11 +5,8 @@ module.exports = {
   core: {
     builder: "webpack5"
   },
-
   stories: ["./../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
-    "./custom-toolbar.js",
-
     "@storybook/addon-links",
     "@storybook/addon-docs",
     "@storybook/addon-essentials",

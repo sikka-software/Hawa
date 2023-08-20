@@ -64,7 +64,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
       {props.label && (
         <label
           // htmlFor="first_name"
-          className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
+          className="mb-2 block text-sm font-medium "
         >
           {props.label}
         </label>

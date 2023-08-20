@@ -73,9 +73,7 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
   return (
     <div className="mb-3 flex flex-col">
       {props.label && (
-        <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-          {props.label}
-        </label>
+        <label className="mb-2 block text-sm font-medium">{props.label}</label>
       )}
       <div dir="ltr" className="flex flex-row ">
         <Select
@@ -157,8 +155,10 @@ export const HawaPhoneInput: FC<HawaPhoneInputTypes> = (props) => {
           placeholder="531045453"
           // text-gray-900 dark:text-gray-300
           // dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500
-          className="block  w-full  appearance-none rounded rounded-l-none border border-l-0
-            bg-background p-2 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:text-white "
+          className="block w-full rounded-r  border bg-background p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+
+          // className="block  w-full  appearance-none rounded rounded-l-none border border-l-0
+          //   bg-background p-2 text-[0.875rem] text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:text-white "
         />
         {props.helperText && (
           <p className="mb-1 mt-1 text-xs text-red-600 dark:text-red-500">

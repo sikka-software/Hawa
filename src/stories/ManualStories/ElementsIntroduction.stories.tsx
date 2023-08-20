@@ -4,6 +4,31 @@ import { storiesOf } from "@storybook/react"
 import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
 
+export default {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
+    // customIcon: <AiFillSafetyCertificate />,
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
+  },
+  title: "Elements/Introduction",
+}
+
 const ElementsIntroduction = () => {
   return (
     <div>
@@ -58,12 +83,13 @@ const ElementsIntroduction = () => {
     </div>
   )
 }
+export const Introduction = ElementsIntroduction
 
-storiesOf("Elements/Introduction", module)
-  .addParameters({
-    docs: {
-      page: () => <ElementsIntroduction />,
-    },
-    docsOnly: true,
-  })
-  .add("Elements/Introduction", () => <ElementsIntroduction />)
+// storiesOf("Elements/Introduction", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <ElementsIntroduction />,
+//     },
+//     docsOnly: true,
+//   })
+//   .add("Elements/Introduction", () => <ElementsIntroduction />)

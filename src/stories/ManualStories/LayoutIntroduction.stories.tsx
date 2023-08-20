@@ -3,6 +3,53 @@ import { storiesOf } from "@storybook/react"
 import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
 
+export default {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
+
+    // customIcon: <AiFillSafetyCertificate />,
+    // customIcon: () => (
+    //   <svg
+    //     stroke="currentColor"
+    //     fill="none"
+    //     stroke-width="0"
+    //     viewBox="0 0 24 24"
+    //     height="1em"
+    //     width="1em"
+    //     xmlns="http://www.w3.org/2000/svg"
+    //   >
+    //     <path d="M7 18H17V16H7V18Z" fill="currentColor"></path>
+    //     <path d="M17 14H7V12H17V14Z" fill="currentColor"></path>
+    //     <path d="M7 10H11V8H7V10Z" fill="currentColor"></path>
+    //     <path
+    //       fill-rule="evenodd"
+    //       clip-rule="evenodd"
+    //       d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z"
+    //       fill="currentColor"
+    //     ></path>
+    //   </svg>
+    // ),
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
+  },
+  title: "Layout/Introduction",
+}
+
 const LayoutIntroduction = () => {
   return (
     <div>
@@ -178,12 +225,13 @@ const LayoutIntroduction = () => {
     </div>
   )
 }
+export const Introduction = LayoutIntroduction
 
-storiesOf("Layout/Introduction", module)
-  .addParameters({
-    docs: {
-      page: () => <LayoutIntroduction />,
-    },
-    docsOnly: true,
-  })
-  .add("Layout/Introduction", () => <LayoutIntroduction />)
+// storiesOf("Layout/Introduction", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <LayoutIntroduction />,
+//     },
+//     docsOnly: true,
+//   })
+//   .add("Layout/Introduction", () => <LayoutIntroduction />)

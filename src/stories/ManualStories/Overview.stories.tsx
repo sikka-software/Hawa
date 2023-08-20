@@ -5,9 +5,15 @@ import { AiFillSafetyCertificate } from "react-icons/ai"
 import { useDarkMode } from "storybook-dark-mode"
 
 export default {
-  controls: { hideNoControlsWarning: true, exclude: [] },
   parameters: {
-        //  docsOnly: true,
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
 
     // customIcon: <AiFillSafetyCertificate />,
     customIcon: () => (
@@ -31,11 +37,16 @@ export default {
         ></path>
       </svg>
     ),
-    toolbar: { visibility: "hidden" },
-    layout: "none",
-    options: {
-      showPanel: false,
-    },
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
   },
   title: "Getting Started/Overview",
 }

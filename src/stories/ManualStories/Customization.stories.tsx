@@ -4,6 +4,33 @@ import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
 import { HawaCodeBlock } from "../../elements/HawaCodeBlock"
 
+export default {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
+
+    // customIcon: <AiFillSafetyCertificate />,
+
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
+  },
+  title: "Getting Started/Customization",
+}
+
 const ThemeIntroduction = () => {
   const codeSnippet = `:root {
     /* Primary Layout Colors */
@@ -60,12 +87,13 @@ const ThemeIntroduction = () => {
     </div>
   )
 }
+export const Customization = ThemeIntroduction
 
-storiesOf("Getting Started / Customization", module)
-  .addParameters({
-    docs: {
-      page: () => <ThemeIntroduction />,
-    },
-    docsOnly: true,
-  })
-  .add("Getting Started / Customization", () => <ThemeIntroduction />)
+// storiesOf("Getting Started / Customization", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <ThemeIntroduction />,
+//     },
+//     docsOnly: true,
+//   })
+//   .add("Getting Started / Customization", () => <ThemeIntroduction />)

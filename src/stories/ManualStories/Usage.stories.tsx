@@ -3,6 +3,33 @@ import { storiesOf } from "@storybook/react"
 import "../stories-styles.css"
 import { HawaCodeBlock, HawaInlineCode } from "../../elements"
 
+export default {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
+
+    // customIcon: <AiFillSafetyCertificate />,
+
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
+  },
+  title: "Getting Started/Usage",
+}
+
 const UsagePage = () => {
   const codeSnippet = `
 :root {
@@ -61,12 +88,13 @@ const UsagePage = () => {
     </div>
   )
 }
+export const Usage = UsagePage
 
-storiesOf("Getting Started / Usage", module)
-  .addParameters({
-    docs: {
-      page: () => <UsagePage />,
-    },
-    docsOnly: true,
-  })
-  .add("Getting Started / Usage", () => <UsagePage />)
+// storiesOf("Getting Started / Usage", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <UsagePage />,
+//     },
+//     docsOnly: true,
+//   })
+//   .add("Getting Started / Usage", () => <UsagePage />)

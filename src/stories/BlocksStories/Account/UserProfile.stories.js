@@ -24,7 +24,7 @@ const ProfileTemplate = (args) => {
         passwordRequiredText: "Password is required",
         passwordTooShortText: "Password too short",
         updateProfile: "Update Profile",
-        confirmPasswordLabel: "Confirm",
+        confirmPasswordLabel: "Confirm new password",
         confirmPasswordPlaceholder: "Confirm password",
         confirmPasswordRequiredText: "Confirmation is required",
         passwordMatchError: "Password doesn't match"

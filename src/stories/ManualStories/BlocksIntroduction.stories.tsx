@@ -2,7 +2,32 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import { LinkTo, linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
+export default {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: {
+      expand: false,
+      disable: true,
+      hideNoControlsWarning: true,
+      exclude: [],
+    },
+    //  docsOnly: true,
 
+    // customIcon: <AiFillSafetyCertificate />,
+
+    // toolbar: { visibility: "hidden" },
+    // layout: "none",
+    // options: {
+    //   showPanel: false,
+    //   withKnobs: {
+    //     disable: true,
+    //   },
+    // },
+
+    options: { showPanel: false },
+  },
+  title: "Blocks/Introduction",
+}
 const BlocksIntroduction = () => {
   return (
     <div>
@@ -21,12 +46,13 @@ const BlocksIntroduction = () => {
     </div>
   )
 }
+export const Introduction = BlocksIntroduction
 
-storiesOf("Blocks/Introduction", module)
-  .addParameters({
-    docs: {
-      page: () => <BlocksIntroduction />,
-    },
-    docsOnly: true,
-  })
-  .add("Blocks/Introduction", () => <BlocksIntroduction />)
+// storiesOf("Blocks/Introduction", module)
+//   .addParameters({
+//     docs: {
+//       page: () => <BlocksIntroduction />,
+//     },
+//     docsOnly: true,
+//   })
+//   .add("Blocks/Introduction", () => <BlocksIntroduction />)
