@@ -1,7 +1,5 @@
 import "../src/tailwind.css";
-import { useEffect, useContext } from "react";
 import { setLocale } from "../src/translations/i18n";
-// import { Context } from "@storybook/addon-context";
 import { themes } from "@storybook/theming";
 
 const withI18n = (StoryFn, context) => {
@@ -10,8 +8,8 @@ const withI18n = (StoryFn, context) => {
   return <StoryFn />;
 };
 
-export const decorators = [withI18n];
 
+export const decorators = [withI18n];
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -20,7 +18,6 @@ export const parameters = {
       date: /Date$/
     }
   },
-
   darkMode: {
     current: "light",
     light: {
@@ -41,10 +38,8 @@ export const parameters = {
     lightClass: "light",
     stylePreview: true
   },
-
   options: {
     showPanel: false,
-
     storySort: {
       order: [
         "Getting Started",
@@ -93,31 +88,7 @@ export const globalTypes = {
       items: [
         { value: "en", right: "EN", title: "English" },
         { value: "ar", right: "AR", title: "Arabic" }
-        // ... other locales
       ]
     }
   }
 };
-// const preview = {
-//   globalTypes: {
-//     locale: {
-//       description: "Internationalization locale",
-//       defaultValue: "en",
-//       toolbar: {
-//         icon: "globe",
-//         items: [
-//           { value: "en", right: "🇺🇸", title: "English" },
-//           { value: "fr", right: "🇫🇷", title: "Français" },
-//           { value: "es", right: "🇪🇸", title: "Español" },
-//           { value: "zh", right: "🇨🇳", title: "中文" },
-//           { value: "kr", right: "🇰🇷", title: "한국어" }
-//         ]
-//       }
-//     }
-//   }
-// };
-
-// export default preview;
-// export const globalTypes = {
-//   darkMode: true
-// };

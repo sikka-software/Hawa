@@ -13,6 +13,7 @@ export default {
       hideNoControlsWarning: true,
       exclude: [],
     },
+    className: "test-class",
     //  docsOnly: true,
 
     // customIcon: <AiFillSafetyCertificate />,

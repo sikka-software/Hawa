@@ -8,7 +8,7 @@ addons.setConfig({
   initialActive: "canvas",
   sidebar: {
     showRoots: true,
-    collapsedRoots: ["blocks", "layout", "elements"],
+    collapsedRoots: ["blocks", "layout", "elements"]
     // renderLabel: (item) => <abbr title="...">{item.name}</abbr>
   },
   toolbar: {

@@ -2,8 +2,43 @@
 <link rel="icon" type="image/png" href="/hawa-icon.png" sizes="192x192" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link
   href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
   rel="stylesheet"
 />
 
+<style>
+  #getting-started-installation--installation,
+  #getting-started-usage--usage,
+  #getting-started-customization--customization,
+  #blocks-introduction--introduction,
+  #layout-introduction--introduction,
+  #elements-introduction--introduction,
+  #getting-started-overview--overview {
+    padding-top: 6px;
+  }
+
+  #getting-started-installation--installation svg,
+  #getting-started-usage--usage svg,
+  #getting-started-customization--customization svg,
+  #blocks-introduction--introduction svg,
+  #layout-introduction--introduction svg,
+  #elements-introduction--introduction svg,
+  #getting-started-overview--overview svg {
+    opacity: 0;
+    display: none;
+  }
+
+  #getting-started-installation--installation::before,
+  #getting-started-usage--usage::before,
+  #getting-started-customization--customization::before,
+  #blocks-introduction--introduction::before,
+  #layout-introduction--introduction::before,
+  #elements-introduction--introduction::before,
+  #getting-started-overview--overview::before {
+    position: relative;
+    content: url("/doc-icon.svg");
+    margin-right: 5px;
+  }
+</style>
