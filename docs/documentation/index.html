@@ -37,7 +37,16 @@
         /* eslint-enable object-shorthand */
       })
     );
-  };</script><link rel="shortcut icon" href="/favicon.ico"/><link rel="icon" type="image/png" href="/hawa-icon.png" sizes="192x192"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/><style>#getting-started-installation--installation,
+  };</script><link rel="shortcut icon" href="/favicon.ico"/><link rel="icon" type="image/png" href="/hawa-icon.png" sizes="192x192"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/><style>/* #getting-started-installation--installation,
+  #getting-started-usage--usage,
+  #getting-started-customization--customization,
+  #blocks-introduction--introduction,
+  #layout-introduction--introduction,
+  #elements-introduction--introduction,
+  #getting-started-overview--overview {
+    padding-top: 6px;
+  } */
+  #getting-started-installation--installation,
   #getting-started-usage--usage,
   #getting-started-customization--customization,
   #blocks-introduction--introduction,
@@ -66,8 +75,18 @@
   #elements-introduction--introduction::before,
   #getting-started-overview--overview::before {
     position: relative;
+    /* content: url("/assets/doc-icon.svg"); */
     content: url("/doc-icon.svg");
     margin-right: 5px;
+  }
+  #getting-started-installation--installation:focus::before,
+  #getting-started-usage--usage:focus::before,
+  #getting-started-customization--customization:focus::before,
+  #blocks-introduction--introduction:focus::before,
+  #layout-introduction--introduction:focus::before,
+  #elements-introduction--introduction:focus::before,
+  #getting-started-overview--overview:focus::before {
+    color: white;
   }</style><style>#root[hidden],
       #docs-root[hidden] {
         display: none !important;
