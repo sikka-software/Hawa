@@ -38,12 +38,12 @@ const Template = (args) => {
   const [alerts, setAlerts] = useState([1]);
   return (
     <div>
-      {alerts.map((a) => (
-        <HawaAlert {...args} />
-      ))}
       <HawaButton onClick={() => setAlerts([...alerts, 1])}>
         Add Alert
       </HawaButton>
+      {alerts.map((a) => (
+        <HawaAlert {...args} />
+      ))}
     </div>
   );
 };

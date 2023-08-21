@@ -121,7 +121,7 @@ const SettlementAccountCard = (props) => {
           // position={direction === "rtl" ? "right-bottom" : "left-bottom"}
           // direction={direction}
         >
-          <HawaButton variant="outlined" size="icon" >
+          <HawaButton variant="outlined"  >
             <svg
               aria-label="Vertical Three Dots Menu Icon"
               className="rotate-90"

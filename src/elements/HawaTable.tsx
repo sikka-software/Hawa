@@ -55,7 +55,7 @@ export const HawaTable: FC<TableTypes> = ({
   size = "normal",
   bodyColor = "white",
   headerColor = "gray-200",
-  borders,
+  borders = "all",
   highlightFirst = false,
   direction = "ltr",
   bordersWidth = "1",
@@ -130,7 +130,7 @@ export const HawaTable: FC<TableTypes> = ({
     <div className="relative flex flex-col gap-2 ">
       <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
         {props.headerTools && (
-          <div className="flex flex-row items-center justify-between gap-2 px-4 py-2">
+          <div className="flex flex-row items-center justify-between gap-2 border bg-background px-4  py-2">
             <HawaTextField
               icon={
                 <svg
@@ -189,7 +189,7 @@ export const HawaTable: FC<TableTypes> = ({
         <table
           className={clsx(
             borders === "outer" || borders === "all"
-              ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300`
+              ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300 dark:outline-gray-700`
               : "",
             "w-full  rounded   text-left text-sm text-gray-500 dark:text-gray-400",
             `bg-${headerColor}`
@@ -350,7 +350,7 @@ export const HawaTable: FC<TableTypes> = ({
                               }
                               direction={direction}
                             >
-                              <div className="flex w-fit  items-center justify-center rounded  p-2 hover:bg-gray-200">
+                              <div className="flex w-fit  cursor-pointer items-center justify-center rounded  p-2 hover:bg-gray-200 dark:hover:bg-gray-600">
                                 <svg
                                   aria-label="Vertical Three Dots Menu Icon"
                                   stroke="currentColor"
@@ -384,8 +384,9 @@ export const HawaTable: FC<TableTypes> = ({
                 <td colSpan={20}>
                   <div
                     className={clsx(
-                      "w-full rounded-b bg-white p-5 text-center",
-                      bodyColor ? `bg-${bodyColor}` : "bg-white"
+                      "w-full rounded-b  border p-5 text-center",
+                      // bodyColor ? `bg-${bodyColor}` : "bg-background"
+                      "bg-background"
                     )}
                   >
                     {props.texts?.noData ?? "No Data"}
@@ -405,7 +406,7 @@ export const HawaTable: FC<TableTypes> = ({
               {/* Previous Page Button */}
               <div
                 className={clsx(
-                  "flex h-6 w-6 rotate-180 items-center justify-center rounded bg-gray-100 p-1  text-xs hover:bg-layoutPrimary-700 "
+                  "flex h-6 w-6 rotate-180 cursor-pointer items-center justify-center rounded border bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700  dark:bg-background dark:hover:bg-gray-700 "
                 )}
                 onClick={() =>
                   page <= 1 ? setPage(range.length) : setPage(page - 1)
@@ -500,10 +501,15 @@ export const HawaTable: FC<TableTypes> = ({
                       <button
                         key={index}
                         className={clsx(
-                          "w-10 p-1 text-xs hover:bg-gray-200",
+                          "w-10 p-1 text-xs  hover:bg-gray-200 dark:hover:bg-gray-700",
                           page === el
                             ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
-                            : "bg-gray-100"
+                            : "border bg-background",
+
+                          index === 0 ? "rounded-l border-r-0" : "",
+                          index === range.length - 1
+                            ? "rounded-r border-l-0"
+                            : ""
                         )}
                         onClick={() => setPage(el)}
                       >
@@ -518,7 +524,7 @@ export const HawaTable: FC<TableTypes> = ({
                   page >= range.length ? setPage(1) : setPage(page + 1)
                 }
                 className={clsx(
-                  "flex h-6 w-6 items-center  justify-center rounded bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700 "
+                  "flex h-6 w-6  cursor-pointer items-center justify-center rounded border bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700  dark:bg-background dark:hover:bg-gray-700 "
                 )}
               >
                 <svg
@@ -542,14 +548,14 @@ export const HawaTable: FC<TableTypes> = ({
           )}
           {/* Pagination Settings */}
           {props.rows ? (
-            <div className="flex w-fit flex-row items-center gap-2 ">
+            <div className="flex w-fit flex-row items-center gap-2  ">
               <div className="text-xs ">
                 {props.rows.length} {props.texts?.items ?? "Items"}
               </div>
 
               <select
                 value={perPage}
-                className="h-6 rounded text-xs"
+                className="h-6 cursor-pointer rounded border bg-background px-2 text-xs"
                 onChange={(e) => {
                   setPerPage(parseInt(e.target.value))
                 }}

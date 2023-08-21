@@ -165,7 +165,7 @@ export const DataOnly = (args) => {
         { hidden: false, value: "Price" },
         { hidden: false, value: "Times Bought" }
       ]}
-      rows={makeDummyData(12)}
+      rows={makeDummyData(33)}
       {...args}
     />
   );
@@ -287,7 +287,8 @@ export const RTL = (args) => {
         columns={[
           { hidden: false, value: "المنتج" },
           { hidden: false, value: "السعر" },
-          { hidden: false, value: "الوزن" }
+          { hidden: false, value: "الوزن" },
+          { hidden: false, value: "الكمية" }
         ]}
         texts={{
           actions: "الإحرائات",
@@ -332,7 +333,8 @@ export const RTLWithActions = (args) => {
         columns={[
           { hidden: false, value: "المنتج" },
           { hidden: false, value: "السعر" },
-          { hidden: false, value: "الوزن" }
+          { hidden: false, value: "الوزن" },
+          { hidden: false, value: "الكمية" }
         ]}
         size={args.size}
         rows={dummyRowData}
