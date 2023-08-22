@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
+import { Button } from "./Button"
 
 type CodeBlockTypes = {
   color?: "dark" | "light"
@@ -56,7 +57,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
             <div
               className={clsx(
                 selectedTab === i
-                  ? "dark:border-buttonPrimary-400 border-b-2   border-buttonPrimary-700"
+                  ? " border-b-2   border-primary"
                   : "bg-transparent"
               )}
             >
@@ -73,7 +74,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
         </div>
       )}
       {fileName && (
-        <div className="flex flex-row gap-2 rounded-t p-2 pb-0 text-black bg-gray-100  dark:bg-gray-700 dark:text-white">
+        <div className="flex flex-row gap-2 rounded-t bg-gray-100 p-2 pb-0 text-black  dark:bg-gray-700 dark:text-white">
           <div
             className={clsx(
               "mb-1 w-full max-w-[52px] rounded-inner p-2 py-1 text-center text-[0.75rem]"
@@ -102,16 +103,18 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
             >
               Copied!
             </div>
-            <HawaButton
-              variant="outlined"
-              color="dark"
+            <Button
+              // variant="outlined"
+              // color="dark"
+              size="icon"
               onClick={() => {
                 handleCopyClick()
                 navigator.clipboard.writeText(
                   tabs ? tabs[selectedTab].code : code
                 )
               }}
-              margins="none"
+              // className="w-4"
+              // margins="none"
             >
               <svg
                 stroke="currentColor"
@@ -126,7 +129,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
                 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
               </svg>
-            </HawaButton>
+            </Button>
           </div>
         </code>
       </pre>

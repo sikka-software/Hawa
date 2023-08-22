@@ -20,7 +20,7 @@ const HawaBreadcrumb: FC<TBreadcrumb> = ({
             className={
               index + 1 === breadcrumbLinks.length
                 ? "pointer-events-none"
-                : "underline-offset-4 transition-all hover:text-buttonPrimary-500 hover:underline hover:decoration-2"
+                : "underline-offset-4 transition-all hover:text-primary hover:underline hover:decoration-2"
             }
           >
             {singleBreadcrumbLink.label}

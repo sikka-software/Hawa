@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import React, { FC } from "react"
 import { HawaButton } from "./HawaButton"
+import { Button } from "./Button"
 
 // TODO: if feature.excluded is false, show gray and x
 // TODO: add badge to feature if soon
@@ -31,27 +32,25 @@ export const HawaPricingCard: FC<PricingCardTypes> = ({
   let isArabic = direction === "rtl"
   let cardSizes = {
     small:
-      "mx-1 w-full  max-w-sm rounded border dark:border-gray-700 dark:bg-gray-800 ",
+      "mx-1 w-full  max-w-sm rounded border dark:border-gray-700 bg-background ",
     medium:
-      "mx-1 w-full rounded min-w-fit border dark:border-gray-700 dark:bg-gray-800 ",
+      "mx-1 w-full rounded min-w-fit border dark:border-gray-700 bg-background ",
     large:
-      "mx-1 w-full max-w-lg rounded border dark:border-gray-700 dark:bg-gray-800 ",
+      "mx-1 w-full max-w-lg rounded border dark:border-gray-700 bg-background ",
   }
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
       className={clsx(
-        currentPlan
-          ? "border-buttonPrimary-500 bg-layoutPrimary-500"
-          : "bg-white",
+        currentPlan ? "border-primary" : "bg-background",
         cardSizes[size],
         "flex flex-col gap-4 rounded border-2 p-4"
       )}
     >
-      <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
+      <h5 className="text-md 0 font-bold text-primary/70">
         {props.texts.title}
       </h5>
-      <div className=" flex items-baseline  text-gray-900 dark:text-white">
+      <div className=" text-primary/ flex  items-baseline">
         <>
           <span className="text-5xl font-extrabold tracking-tight">
             {props.price}
@@ -60,11 +59,11 @@ export const HawaPricingCard: FC<PricingCardTypes> = ({
             {props.texts.currencyText}
           </span>
         </>
-        <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
+        <span className="ml-1 text-xl font-normal text-primary/70">
           / {props.texts.cycleText}
         </span>
       </div>
-      <h5 className="text-md  font-normal text-gray-500 dark:text-gray-400">
+      <h5 className="text-md  font-normal text-primary/70">
         {props.texts.subtitle}
       </h5>
 
@@ -74,19 +73,19 @@ export const HawaPricingCard: FC<PricingCardTypes> = ({
             return (
               <li key={o} className="flex ">
                 <svg
+                  aria-label="Check Icon"
                   aria-hidden="true"
-                  className="m-2 h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-500"
+                  className="m-2 h-5 w-5 flex-shrink-0 text-primary"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <title>Check icon</title>
                   <path
                     fillRule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="flex items-center  text-center font-normal leading-tight text-gray-500  dark:text-gray-400">
+                <span className="flex items-center  text-center font-normal leading-tight text-primary/70 ">
                   {feature.text}
                 </span>
               </li>
@@ -94,14 +93,13 @@ export const HawaPricingCard: FC<PricingCardTypes> = ({
           })}
         </ul>
       )}
-      <HawaButton
+      <Button
         onClick={props.onPlanClicked}
-        margins="none"
         disabled={currentPlan}
-        width="full"
+        className="w-full"
       >
         {props.texts.buttonText}
-      </HawaButton>
+      </Button>
     </div>
   )
 }

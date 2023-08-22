@@ -59,7 +59,7 @@ const makeDummyData = (len) => {
           // value: (
           //   <div className="mt-2 h-2.5 w-full rounded bg-gray-200 dark:bg-gray-700">
           //     <div
-          //       className="h-2.5 rounded bg-buttonPrimary-500"
+          //       className="h-2.5 rounded bg-primary"
           //       style={{
           //         width: `${randomNumber ?? 0}%`
           //       }}

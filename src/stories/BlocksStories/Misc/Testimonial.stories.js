@@ -7,7 +7,11 @@ export default {
 };
 
 export const Testimonial = (args) => {
-  return <Testi className="bg-red-300" {...args} />;
+  return (
+    <div className="max-w-md">
+      <Testi className="bg-red-300" {...args} />
+    </div>
+  );
 };
 
 Testimonial.args = {

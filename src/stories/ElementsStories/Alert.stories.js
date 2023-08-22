@@ -89,12 +89,12 @@ WithActions.args = {
     {
       label: "Upgrade",
       onClick: () => console.log("testing"),
-      variant: "outlined"
+      variant: "default"
     },
     {
       label: "Disable",
       onClick: () => console.log("testing"),
-      variant: "outlined"
+      variant: "destructive"
     }
   ]
 };

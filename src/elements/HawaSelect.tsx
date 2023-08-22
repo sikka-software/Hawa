@@ -87,7 +87,7 @@ const Option: FC<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="flex flex-row items-center justify-between rounded-inner p-1 px-2 hover:bg-buttonPrimary-500/50 hover:text-white"
+    className="flex flex-row items-center justify-between rounded-inner p-1 px-2 hover:text-primary-foreground hover:bg-primary"
     {...innerProps}
   >
     {children}

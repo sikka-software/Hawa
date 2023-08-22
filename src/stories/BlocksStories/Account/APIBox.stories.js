@@ -47,7 +47,8 @@ export const APIBox = (args) => {
   return (
     <div>
       <div dir="ltr" className="">
-        <HawaTable
+        placeholder
+        {/* <HawaTable
           headerColor="white"
           bodyColor="white"
           borders={"rows"}
@@ -73,7 +74,7 @@ export const APIBox = (args) => {
           size={"small"}
           rows={dummyRowData}
           {...args}
-        />
+        /> */}
       </div>
     </div>
   );

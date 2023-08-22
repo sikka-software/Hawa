@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react"
-import { HawaButton } from "../../elements"
 import { Card, CardContent } from "../../elements/Card"
 import { Button } from "../../elements/Button"
+import { Input } from "../../elements/Input"
 
 type ChargeWalletTypes = {
   currency: any
@@ -24,18 +24,20 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
           </div>
           <div className="text-sm font-normal">{props.currency || "SAR"}</div>
         </div>
-        <div className="mb-2 flex w-full flex-row gap-4 text-center">
-          <HawaButton variant="outlined" margins="none" className="h-full">
-            10 SAR
-          </HawaButton>
-          <HawaButton variant="outlined" margins="none" className="h-full">
-            100 SAR
-          </HawaButton>
+        <div className="mb-2 flex w-full flex-col gap-4 text-center">
+          <div className="mb-2 flex w-full flex-row gap-4 text-center">
+            <Button variant="outline" className="h-full w-full">
+              10 SAR
+            </Button>
+            <Button variant="outline" className="h-full w-full">
+              50 SAR
+            </Button>
+            <Button variant="outline" className="h-full w-full">
+              100 SAR
+            </Button>
+          </div>
 
-          <input
-            placeholder="Custom"
-            className="h-auto w-full rounded bg-gray-100 p-4"
-          />
+          <Input placeholder="Custom Amount" type="number" name="amount" />
         </div>
         {/* <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleChargeWallet)}>
@@ -67,13 +69,7 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
             }}
           />
 
-          <HawaButton
-            color="primary"
-            // type="submit"
-            width="full"
-          >
-            {props.texts.chargeWallet}
-          </HawaButton>
+      
           </form>
         </FormProvider> */}
         <Button className="mt-6 w-full">{props.texts.chargeWallet}</Button>

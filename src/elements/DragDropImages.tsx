@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { HawaAlert } from "./HawaAlert"
-import { HawaButton } from "./HawaButton"
 import clsx from "clsx"
+import { Button } from "./Button"
 
 //TODO: This element needs more improvements and testing
 
@@ -236,7 +236,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
         </div>
         {acceptedFiles.length > 0 && (
           <div className="flex justify-center rounded-lg  p-2 ">
-            <HawaButton onClick={clearAllFiles}>Clear All</HawaButton>
+            <Button onClick={clearAllFiles}>Clear All</Button>
           </div>
         )}
         {acceptedFiles.length > 0 && thumbs && showPreview ? (

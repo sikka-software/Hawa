@@ -24,7 +24,12 @@ export const NotFound: FC<NotFoundTypes> = ({
             {texts?.pageNotFound ?? "Page Not Found"}
           </div>
           <div className="mb-4 text-center">
-            {texts?.ifLost ?? "If you're lost please contact us help@sikka.io"}
+            {texts?.ifLost ?? (
+              <>
+                If you're lost please contact us{" "}
+                <span className="clickable-link">help@sikka.io</span>
+              </>
+            )}
           </div>
           <Button className="w-full">{texts?.home ?? "Home"}</Button>
         </div>

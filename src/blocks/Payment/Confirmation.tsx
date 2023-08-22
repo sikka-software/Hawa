@@ -84,7 +84,7 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
             {props.texts.fasterPaymentNote}
           </div>
           <a
-            className="w-fit cursor-pointer text-center  text-xs font-normal dark:text-white"
+            className="clickable-link text-xs"
             onClick={props.handleRefundPolicyLink}
           >
             {props.texts.refundPolicy}

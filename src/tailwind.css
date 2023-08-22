@@ -163,6 +163,11 @@
   }
 }
 
+@layer components {
+  .clickable-link {
+    @apply cursor-pointer text-primary/80 underline underline-offset-4 hover:text-primary transition-all;
+  }
+}
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

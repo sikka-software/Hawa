@@ -63,9 +63,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading ? (
-          // Replace with your loading icon component
-          <HawaLoading design="dots-pulse"  size="button" />
-          ) : (
+          <HawaLoading
+            design="dots-pulse"
+            color="bg-primary-foreground"
+            size="button"
+          />
+        ) : (
           children
         )}
       </Comp>

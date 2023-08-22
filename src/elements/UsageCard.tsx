@@ -34,7 +34,7 @@ export const UsageCard: FC<UsageCardTypes> = (props) => {
       </div>
       <div className="mt-2 h-2.5 w-full rounded-full bg-gray-200 dark:bg-gray-700">
         <div
-          className="h-2.5 rounded-full bg-buttonPrimary-500"
+          className="h-2.5 rounded-full bg-primary"
           style={{
             width: `${props.percent ?? 0}%`,
           }}

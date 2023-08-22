@@ -45,17 +45,17 @@ export const HawaStepper: FC<THawaTimeline> = ({
                 {/* Icon */}
                 <div
                   className={clsx(
-                    "ring-buttonPrimary-200 flex h-6 w-6 min-w-[24px] items-center  justify-center rounded  ring-2 ring-offset-2",
+                    "flex h-6 w-6 min-w-[24px] items-center justify-center  rounded ring-2  ring-primary/20 ring-offset-2",
                     i + 1 <= props.currentStep
-                      ? "bg-buttonPrimary-500 text-white"
-                      : "bg-buttonPrimary-200"
+                      ? "bg-primary text-primary-foreground "
+                      : "bg-primary/20"
                   )}
                 >
                   {i + 1 <= props.currentStep ? (
                     <svg
                       aria-label="Check Mark"
                       stroke="currentColor"
-                      fill="white"
+                      fill="currentColor"
                       stroke-width="0"
                       viewBox="0 0 512 512"
                       height="0.60em"

@@ -64,7 +64,7 @@ const SubsectionItem: FC<TSubsectionItem> = ({
       className={clsx(
         "flex w-full cursor-pointer flex-row items-center justify-between gap-2 rounded p-2  transition-all ",
         selected === value
-          ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
+          ? "bg-primary text-white hover:bg-primary"
           : "hover:bg-layoutPrimary-300"
       )}
     >

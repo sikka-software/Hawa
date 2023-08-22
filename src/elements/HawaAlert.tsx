@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
+import { Button } from "./Button"
 
 type AlertTypes = {
   severity: "info" | "warning" | "error" | "success"
@@ -22,7 +23,13 @@ type AlertTypes = {
     {
       label: string
       onClick: any
-      variant: "contained" | "outlined"
+      variant:
+        | "outline"
+        | "link"
+        | "default"
+        | "destructive"
+        | "secondary"
+        | "ghost"
     }
   ]
   persistant?: boolean
@@ -144,14 +151,13 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
             {props.actions && (
               <div className="mt-2 flex flex-row gap-2">
                 {props.actions.map((act, index) => (
-                  <HawaButton
+                  <Button
                     key={index}
                     variant={act.variant}
                     onClick={act.onClick()}
-                    margins="none"
                   >
                     {act.label}
-                  </HawaButton>
+                  </Button>
                 ))}
               </div>
             )}
@@ -161,7 +167,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
           <button
             type="button"
             className={clsx(
-              "absolute  top-2 inline-flex h-9 w-9 items-center justify-center rounded-inner p-1.5 text-gray-400 transition-all  hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
+              "absolute  top-2 inline-flex h-9 w-9 items-center justify-center rounded-inner p-1.5 text-gray-400 transition-all  hover:text-gray-900  dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white",
               closeButtonStyle[props.severity],
               direction === "rtl" ? "left-2" : "right-2"
             )}
@@ -176,6 +182,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
           >
             <span className="sr-only">Close</span>
             <svg
+              aria-label="Close Icon"
               aria-hidden="true"
               className="h-5 w-5"
               fill="currentColor"

@@ -1,7 +1,6 @@
 import React, { FC } from "react"
 import {
   HawaAlert,
-  HawaButton,
   HawaChip,
   HawaMenu,
   HawaSelect,
@@ -9,6 +8,7 @@ import {
 } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type TReferralSettlement = {
   referralLink: string
@@ -58,7 +58,7 @@ export const ReferralSettlement: FC<TReferralSettlement> = ({
           </FormProvider>
         </div>
         <div>
-          <HawaButton width="full">Add Bank Account</HawaButton>
+          <Button className="mt-6 w-full">Add Bank Account</Button>
         </div>
         {withdrawError && (
           <div>
@@ -106,9 +106,14 @@ const SettlementAccountCard = (props) => {
       </div>
       <div className="flex flex-row items-center justify-center gap-2">
         {props.default && (
-          <HawaButton disabled variant="outlined" size="xs" margins="none">
-            Default
-          </HawaButton>
+          <HawaChip
+            label="Default"
+            size="small"
+            // disabled
+            // variant="outlined"
+            // size="xs"
+            // margins="none"
+          />
         )}
 
         <HawaMenu
@@ -123,7 +128,7 @@ const SettlementAccountCard = (props) => {
           // position={direction === "rtl" ? "right-bottom" : "left-bottom"}
           // direction={direction}
         >
-          <HawaButton variant="outlined">
+          <Button variant="outline" size="icon">
             <svg
               aria-label="Vertical Three Dots Menu Icon"
               className="rotate-90"
@@ -136,36 +141,8 @@ const SettlementAccountCard = (props) => {
             >
               <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
             </svg>
-          </HawaButton>
-          {/* <div className="flex w-fit rotate-90 cursor-pointer  items-center justify-center rounded  p-2 hover:bg-buttonPrimary-500/50">
-            <svg
-              aria-label="Vertical Three Dots Menu Icon"
-              stroke="currentColor"
-              fill="currentColor"
-              stroke-width="0"
-              viewBox="0 0 16 16"
-              height="1em"
-              width="1em"
-            >
-              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
-            </svg>
-          </div> */}
+          </Button>
         </HawaMenu>
-        {/* {!props.default && <HawaButton size="small">Make Default</HawaButton>} */}
-        {/* <HawaButton tooltip="Delete" size="small">
-          <svg
-            aria-hidden="true"
-            className="h-5 w-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </HawaButton> */}
       </div>
     </div>
   )

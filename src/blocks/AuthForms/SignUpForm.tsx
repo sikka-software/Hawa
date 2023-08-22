@@ -257,7 +257,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                           {props.texts.iAcceptText}{" "}
                           <a
                             onClick={props.handleRouteToTOS}
-                            className="cursor-pointer text-blue-800"
+                            className="clickable-link"
                           >
                             {props.texts.termsText}
                           </a>
@@ -291,7 +291,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
             <span>{props.texts.existingUserText}</span>
             <span
               onClick={props.handleRouteToSignIn}
-              className="cursor-pointer text-blue-600"
+              className="clickable-link"
             >
               {props.texts.signInText}
             </span>

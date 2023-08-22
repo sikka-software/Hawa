@@ -76,7 +76,7 @@ const ThemeIntroduction = () => {
       <h2 className="font-bold">Method 2</h2>
       Copy the content of Hawa{" "}
       <a
-        className="text-link"
+        className="clickable-link"
         href="https://github.com/sikka-software/Hawa/blob/main/tailwind.config.js"
       >
         tailwind.config.js

@@ -74,7 +74,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                 {props.texts.dontHaveAccount ?? "Don't have an account? "}
                 <span
                   onClick={props.handleRouteToSignUp}
-                  className="cursor-pointer text-blue-600 dark:text-blue-400"
+                  className="clickable-link"
                 >
                   {props.texts.signUpText ?? "Sign Up"}
                 </span>

@@ -55,7 +55,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           <HawaPinInput width="full" digits={6} getPins={(e) => setPins(e)} />
           <div className=" py-2 text-center text-xs text-muted-foreground">
             <span>{props.texts.didntGetCode ?? "Didn't get the code?"}</span>{" "}
-            <span className="cursor-pointer text-buttonPrimary-500">
+            <span className="clickable-link">
               {props.texts.resendCode ?? "Click to resend"}
             </span>
           </div>

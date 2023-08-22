@@ -70,6 +70,14 @@ export const ButtonLoadingStory = () => {
           Normal Width
         </HawaButton>
       </div>
+      <div className="mt-2 flex flex-col">
+        <Button
+
+          isLoading={true}
+        >
+          Normal Width
+        </Button>
+      </div>
     </div>
   );
 };

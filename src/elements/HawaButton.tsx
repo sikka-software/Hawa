@@ -36,12 +36,12 @@ const disabledVariantSyles = {
   outlined: "text-gray-300 border-gray-300",
 }
 const baseStyles =
-"cursor-pointer justify-center items-center text-center font-medium transition-all"
+  "cursor-pointer  justify-center items-center text-center font-medium transition-all "
 const sizeStyles = {
   icon: "h-10 w-10",
   xs: "px-1.5 py-2 text-[9px] h-fit",
   small: "text-xs px-2.5 py-1.5",
-  medium: "text-sm leading-4 px-3 py-2 h-[2.36rem] ",
+  medium: "text-sm leading-4 px-3 py-2",
   default: "h-10 px-4 py-2",
   large: "text-sm px-4 py-2",
   noPadding: "p-0",
@@ -90,7 +90,7 @@ export const HawaButton: FC<ButtonProps> = ({
   className,
   variant = "contained",
   color = "default",
-  size = "medium",
+  size = "default",
   width = "normal",
   disabled = false,
   isLoading = false,

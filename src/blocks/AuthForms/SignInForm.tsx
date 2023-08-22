@@ -127,7 +127,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               {props.texts.newUserText}{" "}
               <span
                 onClick={props.handleRouteToSignUp}
-                className="cursor-pointer text-blue-600 dark:text-blue-400"
+                className="clickable-link"
               >
                 {props.texts.createAccount}
               </span>

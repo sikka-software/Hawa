@@ -78,7 +78,7 @@ const UsagePage = () => {
         In order to save time and be more efficent while working with Hawa kit,
         we recommend installing{" "}
         <a
-          className="text-link"
+          className="clickable-link"
           href="https://code.visualstudio.com/docs/editor/intellisense"
         >
           IntelliSense

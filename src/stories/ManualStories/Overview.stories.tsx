@@ -44,7 +44,7 @@ const OverviewPage = () => {
   const dark = useDarkMode()
 
   return (
-    <div className="sm:p-20 pt-10 dark:bg-background dark:text-white">
+    <div className="sm:p-20 pt-10 dark:bg-background ">
       <p className="logo">
         <img
           src={
@@ -112,7 +112,7 @@ const OverviewPage = () => {
       </div>
 
       <p className="mt-4">
-        <a className="text-link" href="https://github.com/sikka-software/Hawa">
+        <a className="clickable-link" href="https://github.com/sikka-software/Hawa">
           Github
         </a>
         <span className="text-sm"> For bug reporting and contribution</span>{" "}

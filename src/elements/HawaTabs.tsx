@@ -24,8 +24,8 @@ export const HawaTabs: FC<TabsTypes> = ({
   const [selectedOption, setSelectedOption] = useState(props.options[0]?.value)
 
   let activeTabStyle = {
-    vertical: "inline-block py-2 px-4 text-white bg-buttonPrimary-500 active",
-    horizontal: "inline-block py-2 px-4 text-white bg-buttonPrimary-500 active",
+    vertical: "inline-block py-2 px-4 text-white bg-primary active",
+    horizontal: "inline-block py-2 px-4 text-white bg-primary active",
   }
   // rounded rounded-br-none rounded-bl-none
   let inactiveTabStyle = {
@@ -42,11 +42,11 @@ export const HawaTabs: FC<TabsTypes> = ({
   let orientationStyle = {
     vertical: {
       container: "flex flex-row",
-      tabs: "flex flex-col w-fit flex-wrap rounded   border-b-buttonPrimary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      tabs: "flex flex-col w-fit flex-wrap rounded   border-b-primary bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     },
     horizontal: {
       container: "",
-      tabs: "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-buttonPrimary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      tabs: "flex w-fit flex-wrap rounded rounded-br-none rounded-bl-none  border-b-primary bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     },
   }
   let containerStyle = {
@@ -55,9 +55,9 @@ export const HawaTabs: FC<TabsTypes> = ({
   }
   let tabsStyle = {
     vertical:
-      "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded border-b-buttonPrimary-500 bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "sticky top-2 h-fit flex flex-col w-fit flex-wrap rounded border-b-primary bg-gray-100 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
     horizontal:
-      "flex w-fit  flex-wrap border-b-buttonPrimary-500 text-center text-sm font-medium text-gray-500 dark:text-gray-400",
+      "flex w-fit  flex-wrap border-b-primary text-center text-sm font-medium text-gray-500 dark:text-gray-400",
   }
   return (
     <div
@@ -78,7 +78,7 @@ export const HawaTabs: FC<TabsTypes> = ({
             ? "ml-" + marginBetween
             : "mr-" + marginBetween,
           tabsStyle[orientation],
-          "border-buttonPrimary-500",
+          "border-primary",
 
           // orientation === "vertical"
           //   ? direction === "rtl"
@@ -104,7 +104,7 @@ export const HawaTabs: FC<TabsTypes> = ({
                 props?.onChangeTab(opt)
               }}
               className={clsx(
-                "flex flex-row gap-2 items-center",
+                "flex flex-row items-center gap-2",
                 opt.value === selectedOption
                   ? // props.options[selectedOption].value === opt.value
                     [
