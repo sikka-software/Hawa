@@ -1,61 +1,52 @@
-import { Meta, Story } from "@storybook/react";
 import React from "react";
-import { HawaButton } from "../../elements";
-import { HawaTooltip } from "../../elements/HawaTooltip";
+import { Button } from "../../elements/Button";
+import { Tooltip } from "../../elements/Tooltip";
 
 export default {
   title: "Elements/Tooltip",
-  component: HawaTooltip,
+  component: [Tooltip],
   argTypes: {
-    position: {
+    side: {
       control: "select",
-      options: [
-        "top-right",
-        "top-left",
-        "bottom-right",
-        "bottom-left",
-        "right-top",
-        "right-bottom",
-        "left-top",
-        "left-bottom"
-      ],
-      description: "The title of the dialog"
+      options: ["top", "left", "bottom", "right"],
+      description: "The side the tooltip will show up on"
     },
     children: {
       control: "object",
-      description:
-        "The children element that will be contained by the dialog component"
+      description: "The element(s) that will trigger the tooltip"
     }
   }
 };
 
-export const Tooltip = (args) => {
+export const TooltipStory = (args) => {
   return (
-    // <div className="flex h-screen w-full items-center justify-center">
-    //   <HawaTooltip content={args.content} {...args}>
-    //     <div className="rounded bg-red-300 p-2">Show Tooltip</div>
-    //     {/* <HawaButton tooltip="Testing">Show Tooltip</HawaButton>{" "} */}
-    //   </HawaTooltip>
-    // </div>
     <div
       dir={args.direction}
       className="flex h-screen w-full items-center justify-center"
     >
-      <HawaButton
-        tooltip={args.content}
-        tooltipPosition={args.position}
-        tooltipDirection={args.direction}
-        tooltipSize={args.size}
+      <Tooltip
+        side={args.side}
+        delayDuration={200}
+        content={
+          <div className="max-w-xs">
+            <div>Title</div>{" "}
+            <div>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
+              iure repudiandae illum nihil deserunt omnis at sapiente, in sint
+              porro quam est exercitationem quasi nesciunt quos deleniti
+              explicabo nisi quas.
+            </div>
+          </div>
+        }
       >
-        Show Tooltip
-      </HawaButton>{" "}
+        <Button>Show Tooltip</Button>
+      </Tooltip>
     </div>
   );
 };
 
-Tooltip.args = {
-  content:
-    "This is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can bhis is tooltip content and it can be long sometimes ",
-  position: "top-right",
-  direction: "ltr"
+TooltipStory.args = {
+  side: "top"
 };
+
+TooltipStory.storyName = "Tooltip";
