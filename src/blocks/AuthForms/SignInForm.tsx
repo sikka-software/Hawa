@@ -8,6 +8,8 @@ import {
 } from "../../elements"
 import { Controller, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
+import { Button } from "../../elements/Button"
+import { FaGithub, FaGoogle } from "react-icons/fa"
 
 export const SignInForm: FC<SignInFormTypes> = (props) => {
   const {
@@ -114,7 +116,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
           </>
         )}
 
-        <HawaButton
+        {/* <HawaButton
           isLoading={props.isLoading}
           variant="contained"
           color="primary"
@@ -122,7 +124,8 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
           width="full"
         >
           {props.texts.signInText}
-        </HawaButton>
+        </HawaButton> */}
+        <Button className="w-full">{props.texts.signInText}</Button>
         {!props.withoutSignUp && (
           <div className="p-3 text-center text-sm font-semibold dark:text-gray-300">
             {props.texts.newUserText}{" "}
@@ -136,6 +139,24 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
         )}
       </form>
 
+      {/* <div className="grid grid-cols-2 gap-6">
+        <Button variant="outline">
+          <FaGithub className="mr-2 h-4 w-4" /> Github
+        </Button>
+        <Button variant="outline">
+          <FaGoogle className="mr-2 h-4 w-4" /> Google
+        </Button>
+      </div>
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-background px-2 text-muted-foreground">
+            Or continue with
+          </span>
+        </div>
+      </div> */}
       {/* 3rd Party Sign Auth Buttons */}
       {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
         <div className="flex flex-col ">

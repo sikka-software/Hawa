@@ -1,6 +1,7 @@
 import * as React from "react";
-import { HawaButton } from "../../elements/HawaButton";
+import { HawaButton } from "../../elements";
 import { FaBars } from "react-icons/fa";
+import { Button } from "../../elements/Button";
 
 export default {
   title: "Elements/Buttons",
@@ -13,6 +14,7 @@ export const ButtonVariationsStory = () => {
     <div className="card max-w-800 p-3">
       <h2 className="mt-6 text-xl dark:text-white">Contained Buttons</h2>
       <div className="mt-1 flex flex-row">
+        <Button>Test</Button>
         <HawaButton>Default</HawaButton>
         <HawaButton tooltip="This is a test" className="ml-2" color="primary">
           Primary

@@ -1,5 +1,11 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
- type Palette = {
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+type Palette = {
   name: string
   colors: {
     [key: number]: string
@@ -34,7 +40,7 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`
 }
 
- function getTextColor(color: string): "#FFF" | "#333" {
+function getTextColor(color: string): "#FFF" | "#333" {
   const rgbColor = hexToRgb(color)
 
   if (!rgbColor) {
@@ -75,7 +81,7 @@ function darken(hex: string, intensity: number): string {
   return rgbToHex(r, g, b)
 }
 
- function getPallette(baseColor: string): Palette {
+function getPallette(baseColor: string): Palette {
   const name = baseColor
 
   const response: Palette = {
@@ -109,7 +115,7 @@ function darken(hex: string, intensity: number): string {
   return response as Palette
 }
 
-export { getPallette };
+export { getPallette }
 
 // const hexToRgb = (hex) => {
 //   let d = hex?.split("#")[1];

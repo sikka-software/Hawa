@@ -51,7 +51,7 @@ const ThemeIntroduction = () => {
     --button-secondary-700: #b48d24;
 
     /* Global Border Radius */
-    --border-radius: 10px;
+    --radius: 10px;
 }`
   return (
     <div>
