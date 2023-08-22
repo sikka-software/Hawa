@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import { HawaTypography, HawaLogoButton } from "../../elements"
 import { HawaContainer } from "../../layout"
+import { Card, CardContent, CardHeader, CardTitle } from "../../elements/Card"
 
 type SelectPaymentTypes = {
   viaMada: boolean
@@ -28,57 +29,61 @@ type SelectPaymentTypes = {
 
 export const SelectPayment: FC<SelectPaymentTypes> = (props) => {
   return (
-    <HawaContainer>
-      <HawaTypography>Choose Payment Method</HawaTypography>
-      {props.viaWallet && (
-        <HawaLogoButton
-          logo="wallet"
-          buttonText={props.walletLabel}
-          onClick={props.handleWallet}
-        />
-      )}
-      {props.viaCreditCard && (
-        <HawaLogoButton
-          logo="visa/master"
-          buttonText={props.visaMasterLabel}
-          onClick={props.handleCreditCard}
-        />
-      )}
-      {props.viaMada && (
-        <HawaLogoButton
-          logo="mada"
-          buttonText={props.madaLabel}
-          onClick={props.handleMada}
-        />
-      )}
-      {props.viaSTCPay && (
-        <HawaLogoButton
-          logo="stcpay"
-          buttonText={props.stcPayLabel}
-          onClick={props.handleSTCPay}
-        />
-      )}
-      {props.viaPayPal && (
-        <HawaLogoButton
-          logo="paypal"
-          buttonText={props.paypalLabel}
-          onClick={props.handlePayPal}
-        />
-      )}
-      {props.viaGooglePay && (
-        <HawaLogoButton
-          logo="googlepay"
-          buttonText={props.googlePayLabel}
-          onClick={props.handleGooglePay}
-        />
-      )}
-      {props.viaApplePay && (
-        <HawaLogoButton
-          logo="applepay"
-          buttonText={props.applePayLabel}
-          onClick={props.handleApplePay}
-        />
-      )}
-    </HawaContainer>
+    <Card>
+      <CardHeader>
+        <CardTitle>Choose Payment Method</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {props.viaWallet && (
+          <HawaLogoButton
+            logo="wallet"
+            buttonText={props.walletLabel}
+            onClick={props.handleWallet}
+          />
+        )}
+        {props.viaCreditCard && (
+          <HawaLogoButton
+            logo="visa/master"
+            buttonText={props.visaMasterLabel}
+            onClick={props.handleCreditCard}
+          />
+        )}
+        {props.viaMada && (
+          <HawaLogoButton
+            logo="mada"
+            buttonText={props.madaLabel}
+            onClick={props.handleMada}
+          />
+        )}
+        {props.viaSTCPay && (
+          <HawaLogoButton
+            logo="stcpay"
+            buttonText={props.stcPayLabel}
+            onClick={props.handleSTCPay}
+          />
+        )}
+        {props.viaPayPal && (
+          <HawaLogoButton
+            logo="paypal"
+            buttonText={props.paypalLabel}
+            onClick={props.handlePayPal}
+          />
+        )}
+        {props.viaGooglePay && (
+          <HawaLogoButton
+            logo="googlepay"
+            buttonText={props.googlePayLabel}
+            onClick={props.handleGooglePay}
+          />
+        )}
+        {props.viaApplePay && (
+          <HawaLogoButton
+            logo="applepay"
+            buttonText={props.applePayLabel}
+            onClick={props.handleApplePay}
+          />
+        )}
+      </CardContent>
+    </Card>
   )
 }

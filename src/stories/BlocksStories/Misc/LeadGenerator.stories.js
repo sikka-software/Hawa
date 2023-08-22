@@ -28,12 +28,14 @@ export default {
 
 export const LeadsGenerator = (args) => {
   return (
-    <LD
-      handleNewsletterSub={(e) =>
-        console.log(`${e} have subscribed to the newsletter`)
-      }
-      {...args}
-    />
+    <div className="max-w-md">
+      <LD
+        handleNewsletterSub={(e) =>
+          console.log(`${e} have subscribed to the newsletter`)
+        }
+        {...args}
+      />
+    </div>
   );
 };
 

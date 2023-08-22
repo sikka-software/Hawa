@@ -15,7 +15,11 @@ export default {
 };
 
 const ResetPasswordTemplate = (args) => {
-  return <ResetPasswordForm {...args} />;
+  return (
+    <div className="max-w-md">
+      <ResetPasswordForm {...args} />
+    </div>
+  );
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
@@ -27,7 +31,7 @@ ResetPassword.args = {
     emailInvalidText: "Invalid email address",
     emailSentText: "The reset password link was sent to your email",
     resetPassword: "Reset Password",
-    signUpText:"Sign Up",
+    signUpText: "Sign Up",
     dontHaveAccount: "Don't have an account? "
   },
   handleResetPassword: (e) => console.log("resetting password,", e)

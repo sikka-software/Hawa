@@ -34,7 +34,11 @@ export default {
 };
 
 export const NoPermission = (args) => {
-  return <NoPerm {...args} />;
+  return (
+    <div className="max-w-md">
+      <NoPerm {...args} />
+    </div>
+  );
 };
 
 NoPermission.args = {

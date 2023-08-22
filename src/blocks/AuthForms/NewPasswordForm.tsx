@@ -1,7 +1,15 @@
 import React, { useState, FC } from "react"
 import { HawaTextField, HawaAlert, HawaButton } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
-import { HawaContainer } from "../../layout"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type NewPasswordTypes = {
   handleNewPassword: () => void
@@ -37,65 +45,72 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
   }
 
   return (
-    <HawaContainer>
-      {" "}
+    <Card>
       {matchError && (
         <HawaAlert text={props.texts.passwordMatchError} severity="error" />
       )}
       {props.passwordChanged ? (
-        <div className="text-center">{props.texts.passwordChanged}</div>
+        <CardContent headless>
+          <div className="text-center">{props.texts.passwordChanged}</div>
+        </CardContent>
       ) : (
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmission)}>
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <HawaTextField
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  label={props.texts.passwordLabel}
-                  placeholder={props.texts.passwordPlaceholder}
-                  helpertext={errors.password?.message}
-                  {...field}
-                  value={field.value ?? ""}
-                />
-              )}
-              rules={{
-                required: props.texts.passwordRequiredText,
-              }}
-            />
-            <Controller
-              control={control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <HawaTextField
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  label={props.texts.confirmPasswordLabel}
-                  placeholder={props.texts.confirmPasswordPlaceholder}
-                  helpertext={errors.confirmPassword?.message}
-                  {...field}
-                  value={field.value ?? ""}
-                />
-              )}
-              rules={{
-                required: props.texts.confirmPasswordRequiredText,
-              }}
-            />
+            <CardHeader>
+              <CardTitle>Create Password</CardTitle>
+              <CardDescription>
+                Set a new password for your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <HawaTextField
+                    width="full"
+                    type="password"
+                    autoComplete="new-password"
+                    label={props.texts.passwordLabel}
+                    placeholder={props.texts.passwordPlaceholder}
+                    helpertext={errors.password?.message}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                )}
+                rules={{
+                  required: props.texts.passwordRequiredText,
+                }}
+              />
+              <Controller
+                control={control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <HawaTextField
+                    width="full"
+                    type="password"
+                    autoComplete="new-password"
+                    label={props.texts.confirmPasswordLabel}
+                    placeholder={props.texts.confirmPasswordPlaceholder}
+                    helpertext={errors.confirmPassword?.message}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                )}
+                rules={{
+                  required: props.texts.confirmPasswordRequiredText,
+                }}
+              />
+            </CardContent>
 
-            <HawaButton
-              color="primary"
-              // type="submit"
-              width="full"
-            >
-              {props.texts.updatePassword}
-            </HawaButton>
+            <CardFooter>
+              <Button className="w-full" type="submit">
+                {props.texts.updatePassword}
+              </Button>
+            </CardFooter>
           </form>
         </FormProvider>
       )}
-    </HawaContainer>
+    </Card>
   )
 }

@@ -15,7 +15,11 @@ export default {
 };
 
 const SignInPhoneTemplate = (args) => {
-  return <SignInPhone {...args} />;
+  return (
+    <div className="max-w-md">
+      <SignInPhone {...args} />
+    </div>
+  );
 };
 
 export const SignInWithPhone = SignInPhoneTemplate.bind({});

@@ -22,7 +22,7 @@ export const HawaRadio: FC<RadioTypes> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4  w-full text-white bg-buttonPrimary-500 rounded active"
+    "inline-block py-2 px-4  w-full text-white bg-primary rounded active"
   let inactiveTabStyle =
     "inline-block py-2 px-4 w-full bg-gray-100 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
   let orientationStyle = {

@@ -14,7 +14,11 @@ export default {
 };
 
 const NewPasswordTemplate = (args) => {
-  return <NewPasswordForm {...args} />;
+  return (
+    <div className="max-w-md">
+      <NewPasswordForm {...args} />
+    </div>
+  );
 };
 export const NewPassword = NewPasswordTemplate.bind({});
 NewPassword.args = {

@@ -1,7 +1,8 @@
 import React, { useState, FC } from "react"
 import { Controller, useForm } from "react-hook-form"
-import { HawaButton, HawaPhoneInput } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { HawaPhoneInput } from "../../elements"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type SignInPhoneTypes = {
   value: any
@@ -24,33 +25,33 @@ export const SignInPhone: FC<SignInPhoneTypes> = (props) => {
 
   const [userPhone, setUserPhone] = useState("")
   return (
-    <HawaContainer>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          props.handleSignIn(userPhone)
-        }}
-      >
-        <Controller
-          control={control}
-          name="phone"
-          render={({ field }) => (
-            <HawaPhoneInput
-              country={props.country ?? ""}
-              label={props.label ?? ""}
-              handleChange={(e: any) => setUserPhone(e.target.value)}
-              {...field}
-            />
-          )}
-          rules={{
-            required: props.phoneRequiredText,
+    <Card>
+      <CardContent headless>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            props.handleSignIn(userPhone)
           }}
-        />
-        <div className="mt-2"></div>
-        <HawaButton color="primary" width="full">
-          {props.SignInButtonText}
-        </HawaButton>
-      </form>
-    </HawaContainer>
+        >
+          <Controller
+            control={control}
+            name="phone"
+            render={({ field }) => (
+              <HawaPhoneInput
+                country={props.country ?? ""}
+                label={props.label ?? ""}
+                handleChange={(e: any) => setUserPhone(e.target.value)}
+                {...field}
+              />
+            )}
+            rules={{
+              required: props.phoneRequiredText,
+            }}
+          />
+          <div className="mt-2"></div>
+          <Button className="w-full">{props.SignInButtonText}</Button>
+        </form>
+      </CardContent>
+    </Card>
   )
 }

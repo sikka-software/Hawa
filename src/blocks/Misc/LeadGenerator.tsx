@@ -1,6 +1,15 @@
 import React, { FC } from "react"
 import { HawaButton, HawaTextField } from "../../elements"
 import { HawaContainer } from "../../layout"
+import { Input } from "../../elements/Input"
+import { Button } from "../../elements/Button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../elements/Card"
 
 type TLeadGenerator = {
   variant?: "outlined" | "contained" | "neobrutalism"
@@ -18,27 +27,23 @@ export const LeadGenerator: FC<TLeadGenerator> = ({
   handleNewsletterSub,
 }) => {
   return (
-    <HawaContainer variant={variant}>
-      <div className="mb-4 p-0 pt-0">
-        <h1 className="font-bold">{texts?.title}</h1>
-        <span>{texts?.subtitle}</span>
-      </div>
-      <form
-        className="flex flex-row gap-2"
-        onSubmit={(e) => {
-          e.preventDefault()
-          handleNewsletterSub(e.target[0].value)
-        }}
-      >
-        <HawaTextField
-          width="full"
-          type="email"
-          name="email"
-          placeholder={"example@sikka.io"}
-          margin="none"
-        />
-        <HawaButton margins="none">{texts?.submit ?? "Submit"}</HawaButton>
-      </form>
-    </HawaContainer>
+    <Card>
+      <CardHeader>
+        <CardTitle>{texts?.title}</CardTitle>
+        <CardDescription>{texts?.subtitle}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form
+          className="flex flex-row gap-2"
+          onSubmit={(e) => {
+            e.preventDefault()
+            handleNewsletterSub(e.target[0].value)
+          }}
+        >
+          <Input type="email" name="email" placeholder="example@sikka.io" />
+          <Button>{texts?.submit ?? "Submit"}</Button>
+        </form>
+      </CardContent>
+    </Card>
   )
 }

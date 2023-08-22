@@ -9,7 +9,11 @@ export default {
 };
 
 export const PayViaCreditCard = (args) => {
-  return <CreditCardForm />;
+  return (
+    <div className="max-w-md">
+      <CreditCardForm />
+    </div>
+  );
 };
 
 PayViaCreditCard.args = {};

@@ -18,17 +18,7 @@ export default {
 
 export const Checkout = (args) => {
   return (
-    <>
-      {/* <HawaPageControls
-        backText="Back"
-        backAction={() => console.log("going back")}
-        maxWidth="sm"
-        actionButtons={[
-          { label: "action1", action: () => console.log("action1 is clicked") },
-          { label: "action2", action: () => console.log("action2 is clicked") },
-          { label: "action3", action: () => console.log("action3 is clicked") }
-        ]}
-      /> */}
+    <div className="max-w-md">
       <CheckoutForm
         lang={args.lang}
         handlePayNow={(e) => console.log("submitting checkout", e)}
@@ -69,7 +59,7 @@ export const Checkout = (args) => {
           zipCodeLabel: "Zip Code"
         }}
       />
-    </>
+    </div>
   );
 };
 

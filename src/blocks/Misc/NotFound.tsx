@@ -1,6 +1,8 @@
 import React, { FC } from "react"
 import { HawaButton } from "../../elements"
 import { HawaContainer } from "../../layout"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type NotFoundTypes = {
   variant?: "outlined" | "contained" | "neobrutalism"
@@ -16,19 +18,19 @@ export const NotFound: FC<NotFoundTypes> = ({
   texts,
 }) => {
   return (
-    <HawaContainer variant={variant}>
-      <div className="flex flex-col items-center dark:text-white">
-        <div className="text-center text-6xl font-bold ">404</div>
-        <div className="m-2 text-center text-xl font-bold ">
-          {texts?.pageNotFound ?? "Page Not Found"}
+    <Card>
+      <CardContent headless>
+        <div className="flex flex-col items-center dark:text-white">
+          <div className="text-center text-6xl font-bold ">404</div>
+          <div className="m-2 text-center text-xl font-bold ">
+            {texts?.pageNotFound ?? "Page Not Found"}
+          </div>
+          <div className="mb-4 text-center">
+            {texts?.ifLost ?? "If you're lost please contact us help@sikka.io"}
+          </div>
+          <Button className="w-full">{texts?.home ?? "Home"}</Button>
         </div>
-        <div className="text-center mb-4">
-          {texts?.ifLost ?? "If you're lost please contact us help@sikka.io"}
-        </div>
-        <HawaButton color="primary" width="full" margins="none">
-          {texts?.home ?? "Home"}
-        </HawaButton>
-      </div>
-    </HawaContainer>
+      </CardContent>
+    </Card>
   )
 }

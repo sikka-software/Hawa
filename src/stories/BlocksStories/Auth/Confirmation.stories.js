@@ -47,15 +47,17 @@ export default {
 
 export const Confirmation = (args) => {
   return (
-    <CodeConfirmation
-      submitConfirmation={(e) => console.log("submitting e", e)}
-      error={args.showError}
-      texts={{
-        codeLabel: "Code",
-        codePlaceholder: "123456",
-        codeRequiredText: "Code is required",
-        confirmText: "Confirm"
-      }}
-    />
+    <div className="max-w-md">
+      <CodeConfirmation
+        submitConfirmation={(e) => console.log("submitting e", e)}
+        error={args.showError}
+        texts={{
+          codeLabel: "Code",
+          codePlaceholder: "123456",
+          codeRequiredText: "Code is required",
+          confirmText: "Confirm"
+        }}
+      />
+    </div>
   );
 };

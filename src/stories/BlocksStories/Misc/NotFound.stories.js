@@ -27,5 +27,9 @@ export default {
 };
 
 export const NotFound = (args) => {
-  return <NotFoundBlock {...args} />;
+  return (
+    <div className="max-w-md">
+      <NotFoundBlock {...args} />
+    </div>
+  );
 };

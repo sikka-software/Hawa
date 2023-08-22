@@ -15,7 +15,11 @@ export default {
 };
 
 export const EmptyState = (args) => {
-  return <EState {...args} />;
+  return (
+    <div className="max-w-md">
+      <EState {...args} />
+    </div>
+  );
 };
 
 EmptyState.args = {

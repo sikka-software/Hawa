@@ -52,7 +52,11 @@ export default {
 };
 
 const AppLandingTemplate = (args) => {
-  return <AppLanding {...args} />;
+  return (
+    <div className="max-w-md">
+      <AppLanding {...args} />
+    </div>
+  );
 };
 
 export const Landing = AppLandingTemplate.bind({});

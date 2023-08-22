@@ -21,7 +21,11 @@ export default {
 };
 
 export const ReferralCodes = (args) => {
-  return <ReferralAccount {...args} />;
+  return (
+    <div className="max-w-md">
+      <ReferralAccount {...args} />
+    </div>
+  );
 };
 
 ReferralCodes.args = {
@@ -29,7 +33,11 @@ ReferralCodes.args = {
   referralCode: "DF522D"
 };
 export const ReferralBank = (args) => {
-  return <ReferralSettlement {...args} />;
+  return (
+    <div className="max-w-md">
+      <ReferralSettlement {...args} />
+    </div>
+  );
 };
 
 ReferralBank.args = {
@@ -37,7 +45,11 @@ ReferralBank.args = {
   referralCode: "DF522D"
 };
 export const ReferralAnalytics = (args) => {
-  return <ReferralStats {...args} />;
+  return (
+    <div className="max-w-md">
+      <ReferralStats {...args} />
+    </div>
+  );
 };
 
 ReferralAnalytics.args = {

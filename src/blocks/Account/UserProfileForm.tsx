@@ -2,6 +2,8 @@ import React, { FC } from "react"
 import { HawaButton, HawaPhoneInput, HawaTextField } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
 import { HawaContainer } from "../../layout"
+import { Card, CardContent, CardFooter } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type UserProfileFormTypes = {
   inputs: any
@@ -19,95 +21,98 @@ export const UserProfileForm: FC<UserProfileFormTypes> = (props) => {
   } = methods
 
   return (
-    <HawaContainer>
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit((e) => props.handleUpdateProfile(e))}>
-          <Controller
-            control={control}
-            name="fullName"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="text"
-                label={props.texts.fullNameLabel}
-                placeholder={props.texts.fullNamePlaceholder}
-                helpertext={errors.fullName?.message}
-                {...field}
-                value={field.value ?? ""}
-              />
-            )}
-          />
-          <Controller
-            control={control}
-            name="phoneNumber"
-            render={({ field }) => <HawaPhoneInput label="Phone number" />}
-          />
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="text"
-                label={props.texts.emailLabel}
-                helpertext={errors.email?.message}
-                placeholder={props.texts.emailPlaceholder}
-                {...field}
-                value={field.value ?? ""}
-              />
-            )}
-            rules={{
-              required: props.texts.emailRequiredText,
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: props.texts.emailInvalidText,
-              },
-            }}
-          />
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="password"
-                label={props.texts.passwordLabel}
-                placeholder={props.texts.passwordPlaceholder}
-                helpertext={errors.password?.message}
-                {...field}
-                value={field.value ?? ""}
-              />
-            )}
-            rules={{
-              required: props.texts.passwordRequiredText,
-            }}
-          />
+    <Card>
+      <form onSubmit={handleSubmit((e) => props.handleUpdateProfile(e))}>
+        <CardContent headless>
+          <FormProvider {...methods}>
+            <Controller
+              control={control}
+              name="fullName"
+              render={({ field }) => (
+                <HawaTextField
+                  width="full"
+                  type="text"
+                  label={props.texts.fullNameLabel}
+                  placeholder={props.texts.fullNamePlaceholder}
+                  helpertext={errors.fullName?.message}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+            />
+            <Controller
+              control={control}
+              name="phoneNumber"
+              render={({ field }) => <HawaPhoneInput label="Phone number" />}
+            />
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <HawaTextField
+                  width="full"
+                  type="text"
+                  label={props.texts.emailLabel}
+                  helpertext={errors.email?.message}
+                  placeholder={props.texts.emailPlaceholder}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+              rules={{
+                required: props.texts.emailRequiredText,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: props.texts.emailInvalidText,
+                },
+              }}
+            />
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <HawaTextField
+                  width="full"
+                  type="password"
+                  label={props.texts.passwordLabel}
+                  placeholder={props.texts.passwordPlaceholder}
+                  helpertext={errors.password?.message}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+              rules={{
+                required: props.texts.passwordRequiredText,
+              }}
+            />
 
-          <Controller
-            control={control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <HawaTextField
-                width="full"
-                type="password"
-                label={props.texts.confirmPasswordLabel}
-                placeholder={props.texts.confirmPasswordPlaceholder}
-                helpertext={errors.confirmPassword?.message}
-                {...field}
-                value={field.value ?? ""}
-              />
-            )}
-            rules={{
-              required: props.texts.confirmPasswordRequiredText,
-            }}
-          />
-
-          <HawaButton color="primary" width="full">
+            <Controller
+              control={control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <HawaTextField
+                  width="full"
+                  type="password"
+                  label={props.texts.confirmPasswordLabel}
+                  placeholder={props.texts.confirmPasswordPlaceholder}
+                  helpertext={errors.confirmPassword?.message}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+              rules={{
+                required: props.texts.confirmPasswordRequiredText,
+              }}
+            />
+          </FormProvider>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" type="submit">
             {props.texts.updateProfile}
-          </HawaButton>
-        </form>
-      </FormProvider>
-    </HawaContainer>
+          </Button>
+        </CardFooter>
+      </form>
+    </Card>
   )
 }
