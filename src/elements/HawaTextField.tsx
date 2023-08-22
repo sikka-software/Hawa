@@ -1,5 +1,6 @@
 import React, { FC, PropsWithRef } from "react"
 import clsx from "clsx"
+import { Label } from "./Label"
 
 // TODO: make icon based on direction
 // TODO: Preferebly use context to pass direction rtl | ltr
@@ -50,7 +51,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
     full: "w-full",
   }
 
-  let defaultStyle = "flex max-h-fit flex-col justify-center"
+  let defaultStyle = "flex max-h-fit flex-col justify-center gap-2"
   let defaultInputStyle =
     "block w-full rounded border bg-background p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
   let previewInputStyle =
@@ -62,12 +63,13 @@ export const HawaTextField: FC<TextFieldTypes> = ({
       className={clsx(defaultStyle, marginStyles[margin], widthStyles[width])}
     >
       {props.label && (
-        <label
-          // htmlFor="first_name"
-          className="mb-2 block text-sm font-medium "
-        >
-          {props.label}
-        </label>
+        // <label
+        //   // htmlFor="first_name"
+        //   className="mb-2 block text-sm font-medium "
+        // >
+        //   {props.label}
+        // </label>
+        <Label>{props.label}</Label>
       )}
       {preview ? (
         <>

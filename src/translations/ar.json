@@ -19,6 +19,7 @@
   "newUserText": "مستخدم جديد؟",
   "signUpText": "تسجيل جديد",
   "signInText": "تسجيل الدخول",
+  "createAccount": "أنشئ حساب",
 
   "signInViaGoogleLabel": "الدخول بواسطة Google",
   "signInViaGithubLabel": "الدخول بواسطة Github",

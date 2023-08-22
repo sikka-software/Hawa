@@ -107,35 +107,37 @@ const SignInTemplate = (args, globals) => {
 
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <SignInForm
-      direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
-      isLoading={isLoading}
-      handleForgotPassword={() => console.log("forgot password")}
-      handleSignIn={(e) => {
-        console.log("Form result: ", e);
-      }}
-      {...args}
-      texts={{
-        emailLabel: t("emailLabel"),
-        emailPlaceholder: t("emailPlaceholder"),
-        emailRequiredText: t("emailRequiredText"),
-        emailInvalidText: t("emailInvalidText"),
-        usernameLabel: t("usernameLabel"),
-        usernamePlaceholder: t("usernamePlaceholder"),
-        usernameRequired: t("usernameRequired"),
-        phoneRequiredText: t("phoneRequiredText"),
-        passwordLabel: t("passwordLabel"),
-        passwordPlaceholder: t("passwordPlaceholder"),
-        passwordRequiredText: t("passwordRequiredText"),
-        forgotPasswordText: t("forgotPasswordText"),
-        newUserText: t("newUserText"),
-        signUpText: t("signUpText"),
-        signInText: t("signInText"),
-        signInViaGoogleLabel: t("signInViaGoogleLabel"),
-        signInViaGithubLabel: t("signInViaGithubLabel"),
-        signInViaTwitterLabel: t("signInViaTwitterLabel")
-      }}
-    />
+    <div className="max-w-md">
+      <SignInForm
+        direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
+        isLoading={isLoading}
+        handleForgotPassword={() => console.log("forgot password")}
+        handleSignIn={(e) => {
+          console.log("Form result: ", e);
+        }}
+        {...args}
+        texts={{
+          emailLabel: t("emailLabel"),
+          emailPlaceholder: t("emailPlaceholder"),
+          emailRequiredText: t("emailRequiredText"),
+          emailInvalidText: t("emailInvalidText"),
+          usernameLabel: t("usernameLabel"),
+          usernamePlaceholder: t("usernamePlaceholder"),
+          usernameRequired: t("usernameRequired"),
+          phoneRequiredText: t("phoneRequiredText"),
+          passwordLabel: t("passwordLabel"),
+          passwordPlaceholder: t("passwordPlaceholder"),
+          passwordRequiredText: t("passwordRequiredText"),
+          forgotPasswordText: t("forgotPasswordText"),
+          newUserText: t("newUserText"),
+          createAccount: t("createAccount"),
+          signInText: t("signInText"),
+          signInViaGoogleLabel: t("signInViaGoogleLabel"),
+          signInViaGithubLabel: t("signInViaGithubLabel"),
+          signInViaTwitterLabel: t("signInViaTwitterLabel")
+        }}
+      />
+    </div>
   );
 };
 

@@ -8,7 +8,10 @@ import {
   HawaSelect,
 } from "../../elements"
 import { Controller, FormProvider, useForm } from "react-hook-form"
-import { HawaContainer } from "../../layout/HawaContainer"
+import { Card, CardContent, CardFooter } from "../../elements/Card"
+import { Button } from "../../elements/Button"
+import { Icons } from "../../elements/Icons"
+import clsx from "clsx"
 
 type SignUpFormTypes = {
   direction?: "rtl" | "ltr"
@@ -72,259 +75,268 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
   } = methods
 
   return (
-    <HawaContainer direction={props.direction}>
-      <div>
-        {props.showError && (
-          <HawaAlert
-            title={props.errorTitle}
-            text={props.errorText}
-            severity="error"
-          />
-        )}
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit((e) => props.handleSignUp(e))}>
-            <div>
-              {props.signUpFields.map((fld, i) => {
-                if (fld === "fullname") {
-                  return (
-                    <Controller
-                      key={i}
-                      control={control}
-                      name="fullName"
-                      render={({ field }) => (
-                        <HawaTextField
-                          width="full"
-                          type="text"
-                          label={props.texts.fullNameLabel}
-                          placeholder={props.texts.fullNamePlaceholder}
-                          helpertext={errors.fullName?.message}
-                          onChange={field.onChange}
-                          value={field.value ?? ""}
-                        />
-                      )}
-                      rules={{
-                        required: props.texts.fullNameRequiredText,
-                      }}
-                    />
-                  )
-                }
-                if (fld === "email") {
-                  return (
-                    <Controller
-                      control={control}
-                      name="email"
-                      render={({ field }) => (
-                        <HawaTextField
-                          width="full"
-                          type="text"
-                          autoComplete="email"
-                          label={props.texts.emailLabel}
-                          helpertext={errors.email?.message}
-                          placeholder={props.texts.emailPlaceholder}
-                          onChange={field.onChange}
-                          value={field.value ?? ""}
-                        />
-                      )}
-                      rules={{
-                        required: props.texts.emailRequiredText,
-                        pattern: {
-                          value:
-                            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                          message: props.texts.emailInvalidText,
-                        },
-                      }}
-                    />
-                  )
-                }
-                if (fld === "username") {
-                  return (
-                    <Controller
-                      control={control}
-                      name="username"
-                      render={({ field }) => (
-                        <HawaTextField
-                          width="full"
-                          type="text"
-                          autoComplete="username"
-                          label={props.texts.usernameLabel}
-                          helpertext={errors.username?.message}
-                          placeholder={props.texts.usernamePlaceholder}
-                          onChange={field.onChange}
-                          value={field.value ?? ""}
-                        />
-                      )}
-                      rules={{
-                        required: props.texts.usernameRequired,
-                      }}
-                    />
-                  )
-                }
-              })}
-            </div>
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <HawaTextField
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  // defaultValue={field.value ?? ""}
-                  label={props.texts.passwordLabel}
-                  placeholder={props.texts.passwordPlaceholder}
-                  helpertext={errors.password?.message}
-                  onChange={field.onChange}
-                  value={field.value ?? ""}
-                />
-              )}
-              rules={{ required: props.texts.passwordRequiredText }}
+    <Card dir={props.direction}>
+      <CardContent headless>
+        <div>
+          {props.showError && (
+            <HawaAlert
+              title={props.errorTitle}
+              text={props.errorText}
+              severity="error"
             />
-            <Controller
-              control={control}
-              name="confirm_password"
-              render={({ field }) => (
-                <HawaTextField
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  // defaultValue={field.value ?? ""}
-                  label={props.texts.confirmPasswordLabel}
-                  placeholder={props.texts.confirmPasswordPlaceholder}
-                  helpertext={errors.confirm_password?.message}
-                  onChange={field.onChange}
-                  value={field.value ?? ""}
-                />
-              )}
-              rules={{ required: props.texts.passwordRequiredText }}
-            />
-            {props.showRefCode && (
+          )}
+          <FormProvider {...methods}>
+            <form onSubmit={handleSubmit((e) => props.handleSignUp(e))}>
+              <div>
+                {props.signUpFields.map((fld, i) => {
+                  if (fld === "fullname") {
+                    return (
+                      <Controller
+                        key={i}
+                        control={control}
+                        name="fullName"
+                        render={({ field }) => (
+                          <HawaTextField
+                            width="full"
+                            type="text"
+                            label={props.texts.fullNameLabel}
+                            placeholder={props.texts.fullNamePlaceholder}
+                            helpertext={errors.fullName?.message}
+                            onChange={field.onChange}
+                            value={field.value ?? ""}
+                          />
+                        )}
+                        rules={{
+                          required: props.texts.fullNameRequiredText,
+                        }}
+                      />
+                    )
+                  }
+                  if (fld === "email") {
+                    return (
+                      <Controller
+                        control={control}
+                        name="email"
+                        render={({ field }) => (
+                          <HawaTextField
+                            width="full"
+                            type="text"
+                            autoComplete="email"
+                            label={props.texts.emailLabel}
+                            helpertext={errors.email?.message}
+                            placeholder={props.texts.emailPlaceholder}
+                            onChange={field.onChange}
+                            value={field.value ?? ""}
+                          />
+                        )}
+                        rules={{
+                          required: props.texts.emailRequiredText,
+                          pattern: {
+                            value:
+                              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                            message: props.texts.emailInvalidText,
+                          },
+                        }}
+                      />
+                    )
+                  }
+                  if (fld === "username") {
+                    return (
+                      <Controller
+                        control={control}
+                        name="username"
+                        render={({ field }) => (
+                          <HawaTextField
+                            width="full"
+                            type="text"
+                            autoComplete="username"
+                            label={props.texts.usernameLabel}
+                            helpertext={errors.username?.message}
+                            placeholder={props.texts.usernamePlaceholder}
+                            onChange={field.onChange}
+                            value={field.value ?? ""}
+                          />
+                        )}
+                        rules={{
+                          required: props.texts.usernameRequired,
+                        }}
+                      />
+                    )
+                  }
+                })}
+              </div>
               <Controller
                 control={control}
-                name="refCode"
+                name="password"
                 render={({ field }) => (
                   <HawaTextField
                     width="full"
-                    type="text"
-                    defaultValue={field.value ?? ""}
-                    label={props.texts.refCode}
+                    type="password"
+                    autoComplete="new-password"
+                    // defaultValue={field.value ?? ""}
+                    label={props.texts.passwordLabel}
                     placeholder={props.texts.passwordPlaceholder}
                     helpertext={errors.password?.message}
-                    value={field.value ?? ""}
                     onChange={field.onChange}
+                    value={field.value ?? ""}
                   />
                 )}
+                rules={{ required: props.texts.passwordRequiredText }}
               />
-            )}
-            {props.showUserSource && (
-              <div>
+              <Controller
+                control={control}
+                name="confirm_password"
+                render={({ field }) => (
+                  <HawaTextField
+                    width="full"
+                    type="password"
+                    autoComplete="new-password"
+                    // defaultValue={field.value ?? ""}
+                    label={props.texts.confirmPasswordLabel}
+                    placeholder={props.texts.confirmPasswordPlaceholder}
+                    helpertext={errors.confirm_password?.message}
+                    onChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                )}
+                rules={{ required: props.texts.passwordRequiredText }}
+              />
+              {props.showRefCode && (
                 <Controller
                   control={control}
-                  name="reference"
+                  name="refCode"
                   render={({ field }) => (
-                    <HawaSelect
-                      label="How did you learn about us?"
-                      isCreatable={false}
-                      isMulti={false ?? false}
-                      isSearchable={false}
-                      isClearable={false ?? false}
-                      options={[
-                        { value: "friend", label: "From a friend" },
-                        { value: "ad", label: "Advertisement" },
-                        { value: "other", label: "Other" },
-                      ]}
-                      onChange={(e: any) => {
-                        field.onChange(e.value)
-                      }}
+                    <HawaTextField
+                      width="full"
+                      type="text"
+                      defaultValue={field.value ?? ""}
+                      label={props.texts.refCode}
+                      placeholder={props.texts.passwordPlaceholder}
+                      helpertext={errors.password?.message}
+                      value={field.value ?? ""}
+                      onChange={field.onChange}
                     />
                   )}
                 />
-              </div>
-            )}
-            {props.showTermsOption && (
-              <Controller
-                control={control}
-                name="terms_accepted"
-                render={({ field }) => (
-                  <HawaCheckbox
-                    id="terms_accepted"
-                    helperText={errors.terms_accepted?.message}
-                    onChange={(e) => field.onChange(e)}
-                    label={
-                      <span>
-                        {props.texts.iAcceptText}{" "}
-                        <a
-                          onClick={props.handleRouteToTOS}
-                          className="cursor-pointer text-blue-800"
-                        >
-                          {props.texts.termsText}
-                        </a>
-                      </span>
-                    }
+              )}
+              {props.showUserSource && (
+                <div>
+                  <Controller
+                    control={control}
+                    name="reference"
+                    render={({ field }) => (
+                      <HawaSelect
+                        label="How did you learn about us?"
+                        isCreatable={false}
+                        isMulti={false ?? false}
+                        isSearchable={false}
+                        isClearable={false ?? false}
+                        options={[
+                          { value: "friend", label: "From a friend" },
+                          { value: "ad", label: "Advertisement" },
+                          { value: "other", label: "Other" },
+                        ]}
+                        onChange={(e: any) => {
+                          field.onChange(e.value)
+                        }}
+                      />
+                    )}
                   />
-                )}
-                rules={{ required: props.texts.termsRequiredText }}
-              />
-            )}
-            {props.showNewsletterOption && (
-              <Controller
-                control={control}
-                name="newsletter_accepted"
-                render={({ field }) => (
-                  <HawaCheckbox
-                    id="newsletter_accepted"
-                    label={props.texts.subscribeToNewsletter}
-                    onChange={field.onChange}
-                  />
-                )}
-              />
-            )}
-            <HawaButton
-              isLoading={props.isLoading}
-              color="primary"
-              width="full"
+                </div>
+              )}
+              {props.showTermsOption && (
+                <Controller
+                  control={control}
+                  name="terms_accepted"
+                  render={({ field }) => (
+                    <HawaCheckbox
+                      id="terms_accepted"
+                      helperText={errors.terms_accepted?.message}
+                      onChange={(e) => field.onChange(e)}
+                      label={
+                        <span>
+                          {props.texts.iAcceptText}{" "}
+                          <a
+                            onClick={props.handleRouteToTOS}
+                            className="cursor-pointer text-blue-800"
+                          >
+                            {props.texts.termsText}
+                          </a>
+                        </span>
+                      }
+                    />
+                  )}
+                  rules={{ required: props.texts.termsRequiredText }}
+                />
+              )}
+              {props.showNewsletterOption && (
+                <Controller
+                  control={control}
+                  name="newsletter_accepted"
+                  render={({ field }) => (
+                    <HawaCheckbox
+                      id="newsletter_accepted"
+                      label={props.texts.subscribeToNewsletter}
+                      onChange={field.onChange}
+                    />
+                  )}
+                />
+              )}
+
+              <Button className="w-full" isLoading={props.isLoading}>
+                {props.texts.signUpText}
+              </Button>
+            </form>
+          </FormProvider>
+          <div className="flex flex-row items-center justify-center gap-1 p-3 text-center  text-sm font-semibold dark:text-white">
+            <span>{props.texts.existingUserText}</span>
+            <span
+              onClick={props.handleRouteToSignIn}
+              className="cursor-pointer text-blue-600"
             >
-              {props.texts.signUpText}
-            </HawaButton>
-          </form>
-        </FormProvider>
-        <div className="flex flex-row items-center justify-center gap-1 p-3 text-center  text-sm font-semibold dark:text-white">
-          <span>{props.texts.existingUserText}</span>
-          <span
-            onClick={props.handleRouteToSignIn}
-            className="cursor-pointer text-blue-600"
-          >
-            {props.texts.signInText}
-          </span>
+              {props.texts.signInText}
+            </span>
+          </div>
         </div>
-      </div>
+      </CardContent>
+
       {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <CardFooter className="grid grid-cols-1 gap-2 ">
           {props.viaGoogle && (
-            <HawaLogoButton
-              logo="google"
-              direction={props.direction}
-              buttonText={props.texts.signUpViaGoogleLabel}
-              onClick={props.handleGoogleSignUp}
-            />
+            <Button variant="outline" onClick={props.handleGoogleSignUp}>
+              <Icons.google
+                className={clsx(
+                  "h-4 w-4",
+                  props.direction === "rtl" ? "ml-2" : "mr-2"
+                )}
+              />
+              {props.texts.signUpViaGoogleLabel}
+            </Button>
           )}
           {props.viaGithub && (
-            <HawaLogoButton
-              logo="github"
-              direction={props.direction}
-              buttonText={props.texts.signUpViaGithubLabel}
-              onClick={props.handleGithubSignUp}
-            />
+            <Button variant="outline" onClick={props.handleGithubSignUp}>
+              <Icons.gitHub
+                className={clsx(
+                  "h-4 w-4",
+                  props.direction === "rtl" ? "ml-2" : "mr-2"
+                )}
+              />
+              {props.texts.signUpViaGithubLabel}
+            </Button>
           )}
           {props.viaTwitter && (
-            <HawaLogoButton
-              logo="twitter"
-              direction={props.direction}
-              buttonText={props.texts.signUpViaTwitterLabel}
-              onClick={props.handleTwitterSignUp}
-            />
+            <Button variant="outline" onClick={props.handleTwitterSignUp}>
+              <Icons.twitter
+                className={clsx(
+                  "h-4 w-4",
+                  props.direction === "rtl" ? "ml-2" : "mr-2"
+                )}
+              />
+              {props.texts.signUpViaTwitterLabel}
+            </Button>
           )}
-        </div>
+        </CardFooter>
       ) : null}
-    </HawaContainer>
+    </Card>
   )
 }

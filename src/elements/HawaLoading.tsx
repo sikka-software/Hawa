@@ -28,13 +28,13 @@ export const HawaLoading: FC<LoadingTypes> = ({
   switch (design.split("-")[0]) {
     case "dots":
       return (
-        <div className="flex flex-row space-x-2 ">
+        <div className="flex flex-row gap-2">
           <div
             className={clsx(
               "animate-bounce rounded-full delay-100 repeat-infinite",
               size === "button" ? "h-2 w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
-              color ? color : "bg-buttonPrimary-500"
+              color ? color : "bg-primary-foreground"
             )}
           ></div>
           <div
@@ -43,7 +43,7 @@ export const HawaLoading: FC<LoadingTypes> = ({
               size === "button" ? "h-2 w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
 
-              color ? color : "bg-buttonPrimary-500"
+              color ? color : "bg-primary-foreground"
             )}
           ></div>
           <div
@@ -52,7 +52,7 @@ export const HawaLoading: FC<LoadingTypes> = ({
               size === "button" ? "h-2 w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
 
-              color ? color : "bg-buttonPrimary-500"
+              color ? color : "bg-primary-foreground"
             )}
           ></div>
         </div>

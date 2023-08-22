@@ -64,52 +64,54 @@ const SignUpTemplate = (args, globals) => {
   setLocale(locale);
 
   return (
-    <SignUpForm
-      direction={locale === "ar" ? "rtl" : "ltr"}
-      {...args}
-      texts={{
-        fullNameLabel: t("fullNameLabel"),
-        fullNamePlaceholder: t("fullNamePlaceholder"),
-        fullNameRequiredText: t("fullNameRequiredText"),
-        emailLabel: t("emailLabel"),
-        emailPlaceholder: t("emailPlaceholder"),
-        emailRequiredText: t("emailRequiredText"),
-        emailInvalidText: t("emailInvalidText"),
-        usernameLabel: t("usernameLabel"),
-        usernamePlaceholder: t("usernamePlaceholder"),
-        usernameRequired: t("usernameRequired"),
-        passwordLabel: t("passwordLabel"),
-        passwordPlaceholder: t("passwordPlaceholder"),
-        passwordRequiredText: t("passwordRequiredText"),
-        passwordTooShortText: "Password too short",
-        subscribeToNewsletter: "Subscribe to newsletter?",
-        confirmPasswordLabel: "Confirm Password",
-        confirmPasswordPlaceholder: "Minimum 8 characters",
-        iAcceptText: "I accept the",
-        termsText: "terms & conditions",
-        termsRequiredText: "you must accept the terms & conditions",
-        forgotPasswordText: "Forgot password?",
-        newUserText: "New user?",
-        signUpText: "Sign up",
-        signInText: "Sign in",
-        existingUserText: "Existing User?",
-        signUpViaGoogleLabel: t("signUpViaGoogleLabel"),
-        signUpViaGithubLabel: t("signUpViaGithubLabel"),
-        signUpViaTwitterLabel: t("signUpViaTwitterLabel"),
-        refCode: "Referral Code"
-      }}
-      showError={args.showError}
-      viaGoogle={args.viaGoogle}
-      viaGithub={args.viaGithub}
-      signUpFields={["fullname", "username", "email"]}
-      viaTwitter={args.viaTwitter}
-      handleSignUp={(e) => console.log("singing up via email", e)}
-      handleGoogleSignUp={() => console.log("signing up via google")}
-      handleGithubSignUp={() => console.log("signing up via github")}
-      handleTwitterSignUp={() => console.log("signing up via Twitter")}
-      handleRouteToSignIn={() => console.log("switching to sign in")}
-      handleRouteToTOS={() => console.log("routing to TOS page")}
-    />
+    <div className="max-w-md">
+      <SignUpForm
+        direction={locale === "ar" ? "rtl" : "ltr"}
+        {...args}
+        texts={{
+          fullNameLabel: t("fullNameLabel"),
+          fullNamePlaceholder: t("fullNamePlaceholder"),
+          fullNameRequiredText: t("fullNameRequiredText"),
+          emailLabel: t("emailLabel"),
+          emailPlaceholder: t("emailPlaceholder"),
+          emailRequiredText: t("emailRequiredText"),
+          emailInvalidText: t("emailInvalidText"),
+          usernameLabel: t("usernameLabel"),
+          usernamePlaceholder: t("usernamePlaceholder"),
+          usernameRequired: t("usernameRequired"),
+          passwordLabel: t("passwordLabel"),
+          passwordPlaceholder: t("passwordPlaceholder"),
+          passwordRequiredText: t("passwordRequiredText"),
+          passwordTooShortText: "Password too short",
+          subscribeToNewsletter: "Subscribe to newsletter?",
+          confirmPasswordLabel: "Confirm Password",
+          confirmPasswordPlaceholder: "Minimum 8 characters",
+          iAcceptText: "I accept the",
+          termsText: "terms & conditions",
+          termsRequiredText: "you must accept the terms & conditions",
+          forgotPasswordText: "Forgot password?",
+          newUserText: "New user?",
+          signUpText: "Sign up",
+          signInText: "Sign in",
+          existingUserText: "Existing User?",
+          signUpViaGoogleLabel: t("signUpViaGoogleLabel"),
+          signUpViaGithubLabel: t("signUpViaGithubLabel"),
+          signUpViaTwitterLabel: t("signUpViaTwitterLabel"),
+          refCode: "Referral Code"
+        }}
+        showError={args.showError}
+        viaGoogle={args.viaGoogle}
+        viaGithub={args.viaGithub}
+        signUpFields={["fullname", "username", "email"]}
+        viaTwitter={args.viaTwitter}
+        handleSignUp={(e) => console.log("singing up via email", e)}
+        handleGoogleSignUp={() => console.log("signing up via google")}
+        handleGithubSignUp={() => console.log("signing up via github")}
+        handleTwitterSignUp={() => console.log("signing up via Twitter")}
+        handleRouteToSignIn={() => console.log("switching to sign in")}
+        handleRouteToTOS={() => console.log("routing to TOS page")}
+      />
+    </div>
   );
 };
 export const SignUp = SignUpTemplate.bind({});
