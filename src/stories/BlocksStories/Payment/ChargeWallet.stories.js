@@ -15,15 +15,17 @@ export default {
 
 export const ChargeWallet = (args) => {
   return (
-    <ChargeWalletForm
-      {...args}
-      handleChargeWallet={(e) => console.log("amount is ", e)}
-      texts={{
-        amountLabel: "Enter Amount",
-        chargeWallet: "Charge Wallet",
-        amountRequired: "Amount required"
-      }}
-    />
+    <div className="max-w-md">
+      <ChargeWalletForm
+        {...args}
+        handleChargeWallet={(e) => console.log("amount is ", e)}
+        texts={{
+          amountLabel: "Enter Amount",
+          chargeWallet: "Charge Wallet",
+          amountRequired: "Amount required"
+        }}
+      />
+    </div>
   );
 };
 

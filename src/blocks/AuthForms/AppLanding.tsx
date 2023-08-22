@@ -1,6 +1,5 @@
 import React, { FC } from "react"
-import { HawaButton, HawaRadio } from "../../elements"
-import { HawaContainer } from "../../layout/HawaContainer"
+import { HawaRadio } from "../../elements"
 import { Card, CardContent } from "../../elements/Card"
 import { Button } from "../../elements/Button"
 

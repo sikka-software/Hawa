@@ -1,5 +1,4 @@
 import React, { FC } from "react"
-import { HawaContainer } from "../../layout"
 import { Card, CardContent } from "../../elements/Card"
 
 type TNoPermission = {

@@ -1,6 +1,7 @@
 import React, { FC } from "react"
-import { HawaAlert, HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { HawaAlert } from "../../elements"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type TReferralStats = {
   referralLink: string
@@ -14,57 +15,58 @@ export const ReferralStats: FC<TReferralStats> = ({
   withdrawError,
 }) => {
   return (
-    <HawaContainer>
-      <div className="mb-1">Stats</div>
-      <div className="justi flex flex-row gap-1">
-        <NumberCard title="Clicks" number={22} />
-        <NumberCard title="Sign-ups" number={32} />
-        <NumberCard title="Commission" number={"213.22 SAR"} />
-      </div>
-      <div>
-        <HawaButton width="full">Withdraw Money</HawaButton>
-      </div>
-      {withdrawError && (
-        <div>
-          <HawaAlert
-            text={
-              "Sorry can't withdraw the money at the moment. Please try again in 2022/11/20"
-            }
-            severity="warning"
-          />
+    <Card>
+      <CardContent headless>
+        <div className="mb-1">Stats</div>
+        <div className="justi flex flex-row gap-1">
+          <NumberCard title="Clicks" number={22} />
+          <NumberCard title="Sign-ups" number={32} />
+          <NumberCard title="Commission" number={"213.22 SAR"} />
         </div>
-      )}
-      <div className="mt-3">
-        <div className="mb-1">Sign ups</div>
-        <div className="rounded">
-          <ReferralSignUpCard
-            date="2020/10/11 @ 9:45 pm"
-            email="zakher@sikka.io"
-            amount="3.4 SAR / Month"
-          />
-          <ReferralSignUpCard
-            date="2022/10/11 @ 9:45 pm"
-            email="zakher@sikka.io"
-            amount="3.4 SAR / Month"
-          />
-          <ReferralSignUpCard
-            date="2022/10/11 @ 9:45 pm"
-            email="zakher@sikka.io"
-            amount="3.4 SAR / Month"
-          />
-          <ReferralSignUpCard
-            date="2022/10/11 @ 9:45 pm"
-            email="zakher@sikka.io"
-            amount="3.4 SAR / Month"
-          />
-          <ReferralSignUpCard
-            date="2022/10/11 @ 9:45 pm"
-            email="zakher@sikka.io"
-            amount="3.4 SAR / Month"
-          />
+
+        <Button className="mt-6 w-full">Withdraw Money</Button>
+        {withdrawError && (
+          <div>
+            <HawaAlert
+              text={
+                "Sorry can't withdraw the money at the moment. Please try again in 2022/11/20"
+              }
+              severity="warning"
+            />
+          </div>
+        )}
+        <div className="mt-3">
+          <div className="mb-1">Sign ups</div>
+          <div className="rounded">
+            <ReferralSignUpCard
+              date="2020/10/11 @ 9:45 pm"
+              email="zakher@sikka.io"
+              amount="3.4 SAR / Month"
+            />
+            <ReferralSignUpCard
+              date="2022/10/11 @ 9:45 pm"
+              email="zakher@sikka.io"
+              amount="3.4 SAR / Month"
+            />
+            <ReferralSignUpCard
+              date="2022/10/11 @ 9:45 pm"
+              email="zakher@sikka.io"
+              amount="3.4 SAR / Month"
+            />
+            <ReferralSignUpCard
+              date="2022/10/11 @ 9:45 pm"
+              email="zakher@sikka.io"
+              amount="3.4 SAR / Month"
+            />
+            <ReferralSignUpCard
+              date="2022/10/11 @ 9:45 pm"
+              email="zakher@sikka.io"
+              amount="3.4 SAR / Month"
+            />
+          </div>
         </div>
-      </div>
-    </HawaContainer>
+      </CardContent>
+    </Card>
   )
 }
 

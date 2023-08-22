@@ -1,6 +1,7 @@
 import React, { useState, FC } from "react"
 import { HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type ChargeWalletTypes = {
   currency: any
@@ -15,27 +16,28 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
   const [walletAmount, setWalletAmount] = useState(0)
 
   return (
-    <HawaContainer>
-      <div className="p-4 text-center">
-        <div className=" text-5xl font-extrabold">
-          {Number(walletAmount).toLocaleString("en") || "0"}
+    <Card>
+      <CardContent headless>
+        <div className="p-4 text-center">
+          <div className=" text-5xl font-extrabold">
+            {Number(walletAmount).toLocaleString("en") || "0"}
+          </div>
+          <div className="text-sm font-normal">{props.currency || "SAR"}</div>
         </div>
-        <div className="text-sm font-normal">{props.currency || "SAR"}</div>
-      </div>
-      <div className="mb-2 flex w-full flex-row gap-4 text-center">
-        <HawaButton variant="outlined" margins="none" className="h-full">
-          10 SAR
-        </HawaButton>
-        <HawaButton variant="outlined" margins="none" className="h-full">
-          100 SAR
-        </HawaButton>
+        <div className="mb-2 flex w-full flex-row gap-4 text-center">
+          <HawaButton variant="outlined" margins="none" className="h-full">
+            10 SAR
+          </HawaButton>
+          <HawaButton variant="outlined" margins="none" className="h-full">
+            100 SAR
+          </HawaButton>
 
-        <input
-          placeholder="Custom"
-          className="h-auto w-full rounded bg-gray-100 p-4"
-        />
-      </div>
-      {/* <FormProvider {...methods}>
+          <input
+            placeholder="Custom"
+            className="h-auto w-full rounded bg-gray-100 p-4"
+          />
+        </div>
+        {/* <FormProvider {...methods}>
         <form onSubmit={handleSubmit(props.handleChargeWallet)}>
           <Controller
             control={control}
@@ -74,9 +76,8 @@ export const ChargeWalletForm: FC<ChargeWalletTypes> = (props) => {
           </HawaButton>
           </form>
         </FormProvider> */}
-      <HawaButton color="primary" width="full">
-        {props.texts.chargeWallet}
-      </HawaButton>
-    </HawaContainer>
+        <Button className="mt-6 w-full">{props.texts.chargeWallet}</Button>
+      </CardContent>
+    </Card>
   )
 }

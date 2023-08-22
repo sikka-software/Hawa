@@ -7,8 +7,8 @@ import {
   HawaSelect,
   HawaTextField,
 } from "../../elements"
-import { HawaContainer } from "../../layout"
 import { Controller, FormProvider, useForm } from "react-hook-form"
+import { Card, CardContent } from "../../elements/Card"
 
 type TReferralSettlement = {
   referralLink: string
@@ -28,69 +28,71 @@ export const ReferralSettlement: FC<TReferralSettlement> = ({
     control,
   } = methods
   return (
-    <HawaContainer>
-      <div>
-        <FormProvider {...methods}>
-          <HawaTextField label={"IBAN"} />
-          <HawaTextField label={"Holder Name"} />
-          <Controller
-            control={control}
-            name="bank"
-            render={({ field }) => (
-              <HawaSelect
-                label="Bank"
-                isCreatable={false}
-                isMulti={false ?? false}
-                isSearchable={false}
-                isClearable={false ?? false}
-                options={[
-                  { value: "snb", label: "Saudi National Bank" },
-                  { value: "bilad", label: "Al Bilad Bank" },
-                  { value: "rajihi", label: "Al Rajihi Bank" },
-                ]}
-                onInputChange={(e: any, o: any) => console.log("changing", e)}
-                {...field}
-                onChange={(e: any, o: any) => console.log("chooo", e)}
-              />
-            )}
-          />
-        </FormProvider>
-      </div>
-      <div>
-        <HawaButton width="full">Add Bank Account</HawaButton>
-      </div>
-      {withdrawError && (
+    <Card>
+      <CardContent headless>
         <div>
-          <HawaAlert
-            text={
-              "Sorry can't withdraw the money at the moment. Please try again in 2022/11/20"
-            }
-            severity="warning"
-          />
+          <FormProvider {...methods}>
+            <HawaTextField label={"IBAN"} />
+            <HawaTextField label={"Holder Name"} />
+            <Controller
+              control={control}
+              name="bank"
+              render={({ field }) => (
+                <HawaSelect
+                  label="Bank"
+                  isCreatable={false}
+                  isMulti={false ?? false}
+                  isSearchable={false}
+                  isClearable={false ?? false}
+                  options={[
+                    { value: "snb", label: "Saudi National Bank" },
+                    { value: "bilad", label: "Al Bilad Bank" },
+                    { value: "rajihi", label: "Al Rajihi Bank" },
+                  ]}
+                  onInputChange={(e: any, o: any) => console.log("changing", e)}
+                  {...field}
+                  onChange={(e: any, o: any) => console.log("chooo", e)}
+                />
+              )}
+            />
+          </FormProvider>
         </div>
-      )}
-      <div className="mt-3">
-        <div className="mb-1">Settlement Accounts</div>
-        <div className="rounded">
-          <SettlementAccountCard
-            bank="Al Inma Bank"
-            iban="SA10228094028098329119"
-            accountHolder="Zakher Masri"
-            default
-          />
-          <SettlementAccountCard
-            bank="Al Rajihi Bank"
-            iban="SA10228094028098329119"
-            accountHolder="Zakher Masri"
-          />
-          <SettlementAccountCard
-            bank="Al Inma Bank"
-            iban="SA10228094028098329119"
-            accountHolder="Zakher Masri"
-          />
+        <div>
+          <HawaButton width="full">Add Bank Account</HawaButton>
         </div>
-      </div>
-    </HawaContainer>
+        {withdrawError && (
+          <div>
+            <HawaAlert
+              text={
+                "Sorry can't withdraw the money at the moment. Please try again in 2022/11/20"
+              }
+              severity="warning"
+            />
+          </div>
+        )}
+        <div className="mt-3">
+          <div className="mb-1">Settlement Accounts</div>
+          <div className="rounded">
+            <SettlementAccountCard
+              bank="Al Inma Bank"
+              iban="SA10228094028098329119"
+              accountHolder="Zakher Masri"
+              default
+            />
+            <SettlementAccountCard
+              bank="Al Rajihi Bank"
+              iban="SA10228094028098329119"
+              accountHolder="Zakher Masri"
+            />
+            <SettlementAccountCard
+              bank="Al Inma Bank"
+              iban="SA10228094028098329119"
+              accountHolder="Zakher Masri"
+            />
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   )
 }
 
@@ -121,7 +123,7 @@ const SettlementAccountCard = (props) => {
           // position={direction === "rtl" ? "right-bottom" : "left-bottom"}
           // direction={direction}
         >
-          <HawaButton variant="outlined"  >
+          <HawaButton variant="outlined">
             <svg
               aria-label="Vertical Three Dots Menu Icon"
               className="rotate-90"

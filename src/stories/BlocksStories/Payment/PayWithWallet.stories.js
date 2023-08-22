@@ -13,5 +13,9 @@ export default {
 };
 
 export const PayViaWallet = (args) => {
-  return <PayWithWallet {...args} />;
+  return (
+    <div className="max-w-md">
+      <PayWithWallet {...args} />
+    </div>
+  );
 };

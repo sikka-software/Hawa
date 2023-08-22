@@ -1,6 +1,6 @@
 import React, { FC } from "react"
-import { HawaButton, HawaTable } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type ConfirmationPageTypes = {
   texts: {
@@ -42,19 +42,20 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
   let isArabic = props.lang === "ar"
 
   return (
-    <HawaContainer>
-      {" "}
-      <div className="py-5 text-center text-3xl font-bold dark:text-white">
-        {props.confirmationTitle}
-      </div>
-      <div className="py-5 dark:text-white">
-        <div className="mb-2 text-center">
-          {props.texts.successMessage} <strong>{props.userEmail}</strong>
+    <Card>
+      <CardContent headless>
+        {" "}
+        <div className="py-5 text-center text-3xl font-bold dark:text-white">
+          {props.confirmationTitle}
         </div>
-        <div className="text-center">{props.texts.yourOrderNumber}</div>
-        <div className="text-center font-bold">{props.orderNumber}</div>
-      </div>
-      {/* <div className="py-5">
+        <div className="py-5 dark:text-white">
+          <div className="mb-2 text-center">
+            {props.texts.successMessage} <strong>{props.userEmail}</strong>
+          </div>
+          <div className="text-center">{props.texts.yourOrderNumber}</div>
+          <div className="text-center font-bold">{props.orderNumber}</div>
+        </div>
+        {/* <div className="py-5">
         <div className="mb-3 text-center text-xl font-semibold">
           {props.texts.orderDetails}
         </div>
@@ -69,26 +70,27 @@ export const ConfirmationPage: FC<ConfirmationPageTypes> = (props) => {
           />
         )}
       </div> */}
-      <div className="flex flex-col items-center justify-center py-5 pt-0">
-        <HawaButton color="primary" width="full" onClick={props.handlePrint}>
-          {props.texts.print}
-        </HawaButton>
-        <HawaButton color="primary" width="full" onClick={props.handleHistory}>
-          {props.texts.history}
-        </HawaButton>
-        <HawaButton color="primary" width="full" onClick={props.handleHome}>
-          {props.texts.homePage}
-        </HawaButton>
-        <div className="mb-5 mt-5 text-center text-sm dark:text-white">
-          {props.texts.fasterPaymentNote}
+        <div className="flex flex-col items-center justify-center gap-4 py-5 pt-0">
+          <Button className="w-full" onClick={props.handlePrint}>
+            {props.texts.print}
+          </Button>
+          <Button className="w-full" onClick={props.handleHistory}>
+            {props.texts.history}
+          </Button>
+          <Button className="w-full" onClick={props.handleHome}>
+            {props.texts.homePage}
+          </Button>
+          <div className=" text-center text-sm dark:text-white">
+            {props.texts.fasterPaymentNote}
+          </div>
+          <a
+            className="w-fit cursor-pointer text-center  text-xs font-normal dark:text-white"
+            onClick={props.handleRefundPolicyLink}
+          >
+            {props.texts.refundPolicy}
+          </a>
         </div>
-        <a
-          className="w-fit cursor-pointer text-center  text-xs font-normal dark:text-white"
-          onClick={props.handleRefundPolicyLink}
-        >
-          {props.texts.refundPolicy}
-        </a>
-      </div>
-    </HawaContainer>
+      </CardContent>
+    </Card>
   )
 }

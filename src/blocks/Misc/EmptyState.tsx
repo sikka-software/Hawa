@@ -1,6 +1,4 @@
 import React, { FC } from "react"
-import { HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
 import { Card, CardContent, CardFooter } from "../../elements/Card"
 import { Button } from "../../elements/Button"
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
-import { HawaButton } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { Card, CardContent } from "../../elements/Card"
+import { Button } from "../../elements/Button"
 
 type PayWithWalletTypes = {
   walletBalance: any
@@ -9,18 +9,16 @@ type PayWithWalletTypes = {
 }
 export const PayWithWallet: FC<PayWithWalletTypes> = (props) => {
   return (
-    <HawaContainer>
-      <div className="text-center text-5xl font-extrabold">
-        {props.walletBalance || "0"}
-        <div className="text-sm font-normal">{props.currency || "SAR"}</div>
-      </div>
-      <HawaButton
-        width="full"
-        color="primary"
-        onClick={props.handlePayWithWallet}
-      >
-        Pay Now
-      </HawaButton>
-    </HawaContainer>
+    <Card>
+      <CardContent headless>
+        <div className="text-center text-5xl font-extrabold">
+          {props.walletBalance || "0"}
+          <div className="text-sm font-normal">{props.currency || "SAR"}</div>
+        </div>
+        <Button className="mt-6 w-full" onClick={props.handlePayWithWallet}>
+          Pay Now
+        </Button>
+      </CardContent>
+    </Card>
   )
 }

@@ -1,6 +1,5 @@
 import React, { FC } from "react"
-import { HawaTypography, HawaLogoButton } from "../../elements"
-import { HawaContainer } from "../../layout"
+import { HawaLogoButton } from "../../elements"
 import { Card, CardContent, CardHeader, CardTitle } from "../../elements/Card"
 
 type SelectPaymentTypes = {
