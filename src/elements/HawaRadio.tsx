@@ -22,9 +22,9 @@ export const HawaRadio: FC<RadioTypes> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4  w-full text-white bg-primary rounded active dark:bg-primary dark:text-black"
+    "inline-block py-2 px-4  w-full text-white bg-primary  active dark:bg-primary dark:text-black"
   let inactiveTabStyle =
-    "inline-block py-2 px-4 w-full dark:bg-background bg-gray-100 rounded hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+    "inline-block py-2 px-4 w-full dark:bg-background bg-gray-100  hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
   let orientationStyle = {
     horizontal: "flex flex-row",
     vertical: "flex flex-col",
@@ -32,38 +32,39 @@ export const HawaRadio: FC<RadioTypes> = ({
   switch (design) {
     case "tabs":
       return (
-        <div>
-          <ul
-            className={clsx(
-              props.options?.length > 2
-                ? "flex-wrap xs:max-w-full xs:flex-nowrap"
-                : "",
-              " max-w-fit  whitespace-nowrap rounded border bg-gray-100 text-center text-sm font-medium text-gray-500 dark:bg-background  dark:text-gray-400",
-              orientationStyle[orientation]
-            )}
-          >
-            {props.options?.map((opt: any, o) => (
-              <li className="w-full" key={o}>
-                <button
-                  aria-current="page"
-                  onClick={() => {
-                    setSelectedOption(opt.value)
-                    props.onChangeTab(opt.value)
-                  }}
-                  className={clsx(
-                    "flex flex-row items-center justify-center gap-2",
-                    selectedOption === opt.value
-                      ? activeTabStyle
-                      : inactiveTabStyle
-                  )}
-                >
-                  {opt.icon && opt.icon}
-                  {opt.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul
+          className={clsx(
+            props.options?.length > 2
+              ? "flex-wrap xs:max-w-full xs:flex-nowrap"
+              : "",
+            " max-w-fit  whitespace-nowrap rounded border  text-center text-sm font-medium",
+            orientationStyle[orientation]
+          )}
+        >
+          {props.options?.map((opt: any, o) => (
+            <li
+              aria-current="page"
+              onClick={() => {
+                setSelectedOption(opt.value)
+                props.onChangeTab(opt.value)
+              }}
+              className={clsx(
+                "w-full cursor-pointer",
+                orientation === "horizontal" &&
+                  "rounded-none first:rounded-l last:rounded-r",
+                orientation === "vertical" &&
+                  "rounded-none first:rounded-t last:rounded-b",
+
+                "last flex flex-row items-center justify-center gap-2 ",
+                selectedOption === opt.value ? activeTabStyle : inactiveTabStyle
+              )}
+              key={o}
+            >
+              {opt.icon && opt.icon}
+              {opt.label}
+            </li>
+          ))}
+        </ul>
       )
     case "bordered":
       return (
