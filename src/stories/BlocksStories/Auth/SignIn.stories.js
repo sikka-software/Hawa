@@ -105,6 +105,7 @@ const SignInTemplate = (args, globals) => {
   const locale = globals.globals.locale === "ar" ? "ar" : "en";
   setLocale(locale);
 
+  const [isError, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="max-w-md">
@@ -114,8 +115,10 @@ const SignInTemplate = (args, globals) => {
         handleForgotPassword={() => console.log("forgot password")}
         handleSignIn={(e) => {
           console.log("Form result: ", e);
+          setError(!isError);
         }}
         {...args}
+        showError={isError}
         texts={{
           emailLabel: t("emailLabel"),
           emailPlaceholder: t("emailPlaceholder"),
@@ -150,7 +153,7 @@ SignIn.args = {
   withoutSignUp: false,
   withoutResetPassword: false,
   signInType: "email",
-  errorTitle: "Error",
+  // errorTitle: "Error",
   errorText: "Something went wrong"
   // direction: "en"
   // texts: {
