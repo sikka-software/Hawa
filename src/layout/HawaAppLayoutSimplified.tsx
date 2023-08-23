@@ -71,7 +71,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
   }, [keepOpen])
 
   let drawerDefaultStyle =
-    "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-layoutPrimary-500 transition-all"
+    "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-card transition-all"
   //The width of the drawer when closed
   let closeDrawerWidth = 56
   //The width of the drawer when opened
@@ -96,7 +96,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
       {props.topBar && (
         <div
           className={clsx(
-            "fixed left-0 right-0 top-0 z-30 flex h-14 w-full items-center justify-between bg-layoutPrimary-500 p-2",
+            "fixed left-0 right-0 top-0 z-30 flex h-14 w-full items-center justify-between bg-primary-foreground p-2",
             isRTL ? "flex-row-reverse" : "flex-row"
           )}
         >
@@ -230,7 +230,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         <div
           dir={direction}
           className={clsx(
-            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-layoutPrimary-500  transition-all"
+            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-primary-foreground  transition-all"
           )}
           style={{
             width:
@@ -271,7 +271,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         <div
           className={clsx(
             // "no-scrollbar", TODO: make this optional to hide scrollbar or not
-            "fixed bottom-14 top-14 bg-layoutPrimary-500 py-2 transition-all",
+            "fixed bottom-14 top-14 bg-primary-foreground py-2 transition-all",
             // bg-yellow-400
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
@@ -373,7 +373,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                               "flex flex-row gap-2 overflow-x-clip  rounded-inner p-2 px-2 text-xs",
                               isRTL ? "text-right" : "text-left",
                               props.currentPage === subIt.slug
-                                ? "bg-buttonPrimary-500 text-white hover:bg-buttonPrimary-500"
+                                ? "bg-buttonPrimary-500 text-white hover:bg-primary-foreground"
                                 : "hover:bg-layoutPrimary-500 dark:text-white"
                             )}
                             dir={direction}
@@ -404,7 +404,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         {/* Drawer Footer */}
         <div
           className={clsx(
-            "fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-layoutPrimary-500  transition-all",
+            "fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-primary-foreground  transition-all",
 
             direction === "rtl" ? "flex-row-reverse" : "flex-row"
           )}

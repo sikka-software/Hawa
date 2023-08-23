@@ -14,7 +14,7 @@ const FullPageTemplate = (args) => {
   return (
     <div
       dir={args.direction}
-      className="bg-primaryLayout-500 fixed left-0 top-0 flex h-screen w-screen flex-wrap items-start justify-start gap-2 overflow-y-scroll p-4"
+      className="bg-layoutPrimary-500 fixed left-0 top-0 flex h-screen w-screen flex-wrap items-start justify-start gap-2 overflow-y-scroll p-4"
       ref={ref}
     >
       <BT anchor={ref} {...args} />
