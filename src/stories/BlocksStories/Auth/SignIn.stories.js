@@ -117,6 +117,8 @@ const SignInTemplate = (args, globals) => {
           console.log("Form result: ", e);
           setError(!isError);
         }}
+        currentColorMode={"dark"}
+        currentLanguage={"ar"}
         {...args}
         showError={isError}
         texts={{
