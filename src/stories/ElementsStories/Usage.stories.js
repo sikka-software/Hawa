@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HawaStats, UsageCard } from "../../elements";
+import { UsageCard } from "../../elements";
 
 export default {
   title: "Elements/Usage",

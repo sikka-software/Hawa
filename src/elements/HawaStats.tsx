@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import clsx from "clsx"
 import { HawaLoading } from "./HawaLoading"
-// import { BsFilesAlt } from "react-icons/bs"
+import { Card, CardContent, CardHeader, CardTitle } from "./Card"
 
 type StatTypes = {
   label?: string
@@ -21,52 +21,48 @@ type StatTypes = {
   handleClick?: () => void
 }
 export const HawaStats: FC<StatTypes> = ({ variant = "default", ...props }) => {
-  let defaultStyle =
-    "flex transition-all flex-col gap-1 rounded p-4 text-sm h-fit max-h-fit"
-  let statStyles = {
-    plain: "",
-    default: "border bg-card text-card-foreground shadow-sm",
-    contained: "bg-layoutPrimary-500",
-    outlined: "ring-2 w-fit",
-    neobrutalism: "shadow-neobrutalism  border-4 border-black  bg-white",
-    dropshadow: "bg-white drop-shadow-md",
-  }
-  let widthStyles = {
-    full: "w-full",
-    min: "w-fit",
-    normal: "w-full max-w-[200px]",
-  }
-
   return (
-    <div
-      onClick={props.handleClick}
-      className={clsx(
-        defaultStyle,
-        widthStyles[props.width],
-        statStyles[variant],
-        props.handleClick ? "cursor-pointer" : "cursor-default",
-        props.handleClick && variant === "dropshadow"
-          ? "hover:drop-shadow-lg"
-          : ""
-      )}
-      style={{
-        backgroundColor: props.color
-          ? props.color
-          : variant === "contained"
-          ? "var(--layout-primary-500)"
-          : "",
-      }}
-    >
-      {props.icon && <div className="mb-2">{props.icon} </div>}
-      <div>{props.label}</div>
-      {props.isLoading ? (
-        <HawaLoading />
-      ) : (
+    <Card onClick={props.handleClick} clickable={Boolean(props.handleClick)}>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{props.label}</CardTitle>
+        {props.icon && props.icon}
+      </CardHeader>
+      <CardContent>
         <div className="text-2xl font-bold">{props.number}</div>
-      )}
-      {props.helperText ? (
-        <div className="text-xs text-muted-foreground">{props.helperText}</div>
-      ) : null}
-    </div>
+        {props.helperText && (
+          <p className="text-xs text-muted-foreground">{props.helperText}</p>
+        )}
+      </CardContent>
+    </Card>
+
+    // <Card>
+
+    //   <CardContent
+    //     // headless
+    //     className={clsx(
+    //       // defaultStyle,
+    //       // widthStyles[props.width],
+    //       statStyles[variant],
+    //       props.handleClick ? "cursor-pointer" : "cursor-default",
+    //       props.handleClick && variant === "dropshadow"
+    //         ? "hover:drop-shadow-lg"
+    //         : ""
+    //     )}
+    //     onClick={props.handleClick}
+    //   >
+    //     {props.icon && <div className="mb-2">{props.icon} </div>}
+    //     {/* <div>{props.label}</div> */}
+    //     {props.isLoading ? (
+    //       <HawaLoading />
+    //     ) : (
+    //       <div className="text-2xl font-bold">{props.number}</div>
+    //     )}
+    //     {props.helperText ? (
+    //       <div className="text-xs text-muted-foreground">
+    //         {props.helperText}
+    //       </div>
+    //     ) : null}
+    //   </CardContent>
+    // </Card>
   )
 }
