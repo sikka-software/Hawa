@@ -90,5 +90,17 @@ export const globalTypes = {
         { value: "ar", right: "AR", title: "Arabic" }
       ]
     }
-  }
+  },
+  // gogo : {
+  //   name: "gogo",
+  //   description: "test button",
+  //   defaultValue: "en",
+  //   toolbar: {
+  //     icon: "globe",
+  //     items: [
+  //       { value: "en", right: "EN", title: "English" },
+  //       { value: "ar", right: "AR", title: "Arabic" }
+  //     ]
+  //   }    
+  // }
 };

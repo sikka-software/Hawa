@@ -25,5 +25,16 @@
   "signInViaTwitterLabel": "Sign in with Twitter",
   "signUpViaGoogleLabel": "Sign up with Google",
   "signUpViaGithubLabel": "Sign up with Github",
-  "signUpViaTwitterLabel": "Sign up with Twitter"
+  "signUpViaTwitterLabel": "Sign up with Twitter",
+
+  "fullNameRequiredText": "Full name is required",
+  "passwordTooShortText": "Password too short",
+  "subscribeToNewsletter": "Subscribe to newsletter?",
+  "confirmPasswordLabel": "Confirm Password",
+  "confirmPasswordPlaceholder": "Minimum 8 characters",
+  "iAcceptText": "I accept the",
+  "termsText": "terms & conditions",
+  "termsRequiredText": "you must accept the terms & conditions",
+  "existingUserText": "Existing User?",
+  "refCode": "Referral Code"
 }

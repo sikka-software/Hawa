@@ -71,12 +71,7 @@ export const ButtonLoadingStory = () => {
         </HawaButton>
       </div>
       <div className="mt-2 flex flex-col">
-        <Button
-
-          isLoading={true}
-        >
-          Normal Width
-        </Button>
+        <Button isLoading={true}>Normal Width</Button>
       </div>
     </div>
   );
@@ -173,35 +168,48 @@ export const ButtonWidthStory = () => {
 };
 export const ButtonSizesStory = () => {
   return (
-    <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl dark:text-white">Sizes</h2>
-      <div className="mt-1 flex flex-row">
-        <HawaButton
-          variant="contained"
-          color="primary"
-          size="small"
-          tooltip="test"
-        >
-          Small
-        </HawaButton>
-        <HawaButton
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="medium"
-          tooltip="test"
-        >
-          Medium
-        </HawaButton>
-        <HawaButton
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="large"
-          tooltip="test"
-        >
-          Large
-        </HawaButton>
+    <div className="flex flex-col gap-10">
+      <div className="card max-w-800 p-3">
+        <h2 className="mt-6 text-xl dark:text-white">Sizes</h2>
+        <div className="mt-1 flex flex-row">
+          <HawaButton
+            variant="contained"
+            color="primary"
+            size="small"
+            tooltip="test"
+          >
+            Small
+          </HawaButton>
+          <HawaButton
+            className="ml-2"
+            variant="contained"
+            color="primary"
+            size="medium"
+            tooltip="test"
+          >
+            Medium
+          </HawaButton>
+          <HawaButton
+            className="ml-2"
+            variant="contained"
+            color="primary"
+            size="large"
+            tooltip="test"
+          >
+            Large
+          </HawaButton>
+        </div>
+      </div>
+      <div className="card max-w-800 p-3">
+        <h2 className="mt-6 text-xl dark:text-white">Sizes v0.1</h2>
+        <div className="mt-1 flex flex-row gap-4">
+          <Button size="xs">X-Small</Button>
+          <Button size="sm">Small</Button>
+          <Button size="default">Default</Button>
+          <Button size="lg">Large</Button>
+          <Button size="xl">X-Large</Button>
+          <Button size="icon">Icon</Button>
+        </div>
       </div>
     </div>
   );

@@ -26,5 +26,16 @@
   "signInViaTwitterLabel": "الدخول بواسطة Twitter",
   "signUpViaGoogleLabel": "التسجيل بواسطة Google",
   "signUpViaGithubLabel": "التسجيل بواسطة Github",
-  "signUpViaTwitterLabel": "التسجيل بواسطة Twitter"
+  "signUpViaTwitterLabel": "التسجيل بواسطة Twitter",
+
+  "fullNameRequiredText": "الإسم الكامل مطلوب",
+  "passwordTooShortText": "كلمة المرور قصيرة",
+  "subscribeToNewsletter": "إشترك في النشرة الإخبارية",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
+  "iAcceptText": "أوافق على",
+  "termsText": "الشروط والأحكام",
+  "termsRequiredText": "يجب الموافقة على الشروط والأحكام للإستمرار",
+  "existingUserText": "لديك حساب؟",
+  "refCode": "رمز الإحالة"
 }

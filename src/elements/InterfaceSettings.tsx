@@ -27,7 +27,7 @@ export const InterfaceSettings: FC<TypographyTypes> = (props) => {
       <HawaRadio
         defaultValue={color}
         onChangeTab={(e) => {
-          props.handleLanguage(e)
+          props.handleColorMode(e)
           setColor(e)
         }}
         design="tabs"
