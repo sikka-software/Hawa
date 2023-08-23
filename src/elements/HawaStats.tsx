@@ -1,7 +1,6 @@
 import React, { FC } from "react"
-import clsx from "clsx"
-import { HawaLoading } from "./HawaLoading"
 import { Card, CardContent, CardHeader, CardTitle } from "./Card"
+import { Skeleton } from "./Skeleton"
 
 type StatTypes = {
   label?: string
@@ -28,41 +27,19 @@ export const HawaStats: FC<StatTypes> = ({ variant = "default", ...props }) => {
         {props.icon && props.icon}
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{props.number}</div>
-        {props.helperText && (
-          <p className="text-xs text-muted-foreground">{props.helperText}</p>
+        {props.isLoading ? (
+          <Skeleton className="h-8 w-3/4" />
+        ) : (
+          <div className="text-2xl font-bold">{props.number}</div>
+        )}
+        {props.isLoading ? (
+          <Skeleton className="mt-2 h-4 w-1/2" />
+        ) : (
+          props.helperText && (
+            <p className="text-xs text-muted-foreground">{props.helperText}</p>
+          )
         )}
       </CardContent>
     </Card>
-
-    // <Card>
-
-    //   <CardContent
-    //     // headless
-    //     className={clsx(
-    //       // defaultStyle,
-    //       // widthStyles[props.width],
-    //       statStyles[variant],
-    //       props.handleClick ? "cursor-pointer" : "cursor-default",
-    //       props.handleClick && variant === "dropshadow"
-    //         ? "hover:drop-shadow-lg"
-    //         : ""
-    //     )}
-    //     onClick={props.handleClick}
-    //   >
-    //     {props.icon && <div className="mb-2">{props.icon} </div>}
-    //     {/* <div>{props.label}</div> */}
-    //     {props.isLoading ? (
-    //       <HawaLoading />
-    //     ) : (
-    //       <div className="text-2xl font-bold">{props.number}</div>
-    //     )}
-    //     {props.helperText ? (
-    //       <div className="text-xs text-muted-foreground">
-    //         {props.helperText}
-    //       </div>
-    //     ) : null}
-    //   </CardContent>
-    // </Card>
   )
 }

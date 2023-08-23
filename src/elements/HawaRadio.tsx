@@ -22,9 +22,9 @@ export const HawaRadio: FC<RadioTypes> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue)
   let activeTabStyle =
-    "inline-block py-2 px-4  w-full text-white bg-primary  active dark:bg-primary dark:text-black"
+    "inline-block py-2 px-4  w-full text-primary-foreground bg-primary  active dark:bg-primary "
   let inactiveTabStyle =
-    "inline-block py-2 px-4 w-full dark:bg-background bg-gray-100  hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+    "inline-block py-2 px-4 w-full transition-all hover:bg-primary/10 dark:bg-background bg-primary/5  hover:text-gray-900  dark:hover:bg-primary/10 dark:hover:text-white dark:bg-primary/5"
   let orientationStyle = {
     horizontal: "flex flex-row",
     vertical: "flex flex-col",
@@ -37,7 +37,7 @@ export const HawaRadio: FC<RadioTypes> = ({
             props.options?.length > 2
               ? "flex-wrap xs:max-w-full xs:flex-nowrap"
               : "",
-            " max-w-fit  whitespace-nowrap rounded border  text-center text-sm font-medium",
+            " max-w-fit  whitespace-nowrap rounded border  text-center text-sm font-medium select-none",
             orientationStyle[orientation]
           )}
         >
