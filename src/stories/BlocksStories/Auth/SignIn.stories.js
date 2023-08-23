@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SignInForm } from "../../../blocks/AuthForms";
 import { t, setLocale } from "../../../translations/i18n";
-
+import { useDarkMode } from "storybook-dark-mode";
 export default {
   title: "Blocks/Auth/Sign In",
   component: [SignInForm],
@@ -107,6 +107,7 @@ const SignInTemplate = (args, globals) => {
 
   const [isError, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  let d = useDarkMode();
   return (
     <div className="max-w-md">
       <SignInForm
@@ -117,8 +118,9 @@ const SignInTemplate = (args, globals) => {
           console.log("Form result: ", e);
           setError(!isError);
         }}
-        currentColorMode={"dark"}
-        currentLanguage={"ar"}
+        handleLanguage={(e) => console.log("testing", e)}
+        currentColorMode={d ? "dark" : "light"}
+        currentLanguage={globals.globals.locale}
         {...args}
         showError={isError}
         texts={{

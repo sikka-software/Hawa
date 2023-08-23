@@ -1,18 +1,23 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import { HawaRadio } from "./HawaRadio"
 
 type TypographyTypes = {
-  handleLanguage: () => void
+  handleLanguage: (e) => void
   currentLanguage: any
-  handleColorMode: () => void
+  handleColorMode: (e) => void
   currentColorMode: any
 }
 export const InterfaceSettings: FC<TypographyTypes> = (props) => {
+  const [color, setColor] = useState(props.currentColorMode)
+  const [language, setLanguage] = useState(props.currentLanguage)
   return (
     <div className="mt-6 flex flex-row justify-between">
       <HawaRadio
-        defaultValue={props.currentLanguage}
-        onChangeTab={props.handleLanguage}
+        defaultValue={language}
+        onChangeTab={(e) => {
+          props.handleLanguage(e)
+          setLanguage(e)
+        }}
         design="tabs"
         options={[
           { value: "ar", label: "عربي" },
@@ -20,8 +25,11 @@ export const InterfaceSettings: FC<TypographyTypes> = (props) => {
         ]}
       />
       <HawaRadio
-        defaultValue={props.currentColorMode}
-        onChangeTab={props.handleColorMode}
+        defaultValue={color}
+        onChangeTab={(e) => {
+          props.handleLanguage(e)
+          setColor(e)
+        }}
         design="tabs"
         options={[
           {
