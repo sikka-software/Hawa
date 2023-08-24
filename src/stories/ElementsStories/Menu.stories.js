@@ -4,7 +4,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
 
 export default {
-  title: "Elements/Menu",
+  title: "Elements/Menu (Old)",
   component: [HawaMenu, HawaDropdownMenu],
   argTypes: {
     title: {
