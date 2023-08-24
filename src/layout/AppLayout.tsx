@@ -3,16 +3,11 @@ import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { Button, DropdownMenu, Tooltip } from "../elements"
+import { SidebarGroup, SidebarRoot } from "./Sidebar"
 
-type HawaAppLayoutTypes = {
+type AppLayoutTypes = {
   /** The pages of the side drawer */
-  drawerItems: {
-    label: string
-    icon: any
-    slug: string
-    action: () => void
-    subItems?: any
-  }[][]
+  drawerItems: Item[]
   // The direction of the layout
   direction?: "rtl" | "ltr"
   // The title of the current selected page, make sure it's the same as the drawerItem slug
@@ -26,7 +21,7 @@ type HawaAppLayoutTypes = {
   username?: string
   email?: string
   drawerSize?: "sm" | "md" | "large"
-  profileMenuItems?: Item[]
+  profileMenuItems?: ProfileItem[]
   onSettingsClick?: () => void
   DrawerFooterActions?: any
   texts?: {
@@ -34,21 +29,32 @@ type HawaAppLayoutTypes = {
     collapseSidebar?: string
   }
 }
+type Item = {
+  value: string
+  label: string
+  icon?: any
+  subitems?: SubItem[]
+  onClick?: () => void
+}
 type SubItem = {
+  value: string
+  label: string
+  icon?: any
+  onClick?: () => void
+}
+type ProfileSubItem = {
   label: string
   value: string
   highlighted?: boolean
 }
-type Item = {
+type ProfileItem = {
   label: string
   value: string
   highlighted?: boolean
-  subitems?: SubItem[] // Note the use of the optional modifier
+  subitems?: ProfileSubItem[] // Note the use of the optional modifier
 }
 
-export const HawaAppLayoutSimplified: React.FunctionComponent<
-  HawaAppLayoutTypes
-> = ({
+export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   direction = "rtl",
   drawerSize = "md",
   onSettingsClick,
@@ -58,6 +64,8 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [openSubItem, setOpenSubitem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
+  const [collapsed, setCollapsed] = useState(false)
+
   const [keepOpen, setKeepOpen] = useState(false)
   const ref = useRef(null)
   const isRTL = direction === "rtl"
@@ -229,10 +237,12 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         }}
         onMouseEnter={() => {
           setOpenSideMenu(true)
+          setCollapsed((prev) => !prev)
         }}
-        onMouseLeave={() =>
+        onMouseLeave={() => {
           keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
-        }
+          setCollapsed((prev) => !prev)
+        }}
         ref={ref}
       >
         {/*
@@ -313,7 +323,21 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
            * ----------------------------------------------------------------------------------------------------
            */}
 
-          {props.drawerItems?.map((dSection, dIndex) => (
+          <SidebarRoot>
+            <SidebarGroup
+              onItemClick={(values) => {
+                console.log("Clicked main item value:", values[0])
+                // setSelectedItem(values)
+              }}
+              onSubItemClick={(values) => {
+                console.log("Parent item value:", values[0])
+                console.log("Subitem value:", values[1])
+                // setSelectedItem(values)
+              }}
+              items={props.drawerItems}
+            />
+          </SidebarRoot>
+          {/* {props.drawerItems?.map((dSection, dIndex) => (
             <div
               key={dIndex}
               className={clsx(
@@ -428,7 +452,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-500 bg-red-500 text-center "></div>
               )}
             </div>
-          ))}
+          ))} */}
         </div>
         {/*
          * ----------------------------------------------------------------------------------------------------
@@ -532,58 +556,5 @@ const AvatarIcon = () => (
       d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
       clipRule="evenodd"
     ></path>
-  </svg>
-)
-
-const ArrowIcon = ({ pointing }) => {
-  let directionStyle
-  switch (pointing) {
-    case "right":
-      directionStyle = "-rotate-90"
-      break
-    case "left":
-      directionStyle = "rotate-90"
-      break
-    case "up":
-      directionStyle = "-rotate-180"
-      break
-    case "down":
-      directionStyle = "rotate-0"
-      break
-
-    default:
-      break
-  }
-  return (
-    <svg
-      className={clsx(
-        "h-6 w-6 shrink-0 text-primary-foreground   transition-all  disabled:bg-gray-200 ",
-        directionStyle
-      )}
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      ></path>
-    </svg>
-  )
-}
-
-const SettingsIcon = () => (
-  <svg
-    stroke="currentColor"
-    fill="none"
-    stroke-width="2"
-    viewBox="0 0 24 24"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    height="1em"
-    width="1em"
-  >
-    <circle cx="12" cy="12" r="3"></circle>
-    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
   </svg>
 )

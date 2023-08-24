@@ -1,11 +1,15 @@
 import { Button, UserFeedback } from "../../elements";
-import { HawaAppLayout, HawaAppLayoutSimplified } from "../../layout";
+import {
+  AppLayout,
+  HawaAppLayout,
+  HawaAppLayoutSimplified
+} from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
 import { t, setLocale } from "../../translations/i18n";
 
 export default {
   title: "Layout/AppLayout",
-  component: [HawaAppLayout]
+  component: [HawaAppLayout, HawaAppLayoutSimplified, AppLayout]
 };
 
 const Template = (args) => {
@@ -1048,7 +1052,7 @@ Simplified.args = {
   email: "zakher@sikka.io",
   DrawerFooterActions: (
     <>
-      <Button size="smallIcon" variant={"light"}>
+      <Button size="icon" variant={"light"}>
         <svg
           stroke="currentColor"
           fill="none"
@@ -1056,8 +1060,8 @@ Simplified.args = {
           viewBox="0 0 24 24"
           stroke-linecap="round"
           stroke-linejoin="round"
-          height="1.3em"
-          width="1.3em"
+          height="1.5em"
+          width="1.5em"
         >
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -1113,3 +1117,203 @@ Simplified.args = {
     }
   ]
 };
+const AppLayoutTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
+  return (
+    <AppLayout
+      {...args}
+      direction={locale === "ar" ? "rtl" : "ltr"}
+      texts={{
+        expandSidebar: t("expandSidebar"),
+        collapseSidebar: t("collapseSidebar")
+      }}
+    >
+      <div className=" h-full  p-4">
+        <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
+          <span className=" font-bold capitalize text-gray-400">
+            App Content
+          </span>
+        </div>
+      </div>
+    </AppLayout>
+  );
+};
+export const AppLayoutStory = AppLayoutTemplate.bind({});
+AppLayoutStory.args = {
+  onSettingsClick: () => console.log("going to settings"),
+  currentPage: "files",
+
+  profileMenuItems: [
+    {
+      label: "Dashboard",
+      value: "Dashboard",
+      action: () => console.log("going to dashboard")
+    },
+    {
+      value: "Billing",
+      label: "Billing",
+      action: () => console.log("going to Billing")
+    },
+    {
+      value: "عربي",
+      label: "عربي",
+      action: () => console.log("going to عربي")
+      // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
+    },
+    {
+      label: "Sign Out",
+      value: "Sign Out",
+      action: () => console.log("going to Sign Out"),
+      highlighted: true
+    }
+  ],
+
+  drawerItems: [
+    {
+      label: "Home",
+      value: "home",
+      icon: <FaHome />
+    },
+    {
+      label: "Items",
+      value: "items",
+      icon: <FaFolderOpen />,
+      // action: handleItemClick,
+      subitems: [
+        {
+          label: "New Item",
+          value: "new-item",
+          icon: <FaFolderOpen />,
+          action: () => console.log("going to new item")
+        },
+        {
+          label: "New Item",
+          value: "new-item",
+          icon: <FaFolderOpen />,
+          action: () => console.log("going to new item")
+        },
+        {
+          label: "New Item",
+          value: "new-item",
+          icon: <FaFolderOpen />,
+          action: () => console.log("going to new item")
+        },
+        {
+          label: "Files Items",
+          value: "file-item",
+          icon: <FaFolderOpen />,
+          action: () => console.log("going to new item")
+          // action: handleItemClick
+        }
+      ]
+    },
+
+    {
+      label: "Analytics",
+      value: "analytics",
+      icon: <FaPoll />
+      // action: handleItemClick
+    },
+    {
+      label: "Jobs",
+      value: "jobs",
+      icon: <FaPoll />,
+      subitems: [
+        {
+          label: "New Job Item",
+          value: "new-job",
+          icon: <FaFolderOpen />
+          // action: () => console.log("going to new item")
+        },
+
+        {
+          label: "Files Items",
+          value: "files",
+          icon: <FaFolderOpen />
+          // action: () => console.log("going to new item")
+          // action: handleItemClick
+        }
+      ]
+    },
+    {
+      label: "Activity",
+      value: "activity",
+      icon: <FaPoll />
+      // action: handleItemClick
+    }
+  ],
+  // pageTitle: "Dashboard Page",
+  topBar: true,
+  username: "Zakher Masri",
+  email: "zakher@sikka.io",
+  DrawerFooterActions: (
+    <>
+      <Button size="icon" variant={"light"}>
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1.5em"
+          width="1.5em"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>{" "}
+      </Button>
+    </>
+  ),
+  logoSymbol:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
+  logoLink:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
+  // logoLink:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
+  // logoSymbol:
+  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
+  profileItems: [
+    {
+      text: "Dashboard",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+    {
+      text: "Billing",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+
+    {
+      text: "Analytics",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    },
+    {
+      text: "عربي",
+      slug: "home",
+      // icon: Person,
+      action: () => {
+        setCurrentPage("home");
+        setPageTitle("Home");
+      }
+    }
+  ]
+};
+
+AppLayoutStory.storyName = "App Layout (v0.1)";

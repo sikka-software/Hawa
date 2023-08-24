@@ -32,6 +32,14 @@ module.exports = {
         height: "height"
       },
       keyframes: {
+        slideDown: {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" }
+        },
+        slideUp: {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 }
+        },
         collapse: {
           "0%,100%": { transform: "scaleY(0)" },
           "10%": { transform: "scaleY(0)" },
@@ -66,6 +74,14 @@ module.exports = {
             height: "0rem"
           }
         },
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" }
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 }
+        },
         blink: {
           "0%": {
             opacity: "0.2"
@@ -95,8 +111,11 @@ module.exports = {
         }
       },
       animation: {
+        slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         blink: "blink 2s infinite ease-in-out",
-
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
         collapse: "collapse",
         expandDown: "expandDown 500ms ease-in-out",
         expandUp: "expandUp 100ms ease-in-out",
