@@ -427,8 +427,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
         {/* Drawer Footer */}
         <div
           className={clsx(
-            "fixed bottom-0 flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-primary-foreground  transition-all",
-
+            "fixed bottom-0  flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-primary-foreground  transition-all",
             direction === "rtl" ? "flex-row-reverse" : "flex-row"
           )}
           style={{
@@ -438,14 +437,16 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
         >
-          {size > 600 && DrawerFooterActions && openSideMenu ? (
+          {DrawerFooterActions && openSideMenu ? (
             <>{DrawerFooterActions}</>
           ) : null}
 
           {/* Expand Button */}
           {size > 600 && openSideMenu ? (
             <div
-              className={clsx("w-fit transition-all")}
+              className={clsx(
+                "flex w-fit flex-col items-center justify-center  transition-all"
+              )}
               style={
                 isRTL
                   ? {
@@ -464,52 +465,42 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     }
               }
             >
-              <div
-                dir={direction}
-                className={clsx(
-                  "relative left-0 top-0 transition-all",
-                  openSideMenu ? " opacity-100" : " opacity-0"
-                )}
+              <Tooltip
+                side={"left"}
+                delayDuration={300}
+                content={
+                  keepOpen
+                    ? props.texts?.collapseSidebar || "Collapse Sidebar"
+                    : props.texts?.expandSidebar || "Expand Sidebar"
+                }
               >
-                <Tooltip
-                  side={"left"}
-                  delayDuration={300}
-                  content={
-                    keepOpen
-                      ? props.texts?.collapseSidebar || "Collapse Sidebar"
-                      : props.texts?.expandSidebar || "Expand Sidebar"
-                    //  || "Expand Sidebar"
-                  }
+                <Button
+                  variant="light"
+                  onClick={() => setKeepOpen(!keepOpen)}
+                  size="smallIcon"
                 >
-                  <Button
-                    variant="light"
-                    onClick={() => setKeepOpen(!keepOpen)}
-                    size="icon"
+                  <svg
+                    className={clsx(
+                      "h-6 w-6 shrink-0 text-primary   transition-all  disabled:bg-gray-200 ",
+                      keepOpen
+                        ? isRTL
+                          ? "-rotate-90"
+                          : "rotate-90"
+                        : isRTL
+                        ? "rotate-90"
+                        : "-rotate-90"
+                    )}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
                   >
-                    <svg
-                      className={clsx(
-                        "h-8 w-8 shrink-0 text-primary   transition-all  disabled:bg-gray-200 ",
-                        // directionStyle
-                        keepOpen
-                          ? isRTL
-                            ? "-rotate-90"
-                            : "rotate-90"
-                          : isRTL
-                          ? "rotate-90"
-                          : "-rotate-90"
-                      )}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </Button>
-                </Tooltip>
-              </div>
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </Button>
+              </Tooltip>
             </div>
           ) : null}
         </div>
