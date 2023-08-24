@@ -1,6 +1,7 @@
 import { UserFeedback } from "../../elements";
 import { HawaAppLayout, HawaAppLayoutSimplified } from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
+import { t, setLocale } from "../../translations/i18n";
 
 export default {
   title: "Layout/AppLayout",
@@ -912,9 +913,18 @@ RTL.args = {
   ]
 };
 
-const SimplifiedTemplate = (args) => {
+const SimplifiedTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   return (
-    <HawaAppLayoutSimplified {...args}>
+    <HawaAppLayoutSimplified
+      {...args}
+      texts={{
+        expandSidebar: t("expandSidebar"),
+        collapseSidebar: t("collapseSidebar")
+      }}
+    >
       <div className=" h-full  p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
           <span className=" font-bold capitalize text-gray-400">
@@ -930,23 +940,26 @@ export const Simplified = SimplifiedTemplate.bind({});
 Simplified.args = {
   onSettingsClick: () => console.log("going to settings"),
   currentPage: "files",
+
   profileMenuItems: [
-    [
-      {
-        label: "Dashboard"
-      },
-      {
-        label: "Billing"
-      },
-      {
-        label: "عربي"
-        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
-      },
-      {
-        label: "Sign Out",
-        isButton: true
-      }
-    ]
+    {
+      label: "Dashboard",
+      value: "Dashboard"
+    },
+    {
+      value: "Billing",
+      label: "Billing"
+    },
+    {
+      value: "عربي",
+      label: "عربي"
+      // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
+    },
+    {
+      label: "Sign Out",
+      value: "Sign Out",
+      highlighted: true
+    }
   ],
   drawerItems: [
     [

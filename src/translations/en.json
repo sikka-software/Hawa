@@ -26,7 +26,8 @@
   "signUpViaGoogleLabel": "Sign up with Google",
   "signUpViaGithubLabel": "Sign up with Github",
   "signUpViaTwitterLabel": "Sign up with Twitter",
-
+  "expandSidebar": "Expand Sidebar",
+  "collapseSidebar": "Collapse Sidebar",
   "fullNameRequiredText": "Full name is required",
   "passwordTooShortText": "Password too short",
   "subscribeToNewsletter": "Subscribe to newsletter?",

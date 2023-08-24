@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { HawaMenu } from "../elements"
+import { Button, DropdownMenu, HawaMenu, Tooltip } from "../elements"
 
 type HawaAppLayoutTypes = {
   /** The pages of the side drawer */
@@ -26,17 +26,32 @@ type HawaAppLayoutTypes = {
   username?: string
   email?: string
   drawerSize?: "sm" | "md" | "large"
-  profileMenuItems?: MenuItems[][]
+  profileMenuItems?: Item[]
   onSettingsClick?: () => void
-  DrawerFooterActions: any
+  DrawerFooterActions?: any
+  texts?: {
+    expandSidebar?: string
+    collapseSidebar?: string
+  }
+}
+type SubItem = {
+  label: string
+  value: string
+  highlighted?: boolean
 }
 
-type MenuItems = {
-  icon?: JSX.Element
+type Item = {
   label: string
-  action?: (e: any) => void
-  isButton?: boolean
+  value: string
+  highlighted?: boolean
+  subitems?: SubItem[] // Note the use of the optional modifier
 }
+// type MenuItems = {
+//   icon?: JSX.Element
+//   label: string
+//   action?: (e: any) => void
+//   isButton?: boolean
+// }
 export const HawaAppLayoutSimplified: React.FunctionComponent<
   HawaAppLayoutTypes
 > = ({
@@ -179,26 +194,33 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                 <div>{props.email}</div>
               </div>
             ) : null}
-
             {/* Profile Icon & Menu */}
-            <HawaMenu
+            {/* <HawaMenu
               direction={direction}
-              // buttonPosition={isRTL ? "top-left" : "top-right"}
               withHeader={size > 600 ? false : true}
               headerTitle={size > 600 ? "" : props.username}
               headerSubtitle={size > 600 ? "" : props.email}
               menuItems={props.profileMenuItems}
-              // handleClose={onClose}
-              // handleOpen={onOpen}
-              // open={isOpen}
               position={"bottom-left"}
-              // position={isRTL ? "bottom-left" : "bottom-left"}
-              // position={isRTL ? "right-bottom" : "bottom-left"}
             >
               <div className="relative mx-2 h-8 w-8  cursor-pointer overflow-hidden rounded-full ring-1 ring-buttonPrimary-500 dark:bg-gray-600">
                 <AvatarIcon />
               </div>
-            </HawaMenu>
+            </HawaMenu> */}
+            <DropdownMenu
+              align="end"
+              alignOffset={10}
+              side={"bottom"}
+              sideOffset={10}
+              direction={isRTL ? "rtl" : "ltr"}
+              trigger={
+                <div className="relative mx-2 h-8 w-8  cursor-pointer overflow-hidden rounded ring-1 ring-primary dark:bg-gray-600">
+                  <AvatarIcon />
+                </div>
+              }
+              items={props.profileMenuItems}
+              onItemSelect={(e) => console.log("selecting item ", e)}
+            />{" "}
           </div>
         </div>
       )}
@@ -311,8 +333,8 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                           dItem.subItems?.find(
                             (e) => e.slug === props.currentPage
                           )
-                          ? "bg-buttonPrimary-500 text-white"
-                          : "hover:bg-layoutPrimary-300",
+                          ? "bg-primary text-white"
+                          : "hover:bg-primary/20",
                         "my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
                         isRTL ? "flex-row-reverse pr-3" : "",
                         openSideMenu ? "m-2" : "m-2"
@@ -353,7 +375,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                     {dItem.subItems && (
                       <div
                         className={clsx(
-                          "m-1 mx-2 flex cursor-pointer flex-col gap-[2px] overflow-clip whitespace-nowrap rounded bg-layoutPrimary-300 p-1 transition-all",
+                          "m-1 mx-2 flex cursor-pointer flex-col gap-[2px] overflow-clip whitespace-nowrap rounded bg-primary/10 p-1 transition-all",
                           openSubItem == dItem.slug && openSideMenu
                             ? ""
                             : "my-0 py-0",
@@ -373,8 +395,8 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                               "flex flex-row gap-2 overflow-x-clip  rounded-inner p-2 px-2 text-xs",
                               isRTL ? "text-right" : "text-left",
                               props.currentPage === subIt.slug
-                                ? "bg-buttonPrimary-500 text-white hover:bg-primary-foreground"
-                                : "hover:bg-layoutPrimary-500 dark:text-white"
+                                ? "bg-primary text-white"
+                                : "hover:bg-primary-foreground hover:text-primary "
                             )}
                             dir={direction}
                             onClick={() => {
@@ -448,25 +470,35 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                   openSideMenu ? " opacity-100" : " opacity-0"
                 )}
               >
-                <div
-                  onClick={() => setKeepOpen(!keepOpen)}
-                  className={
-                    "w-fit cursor-pointer rounded bg-gray-300 p-1 transition-all hover:bg-gray-400 bg-layoutPrimary-600 dark:hover:bg-layoutPrimary-700"
+                <Tooltip
+                  side={"left"}
+                  delayDuration={300}
+                  content={
+                    keepOpen
+                      ? props.texts?.collapseSidebar || "Collapse Sidebar"
+                      : props.texts?.expandSidebar || "Expand Sidebar"
+                    //  || "Expand Sidebar"
                   }
                 >
-                  <ArrowIcon
-                    // color={"black"}
-                    pointing={
-                      keepOpen
-                        ? isRTL
-                          ? "right"
-                          : "left"
-                        : isRTL
-                        ? "left"
-                        : "right"
-                    }
-                  />
-                </div>
+                  <Button
+                    variant="secondary"
+                    onClick={() => setKeepOpen(!keepOpen)}
+                    size="icon"
+                  >
+                    <ArrowIcon
+                      // color={"black"}
+                      pointing={
+                        keepOpen
+                          ? isRTL
+                            ? "right"
+                            : "left"
+                          : isRTL
+                          ? "left"
+                          : "right"
+                      }
+                    />
+                  </Button>
+                </Tooltip>
               </div>
             </div>
           ) : null}

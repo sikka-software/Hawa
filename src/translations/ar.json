@@ -20,7 +20,8 @@
   "signUpText": "تسجيل جديد",
   "signInText": "تسجيل الدخول",
   "createAccount": "أنشئ حساب",
-
+  "expandSidebar": "توسيع القائمة",
+  "collapseSidebar": "طي القائمة",
   "signInViaGoogleLabel": "الدخول بواسطة Google",
   "signInViaGithubLabel": "الدخول بواسطة Github",
   "signInViaTwitterLabel": "الدخول بواسطة Twitter",

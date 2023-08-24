@@ -216,18 +216,62 @@ const DropdownMenuShortcut = ({
 }
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
 
+type ExtendedDropdownMenuContentProps = Partial<
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+> & {
+  // Add any additional types or overrides here, for example:
+  //   side?: "left" | "right" | "top" | "bottom"
+}
+
+type SubItem = {
+  label: string
+  value: string
+  highlighted?: boolean
+}
+
+type Item = {
+  label: string
+  value: string
+  highlighted?: boolean
+  subitems?: SubItem[] // Note the use of the optional modifier
+}
+
 export const DropdownMenu = ({
   trigger,
   items,
   direction,
   onItemSelect,
+  sideOffset,
+  side,
   className,
+  align,
+  alignOffset,
+}: {
+  // ... other prop types
+  trigger?: any
+  items?: Item[]
+  direction?: "rtl" | "ltr"
+  onItemSelect?: any
+  className?: ExtendedDropdownMenuContentProps["className"]
+  sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"]
+  side?: ExtendedDropdownMenuContentProps["side"]
+  align?: ExtendedDropdownMenuContentProps["align"]
+  alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
+  // ... more prop types
 }) => {
   return (
     <DropdownMenuRoot dir={direction}>
-      <DropdownMenuTrigger>{trigger}</DropdownMenuTrigger>
+      <DropdownMenuTrigger className="focus:ring-0">
+        {trigger}
+      </DropdownMenuTrigger>
       <DropdownMenuPortal>
-        <DropdownMenuContent className={cn(className)}>
+        <DropdownMenuContent
+          side={side}
+          sideOffset={sideOffset}
+          className={cn(className)}
+          align={align}
+          alignOffset={alignOffset}
+        >
           {items.map((item, index) => {
             return item.subitems ? (
               <DropdownMenuSub>
