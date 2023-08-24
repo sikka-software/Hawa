@@ -208,13 +208,14 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
               </div>
             </HawaMenu> */}
             <DropdownMenu
+              triggerClassname="mx-2"
               align="end"
-              alignOffset={10}
+              alignOffset={8}
               side={"bottom"}
-              sideOffset={10}
+              sideOffset={5}
               direction={isRTL ? "rtl" : "ltr"}
               trigger={
-                <div className="relative mx-2 h-8 w-8  cursor-pointer overflow-hidden rounded ring-1 ring-primary dark:bg-gray-600">
+                <div className="relative h-8 w-8  cursor-pointer overflow-clip rounded ring-1 ring-primary/30 dark:bg-gray-600">
                   <AvatarIcon />
                 </div>
               }
@@ -333,7 +334,7 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                           dItem.subItems?.find(
                             (e) => e.slug === props.currentPage
                           )
-                          ? "bg-primary text-white"
+                          ? "bg-primary text-primary-foreground "
                           : "hover:bg-primary/20",
                         "my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
                         isRTL ? "flex-row-reverse pr-3" : "",
@@ -341,12 +342,12 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                       )}
                     >
                       <div className="flex flex-row" dir={direction}>
-                        <div className="flex items-center justify-center dark:text-white">
+                        <div className="flex items-center justify-center ">
                           {dItem.icon}
                         </div>
                         <div
                           className={clsx(
-                            "mx-2 whitespace-nowrap text-sm transition-all dark:text-white",
+                            "mx-2 whitespace-nowrap text-sm transition-all",
                             openSideMenu ? "opacity-100" : "opacity-0"
                           )}
                         >
@@ -481,22 +482,31 @@ export const HawaAppLayoutSimplified: React.FunctionComponent<
                   }
                 >
                   <Button
-                    variant="secondary"
+                    variant="light"
                     onClick={() => setKeepOpen(!keepOpen)}
                     size="icon"
                   >
-                    <ArrowIcon
-                      // color={"black"}
-                      pointing={
+                    <svg
+                      className={clsx(
+                        "h-8 w-8 shrink-0 text-primary   transition-all  disabled:bg-gray-200 ",
+                        // directionStyle
                         keepOpen
                           ? isRTL
-                            ? "right"
-                            : "left"
+                            ? "-rotate-90"
+                            : "rotate-90"
                           : isRTL
-                          ? "left"
-                          : "right"
-                      }
-                    />
+                          ? "rotate-90"
+                          : "-rotate-90"
+                      )}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
                   </Button>
                 </Tooltip>
               </div>
@@ -567,10 +577,9 @@ const ArrowIcon = ({ pointing }) => {
   return (
     <svg
       className={clsx(
-        "h-6 w-6 shrink-0 transition-all   disabled:bg-gray-200  dark:text-white",
+        "h-6 w-6 shrink-0 text-primary-foreground   transition-all  disabled:bg-gray-200 ",
         directionStyle
       )}
-      // fill={color}
       fill="currentColor"
       viewBox="0 0 20 20"
     >

@@ -222,16 +222,24 @@ type ExtendedDropdownMenuContentProps = Partial<
   // Add any additional types or overrides here, for example:
   //   side?: "left" | "right" | "top" | "bottom"
 }
+type ExtendedDropdownMenuTriggerProps = Partial<
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger>
+> & {
+  // Add any additional types or overrides here, for example:
+  //   side?: "left" | "right" | "top" | "bottom"
+}
 
 type SubItem = {
   label: string
   value: string
+  action?: () => void
   highlighted?: boolean
 }
 
 type Item = {
   label: string
   value: string
+  action?: () => void
   highlighted?: boolean
   subitems?: SubItem[] // Note the use of the optional modifier
 }
@@ -244,6 +252,7 @@ export const DropdownMenu = ({
   sideOffset,
   side,
   className,
+  triggerClassname,
   align,
   alignOffset,
 }: {
@@ -253,6 +262,7 @@ export const DropdownMenu = ({
   direction?: "rtl" | "ltr"
   onItemSelect?: any
   className?: ExtendedDropdownMenuContentProps["className"]
+  triggerClassname?: ExtendedDropdownMenuTriggerProps["className"]
   sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"]
   side?: ExtendedDropdownMenuContentProps["side"]
   align?: ExtendedDropdownMenuContentProps["align"]
@@ -261,7 +271,7 @@ export const DropdownMenu = ({
 }) => {
   return (
     <DropdownMenuRoot dir={direction}>
-      <DropdownMenuTrigger className="focus:ring-0">
+      <DropdownMenuTrigger className={triggerClassname}>
         {trigger}
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
@@ -282,7 +292,7 @@ export const DropdownMenu = ({
                   <DropdownMenuSubContent>
                     {item.subitems.map((subitem, subIndex) => (
                       <DropdownMenuItem
-                        onSelect={() => onItemSelect(subitem.value)}
+                        onSelect={() => subitem.action()}
                         key={subIndex}
                       >
                         {subitem.label}
@@ -292,10 +302,7 @@ export const DropdownMenu = ({
                 </DropdownMenuPortal>
               </DropdownMenuSub>
             ) : (
-              <DropdownMenuItem
-                key={index}
-                onSelect={() => onItemSelect(item.value)}
-              >
+              <DropdownMenuItem key={index} onSelect={() => item.action()}>
                 {item.label}
               </DropdownMenuItem>
             )

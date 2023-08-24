@@ -32,7 +32,7 @@ export const HawaStats: FC<StatTypes> = ({ variant = "default", ...props }) => {
         ) : (
           <div className="text-2xl font-bold">{props.number}</div>
         )}
-        {props.isLoading ? (
+        {props.isLoading && props.helperText ? (
           <Skeleton className="mt-2 h-4 w-1/2" />
         ) : (
           props.helperText && (

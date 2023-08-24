@@ -1,4 +1,4 @@
-import { UserFeedback } from "../../elements";
+import { Button, UserFeedback } from "../../elements";
 import { HawaAppLayout, HawaAppLayoutSimplified } from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
 import { t, setLocale } from "../../translations/i18n";
@@ -920,6 +920,7 @@ const SimplifiedTemplate = (args, globals) => {
   return (
     <HawaAppLayoutSimplified
       {...args}
+      direction={locale === "ar" ? "rtl" : "ltr"}
       texts={{
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar")
@@ -944,20 +945,24 @@ Simplified.args = {
   profileMenuItems: [
     {
       label: "Dashboard",
-      value: "Dashboard"
+      value: "Dashboard",
+      action: () => console.log("going to dashboard")
     },
     {
       value: "Billing",
-      label: "Billing"
+      label: "Billing",
+      action: () => console.log("going to Billing")
     },
     {
       value: "عربي",
-      label: "عربي"
+      label: "عربي",
+      action: () => console.log("going to عربي")
       // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
     },
     {
       label: "Sign Out",
       value: "Sign Out",
+      action: () => console.log("going to Sign Out"),
       highlighted: true
     }
   ],
@@ -1039,12 +1044,11 @@ Simplified.args = {
   ],
   // pageTitle: "Dashboard Page",
   topBar: true,
-  direction: "rtl",
   username: "Zakher Masri",
   email: "zakher@sikka.io",
   DrawerFooterActions: (
     <>
-      <div className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700">
+      <Button size="icon" variant={"light"}>
         <svg
           stroke="currentColor"
           fill="none"
@@ -1052,28 +1056,13 @@ Simplified.args = {
           viewBox="0 0 24 24"
           stroke-linecap="round"
           stroke-linejoin="round"
-          height="1em"
-          width="1em"
+          height="1.5em"
+          width="1.5em"
         >
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>{" "}
-      </div>
-      <div className=" cursor-pointer rounded bg-gray-300 p-2 transition-all hover:bg-layoutPrimary-700">
-        <svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          height="1em"
-          width="1em"
-        >
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>{" "}
-      </div>
+      </Button>
     </>
   ),
   logoSymbol:
