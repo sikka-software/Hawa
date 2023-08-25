@@ -305,7 +305,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         <div
           className={clsx(
             // "no-scrollbar", TODO: make this optional to hide scrollbar or not
-            "fixed bottom-14 top-14 bg-primary-foreground py-2 transition-all",
+            "fixed bottom-14 top-14 bg-primary-foreground p-2 py-2 transition-all",
             // bg-yellow-400
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
@@ -325,6 +325,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
           <SidebarRoot>
             <SidebarGroup
+              isOpen={openSideMenu}
               onItemClick={(values) => {
                 console.log("Clicked main item value:", values[0])
                 // setSelectedItem(values)
@@ -337,122 +338,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               items={props.drawerItems}
             />
           </SidebarRoot>
-          {/* {props.drawerItems?.map((dSection, dIndex) => (
-            <div
-              key={dIndex}
-              className={clsx(
-                "flex select-none flex-col items-stretch justify-center transition-all"
-              )}
-            >
-              {dSection?.map((dItem, i) => {
-                return (
-                  <div key={i} id={"test"} className="flex flex-col">
-                    <div
-                      onClick={() => {
-                        dItem.subItems
-                          ? openSubItem === dItem.slug
-                            ? // ||
-                              // dItem.subItems.find(
-                              //   (e) => e.slug === props.currentPage
-                              // )
-                              setOpenSubitem("")
-                            : setOpenSubitem(dItem.slug)
-                          : dItem.action()
-                      }}
-                      className={clsx(
-                        props.currentPage === dItem.slug ||
-                          dItem.subItems?.find(
-                            (e) => e.slug === props.currentPage
-                          )
-                          ? "bg-primary text-primary-foreground "
-                          : "hover:bg-primary/20",
-                        "my-1  flex cursor-pointer flex-row items-center justify-between overflow-x-clip rounded p-2  pl-3 transition-all ",
-                        isRTL ? "flex-row-reverse pr-3" : "",
-                        openSideMenu ? "m-2" : "m-2"
-                      )}
-                    >
-                      <div className="flex flex-row" dir={direction}>
-                        <div className="flex items-center justify-center ">
-                          {dItem.icon}
-                        </div>
-                        <div
-                          className={clsx(
-                            "mx-2 whitespace-nowrap text-sm transition-all",
-                            openSideMenu ? "opacity-100" : "opacity-0"
-                          )}
-                        >
-                          {dItem.label}
-                        </div>
-                      </div>
-                      {dItem.subItems && (
-                        <ArrowIcon
-                          // color={
-                          //   props.currentPage === dItem.slug ||
-                          //   dItem.subItems?.find(
-                          //     (e) => e.slug === props.currentPage
-                          //   )
-                          //     ? "white"
-                          //     : "black"
-                          // }
-                          pointing={
-                            openSubItem && dItem.slug === openSubItem
-                              ? "up"
-                              : "down"
-                          }
-                        />
-                      )}
-                    </div>
-
-                    {dItem.subItems && (
-                      <div
-                        className={clsx(
-                          "m-1 mx-2 flex cursor-pointer flex-col gap-[2px] overflow-clip whitespace-nowrap rounded bg-primary/10 p-1 transition-all",
-                          openSubItem == dItem.slug && openSideMenu
-                            ? ""
-                            : "my-0 py-0",
-                          isRTL ? "text-right" : "text-left"
-                        )}
-                        style={{
-                          height:
-                            openSubItem == dItem.slug && openSideMenu
-                              ? 6 + 35 * dItem.subItems?.length
-                              : 0,
-                        }}
-                      >
-                        {dItem.subItems?.map((subIt, s) => (
-                          <div
-                            key={s}
-                            className={clsx(
-                              "flex flex-row gap-2 overflow-x-clip  rounded-inner p-2 px-2 text-xs",
-                              isRTL ? "text-right" : "text-left",
-                              props.currentPage === subIt.slug
-                                ? "bg-primary text-white"
-                                : "hover:bg-primary-foreground hover:text-primary "
-                            )}
-                            dir={direction}
-                            onClick={() => {
-                              subIt.action()
-                              // setOpenSubitem(dItem.slug)
-                            }}
-                          >
-                            <div className="flex items-center justify-center">
-                              {subIt.icon}
-                            </div>
-                            <div className="flex flex-row justify-between">
-                              {subIt.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-              {dIndex !== props.drawerItems.length - 1 && (
-                <div className="my-2 h-[1px] w-10/12 self-center bg-buttonPrimary-500 bg-red-500 text-center "></div>
-              )}
-            </div>
-          ))} */}
         </div>
         {/*
          * ----------------------------------------------------------------------------------------------------

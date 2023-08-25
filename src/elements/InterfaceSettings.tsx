@@ -1,18 +1,30 @@
 import React, { FC, useState } from "react"
 import { HawaRadio } from "./HawaRadio"
+import { cn } from "../util"
 
 type TypographyTypes = {
   handleLanguage: (e) => void
   currentLanguage: any
   handleColorMode: (e) => void
   currentColorMode: any
+  orientation?: "vertical" | "horizontal"
+  width?: "default" | "full"
 }
-export const InterfaceSettings: FC<TypographyTypes> = (props) => {
+export const InterfaceSettings: FC<TypographyTypes> = ({
+  orientation = "horizontal",
+  width = "default",
+  ...props
+}) => {
   const [color, setColor] = useState(props.currentColorMode)
   const [language, setLanguage] = useState(props.currentLanguage)
+  let orientationStyle = {
+    horizontal: "flex flex-row justify-between",
+    vertical: "flex flex-col items-center gap-2",
+  }
   return (
-    <div className="mt-6 flex flex-row justify-between">
+    <div className={cn(orientationStyle[orientation])}>
       <HawaRadio
+        width={width}
         defaultValue={language}
         onChangeTab={(e) => {
           props.handleLanguage(e)
@@ -25,6 +37,7 @@ export const InterfaceSettings: FC<TypographyTypes> = (props) => {
         ]}
       />
       <HawaRadio
+        width={width}
         defaultValue={color}
         onChangeTab={(e) => {
           props.handleColorMode(e)

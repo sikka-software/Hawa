@@ -20,7 +20,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
   } = useForm()
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <Card dir={props.direction}>
         <CardContent headless>
           <form onSubmit={handleSubmit((e) => props.handleSignIn(e))}>

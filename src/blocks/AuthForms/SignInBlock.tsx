@@ -1,5 +1,3 @@
-"use client"
-
 import { Icons } from "../../elements/Icons"
 import { Button } from "../../elements/Button"
 import {

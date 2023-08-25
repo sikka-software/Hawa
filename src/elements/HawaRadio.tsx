@@ -11,12 +11,13 @@ type RadioTypes = {
     sublabel?: any
     icon?: any
   }[]
-
+  width?: "default" | "full"
   onChangeTab?: any
   defaultValue?: any
 }
 export const HawaRadio: FC<RadioTypes> = ({
   design = "default",
+  width = "default",
   orientation = "horizontal",
   ...props
 }) => {
@@ -29,6 +30,10 @@ export const HawaRadio: FC<RadioTypes> = ({
     horizontal: "flex flex-row",
     vertical: "flex flex-col",
   }
+  let widthStyle = {
+    default: "max-w-fit",
+    full: "w-full",
+  }
   switch (design) {
     case "tabs":
       return (
@@ -37,7 +42,8 @@ export const HawaRadio: FC<RadioTypes> = ({
             props.options?.length > 2
               ? "flex-wrap xs:max-w-full xs:flex-nowrap"
               : "",
-            " max-w-fit  whitespace-nowrap rounded border  text-center text-sm font-medium select-none",
+            "select-none whitespace-nowrap rounded  border text-center text-sm font-medium",
+            widthStyle[width],
             orientationStyle[orientation]
           )}
         >

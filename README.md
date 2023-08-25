@@ -12,12 +12,8 @@
 ## Install
 
 ```bash
-npm install --save @sikka/hawa
+npm install @sikka/hawa
 ```
-
-# Roadmap
-
-- Organize code
 
 </br>
 
@@ -29,20 +25,10 @@ To contribute, clone this github repository and run the development server
 git clone git@github.com:sikka-software/hawa.git
 cd hawa
 npm install
+npm run start
 ```
 
 </br>
-
-# TESTING
-
-Run development server
-
-```bash
-git clone git@github.com:sikka-software/hawa.git
-cd hawa
-npm install
-npm run storybook
-```
 
 ## License
 

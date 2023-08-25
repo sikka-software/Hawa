@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 
@@ -83,6 +81,7 @@ interface SidebarGroupProps {
   items: Item[]
   collapsed?: any
   selectedItem?: any
+  isOpen?: boolean
   onItemClick?: (value: string[]) => void
   onSubItemClick?: (values: string[]) => void
 }
@@ -100,6 +99,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   collapsed,
   onItemClick,
   onSubItemClick,
+  isOpen,
 }) => {
   React.useEffect(() => {
     if (collapsed) {
@@ -112,7 +112,6 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
       {title && <h3 className="mb-1 font-bold">{title}</h3>}
       <ul className="flex flex-col gap-2">
         <Accordion
-        
           type="single"
           // defaultValue="item-1"
           collapsible
@@ -120,6 +119,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
         >
           {items.map((item, idx) => (
             <SidebarItem
+              isOpen={isOpen}
               isSelected={selectedItem}
               key={idx}
               item={item}
@@ -137,19 +137,31 @@ const SidebarItem: React.FC<{
   isSelected: any
   onItemClick?: (value: string[]) => void
   onSubItemClick?: (values: string[]) => void
-}> = ({ item, isSelected, onItemClick, onSubItemClick }) => {
+  isOpen?: boolean
+}> = ({ item, isSelected, onItemClick, onSubItemClick, isOpen = true }) => {
   const getSelectedStyle = (value: string, index: number) => {
     return isSelected && isSelected[index] === value
-      ? "bg-primary text-primary-foreground hover:bg-primary cursor-default"
+      ? "bg-primary text-primary-foreground  cursor-default"
       : ""
   }
   if (item.subitems) {
     return (
-      <AccordionItem value={item.value}>
-        <AccordionTrigger className={cn(getSelectedStyle(item.value, 0))}>
+      <AccordionItem value={item.value} className="overflow-x-clip">
+        <AccordionTrigger
+          className={cn(getSelectedStyle(item.value, 0), "hover:bg-primary/30")}
+        >
           <div className={"flex flex-row items-center gap-2 "}>
             {item.icon}
-            {item.label}
+            {/* {isOpen ? item.label : ""} */}
+
+            <span
+              className={cn(
+                "transition-all",
+                isOpen ? "opacity-100" : "opacity-0"
+              )}
+            >
+              {item.label}
+            </span>
           </div>
         </AccordionTrigger>
         {item.subitems && (
@@ -188,11 +200,22 @@ const SidebarItem: React.FC<{
             onItemClick([item.value])
           }
         }}
-        className={cn(triggerStyles, getSelectedStyle(item.value, 0))}
+        className={cn(
+          triggerStyles,
+          getSelectedStyle(item.value, 0),
+          "overflow-x-clip hover:bg-primary/30"
+        )}
       >
         <div className={"flex flex-row items-center gap-2 "}>
           {item.icon}
-          {item.label}
+          <span
+            className={cn(
+              "transition-all",
+              isOpen ? "opacity-100" : "opacity-0"
+            )}
+          >
+            {item.label}
+          </span>
         </div>
       </div>
     )

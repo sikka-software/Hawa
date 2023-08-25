@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../../elements/Button";
-import { Popover } from "../../elements";
+import { InterfaceSettings, Popover } from "../../elements";
 
 export default {
   title: "Elements/Popover",
@@ -24,8 +24,8 @@ export const PopoverStory = (args) => {
       dir={args.direction}
       className="flex h-screen w-full items-center justify-center"
     >
-      <Popover trigger={<Button>Show Tooltip</Button>}>
-        <div>this is the content of the popover</div>
+      <Popover side={args.side} trigger={<Button>Show Popover</Button>}>
+        <InterfaceSettings width="full" orientation="vertical" />{" "}
       </Popover>
     </div>
   );
