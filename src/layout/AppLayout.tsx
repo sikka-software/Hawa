@@ -327,6 +327,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            */}
 
           <SidebarGroup
+            direction={direction}
             onItemClick={(values) => {
               setSelectedItem(values)
               clickedItem(values)

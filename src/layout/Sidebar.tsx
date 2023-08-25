@@ -94,6 +94,7 @@ interface SidebarGroupProps {
   isOpen?: boolean
   onItemClick?: (value: string[]) => void
   onSubItemClick?: (values: string[]) => void
+  direction?: "rtl" | "ltr"
 }
 
 const SidebarGroup: React.FC<SidebarGroupProps> = ({
@@ -104,6 +105,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   setOpenedItem,
   onItemClick,
   onSubItemClick,
+  direction,
   isOpen,
 }) => {
   return (
@@ -124,6 +126,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
               isOpen={isOpen}
               isSelected={selectedItem}
               key={idx}
+              direction={direction}
               item={item}
               onItemClick={onItemClick}
               onSubItemClick={onSubItemClick}
@@ -137,10 +140,19 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
 const SidebarItem: React.FC<{
   item: Item
   isSelected: any
+  direction?: "rtl" | "ltr"
+
   onItemClick?: (value: string[]) => void
   onSubItemClick?: (values: string[]) => void
   isOpen?: boolean
-}> = ({ item, isSelected, onItemClick, onSubItemClick, isOpen = true }) => {
+}> = ({
+  item,
+  isSelected,
+  onItemClick,
+  onSubItemClick,
+  direction,
+  isOpen = true,
+}) => {
   const getSelectedStyle = (value: string, index: number) => {
     return isSelected && isSelected[index] === value
       ? "bg-primary text-primary-foreground  cursor-default"
@@ -148,7 +160,11 @@ const SidebarItem: React.FC<{
   }
   if (item.subitems) {
     return (
-      <AccordionItem value={item.value} className="overflow-x-clip">
+      <AccordionItem
+        value={item.value}
+        className="overflow-x-clip"
+        dir={direction}
+      >
         <AccordionTrigger
           className={cn(getSelectedStyle(item.value, 0))}
           showArrow={isOpen}
@@ -203,6 +219,7 @@ const SidebarItem: React.FC<{
   } else {
     return (
       <div
+        dir={direction}
         onClick={() => {
           if (onItemClick) {
             onItemClick([item.value])
