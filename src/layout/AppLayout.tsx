@@ -60,6 +60,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   drawerSize = "md",
   onSettingsClick,
   DrawerFooterActions,
+  currentPage,
   clickedItem,
   ...props
 }) => {
@@ -67,7 +68,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const [openSubItem, setOpenSubitem] = useState("")
   const [openedSidebarItem, setOpenedSidebarItem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
-  const [selectedItem, setSelectedItem] = useState([])
+  const [selectedItem, setSelectedItem] = useState(
+    currentPage ? currentPage : []
+  )
 
   const [keepOpen, setKeepOpen] = useState(false)
   const ref = useRef(null)
