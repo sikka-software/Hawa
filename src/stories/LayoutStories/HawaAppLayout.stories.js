@@ -1125,7 +1125,7 @@ const AppLayoutTemplate = (args, globals) => {
   return (
     <AppLayout
       {...args}
-      // direction={locale === "ar" ? "rtl" : "ltr"}
+      direction={locale === "ar" ? "rtl" : "ltr"}
       texts={{
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar")
@@ -1143,10 +1143,10 @@ const AppLayoutTemplate = (args, globals) => {
   );
 };
 export const AppLayoutStory = AppLayoutTemplate.bind({});
+
 AppLayoutStory.args = {
   onSettingsClick: () => console.log("going to settings"),
   currentPage: "files",
-  direction: "ltr",
   profileMenuItems: [
     {
       label: "Profile",
@@ -1171,7 +1171,6 @@ AppLayoutStory.args = {
       highlighted: true
     }
   ],
-
   drawerItems: [
     {
       label: "لوحة القيادة",
@@ -1182,32 +1181,26 @@ AppLayoutStory.args = {
       label: "Items",
       value: "/items",
       icon: <FaFolderOpen />,
-      // action: handleItemClick,
       subitems: [
         {
           label: "New Item",
           value: "/new-item",
-          icon: <FaFolderOpen />,
-          action: () => console.log("going to new item")
+          icon: <FaFolderOpen />
         },
         {
           label: "New Item",
           value: "/new-item2",
-          icon: <FaFolderOpen />,
-          action: () => console.log("going to new item")
+          icon: <FaFolderOpen />
         },
         {
           label: "New Item",
           value: "/new-item3",
-          icon: <FaFolderOpen />,
-          action: () => console.log("going to new item")
+          icon: <FaFolderOpen />
         },
         {
           label: "Files Items",
           value: "/file-item",
-          icon: <FaFolderOpen />,
-          action: () => console.log("going to new item")
-          // action: handleItemClick
+          icon: <FaFolderOpen />
         }
       ]
     },
@@ -1216,7 +1209,6 @@ AppLayoutStory.args = {
       label: "Analytics",
       value: "/analytics",
       icon: <FaPoll />
-      // action: handleItemClick
     },
     {
       label: "Jobs",
@@ -1227,15 +1219,12 @@ AppLayoutStory.args = {
           label: "New Job Item",
           value: "/new-job",
           icon: <FaFolderOpen />
-          // action: () => console.log("going to new item")
         },
 
         {
           label: "Files Items",
           value: "/files",
           icon: <FaFolderOpen />
-          // action: () => console.log("going to new item")
-          // action: handleItemClick
         }
       ]
     },
@@ -1243,10 +1232,9 @@ AppLayoutStory.args = {
       label: "Activity",
       value: "/activity",
       icon: <FaPoll />
-      // action: handleItemClick
     }
   ],
-  // pageTitle: "Dashboard Page",
+  pageTitle: "Dashboard Page",
   topBar: true,
   username: "Zakher Masri",
   email: "zakher@sikka.io",
@@ -1273,47 +1261,23 @@ AppLayoutStory.args = {
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
   logoLink:
     "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
-  // logoLink:
-  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-logo.svg&w=256&q=75",
-  // logoSymbol:
-  // "https://beta-my.qawaim.app/_next/image?url=%2Fqawaim-symbol.svg&w=256&q=75",
   profileItems: [
     {
       text: "Dashboard",
-      slug: "home",
-      // icon: Person,
-      action: () => {
-        setCurrentPage("home");
-        setPageTitle("Home");
-      }
+      slug: "home"
     },
     {
       text: "Billing",
-      slug: "home",
-      // icon: Person,
-      action: () => {
-        setCurrentPage("home");
-        setPageTitle("Home");
-      }
+      slug: "home"
     },
 
     {
       text: "Analytics",
-      slug: "home",
-      // icon: Person,
-      action: () => {
-        setCurrentPage("home");
-        setPageTitle("Home");
-      }
+      slug: "home"
     },
     {
       text: "عربي",
-      slug: "home",
-      // icon: Person,
-      action: () => {
-        setCurrentPage("home");
-        setPageTitle("Home");
-      }
+      slug: "home"
     }
   ]
 };

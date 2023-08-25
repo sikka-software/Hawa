@@ -64,23 +64,41 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   clickedItem,
   ...props
 }) => {
-  const [openSideMenu, setOpenSideMenu] = useState(false)
-  const [openSubItem, setOpenSubitem] = useState("")
+  let closeDrawerWidth = 56
+  let openDrawerWidth = 200
+  let drawerSizeStyle = {
+    opened: {
+      sm: "100",
+      md: openDrawerWidth,
+      lg: "250",
+    },
+    closed: {
+      sm: closeDrawerWidth,
+      md: closeDrawerWidth,
+      lg: closeDrawerWidth,
+    },
+  }
+
+  const ref = useRef(null)
+  const isRTL = direction === "rtl"
+
   const [openedSidebarItem, setOpenedSidebarItem] = useState("")
-  const { isOpen, onClose, onOpen } = useDiscloser(false)
   const [selectedItem, setSelectedItem] = useState(
     currentPage ? currentPage : []
   )
 
-  const [keepOpen, setKeepOpen] = useState(false)
-  const ref = useRef(null)
-  const isRTL = direction === "rtl"
   let size
   if (typeof window !== "undefined") {
     size = useBreakpoint()
   } else {
     size = 1200
   }
+  const [keepOpen, setKeepOpen] = useState(size > 600 ? true : false)
+  const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false)
+
+  let drawerSizeCondition =
+    size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
@@ -93,29 +111,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     }
   }, [keepOpen])
 
-  let drawerDefaultStyle =
-    "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip bg-card transition-all"
-  //The width of the drawer when closed
-  let closeDrawerWidth = 56
-  //The width of the drawer when opened
-  let openDrawerWidth = 200
-  let drawerSizeStyle = {
-    opened: {
-      sm: "100",
-      md: openDrawerWidth,
-      lg: "250",
-    },
-    closed: {
-      sm: "56",
-      md: "56",
-      lg: "56",
-    },
-  }
-
-  let drawerSizeCondition =
-    size > 600 ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize] : 0
   return (
     <div className="fixed left-0">
+      {/*
+       * ----------------------------------------------------------------------------------------------------
+       * Top Bar
+       * ----------------------------------------------------------------------------------------------------
+       */}
       {props.topBar && (
         <div
           className={clsx(
@@ -212,7 +214,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               direction={isRTL ? "rtl" : "ltr"}
               trigger={
                 <div className="relative h-8 w-8  cursor-pointer overflow-clip rounded ring-1 ring-primary/30 dark:bg-gray-600">
-                  <AvatarIcon />
+                  <svg
+                    aria-aria-label="Avatar Icon"
+                    className="absolute -left-1 h-10 w-10 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </div>
               }
               items={props.profileMenuItems}
@@ -433,17 +446,3 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     </div>
   )
 }
-
-const AvatarIcon = () => (
-  <svg
-    className="absolute -left-1 h-10 w-10 text-gray-400"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-  >
-    <path
-      fillRule="evenodd"
-      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-      clipRule="evenodd"
-    ></path>
-  </svg>
-)
