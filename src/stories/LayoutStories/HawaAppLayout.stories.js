@@ -1129,6 +1129,7 @@ const AppLayoutTemplate = (args, globals) => {
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar")
       }}
+      clickedItem={(e) => console.log("clicked item is ", e)}
     >
       <div className=" h-full  p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
@@ -1173,36 +1174,36 @@ AppLayoutStory.args = {
   drawerItems: [
     {
       label: "Home",
-      value: "home",
+      value: "/home",
       icon: <FaHome />
     },
     {
       label: "Items",
-      value: "items",
+      value: "/items",
       icon: <FaFolderOpen />,
       // action: handleItemClick,
       subitems: [
         {
           label: "New Item",
-          value: "new-item",
+          value: "/new-item",
           icon: <FaFolderOpen />,
           action: () => console.log("going to new item")
         },
         {
           label: "New Item",
-          value: "new-item",
+          value: "/new-item2",
           icon: <FaFolderOpen />,
           action: () => console.log("going to new item")
         },
         {
           label: "New Item",
-          value: "new-item",
+          value: "/new-item3",
           icon: <FaFolderOpen />,
           action: () => console.log("going to new item")
         },
         {
           label: "Files Items",
-          value: "file-item",
+          value: "/file-item",
           icon: <FaFolderOpen />,
           action: () => console.log("going to new item")
           // action: handleItemClick
@@ -1212,25 +1213,25 @@ AppLayoutStory.args = {
 
     {
       label: "Analytics",
-      value: "analytics",
+      value: "/analytics",
       icon: <FaPoll />
       // action: handleItemClick
     },
     {
       label: "Jobs",
-      value: "jobs",
+      value: "/jobs",
       icon: <FaPoll />,
       subitems: [
         {
           label: "New Job Item",
-          value: "new-job",
+          value: "/new-job",
           icon: <FaFolderOpen />
           // action: () => console.log("going to new item")
         },
 
         {
           label: "Files Items",
-          value: "files",
+          value: "/files",
           icon: <FaFolderOpen />
           // action: () => console.log("going to new item")
           // action: handleItemClick
@@ -1239,7 +1240,7 @@ AppLayoutStory.args = {
     },
     {
       label: "Activity",
-      value: "activity",
+      value: "/activity",
       icon: <FaPoll />
       // action: handleItemClick
     }
@@ -1250,7 +1251,7 @@ AppLayoutStory.args = {
   email: "zakher@sikka.io",
   DrawerFooterActions: (
     <>
-      <Button size="icon" variant={"light"}>
+      <Button size="smallIcon" variant={"light"}>
         <svg
           stroke="currentColor"
           fill="none"
@@ -1258,8 +1259,8 @@ AppLayoutStory.args = {
           viewBox="0 0 24 24"
           stroke-linecap="round"
           stroke-linejoin="round"
-          height="1.5em"
-          width="1.5em"
+          height="1em"
+          width="1em"
         >
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>

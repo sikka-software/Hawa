@@ -3,7 +3,7 @@ import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { Button, DropdownMenu, Tooltip } from "../elements"
-import { SidebarGroup, SidebarRoot } from "./Sidebar"
+import { SidebarGroup } from "./Sidebar"
 
 type AppLayoutTypes = {
   /** The pages of the side drawer */
@@ -24,6 +24,7 @@ type AppLayoutTypes = {
   profileMenuItems?: ProfileItem[]
   onSettingsClick?: () => void
   DrawerFooterActions?: any
+  clickedItem?: any
   texts?: {
     expandSidebar?: string
     collapseSidebar?: string
@@ -59,12 +60,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   drawerSize = "md",
   onSettingsClick,
   DrawerFooterActions,
+  clickedItem,
   ...props
 }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [openSubItem, setOpenSubitem] = useState("")
+  const [openedSidebarItem, setOpenedSidebarItem] = useState("")
   const { isOpen, onClose, onOpen } = useDiscloser(false)
-  const [collapsed, setCollapsed] = useState(false)
+  const [selectedItem, setSelectedItem] = useState([])
 
   const [keepOpen, setKeepOpen] = useState(false)
   const ref = useRef(null)
@@ -237,11 +240,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         }}
         onMouseEnter={() => {
           setOpenSideMenu(true)
-          setCollapsed((prev) => !prev)
         }}
         onMouseLeave={() => {
           keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
-          setCollapsed((prev) => !prev)
+          setOpenedSidebarItem("")
         }}
         ref={ref}
       >
@@ -304,9 +306,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={clsx(
-            // "no-scrollbar", TODO: make this optional to hide scrollbar or not
             "fixed bottom-14 top-14 bg-primary-foreground p-2 py-2 transition-all",
-            // bg-yellow-400
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
           style={{
@@ -323,21 +323,21 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            * ----------------------------------------------------------------------------------------------------
            */}
 
-          <SidebarRoot>
-            <SidebarGroup
-              isOpen={openSideMenu}
-              onItemClick={(values) => {
-                console.log("Clicked main item value:", values[0])
-                // setSelectedItem(values)
-              }}
-              onSubItemClick={(values) => {
-                console.log("Parent item value:", values[0])
-                console.log("Subitem value:", values[1])
-                // setSelectedItem(values)
-              }}
-              items={props.drawerItems}
-            />
-          </SidebarRoot>
+          <SidebarGroup
+            onItemClick={(values) => {
+              setSelectedItem(values)
+              clickedItem(values)
+            }}
+            onSubItemClick={(values) => {
+              setSelectedItem(values)
+              clickedItem(values)
+            }}
+            selectedItem={selectedItem}
+            openedItem={openedSidebarItem}
+            setOpenedItem={(e) => setOpenedSidebarItem(e)}
+            isOpen={openSideMenu}
+            items={props.drawerItems}
+          />
         </div>
         {/*
          * ----------------------------------------------------------------------------------------------------

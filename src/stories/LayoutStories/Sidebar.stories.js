@@ -7,6 +7,7 @@ import {
   FaPodcast,
   FaAddressBook
 } from "react-icons/fa";
+import { Button } from "../../elements";
 
 export default {
   title: "Layout/Sidebar",
@@ -38,24 +39,27 @@ let items = [
 ];
 const Template = (args) => {
   const [selectedItem, setSelectedItem] = useState([]);
+  const [val, setVal] = useState(null);
   return (
     <div className="max-w-xs">
-      <SidebarRoot>
-        <SidebarGroup
-          onItemClick={(values) => {
-            console.log("Clicked main item value:", values[0]);
-            setSelectedItem(values);
-          }}
-          onSubItemClick={(values) => {
-            console.log("Parent item value:", values[0]);
-            console.log("Subitem value:", values[1]);
-            setSelectedItem(values);
-          }}
-          selectedItem={selectedItem}
-          title="Group 1"
-          items={items}
-        />
-        <SidebarGroup
+      <Button onClick={() => setVal(null)}>Collapse Them</Button>
+      <SidebarGroup
+        openedItem={val}
+        setOpenedItem={(e) => setVal(e)}
+        onItemClick={(values) => {
+          console.log("Clicked main item value:", values[0]);
+          setSelectedItem(values);
+        }}
+        onSubItemClick={(values) => {
+          console.log("Parent item value:", values[0]);
+          console.log("Subitem value:", values[1]);
+          setSelectedItem(values);
+        }}
+        selectedItem={selectedItem}
+        title="Group 1"
+        items={items}
+      />
+      {/* <SidebarGroup
           title="Group 2"
           items={items}
           onItemClick={(values) => {
@@ -68,8 +72,7 @@ const Template = (args) => {
             setSelectedItem(values);
           }}
           selectedItem={selectedItem}
-        />
-      </SidebarRoot>
+        /> */}
     </div>
   );
 };
