@@ -56,7 +56,7 @@ type ProfileItem = {
 }
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
-  direction = "rtl",
+  direction = "ltr",
   drawerSize = "md",
   onSettingsClick,
   DrawerFooterActions,

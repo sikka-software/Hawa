@@ -5,6 +5,7 @@ import {
   HawaAppLayoutSimplified
 } from "../../layout";
 import { FaFolderOpen, FaPoll, FaHome } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
 import { t, setLocale } from "../../translations/i18n";
 
 export default {
@@ -1124,7 +1125,7 @@ const AppLayoutTemplate = (args, globals) => {
   return (
     <AppLayout
       {...args}
-      direction={locale === "ar" ? "rtl" : "ltr"}
+      // direction={locale === "ar" ? "rtl" : "ltr"}
       texts={{
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar")
@@ -1145,10 +1146,10 @@ export const AppLayoutStory = AppLayoutTemplate.bind({});
 AppLayoutStory.args = {
   onSettingsClick: () => console.log("going to settings"),
   currentPage: "files",
-
+  direction: "ltr",
   profileMenuItems: [
     {
-      label: "Dashboard",
+      label: "Profile",
       value: "Dashboard",
       action: () => console.log("going to dashboard")
     },
@@ -1173,9 +1174,9 @@ AppLayoutStory.args = {
 
   drawerItems: [
     {
-      label: "Home",
+      label: "لوحة القيادة",
       value: "/home",
-      icon: <FaHome />
+      icon: <MdDashboard />
     },
     {
       label: "Items",

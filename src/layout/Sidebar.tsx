@@ -7,7 +7,7 @@ import { Button } from "../elements"
 const Accordion = AccordionPrimitive.Root
 
 let triggerStyles =
-  "flex flex-1 items-center cursor-pointer bg-primary-foreground rounded justify-between p-2 px-3 font-medium transition-all  [&[data-state=open]>svg]:-rotate-90"
+  "flex flex-1 items-center select-none cursor-pointer bg-primary-foreground rounded justify-between p-2 px-3 font-medium transition-all  [&[data-state=open]>svg]:-rotate-90"
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
@@ -218,7 +218,7 @@ const SidebarItem: React.FC<{
           {item.icon}
           <span
             className={cn(
-              "transition-all",
+              "whitespace-nowrap transition-all",
               isOpen ? "opacity-100" : "opacity-0"
             )}
           >
