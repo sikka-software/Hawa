@@ -11,7 +11,8 @@ import {
   HawaButton,
   Input,
   Label,
-  Textarea
+  Textarea,
+  Button
 } from "../../elements";
 
 export default {
@@ -52,30 +53,34 @@ export const TextField = (args) => {
       <HawaTextField {...args} width="normal" label="Normal Width" />
       <HawaTextField {...args} width="small" label="Small Width" />
 
-      <h1 className="text-xl font-bold">Preview Mode</h1>
+      <div className="mb-6 mt-10 flex flex-row items-center gap-2">
+        <Button onClick={() => setEditable(!editable)} size={"sm"}>
+          Turn {editable ? "ON" : "OFF"}
+        </Button>
+        <div className="flex flex-col">
+          <span className="text-xl font-bold">Edit Mode</span>
+          <span className="text-sm text-muted-foreground">
+            Treat the input field as a regular text when edit mode is off.
+          </span>
+        </div>
+      </div>
       <div>
-        <HawaButton onClick={() => setEditable(!editable)}>
-          Edit mode
-        </HawaButton>
         <div className="flex flex-row gap-2">
           <HawaTextField
-            defaultValue={"Testing Preview"}
-            label="Label test"
-            // helpertext="something invalid"
-            placeholder="input placeholder"
-            // value="3434"
+            defaultValue={"https://sikka.io"}
+            label="Website"
+            placeholder="https://example.com"
             type="text"
             width="small"
             preview={editable}
           />
           <HawaTextField
-            label="Label test"
-            // helpertext="something invalid"
-            placeholder="input placeholder"
-            // value="3434"
+            defaultValue={"@sikka_io"}
+            label="Twitter"
+            placeholder="@example"
             type="text"
             width="small"
-            // preview={true}
+            preview={editable}
           />
           {/* <HawaPhoneInput
             label="Label test"
@@ -86,26 +91,6 @@ export const TextField = (args) => {
             width="small"
             // preview={true}
           /> */}
-        </div>
-      </div>
-      <h1 className="text-xl font-bold">Preview Mode (v0.1)</h1>
-      <div>
-        <HawaButton onClick={() => setEditable(!editable)}>
-          Edit mode
-        </HawaButton>
-        <div className="gap-2">
-          <Label htmlFor="something">Email</Label>
-          <Input
-            defaultValue={"Testing Preview"}
-            label="Label test"
-            id="something"
-            // helpertext="something invalid"
-            placeholder="input placeholder"
-            // value="3434"
-            type="text"
-            // width="small"
-            preview={editable}
-          />
         </div>
       </div>
     </div>

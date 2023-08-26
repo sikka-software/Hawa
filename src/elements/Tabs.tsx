@@ -52,7 +52,7 @@ const TabsList = React.forwardRef<
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        "flex w-fit flex-wrap items-center justify-start gap-1  rounded bg-muted p-1  text-muted-foreground ",
+        "flex w-fit flex-wrap items-center justify-start gap-1 rounded  border bg-muted p-1  text-muted-foreground ",
         orientation === "horizontal" ? "flex-col" : "flex-row",
         className
       )}
