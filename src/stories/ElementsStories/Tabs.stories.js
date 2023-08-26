@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { HawaTabs } from "../../elements/HawaTabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../elements/Tabs";
+import { Card, CardContent } from "../../elements/Card";
 import { FiSettings, FiActivity, FiAirplay, FiSave } from "react-icons/fi";
 export default {
   title: "Elements/Selections/Tabs",
@@ -41,6 +43,24 @@ export const Horizontal = (args) => {
       options={[
         {
           value: "option1",
+          label: "Billing",
+          icon: <FiSettings />,
+          content: <div className="bg-red-300 p-4"> option 1</div>
+        },
+        {
+          value: "option10",
+          label: "Billing",
+          icon: <FiSettings />,
+          content: <div className="bg-red-300 p-4"> option 1</div>
+        },
+        {
+          value: "option11",
+          label: "Billing",
+          icon: <FiSettings />,
+          content: <div className="bg-red-300 p-4"> option 1</div>
+        },
+        {
+          value: "option12",
           label: "Billing",
           icon: <FiSettings />,
           content: <div className="bg-red-300 p-4"> option 1</div>
@@ -222,3 +242,43 @@ FullWidth.args = {
   marginBetween: 2,
   width: "full"
 };
+
+export const TabsStory = (args) => {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList className="max-w-full overflow-auto">
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+        <TabsTrigger value="password1">Password</TabsTrigger>
+        <TabsTrigger value="password2">Password</TabsTrigger>
+        <TabsTrigger value="password3">Password</TabsTrigger>
+        <TabsTrigger value="password4">Password</TabsTrigger>
+        <TabsTrigger value="password5">Password</TabsTrigger>
+        <TabsTrigger value="password6">Password</TabsTrigger>
+        <TabsTrigger value="password7">Password</TabsTrigger>
+        <TabsTrigger value="password8">Password</TabsTrigger>
+        <TabsTrigger value="password9">Password</TabsTrigger>
+        <TabsTrigger value="password10">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        <Card>
+          <CardContent headless>Make changes to your account here.</CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="password">
+        <Card>
+          <CardContent headless>Change your password here.</CardContent>
+        </Card>
+      </TabsContent>
+    </Tabs>
+  );
+};
+
+TabsStory.args = {
+  orientation: "horizontal",
+  direction: "rtl",
+  marginBetween: 2,
+  width: "full"
+};
+
+TabsStory.storyName = "Tabs (v0.1)";

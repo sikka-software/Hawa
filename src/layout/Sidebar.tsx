@@ -156,7 +156,7 @@ const SidebarItem: React.FC<{
   const getSelectedStyle = (value: string, index: number) => {
     return isSelected && isSelected[index] === value
       ? "bg-primary text-primary-foreground  cursor-default"
-      : "hover:bg-primary/30"
+      : "hover:bg-primary/10"
   }
   if (item.subitems) {
     return (

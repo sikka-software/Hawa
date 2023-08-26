@@ -69,6 +69,7 @@ export const HawaTabs: FC<TabsTypes> = ({
     >
       <ul
         className={clsx(
+          "w-full border-primary",
           marginBetween
             ? orientation === "vertical"
               ? "mb-0"
@@ -78,8 +79,9 @@ export const HawaTabs: FC<TabsTypes> = ({
             ? "ml-" + marginBetween
             : "mr-" + marginBetween,
           tabsStyle[orientation],
-          "border-primary",
-
+          orientation === "horizontal"
+            ? "grid grid-cols-3 gap-1 sm:flex  sm:flex-row sm:gap-0 "
+            : "",
           // orientation === "vertical"
           //   ? direction === "rtl"
           //     ? "rounded-none rounded-r border-l-2"
@@ -92,7 +94,7 @@ export const HawaTabs: FC<TabsTypes> = ({
             ? direction === "rtl"
               ? "rounded-none rounded-r border-l-2"
               : "rounded-none rounded-l border-r-2"
-            : "border-b-2"
+            : "border-b-0 sm:border-b-2"
         )}
       >
         {props.options?.map((opt: any, o) => (
@@ -104,7 +106,7 @@ export const HawaTabs: FC<TabsTypes> = ({
                 props?.onChangeTab(opt)
               }}
               className={clsx(
-                "flex flex-row items-center gap-2",
+                "flex flex-row items-center gap-2 ",
                 opt.value === selectedOption
                   ? // props.options[selectedOption].value === opt.value
                     [
@@ -117,7 +119,7 @@ export const HawaTabs: FC<TabsTypes> = ({
                   ? "rounded"
                   : orientation === "vertical"
                   ? "rounded rounded-bl-none rounded-tl-none"
-                  : "rounded rounded-bl-none rounded-br-none"
+                  : "rounded sm:rounded-b-none"
                 // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
               )}
             >
