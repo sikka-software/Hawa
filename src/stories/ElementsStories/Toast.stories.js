@@ -7,18 +7,21 @@ import {
   Toaster
 } from "../../elements";
 import { useToast } from "../../hooks/useToast";
+import { t, setLocale } from "../../translations/i18n";
 
 export default {
   title: "Elements/Toast",
   component: [Toaster, Toast]
 };
 
-const Template = (args) => {
+const Template = (args, globals) => {
   const { toast } = useToast();
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
 
   return (
     <div>
-      <Toaster />
+      <Toaster direction={locale === "ar" ? "rtl" : "ltr"} />
       <DropdownMenu
         items={[
           {
@@ -29,8 +32,7 @@ const Template = (args) => {
                 title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
                 description: "Friday, February 10, 2023 at 5:57 PM",
                 severity: "info",
-                action: <ToastAction altText="Try again">Try again</ToastAction>,
-
+                action: <ToastAction altText="Try again">Try again</ToastAction>
               });
             }
           },

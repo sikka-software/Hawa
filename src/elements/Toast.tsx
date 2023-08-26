@@ -50,18 +50,20 @@ const Toast = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants> & {
       severity?: "info" | "warning" | "error" | "success" | "none"
+      direction?: "rtl" | "ltr"
     }
 >(({ className, variant, severity = "none", ...props }, ref) => {
   return (
-    <ToastPrimitives.Root
-      ref={ref}
-      className={cn(
-        toastVariants({ variant, severity }),
-        className
-        // severity === "error" && "bg-red-500"
-      )}
-      {...props}
-    />
+      <ToastPrimitives.Root
+        ref={ref}
+        // dir={'rtl'}
+        className={cn(
+          toastVariants({ variant, severity }),
+          className
+          // severity === "error" && "bg-red-500"
+        )}
+        {...props}
+      />
   )
 })
 Toast.displayName = ToastPrimitives.Root.displayName
