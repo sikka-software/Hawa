@@ -8,7 +8,10 @@ import {
   HawaColorPicker,
   HawaCardInput,
   HawaDatepicker,
-  HawaButton
+  HawaButton,
+  Input,
+  Label,
+  Textarea
 } from "../../elements";
 
 export default {
@@ -56,6 +59,7 @@ export const TextField = (args) => {
         </HawaButton>
         <div className="flex flex-row gap-2">
           <HawaTextField
+            defaultValue={"Testing Preview"}
             label="Label test"
             // helpertext="something invalid"
             placeholder="input placeholder"
@@ -84,6 +88,26 @@ export const TextField = (args) => {
           /> */}
         </div>
       </div>
+      <h1 className="text-xl font-bold">Preview Mode (v0.1)</h1>
+      <div>
+        <HawaButton onClick={() => setEditable(!editable)}>
+          Edit mode
+        </HawaButton>
+        <div className="gap-2">
+          <Label htmlFor="something">Email</Label>
+          <Input
+            defaultValue={"Testing Preview"}
+            label="Label test"
+            id="something"
+            // helpertext="something invalid"
+            placeholder="input placeholder"
+            // value="3434"
+            type="text"
+            // width="small"
+            preview={editable}
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -92,12 +116,11 @@ TextField.args = {
   label: "Label test",
   helpertext: "something invalid",
   placeholder: "input placeholder",
-  // preview: true,
   type: "text"
 };
 
 export const TextArea = (args) => {
-  return <HawaTextField multiline={true} {...args} />;
+  return <Textarea label="Textarea Test" />;
 };
 TextArea.args = {
   label: "Label test",
