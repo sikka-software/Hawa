@@ -38,5 +38,10 @@
   "termsText": "الشروط والأحكام",
   "termsRequiredText": "يجب الموافقة على الشروط والأحكام للإستمرار",
   "existingUserText": "لديك حساب؟",
-  "refCode": "رمز الإحالة"
+  "refCode": "رمز الإحالة",
+  "account": "الحساب",
+  "password": "كلمة المرور",
+  "settings": "الإعدادات",
+  "display": "المظهر",
+  "option": "خيار"
 }

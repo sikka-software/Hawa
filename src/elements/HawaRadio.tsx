@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react"
+import React, { useState, FC, useRef, useEffect } from "react"
 import clsx from "clsx"
 
 type RadioTypes = {
@@ -34,10 +34,22 @@ export const HawaRadio: FC<RadioTypes> = ({
     default: "max-w-fit",
     full: "w-full",
   }
+  const [parentDirection, setParentDirection] = useState(null)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (ref.current && ref.current.parentNode) {
+      const dir = window.getComputedStyle(ref.current.parentNode).direction
+      setParentDirection(dir)
+    }
+    console.log("how many times")
+  })
+
   switch (design) {
     case "tabs":
       return (
         <ul
+          ref={ref}
           className={clsx(
             props.options?.length > 2
               ? "flex-wrap xs:max-w-full xs:flex-nowrap"
@@ -57,7 +69,11 @@ export const HawaRadio: FC<RadioTypes> = ({
               className={clsx(
                 "w-full cursor-pointer",
                 orientation === "horizontal" &&
+                  parentDirection === "ltr" &&
                   "rounded-none first:rounded-l last:rounded-r",
+                orientation === "horizontal" &&
+                  parentDirection === "rtl" &&
+                  "rounded-none first:rounded-r last:rounded-l",
                 orientation === "vertical" &&
                   "rounded-none first:rounded-t last:rounded-b",
 

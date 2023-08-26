@@ -2,6 +2,7 @@ import React from "react";
 
 import { HawaRadio } from "../../elements";
 import { FiSettings, FiActivity, FiAirplay, FiSave } from "react-icons/fi";
+import { t, setLocale } from "../../translations/i18n";
 
 export default {
   title: "Elements/Radio",
@@ -44,7 +45,6 @@ export const Default = (args) => {
     </div>
   );
 };
-
 export const Bordered = (args) => {
   return (
     <div className="flex w-1/2 flex-col gap-10">
@@ -81,10 +81,14 @@ export const Bordered = (args) => {
     </div>
   );
 };
+export const Tabs = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
 
-export const Tabs = (args) => {
   return (
-    <div className="flex w-1/2 flex-col gap-10">
+    <div
+      className="flex w-1/2 flex-col gap-10"
+      dir={locale === "ar" ? "rtl" : "ltr"}
+    >
       <div className="flex flex-col gap-2">
         <h1>Orientation: Horizontal</h1>
         <HawaRadio
@@ -94,18 +98,18 @@ export const Tabs = (args) => {
           // {...args}
           options={[
             {
-              label: `Option 1`,
+              label: `${t("option")} 1`,
               value: `option1`
               // icon: <FiSettings />
             },
             {
-              label: `Option 2`,
+              label: `${t("option")} 2`,
               value: `option2`,
               // icon: <FiActivity />,
               disabled: true
             },
             {
-              label: `Option 3`,
+              label: `${t("option")} 3`,
               value: `option3`
               //  icon: <FiSave />
             }
@@ -122,9 +126,9 @@ export const Tabs = (args) => {
           orientation="vertical"
           // {...args}
           options={[
-            { label: `Option 4`, value: `option4` },
-            { label: `Option 5`, value: `option5`, disabled: true },
-            { label: `Option 6`, value: `option6` }
+            { label: `${t("option")} 4`, value: `option4` },
+            { label: `${t("option")} 5`, value: `option5`, disabled: true },
+            { label: `${t("option")} 6`, value: `option6` }
           ]}
         />
       </div>

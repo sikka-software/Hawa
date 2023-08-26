@@ -37,5 +37,10 @@
   "termsText": "terms & conditions",
   "termsRequiredText": "you must accept the terms & conditions",
   "existingUserText": "Existing User?",
-  "refCode": "Referral Code"
+  "refCode": "Referral Code",
+  "account": "Account",
+  "password": "Password",
+  "settings": "Settings",
+  "display": "Display",
+  "option": "Option"
 }

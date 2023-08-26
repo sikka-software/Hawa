@@ -21,10 +21,10 @@ export const Horizontal = (args, globals) => {
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="password1">Password</TabsTrigger>
-        <TabsTrigger value="password2">Password</TabsTrigger>
+        <TabsTrigger value="account">{t("account")}</TabsTrigger>
+        <TabsTrigger value="password">{t("password")}</TabsTrigger>
+        <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
+        <TabsTrigger value="display">{t("display")}</TabsTrigger>
       </TabsList>
       <TabsContent value="account">
         <Card>
@@ -34,6 +34,18 @@ export const Horizontal = (args, globals) => {
       <TabsContent value="password">
         <Card>
           <CardContent headless>Change your password here.</CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="display">
+        <Card>
+          <CardContent headless>
+            This is the content of the display tab
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="settings">
+        <Card>
+          <CardContent headless>Update your account settings here.</CardContent>
         </Card>
       </TabsContent>
     </Tabs>
@@ -57,10 +69,10 @@ export const Vertical = (args, globals) => {
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="password1">Password</TabsTrigger>
-        <TabsTrigger value="password2">Password</TabsTrigger>
+        <TabsTrigger value="account">{t("account")}</TabsTrigger>
+        <TabsTrigger value="password">{t("password")}</TabsTrigger>
+        <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
+        <TabsTrigger value="display">{t("display")}</TabsTrigger>
       </TabsList>
       <TabsContent value="account">
         <Card>
@@ -70,6 +82,18 @@ export const Vertical = (args, globals) => {
       <TabsContent value="password">
         <Card>
           <CardContent headless>Change your password here.</CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="display">
+        <Card>
+          <CardContent headless>
+            This is the content of the display tab
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="settings">
+        <Card>
+          <CardContent headless>Update your account settings here.</CardContent>
         </Card>
       </TabsContent>
     </Tabs>
