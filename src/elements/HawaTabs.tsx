@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react"
-import clsx from "clsx"
+import { cn } from "../util"
 
 // TODO: fix wrapping issue when small screen
 
@@ -62,13 +62,13 @@ export const HawaTabs: FC<TabsTypes> = ({
   return (
     <div
       dir={direction}
-      className={clsx(
+      className={cn(
         containerStyle[orientation],
         props.options[selectedOption] ? "border-b-2" : "border-b-0"
       )}
     >
       <ul
-        className={clsx(
+        className={cn(
           "w-full border-primary",
           marginBetween
             ? orientation === "vertical"
@@ -98,35 +98,33 @@ export const HawaTabs: FC<TabsTypes> = ({
         )}
       >
         {props.options?.map((opt: any, o) => (
-          <li key={o}>
-            <button
-              aria-current="page"
-              onClick={() => {
-                setSelectedOption(opt.value)
-                props?.onChangeTab(opt)
-              }}
-              className={clsx(
-                "flex flex-row items-center gap-2 ",
-                opt.value === selectedOption
-                  ? // props.options[selectedOption].value === opt.value
-                    [
-                      activeTabStyle[orientation],
-                      direction === "rtl" ? "rounded-r" : "rounded-l",
-                    ]
-                  : inactiveTabStyle[orientation],
-                "w-full  transition-all",
-                pill
-                  ? "rounded"
-                  : orientation === "vertical"
-                  ? "rounded rounded-bl-none rounded-tl-none"
-                  : "rounded sm:rounded-b-none"
-                // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
-              )}
-            >
-              {opt.icon}
-              {opt.label}
-            </button>
-          </li>
+          <button
+            key={o}
+            aria-current="page"
+            onClick={() => {
+              setSelectedOption(opt.value)
+              props?.onChangeTab(opt)
+            }}
+            className={cn(
+              opt.value === selectedOption
+                ? // props.options[selectedOption].value === opt.value
+                  [
+                    activeTabStyle[orientation],
+                    direction === "rtl" ? "rounded-r" : "rounded-l",
+                  ]
+                : inactiveTabStyle[orientation],
+              pill
+                ? "rounded"
+                : orientation === "vertical"
+                ? "rounded rounded-bl-none rounded-tl-none"
+                : "rounded sm:rounded-b-none",
+              // direction === "rtl" ? "bg-yellow-400" : "bg-yellow-400"
+              "flex w-fit flex-row items-center gap-2  transition-all "
+            )}
+          >
+            {opt.icon}
+            {opt.label}
+          </button>
         ))}
       </ul>
 
@@ -134,7 +132,7 @@ export const HawaTabs: FC<TabsTypes> = ({
         {props.options.map((tab, i) => (
           <div
             key={i}
-            className={clsx(selectedOption === tab.value ? "" : "hidden")}
+            className={cn(selectedOption === tab.value ? "" : "hidden")}
           >
             {tab.content}
           </div>

@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { HawaPricingCard, HawaTabs } from "../../elements"
+import { HawaPricingCard, HawaRadio } from "../../elements"
 
 type PricingPlansTypes = {
   plans: [
@@ -46,14 +46,14 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
   return (
     <div>
       <div className="mb-2 flex w-full justify-between">
-        <HawaTabs
-          pill
+        <HawaRadio
+          design="tabs"
           defaultValue={props.currentCycle}
           options={props.billingCycles}
           onChangeTab={(e: any) => props.onCycleChange(e)}
         />
-        <HawaTabs
-          pill
+        <HawaRadio
+          design="tabs"
           defaultValue={props.currentCurrency}
           options={props.currencies}
           onChangeTab={(e: any) => props.onCurrencyChange(e)}

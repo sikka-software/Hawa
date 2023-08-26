@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react"
-import { HawaTabs } from "../../elements"
+import { HawaRadio } from "../../elements"
 import { Tooltip } from "../../elements/Tooltip"
 
 const CheckMark = () => (
@@ -65,29 +65,23 @@ type ComparingPlansTypes = {
   direction?: "rtl" | "ltr"
 }
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
-  const [currentCurrency, setCurrentCurrency] = useState("SAR")
+  const [currentCurrency, setCurrentCurrency] = useState("sar")
   const [currentCycle, setCurrentCycle] = useState("month")
 
   return (
     <div id="detailed-pricing" className="w-full overflow-x-auto">
       <div className="mb-2 flex w-full justify-between">
-        <HawaTabs
-          pill
+        <HawaRadio
+          design="tabs"
           defaultValue={currentCycle}
           options={props.billingCycles}
-          onChangeTab={(e: any) => {
-            // setCurrentCycle(e.label)
-            props.onCycleChange(e)
-          }}
+          onChangeTab={(e: any) => props.onCycleChange(e)}
         />
-        <HawaTabs
-          pill
+        <HawaRadio
+          design="tabs"
           defaultValue={currentCurrency}
           options={props.currencies}
-          onChangeTab={(e: any) => {
-            // setCurrentCurrency(e.label)
-            props.onCurrencyChange(e)
-          }}
+          onChangeTab={(e: any) => props.onCurrencyChange(e)}
         />
       </div>
       <div className=" overflow-hidden rounded">
