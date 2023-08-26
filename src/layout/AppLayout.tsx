@@ -215,7 +215,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               trigger={
                 <div className="relative h-8 w-8  cursor-pointer overflow-clip rounded ring-1 ring-primary/30 dark:bg-gray-600">
                   <svg
-                    aria-aria-label="Avatar Icon"
+                    aria-label="Avatar Icon"
                     className="absolute -left-1 h-10 w-10 text-gray-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
