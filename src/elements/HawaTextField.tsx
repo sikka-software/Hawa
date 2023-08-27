@@ -62,7 +62,9 @@ export const HawaTextField: FC<TextFieldTypes> = ({
     <div className={cn(defaultStyle, marginStyles[margin], widthStyles[width])}>
       {props.label && <Label>{props.label}</Label>}
       <>
-        <div className="relative">
+        <div
+          className={cn("relative transition-all", preview && "border-t-[1px]")}
+        >
           {props.icon && (
             <div className="absolute left-3 top-1/2 -translate-y-1/2">
               {props.icon}
@@ -73,7 +75,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
             className={cn(
               defaultInputStyle,
               props.icon && "pl-10",
-              preview && "border-transparent px-0"
+              preview && "border-transparent px-0 "
             )}
             disabled={preview}
           />
