@@ -5,16 +5,11 @@ import { cn } from "../util"
 
 const TabsContext = React.createContext<{
   orientation?: "vertical" | "horizontal"
-}>({
-  orientation: "vertical", // default value
-})
+}>({ orientation: "vertical" })
 
-// const Tabs = TabsPrimitive.Root
 type TabsRootProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
-> & {
-  orientation?: "vertical" | "horizontal"
-}
+> & { orientation?: "vertical" | "horizontal" }
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
@@ -23,9 +18,9 @@ const Tabs = React.forwardRef<
   <TabsPrimitive.Root
     ref={ref}
     className={cn(
-      className,
       "flex gap-2",
-      orientation === "horizontal" ? "flex-row" : "flex-col"
+      orientation === "horizontal" ? "flex-row" : "flex-col",
+      className
     )}
     {...props}
   >
@@ -36,23 +31,16 @@ const Tabs = React.forwardRef<
 ))
 Tabs.displayName = TabsPrimitive.Root.displayName
 
-// type TabsListProps = React.ComponentPropsWithoutRef<
-//   typeof TabsPrimitive.List
-// > & {
-//   //   orientation?: "vertical" | "horizontal"
-// }
-
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => {
   const { orientation } = React.useContext(TabsContext)
-
   return (
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        "flex w-fit flex-wrap items-center justify-start gap-1 rounded  border bg-muted p-1  text-muted-foreground ",
+        "flex w-fit flex-wrap items-center justify-start gap-1 rounded border  bg-muted p-1 text-muted-foreground  dark:border-primary/10 ",
         orientation === "horizontal" ? "flex-col" : "flex-row",
         className
       )}
@@ -70,7 +58,7 @@ const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        "inline-flex w-full flex-1 select-none items-center justify-center whitespace-nowrap rounded border px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm ",
+        "inline-flex w-full flex-1 select-none items-center justify-center whitespace-nowrap rounded border px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm  dark:border-primary/10",
         className
       )}
       {...props}

@@ -4,7 +4,7 @@ import * as React from "react"
 import type { ToastActionElement, ToastProps } from "../elements/Toast"
 
 const TOAST_LIMIT = 5
-const TOAST_REMOVE_DELAY = 1000000
+const TOAST_REMOVE_DELAY = 100000
 
 type ToasterToast = ToastProps & {
   id: string
@@ -102,21 +102,13 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === toastId || toastId === undefined
-            ? {
-                ...t,
-                open: false,
-              }
-            : t
+          t.id === toastId || toastId === undefined ? { ...t, open: false } : t
         ),
       }
     }
     case "REMOVE_TOAST":
       if (action.toastId === undefined) {
-        return {
-          ...state,
-          toasts: [],
-        }
+        return { ...state, toasts: [] }
       }
       return {
         ...state,

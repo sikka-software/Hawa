@@ -12,19 +12,14 @@ import { cn } from "../util"
 
 export function Toaster(props) {
   const { toasts } = useToast()
-  console.log("toaster direction", props.direction)
+  let isRTL = props.direction === "rtl"
   return (
-    <ToastProvider
-      swipeDirection={props.direction === "rtl" ? "left" : "right"}
-    >
+    <ToastProvider swipeDirection={isRTL ? "left" : "right"}>
       {toasts.map(function ({ id, title, description, action, ...toastProps }) {
         return (
           <Toast direction={props.direction} key={id} {...toastProps}>
             <div
-              className={cn(
-                "grid gap-1",
-                props.direction === "rtl" ? "text-right" : "text-left"
-              )}
+              className={cn("grid gap-1", isRTL ? "text-right" : "text-left")}
             >
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
@@ -36,9 +31,7 @@ export function Toaster(props) {
           </Toast>
         )
       })}
-      <ToastViewport
-        className={cn("gap-2", props.direction === "rtl" && "fixed left-0")}
-      />
+      <ToastViewport className={cn("gap-2", isRTL && "fixed left-0")} />
     </ToastProvider>
   )
 }

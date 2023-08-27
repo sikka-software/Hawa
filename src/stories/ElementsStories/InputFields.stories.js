@@ -93,7 +93,6 @@ export const TextField = (args) => {
           /> */}
         </div>
       </div>
-      <div className="bg-red-300 h-24">Test box</div>
     </div>
   );
 };

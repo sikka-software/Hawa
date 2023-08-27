@@ -22,35 +22,28 @@ const TooltipArrow = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Arrow>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Arrow>
 >(({ className, ...props }, ref) => (
-  <TooltipPrimitive.Arrow
-    ref={ref}
-    className={cn(
-      //   "fill-white",
-      className
-    )}
-    {...props}
-  />
+  <TooltipPrimitive.Arrow ref={ref} className={cn(className)} {...props} />
 ))
 TooltipArrow.displayName = TooltipPrimitive.Arrow.displayName
 
 type TooltipTypes = {
-  side?: "top" | "right" | "bottom" | "left"
-  children?: any
-  content?: any
   open?: any
+  side?: "top" | "right" | "bottom" | "left"
+  content?: any
+  children?: any
   defaultOpen?: any
   onOpenChange?: any
   delayDuration?: any
 }
 
-export const Tooltip: React.FunctionComponent<TooltipTypes> = ({
-  children,
-  content,
+const Tooltip: React.FunctionComponent<TooltipTypes> = ({
+  side,
   open,
+  content,
+  children,
   defaultOpen,
   onOpenChange,
   delayDuration = 300,
-  side,
   ...props
 }) => {
   return (
@@ -63,10 +56,10 @@ export const Tooltip: React.FunctionComponent<TooltipTypes> = ({
         <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <TooltipContent side={side} align="center" {...props}>
           {content}
-          {/* <TooltipArrow width={21} height={5} /> */}
         </TooltipContent>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.TooltipProvider>
   )
 }
-// export { Tooltip, TooltipRoot, TooltipTrigger, TooltipContent, TooltipProvider }
+
+export { Tooltip }
