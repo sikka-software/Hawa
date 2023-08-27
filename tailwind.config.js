@@ -13,9 +13,7 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px"
-      }
+      screens: { "2xl": "1400px" }
     },
     extend: {
       boxShadow: {
@@ -51,28 +49,12 @@ module.exports = {
           // "100%": { transform: "scaleY(1)" },
         },
         expandDown: {
-          "0%": {
-            // opacity: 0,
-            // maxHeight: 0,
-            height: "0px"
-          },
-          "100%": {
-            // opacity: 1,
-            // maxHeight: 100,
-            height: "15rem"
-          }
+          "0%": { height: "0px" },
+          "100%": { height: "15rem" }
         },
         expandUp: {
-          "0%": {
-            // opacity: 1,
-            // maxHeight: 100,
-            height: "15rem"
-          },
-          "100%": {
-            // opacity: 0,
-            // maxHeight: 0,
-            height: "0rem"
-          }
+          "0%": { height: "15rem" },
+          "100%": { height: "0rem" }
         },
         "accordion-down": {
           from: { height: 0 },
@@ -83,15 +65,9 @@ module.exports = {
           to: { height: 0 }
         },
         blink: {
-          "0%": {
-            opacity: "0.2"
-          },
-          "50%": {
-            opacity: "1"
-          },
-          "100%": {
-            opacity: " 0.2"
-          }
+          "0%": { opacity: "0.2" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: " 0.2" }
         },
         slideDownAndFade: {
           from: { opacity: 0, transform: "translateY(-2px)" },
@@ -127,10 +103,6 @@ module.exports = {
         slideRightAndFade:
           "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)"
       },
-      // borderRadius: {
-      //   DEFAULT: "var(--border-radius)",
-      //   inner: "var(--border-radius-inner)"
-      // },
       borderRadius: {
         inner: "var(--radius-inner)",
         DEFAULT: "var(--radius)",
@@ -173,8 +145,6 @@ module.exports = {
           DEFAULT: "hsl(var(--success) / <alpha-value>)",
           foreground: "hsl(var(--success-foreground) / <alpha-value>)"
         },
-
-
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))"
@@ -191,7 +161,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"
         },
-
         blackA: {
           1: "hsla(0, 0%, 0%, 0.012)",
           2: "hsla(0, 0%, 0%, 0.024)",
@@ -234,7 +203,6 @@ module.exports = {
           11: "hsl(250, 43.0%, 48.0%)",
           12: "hsl(250, 43.0%, 26.0%)"
         },
-
         buttonPrimary: {
           300: "hsl(var(--button-primary-300))",
           500: "hsl(var(--button-primary-500))",
