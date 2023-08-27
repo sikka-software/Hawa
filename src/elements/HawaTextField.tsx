@@ -51,7 +51,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
     full: "w-full",
   }
 
-  let defaultStyle = "flex max-h-fit flex-col justify-center gap-1"
+  let defaultStyle = "flex max-h-fit relative flex-col justify-center gap-2"
   let defaultInputStyle =
     "block w-full rounded border transition-all bg-background p-2 text-sm text-black dark:text-white focus:border-blue-500 focus:ring-blue-500"
   let previewInputStyle =
@@ -61,9 +61,18 @@ export const HawaTextField: FC<TextFieldTypes> = ({
   return (
     <div className={cn(defaultStyle, marginStyles[margin], widthStyles[width])}>
       {props.label && <Label>{props.label}</Label>}
+      <div
+        className={cn(
+          "absolute top-[22px] h-[0.8px] w-full bg-gray-200 dark:bg-gray-800 transition-all",
+          preview ? "opacity-100" : "opacity-0"
+        )}
+      ></div>
       <>
         <div
-          className={cn("relative transition-all", preview && "border-t-[1px]")}
+          className={cn(
+            "relative "
+            // preview && "border-t-[0.5px]"
+          )}
         >
           {props.icon && (
             <div className="absolute left-3 top-1/2 -translate-y-1/2">
@@ -75,7 +84,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
             className={cn(
               defaultInputStyle,
               props.icon && "pl-10",
-              preview && "border-transparent px-0 "
+              preview && "border-transparent bg-transparent px-0" //-mt-[0.5px]
             )}
             disabled={preview}
           />
