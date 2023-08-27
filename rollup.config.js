@@ -10,13 +10,19 @@ import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
 import swc from "rollup-plugin-swc";
 import cleaner from "rollup-plugin-cleaner";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default [
   {
     input: "src/index.ts",
     output: [
-      { file: "lib/index.js", format: "cjs" },
-      { file: "es/index.es.js", format: "es", exports: "named" }
+      { file: "lib/index.js", format: "cjs", preserveModules: true },
+      {
+        file: "es/index.es.js",
+        format: "es",
+        exports: "named",
+        preserveModules: true
+      }
     ],
     plugins: [
       cleaner({
@@ -44,7 +50,8 @@ export default [
           }
         }
       }),
-      commonjs()
+      commonjs(),
+      preserveDirectives()
     ],
     onwarn: function (warning, handler) {
       // Skip certain warnings

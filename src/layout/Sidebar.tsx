@@ -1,8 +1,6 @@
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-
 import { cn } from "../util"
-import { Button } from "../elements"
 
 const Accordion = AccordionPrimitive.Root
 
