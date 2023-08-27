@@ -16,7 +16,12 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      { dir: "lib", format: "cjs", preserveModules: true },
+      {
+        dir: "lib",
+        format: "cjs",
+        preserveModules: true,
+        exports: "auto"
+      },
       {
         dir: "es",
         format: "es",
@@ -51,7 +56,7 @@ export default [
         }
       }),
       commonjs(),
-      preserveDirectives()
+      preserveDirectives({ supressPreserveModulesWarning: true })
     ],
     onwarn: function (warning, handler) {
       // Skip certain warnings

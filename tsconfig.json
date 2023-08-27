@@ -12,6 +12,7 @@
     "noEmit": false,
     "noEmitHelpers": false,
     "inlineSourceMap": false,
+    "sourceMap": true,
     "importHelpers": true,
     "esModuleInterop": true,
     "noResolve": false,
