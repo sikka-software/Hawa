@@ -16,9 +16,9 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      { file: "lib/index.js", format: "cjs", preserveModules: true },
+      { dir: "lib", format: "cjs", preserveModules: true },
       {
-        file: "es/index.es.js",
+        dir: "es",
         format: "es",
         exports: "named",
         preserveModules: true
