@@ -63,7 +63,7 @@ jobs:
            npm install
           fi
       - name: Build Library
-        run: npm run build-lib
+        run: npm run build-up
       - name: Build Styles
         run: npm run build:styles
       - name: Generate Tailwind Styles

@@ -6,7 +6,6 @@ import {
   HawaSelect,
   HawaPhoneInput,
   HawaColorPicker,
-  HawaCardInput,
   HawaDatepicker,
   HawaButton,
   Input,
@@ -17,13 +16,7 @@ import {
 
 export default {
   title: "Elements/Input Fields",
-  component: [
-    HawaTextField,
-    HawaPhoneInput,
-    HawaSelect,
-    HawaColorPicker,
-    HawaCardInput
-  ],
+  component: [HawaTextField, HawaPhoneInput, HawaSelect, HawaColorPicker],
   parameters: {
     // backgrounds: {
     //   default: "light",
@@ -198,13 +191,7 @@ export const ColorPicker = (args) => {
 ColorPicker.args = {
   color: "#f0f0f0"
 };
-export const CardInput = (args) => {
-  return <HawaCardInput {...args} />;
-};
 
-CardInput.args = {
-  color: "#f0f0f0"
-};
 export const Datepicker = (args) => {
   return <HawaDatepicker {...args} />;
 };

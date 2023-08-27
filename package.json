@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "description": "SaaS Oriented UI Kit",
   "main": "lib/index.js",
   "module": "es/index.es.js",
@@ -34,6 +34,7 @@
     "generate-css": "postcss src/tailwind.css -o src/styles.css && mkdir -p dist && cp src/styles.css dist/",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook -o ./docs/documentation",
+    "build-up": "tsup src/index.ts --dts",
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles",
     "chromatic": "npx chromatic --project-token=chpt_9c33d11ef14064f --output-dir ./docs/documentation"
@@ -90,6 +91,7 @@
     "tailwindcss-animate": "^1.0.6",
     "tinycolor2": "^1.4.2",
     "tslib": "^2.4.1",
+    "tsup": "^7.2.0",
     "typescript": "^4.8.4",
     "webpack": "^5.75.0"
   },

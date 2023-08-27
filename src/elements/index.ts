@@ -42,7 +42,6 @@ export * from "./HawaInlineCode"
 export * from "./Timeline"
 // Inputs
 export * from "./HawaTextField"
-export * from "./HawaCardInput"
 export * from "./HawaPinInput"
 // Cards
 export * from "./HawaItemCard"
