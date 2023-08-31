@@ -1,9 +1,10 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.41",
-  "description": "SaaS Oriented UI Kit",
-  "main": "lib/index.js",
-  "module": "es/index.es.js",
+  "version": "0.1.42",
+  "description": "Modern UI Kit made with Tailwind & Radix Primitives",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "author": {
     "name": "Sikka Software",
     "email": "contact@sikka.io",
@@ -34,7 +35,7 @@
     "generate-css": "postcss src/tailwind.css -o src/styles.css && mkdir -p dist && cp src/styles.css dist/",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook -o ./docs/documentation",
-    "build-up": "tsup src/index.ts --dts",
+    "build-up": "tsup src/index.ts --format cjs,esm --dts",
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles",
     "chromatic": "npx chromatic --project-token=chpt_9c33d11ef14064f --output-dir ./docs/documentation"
