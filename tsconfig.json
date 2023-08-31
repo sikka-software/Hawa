@@ -3,8 +3,7 @@
     "declaration": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["react"],
-
+    "types": ["react", "react/next"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
