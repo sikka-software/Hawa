@@ -57,7 +57,7 @@
 export * from "./Button"
 // export * from "./Label"
 // export * from "./Input"
-// export * from "./Tooltip"
+export * from "./Tooltip"
 // export * from "./Card"
 // export * from "./Skeleton"
 // export * from "./InterfaceSettings"
