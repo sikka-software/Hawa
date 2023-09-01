@@ -424,7 +424,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * ----------------------------------------------------------------------------------------------------
        */}
       <div
-        className="fixed overflow-y-auto"
+        className="fixed overflow-y-auto transition-all"
         style={
           isRTL
             ? {
