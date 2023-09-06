@@ -36,7 +36,7 @@ const DocCard = ({ title, subtitle, handleClick }) => (
     className="block w-full  transform-gpu cursor-pointer rounded border  bg-background  p-5 transition-all hover:drop-shadow-lg  dark:hover:bg-gray-800"
   >
     <h3 className="font-bold">{title}</h3>
-    {subtitle && <span>{subtitle}</span>}{" "}
+    {subtitle && <span className="text-sm">{subtitle}</span>}{" "}
   </div>
 )
 
