@@ -36,50 +36,56 @@ const ElementsIntroduction = () => {
       <div className="tip-wrapper">
         <span className="tip">Notice</span>This page is still in progress
       </div>
-      Hawa layout components are used as the foundation for Hawa blocks and can
-      be used to organize and structure your web app. Browse example stories now
-      by navigating to them in the sidebar. View their code in the `src/stories`
-      directory to learn how they work. We recommend building UIs with a
-      [**component-driven**](https://componentdriven.org) process starting with
-      atomic components and ending with pages.
-      <div className="subheading">Components</div>
-      <div className="link-list">
-        <div onClick={linkTo("Layout/Container")} className="link-item">
-          <h3>Container</h3>
-          <span>
-            <strong>Presets for popular tools</strong>
-            Easy setup for TypeScript, SCSS and more. a styled
-          </span>
-        </div>
-        <div onClick={linkTo("Layout/AppBar")} className="link-item">
-          <h3>AppBar</h3>
-          <span>
-            <strong>Presets for popular tools</strong>
-            Easy setup for TypeScript, SCSS and more.
-          </span>
-        </div>
-        <div onClick={linkTo("Layout/AppLayout")} className="link-item">
-          <h3>AppLayout</h3>
-          <span>
-            <strong>Presets for popular tools</strong>
-            Easy setup for TypeScript, SCSS and more.
-          </span>
-        </div>
-        <div onClick={linkTo("Layout/Dialog")} className="link-item">
-          <h3>Dialog</h3>
-          <span>
-            <strong>Presets for popular tools</strong>
-            Easy setup for TypeScript, SCSS and more.
-          </span>
-        </div>
-        <div onClick={linkTo("Layout/PopMenu")} className="link-item">
-          <h3>PopMenu</h3>
-          <span>
-            <strong>Presets for popular tools</strong>
-            Easy setup for TypeScript, SCSS and more.
-          </span>
-        </div>
-      </div>
+      <section>
+        <p>
+          The "Elements" section in the Hawa repository encapsulates a rich set
+          of UI components designed to facilitate the rapid development of web
+          applications and websites. These elements, built with the
+          utility-first TailwindCSS framework, are highly customizable and can
+          be integrated seamlessly into your projects.
+        </p>
+        <p>
+          Within this section, you will find a diverse range of elements
+          including, but not limited to:
+        </p>
+        <ul className="flex flex-col gap-2 mb-10">
+          <li>
+            <strong>Input Fields:</strong> <br /> Various input components to
+            gather data from users, including text fields, radio buttons,
+            checkboxes, and more.
+          </li>
+          <li>
+            <strong>Navigation Components:</strong> <br /> Components like
+            breadcrumbs and tabs that assist in creating a seamless navigation
+            experience.
+          </li>
+          <li>
+            <strong>Notification Elements:</strong> <br /> Elements such as
+            alerts and toasts to provide feedback or notifications to users.
+          </li>
+          <li>
+            <strong>Interactive Components:</strong> <br /> Components like
+            dropdown menus and modals that facilitate user interaction with the
+            application.
+          </li>
+          <li>
+            <strong>Utility Components:</strong> <br /> Various utility
+            components like tooltips, popovers, and carousels to enhance the
+            user interface.
+          </li>
+        </ul>
+        <p>
+          Each element is crafted with attention to detail, ensuring both
+          functionality and aesthetic appeal. The elements are also designed to
+          be responsive, providing a consistent user experience across various
+          device types and screen sizes.
+        </p>
+        <p>
+          We encourage developers to explore this section to discover the wide
+          array of elements available, and to leverage them to build visually
+          appealing and user-friendly web applications and websites.
+        </p>
+      </section>
     </div>
   )
 }

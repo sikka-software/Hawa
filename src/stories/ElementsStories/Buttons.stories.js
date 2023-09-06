@@ -10,39 +10,65 @@ export default {
 };
 
 export const ButtonVariationsStory = () => {
-  return (
-    <div className="card max-w-800 p-3">
-      <h2 className="mt-6 text-xl dark:text-white">Contained Buttons</h2>
-      <div className="mt-1 flex flex-row">
-        <Button>Test</Button>
-        <HawaButton>Default</HawaButton>
-        <HawaButton tooltip="This is a test" className="ml-2" color="primary">
-          Primary
-        </HawaButton>
-        <HawaButton className="ml-2" color="secondary">
-          Secondary
-        </HawaButton>
-        <HawaButton className="ml-2" disabled>
-          Disabled
-        </HawaButton>
-      </div>
+  const variants = [
+    "default",
+    "light",
+    "destructive",
+    "outline",
+    "secondary",
+    "ghost",
+    "link"
+  ];
 
-      <h2 className="mt-6 text-xl dark:text-white">Outlined Buttons</h2>
-      <div className="mt-1 flex flex-row">
-        <HawaButton variant="outlined">Default</HawaButton>
-        <HawaButton className="ml-2" variant="outlined" color="primary">
-          Primary
-        </HawaButton>
-        <HawaButton className="ml-2" variant="outlined" color="secondary">
-          Secondary
-        </HawaButton>
-        <HawaButton className="ml-2" variant="outlined" disabled>
-          Disabled
-        </HawaButton>
+  return (
+    <div>
+      <h2>Button Variations</h2>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        {variants.map((variant) => (
+          <Button key={variant} variant={variant}>
+            {variant.charAt(0).toUpperCase() + variant.slice(1)}
+          </Button>
+        ))}
       </div>
     </div>
   );
 };
+
+//OLD Button Variation Story
+// export const ButtonVariationsStory = () => {
+//   return (
+//     <div className="card max-w-800 p-3">
+//       <h2 className="mt-6 text-xl dark:text-white">Contained Buttons</h2>
+//       <div className="mt-1 flex flex-row">
+//         <Button>Test</Button>
+//         <HawaButton>Default</HawaButton>
+//         <HawaButton tooltip="This is a test" className="ml-2" color="primary">
+//           Primary
+//         </HawaButton>
+//         <HawaButton className="ml-2" color="secondary">
+//           Secondary
+//         </HawaButton>
+//         <HawaButton className="ml-2" disabled>
+//           Disabled
+//         </HawaButton>
+//       </div>
+
+//       <h2 className="mt-6 text-xl dark:text-white">Outlined Buttons</h2>
+//       <div className="mt-1 flex flex-row">
+//         <HawaButton variant="outlined">Default</HawaButton>
+//         <HawaButton className="ml-2" variant="outlined" color="primary">
+//           Primary
+//         </HawaButton>
+//         <HawaButton className="ml-2" variant="outlined" color="secondary">
+//           Secondary
+//         </HawaButton>
+//         <HawaButton className="ml-2" variant="outlined" disabled>
+//           Disabled
+//         </HawaButton>
+//       </div>
+//     </div>
+//   );
+// };
 export const ButtonFeedbackStory = () => {
   return (
     <div className="card max-w-800 p-3">

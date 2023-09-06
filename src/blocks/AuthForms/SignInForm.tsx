@@ -132,7 +132,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               </>
             )}
 
-            <Button className="w-full" isLoading={props.isLoading}>
+            <Button className="w-full mt-4" isLoading={props.isLoading}>
               {props.texts.signInText}
             </Button>
             {!props.withoutSignUp && (
