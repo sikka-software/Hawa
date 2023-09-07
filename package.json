@@ -129,7 +129,5 @@
     "slate": "^0.94.1",
     "slate-react": "^0.97.1",
     "tailwind-merge": "^1.14.0"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "@sikka/hawa@0.0.285"
+  }
 }
