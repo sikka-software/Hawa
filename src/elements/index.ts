@@ -55,6 +55,7 @@ export * from "./HawaLogoButton"
 
 // v0.1
 export * from "./Button"
+export * from "./Carousel"
 export * from "./Label"
 export * from "./Input"
 export * from "./Tooltip"
