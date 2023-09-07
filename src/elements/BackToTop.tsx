@@ -1,7 +1,9 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react"
 import { clsx } from "clsx"
+import { Button } from "./Button"
+import { cn } from "../util"
 
-type ComponentTypes = {
+type BackToTopTypes = {
   paddingX?: number // Horizontal padding relative to the attached corner
   paddingY?: number // Vertical padding relative to the attached corner
   paddingThreshold?: number // Increase to the threshold of the scroll value that has to be passed for the button to appear
@@ -9,7 +11,7 @@ type ComponentTypes = {
   anchor: RefObject<HTMLInputElement>
 }
 
-export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
+export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
   const [visible, setVisible] = useState<boolean>(false)
   const [rect, _setRect] = useState<DOMRect>(null)
   const _rect = useRef(rect)
@@ -95,35 +97,31 @@ export const BackToTop: FC<ComponentTypes> = ({ ...props }) => {
   }
 
   return (
-    <div
-      className={clsx(
-        "fixed w-fit rounded bg-blue-300 p-2 text-black transition-all hover:bg-blue-500",
-        `${
-          visible
-            ? "pointer-events-all opacity-100"
-            : "pointer-events-none opacity-0"
-        }`
+    <Button
+      className={cn(
+        "fixed cursor-pointer rounded transition-all",
+        visible
+          ? "pointer-events-all opacity-100"
+          : "pointer-events-none opacity-0"
       )}
+      onClick={backToTop}
       style={{
         ...getStyles(),
         transitionProperty: "opacity, background-color",
       }}
-      onClick={backToTop}
       ref={self}
+      size="icon"
     >
-      {/* Back to top arrow 👇*/}
       <svg
         className={clsx(
           "h-6 w-6 shrink-0 rotate-180 transition-all  disabled:bg-gray-200"
         )}
+        aria-label="Arrow Icon"
         viewBox="0 0 20 20"
+        fill="currentColor"
       >
-        <path
-          fillRule="evenodd"
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-          clipRule="evenodd"
-        ></path>
+        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path>
       </svg>
-    </div>
+    </Button>
   )
 }
