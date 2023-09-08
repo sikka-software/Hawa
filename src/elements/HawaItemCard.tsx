@@ -136,9 +136,9 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
           </h5>
         )}
         {content && (
-          <p className="w-full font-normal text-gray-700 dark:text-gray-400">
+          <span className="w-full font-normal text-gray-700 dark:text-gray-400">
             {content}
-          </p>
+          </span>
         )}
         {actions || counts ? (
           <div

@@ -64,17 +64,15 @@ type CardContentProps = {
   headless?: boolean
 } & React.HTMLAttributes<HTMLDivElement>
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  CardContentProps
-  // React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("p-6", props.headless ? "pt-6" : "pt-0", className)}
-    {...props}
-  />
-))
+const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
+  ({ headless, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("p-6", headless ? "pt-6" : "pt-0", className)}
+      {...props}
+    />
+  )
+)
 CardContent.displayName = "CardContent"
 
 const CardFooter = React.forwardRef<

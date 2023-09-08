@@ -119,6 +119,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                     if (fld === "email") {
                       return (
                         <Controller
+                          key={i}
                           control={control}
                           name="email"
                           render={({ field }) => (
@@ -147,6 +148,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                     if (fld === "username") {
                       return (
                         <Controller
+                          key={i}
                           control={control}
                           name="username"
                           render={({ field }) => (
@@ -213,7 +215,7 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
                       <HawaTextField
                         width="full"
                         type="text"
-                        defaultValue={field.value ?? ""}
+                        // defaultValue={field.value ?? ""}
                         label={props.texts.refCode}
                         placeholder={props.texts.passwordPlaceholder}
                         helpertext={errors.password?.message}

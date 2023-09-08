@@ -42,7 +42,6 @@ export const HawaRadio: FC<RadioTypes> = ({
       const dir = window.getComputedStyle(ref.current.parentNode).direction
       setParentDirection(dir)
     }
-    console.log("how many times")
   })
 
   switch (design) {
