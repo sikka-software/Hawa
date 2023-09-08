@@ -31,14 +31,14 @@ const DropdownMenuSubTrigger = React.forwardRef<
       aria-label="Chevron Right Icon"
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 16 16"
       height="1em"
       width="1em"
       className={cn(props.dir === "rtl" ? "rotate-180" : "")}
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
       ></path>
     </svg>
@@ -119,7 +119,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
           aria-label="Check Mark"
           stroke="currentColor"
           fill="currentColor"
-          stroke-width="0"
+          strokeWidth="0"
           viewBox="0 0 512 512"
           height="0.60em"
           width="0.60em"
@@ -157,9 +157,9 @@ const DropdownMenuRadioItem = React.forwardRef<
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="h-2 w-2 fill-current"
         >
           <circle cx="12" cy="12" r="10"></circle>

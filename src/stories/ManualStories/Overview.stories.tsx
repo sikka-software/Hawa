@@ -44,7 +44,7 @@ const OverviewPage = () => {
   const dark = useDarkMode()
 
   return (
-    <div className="sm:p-20 pt-10 dark:bg-background ">
+    <div className="pt-10 dark:bg-background sm:p-20 ">
       <p className="logo">
         <img
           src={
@@ -55,10 +55,7 @@ const OverviewPage = () => {
           alt="Hawa | هواء"
         />
       </p>
-      {/* <div className="flex flex-row gap-2">
-        <HawaLogoButton logo="github" buttonText={"Github"} />
-        <HawaLogoButton logo="npm" buttonText={"Github"} />
-      </div> */}
+
       <div className="tip-wrapper">
         <span className="tip">In Progress</span>
       </div>
@@ -112,7 +109,10 @@ const OverviewPage = () => {
       </div>
 
       <p className="mt-4">
-        <a className="clickable-link" href="https://github.com/sikka-software/Hawa">
+        <a
+          className="clickable-link"
+          href="https://github.com/sikka-software/Hawa"
+        >
           Github
         </a>
         <span className="text-sm"> For bug reporting and contribution</span>{" "}

@@ -108,10 +108,10 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
                   aria-label="Copy Icon"
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="1em"
                   width="1em"
                 >

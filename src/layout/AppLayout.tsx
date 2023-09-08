@@ -6,6 +6,7 @@ import { Button, DropdownMenu, Tooltip } from "../elements"
 import { SidebarGroup } from "./Sidebar"
 
 type AppLayoutTypes = {
+  design?: "default" | "bubbles" | "floating"
   /** The pages of the side drawer */
   drawerItems: Item[]
   // The direction of the layout
@@ -62,6 +63,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   DrawerFooterActions,
   currentPage,
   clickedItem,
+  design = "default",
   ...props
 }) => {
   let closeDrawerWidth = 56
@@ -167,16 +169,16 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth={0}
                   viewBox="0 0 20 20"
                   aria-hidden="true"
                   height="1.6em"
                   width="1.6em"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clip-rule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -241,8 +243,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={clsx(
-          "fixed top-0 z-40 flex h-full flex-col justify-between overflow-x-clip  transition-all",
-          isRTL ? "right-0" : "left-0"
+          "fixed  z-40 flex  flex-col justify-between overflow-x-clip   transition-all",
+          design === "floating"
+            ? isRTL
+              ? "right-5 top-5"
+              : "bottom-5 left-5 top-5"
+            : isRTL
+            ? "right-0 top-0 h-full"
+            : "left-0 top-0 h-full"
         )}
         style={{
           width:
@@ -258,8 +266,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           setOpenSideMenu(true)
         }}
         onMouseLeave={() => {
-          keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
-          setOpenedSidebarItem("")
+          if (keepOpen) {
+            setOpenSideMenu(true)
+          } else {
+            setOpenedSidebarItem("")
+            setOpenSideMenu(false)
+          }
+          // keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
         }}
         ref={ref}
       >
@@ -271,7 +284,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         <div
           dir={direction}
           className={clsx(
-            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center  bg-primary-foreground  transition-all"
+            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center transition-all",
+            "bg-primary-foreground"
           )}
           style={{
             width:
@@ -288,15 +302,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           <img
             className={clsx(
               "h-9  opacity-0 transition-all",
-              // isRTL ? "right-2.5" : "left-2.5",
               !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
-              // size > 600 ? "" : "right-4"
             )}
-            // className={clsx(
-            //   "fixed top-2.5 h-9 transition-all",
-            //   isRTL ? "right-2.5" : "left-2.5",
-            //   !openSideMenu ? "invisible opacity-0" : "visible opacity-100"
-            // )}
             src={props.logoLink}
           />
           {/*
@@ -307,8 +314,17 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {size > 600 ? (
             <img
               className={clsx(
-                "fixed top-2.5 h-9  transition-all",
-                isRTL ? "right-2.5" : "left-2.5",
+                "fixed  h-9  transition-all",
+                // isRTL ? "right-2.5" : "left-2.5",
+
+                design === "floating"
+                  ? isRTL
+                    ? "right-7.5 top-7"
+                    : "left-7.5 top-7"
+                  : isRTL
+                  ? "right-2.5 top-2.5"
+                  : "left-2.5 top-2.5",
+
                 openSideMenu ? "invisible opacity-0" : "visible opacity-100"
               )}
               src={props.logoSymbol}
@@ -322,11 +338,15 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={clsx(
-            "fixed bottom-14 top-14 bg-primary-foreground p-2 py-2 transition-all",
+            "fixed bottom-14 bg-primary-foreground p-2 py-2 transition-all",
+            design === "floating" ? "top-[76px]" : "top-14",
             openSideMenu ? "overflow-auto" : "overflow-hidden"
           )}
           style={{
-            height: "calc(100% - 112px)",
+            height:
+              design === "floating"
+                ? "calc(100% - 152px)"
+                : "calc(100% - 112px)",
             width:
               size > 600
                 ? `${openSideMenu ? openDrawerWidth : 56}px`
@@ -363,8 +383,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={clsx(
-            "fixed bottom-0  flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-primary-foreground  transition-all",
-            direction === "rtl" ? "flex-row-reverse" : "flex-row"
+            "fixed  flex h-14 w-full items-center justify-center gap-2 overflow-clip bg-primary-foreground  transition-all",
+            direction === "rtl" ? "flex-row-reverse" : "flex-row",
+            design === "floating" ? "bottom-5" : "bottom-0"
           )}
           style={{
             width:
@@ -426,7 +447,21 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       <div
         className="fixed overflow-y-auto transition-all"
         style={
-          isRTL
+          design === "floating"
+            ? isRTL
+              ? {
+                  height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
+                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
+                  left: "0px",
+                  top: props.topBar ? "56px" : "0px",
+                }
+              : {
+                  height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
+                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
+                  left: `${drawerSizeCondition + 20}px`,
+                  top: props.topBar ? "56px" : "0px",
+                }
+            : isRTL
             ? {
                 height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,

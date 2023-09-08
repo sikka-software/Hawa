@@ -24,7 +24,7 @@ export const EmptyState: FC<TEmptyState> = ({
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 512 512"
               height="0.35em"
               width="0.35em"

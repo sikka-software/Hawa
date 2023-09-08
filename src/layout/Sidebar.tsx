@@ -36,14 +36,12 @@ const AccordionTrigger = React.forwardRef<
           aria-label="Chevron Right Icon"
           stroke="currentColor"
           fill="currentColor"
-          stroke-width="1"
           viewBox="0 0 16 16"
           height="1em"
           width="1em"
           className="h-4 w-4 shrink-0 rotate-90 transition-transform duration-200"
         >
           <path
-            fill-rule="evenodd"
             d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
           ></path>
         </svg>

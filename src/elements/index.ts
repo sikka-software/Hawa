@@ -51,7 +51,6 @@ export * from "./HawaLandingCard"
 //Buttons
 export * from "./HawaButton"
 export * from "./HawaStoreButtons"
-export * from "./HawaLogoButton"
 
 // v0.1
 export * from "./Button"

@@ -1057,10 +1057,10 @@ Simplified.args = {
         <svg
           stroke="currentColor"
           fill="none"
-          stroke-width="2"
+          strokeWidth="2"
           viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           height="1.5em"
           width="1.5em"
         >
@@ -1244,10 +1244,10 @@ AppLayoutStory.args = {
         <svg
           stroke="currentColor"
           fill="none"
-          stroke-width="2"
+          strokeWidth="2"
           viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           height="1em"
           width="1em"
         >
@@ -1283,3 +1283,145 @@ AppLayoutStory.args = {
 };
 
 AppLayoutStory.storyName = "App Layout (v0.1)";
+
+export const BubbleDesign = AppLayoutTemplate.bind({});
+
+BubbleDesign.args = {
+  onSettingsClick: () => console.log("going to settings"),
+  design: "floating",
+  currentPage: "files",
+
+  pageTitle: "Dashboard Page",
+  topBar: false,
+  username: "Zakher Masri",
+  email: "zakher@sikka.io",
+  profileMenuItems: [
+    {
+      label: "Profile",
+      value: "Dashboard",
+      action: () => console.log("going to dashboard")
+    },
+    {
+      value: "Billing",
+      label: "Billing",
+      action: () => console.log("going to Billing")
+    },
+    {
+      value: "عربي",
+      label: "عربي",
+      action: () => console.log("going to عربي")
+      // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
+    },
+    {
+      label: "Sign Out",
+      value: "Sign Out",
+      action: () => console.log("going to Sign Out"),
+      highlighted: true
+    }
+  ],
+  drawerItems: [
+    {
+      label: "لوحة القيادة",
+      value: "/home",
+      icon: <MdDashboard />
+    },
+    {
+      label: "Items",
+      value: "/items",
+      icon: <FaFolderOpen />,
+      subitems: [
+        {
+          label: "New Item",
+          value: "/new-item",
+          icon: <FaFolderOpen />
+        },
+        {
+          label: "New Item",
+          value: "/new-item2",
+          icon: <FaFolderOpen />
+        },
+        {
+          label: "New Item",
+          value: "/new-item3",
+          icon: <FaFolderOpen />
+        },
+        {
+          label: "Files Items",
+          value: "/file-item",
+          icon: <FaFolderOpen />
+        }
+      ]
+    },
+
+    {
+      label: "Analytics",
+      value: "/analytics",
+      icon: <FaPoll />
+    },
+    {
+      label: "Jobs",
+      value: "/jobs",
+      icon: <FaPoll />,
+      subitems: [
+        {
+          label: "New Job Item",
+          value: "/new-job",
+          icon: <FaFolderOpen />
+        },
+
+        {
+          label: "Files Items",
+          value: "/files",
+          icon: <FaFolderOpen />
+        }
+      ]
+    },
+    {
+      label: "Activity",
+      value: "/activity",
+      icon: <FaPoll />
+    }
+  ],
+  DrawerFooterActions: (
+    <>
+      <Button size="smallIcon" variant={"light"}>
+        <svg
+          stroke="currentColor"
+          fill="none"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          height="1em"
+          width="1em"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>{" "}
+      </Button>
+    </>
+  ),
+  logoSymbol:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
+  logoLink:
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
+  profileItems: [
+    {
+      text: "Dashboard",
+      slug: "home"
+    },
+    {
+      text: "Billing",
+      slug: "home"
+    },
+
+    {
+      text: "Analytics",
+      slug: "home"
+    },
+    {
+      text: "عربي",
+      slug: "home"
+    }
+  ]
+};
