@@ -20,6 +20,9 @@ type DragDropImagesTypes = {
   onClearFiles: any
   maxSize: number
   errorMessages: string
+  disclaimer?: boolean
+  termsLink?: string
+  privacyLink?: string
   /** The translation object, use this to replace the default text with any translated text you want.*/
   texts: {
     errorUploading: any
@@ -29,6 +32,10 @@ type DragDropImagesTypes = {
     fileTooLarge: any
     acceptedFileTypes: any
     invalidFileType: any
+    terms?: string
+    privacyPolicy?: string
+    disclaimer?: string
+    and?: string
   }
 }
 
@@ -44,8 +51,11 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
   showPreview,
   onDeleteFile,
   onClearFiles,
+  disclaimer,
   maxSize,
   label,
+  termsLink,
+  privacyLink,
 }) => {
   const [cmp, setCmp] = useState(0)
   const [max, setMax] = useState<any>(0)
@@ -197,7 +207,7 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
       )}
       <div
         className={clsx(
-          "flex flex-col justify-center rounded border border-dashed  transition-all hover:bg-gray-100 dark:hover:bg-gray-800 ",
+          "flex flex-col justify-center rounded border border-dashed bg-gray-50  p-6 transition-all hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-800 ",
           isDragActive ? "bg-gray-200 dark:bg-gray-700" : "bg-background"
         )}
       >
@@ -246,6 +256,24 @@ export const DragDropImages: React.FunctionComponent<DragDropImagesTypes> = ({
         ) : null}
         <div className="px-4">{fileRejections[0]?.errors[0]?.code && errs}</div>
       </div>
+      {disclaimer && (
+        <div className="mt-2 text-sm text-muted-foreground/50">
+          {texts.disclaimer ?? "By uploading a file you agree to our"}{" "}
+          <a
+            href={termsLink}
+            className="clickable-link text-muted-foreground/50"
+          >
+            {texts.terms ?? "Terms"}
+          </a>{" "}
+          {texts.and ?? "and"}{" "}
+          <a
+            href={privacyLink}
+            className="clickable-link text-muted-foreground/50"
+          >
+            {texts.privacyPolicy ?? "Privacy Policy"}
+          </a>
+        </div>
+      )}
     </div>
   )
 }

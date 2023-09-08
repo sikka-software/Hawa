@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import { HawaButton } from "./HawaButton"
+import { Button } from "./Button"
 
 type ComponentTypes = {
   title?: string
@@ -30,7 +31,9 @@ export const UserFeedback: FC<ComponentTypes> = ({
   useEffect(() => {
     //To change opacity and hide the component
     const timeoutHide = setTimeout(() => {
-      setClosingTimer(closingTimer - 1)
+      if (closingTimer >= 0) {
+        setClosingTimer(closingTimer - 1)
+      }
     }, 1000)
 
     return () => {
@@ -110,13 +113,13 @@ export const UserFeedback: FC<ComponentTypes> = ({
           </div>
         )}
         {answered && (
-          <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center rounded bg-black bg-opacity-80 p-4 text-center transition-all">
+          <div className="absolute left-0 top-0 gap-2 flex h-full w-full flex-col items-center justify-center rounded bg-black bg-opacity-80 p-4 text-center transition-all">
             <span className="font-bold text-white">
               Thank you for your answer. This box will disappear in
               {" " + closingTimer} seconds
             </span>
             <div className="flex flex-row gap-2">
-              <HawaButton onClick={() => slowClose()}>Close</HawaButton>
+              <Button onClick={() => slowClose()}>Close</Button>
             </div>
           </div>
         )}

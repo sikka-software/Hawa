@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DragDropImages, HawaButton, HawaTextField } from "../../elements";
 
 export default {
-  title: "Elements/DragAndDropFiles",
+  title: "Elements/UploadFiles",
   component: [DragDropImages],
   argTypes: {
     accept: {
@@ -30,6 +30,7 @@ const DragAndDropFiles = (args, props) => {
           errorUploading: "Error Uploading Files",
           maxFileSize: "Max File Size ",
           acceptedFileTypes: "Accepted File Types:",
+
           clickHereToUpload: () => {
             return (
               <>
@@ -47,15 +48,17 @@ const DragAndDropFiles = (args, props) => {
   );
 };
 
-export const Default = DragAndDropFiles.bind({});
+export const UploadFiles = DragAndDropFiles.bind({});
 
-Default.args = {
+UploadFiles.args = {
   errorMessages: "error msg here",
   maxFiles: 5,
   maxSize: 5000000,
   showPreview: true,
   accept: ".jpeg, .jpg, .png",
-
+  disclaimer: true,
+  termsLink: "https://sikka.io",
+  privacyLink: "https://sikka.io",
   onDeleteFile: () => {},
   onClearFiles: () => {}
 };
