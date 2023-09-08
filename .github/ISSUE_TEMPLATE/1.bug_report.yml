@@ -80,6 +80,17 @@ body:
         - 'Other'
     validations:
       required: true
+       - type: dropdown
+    attributes:
+      label: Which section is the component from?
+      multiple: false
+      options:
+        - 'Blocks'
+        - 'Layout'
+        - 'Elements'
+        - 'Other'
+    validations:
+      required: false
   - type: textarea
     attributes:
       label: Additional context
@@ -87,7 +98,3 @@ body:
         Any extra information that might help us investigate. For example, browser details, hosting platform, etc. Also, if possible, pinpoint the version that introduced the issue to help narrow down the scope.
       placeholder: |
         The issue seems to have started from version 1.0.1. I tested it on both Chrome and Firefox, and the issue persists on both browsers.
-
-        or
-
-        I am hosting the application on Vercel, and the issue seems to be specific to the hosted version, as I cannot reproduce it locally.
