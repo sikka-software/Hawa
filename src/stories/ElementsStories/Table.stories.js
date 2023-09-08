@@ -1,5 +1,6 @@
 import React from "react";
 import { HawaTable } from "../../elements";
+import { setLocale, t } from "../../translations/i18n";
 
 export default {
   title: "Elements/Table",
@@ -132,7 +133,6 @@ let dummyColsData = [
 export const NoData = (args) => {
   return (
     <HawaTable
-      size={args.size}
       direction={args.direction}
       columns={[
         { hidden: false, value: "Product" },
@@ -147,7 +147,10 @@ export const NoData = (args) => {
     />
   );
 };
-export const DataOnly = (args) => {
+export const DataOnly = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   function randomDate(start, end) {
     return new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
@@ -155,19 +158,21 @@ export const DataOnly = (args) => {
   }
 
   return (
-    <HawaTable
-      bordersWidth="1"
-      direction={args.direction}
-      size={args.size}
-      columns={[
-        { hidden: false, value: "Product" },
-        { hidden: true, value: "ID" },
-        { hidden: false, value: "Price" },
-        { hidden: false, value: "Times Bought" }
-      ]}
-      rows={makeDummyData(33)}
-      {...args}
-    />
+    <div dir={globals.globals.locale === "ar" ? "rtl" : "ltr"}>
+      <HawaTable
+        direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
+        bordersWidth="1"
+        // direction={args.direction}
+        columns={[
+          { hidden: false, value: "Product" },
+          { hidden: true, value: "ID" },
+          { hidden: false, value: "Price" },
+          { hidden: false, value: "Times Bought" }
+        ]}
+        rows={makeDummyData(33)}
+        {...args}
+      />
+    </div>
   );
 };
 
@@ -186,16 +191,13 @@ export const DataWithActions = (args) => {
       <HawaTable
         direction="ltr"
         actions={[
-          [
-            { label: "View", action: (e) => console.log("viewing", e) },
-            { label: "Edit", action: (e) => console.log("editing", e) },
-            { label: "Delete", action: (e) => console.log("deleting", e) }
-          ]
+          { label: "View", action: (e) => console.log("viewing", e) },
+          { label: "Edit", action: (e) => console.log("editing", e) },
+          { label: "Delete", action: (e) => console.log("deleting", e) }
         ]}
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
         // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
-        size={args.size}
         rows={dummyRowData}
         {...args}
       />
@@ -218,16 +220,13 @@ export const SortableData = (args) => {
       <HawaTable
         direction="ltr"
         actions={[
-          [
-            { label: "View", action: (e) => console.log("viewing", e) },
-            { label: "Edit", action: (e) => console.log("editing", e) },
-            { label: "Delete", action: (e) => console.log("deleting", e) }
-          ]
+          { label: "View", action: (e) => console.log("viewing", e) },
+          { label: "Edit", action: (e) => console.log("editing", e) },
+          { label: "Delete", action: (e) => console.log("deleting", e) }
         ]}
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
         // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
-        size={args.size}
         rows={dummyRowData}
         {...args}
       />
@@ -251,16 +250,13 @@ export const WithHeader = (args) => {
         headerTools={true}
         direction="ltr"
         actions={[
-          [
-            { label: "View", action: (e) => console.log("viewing", e) },
-            { label: "Edit", action: (e) => console.log("editing", e) },
-            { label: "Delete", action: (e) => console.log("deleting", e) }
-          ]
+          { label: "View", action: (e) => console.log("viewing", e) },
+          { label: "Edit", action: (e) => console.log("editing", e) },
+          { label: "Delete", action: (e) => console.log("deleting", e) }
         ]}
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
         // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
-        size={args.size}
         rows={dummyRowData}
         {...args}
       />
@@ -283,7 +279,6 @@ export const RTL = (args) => {
     <div dir="rtl">
       <HawaTable
         direction={"rtl"}
-        size={args.size}
         columns={[
           { hidden: false, value: "المنتج" },
           { hidden: false, value: "السعر" },
@@ -324,11 +319,9 @@ export const RTLWithActions = (args) => {
           page: "صفحة"
         }}
         actions={[
-          [
-            { label: "View", action: (e) => console.log("viewing", e) },
-            { label: "Edit", action: (e) => console.log("editing", e) },
-            { label: "Delete", action: (e) => console.log("deleting", e) }
-          ]
+          { label: "View", action: (e) => console.log("viewing", e) },
+          { label: "Edit", action: (e) => console.log("editing", e) },
+          { label: "Delete", action: (e) => console.log("deleting", e) }
         ]}
         columns={[
           { hidden: false, value: "المنتج" },
@@ -336,7 +329,6 @@ export const RTLWithActions = (args) => {
           { hidden: false, value: "الوزن" },
           { hidden: false, value: "الكمية" }
         ]}
-        size={args.size}
         rows={dummyRowData}
         {...args}
       />

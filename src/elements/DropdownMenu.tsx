@@ -25,7 +25,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     )}
     {...props}
   >
-    {children}
+    <div className="flex flex-row items-center gap-1">{children}</div>{" "}
     {/* <ChevronRight className="ml-auto h-4 w-4" /> */}
     <svg
       aria-label="Chevron Right Icon"
@@ -230,11 +230,13 @@ type ExtendedDropdownMenuTriggerProps = Partial<
 type SubItem = {
   label: string
   value: string
+  icon?: any
   action?: () => void
   highlighted?: boolean
 }
 
 type Item = {
+  icon?: any
   label: string
   value: string
   action?: () => void
@@ -276,23 +278,26 @@ export const DropdownMenu = ({
         <DropdownMenuContent
           side={side}
           sideOffset={sideOffset}
-          className={cn(className)}
+          className={cn(className, "flex flex-col gap-1")}
           align={align}
           alignOffset={alignOffset}
         >
           {items.map((item, index) => {
             return item.subitems ? (
-              <DropdownMenuSub>
+              <DropdownMenuSub key={index}>
                 <DropdownMenuSubTrigger dir={direction}>
+                  {item.icon && item.icon}
                   {item.label}
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>
                     {item.subitems.map((subitem, subIndex) => (
                       <DropdownMenuItem
+                        className="flex flex-row gap-1"
                         onSelect={() => subitem.action()}
                         key={subIndex}
                       >
+                        {subitem.icon && subitem.icon}
                         {subitem.label}
                       </DropdownMenuItem>
                     ))}
@@ -300,7 +305,12 @@ export const DropdownMenu = ({
                 </DropdownMenuPortal>
               </DropdownMenuSub>
             ) : (
-              <DropdownMenuItem key={index} onSelect={() => item.action()}>
+              <DropdownMenuItem
+                className="flex flex-row gap-1"
+                key={index}
+                onSelect={() => item.action()}
+              >
+                {item.icon && item.icon}
                 {item.label}
               </DropdownMenuItem>
             )
