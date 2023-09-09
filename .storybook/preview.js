@@ -8,7 +8,6 @@ const withI18n = (StoryFn, context) => {
   return <StoryFn />;
 };
 
-
 export const decorators = [withI18n];
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -45,34 +44,11 @@ export const parameters = {
         "Getting Started",
         ["Overview", "Installation", "Usage", "Customization"],
         "Blocks",
-        [
-          "Introduction",
-          "Auth",
-          ["Landing", "Sign In", "Sign Up", "Reset Password", "New Pasword"],
-          "Account",
-          ["User Profile", "User Settings"],
-          "Payment",
-          ["Payment Selection", "User Settings"]
-        ],
+        ["Introduction"],
         "Layout",
-        ["Introduction", "App Layout", "Container", "Dialog"],
+        ["Introduction"],
         "Elements",
-        [
-          "Introduction",
-          "Buttons",
-          ["Sign In", "Sign Up", "Reset Password", "New Pasword"],
-          "Cards",
-          ["User Profile", "User Settings"],
-          "Code",
-          ["Inline Code", "Code Block"],
-          "Notifications",
-          "Selections",
-          "SettingsRow",
-          "Alert",
-          "Table",
-          "PopMenu",
-          "TextFields"
-        ]
+        ["Introduction"]
       ]
     }
   }
@@ -89,7 +65,7 @@ export const globalTypes = {
         { value: "ar", right: "AR", title: "Arabic" }
       ]
     }
-  },
+  }
   // gogo : {
   //   name: "gogo",
   //   description: "test button",
@@ -100,6 +76,6 @@ export const globalTypes = {
   //       { value: "en", right: "EN", title: "English" },
   //       { value: "ar", right: "AR", title: "Arabic" }
   //     ]
-  //   }    
+  //   }
   // }
 };
