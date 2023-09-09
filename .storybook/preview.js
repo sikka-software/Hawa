@@ -71,7 +71,6 @@ export const parameters = {
           "Alert",
           "Table",
           "PopMenu",
-          "Snackbar",
           "TextFields"
         ]
       ]

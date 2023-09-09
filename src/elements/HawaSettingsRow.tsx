@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 import { HawaTextField } from "./HawaTextField"
-import { HawaSwitch } from "./HawaSwitch"
 import { HawaColorPicker } from "./HawaColorPicker"
 import { HawaRange } from "./HawaRange"
 import { HawaRadio } from "./HawaRadio"
 import { HawaSelect } from "./HawaSelect"
+import { Switch } from "./Switch"
 
 type SettingsRowTypes = {
   settingsLabel: string
@@ -24,7 +24,7 @@ type SettingsRowTypes = {
     max?: any
   }
   switchProps: {
-    size: "small" | "normal" | "large"
+    size: "sm" | "default"
   }
   selectProps: {
     label?: string
@@ -64,7 +64,7 @@ export const HawaSettingsRow: FC<SettingsRowTypes> = ({
         )}{" "}
       </div>
       {settingsType === "text" && <HawaTextField margin="none" width="small" />}
-      {settingsType === "boolean" && <HawaSwitch {...switchProps} />}
+      {settingsType === "boolean" && <Switch {...switchProps} />}
       {settingsType === "range" && <HawaRange {...rangeProps} />}
       {settingsType === "color" && <HawaColorPicker {...colorProps} />}
       {settingsType === "radio" && <HawaRadio {...radioProps} />}

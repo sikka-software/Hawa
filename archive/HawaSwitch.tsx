@@ -10,7 +10,7 @@ export const HawaSwitch: FC<SwitchTypes> = ({ size = "normal", ...props }) => {
   let sizeStyles = {
     small: "",
     normal:
-      "peer-checked:after:translate-x-full h-6 w-11 after:top-[2px] after:left-[2px] after:h-5 after:w-5 ",
+      "peer-checked:after:translate-x-full h-6 w-11 after:top-[2px] after:left-[1px] after:h-5 after:w-5 ",
     large:
       "peer-checked:after:translate-x-[2.445rem]  h-10 w-20 after:top-[2px] after:left-[2px] after:h-9 after:w-9",
   }

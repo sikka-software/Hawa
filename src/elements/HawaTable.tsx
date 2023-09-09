@@ -329,6 +329,7 @@ export const HawaTable: FC<TableTypes> = ({
                       >
                         <div className="flex items-center justify-center">
                           <DropdownMenu
+                            width="sm"
                             direction={direction}
                             side="right"
                             items={props.actions}

@@ -25,7 +25,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     )}
     {...props}
   >
-    <div className="flex flex-row items-center gap-1">{children}</div>{" "}
+    <div className="flex flex-row items-center gap-2">{children}</div>{" "}
     {/* <ChevronRight className="ml-auto h-4 w-4" /> */}
     <svg
       aria-label="Chevron Right Icon"
@@ -72,7 +72,7 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "z-50  overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
       {...props}
@@ -85,17 +85,22 @@ const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean
+    end?: any
   }
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center justify-between rounded-sm px-2 py-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className
     )}
     {...props}
-  />
+  >
+    <div className="flex flex-row items-center gap-2">{props.children}</div>
+
+    {props.end && props.end}
+  </DropdownMenuPrimitive.Item>
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
@@ -239,6 +244,8 @@ type Item = {
   icon?: any
   label: string
   value: string
+  end?: any
+  presist?: boolean
   action?: () => void
   highlighted?: boolean
   subitems?: SubItem[] // Note the use of the optional modifier
@@ -255,8 +262,8 @@ export const DropdownMenu = ({
   triggerClassname,
   align,
   alignOffset,
+  width = "default",
 }: {
-  // ... other prop types
   trigger?: any
   items?: Item[]
   direction?: "rtl" | "ltr"
@@ -267,8 +274,14 @@ export const DropdownMenu = ({
   side?: ExtendedDropdownMenuContentProps["side"]
   align?: ExtendedDropdownMenuContentProps["align"]
   alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
-  // ... more prop types
+  width?: "default" | "sm" | "lg" | "parent"
 }) => {
+  const widthStyles = {
+    default: "min-w-[8rem]",
+    sm: "w-fit",
+    lg: "w-[200px]",
+    parent: "ddm-w-parent",
+  }
   return (
     <DropdownMenuRoot dir={direction}>
       <DropdownMenuTrigger className={triggerClassname}>
@@ -278,7 +291,7 @@ export const DropdownMenu = ({
         <DropdownMenuContent
           side={side}
           sideOffset={sideOffset}
-          className={cn(className, "flex flex-col gap-1")}
+          className={cn(className, widthStyles[width], "flex flex-col gap-2")}
           align={align}
           alignOffset={alignOffset}
         >
@@ -293,7 +306,7 @@ export const DropdownMenu = ({
                   <DropdownMenuSubContent>
                     {item.subitems.map((subitem, subIndex) => (
                       <DropdownMenuItem
-                        className="flex flex-row gap-1"
+                        className="flex flex-row gap-2"
                         onSelect={() => subitem.action()}
                         key={subIndex}
                       >
@@ -306,9 +319,15 @@ export const DropdownMenu = ({
               </DropdownMenuSub>
             ) : (
               <DropdownMenuItem
-                className="flex flex-row gap-1"
+                className="flex flex-row gap-2"
                 key={index}
-                onSelect={() => item.action()}
+                onSelect={(e) => {
+                  if (item.presist) {
+                    e.preventDefault()
+                  }
+                  item.action()
+                }}
+                end={item.end}
               >
                 {item.icon && item.icon}
                 {item.label}
@@ -320,21 +339,3 @@ export const DropdownMenu = ({
     </DropdownMenuRoot>
   )
 }
-
-// export {
-//   DropdownMenu,
-//   DropdownMenuTrigger,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuCheckboxItem,
-//   DropdownMenuRadioItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuShortcut,
-//   DropdownMenuGroup,
-//   DropdownMenuPortal,
-//   DropdownMenuSub,
-//   DropdownMenuSubContent,
-//   DropdownMenuSubTrigger,
-//   DropdownMenuRadioGroup,
-// }

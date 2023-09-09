@@ -1,10 +1,9 @@
 import React from "react";
-
-import { HawaSwitch } from "../../elements";
+import { Switch } from "../../elements";
 
 export default {
   title: "Elements/Switch",
-  component: HawaSwitch,
+  component: Switch,
   argTypes: {
     title: {
       control: "text",
@@ -18,12 +17,26 @@ export default {
 };
 
 const Template = (args) => {
-  return <HawaSwitch {...args} />;
+  return (
+    <div>
+      <h1>v0.1</h1>
+      <div className="flex flex-col gap-4">
+        <Switch size="sm" label="Small switch with label" />
+        <Switch label="Large switch with label" />
+      </div>
+      <h1>RTL</h1>
+      <div dir="rtl" className="flex flex-col items-end gap-4">
+        <Switch size="sm" label="Small switch with label" />
+        <Switch label="Large switch with label" />
+      </div>
+    </div>
+  );
 };
 
-export const Switch = Template.bind({});
-Switch.args = {
+export const SwitchStory = Template.bind({});
+SwitchStory.args = {
   title: "Success",
   text: "The text of the toggle option",
-  size: 'normal'
+  size: "normal"
 };
+SwitchStory.storyName = "Switch";

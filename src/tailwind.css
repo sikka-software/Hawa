@@ -130,7 +130,6 @@
     --ring: 240 4.9% 83.9%;
   }
 }
-
 @layer base {
   .link::after {
     content: url("data:image/svg+xml,%3Csvg stroke='%234c37eb' fill='none' stroke-width='2' viewBox='0 0 24 24' aria-hidden='true' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'%3E%3C/path%3E%3C/svg%3E");
@@ -226,10 +225,12 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
-
 @layer components {
   .clickable-link {
     @apply cursor-pointer text-primary/80 underline underline-offset-4 transition-all hover:text-primary;
+  }
+  .ddm-w-parent {
+    width: var(--radix-dropdown-menu-trigger-width);
   }
 }
 @layer utilities {

@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.58",
+  "version": "0.1.59",
   "description": "Modern UI Kit made with Tailwind & Radix Primitives",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -115,6 +115,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.6",
     "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.4",
     "@radix-ui/react-tooltip": "^1.0.6",

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
-import { HawaButton } from "./HawaButton"
+import { HawaButton } from "../src/elements/HawaButton"
 
 type THawaSnackBar = {
   severity: "info" | "warning" | "error" | "success" | "none"
