@@ -1,7 +1,4 @@
-// "use client"
-
 import * as React from "react"
-// import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../util"
@@ -61,7 +58,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    // const Comp = asChild ? Slot : "button"
     const Comp = "button"
     return (
       <Comp
