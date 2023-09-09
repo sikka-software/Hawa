@@ -5,7 +5,7 @@ import { Button } from "./Button"
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
-  severity: "info" | "warning" | "error" | "success"
+  severity?: "info" | "warning" | "error" | "success"
   /** The title of the alert placed above the text of the alert. Can be used alone */
   title?: any
   /** The text of the alert placed below the title of the alert. Can be used alone */
@@ -35,12 +35,15 @@ type AlertTypes = {
   ]
   persistant?: boolean
   icon?: any
+  className?: any
 }
 export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
   variant = "normal",
   direction = "ltr",
+  severity = "info",
   duration,
   icon,
+  className,
   ...props
 }) => {
   const alertRef = useRef(null)
@@ -127,8 +130,9 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
       <div
         className={clsx(
           "relative mb-4 flex flex-col rounded p-4 text-sm transition-all",
-          styleVariant[variant][props.severity],
-          closed ? "opacity-0" : "opacity-100"
+          styleVariant[variant][severity],
+          closed ? "opacity-0" : "opacity-100",
+          className
         )}
         role="alert"
         dir={direction}
@@ -169,7 +173,7 @@ export const HawaAlert: React.FunctionComponent<AlertTypes> = ({
             type="button"
             className={clsx(
               "absolute  top-2 inline-flex h-9 w-9 items-center justify-center rounded-inner p-1.5 text-gray-400 transition-all  hover:text-gray-900",
-              closeButtonStyle[props.severity],
+              closeButtonStyle[severity],
               direction === "rtl" ? "left-2" : "right-2"
             )}
             data-dismiss-target="#alert-default"
