@@ -1,16 +1,16 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.60",
+  "version": "0.1.61",
   "description": "Modern UI Kit made with Tailwind & Radix Primitives",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "license": "MIT",
   "author": {
     "name": "Sikka Software",
     "email": "contact@sikka.io",
     "url": "http://sikka.io"
   },
-  "license": "MIT",
   "keywords": [
     "ui",
     "kit",
