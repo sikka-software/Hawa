@@ -34,19 +34,13 @@ const PaymentSelectionTemplate = (args) => {
       <SelectPayment
         {...args}
         walletLabel="Wallet Balance"
-        handleWallet={() => console.log("paying via wallet")}
         visaMasterLabel="Credit Card"
-        handleCreditCard={() => console.log("paying via Credit Card")}
         madaLabel="mada"
-        handleMada={() => console.log("paying via Mada")}
         paypalLabel="PayPal"
-        handlePayPal={() => console.log("paying via PayPal")}
         applePayLabel="Apple Pay"
-        handleApplePay={() => console.log("paying via Apple Pay")}
         googlePayLabel="Google Pay"
-        handleGooglePay={() => console.log("paying via Google Pay")}
         stcPayLabel="STC Pay"
-        handleSTCPay={() => console.log("paying via STC Pay")}
+        handleContinue={(e) => console.log("continue payment with :", e)}
       />
     </div>
   );

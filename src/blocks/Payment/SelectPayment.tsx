@@ -25,13 +25,7 @@ type SelectPaymentTypes = {
   applePayLabel: string
   visaMasterLabel: string
   googlePayLabel: string
-  handleMada: any
-  handleWallet: any
-  handleSTCPay: any
-  handlePayPal: any
-  handleApplePay: any
-  handleCreditCard: any
-  handleGooglePay: any
+  handleContinue: (string) => void
 }
 
 export const SelectPayment: FC<SelectPaymentTypes> = (props) => {
@@ -180,7 +174,11 @@ export const SelectPayment: FC<SelectPaymentTypes> = (props) => {
         </Button>
       </CardContent>
       <CardFooter>
-        <Button className="w-full" disabled={!selectedMethod}>
+        <Button
+          onClick={() => props.handleContinue(selectedMethod)}
+          className="w-full"
+          disabled={!selectedMethod}
+        >
           Continue
         </Button>
       </CardFooter>
