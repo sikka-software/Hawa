@@ -104,15 +104,18 @@ const ThemeIntroduction = () => {
       <br />
       <h2 className="font-bold">Method 1</h2>
       <p>
-        Overwrite the `root:` global variables in your project css file. The
-        variables are as follows:
+        Overwrite the <span className="inline-code">root:</span> global
+        variables in your project css file. The variables are as follows:
       </p>
       <HawaCodeBlock fileName="styles/globals.css" code={codeSnippet} />
       <HawaAlert
         className="mt-4"
         persistant
         text={
-          "Make sure to add !important at the end of the css variable for it to overwrite the default value"
+          <span>
+            Make sure to add <span className="inline-code">!important</span> at
+            the end of the css variable for it to overwrite the default value
+          </span>
         }
       />
       <br />
