@@ -232,7 +232,7 @@ type ExtendedDropdownMenuTriggerProps = Partial<
   //   side?: "left" | "right" | "top" | "bottom"
 }
 
-type SubItem = {
+export type SubItem = {
   label: string
   value: string
   icon?: any
@@ -240,7 +240,7 @@ type SubItem = {
   highlighted?: boolean
 }
 
-type Item = {
+export type MenuItemType = {
   icon?: any
   label: string
   value: string
@@ -250,8 +250,20 @@ type Item = {
   highlighted?: boolean
   subitems?: SubItem[] // Note the use of the optional modifier
 }
-
-export const DropdownMenu = ({
+interface DropdownMenuProps {
+  trigger?: any
+  items?: MenuItemType[]
+  direction?: "rtl" | "ltr"
+  onItemSelect?: any
+  className?: ExtendedDropdownMenuContentProps["className"]
+  triggerClassname?: ExtendedDropdownMenuTriggerProps["className"]
+  sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"]
+  side?: ExtendedDropdownMenuContentProps["side"]
+  align?: ExtendedDropdownMenuContentProps["align"]
+  alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
+  width?: "default" | "sm" | "lg" | "parent"
+}
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
   items,
   direction,
@@ -263,18 +275,6 @@ export const DropdownMenu = ({
   align,
   alignOffset,
   width = "default",
-}: {
-  trigger?: any
-  items?: Item[]
-  direction?: "rtl" | "ltr"
-  onItemSelect?: any
-  className?: ExtendedDropdownMenuContentProps["className"]
-  triggerClassname?: ExtendedDropdownMenuTriggerProps["className"]
-  sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"]
-  side?: ExtendedDropdownMenuContentProps["side"]
-  align?: ExtendedDropdownMenuContentProps["align"]
-  alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
-  width?: "default" | "sm" | "lg" | "parent"
 }) => {
   const widthStyles = {
     default: "min-w-[8rem]",

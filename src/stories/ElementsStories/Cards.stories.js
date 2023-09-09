@@ -1,14 +1,15 @@
 import React from "react";
 import {
+  Button,
   HawaAdCard,
   HawaButton,
   HawaIconCount,
   HawaItemCard,
   HawaLandingCard,
-  HawaPricingCard
+  HawaPricingCard,
+  Tooltip
 } from "../../elements";
-import { FaClone, FaComment, FaReply, FaShare, FaTrash } from "react-icons/fa";
-import { FiEdit3 } from "react-icons/fi";
+import { FaClone, FaComment, FaReply, FaShare, FaTrash, FaEdit } from "react-icons/fa";
 import { storiesOf } from "@storybook/react";
 
 const AdCardStory = (args) => {
@@ -37,21 +38,22 @@ const VerticalCard = (args) => {
       cardImage={"ji"}
       // onCardClick={() => console.log("card clicked")}
       headerActions={[
-        [
-          { label: "QR Code", action: () => console.log("clicking on QR") },
-          {
-            label: "Menu Settings",
-            action: () => console.log("clicking on Settings")
-          },
-          {
-            label: "Menu Styles",
-            action: () => console.log("clicking on Styles")
-          },
-          {
-            label: "Analytics",
-            action: () => console.log("clicking on Analytics")
-          }
-        ]
+        { label: "QR Code", action: () => console.log("clicking on QR") },
+        {
+          label: "Menu Settings",
+          value: "Menu Settings",
+          action: () => console.log("clicking on Settings")
+        },
+        {
+          label: "Menu Styles",
+          value: "Menu Styles",
+          action: () => console.log("clicking on Styles")
+        },
+        {
+          label: "Analytics",
+          value: "Analytics",
+          action: () => console.log("clicking on Analytics")
+        }
       ]}
       header={
         <div>
@@ -67,16 +69,24 @@ const VerticalCard = (args) => {
         </div>
       }
       actions={
-        <div className="flex flex-row ">
-          <HawaButton margins="none" tooltip="dublicate">
-            <FaClone />
-          </HawaButton>
-          <HawaButton margins="none" className="mx-2" tooltip="delete">
-            <FaTrash />
-          </HawaButton>
-          <HawaButton margins="none" tooltip="edit">
-            <FiEdit3 />
-          </HawaButton>
+        <div className="flex flex-row gap-2 ">
+          <Tooltip delayDuration={200} content={"Duplicate"}>
+            <Button tooltip="dublicate" size={"icon"}>
+              <FaClone />
+            </Button>
+          </Tooltip>
+
+          <Tooltip delayDuration={200} content={"Delete"}>
+            <Button tooltip="delete" size={"icon"}>
+              <FaTrash />
+            </Button>
+          </Tooltip>
+
+          <Tooltip delayDuration={200} content={"Edit"}>
+            <Button tooltip="edit" size={"icon"}>
+              <FaEdit />
+            </Button>
+          </Tooltip>
         </div>
       }
       counts={
@@ -152,6 +162,7 @@ const HorizontalCard = (args) => {
 storiesOf("Elements/Cards/Items", module)
   .add("Vertical Card", (args) => <VerticalCard {...args} />, {
     args: {
+      clickableImage: true,
       clickableImageActionText: "Share",
       clickableImageActionIcon: <FaShare />
     }

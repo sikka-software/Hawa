@@ -1,12 +1,10 @@
 import React, { useEffect, useState, FC } from "react"
 import clsx from "clsx"
-import { HawaMenu } from "./HawaMenu"
 import useTable from "../hooks/useTable"
-import { HawaTextField } from "./HawaTextField"
-import { HawaButton } from "./HawaButton"
 import { cn } from "../util"
 import { Button } from "./Button"
-import { DropdownMenu } from "./DropdownMenu"
+import { HawaTextField } from "./HawaTextField"
+import { DropdownMenu, MenuItemType } from "./DropdownMenu"
 
 // TODO: translate header tools and make it more customizable
 // TODO: pass the onSearch handler to the parent
@@ -24,7 +22,7 @@ type ColTypes = {
 type TableTypes = {
   pagination?: boolean
   columns: ColTypes[]
-  actions?: Item[]
+  actions?: MenuItemType[]
   direction?: "rtl" | "ltr"
   rows?: RowTypes[][]
   handleActionClick?: any
@@ -46,21 +44,6 @@ type TableTypes = {
   headerTools?: boolean
   borders?: "all" | "cols" | "rows" | "outer" | "inner"
 }
-type ActionItems = {
-  icon?: JSX.Element
-  label: string
-  action?: (e: any) => void
-  isButton?: boolean
-  element?: any
-}
-
-type Item = {
-  label: string
-  value: string
-  action?: () => void
-  highlighted?: boolean
-}
-
 const ChevronIcon = () => (
   <svg
     aria-label="Chevron Right Icon"

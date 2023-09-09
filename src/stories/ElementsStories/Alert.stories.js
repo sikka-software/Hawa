@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import { HawaAlert, HawaButton } from "../../elements";
+import { Button, HawaAlert } from "../../elements";
 import { FiAlertOctagon } from "react-icons/fi";
 
 export default {
@@ -38,11 +37,9 @@ const Template = (args) => {
   const [alerts, setAlerts] = useState([1]);
   return (
     <div>
-      <HawaButton onClick={() => setAlerts([...alerts, 1])}>
-        Add Alert
-      </HawaButton>
-      {alerts.map((a) => (
-        <HawaAlert {...args} />
+      <Button className="mb-4" onClick={() => setAlerts([...alerts, 1])}>Add Alert</Button>
+      {alerts.map((a, i) => (
+        <HawaAlert key={i} {...args} />
       ))}
     </div>
   );

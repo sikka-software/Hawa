@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { Button, DropdownMenu, Tooltip } from "../elements"
+import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements"
 import { SidebarGroup } from "./Sidebar"
 
 type AppLayoutTypes = {
@@ -22,7 +22,7 @@ type AppLayoutTypes = {
   username?: string
   email?: string
   drawerSize?: "sm" | "md" | "large"
-  profileMenuItems?: ProfileItem[]
+  profileMenuItems?: MenuItemType[]
   onSettingsClick?: () => void
   DrawerFooterActions?: any
   clickedItem?: any
@@ -43,17 +43,6 @@ type SubItem = {
   label: string
   icon?: any
   onClick?: () => void
-}
-type ProfileSubItem = {
-  label: string
-  value: string
-  highlighted?: boolean
-}
-type ProfileItem = {
-  label: string
-  value: string
-  highlighted?: boolean
-  subitems?: ProfileSubItem[] // Note the use of the optional modifier
 }
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({

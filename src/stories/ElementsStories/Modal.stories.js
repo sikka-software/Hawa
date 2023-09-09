@@ -33,7 +33,7 @@ export default {
 const Template = (args) => {
   const { isOpen, onClose, onOpen } = useDiscloser(args.open);
   return (
-    <>
+    <div className="h-screen">
       <button
         data-modal-toggle="defaultModal"
         variant="contained"
@@ -64,7 +64,7 @@ const Template = (args) => {
       >
         <div>We are children</div>
       </HawaModal>
-    </>
+    </div>
   );
 };
 

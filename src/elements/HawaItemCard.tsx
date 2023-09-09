@@ -1,10 +1,11 @@
 import React, { useEffect, useState, FC } from "react"
 import clsx from "clsx"
-import { HawaMenu } from "./HawaMenu"
-import { HawaButton } from "./HawaButton"
+import { Button } from "./Button"
+import { DropdownMenu, MenuItemType } from "./DropdownMenu"
 
 interface ItemCardTypes {
-  headerActions?: THeaderActions[][]
+  headerActions?: MenuItemType[]
+  // headerActions?: THeaderActions[]
   header?: any
   content?: any
   /** a URL for the image of the card */
@@ -29,6 +30,7 @@ interface ItemCardTypes {
 
 type THeaderActions = {
   icon?: JSX.Element
+  value?: string
   label: string
   action?: (e: any) => void
   isButton?: boolean
@@ -97,13 +99,15 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
           />
           {clickableImage && (
             <div className="absolute left-0 top-0 flex h-full w-full items-center  justify-center opacity-0 transition-all group-hover:opacity-100 ">
-              <HawaButton
-                startIcon={clickableImageActionIcon}
-                variant="outlined"
+              <Button
+                // startIcon={clickableImageActionIcon}
+                variant="secondary"
                 onClick={clickableImageAction}
+                className="flex flex-row gap-2"
               >
+                {clickableImageActionIcon}
                 {clickableImageActionText}
-              </HawaButton>
+              </Button>
             </div>
           )}
         </div>
@@ -111,22 +115,25 @@ export const HawaItemCard: FC<ItemCardTypes> = ({
       <div className="relative w-full p-6">
         {headerActions && (
           <div className="max-h- bg-red absolute right-0 top-0 flex justify-end pr-3 pt-3">
-            <HawaMenu position="top-right" menuItems={headerActions}>
-              <div
-                className={clsx(headerActionsButtonStyle)}
-                onClick={handleOpenActionHeader}
-              >
-                <span className="sr-only">Open dropdown</span>
-                <svg
-                  className="h-6 w-6"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+            <DropdownMenu
+              items={headerActions}
+              trigger={
+                <div
+                  className={clsx(headerActionsButtonStyle)}
+                  onClick={handleOpenActionHeader}
                 >
-                  <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-                </svg>
-              </div>
-            </HawaMenu>
+                  <span className="sr-only">Open dropdown</span>
+                  <svg
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                  </svg>
+                </div>
+              }
+            />
           </div>
         )}
 

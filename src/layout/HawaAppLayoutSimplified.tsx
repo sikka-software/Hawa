@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { Button, DropdownMenu, Tooltip } from "../elements"
+import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements"
 
 type HawaAppLayoutTypes = {
   /** The pages of the side drawer */
@@ -26,24 +26,13 @@ type HawaAppLayoutTypes = {
   username?: string
   email?: string
   drawerSize?: "sm" | "md" | "large"
-  profileMenuItems?: Item[]
+  profileMenuItems?: MenuItemType[]
   onSettingsClick?: () => void
   DrawerFooterActions?: any
   texts?: {
     expandSidebar?: string
     collapseSidebar?: string
   }
-}
-type SubItem = {
-  label: string
-  value: string
-  highlighted?: boolean
-}
-type Item = {
-  label: string
-  value: string
-  highlighted?: boolean
-  subitems?: SubItem[] // Note the use of the optional modifier
 }
 
 export const HawaAppLayoutSimplified: React.FunctionComponent<
