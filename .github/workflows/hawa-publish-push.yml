@@ -3,6 +3,8 @@ name: Hawa Build and Publish on Push
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 on:
   push:
@@ -24,10 +26,7 @@ jobs:
           else 
            npm install
           fi
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-  # Publishing to NPM
   publish:
     needs: build
     runs-on: ubuntu-latest
@@ -53,16 +52,15 @@ jobs:
         run: npm run generate-css
       - name: Publish to NPM
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
       - name: Change working directory to ./landing
         run: cd ./landing
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
