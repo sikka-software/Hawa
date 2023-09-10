@@ -2,7 +2,7 @@ name: Hawa Style Deployment CI
 
 on:
   push:
-    branches: [main]
+    branches: [madin]
 
 jobs:
   build:

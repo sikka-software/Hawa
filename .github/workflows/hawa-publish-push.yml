@@ -1,7 +1,4 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
-name: Hawa Build and Publish on Push
+name: Hawa Build, Publish to NPM, and Deploy
 
 on:
   push:
@@ -25,24 +22,6 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-  # # Deployment job
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v2
-  #       # with:
-  #       # branch: gh-pages
-  #       # folder: docs
-  #     # - name: Deploy to GitHub Pages
-  #     #   id: deployment
-  #     #   uses: actions/deploy-pages@v2
 
   # Publishing to NPM
   publish:
@@ -72,3 +51,35 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  deploy:
+    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install and Build Storybook
+        run: |
+          rm -fr /home/cloudpanel/htdocs/hawa.style || true
+          npm install
+          npm run build-storybook
+
+      - name: Install beta-tayar.sikka.io
+        run: |
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
+          mv .env.beta .env.production || true
+          rm -fr package-lock.json || true
+          rm -fr node_modules  || true
+          npm install
+          npm run build --if-present
+          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/landing /home/cloudpanel/htdocs/hawa.style
+          pm2 stop hawa-style || true
+          pm2 delete hawa-style || true
+          pm2 start npm --name "hawa-style" -- start || true
