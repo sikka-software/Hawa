@@ -51,35 +51,4 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-  deploy:
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install and Build Storybook
-        run: |
-          rm -fr /home/cloudpanel/htdocs/hawa.style || true
-          npm install
-          npm run build-storybook
-
-      - name: Install beta-tayar.sikka.io
-        run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
-          mv .env.beta .env.production || true
-          rm -fr package-lock.json || true
-          rm -fr node_modules  || true
-          npm install
-          npm run build --if-present
-          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/landing /home/cloudpanel/htdocs/hawa.style
-          pm2 stop hawa-style || true
-          pm2 delete hawa-style || true
-          pm2 start npm --name "hawa-style" -- start || true
+  
