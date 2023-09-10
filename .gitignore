@@ -2,7 +2,9 @@
 /node_modules
 /dist
 /es
+/docs
 /lib
 /.vscode
 package-lock.json
 yarn.lock
+/vercel.json
