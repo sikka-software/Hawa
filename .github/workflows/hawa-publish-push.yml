@@ -48,57 +48,6 @@ jobs:
       - name: Generate Tailwind Styles
         run: npm run generate-css
       - name: Publish to NPM
-
-      name: Hawa Build and Publish on Push
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-           npm ci
-          else 
-           npm install
-          fi
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-  # Publishing to NPM
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-           npm ci
-          else 
-           npm install
-          fi
-      - name: Build Library
-        run: npm run build-up
-      - name: Build Styles
-        run: npm run build:styles
-      - name: Generate Tailwind Styles
-        run: npm run generate-css
-      - name: Publish to NPM
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -114,7 +63,3 @@ jobs:
         run: cd landing && vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
