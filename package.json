@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.64",
+  "version": "0.1.65",
   "description": "Modern UI Kit made with Tailwind & Radix Primitives",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -78,7 +78,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.28.0",
     "react-phone-input-2": "^2.15.1",
-    "react-select": "^5.7.4",
     "react-transition-group": "^4.4.2",
     "rollup": "^2.38.4",
     "rollup-plugin-cleaner": "^1.0.0",
