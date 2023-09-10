@@ -11,48 +11,6 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-           npm ci
-          else 
-           npm install
-          fi
-
-  publish:
-    needs: build
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-           npm ci
-          else 
-           npm install
-          fi
-      - name: Build Library
-        run: npm run build-up
-      - name: Build Styles
-        run: npm run build:styles
-      - name: Generate Tailwind Styles
-        run: npm run generate-css
-      - name: Publish to NPM
-        run: npm publish
-
   deploy:
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
 
