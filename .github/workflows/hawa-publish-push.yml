@@ -1,4 +1,4 @@
-name: Hawa Build, Publish to NPM, and Deploy
+name: Hawa Build and Publish on Push
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js v16
@@ -51,4 +51,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-  
