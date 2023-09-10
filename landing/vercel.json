@@ -1,9 +1,5 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "name": "hawa",
-  "buildCommand": "next build",
-  "outputDirectory": "build",
-  "public": true,
-  "regions": ["sfo1"],
-  "trailingSlash": false
+  "buildCommand": "next build"
 }
