@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "hawa",
+  "buildCommand": "next build",
+  "outputDirectory": "build",
+  "public": true,
+  "regions": ["sfo1"],
+  "trailingSlash": false
+}
