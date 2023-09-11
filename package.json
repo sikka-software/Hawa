@@ -34,7 +34,6 @@
     "storybook": "start-storybook -p 6006 -s public",
     "generate-css": "postcss src/tailwind.css -o src/styles.css && mkdir -p dist && cp src/styles.css dist/",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-storybook": "build-storybook -o ./landing/public/docs",
     "build-up": "tsup src/index.ts --format cjs,esm --dts",
     "build-lib": "rollup -c",
     "build:styles": " node tools/build-styles",
