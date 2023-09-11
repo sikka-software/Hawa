@@ -83,7 +83,7 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
       <pre>
         <code
           className={cn(
-            "flex w-full flex-row items-start justify-between rounded bg-gray-200 p-2 text-left  text-sm text-black dark:bg-gray-800 dark:text-white sm:text-base"
+            "flex w-full flex-row items-start justify-between rounded bg-gray-200 p-0 text-left  text-sm text-black dark:bg-gray-800 dark:text-white sm:text-base"
           )}
         >
           <div className="flex min-h-[37.75px] w-full  flex-col  justify-center p-4 ">

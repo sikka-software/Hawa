@@ -28,14 +28,16 @@
     --warning-foreground: 0 0% 98% !important;
     --error: 0 84.2% 60.2% !important;
     --error-foreground: 0 0% 98% !important;
-    --border: 240 5.9% 90% !important;
-    --input: 240 5.9% 90% !important;
+    /* --border: 240 5.9% 90% !important; */
+    /* --input: 240 5.9% 90% !important; */
     --ring: 240 5% 64.9% !important;
-    --radius: 0rem !important;
+    --radius: 0.4rem !important;
     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3)) !important;
   }
   .dark {
-    --background: 240 10% 3.9% !important;
+    /* --background: 240 10% 3.9% !important; */
+    --background: 207 21% 8% !important;
+    /* --background: 207 22% 10% !important; */
     --foreground: 0 0% 98% !important;
     --popover: 240 10% 3.9% !important;
     --popover-foreground: 0 0% 98% !important;
