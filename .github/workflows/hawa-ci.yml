@@ -87,3 +87,4 @@ jobs:
           pm2 stop hawa-landing || true
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
+          pm2 save || true
