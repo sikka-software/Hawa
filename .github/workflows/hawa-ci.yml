@@ -1,8 +1,6 @@
-name: Hawa Build and Publish on Push
+name: Hawa CI
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   NODE_AUTH_TOKEN: ${{secrets.npm_token}}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -18,6 +16,17 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
+
+      - name: Check Commit Message
+        id: commit_msg
+        run: echo "::set-output name=message::$(git log --format=%B -n 1 ${{ github.sha }})"
+      - name: Skip If Commit Message Contains 'skip_publish'
+        run: |
+          if [[ "${{ steps.commit_msg.outputs.message }}" == *"skip_publish"* ]]; then
+            echo "Commit message contains 'skip_publish'. Skipping this job."
+            exit 0
+          fi
+
       - name: Use Node.js v16
         uses: actions/setup-node@v2
         with:
@@ -39,8 +48,24 @@ jobs:
       - name: Publish to NPM
         run: npm publish
 
+  build-storybook:
+    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Generate Storybook Static Files
+        run: |
+          npm run build-storybook
+
   deploy:
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    needs: build-storybook
     strategy:
       matrix:
         node-version: [16.x]
