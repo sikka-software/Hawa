@@ -95,6 +95,7 @@ export default function Home() {
           />
         </a>
       </div>
+      <h1>THIS IS A TEST TO SEE IF DEVOPS ARE WORKING FINE</h1>
       <div className="absolute bottom-0 flex w-full flex-col items-center ">
         <div align="center" className="m-0 w-fit ">
           <a href="https://sikka.io">
