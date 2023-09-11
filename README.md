@@ -9,6 +9,8 @@
 
 > Opinionated UI Kit for web apps and websites built with TailwindCSS
 
+[Docs](https://hawa.style/docs)
+
 ## Install
 
 ```bash
