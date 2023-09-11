@@ -111,6 +111,7 @@ const SignInTemplate = (args, globals) => {
   return (
     <div className="max-w-md">
       <SignInForm
+        logosOnly
         direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
         isLoading={isLoading}
         handleForgotPassword={() => console.log("forgot password")}

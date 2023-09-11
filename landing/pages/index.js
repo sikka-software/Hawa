@@ -1,16 +1,16 @@
-import Image from "next/image";
 import { Card, DropdownMenu, HawaCodeBlock, HawaRadio } from "@sikka/hawa";
 import dynamic from "next/dynamic";
 
 const Button = dynamic(() => import("@sikka/hawa").then((mod) => mod.Button), {
   ssr: false
 });
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
+  const { theme, setTheme } = useTheme("dark");
+  let sikkaLogoURL =
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/white-symbol.png";
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const changeHandler = () => {
@@ -32,10 +32,20 @@ export default function Home() {
     return () => mediaQuery.removeEventListener("change", changeHandler);
   }, []);
 
+  if (
+    theme === "light" ||
+    (theme !== "dark" &&
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-color-scheme: light)").matches)
+  ) {
+    sikkaLogoURL =
+      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/black-symbol.png";
+  }
+
   return (
     <main>
       <div className="relative flex w-full flex-col items-center justify-center border-b bg-primary-foreground ">
-        <nav className=" flex w-full max-w-7xl items-center justify-between  p-2">
+        <nav className=" flex w-full max-w-7xl items-center justify-between  p-3">
           <div className="flex items-center ">
             {/* <h1 className="text-2xl font-bold">Hawa</h1> */}
             {/* <img
@@ -51,11 +61,12 @@ export default function Home() {
               alt="Hawa | هواء"
             /> */}
             <img
-              className="w-10"
+
+              className="w-8"
               src={
-            "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-symbol.png"
+                "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-symbol.png"
               }
-              alt="Hawa | هواء"
+              alt="Hawa Logo"
             />
             <span className="sr-only">Hawa Logo</span>
           </div>
@@ -66,7 +77,7 @@ export default function Home() {
             >
               <img
                 width="100"
-                className="w-24 rounded bg-blue-500"
+                className="w-24 rounded"
                 alt="Sikka"
                 src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
               />
@@ -107,6 +118,17 @@ export default function Home() {
                 typeof window !== "undefined" &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
                 <svg
+                  className="h-4"
+                  // stroke="currentColor"
+                  fill="currentColor"
+                  focusable="false"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"></path>
+                </svg>
+              ) : (
+                <svg
                   // class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1k33q06"
                   // stroke="currentColor"
                   fill="currentColor"
@@ -118,17 +140,6 @@ export default function Home() {
                 >
                   <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
                 </svg>
-              ) : (
-                <svg
-                  className="h-4"
-                  // stroke="currentColor"
-                  fill="currentColor"
-                  focusable="false"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"></path>
-                </svg>
               )}
             </Button>
           </div>
@@ -138,9 +149,6 @@ export default function Home() {
         <div className="mt-10 flex w-full flex-col  items-center p-10 ">
           <div className="flex max-w-2xl flex-col items-center justify-center gap-4">
             {/* <h1 className="project-name">Hawa | هواء</h1> */}
-            <span className="text-center text-2xl font-bold">
-              Building Blocks <br /> For Your Web Application
-            </span>
             <span className="text-center text-2xl font-bold">
               Building Blocks <br /> For Your Web Application
             </span>
@@ -204,18 +212,7 @@ export default function Home() {
       </div>
       <div className="fixed bottom-0 mt-10 flex w-full flex-col items-center opacity-50 ">
         <a href="https://sikka.io">
-          <img
-            width="20"
-            alt="Sikka"
-            src={
-              theme === "dark" ||
-              (theme !== "light" &&
-                typeof window !== "undefined" &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-                ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/white-symbol.png"
-                : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/black-symbol.png"
-            }
-          />
+          <img width="20" alt="Sikka" src={sikkaLogoURL} />
         </a>
         <p align="center" className="m-0 mb-4 ">
           <sub>

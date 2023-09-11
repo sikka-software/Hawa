@@ -10,7 +10,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form"
 import { Card, CardContent, CardFooter } from "../../elements/Card"
 import { Button } from "../../elements/Button"
 import { Icons } from "../../elements/Icons"
-import clsx from "clsx"
+import { cn } from "../../util"
 
 type SignUpFormTypes = {
   handleLanguage?: () => void
@@ -18,6 +18,7 @@ type SignUpFormTypes = {
   handleColorMode?: () => void
   currentColorMode?: any
   direction?: "rtl" | "ltr"
+  logosOnly?: boolean
   texts: {
     fullNameLabel: string
     fullNamePlaceholder: string
@@ -307,38 +308,41 @@ export const SignUpForm: FC<SignUpFormTypes> = (props) => {
         </CardContent>
 
         {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
-          <CardFooter className="grid grid-cols-1 gap-2 ">
+          <CardFooter
+            className={cn(
+              props.logosOnly
+                ? "flex flex-row justify-center gap-2"
+                : "grid grid-cols-1 gap-2"
+            )}
+          >
             {props.viaGoogle && (
-              <Button variant="outline" onClick={props.handleGoogleSignUp}>
-                <Icons.google
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signUpViaGoogleLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleGoogleSignUp}
+              >
+                <Icons.google className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signUpViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
-              <Button variant="outline" onClick={props.handleGithubSignUp}>
-                <Icons.gitHub
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signUpViaGithubLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleGithubSignUp}
+              >
+                <Icons.gitHub className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signUpViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
-              <Button variant="outline" onClick={props.handleTwitterSignUp}>
-                <Icons.twitter
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signUpViaTwitterLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleTwitterSignUp}
+              >
+                <Icons.twitter className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signUpViaTwitterLabel}
               </Button>
             )}
           </CardFooter>

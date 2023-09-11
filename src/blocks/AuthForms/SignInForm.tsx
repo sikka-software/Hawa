@@ -1,7 +1,5 @@
 import React, { FC } from "react"
 import { Controller, useForm } from "react-hook-form"
-import clsx from "clsx"
-
 import {
   HawaTextField,
   HawaAlert,
@@ -11,6 +9,7 @@ import {
 import { Card, CardContent, CardFooter } from "../../elements/Card"
 import { Button } from "../../elements/Button"
 import { Icons } from "../../elements/Icons"
+import { cn } from "../../util"
 
 export const SignInForm: FC<SignInFormTypes> = (props) => {
   const {
@@ -132,7 +131,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               </>
             )}
 
-            <Button className="w-full mt-4" isLoading={props.isLoading}>
+            <Button className="mt-4 w-full" isLoading={props.isLoading}>
               {props.texts.signInText}
             </Button>
             {!props.withoutSignUp && (
@@ -151,38 +150,39 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
 
         {/* 3rd Party Sign Auth Buttons */}
         {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
-          <CardFooter className="grid grid-cols-1 gap-2 ">
+          <CardFooter
+            className={cn(
+              props.logosOnly ? "flex flex-row gap-2 justify-center" : "grid grid-cols-1 gap-2"
+            )}
+          >
             {props.viaGoogle && (
-              <Button variant="outline" onClick={props.handleGoogleSignIn}>
-                <Icons.google
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signInViaGoogleLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleGoogleSignIn}
+              >
+                <Icons.google className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signInViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
-              <Button variant="outline" onClick={props.handleGithubSignIn}>
-                <Icons.gitHub
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signInViaGithubLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleGithubSignIn}
+              >
+                <Icons.gitHub className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signInViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
-              <Button variant="outline" onClick={props.handleTwitterSignIn}>
-                <Icons.twitter
-                  className={clsx(
-                    "h-4 w-4",
-                    props.direction === "rtl" ? "ml-2" : "mr-2"
-                  )}
-                />
-                {props.texts.signInViaTwitterLabel}
+              <Button
+                className="flex flex-row items-center gap-2"
+                variant="outline"
+                onClick={props.handleTwitterSignIn}
+              >
+                <Icons.twitter className="h-4 w-4" />
+                {!props.logosOnly && props.texts.signInViaTwitterLabel}
               </Button>
             )}
           </CardFooter>
@@ -203,6 +203,7 @@ type SignInFormTypes = {
   currentLanguage?: any
   handleColorMode?: () => void
   currentColorMode?: any
+  logosOnly?: boolean
   direction?: "rtl" | "ltr"
   showError?: any
   errorTitle?: string

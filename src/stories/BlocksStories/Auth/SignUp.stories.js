@@ -66,6 +66,7 @@ const SignUpTemplate = (args, globals) => {
   return (
     <div className="max-w-md">
       <SignUpForm
+        logosOnly
         direction={locale === "ar" ? "rtl" : "ltr"}
         {...args}
         texts={{
