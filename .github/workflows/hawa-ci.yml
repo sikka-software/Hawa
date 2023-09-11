@@ -68,11 +68,15 @@ jobs:
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
           pm2 save || true
-      - name: Archive production artifacts
+      - name: Archive Landing Files
+        run: |
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
+          tar -cvzf landing.tar.gz .
+      - name: Upload Landing Archive as Artifact
         uses: actions/upload-artifact@v2
         with:
           name: landing-artifacts
-          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing
+          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing/landing.tar.gz
 
   build-storybook:
     needs: deploy-landing
@@ -82,7 +86,15 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-      - uses: actions/checkout@v2
+      - name: Download Landing Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: landing-artifacts
+          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing
+      - name: Extract Landing Archive
+        run: |
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
+          tar -xvzf landing.tar.gz
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
