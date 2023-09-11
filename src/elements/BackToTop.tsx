@@ -36,7 +36,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
   }
 
   const backToTop = () => {
-    props.anchor.current.scrollTo(0, 0)
+    props.anchor.current.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   // FIXME: Observers and listeners run twice
