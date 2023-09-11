@@ -48,9 +48,8 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
-
-      - name: Change working directory to ./landing
-        run: cd ./landing
+        with:
+          path: deploy-landing-path
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -68,44 +67,21 @@ jobs:
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
           pm2 save || true
-      - name: Archive Landing Files
-        run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
-          tar -cvzf landing.tar.gz .
-      - name: Upload Landing Archive as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: landing-artifacts
-          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing/landing.tar.gz
 
   build-storybook:
-    needs: deploy-landing
     if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
     strategy:
       matrix:
         node-version: [16.x]
     steps:
-      - name: Download Landing Artifact
-        uses: actions/download-artifact@v2
+      - uses: actions/checkout@v2
         with:
-          name: landing-artifacts
-          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing
-      - name: Extract Landing Archive
-        run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa/landing
-          tar -xvzf landing.tar.gz
+          path: build-storybook-path
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Download landing artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: landing-artifacts
-          path: /var/www/html/sikka-software/_work/Hawa/Hawa/landing
-
       - name: Generate Storybook Static Files
         run: |
           cd /var/www/html/sikka-software/_work/Hawa/Hawa
