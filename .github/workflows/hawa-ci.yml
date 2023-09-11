@@ -40,7 +40,7 @@ jobs:
         run: npm publish
 
   build-storybook:
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
