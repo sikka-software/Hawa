@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import { HawaRadio } from "../../elements"
 import { Card, CardContent } from "../../elements/Card"
 import { Button } from "../../elements/Button"
+import { Icons } from "../../elements/Icons"
 
 type AppLandingTypes = {
   handleSignIn: () => void
@@ -15,13 +16,26 @@ type AppLandingTypes = {
   }
   size: "small" | "normal" | "full"
 }
+
+//TODO: update Google auth button
 export const AppLanding: FC<AppLandingTypes> = (props) => {
   return (
     <div>
       <Card>
         <CardContent headless className="flex flex-col gap-6">
+          <Button
+            className="flex flex-row items-center gap-2"
+            variant="outline"
+            // onClick={props.handleGoogleSignIn}
+          >
+            <Icons.google className="h-4 w-4" />
+            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
+            Continue With Google
+          </Button>
+
           {props.handleSignIn && (
             <Button onClick={props.handleSignIn}>{props.texts.signIn}</Button>
+            // <Button onClick={props.handleSignIn}>Continue With Google</Button>
           )}
           {props.handleSignUp && (
             <Button onClick={props.handleSignUp}>{props.texts.signUp}</Button>

@@ -71,7 +71,7 @@ export default function Home() {
             <span className="sr-only">Hawa Logo</span>
           </div>
           <div className="flex flex-row items-center gap-2">
-            <a
+            {/* <a
               href="https://www.npmjs.com/package/@sikka/hawa"
               className="w-fit"
             >
@@ -81,7 +81,7 @@ export default function Home() {
                 alt="Sikka"
                 src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
               />
-            </a>
+            </a> */}
             <Button
               variant="outline"
               size="smallIcon"
@@ -204,6 +204,17 @@ export default function Home() {
               </Button>
             </div>
             <HawaCodeBlock code="npm install @sikka/hawa" />
+            <a
+              href="https://www.npmjs.com/package/@sikka/hawa"
+              className="w-fit"
+            >
+              <img
+                width="100"
+                className="w-24 rounded"
+                alt="Sikka"
+                src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
+              />
+            </a>
           </div>
         </div>
         {/* <div className="grid w-1/2 grid-cols-2 gap-2 p-4 bg-red-500">
