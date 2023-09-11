@@ -39,42 +39,23 @@ jobs:
       - name: Publish to NPM
         run: npm publish
 
-  build-storybook:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-            npm ci
-          else 
-            npm install
-          fi
-      - name: Generate Storybook Static Files
-        run: |
-          npm run build-storybook
-
   deploy:
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-    needs: build-storybook
     strategy:
       matrix:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Change working directory to ./landing
-        run: cd ./landing
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Building Storybook Files
+        run: |
+          npm install
+          npm run build-storybook
+      - name: Change working directory to ./landing
+        run: cd ./landing
       - name: Install Hawa Landing
         run: |
           rm -fr /home/cloudpanel/htdocs/hawa.style || true
