@@ -141,6 +141,9 @@ export default function Home() {
             <span className="text-center text-2xl font-bold">
               Building Blocks <br /> For Your Web Application
             </span>
+            <span className="text-center text-2xl font-bold">
+              Building Blocks <br /> For Your Web Application
+            </span>
             <p className="max-w-xl text-center text-sm">
               Discover Hawa, the open-source library that revolutionizes web
               application development. Our modular blocks are ready to
