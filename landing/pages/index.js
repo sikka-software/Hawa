@@ -37,9 +37,9 @@ export default function Home() {
       <div className="relative flex w-full flex-col items-center justify-center border-b bg-primary-foreground ">
         <nav className=" flex w-full max-w-7xl items-center justify-between  p-2">
           <div className="flex items-center ">
-            <h1 className="text-2xl font-bold">Hawa</h1>
+            {/* <h1 className="text-2xl font-bold">Hawa</h1> */}
             {/* <img
-              className="w-24"
+              className="w-28"
               src={
                 theme === "dark" ||
                 (theme !== "light" &&
@@ -49,8 +49,15 @@ export default function Home() {
                   : "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png"
               }
               alt="Hawa | هواء"
+            /> */}
+            <img
+              className="w-10"
+              src={
+            "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-symbol.png"
+              }
+              alt="Hawa | هواء"
             />
-            <span className="sr-only">Hawa Logo</span> */}
+            <span className="sr-only">Hawa Logo</span>
           </div>
           <div className="flex flex-row items-center gap-2">
             <a
