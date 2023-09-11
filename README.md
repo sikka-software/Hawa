@@ -32,7 +32,6 @@ npm run start
 
 ![Alt](https://repobeats.axiom.co/api/embed/0aa365b7bd1591de135582699d523de7b262eecb.svg "Repobeats analytics image")
 
-
 ## License
 
 MIT © [SIKKA SOFTWARE](https://sikka.sa)
