@@ -2,7 +2,7 @@ name: Hawa Build and Publish on Push
 
 on:
   push:
-    branches: [main]
+    branches: [main1]
 
 jobs:
   build:

@@ -8,11 +8,14 @@ env:
 
 on:
   push:
-    branches: [main1]
+    branches: [main]
 
 jobs:
   build:
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js v16
@@ -30,6 +33,9 @@ jobs:
   publish:
     needs: build
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js v16
@@ -54,20 +60,19 @@ jobs:
         run: npm publish
 
   deploy:
+    needs: build
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
+      - name: Change working directory to ./landing
+        run: cd ./landing
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/checkout@v2
-      - name: Change working directory to ./landing
-        run: cd ./landing
       - name: Install Hawa Landing
         run: |
           rm -fr /home/cloudpanel/htdocs/hawa.style || true
