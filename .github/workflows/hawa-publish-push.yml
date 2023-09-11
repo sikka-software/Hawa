@@ -40,7 +40,6 @@ jobs:
         run: npm publish
 
   deploy:
-    needs: build
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
     strategy:
       matrix:
