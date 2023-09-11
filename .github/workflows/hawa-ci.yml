@@ -86,6 +86,5 @@ jobs:
         run: |
           cd /var/www/html/sikka-software/_work/Hawa/Hawa
           rm -fr package-lock.json || true
-          rm -fr node_modules  || true
           npm install
           npm run build-storybook
