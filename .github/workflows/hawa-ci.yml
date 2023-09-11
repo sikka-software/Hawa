@@ -71,10 +71,12 @@ jobs:
 
       - name: Change working directory to ./landing
         run: cd ./landing
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install Hawa Landing
         run: |
           rm -fr /home/cloudpanel/htdocs/hawa.style || true
@@ -84,7 +86,14 @@ jobs:
           npm install
           npm run build --if-present
           ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/landing /home/cloudpanel/htdocs/hawa.style
+          
+      - name: Stop and Delete Previous PM2 Process
+        run: |
           pm2 stop hawa-landing || true
           pm2 delete hawa-landing || true
-          pm2 start npm --name "hawa-landing" -- start || true
-          pm2 save || true
+
+      - name: Start Hawa Landing with PM2
+        run: pm2 start npm --name "hawa-landing" -- start || true
+
+      - name: Save PM2 Process List
+        run: pm2 save || true

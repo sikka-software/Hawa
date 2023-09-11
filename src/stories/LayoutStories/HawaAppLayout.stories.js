@@ -1237,6 +1237,7 @@ AppLayoutStory.args = {
   pageTitle: "Dashboard Page",
   topBar: true,
   username: "Zakher Masri",
+  avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
   email: "zakher@sikka.io",
   DrawerFooterActions: (
     <>

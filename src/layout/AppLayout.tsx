@@ -21,6 +21,7 @@ type AppLayoutTypes = {
   topBar?: boolean
   username?: string
   email?: string
+  avatarImage?: any
   drawerSize?: "sm" | "md" | "large"
   profileMenuItems?: MenuItemType[]
   onSettingsClick?: () => void
@@ -205,18 +206,22 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               direction={isRTL ? "rtl" : "ltr"}
               trigger={
                 <div className="relative h-8 w-8  cursor-pointer overflow-clip rounded ring-1 ring-primary/30 dark:bg-gray-600">
-                  <svg
-                    aria-label="Avatar Icon"
-                    className="absolute -left-1 h-10 w-10 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
+                  {props.avatarImage ? (
+                    <img src={props.avatarImage} alt="User Avatar" />
+                  ) : (
+                    <svg
+                      aria-label="Avatar Icon"
+                      className="absolute -left-1 h-10 w-10 text-gray-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  )}
                 </div>
               }
               items={props.profileMenuItems}
