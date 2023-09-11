@@ -55,7 +55,7 @@ jobs:
           npm install
           fi
       - name: Build Storybook
-        run: npm run build-up
+        run: npm run build-storybook
 
       - name: Change working directory to ./landing
         run: cd ./landing
