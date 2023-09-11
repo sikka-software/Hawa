@@ -9,7 +9,7 @@ on:
     branches: [main]
 
 jobs:
-  publish:
+  publish-package:
     if: ${{!contains(github.event.head_commit.message, 'skip_publish')}}
     runs-on: ubuntu-latest
     strategy:
@@ -39,27 +39,7 @@ jobs:
       - name: Publish to NPM
         run: npm publish
 
-  build-storybook:
-    if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
-    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Generate Storybook Static Files
-        run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa
-          rm -fr package-lock.json || true
-          rm -fr node_modules  || true
-          npm install
-          npm run build-storybook
-
-  deploy:
+  deploy-landing:
     if: ${{ !contains(github.event.head_commit.message, 'skip_landing') }}
 
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
@@ -88,3 +68,23 @@ jobs:
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
           pm2 save || true
+
+  build-storybook:
+    if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
+    runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Generate Storybook Static Files
+        run: |
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa
+          rm -fr package-lock.json || true
+          rm -fr node_modules  || true
+          npm install
+          npm run build-storybook
