@@ -180,6 +180,8 @@ storiesOf("Elements/Cards/Items", module)
 storiesOf("Elements/Cards", module)
   .add("Ad Card", (args) => <AdCardStory {...args} />, {
     args: {
+      handleCantHide: () => console.log("cant hide the ad, please sub to pro"),
+      canHide: false,
       title: "Seera App",
       description:
         "Increase your hiring chances by turning your CV into a digital one with a link"
