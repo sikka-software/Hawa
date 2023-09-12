@@ -50,6 +50,8 @@ export * from "./HawaLandingCard"
 export * from "./HawaButton"
 export * from "./HawaStoreButtons"
 
+export * from "./ActionCard"
+
 // v0.1
 export * from "./Button"
 export * from "./Carousel"

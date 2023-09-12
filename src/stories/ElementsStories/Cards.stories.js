@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ActionCard,
   Button,
   HawaAdCard,
   HawaButton,
@@ -9,7 +10,14 @@ import {
   HawaPricingCard,
   Tooltip
 } from "../../elements";
-import { FaClone, FaComment, FaReply, FaShare, FaTrash, FaEdit } from "react-icons/fa";
+import {
+  FaClone,
+  FaComment,
+  FaReply,
+  FaShare,
+  FaTrash,
+  FaEdit
+} from "react-icons/fa";
 import { storiesOf } from "@storybook/react";
 
 const AdCardStory = (args) => {
@@ -232,7 +240,46 @@ storiesOf("Elements/Cards", module)
         { included: false, text: "Custom Menus" }
       ]
     }
-  });
+  })
+  .add(
+    "Action Card",
+    (args) => (
+      <div className="flex flex-col gap-4 ">
+        <div className="flex w-full flex-col  gap-4">
+          <h1>With Details</h1>
+          <div className="h-[400px] max-w-sm">
+            <ActionCard {...args} />
+          </div>
+        </div>
+        <div className="flex w-full flex-col gap-4">
+          <h1>With Details</h1>
+          <div className="h-[400px] max-w-sm">
+            <ActionCard {...args} blank />
+          </div>
+        </div>
+      </div>
+    ),
+    {
+      args: {
+        title: "Bismillah",
+        subtitle: "By the name of Allah",
+        cardImage: "https://source.unsplash.com/tVqQSfXQ_SI",
+        bottomElement: (
+          <>
+            <div>Thikr</div>
+            <div>100 Times</div>
+          </>
+        ),
+        inCardActions: (
+          <>
+            <Button variant="secondary" size="xs">
+              + Use Template
+            </Button>
+          </>
+        )
+      }
+    }
+  );
 
 // import React from "react";
 // import {
