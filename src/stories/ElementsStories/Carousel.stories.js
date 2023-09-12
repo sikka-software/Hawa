@@ -34,25 +34,23 @@ const images = [
   "https://source.unsplash.com/1kdIG_258bU",
   "https://source.unsplash.com/l8vKWxhVuts",
   "https://source.unsplash.com/0LGDmbnk0-U",
-  "https://source.unsplash.com/tVqQSfXQ_SI",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400",
-  "https://via.placeholder.com/1000x400"
+  "https://source.unsplash.com/tVqQSfXQ_SI"
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400",
+  // "https://via.placeholder.com/1000x400"
 ];
 
 export const CarouselStory = () => {
   return (
-    <Card>
-      <CardContent headless>
-        <Carousel images={images} />
-      </CardContent>
-    </Card>
+    <div className="bg-red-200 p-10">
+      <Carousel images={images} />
+    </div>
   );
 };
 

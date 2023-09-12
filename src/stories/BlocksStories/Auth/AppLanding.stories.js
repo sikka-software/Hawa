@@ -1,5 +1,6 @@
 import React from "react";
 import { AppLanding } from "../../../blocks/AuthForms/AppLanding";
+import { setLocale, t } from "../../../translations/i18n";
 
 export default {
   title: "Blocks/Auth/Landing",
@@ -51,21 +52,43 @@ export default {
   }
 };
 
-const AppLandingTemplate = (args) => {
+const AppLandingTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
   return (
     <div className="max-w-md">
-      <AppLanding {...args} />
+      <AppLanding
+        {...args}
+        texts={{
+          signIn: "Sign In",
+          signUp: "Sign Up",
+          lang: "عربي",
+          emailLabel: t("emailLabel"),
+          emailPlaceholder: t("emailPlaceholder"),
+          emailRequiredText: t("emailRequiredText"),
+          emailInvalidText: t("emailInvalidText"),
+          usernameLabel: t("usernameLabel"),
+          usernamePlaceholder: t("usernamePlaceholder"),
+          usernameRequired: t("usernameRequired"),
+          phoneRequiredText: t("phoneRequiredText"),
+          passwordLabel: t("passwordLabel"),
+          passwordPlaceholder: t("passwordPlaceholder"),
+          passwordRequiredText: t("passwordRequiredText"),
+          forgotPasswordText: t("forgotPasswordText"),
+          newUserText: t("newUserText"),
+          createAccount: t("createAccount"),
+          signInText: t("signInText"),
+          signInViaGoogleLabel: t("signInViaGoogleLabel"),
+          signInViaGithubLabel: t("signInViaGithubLabel"),
+          signInViaTwitterLabel: t("signInViaTwitterLabel")
+        }}
+      />
     </div>
   );
 };
 
 export const Landing = AppLandingTemplate.bind({});
 Landing.args = {
-  texts: {
-    signIn: "Sign In",
-    signUp: "Sign Up",
-    lang: "عربي"
-  },
   handleSignIn: () => console.log("routing to sign in page"),
   handleSignUp: () => console.log("routing to sign up page"),
   handleLanguage: () => console.log("changing language")

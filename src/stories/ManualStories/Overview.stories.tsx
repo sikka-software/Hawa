@@ -67,7 +67,7 @@ const OverviewPage = () => {
         of Hawa UI kit
       </p>
       <div className="subheading">Introduction</div>
-      <div className="flex flex-row gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <DocCard
           title="Installation"
           subtitle={"Simple installation guide for React and Next projects"}
@@ -88,7 +88,7 @@ const OverviewPage = () => {
       </div>
       <div className="subheading">Structure</div>
 
-      <div className="flex flex-row gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <DocCard
           title="Blocks"
           subtitle={"Pre-made blocks that are commonly used in web apps"}

@@ -9,11 +9,15 @@ type AppLandingTypes = {
   handleSignUp: () => void
   handleLanguage: () => void
   handleColorMode: () => void
-  texts: {
+  texts?: {
     signIn: string
     signUp: string
     lang: string
+    newUserText?: string
+    createAccount?: string
   }
+  withoutSignUp?: boolean
+  handleRouteToSignUp?: () => void
   size: "small" | "normal" | "full"
 }
 
@@ -67,12 +71,18 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
           {props.handleSignUp && (
             <Button onClick={props.handleSignUp}>{props.texts.signUp}</Button>
           )} */}
-          <a href="#" className="text-center text-sm">
-            Don't have an account?{" "}
-            <a href="#" className="clickable-link">
-              Sign Up
-            </a>
-          </a>
+          {!props.withoutSignUp && (
+            <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
+              {props.texts.newUserText}{" "}
+              <span
+                onClick={props.handleRouteToSignUp}
+                className="clickable-link"
+              >
+                {props.texts.createAccount}
+              </span>
+            </div>
+          )}
+         
         </CardContent>
       </Card>
       <div className="mt-6 flex flex-row justify-between">

@@ -135,7 +135,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               {props.texts.signInText}
             </Button>
             {!props.withoutSignUp && (
-              <div className="p-3 text-center text-sm font-semibold dark:text-gray-300">
+              <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
                 {props.texts.newUserText}{" "}
                 <span
                   onClick={props.handleRouteToSignUp}
