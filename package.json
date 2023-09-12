@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.1.86",
+  "version": "0.1.87",
   "description": "Modern UI Kit made with Tailwind & Radix Primitives",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

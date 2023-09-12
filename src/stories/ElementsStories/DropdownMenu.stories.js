@@ -27,7 +27,8 @@ export const DropdownMenuStory = () => {
       value: "item2",
       icon: <FaFolderOpen />,
       end: <Switch size="sm" />,
-      presist: true
+      presist: true,
+      disabled: true
     },
     {
       label: "Item 2",

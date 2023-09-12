@@ -159,39 +159,33 @@ export default function Home() {
             </p>
             <div className="flex flex-row gap-2">
               <DropdownMenu
-                width="parent"
+                // width="parent"
                 trigger={
-                  <Button className="w-44">
-                    <a href="https://hawa.style/documentation">Source Code</a>
+                  <Button>
+                    <a href="https://hawa.style/documentation">Themes</a>
                   </Button>
                 }
                 items={[
                   {
-                    value: "blocks",
-                    label: "Blocks",
-                    action: () =>
-                      window.open(
-                        "https://github.com/sikka-software/Hawa/tree/main/src/blocks",
-                        "_blank"
-                      )
+                    value: "theme-generator",
+                    label: "Theme Generator",
+                    disabled: true
+                    // action: () =>
+                    //   window.open(
+                    //     "https://github.com/sikka-software/Hawa/tree/main/src/blocks",
+                    //     "_blank"
+                    //   )
                   },
+
                   {
-                    value: "layout",
-                    label: "Layout",
-                    action: () =>
-                      window.open(
-                        "https://github.com/sikka-software/Hawa/tree/main/src/layout",
-                        "_blank"
-                      )
-                  },
-                  {
-                    value: "elements",
-                    label: "Elements",
-                    action: () =>
-                      window.open(
-                        "https://github.com/sikka-software/Hawa/tree/main/src/elements",
-                        "_blank"
-                      )
+                    value: "explore-themes",
+                    label: "Explore Themes",
+                    disabled: true
+                    // action: () =>
+                    //   window.open(
+                    //     "https://github.com/sikka-software/Hawa/tree/main/src/blocks",
+                    //     "_blank"
+                    //   )
                   }
                 ]}
               />

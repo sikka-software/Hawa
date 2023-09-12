@@ -89,6 +89,7 @@ const DropdownMenuItem = React.forwardRef<
   }
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
+    disabled={props.disabled}
     ref={ref}
     className={cn(
       "relative flex cursor-pointer select-none items-center justify-between rounded-sm px-2 py-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
@@ -238,6 +239,7 @@ export type SubItem = {
   icon?: any
   action?: () => void
   highlighted?: boolean
+  disabled?: boolean
 }
 
 export type MenuItemType = {
@@ -249,6 +251,7 @@ export type MenuItemType = {
   action?: () => void
   highlighted?: boolean
   subitems?: SubItem[] // Note the use of the optional modifier
+  disabled?: boolean
 }
 interface DropdownMenuProps {
   trigger?: any
@@ -306,6 +309,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   <DropdownMenuSubContent>
                     {item.subitems.map((subitem, subIndex) => (
                       <DropdownMenuItem
+                        disabled={subitem.disabled}
                         className="flex flex-row gap-2"
                         onSelect={() => subitem.action()}
                         key={subIndex}
@@ -319,6 +323,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
               </DropdownMenuSub>
             ) : (
               <DropdownMenuItem
+                disabled={item.disabled}
                 className="flex flex-row gap-2"
                 key={index}
                 onSelect={(e) => {
