@@ -40,7 +40,6 @@ type TableTypes = {
     filter?: string
   }
   bordersWidth?: string
-  onActionClicked?: any
   headerTools?: boolean
   borders?: "all" | "cols" | "rows" | "outer" | "inner"
 }
@@ -109,6 +108,7 @@ export const HawaTable: FC<TableTypes> = ({
   useEffect(() => {
     changePage()
   }, [slice, page])
+
   return (
     <div className="relative flex flex-col gap-2 ">
       <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
@@ -316,6 +316,9 @@ export const HawaTable: FC<TableTypes> = ({
                             direction={direction}
                             side="right"
                             items={props.actions}
+                            selectCallback={(e) =>
+                              props.handleActionClick(e, singleRow)
+                            }
                             trigger={
                               <div className="flex w-fit  cursor-pointer items-center justify-center rounded  p-2 hover:bg-gray-200 dark:hover:bg-gray-600">
                                 <svg

@@ -191,11 +191,22 @@ export const DataWithActions = (args) => {
       <HawaTable
         direction="ltr"
         actions={[
-          { label: "View", action: (e) => console.log("viewing", e) },
-          { label: "Edit", action: (e) => console.log("editing", e) },
-          { label: "Delete", action: (e) => console.log("deleting", e) }
+          {
+            value: "view",
+            label: "View"
+          },
+          {
+            value: "edit",
+            label: "Edit"
+          },
+          {
+            value: "delete",
+            label: "Delete"
+          }
         ]}
-        onActionClicked={(row) => console.log("row is", row)}
+        handleActionClick={(action, row) =>
+          console.log("doing " + action + " to " + row)
+        }
         columns={dummyColsData}
         // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
         rows={dummyRowData}

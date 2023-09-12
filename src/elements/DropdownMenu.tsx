@@ -265,6 +265,7 @@ interface DropdownMenuProps {
   align?: ExtendedDropdownMenuContentProps["align"]
   alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
   width?: "default" | "sm" | "lg" | "parent"
+  selectCallback?: any
 }
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
@@ -277,6 +278,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   triggerClassname,
   align,
   alignOffset,
+  selectCallback,
   width = "default",
 }) => {
   const widthStyles = {
@@ -311,7 +313,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuItem
                         disabled={subitem.disabled}
                         className="flex flex-row gap-2"
-                        onSelect={() => subitem.action()}
+                        onSelect={() => {
+                          subitem.action()
+                          selectCallback(subitem.value)
+                        }}
                         key={subIndex}
                       >
                         {subitem.icon && subitem.icon}
@@ -330,7 +335,12 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   if (item.presist) {
                     e.preventDefault()
                   }
-                  item.action()
+                  if (item.action) {
+                    item.action()
+                    selectCallback(item.value)
+                  } else {
+                    selectCallback(item.value)
+                  }
                 }}
                 end={item.end}
               >
