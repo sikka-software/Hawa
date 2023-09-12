@@ -1,9 +1,13 @@
 import { BsInstagram, BsTwitter } from "react-icons/bs"
 import { FaSnapchatGhost, FaTiktok } from "react-icons/fa"
+import { Button } from "../elements"
+import { cn } from "../util"
 
 type FooterTypes = {
   logoText?: string
   logoURL?: string
+  copyRights?: string
+  variation?: "default" | "minimal"
   socialLinks?: {
     twitter?: string
     instagram?: string
@@ -19,12 +23,45 @@ type FooterTypes = {
   }[]
 }
 
-export const Footer: React.FunctionComponent<FooterTypes> = ({ ...props }) => {
+export const Footer: React.FunctionComponent<FooterTypes> = ({
+  variation = "default",
+  ...props
+}) => {
+  let variationStyles = {
+    default: "rounded border",
+    minimal: "border-t",
+  }
   return (
-    <div className="sticky  bottom-0 left-0 flex w-full flex-row gap-8  bg-blue-200 p-4">
-      {props.logoText && (
-        <div>
-          <div className="text-2xl font-bold">{props.logoText}</div>
+    <div
+      className={cn(
+        "flex w-full flex-row items-center justify-between gap-8  rounded bg-background p-4",
+        variationStyles[variation]
+      )}
+    >
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-row items-center gap-2">
+          {props.logoURL && (
+            <div>
+              <img className="h-8" src={props.logoURL} />
+            </div>
+          )}
+          {props.logoText && (
+            <div>
+              <div className="text-2xl font-bold text-primary">
+                {props.logoText}
+              </div>
+            </div>
+          )}
+        </div>
+        {props.copyRights && props.footerLinks && (
+          <div className="text-xs text-muted-foreground">
+            © {props.copyRights} {new Date().getFullYear()}
+          </div>
+        )}
+      </div>
+      {props.copyRights && !props.footerLinks && (
+        <div className="text-xs text-muted-foreground">
+          © {props.copyRights} {new Date().getFullYear()}
         </div>
       )}
       {props.footerLinks?.map((pagesSection) => (
@@ -45,24 +82,24 @@ export const Footer: React.FunctionComponent<FooterTypes> = ({ ...props }) => {
       {props.socialLinks && (
         <div className="flex flex-row gap-2">
           {props.socialLinks.twitter && (
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white">
+            <Button size="smallIcon" variant="ghost">
               <BsTwitter />
-            </div>
+            </Button>
           )}
           {props.socialLinks.instagram && (
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white">
+            <Button size="smallIcon" variant="ghost">
               <BsInstagram />
-            </div>
+            </Button>
           )}
           {props.socialLinks.tiktok && (
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white">
+            <Button size="smallIcon" variant="ghost">
               <FaTiktok />
-            </div>
+            </Button>
           )}
           {props.socialLinks.snapchat && (
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white">
+            <Button size="smallIcon" variant="ghost">
               <FaSnapchatGhost />
-            </div>
+            </Button>
           )}
         </div>
       )}
