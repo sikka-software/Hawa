@@ -1,4 +1,5 @@
 <p align="center">
+    <img src="https://res.cloudinary.com/dt8onsdfl/image/upload/v1694478376/hawa-logo-white-bg.jpg" alt="Hawa | هواء" />
 </p>
 
 # Hawa | هواء
