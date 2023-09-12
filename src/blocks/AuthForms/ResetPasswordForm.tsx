@@ -15,7 +15,7 @@ type ResetPasswordType = {
   handleResetPassword: () => void
   handleRouteToSignUp: () => void
   sent: any
-  texts: {
+  texts?: {
     emailLabel: string
     emailPlaceholder: string
     emailRequiredText: string
@@ -54,42 +54,42 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                   <HawaTextField
                     width="full"
                     type="text"
-                    label={props.texts.emailLabel}
+                    label={props.texts?.emailLabel}
                     helpertext={errors.email?.message}
-                    placeholder={props.texts.emailPlaceholder}
+                    placeholder={props.texts?.emailPlaceholder}
                     {...field}
                     value={field.value ?? ""}
                   />
                 )}
                 rules={{
-                  required: props.texts.emailRequiredText,
+                  required: props.texts?.emailRequiredText,
                   pattern: {
                     value:
                       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: props.texts.emailInvalidText,
+                    message: props.texts?.emailInvalidText,
                   },
                 }}
               />
               <div className=" pb-2 text-left text-sm dark:text-gray-300">
-                {props.texts.dontHaveAccount ?? "Don't have an account? "}
+                {props.texts?.dontHaveAccount ?? "Don't have an account? "}
                 <span
                   onClick={props.handleRouteToSignUp}
                   className="clickable-link"
                 >
-                  {props.texts.signUpText ?? "Sign Up"}
+                  {props.texts?.signUpText ?? "Sign Up"}
                 </span>
               </div>
             </CardContent>
             <CardFooter>
               <Button type="submit" className="w-full">
-                {props.texts.resetPassword}
+                {props.texts?.resetPassword}
               </Button>
             </CardFooter>
           </form>
         </>
       ) : (
         <CardContent headless>
-          <div className="text-center">{props.texts.emailSentText}</div>
+          <div className="text-center">{props.texts?.emailSentText}</div>
         </CardContent>
       )}
     </Card>
