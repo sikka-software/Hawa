@@ -61,7 +61,6 @@ export default function Home() {
               alt="Hawa | هواء"
             /> */}
             <img
-
               className="w-8"
               src={
                 "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-symbol.png"
@@ -209,10 +208,22 @@ export default function Home() {
               className="w-fit"
             >
               <img
-                width="100"
+                // width="100"
                 className="w-24 rounded"
                 alt="Sikka"
                 src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
+              />
+            </a>
+
+            <a
+              href="https://www.github.com/sikka-software/hawa"
+              className="w-fit"
+            >
+              <img
+                // width="100"
+                className="w-full rounded"
+                alt="Repobeats analytics image"
+                src="https://repobeats.axiom.co/api/embed/0aa365b7bd1591de135582699d523de7b262eecb.svg"
               />
             </a>
           </div>

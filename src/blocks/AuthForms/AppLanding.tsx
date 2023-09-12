@@ -32,14 +32,47 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
             {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
             Continue With Google
           </Button>
+          <Button
+            className="flex flex-row items-center gap-2"
+            variant="outline"
+            // onClick={props.handleGoogleSignIn}
+          >
+            <Icons.twitter className="h-4 w-4" />
+            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
+            Continue With Twitter
+          </Button>
+          <Button
+            className="flex flex-row items-center gap-2"
+            variant="outline"
+            // onClick={props.handleGoogleSignIn}
+          >
+            <Icons.apple className="h-4 w-4" />
+            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
+            Continue With Apple
+          </Button>
+          <Button
+            className="flex flex-row items-center gap-2"
+            variant="outline"
+            // onClick={props.handleGoogleSignIn}
+          >
+            <Icons.mail className="h-4 w-4" />
+            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
+            Continue With Email
+          </Button>
 
-          {props.handleSignIn && (
+          {/* {props.handleSignIn && (
             <Button onClick={props.handleSignIn}>{props.texts.signIn}</Button>
             // <Button onClick={props.handleSignIn}>Continue With Google</Button>
           )}
           {props.handleSignUp && (
             <Button onClick={props.handleSignUp}>{props.texts.signUp}</Button>
-          )}
+          )} */}
+          <a href="#" className="text-center text-sm">
+            Don't have an account?{" "}
+            <a href="#" className="clickable-link">
+              Sign Up
+            </a>
+          </a>
         </CardContent>
       </Card>
       <div className="mt-6 flex flex-row justify-between">
