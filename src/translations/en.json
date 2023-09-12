@@ -42,5 +42,8 @@
   "password": "Password",
   "settings": "Settings",
   "display": "Display",
-  "option": "Option"
+  "option": "Option",
+  "checkEmail": "Check you email",
+  "resendEmail": "Resend Email",
+  "pleaseVerify": "Thank you for signing up! To complete your registration, we've sent a verification email to the address you provided. Please check your inbox and follow the instructions in the email to activate your account."
 }

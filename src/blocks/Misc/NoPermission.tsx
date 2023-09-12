@@ -2,17 +2,13 @@ import React, { FC } from "react"
 import { Card, CardContent } from "../../elements/Card"
 
 type TNoPermission = {
-  variant?: "outlined" | "contained" | "neobrutalism"
   texts?: {
     title: string
     subtitle: string
   }
 }
 
-export const NoPermission: FC<TNoPermission> = ({
-  variant = "contained",
-  texts,
-}) => {
+export const NoPermission: FC<TNoPermission> = ({ texts }) => {
   return (
     <Card>
       <CardContent headless>
