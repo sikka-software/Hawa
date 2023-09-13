@@ -315,7 +315,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         className="flex flex-row gap-2"
                         onSelect={() => {
                           subitem.action()
-                          selectCallback(subitem.value)
+                          if (selectCallback) {
+                            selectCallback(subitem.value)
+                          }
                         }}
                         key={subIndex}
                       >
@@ -337,9 +339,13 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   }
                   if (item.action) {
                     item.action()
-                    selectCallback(item.value)
+                    if (selectCallback) {
+                      selectCallback(item.value)
+                    }
                   } else {
-                    selectCallback(item.value)
+                    if (selectCallback) {
+                      selectCallback(item.value)
+                    }
                   }
                 }}
                 end={item.end}
