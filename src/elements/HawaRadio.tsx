@@ -1,5 +1,5 @@
 import React, { useState, FC, useRef, useEffect } from "react"
-import clsx from "clsx"
+import { cn } from "../util"
 
 type RadioTypes = {
   orientation?: "vertical" | "horizontal"
@@ -49,7 +49,7 @@ export const HawaRadio: FC<RadioTypes> = ({
       return (
         <ul
           ref={ref}
-          className={clsx(
+          className={cn(
             props.options?.length > 2
               ? "flex-wrap xs:max-w-full xs:flex-nowrap"
               : "",
@@ -65,7 +65,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                 setSelectedOption(opt.value)
                 props.onChangeTab(opt.value)
               }}
-              className={clsx(
+              className={cn(
                 "w-full cursor-pointer",
                 orientation === "horizontal" &&
                   parentDirection === "ltr" &&
@@ -89,7 +89,7 @@ export const HawaRadio: FC<RadioTypes> = ({
       )
     case "bordered":
       return (
-        <div className={clsx(orientationStyle[orientation], "gap-4")}>
+        <div className={cn(orientationStyle[orientation], "gap-4")}>
           {props.options.map((opt, i) => (
             <div className="rounded border border-gray-200   ">
               <div
@@ -106,7 +106,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                 />
                 <label
                   htmlFor={opt.value.toString()}
-                  className={clsx(
+                  className={cn(
                     "ml-2 w-full  p-4 pl-3  text-sm font-medium dark:text-white",
                     opt.disabled ? "opacity-50" : "cursor-pointer text-gray-900"
                   )}
@@ -120,7 +120,7 @@ export const HawaRadio: FC<RadioTypes> = ({
       )
     case "cards":
       return (
-        <ul className={clsx(orientationStyle[orientation], "gap-4")}>
+        <ul className={cn(orientationStyle[orientation], "gap-4")}>
           {props.options?.map((opt: any, o) => (
             <li>
               <input
@@ -134,11 +134,11 @@ export const HawaRadio: FC<RadioTypes> = ({
               />
               <label
                 htmlFor={opt.value.toString()}
-                className={clsx(
-                  "inline-flex h-full w-full  items-center justify-between rounded-lg border border-gray-200 bg-white p-5                    text-gray-500  peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-blue-500",
+                className={cn(
+                  "inline-flex h-full w-full  items-center justify-between rounded-lg border border-gray-200 bg-white p-5                    text-gray-500  peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400  dark:peer-checked:text-primary",
                   opt.disabled
                     ? "opacity-50"
-                    : "cursor-pointer hover:bg-gray-100 hover:text-gray-600"
+                    : "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300 hover:text-gray-600"
                 )}
               >
                 <div className="block  h-full w-full">
@@ -169,10 +169,10 @@ export const HawaRadio: FC<RadioTypes> = ({
 
     default:
       return (
-        <div className={orientationStyle[orientation]}>
+        <div className={cn(orientationStyle[orientation], "gap-2")}>
           {props.options.map((opt, i) => (
             <div
-              className="radio-item radio-item-default mb-4 flex items-center transition-all"
+              className="radio-item radio-item-default  flex items-center transition-all"
               key={i + 1}
             >
               <input
@@ -185,8 +185,8 @@ export const HawaRadio: FC<RadioTypes> = ({
               />
               <label
                 htmlFor={opt.value.toString()}
-                className={clsx(
-                  "ml-2 text-sm font-medium dark:text-white",
+                className={cn(
+                  "text-sm font-medium dark:text-white",
                   opt.disabled
                     ? "text-gray-400"
                     : "cursor-pointer text-gray-900"

@@ -1,7 +1,6 @@
 import React from "react";
 
 import { HawaRadio } from "../../elements";
-import { FiSettings, FiActivity, FiAirplay, FiSave } from "react-icons/fi";
 import { t, setLocale } from "../../translations/i18n";
 
 export default {

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, StickyFeatures } from "../../elements";
-import { FiAlertOctagon } from "react-icons/fi";
+import { StickyFeatures } from "../../elements";
 
 export default {
-  title: "Elements/StickyFeatures",
+  title: "Elements/Sticky Features",
   component: StickyFeatures
 };
 
@@ -208,4 +207,4 @@ StickyFeaturesStory.args = {
   tag: "Deploy faster"
 };
 
-StickyFeaturesStory.storyName = "StickyFeatures";
+StickyFeaturesStory.storyName = "Sticky Features";

@@ -138,10 +138,11 @@
     margin-right: 0.25em;
     width: 0.75em;
     vertical-align: middle;
-    color: var(--button-primary-500-hsl);
+    color: hsl(var(--primary));
+
   }
   .link {
-    color: var(--button-primary-500-hsl);
+    color: hsl(var(--primary));
   }
   .link:hover {
     text-decoration: underline;
@@ -199,10 +200,10 @@
     height: 9px;
     position: absolute;
     top: 6px;
-    left: 11px;
+    left: 3px;
     content: " ";
     display: block;
-    background: var(--button-primary-500-hsl);
+    background: hsl(var(--primary));
   }
   .radio-item-bordered input[type="radio"]:checked + label:after {
     border-radius: 100%;
@@ -213,7 +214,7 @@
     left: 23px;
     content: " ";
     display: block;
-    background: var(--button-primary-500-hsl);
+    background: hsl(var(--primary));
   }
 }
 @layer base {
@@ -234,7 +235,6 @@
   }
 }
 @layer utilities {
-
   .shadow-color-primary {
     --tw-shadow: 0.25rem 0.25rem hsl(var(--primary));
     box-shadow: var(--tw-shadow);
