@@ -59,28 +59,18 @@ const AppLandingTemplate = (args, globals) => {
     <div className="max-w-md">
       <AppLanding
         {...args}
+        direction={locale === "ar" ? "rtl" : "ltr"}
         texts={{
-          signIn: "Sign In",
-          signUp: "Sign Up",
           lang: "عربي",
-          emailLabel: t("emailLabel"),
-          emailPlaceholder: t("emailPlaceholder"),
-          emailRequiredText: t("emailRequiredText"),
-          emailInvalidText: t("emailInvalidText"),
-          usernameLabel: t("usernameLabel"),
-          usernamePlaceholder: t("usernamePlaceholder"),
-          usernameRequired: t("usernameRequired"),
-          phoneRequiredText: t("phoneRequiredText"),
-          passwordLabel: t("passwordLabel"),
-          passwordPlaceholder: t("passwordPlaceholder"),
-          passwordRequiredText: t("passwordRequiredText"),
-          forgotPasswordText: t("forgotPasswordText"),
           newUserText: t("newUserText"),
           createAccount: t("createAccount"),
-          signInText: t("signInText"),
-          signInViaGoogleLabel: t("signInViaGoogleLabel"),
-          signInViaGithubLabel: t("signInViaGithubLabel"),
-          signInViaTwitterLabel: t("signInViaTwitterLabel")
+          continueWithGoogle: t("continueWithGoogle"),
+          continueWithTwitter: t("continueWithTwitter"),
+          continueWithApple: t("continueWithApple"),
+          continueWithMicrosoft: t("continueWithMicrosoft"),
+          continueWithEmail: t("continueWithEmail"),
+          continueWithPhone: t("continueWithPhone"),
+          continueWithGithub: t("continueWithGithub")
         }}
       />
     </div>
@@ -91,5 +81,12 @@ export const Landing = AppLandingTemplate.bind({});
 Landing.args = {
   handleSignIn: () => console.log("routing to sign in page"),
   handleSignUp: () => console.log("routing to sign up page"),
-  handleLanguage: () => console.log("changing language")
+  handleLanguage: () => console.log("changing language"),
+  viaGoogle: true,
+  viaTwitter: true,
+  viaGithub: true,
+  viaMicrosoft: true,
+  viaEmail: true,
+  viaPhone: true,
+  viaApple: true
 };

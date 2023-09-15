@@ -22,6 +22,15 @@
   "createAccount": "أنشئ حساب",
   "expandSidebar": "توسيع القائمة",
   "collapseSidebar": "طي القائمة",
+
+  "continueWithGoogle": "الإستمرار بواسطة Google",
+  "continueWithTwitter": "الإستمرار بواسطة Twitter",
+  "continueWithApple": "الإستمرار بواسطة Apple",
+  "continueWithMicrosoft": "الإستمرار بواسطة Microsoft",
+  "continueWithGithub": "الإستمرار بواسطة Github",
+  "continueWithEmail": "الإستمرار بواسطة Email",
+  "continueWithPhone": "الإستمرار بواسطة Phone",
+
   "signInViaGoogleLabel": "الدخول بواسطة Google",
   "signInViaGithubLabel": "الدخول بواسطة Github",
   "signInViaTwitterLabel": "الدخول بواسطة Twitter",

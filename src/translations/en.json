@@ -20,6 +20,15 @@
   "signUpText": "Sign up",
   "createAccount": "Create Account",
   "signInText": "Sign in",
+  
+  "continueWithGoogle": "Continue with Google",
+  "continueWithTwitter": "Continue with Twitter",
+  "continueWithApple": "Continue with Apple",
+  "continueWithMicrosoft": "Continue with Microsoft",
+  "continueWithGithub": "Continue with Github",
+  "continueWithEmail": "Continue with Email",
+  "continueWithPhone": "Continue with Phone",
+
   "signInViaGoogleLabel": "Sign in with Google",
   "signInViaGithubLabel": "Sign in with Github",
   "signInViaTwitterLabel": "Sign in with Twitter",

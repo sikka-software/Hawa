@@ -5,72 +5,121 @@ import { Button } from "../../elements/Button"
 import { Icons } from "../../elements/Icons"
 
 type AppLandingTypes = {
-  handleSignIn: () => void
-  handleSignUp: () => void
-  handleLanguage: () => void
-  handleColorMode: () => void
   texts?: {
     signIn: string
     signUp: string
     lang: string
     newUserText?: string
     createAccount?: string
+    continueWithGoogle?: string
+    continueWithTwitter?: string
+    continueWithApple?: string
+    continueWithMicrosoft?: string
+    continueWithGithub?: string
+    continueWithEmail?: string
+    continueWithPhone?: string
   }
+  viaGoogle?: boolean
+  viaTwitter?: boolean
+  viaGithub?: boolean
+  viaMicrosoft?: boolean
+  viaEmail?: boolean
+  viaPhone?: boolean
+  viaApple?: boolean
+
   withoutSignUp?: boolean
-  handleRouteToSignUp?: () => void
   size: "small" | "normal" | "full"
+  direction: "rtl" | "ltr"
+  handleSignIn: () => void
+  handleSignUp: () => void
+  handleLanguage: () => void
+  handleColorMode: () => void
+  handleRouteToSignUp?: () => void
+  handleGoogle?: () => void
+  handleTwitter?: () => void
+  handleApple?: () => void
+  handleMicrosoft?: () => void
+  handleGithub?: () => void
+  handleEmail?: () => void
+  handlePhone?: () => void
 }
 
-//TODO: update Google auth button
 export const AppLanding: FC<AppLandingTypes> = (props) => {
   return (
-    <div>
+    <div dir={props.direction}>
       <Card>
         <CardContent headless className="flex flex-col gap-6">
-          <Button
-            className="flex flex-row items-center gap-2"
-            variant="outline"
-            // onClick={props.handleGoogleSignIn}
-          >
-            <Icons.google className="h-4 w-4" />
-            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
-            Continue With Google
-          </Button>
-          <Button
-            className="flex flex-row items-center gap-2"
-            variant="outline"
-            // onClick={props.handleGoogleSignIn}
-          >
-            <Icons.twitter className="h-4 w-4" />
-            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
-            Continue With Twitter
-          </Button>
-          <Button
-            className="flex flex-row items-center gap-2"
-            variant="outline"
-            // onClick={props.handleGoogleSignIn}
-          >
-            <Icons.apple className="h-4 w-4" />
-            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
-            Continue With Apple
-          </Button>
-          <Button
-            className="flex flex-row items-center gap-2"
-            variant="outline"
-            // onClick={props.handleGoogleSignIn}
-          >
-            <Icons.mail className="h-4 w-4" />
-            {/* {!props.logosOnly && props.texts.signInViaGoogleLabel} */}
-            Continue With Email
-          </Button>
-
-          {/* {props.handleSignIn && (
-            <Button onClick={props.handleSignIn}>{props.texts.signIn}</Button>
-            // <Button onClick={props.handleSignIn}>Continue With Google</Button>
+          {props.viaGoogle && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleGoogle}
+            >
+              <Icons.google className="h-4 w-4" />
+              {props.texts?.continueWithGoogle ?? "Continue With Google"}
+            </Button>
           )}
-          {props.handleSignUp && (
-            <Button onClick={props.handleSignUp}>{props.texts.signUp}</Button>
-          )} */}
+          {props.viaGithub && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleGithub}
+            >
+              <Icons.gitHub className="h-4 w-4" />
+              {props.texts?.continueWithGithub ?? "Continue With Github"}
+            </Button>
+          )}
+          {props.viaTwitter && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleTwitter}
+            >
+              <Icons.twitter className="h-4 w-4" />
+              {props.texts?.continueWithTwitter ?? "Continue With Twitter"}
+            </Button>
+          )}
+          {props.viaApple && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleApple}
+            >
+              <Icons.apple className="h-4 w-4" />
+              {props.texts?.continueWithApple ?? "Continue With Apple"}
+            </Button>
+          )}
+          {props.viaMicrosoft && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleMicrosoft}
+            >
+              <Icons.microsoft className="h-4 w-4" />
+              {props.texts?.continueWithMicrosoft ?? "Continue With Microsoft"}
+            </Button>
+          )}
+          {props.viaEmail && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handleEmail}
+            >
+              <Icons.mail className="h-4 w-4" />
+              {props.texts?.continueWithEmail ?? "Continue With Email"}
+            </Button>
+          )}
+          {props.viaPhone && (
+            <Button
+              className="flex flex-row items-center gap-2"
+              variant="outline"
+              onClick={props.handlePhone}
+            >
+              <Icons.phone className="h-4 w-4" />
+              {props.texts?.continueWithPhone ?? "Continue With Phone"}
+            </Button>
+          )}
+
           {!props.withoutSignUp && (
             <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
               {props.texts.newUserText}{" "}
@@ -82,7 +131,6 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
               </span>
             </div>
           )}
-         
         </CardContent>
       </Card>
       <div className="mt-6 flex flex-row justify-between">
