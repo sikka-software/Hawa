@@ -1,5 +1,6 @@
 import React from "react";
 import { ResetPasswordForm } from "../../../blocks/AuthForms";
+import { setLocale, t } from "../../../translations/i18n";
 
 export default {
   title: "Blocks/Auth/Reset Password",
@@ -14,16 +15,23 @@ export default {
   }
 };
 
-const ResetPasswordTemplate = (args) => {
+const ResetPasswordTemplate = (args, globals) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  setLocale(locale);
+
   return (
     <div className="max-w-md">
-      <ResetPasswordForm {...args} />
+      <ResetPasswordForm
+        {...args}
+        direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
+      />
     </div>
   );
 };
 export const ResetPassword = ResetPasswordTemplate.bind({});
 ResetPassword.args = {
   sent: false,
+
   texts: {
     emailLabel: "Email",
     emailPlaceholder: "Enter your email",

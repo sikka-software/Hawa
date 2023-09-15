@@ -26,6 +26,7 @@ type ResetPasswordType = {
     dontHaveAccount: string
   }
   headless?: boolean
+  direction?: "rtl" | "ltr"
 }
 
 export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
@@ -37,7 +38,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
     control,
   } = methods
   return (
-    <Card>
+    <Card dir={props.direction}>
       {!props.sent ? (
         <>
           {!props.headless && (
@@ -73,7 +74,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                   },
                 }}
               />
-              <div className=" pb-2 text-left text-sm dark:text-gray-300">
+              <div className="pb-2 text-start text-sm dark:text-gray-300">
                 {props.texts?.dontHaveAccount ?? "Don't have an account? "}
                 <span
                   onClick={props.handleRouteToSignUp}

@@ -18,9 +18,7 @@ export function Toaster(props) {
       {toasts.map(function ({ id, title, description, action, ...toastProps }) {
         return (
           <Toast direction={props.direction} key={id} {...toastProps}>
-            <div
-              className={cn("grid gap-1", isRTL ? "text-right" : "text-left")}
-            >
+            <div className={"grid gap-1 text-start"}>
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
                 <ToastDescription>{description}</ToastDescription>
