@@ -55,7 +55,7 @@ export const HawaRadio: FC<RadioTypes> = ({
               : "",
             "select-none whitespace-nowrap rounded  border text-center text-sm font-medium",
             widthStyle[width],
-            orientationStyle[orientation]
+            orientationStyle[orientation],
           )}
         >
           {props.options?.map((opt: any, o) => (
@@ -138,7 +138,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                   "inline-flex h-full w-full  items-center justify-between rounded-lg border border-gray-200 bg-white p-5                    text-gray-500  peer-checked:border-blue-600 peer-checked:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400  dark:peer-checked:text-primary",
                   opt.disabled
                     ? "opacity-50"
-                    : "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300 hover:text-gray-600"
+                    : "cursor-pointer hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 )}
               >
                 <div className="block  h-full w-full">

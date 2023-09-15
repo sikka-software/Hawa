@@ -1,7 +1,6 @@
 import React from "react"
 import { linkTo } from "@storybook/addon-links"
 import "../stories-styles.css"
-import { AiFillSafetyCertificate } from "react-icons/ai"
 import { useDarkMode } from "storybook-dark-mode"
 
 export default {

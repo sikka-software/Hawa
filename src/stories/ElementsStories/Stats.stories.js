@@ -1,7 +1,5 @@
 import React from "react";
-
 import { HawaStats } from "../../elements";
-import { AiFillGoogleCircle } from "react-icons/ai";
 
 export default {
   title: "Elements/Stats",

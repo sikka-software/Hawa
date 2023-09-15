@@ -74,7 +74,10 @@ export const Icons = {
   ),
   microsoft: (props: IconProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" {...props}>
-      <path d="M7.462 0H0v7.19h7.462V0zM16 0H8.538v7.19H16V0zM7.462 8.211H0V16h7.462V8.211zm8.538 0H8.538V16H16V8.211z"></path>
+      <path
+        fill="currentColor"
+        d="M7.462 0H0v7.19h7.462V0zM16 0H8.538v7.19H16V0zM7.462 8.211H0V16h7.462V8.211zm8.538 0H8.538V16H16V8.211z"
+      ></path>
     </svg>
   ),
   gitHub: (props: IconProps) => (

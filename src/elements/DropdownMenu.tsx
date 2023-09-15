@@ -19,7 +19,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center justify-between rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
+      "flex cursor-default select-none items-center justify-between rounded-sm px-2 py-3 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
       inset && "pl-8",
       className
     )}
@@ -92,13 +92,13 @@ const DropdownMenuItem = React.forwardRef<
     disabled={props.disabled}
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center justify-between rounded-sm px-2 py-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center justify-between rounded-sm text-sm outline-none transition-colors focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className
     )}
     {...props}
   >
-    <div className="flex flex-row items-center gap-2">{props.children}</div>
+    <div className="flex flex-row items-center gap-2 ">{props.children}</div>
 
     {props.end && props.end}
   </DropdownMenuPrimitive.Item>
@@ -305,14 +305,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
               <DropdownMenuSub key={index}>
                 <DropdownMenuSubTrigger dir={direction}>
                   {item.icon && item.icon}
-                  {item.label}
+                  {item.label && item.label}
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>
                     {item.subitems.map((subitem, subIndex) => (
                       <DropdownMenuItem
                         disabled={subitem.disabled}
-                        className="flex flex-row gap-2"
+                        // className="flex flex-row gap-2"
+                        className="px-2 py-3"
                         onSelect={() => {
                           subitem.action()
                           if (selectCallback) {
@@ -322,7 +323,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         key={subIndex}
                       >
                         {subitem.icon && subitem.icon}
-                        {subitem.label}
+                        {subitem.label && subitem.label}
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuSubContent>
@@ -331,7 +332,6 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
             ) : (
               <DropdownMenuItem
                 disabled={item.disabled}
-                className="flex flex-row gap-2"
                 key={index}
                 onSelect={(e) => {
                   if (item.presist) {
@@ -349,9 +349,14 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   }
                 }}
                 end={item.end}
+                className={
+                  !item.icon && !item.label
+                    ? "px-0 py-0 focus:bg-transparent "
+                    : "px-2 py-3 focus:bg-accent "
+                }
               >
                 {item.icon && item.icon}
-                {item.label}
+                {item.label && item.label}
               </DropdownMenuItem>
             )
           })}

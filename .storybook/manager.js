@@ -20,7 +20,10 @@ addons.setConfig({
   },
   styles: {
     ".sb-show-main": {
-      padding: "0 !important"
+      padding: "0px !important"
+    },
+    "#storybook-preview-wrapper": {
+      padding: "0px !important"
     }
   }
 });

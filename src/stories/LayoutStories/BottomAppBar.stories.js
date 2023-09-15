@@ -1,6 +1,5 @@
 import React from "react";
 import { HawaBottomAppBar } from "../../layout/HawaBottomAppBar";
-// import { AiOutlineMenu, AiFillSetting, AiFillAlert } from "react-icons/ai";
 
 export default {
   title: "Layout/BottomAppBar",
