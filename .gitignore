@@ -1,9 +1,9 @@
 .idea
 /node_modules
+/landing/public/docs
+/storybook-static
 /dist
 /es
-/landing/public/docs
 /lib
 package-lock.json
 yarn.lock
-/storybook-static

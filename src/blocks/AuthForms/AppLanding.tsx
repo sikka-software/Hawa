@@ -6,9 +6,6 @@ import { Icons } from "../../elements/Icons"
 
 type AppLandingTypes = {
   texts?: {
-    signIn: string
-    signUp: string
-    lang: string
     newUserText?: string
     createAccount?: string
     continueWithGoogle?: string
@@ -122,7 +119,7 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
 
           {!props.withoutSignUp && (
             <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
-              {props.texts.newUserText}{" "}
+              {props.texts.newUserText}
               <span
                 onClick={props.handleRouteToSignUp}
                 className="clickable-link"
