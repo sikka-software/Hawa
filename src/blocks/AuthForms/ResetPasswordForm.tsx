@@ -25,6 +25,7 @@ type ResetPasswordType = {
     signUpText: string
     dontHaveAccount: string
   }
+  headless?: boolean
 }
 
 export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
@@ -39,14 +40,16 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
     <Card>
       {!props.sent ? (
         <>
-          <CardHeader>
-            <CardTitle>Reset Password</CardTitle>
-            <CardDescription>
-              Enter your email to reset your account password
-            </CardDescription>
-          </CardHeader>
+          {!props.headless && (
+            <CardHeader>
+              <CardTitle>Reset Password</CardTitle>
+              <CardDescription>
+                Enter your email to reset your account password
+              </CardDescription>
+            </CardHeader>
+          )}
           <form onSubmit={handleSubmit(props.handleResetPassword)}>
-            <CardContent>
+            <CardContent headless={props.headless}>
               <Controller
                 control={control}
                 name="email"
