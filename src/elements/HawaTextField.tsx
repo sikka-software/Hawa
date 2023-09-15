@@ -32,6 +32,7 @@ type TextFieldTypes = {
   preview?: boolean
   autoComplete?: any
   maxLength?: any
+  iconInside?: React.ReactNode
 }
 
 export const HawaTextField: FC<TextFieldTypes> = ({
@@ -79,12 +80,16 @@ export const HawaTextField: FC<TextFieldTypes> = ({
             className={cn(
               defaultInputStyle,
               props.icon && "pl-10",
-              preview && "border-transparent bg-transparent px-0" 
+              preview && "border-transparent bg-transparent px-0"
             )}
             disabled={preview}
           />
         </div>
-
+        {props.iconInside && (
+          <div className="absolute right-1 top-[41px]  -translate-y-1/2">
+            {props.iconInside}
+          </div>
+        )}
         {props.helpertext ? (
           <p className="mb-0 mt-1 text-xs text-red-600 dark:text-red-500">
             {props.helpertext}

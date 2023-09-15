@@ -88,7 +88,7 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5% 64.9%;
-    --radius: 0.5rem;
+    --radius: 0rem;
     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
 
     --layout-primary-700: #b7aff7;
