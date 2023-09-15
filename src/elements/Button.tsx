@@ -19,6 +19,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        neoBrutalism:
+          "cursor-pointer transition-all uppercase font-mono  dark:bg-black font-bold py-2 px-4 rounded border-2 border-primary shadow-color-primary transition-[transform_50ms, box-shadow_50ms] active:translate-x-0.5 active:translate-y-0.5 active:shadow-color-primary-active",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -59,6 +61,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const Comp = "button"
+
+    // Determine the color for the HawaLoading component based on the variant
+    const loadingColor =
+      variant === "outline" || variant === "ghost" || variant === "neoBrutalism"
+        ? "bg-primary"
+        : "bg-primary-foreground"
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
@@ -68,7 +77,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {isLoading ? (
           <HawaLoading
             design="dots-pulse"
-            color="bg-primary-foreground"
+            color={loadingColor} // Apply the computed color here
             size="button"
           />
         ) : (

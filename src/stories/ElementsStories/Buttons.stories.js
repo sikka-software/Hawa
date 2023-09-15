@@ -17,7 +17,8 @@ export const ButtonVariationsStory = () => {
     "outline",
     "secondary",
     "ghost",
-    "link"
+    "link",
+    "neoBrutalism"
   ];
 
   return (
@@ -29,6 +30,8 @@ export const ButtonVariationsStory = () => {
             {variant.charAt(0).toUpperCase() + variant.slice(1)}
           </Button>
         ))}
+
+    
       </div>
       <h1>TEST</h1>
     </div>

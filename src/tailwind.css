@@ -234,6 +234,16 @@
   }
 }
 @layer utilities {
+
+  .shadow-color-primary {
+    --tw-shadow: 0.25rem 0.25rem hsl(var(--primary));
+    box-shadow: var(--tw-shadow);
+  }
+  .shadow-color-primary-active {
+    --tw-shadow: 0.125rem 0.125rem hsl(var(--primary));
+    box-shadow: var(--tw-shadow);
+  }
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
