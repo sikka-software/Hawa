@@ -2,8 +2,8 @@ import clsx from "clsx"
 import React, { FC } from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
+import { Label } from "./Label"
 
-// The select bar
 type ControlTypes = {
   cx: any
   children: any
@@ -87,13 +87,13 @@ const Option: FC<OptionTypes> = ({
 }) => (
   <div
     ref={innerRef}
-    className="flex flex-row items-center justify-between rounded-inner p-1 px-2 hover:text-primary-foreground hover:bg-primary"
+    className="flex cursor-pointer select-none flex-row items-center justify-between rounded-inner p-1 px-2 hover:bg-primary hover:text-primary-foreground"
     {...innerProps}
   >
     {children}
   </div>
 )
-// The main element
+
 type SelectTypes = {
   label?: string
   options?: {
@@ -116,12 +116,14 @@ type SelectTypes = {
 }
 export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
-    <div className=" w-full">
-      {props.label && (
+    <div className=" flex w-full flex-col gap-2">
+      {props.label && <Label>{props.label}</Label>}
+
+      {/* {props.label && (
         <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
           {props.label}
         </div>
-      )}
+      )} */}
       {!props.isCreatable && (
         <Select
           classNames={{

@@ -91,7 +91,7 @@ export const HawaTextField: FC<TextFieldTypes> = ({
           </div>
         )}
         {props.helpertext ? (
-          <p className="mb-0 mt-1 text-xs text-red-600 dark:text-red-500">
+          <p className="mb-0 mt-0 text-xs text-red-600 dark:text-red-500">
             {props.helpertext}
           </p>
         ) : null}
