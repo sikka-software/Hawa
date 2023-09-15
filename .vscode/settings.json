@@ -1,0 +1,9 @@
+{
+  "todo-tree.tree.showBadges": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#007fff",
+    "titleBar.activeBackground": "#007fff",
+    "statusBarItem.remoteBackground": "#007fff"
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

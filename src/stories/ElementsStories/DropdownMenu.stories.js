@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Button, DropdownMenu, Switch } from "../../elements";
+import { withInfo } from "@storybook/addon-info";
 import {
   FaAd,
   FaAdjust,
@@ -7,6 +8,7 @@ import {
   FaFolderOpen,
   FaHome
 } from "react-icons/fa";
+import PropsTable from "../PropsTable";
 
 export default {
   title: "Elements/DropdownMenu",
@@ -61,29 +63,46 @@ export const DropdownMenuStory = () => {
   };
 
   return (
-    <div>
-      <div className="flex- row flex w-full items-center justify-center gap-6 p-3">
-        <DropdownMenu
-          // direction={"rtl"}
-          trigger={<Button>LTR Menu</Button>}
-          items={items}
-          onItemSelect={handleItemSelect}
-        />{" "}
-        <DropdownMenu
-          direction={"rtl"}
-          trigger={<Button>RTL Menu</Button>}
-          items={items}
-          onItemSelect={handleItemSelect}
-        />{" "}
+    <div className="flex min-h-screen flex-1 flex-col bg-red-300">
+      <div className="flex flex-col flex-1">
+        <div className="flex-row flex w-full items-center justify-center gap-6 p-3">
+          <DropdownMenu
+            // direction={"rtl"}
+            trigger={<Button>LTR Menu</Button>}
+            items={items}
+            onItemSelect={handleItemSelect}
+          />{" "}
+          <DropdownMenu
+            direction={"rtl"}
+            trigger={<Button>RTL Menu</Button>}
+            items={items}
+            onItemSelect={handleItemSelect}
+          />{" "}
+        </div>
+        <div className="flex- row flex w-full items-center justify-center gap-6 p-3">
+          <DropdownMenu
+            width="parent"
+            trigger={<Button>Menu Width Equal to Trigger Button</Button>}
+            items={items}
+            onItemSelect={handleItemSelect}
+          />{" "}
+        </div>
       </div>
-      <div className="flex- row flex w-full items-center justify-center gap-6 p-3">
-        <DropdownMenu
-          width="parent"
-          trigger={<Button>Menu Width Equal to Trigger Button</Button>}
-          items={items}
-          onItemSelect={handleItemSelect}
-        />{" "}
-      </div>
+      <PropsTable     componentProps={[
+          {
+            name: 'prop1',
+            type: 'string',
+            default: '',
+            description: 'Description of prop1',
+          },
+          {
+            name: 'prop2',
+            type: 'number',
+            default: 0,
+            description: 'Description of prop2',
+          },
+          // Add more props as needed
+        ]} />
     </div>
   );
 };

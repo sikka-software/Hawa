@@ -4,7 +4,6 @@
 /es
 /landing/public/docs
 /lib
-/.vscode
 package-lock.json
 yarn.lock
 /storybook-static

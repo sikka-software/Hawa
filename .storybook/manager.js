@@ -9,7 +9,7 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
     collapsedRoots: ["blocks", "layout", "elements"]
-    // renderLabel: (item) => <abbr title="...">{item.name}</abbr>
+    // renderLabel: (item) => <abbr title="...">ddd{item.name}</abbr>
   },
   toolbar: {
     title: { hidden: true },
@@ -17,6 +17,11 @@ addons.setConfig({
     eject: { hidden: false },
     copy: { hidden: false },
     fullscreen: { hidden: false }
+  },
+  styles: {
+    ".sb-show-main": {
+      padding: "0 !important"
+    }
   }
 });
 
