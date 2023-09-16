@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, HawaTable, HawaTextField } from "../../elements";
 import { setLocale, t } from "../../translations/i18n";
-
+import { AiFillAccountBook, AiFillAudio, AiFillLock } from "react-icons/ai";
 export default {
   title: "Elements/Table",
   component: HawaTable,
@@ -192,16 +192,19 @@ export const DataWithActions = (args) => {
         direction="ltr"
         actions={[
           {
-            value: "view",
-            label: "View"
+            icon: <AiFillAccountBook />,
+            label: "View",
+            action: (e) => console.log("viewing", e)
           },
           {
-            value: "edit",
-            label: "Edit"
+            icon: <AiFillAudio />,
+            label: "Edit",
+            action: (e) => console.log("editing", e)
           },
           {
-            value: "delete",
-            label: "Delete"
+            icon: <AiFillLock />,
+            label: "Delete",
+            action: (e) => console.log("deleting", e)
           }
         ]}
         handleActionClick={(action, row) =>
@@ -278,7 +281,7 @@ export const WithHeader = (args) => {
               width="full"
               margin="none"
             />{" "}
-            <div className="flex flex-row items-center justify-between gap-2">
+            {/* <div className="flex flex-row items-center justify-between gap-2">
               <Button className="flex flex-row gap-2">
                 <svg
                   aria-label="Filter Icon"
@@ -307,14 +310,26 @@ export const WithHeader = (args) => {
                   ></path>
                 </svg>
               </Button>
-            </div>
+            </div> */}
           </>
         }
         direction="ltr"
         actions={[
-          { label: "View", action: (e) => console.log("viewing", e) },
-          { label: "Edit", action: (e) => console.log("editing", e) },
-          { label: "Delete", action: (e) => console.log("deleting", e) }
+          {
+            icon: <AiFillAccountBook />,
+            label: "View",
+            action: (e) => console.log("viewing", e)
+          },
+          {
+            icon: <AiFillAudio />,
+            label: "Edit",
+            action: (e) => console.log("editing", e)
+          },
+          {
+            icon: <AiFillLock />,
+            label: "Delete",
+            action: (e) => console.log("deleting", e)
+          }
         ]}
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
@@ -381,9 +396,21 @@ export const RTLWithActions = (args) => {
           page: "صفحة"
         }}
         actions={[
-          { label: "View", action: (e) => console.log("viewing", e) },
-          { label: "Edit", action: (e) => console.log("editing", e) },
-          { label: "Delete", action: (e) => console.log("deleting", e) }
+          {
+            icon: <AiFillAccountBook />,
+            label: "View",
+            action: (e) => console.log("viewing", e)
+          },
+          {
+            icon: <AiFillAudio />,
+            label: "Edit",
+            action: (e) => console.log("editing", e)
+          },
+          {
+            icon: <AiFillLock />,
+            label: "Delete",
+            action: (e) => console.log("deleting", e)
+          }
         ]}
         columns={[
           { hidden: false, value: "المنتج" },

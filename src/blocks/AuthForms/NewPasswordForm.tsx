@@ -13,6 +13,8 @@ import { Button } from "../../elements/Button"
 
 type NewPasswordTypes = {
   handleNewPassword: () => void
+  direction?: "rtl" | "ltr"
+
   passwordChanged: any
   texts: {
     passwordPlaceholder: string
@@ -45,7 +47,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
   }
 
   return (
-    <Card>
+    <Card dir={props.direction}>
       {matchError && (
         <HawaAlert text={props.texts.passwordMatchError} severity="error" />
       )}

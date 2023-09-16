@@ -7,6 +7,7 @@ type StatTypes = {
   color?: string
   number?: string
   helperText?: string
+  chart?: any
   icon?: any
   variant?:
     | "default"
@@ -38,6 +39,11 @@ export const HawaStats: FC<StatTypes> = ({ variant = "default", ...props }) => {
           props.helperText && (
             <p className="text-xs text-muted-foreground">{props.helperText}</p>
           )
+        )}
+        {props.isLoading && props.chart ? (
+          <Skeleton className="mt-2 h-4 w-1/2" />
+        ) : (
+          props.chart
         )}
       </CardContent>
     </Card>

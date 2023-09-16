@@ -24,6 +24,7 @@ type AppLayoutTypes = {
   avatarImage?: any
   drawerSize?: "sm" | "md" | "large"
   profileMenuItems?: MenuItemType[]
+  profileMenuWidth: "default" | "sm" | "lg" | "parent"
   onSettingsClick?: () => void
   DrawerFooterActions?: any
   clickedItem?: any
@@ -203,7 +204,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               alignOffset={8}
               side={"bottom"}
               sideOffset={5}
+              width={props.profileMenuWidth}
               direction={isRTL ? "rtl" : "ltr"}
+              items={props.profileMenuItems}
+              onItemSelect={(e) => console.log("selecting item ", e)}
               trigger={
                 <div className="relative h-8 w-8  cursor-pointer overflow-clip rounded ring-1 ring-primary/30 dark:bg-gray-600">
                   {props.avatarImage ? (
@@ -224,8 +228,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   )}
                 </div>
               }
-              items={props.profileMenuItems}
-              onItemSelect={(e) => console.log("selecting item ", e)}
             />
           </div>
         </div>

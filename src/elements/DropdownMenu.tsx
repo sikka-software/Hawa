@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../util"
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root
@@ -241,13 +241,13 @@ export type SubItem = {
   highlighted?: boolean
   disabled?: boolean
 }
-
 export type MenuItemType = {
   icon?: any
-  label: string
-  value: string
+  label?: string
+  value?: string
   end?: any
   presist?: boolean
+  type?: "separator" | "label"
   action?: () => void
   highlighted?: boolean
   subitems?: SubItem[] // Note the use of the optional modifier
@@ -265,8 +265,29 @@ interface DropdownMenuProps {
   align?: ExtendedDropdownMenuContentProps["align"]
   alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"]
   width?: "default" | "sm" | "lg" | "parent"
+  size?: "default" | "sm"
   selectCallback?: any
 }
+
+// const dropDownMenuVariants = cva(
+//   "inline-flex items-center justify-center select-none rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+//   {
+//     variants: {
+//       width: {
+//         default: "bg-primary text-primary-foreground hover:bg-primary/90",
+//       },
+//       size: {
+//         default: "h-10 px-4 py-2",
+//         sm: "h-9 rounded-md px-3",
+//       },
+//     },
+//     defaultVariants: {
+//       width: "default",
+//       size: "default",
+//     },
+//   }
+// )
+
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
   items,
@@ -279,6 +300,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   align,
   alignOffset,
   selectCallback,
+  size = "default",
   width = "default",
 }) => {
   const widthStyles = {
@@ -286,6 +308,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
     sm: "w-fit",
     lg: "w-[200px]",
     parent: "ddm-w-parent",
+  }
+  const sizeStyles = {
+    default: "px-2 py-3 ",
+    sm: "text-xs px-1.5 py-1.5",
   }
   return (
     <DropdownMenuRoot dir={direction}>
@@ -301,64 +327,81 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           alignOffset={alignOffset}
         >
           {items.map((item, index) => {
-            return item.subitems ? (
-              <DropdownMenuSub key={index}>
-                <DropdownMenuSubTrigger dir={direction}>
+            if (item.type === "separator") {
+              return <DropdownMenuSeparator />
+            } else if (item.type === "label") {
+              return <DropdownMenuLabel>{item.label}</DropdownMenuLabel>
+            } else {
+              return item.subitems ? (
+                <DropdownMenuSub key={index}>
+                  <DropdownMenuSubTrigger
+                    className={cn(sizeStyles[size])}
+                    dir={direction}
+                  >
+                    {item.icon && item.icon}
+                    {item.label && item.label}
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent>
+                      {item.subitems.map((subitem, subIndex) => (
+                        <DropdownMenuItem
+                          className={cn(
+                            sizeStyles[size],
+
+                            !item.icon && !item.label
+                              ? "px-0 py-0 focus:bg-transparent"
+                              : "focus:bg-accent"
+                          )}
+                          disabled={subitem.disabled}
+                          // className="flex flex-row gap-2"
+                          onSelect={() => {
+                            subitem.action()
+                            if (selectCallback) {
+                              selectCallback(subitem.value)
+                            }
+                          }}
+                          key={subIndex}
+                        >
+                          {subitem.icon && subitem.icon}
+                          {subitem.label && subitem.label}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+              ) : (
+                <DropdownMenuItem
+                  disabled={item.disabled}
+                  key={index}
+                  onSelect={(e) => {
+                    if (item.presist) {
+                      e.preventDefault()
+                    }
+                    if (item.action) {
+                      item.action()
+                      if (selectCallback) {
+                        selectCallback(item.value)
+                      }
+                    } else {
+                      if (selectCallback) {
+                        selectCallback(item.value)
+                      }
+                    }
+                  }}
+                  end={item.end}
+                  className={cn(
+                    sizeStyles[size],
+                    !item.icon && !item.label
+                      ? "px-0 py-0 focus:bg-transparent "
+                      : "focus:bg-accent ",
+                    item.presist && "focus:bg-transparent"
+                  )}
+                >
                   {item.icon && item.icon}
                   {item.label && item.label}
-                </DropdownMenuSubTrigger>
-                <DropdownMenuPortal>
-                  <DropdownMenuSubContent>
-                    {item.subitems.map((subitem, subIndex) => (
-                      <DropdownMenuItem
-                        disabled={subitem.disabled}
-                        // className="flex flex-row gap-2"
-                        className="px-2 py-3"
-                        onSelect={() => {
-                          subitem.action()
-                          if (selectCallback) {
-                            selectCallback(subitem.value)
-                          }
-                        }}
-                        key={subIndex}
-                      >
-                        {subitem.icon && subitem.icon}
-                        {subitem.label && subitem.label}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuSubContent>
-                </DropdownMenuPortal>
-              </DropdownMenuSub>
-            ) : (
-              <DropdownMenuItem
-                disabled={item.disabled}
-                key={index}
-                onSelect={(e) => {
-                  if (item.presist) {
-                    e.preventDefault()
-                  }
-                  if (item.action) {
-                    item.action()
-                    if (selectCallback) {
-                      selectCallback(item.value)
-                    }
-                  } else {
-                    if (selectCallback) {
-                      selectCallback(item.value)
-                    }
-                  }
-                }}
-                end={item.end}
-                className={
-                  !item.icon && !item.label
-                    ? "px-0 py-0 focus:bg-transparent "
-                    : "px-2 py-3 focus:bg-accent "
-                }
-              >
-                {item.icon && item.icon}
-                {item.label && item.label}
-              </DropdownMenuItem>
-            )
+                </DropdownMenuItem>
+              )
+            }
           })}
         </DropdownMenuContent>
       </DropdownMenuPortal>

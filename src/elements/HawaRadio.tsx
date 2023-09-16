@@ -55,7 +55,7 @@ export const HawaRadio: FC<RadioTypes> = ({
               : "",
             "select-none whitespace-nowrap rounded  border text-center text-sm font-medium",
             widthStyle[width],
-            orientationStyle[orientation],
+            orientationStyle[orientation]
           )}
         >
           {props.options?.map((opt: any, o) => (
@@ -66,7 +66,7 @@ export const HawaRadio: FC<RadioTypes> = ({
                 props.onChangeTab(opt.value)
               }}
               className={cn(
-                "w-full cursor-pointer",
+                "w-full cursor-pointer ",
                 orientation === "horizontal" &&
                   parentDirection === "ltr" &&
                   "rounded-none first:rounded-l last:rounded-r",
@@ -78,6 +78,7 @@ export const HawaRadio: FC<RadioTypes> = ({
 
                 "last flex flex-row items-center justify-center gap-2 ",
                 selectedOption === opt.value ? activeTabStyle : inactiveTabStyle
+                // "bg-red-500"
               )}
               key={o}
             >

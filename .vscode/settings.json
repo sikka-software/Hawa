@@ -3,7 +3,8 @@
   "workbench.colorCustomizations": {
     "statusBar.background": "#007fff",
     "titleBar.activeBackground": "#007fff",
-    "statusBarItem.remoteBackground": "#007fff"
+    "statusBarItem.remoteBackground": "#007fff",
+    "titleBar.activeForeground": "#ffffff"
   },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
