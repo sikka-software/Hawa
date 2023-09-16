@@ -211,7 +211,6 @@ export const DataWithActions = (args) => {
           console.log("doing " + action + " to " + row)
         }
         columns={dummyColsData}
-        // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
         rows={dummyRowData}
         {...args}
       />
@@ -223,12 +222,6 @@ DataWithActions.args = {
   bordersWidth: 1
 };
 export const SortableData = (args) => {
-  function randomDate(start, end) {
-    return new Date(
-      start.getTime() + Math.random() * (end.getTime() - start.getTime())
-    );
-  }
-
   return (
     <div dir="ltr" className="">
       <HawaTable
@@ -240,7 +233,6 @@ export const SortableData = (args) => {
         ]}
         onActionClicked={(row) => console.log("row is", row)}
         columns={dummyColsData}
-        // columns={dummyColsData.concat({ hidden: false, value: "Actions" })}
         rows={dummyRowData}
         {...args}
       />
