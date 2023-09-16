@@ -24,6 +24,7 @@ type TableTypes = {
   columns: ColTypes[]
   actions?: MenuItemType[]
   actionsWidth?: "default" | "sm" | "lg" | "parent"
+  actionsSize?: "default" | "sm"
   direction?: "rtl" | "ltr"
   rows?: RowTypes[][]
   handleActionClick?: any
@@ -111,7 +112,7 @@ export const HawaTable: FC<TableTypes> = ({
   }, [slice, page])
 
   return (
-    <div className="relative flex flex-col gap-2 bg-background ">
+    <div className="relative flex flex-col gap-2  ">
       <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
         {props.headerTools && (
           <div className="flex flex-row items-center justify-between gap-2 border bg-background px-2  py-2">
@@ -267,6 +268,7 @@ export const HawaTable: FC<TableTypes> = ({
                         <div className="flex items-center justify-center">
                           <DropdownMenu
                             width={props.actionsWidth}
+                            size={props.actionsSize}
                             direction={direction}
                             side="right"
                             items={props.actions}
