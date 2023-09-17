@@ -116,16 +116,16 @@ export const HawaTable: FC<TableTypes> = ({
         )}
         <table
           className={clsx(
-            borders === "outer" || borders === "all"
-              ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300 dark:outline-gray-700`
-              : "",
-            "w-full  rounded   text-left text-sm text-gray-500 dark:text-gray-400",
+            // borders === "outer" || borders === "all"
+            //   ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300 dark:outline-gray-700`
+            //   : "",
+            "w-full rounded bg-muted text-left text-sm text-muted-foreground",
             `bg-${headerColor}`
           )}
         >
           <thead
             className={clsx(
-              "text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400",
+              "bg-muted text-xs uppercase text-muted-foreground ",
               borders === "rows" || borders === "all" || borders === "inner"
                 ? "border-b "
                 : ""
@@ -145,7 +145,9 @@ export const HawaTable: FC<TableTypes> = ({
                       scope="col"
                       colSpan={2}
                       className={clsx(
-                        col.sortable ? "cursor-pointer hover:bg-gray-300" : "",
+                        col.sortable
+                          ? "cursor-pointer hover:bg-muted-foreground/10"
+                          : "",
                         sizeStyles[size],
                         i !== 0 &&
                           (borders === "cols" ||
@@ -155,7 +157,6 @@ export const HawaTable: FC<TableTypes> = ({
                           : ""
                       )}
                     >
-                      {/* TODO: add arrow icon for sorting */}
                       {col.value}
                       {sortColumn === i && (
                         <span>{sortDirection === "asc" ? " ▲" : " ▼"}</span>
@@ -187,7 +188,7 @@ export const HawaTable: FC<TableTypes> = ({
                   <tr
                     key={rowIndex}
                     className={clsx(
-                      " dark:border-gray-700 dark:bg-gray-800",
+                      " text-mute-foreground  border bg-background",
                       props.clickable ? "hover:bg-gray-100" : "",
                       !lastRow &&
                         (borders === "all" ||
@@ -271,7 +272,7 @@ export const HawaTable: FC<TableTypes> = ({
                               props.handleActionClick(e, singleRow)
                             }
                             trigger={
-                              <div className="flex w-fit  cursor-pointer items-center justify-center rounded  p-2 hover:bg-gray-200 dark:hover:bg-gray-600">
+                              <div className="flex w-fit cursor-pointer items-center justify-center rounded p-2 transition-all hover:bg-primary/20 ">
                                 <svg
                                   aria-label="Vertical Three Dots Menu Icon"
                                   stroke="currentColor"
@@ -495,182 +496,3 @@ export const HawaTable: FC<TableTypes> = ({
     </div>
   )
 }
-
-// const Pagination = (props) => (
-//   <div className="flex flex-row items-center justify-between ">
-//     {/* Pagination Pages  */}
-//     {range.length > 1 ? (
-//       <div className="flex w-fit  flex-row items-stretch justify-center gap-2 overflow-clip rounded ">
-//         {/* Previous Page Button */}
-//         <div
-//           className={clsx(
-//             "flex h-6 w-6 rotate-180 cursor-pointer items-center justify-center rounded border bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700  dark:bg-background dark:hover:bg-gray-700 "
-//           )}
-//           onClick={props.handlePrevPage}
-//         >
-//           <svg
-//             aria-label="Chevron Right Icon"
-//             stroke="currentColor"
-//             fill="currentColor"
-//             strokeWidth="0"
-//             viewBox="0 0 16 16"
-//             height="1em"
-//             width="1em"
-//           >
-//             <path
-//               fillRule="evenodd"
-//               d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-//             ></path>
-//           </svg>
-//         </div>
-//         {/* Numbered Pagination */}
-//         <div className="flex flex-row items-center  overflow-clip rounded  transition-all">
-//           {/* The first page */}
-//           {range.length > 6 &&
-//             range.map((el, index) => {
-//               if (index <= 0) {
-//                 return (
-//                   <button
-//                     key={index}
-//                     className={clsx(
-//                       "w-10 p-1 text-xs hover:bg-gray-200",
-//                       page === el
-//                         ? "bg-primary text-white hover:bg-primary"
-//                         : "bg-gray-100"
-//                     )}
-//                     onClick={() => setPage(el)}
-//                   >
-//                     {el}
-//                   </button>
-//                 )
-//               }
-//             })}
-//           {/* The Current Page / Input  */}
-//           {range?.length > 6 && (
-//             <input
-//               type={"text"}
-//               className=" w-10  bg-gray-100 p-1 text-center text-xs"
-//               defaultValue={
-//                 page !== 0 || page !== range.length - 1 ? page : "..."
-//               }
-//               value={
-//                 page == 1 || page == range.length
-//                   ? "..."
-//                   : enteredPage
-//                   ? enteredPage
-//                   : page
-//               }
-//               onChange={(e) => setEnteredPage(parseInt(e.target.value))}
-//               onKeyDown={(e) => {
-//                 if (e.key === "Enter") {
-//                   setPage(enteredPage)
-//                   setEnteredPage(null)
-//                 }
-//               }}
-//             />
-//           )}
-//           {/* The last page */}
-//           {range?.length > 6 &&
-//             range.map((el, index) => {
-//               if (index >= range.length - 1) {
-//                 return (
-//                   <button
-//                     key={index}
-//                     className={clsx(
-//                       "w-10 p-1 text-xs hover:bg-gray-200",
-//                       page === el
-//                         ? "bg-primary text-white hover:bg-primary"
-//                         : "bg-gray-100"
-//                     )}
-//                     onClick={() => setPage(el)}
-//                   >
-//                     {el}
-//                   </button>
-//                 )
-//               }
-//             })}
-
-//           {/* All Pages if less than 6 pages */}
-//           {range?.length <= 6 &&
-//             range.map((el, index) => {
-//               return (
-//                 <button
-//                   key={index}
-//                   className={clsx(
-//                     "w-10 p-1 text-xs  hover:bg-gray-200 dark:hover:bg-gray-700",
-//                     page === el
-//                       ? "bg-primary text-white hover:bg-primary"
-//                       : "border bg-background",
-
-//                     index === 0 ? "rounded-l border-r-0" : "",
-//                     index === range.length - 1 ? "rounded-r border-l-0" : ""
-//                   )}
-//                   onClick={() => setPage(el)}
-//                 >
-//                   {el}
-//                 </button>
-//               )
-//             })}
-//         </div>
-//         {/* Next Page Button */}
-//         <div
-//           onClick={props.handleNextPage}
-//           className={clsx(
-//             "flex h-6 w-6  cursor-pointer items-center justify-center rounded border bg-gray-100 p-1 text-xs hover:bg-layoutPrimary-700  dark:bg-background dark:hover:bg-gray-700 "
-//           )}
-//         >
-//           <svg
-//             aria-label="Chevron Right Icon"
-//             stroke="currentColor"
-//             fill="currentColor"
-//             strokeWidth="0"
-//             viewBox="0 0 16 16"
-//             height="1em"
-//             width="1em"
-//           >
-//             <path
-//               fillRule="evenodd"
-//               d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-//             ></path>
-//           </svg>
-//         </div>
-//       </div>
-//     ) : (
-//       <div></div>
-//     )}
-//     {/* Pagination Settings */}
-//     {props.rows ? (
-//       <div className="flex w-fit flex-row items-center gap-2  ">
-//         <div className="text-xs ">
-//           {props.rows.length} {props.texts?.items ?? "Items"}
-//         </div>
-
-//         <select
-//           value={perPage}
-//           className="h-6 cursor-pointer rounded border bg-background px-2 text-xs"
-//           onChange={(e) => {
-//             setPerPage(parseInt(e.target.value))
-//           }}
-//         >
-//           <option value={10} style={{ fontSize: 10 }}>
-//             10 / {props.texts?.page ?? "Page"}
-//           </option>
-//           <option value={20} style={{ fontSize: 10 }}>
-//             20 / {props.texts?.page ?? "Page"}
-//           </option>
-//           <option value={30} style={{ fontSize: 10 }}>
-//             30 / {props.texts?.page ?? "Page"}
-//           </option>
-//           <option value={50} style={{ fontSize: 10 }}>
-//             50 / {props.texts?.page ?? "Page"}
-//           </option>
-//           <option value={100} style={{ fontSize: 10 }}>
-//             100 / {props.texts?.page ?? "Page"}
-//           </option>
-//         </select>
-//       </div>
-//     ) : (
-//       <div></div>
-//     )}
-//   </div>
-// )

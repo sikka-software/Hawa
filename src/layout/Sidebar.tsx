@@ -209,7 +209,8 @@ const SidebarItem: React.FC<{
                     }
                   }}
                   className={cn(
-                    "flex h-full cursor-pointer flex-row items-center gap-2 rounded bg-foreground/10 p-2 transition-all",
+                    "flex h-full cursor-pointer flex-row items-center gap-2 rounded  p-2 transition-all",
+                    // bg-foreground/10
                     getSelectedStyle(subitem.value)
                   )}
                 >

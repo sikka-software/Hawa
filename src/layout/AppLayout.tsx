@@ -26,6 +26,7 @@ type AppLayoutTypes = {
   profileMenuItems?: MenuItemType[]
   profileMenuWidth: "default" | "sm" | "lg" | "parent"
   onSettingsClick?: () => void
+  onDrawerExpand?: (e) => void
   DrawerFooterActions?: any
   clickedItem?: any
   texts?: {
@@ -277,10 +278,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           dir={direction}
-          className={clsx(
-            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center transition-all",
-            "bg-primary-foreground"
-          )}
+          className={
+            "fixed z-50  mb-2 flex h-14 w-full flex-row items-center justify-center bg-primary-foreground transition-all"
+          }
           style={{
             width:
               size > 600
@@ -409,7 +409,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             >
               <Button
                 variant="light"
-                onClick={() => setKeepOpen(!keepOpen)}
+                onClick={() => {
+                  setKeepOpen(!keepOpen)
+                  props.onDrawerExpand(keepOpen)
+                }}
                 size="smallIcon"
               >
                 <svg
