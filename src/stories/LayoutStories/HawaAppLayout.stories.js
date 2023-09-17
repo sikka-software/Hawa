@@ -1151,23 +1151,23 @@ AppLayoutStory.args = {
     {
       label: "Profile",
       value: "Dashboard",
-      action: () => console.log("going to dashboard")
+      onClick: () => console.log("going to dashboard")
     },
     {
       value: "Billing",
       label: "Billing",
-      action: () => console.log("going to Billing")
+      onClick: () => console.log("going to Billing")
     },
     {
       value: "عربي",
       label: "عربي",
-      action: () => console.log("going to عربي")
+      onClick: () => console.log("going to عربي")
       // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
     },
     {
       label: "Sign Out",
       value: "Sign Out",
-      action: () => console.log("going to Sign Out"),
+      onClick: () => console.log("going to Sign Out"),
       highlighted: true
     }
   ],
@@ -1175,31 +1175,42 @@ AppLayoutStory.args = {
     {
       label: "لوحة القيادة",
       value: "/home",
+      onClick: () => console.log("going to /home"),
       icon: <MdDashboard />
     },
     {
       label: "Items",
       value: "/items",
+      onClick: () => console.log("going to /items"),
+
       icon: <FaFolderOpen />,
       subitems: [
         {
           label: "New Item",
           value: "/new-item",
+          onClick: () => console.log("going to /new-item"),
+
           icon: <FaFolderOpen />
         },
         {
           label: "New Item",
           value: "/new-item2",
+          onClick: () => console.log("going to /new-item2"),
+
           icon: <FaFolderOpen />
         },
         {
           label: "New Item",
           value: "/new-item3",
+          onClick: () => console.log("going to /new-item3"),
+
           icon: <FaFolderOpen />
         },
         {
           label: "Files Items",
           value: "/file-item",
+          onClick: () => console.log("going to /file-item"),
+
           icon: <FaFolderOpen />
         }
       ]
@@ -1208,22 +1219,30 @@ AppLayoutStory.args = {
     {
       label: "Analytics",
       value: "/analytics",
+      action: () => console.log("going to /analytics"),
+
       icon: <FaPoll />
     },
     {
       label: "Jobs",
       value: "/jobs",
+      action: () => console.log("going to /jobs"),
+
       icon: <FaPoll />,
       subitems: [
         {
           label: "New Job Item",
           value: "/new-job",
+          action: () => console.log("going to /new-jobs"),
+
           icon: <FaFolderOpen />
         },
 
         {
           label: "Files Items",
           value: "/files",
+          action: () => console.log("going to /files"),
+
           icon: <FaFolderOpen />
         }
       ]

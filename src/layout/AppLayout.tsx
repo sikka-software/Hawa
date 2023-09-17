@@ -358,12 +358,17 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           <SidebarGroup
             direction={direction}
             onItemClick={(values) => {
+              console.log("vals ", values)
               setSelectedItem(values)
-              clickedItem(values)
+              if (clickedItem) {
+                clickedItem(values)
+              }
             }}
             onSubItemClick={(values) => {
               setSelectedItem(values)
-              clickedItem(values)
+              if (clickedItem) {
+                clickedItem(values)
+              }
             }}
             selectedItem={selectedItem}
             openedItem={openedSidebarItem}
