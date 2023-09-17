@@ -1130,7 +1130,7 @@ const AppLayoutTemplate = (args, globals) => {
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar")
       }}
-      clickedItem={(e) => console.log("clicked item is ", e)}
+      // clickedItem={(e) => console.log("clicked item is ", e)}
     >
       <div className=" h-full  p-4">
         <div className="m-0 flex h-full w-full flex-row-reverse items-center justify-center overflow-auto rounded-lg border-2 border-dashed border-black bg-blue-50">
@@ -1146,7 +1146,7 @@ export const AppLayoutStory = AppLayoutTemplate.bind({});
 
 AppLayoutStory.args = {
   onSettingsClick: () => console.log("going to settings"),
-  currentPage: "files",
+  currentPage: "/home",
   profileMenuItems: [
     {
       label: "Profile",
@@ -1219,21 +1219,21 @@ AppLayoutStory.args = {
     {
       label: "Analytics",
       value: "/analytics",
-      action: () => console.log("going to /analytics"),
+      onClick: () => console.log("going to /analytics"),
 
       icon: <FaPoll />
     },
     {
       label: "Jobs",
       value: "/jobs",
-      action: () => console.log("going to /jobs"),
+      onClick: () => console.log("going to /jobs"),
 
       icon: <FaPoll />,
       subitems: [
         {
           label: "New Job Item",
           value: "/new-job",
-          action: () => console.log("going to /new-jobs"),
+          onClick: () => console.log("going to /new-jobs"),
 
           icon: <FaFolderOpen />
         },
@@ -1241,7 +1241,7 @@ AppLayoutStory.args = {
         {
           label: "Files Items",
           value: "/files",
-          action: () => console.log("going to /files"),
+          onClick: () => console.log("going to /files"),
 
           icon: <FaFolderOpen />
         }
@@ -1250,7 +1250,8 @@ AppLayoutStory.args = {
     {
       label: "Activity",
       value: "/activity",
-      icon: <FaPoll />
+      icon: <FaPoll />,
+      onClick: () => console.log("going to /activity")
     }
   ],
   pageTitle: "Dashboard Page",

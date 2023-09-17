@@ -102,6 +102,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   direction,
   isOpen,
 }) => {
+  console.log("selected item is ", selectedItem)
   return (
     <div>
       {title && <h3 className="mb-1 font-bold">{title}</h3>}
@@ -118,7 +119,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
           {items.map((item, idx) => (
             <SidebarItem
               isOpen={isOpen}
-              isSelected={selectedItem}
+              selectedItem={selectedItem}
               key={idx}
               direction={direction}
               item={item}
@@ -133,22 +134,21 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
 }
 const SidebarItem: React.FC<{
   item: Item
-  isSelected: any
+  selectedItem?: any
   direction?: "rtl" | "ltr"
-
   onItemClick?: (value: string[]) => void
   onSubItemClick?: (values: string[]) => void
   isOpen?: boolean
 }> = ({
   item,
-  isSelected,
   onItemClick,
   onSubItemClick,
   direction,
   isOpen = true,
+  ...props
 }) => {
-  const getSelectedStyle = (value: string, index: number) => {
-    return isSelected && isSelected[index] === value
+  const getSelectedStyle = (value: string) => {
+    return props.selectedItem === value
       ? "bg-primary text-primary-foreground  cursor-default"
       : "hover:bg-primary/10"
   }
@@ -160,7 +160,18 @@ const SidebarItem: React.FC<{
         dir={direction}
       >
         <AccordionTrigger
-          className={cn(getSelectedStyle(item.value, 0))}
+          className={cn(
+            "overflow-x-clip",
+            props.selectedItem === item.value
+              ? "cursor-default bg-primary  text-primary-foreground"
+              : "hover:bg-primary/10",
+            item.subitems &&
+              item.subitems.some(
+                (subitem) => props.selectedItem === subitem.value
+              )
+              ? "bg-primary text-primary-foreground hover:bg-primary"
+              : ""
+          )}
           showArrow={isOpen}
         >
           <div
@@ -199,7 +210,7 @@ const SidebarItem: React.FC<{
                   }}
                   className={cn(
                     "flex h-full cursor-pointer flex-row items-center gap-2 rounded bg-foreground/10 p-2 transition-all",
-                    getSelectedStyle(subitem.value, 1)
+                    getSelectedStyle(subitem.value)
                   )}
                 >
                   {subitem.icon}
@@ -223,7 +234,7 @@ const SidebarItem: React.FC<{
         }}
         className={cn(
           triggerStyles,
-          getSelectedStyle(item.value, 0),
+          getSelectedStyle(item.value),
           "overflow-x-clip "
         )}
       >

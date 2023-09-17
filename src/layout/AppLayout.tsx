@@ -76,9 +76,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const isRTL = direction === "rtl"
 
   const [openedSidebarItem, setOpenedSidebarItem] = useState("")
-  const [selectedItem, setSelectedItem] = useState(
-    currentPage ? currentPage : []
-  )
+  const [selectedItem, setSelectedItem] = useState(currentPage)
 
   let size
   if (typeof window !== "undefined") {
@@ -357,14 +355,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           <SidebarGroup
             direction={direction}
             onItemClick={(values) => {
-              console.log("vals ", values)
-              setSelectedItem(values)
+              // console.log("vals ", values)
+              // setSelectedItem(values)
               if (clickedItem) {
                 clickedItem(values)
               }
             }}
             onSubItemClick={(values) => {
-              setSelectedItem(values)
+              // setSelectedItem(values)
               if (clickedItem) {
                 clickedItem(values)
               }
