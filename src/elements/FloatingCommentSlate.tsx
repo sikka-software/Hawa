@@ -2,10 +2,8 @@
 import React, { useState, useCallback } from "react"
 // Import the Slate editor factory.
 import { Editor, Transforms, Element, createEditor } from "slate"
-
 // Import the Slate components and React plugin.
 import { Slate, Editable, withReact } from "slate-react"
-
 // TypeScript users only add this code
 import { BaseEditor, Descendant } from "slate"
 import { ReactEditor } from "slate-react"
