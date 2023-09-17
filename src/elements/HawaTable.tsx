@@ -2,12 +2,7 @@ import React, { useEffect, useState, FC } from "react"
 import clsx from "clsx"
 import useTable from "../hooks/useTable"
 import { cn } from "../util"
-import { Button } from "./Button"
-import { HawaTextField } from "./HawaTextField"
 import { DropdownMenu, MenuItemType } from "./DropdownMenu"
-
-// TODO: translate header tools and make it more customizable
-// TODO: pass the onSearch handler to the parent
 
 type RowTypes = {
   hidden: boolean

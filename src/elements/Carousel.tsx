@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React from "react"
 import useCarousel from "../hooks/useCarousel"
 
 interface CarouselProps {
@@ -17,7 +17,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
   return (
     <div
-      className="flex cursor-pointer snap-x  gap-4 overflow-x-hidden justify-center items-center"
+      className="flex cursor-pointer snap-x  items-center justify-center gap-4 overflow-x-hidden"
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
@@ -25,7 +25,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
       ref={containerRef}
     >
       {images.map((image, index) => (
-        <div key={index} className="w-[1000px] h-96 flex-shrink-0">
+        <div key={index} className="h-96 w-[1000px] flex-shrink-0">
           {/* <div key={index} className="h-40 w-60 flex-shrink-0"> */}
           <img
             src={image}
@@ -38,4 +38,3 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
     </div>
   )
 }
-

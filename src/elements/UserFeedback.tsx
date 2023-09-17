@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
-import { HawaButton } from "./HawaButton"
 import { Button } from "./Button"
 
 type ComponentTypes = {

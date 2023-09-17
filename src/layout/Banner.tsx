@@ -1,6 +1,6 @@
-import React, { useEffect, FC, useRef, useState } from "react"
+import React, { FC, useRef, useState } from "react"
 import clsx from "clsx"
-import { HawaButton } from "../elements"
+import { Button } from "../elements"
 
 type BannerTypes = {
   showBanner?: boolean
@@ -82,9 +82,7 @@ export const HawaBanner: FC<BannerTypes> = ({
               props.direction === "rtl" ? "ml-0 md:ml-10" : "mr-0 md:mr-10"
             )}
           >
-            <HawaButton onClick={props.onActionClick}>
-              {props.actionText}
-            </HawaButton>
+            <Button onClick={props.onActionClick}>{props.actionText}</Button>
           </div>
         )}
         <button

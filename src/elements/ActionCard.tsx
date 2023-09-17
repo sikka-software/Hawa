@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react"
-import { Button } from "./Button"
 
 type ImageCardTypes = {
   children: any

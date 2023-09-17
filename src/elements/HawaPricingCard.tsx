@@ -1,6 +1,5 @@
 import clsx from "clsx"
 import React, { FC } from "react"
-import { HawaButton } from "./HawaButton"
 import { Button } from "./Button"
 
 // TODO: if feature.excluded is false, show gray and x

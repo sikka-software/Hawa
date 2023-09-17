@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react"
 import clsx from "clsx"
-import { HawaButton } from "./HawaButton"
 import { Button } from "./Button"
 // TODO: make handleClose to detect when the alert is closed from outside this component
 

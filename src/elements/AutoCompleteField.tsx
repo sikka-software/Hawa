@@ -13,7 +13,6 @@ export const AutoCompleteField: FC<TAutoCompleteFieldTypes> = (props) => {
   return (
     <>
       <Controller
-        // className="theme_form_input"
         name={name}
         rules={rules}
         control={control}

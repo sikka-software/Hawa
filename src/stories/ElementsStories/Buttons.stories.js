@@ -5,7 +5,7 @@ import { Button } from "../../elements/Button";
 
 export default {
   title: "Elements/Buttons",
-  component: HawaButton,
+  component: [HawaButton, Button],
   argTypes: { onClick: { action: "clicked" } }
 };
 
@@ -30,49 +30,12 @@ export const ButtonVariationsStory = () => {
             {variant.charAt(0).toUpperCase() + variant.slice(1)}
           </Button>
         ))}
-
-    
       </div>
       <h1>TEST</h1>
     </div>
   );
 };
 
-//OLD Button Variation Story
-// export const ButtonVariationsStory = () => {
-//   return (
-//     <div className="card max-w-800 p-3">
-//       <h2 className="mt-6 text-xl dark:text-white">Contained Buttons</h2>
-//       <div className="mt-1 flex flex-row">
-//         <Button>Test</Button>
-//         <HawaButton>Default</HawaButton>
-//         <HawaButton tooltip="This is a test" className="ml-2" color="primary">
-//           Primary
-//         </HawaButton>
-//         <HawaButton className="ml-2" color="secondary">
-//           Secondary
-//         </HawaButton>
-//         <HawaButton className="ml-2" disabled>
-//           Disabled
-//         </HawaButton>
-//       </div>
-
-//       <h2 className="mt-6 text-xl dark:text-white">Outlined Buttons</h2>
-//       <div className="mt-1 flex flex-row">
-//         <HawaButton variant="outlined">Default</HawaButton>
-//         <HawaButton className="ml-2" variant="outlined" color="primary">
-//           Primary
-//         </HawaButton>
-//         <HawaButton className="ml-2" variant="outlined" color="secondary">
-//           Secondary
-//         </HawaButton>
-//         <HawaButton className="ml-2" variant="outlined" disabled>
-//           Disabled
-//         </HawaButton>
-//       </div>
-//     </div>
-//   );
-// };
 export const ButtonFeedbackStory = () => {
   return (
     <div className="card max-w-800 p-3">

@@ -3,7 +3,7 @@ import clsx from "clsx"
 import { FaChevronRight } from "react-icons/fa"
 import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
-import { HawaButton, HawaMenu } from "../elements"
+import { HawaMenu } from "../elements"
 
 // TODO: when no pagetitle, navbar gets messy
 
