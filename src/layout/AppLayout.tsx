@@ -411,7 +411,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 variant="light"
                 onClick={() => {
                   setKeepOpen(!keepOpen)
-                  props.onDrawerExpand(keepOpen)
+                  if (props.onDrawerExpand) {
+                    props.onDrawerExpand(keepOpen)
+                  }
                 }}
                 size="smallIcon"
               >
