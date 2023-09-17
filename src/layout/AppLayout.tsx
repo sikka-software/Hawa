@@ -354,7 +354,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            * Drawer Items
            * ----------------------------------------------------------------------------------------------------
            */}
-
           <SidebarGroup
             direction={direction}
             onItemClick={(values) => {
