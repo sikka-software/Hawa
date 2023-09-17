@@ -102,7 +102,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   direction,
   isOpen,
 }) => {
-  console.log("selected item is ", selectedItem)
+  // console.log("selected item is ", selectedItem)
   return (
     <div>
       {title && <h3 className="mb-1 font-bold">{title}</h3>}

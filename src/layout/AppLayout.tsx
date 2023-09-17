@@ -367,7 +367,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 clickedItem(values)
               }
             }}
-            selectedItem={selectedItem}
+            selectedItem={currentPage}
             openedItem={openedSidebarItem}
             setOpenedItem={(e) => setOpenedSidebarItem(e)}
             isOpen={openSideMenu}
