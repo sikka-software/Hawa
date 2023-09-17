@@ -1,5 +1,5 @@
 import React from "react";
-import { HawaDropdownMenu, HawaMenu } from "../../elements";
+import { HawaDropdownMenu, HawaMenu } from "../src/elements";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdBookOnline, MdAccessAlarm } from "react-icons/md";
 

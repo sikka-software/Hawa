@@ -1,7 +1,6 @@
 import React, { FC, ButtonHTMLAttributes, useState } from "react"
 import clsx from "clsx"
 import { HawaLoading } from "./HawaLoading"
-import { HawaTooltip } from "./HawaTooltip"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined"
@@ -130,98 +129,58 @@ export const HawaButton: FC<ButtonProps> = ({
         containerWidthStyles[width]
       )}
     >
-      {tooltip ? (
-        <HawaTooltip
-          direction={tooltipDirection}
-          position={tooltipPosition}
-          size={tooltipSize}
-          content={tooltip}
-        >
-          <button
-            className={
-              disabled
-                ? clsx(
-                    className,
-                    baseStyles,
-                    edgeCorner ? "rounded-inner" : "rounded",
+      <button
+        className={
+          disabled
+            ? clsx(
+                className,
+                baseStyles,
+                edgeCorner ? "rounded-inner" : "rounded",
 
-                    variantStyles[variant],
-                    sizeStyles[size],
-                    widthStyles[width],
-                    disabledSyles,
-                    disabledVariantSyles[variant]
-                  )
-                : clsx(
-                    className,
-                    baseStyles,
-                    edgeCorner ? "rounded-inner" : "rounded",
-
-                    variantStyles[variant],
-                    sizeStyles[size],
-                    colorStyles[variant][color],
-                    widthStyles[width]
-                  )
-            }
-            disabled={disabled}
-            onClick={props.onClick}
-            // onClick={handleClick}
+                variantStyles[variant],
+                sizeStyles[size],
+                widthStyles[width],
+                disabledSyles,
+                disabledVariantSyles[variant]
+              )
+            : clsx(
+                className,
+                "overflow-x-clip",
+                baseStyles,
+                edgeCorner ? "rounded-inner" : "rounded",
+                variantStyles[variant],
+                sizeStyles[size],
+                colorStyles[variant][color],
+                widthStyles[width]
+              )
+        }
+        disabled={disabled}
+        // onClick={props.onClick}
+        onClick={handleClick}
+      >
+        {!isLoading ? (
+          <div
+            className={clsx(
+              " s flex flex-col-reverse items-start justify-center gap-4 transition-all",
+              isClicked && feedback
+                ? " -translate-y-8 pb-1 pt-1"
+                : "translate-y-0"
+            )}
           >
-            {!isLoading ? children : <HawaLoading size="button" />}
-          </button>
-        </HawaTooltip>
-      ) : (
-        <button
-          className={
-            disabled
-              ? clsx(
-                  className,
-                  baseStyles,
-                  edgeCorner ? "rounded-inner" : "rounded",
-
-                  variantStyles[variant],
-                  sizeStyles[size],
-                  widthStyles[width],
-                  disabledSyles,
-                  disabledVariantSyles[variant]
-                )
-              : clsx(
-                  className,
-                  "overflow-x-clip",
-                  baseStyles,
-                  edgeCorner ? "rounded-inner" : "rounded",
-                  variantStyles[variant],
-                  sizeStyles[size],
-                  colorStyles[variant][color],
-                  widthStyles[width]
-                )
-          }
-          disabled={disabled}
-          // onClick={props.onClick}
-          onClick={handleClick}
-        >
-          {!isLoading ? (
-            <div
-              className={clsx(
-                " s flex flex-col-reverse items-start justify-center gap-4 transition-all",
-                isClicked && feedback
-                  ? " -translate-y-8 pb-1 pt-1"
-                  : "translate-y-0"
-              )}
-            >
-              {isClicked && feedback ? (
-                <div className="w-full  text-center">{buttonText}</div>
-              ) : null}
-              <div className="flex w-full select-none flex-row items-center justify-center gap-2 whitespace-nowrap">
-                {props.startIcon && props.startIcon}
-                {children}
-                {props.endIcon && props.endIcon}
-              </div>
+            {isClicked && feedback ? (
+              <div className="w-full  text-center">{buttonText}</div>
+            ) : null}
+            <div className="flex w-full select-none flex-row items-center justify-center gap-2 whitespace-nowrap">
+              {props.startIcon && props.startIcon}
+              {children}
+              {props.endIcon && props.endIcon}
             </div>
-          ) : (
-            <HawaLoading design="dots-pulse" color={"bg-white"} size="button" />
-          )}
-        </button>
-      )}
+          </div>
+        ) : (
+          <HawaLoading design="dots-pulse" color={"bg-white"} size="button" />
+        )}
+      </button>
+
       {badge && (
         <div
           className={clsx(

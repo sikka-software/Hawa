@@ -192,7 +192,7 @@ const SidebarItem: React.FC<{
                   key={idx}
                   onClick={(e) => {
                     e.stopPropagation()
-                    item.onClick()
+                    subitem.onClick()
                     if (onSubItemClick) {
                       onSubItemClick([item.value, subitem.value])
                     }
