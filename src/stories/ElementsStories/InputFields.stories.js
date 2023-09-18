@@ -51,8 +51,8 @@ export const TextField = (args) => {
             </span>
           </div>
         </div>
-        <div>
-          <div className="flex flex-row gap-2">
+        <div className="w-fit">
+          <div className="grid grid-cols-2 gap-2 ">
             <HawaTextField
               defaultValue={"https://sikka.io"}
               label="Website"
@@ -69,14 +69,20 @@ export const TextField = (args) => {
               width="small"
               preview={editable}
             />
+
+            <HawaSelect
+              label={"Role"}
+              options={[{ label: "Option 1", value: "option1" }]}
+              value={"option1"}
+            />
+
             <HawaTextField
               defaultValue={"@sikka_io"}
-              label="Twitter"
+              label="Instagram"
               placeholder="@example"
               type="text"
               width="small"
-              isLoading
-              preview={false}
+              preview={editable}
             />
           </div>
         </div>
@@ -89,12 +95,12 @@ export const TextField = (args) => {
           <div className="flex flex-col">
             <span className="text-xl font-bold">Loading Mode</span>
             <span className="text-sm text-muted-foreground">
-              Treat the input field as a regular text when edit mode is off.
+              Show a skeleton while data is loading
             </span>
           </div>
         </div>
         <div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-row gap-2">
             <HawaTextField
               isLoading={loading}
               defaultValue={"https://sikka.io"}
@@ -106,15 +112,6 @@ export const TextField = (args) => {
             />
             <HawaTextField
               isLoading={loading}
-              defaultValue={"@sikka_io"}
-              label="Twitter"
-              placeholder="@example"
-              type="text"
-              width="small"
-              preview={true}
-            />
-            <HawaTextField
-              // isLoading={loading}
               defaultValue={"@sikka_io"}
               label="Twitter"
               placeholder="@example"

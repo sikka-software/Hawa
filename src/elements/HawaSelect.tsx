@@ -3,6 +3,7 @@ import React, { FC } from "react"
 import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 import { Label } from "./Label"
+import { cn } from "../util"
 
 type ControlTypes = {
   cx: any
@@ -113,6 +114,7 @@ type SelectTypes = {
   children?: any
   getOptionLabel?: any
   disabled?: boolean
+  defaultValue?: any
 }
 export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
@@ -128,7 +130,11 @@ export const HawaSelect: FC<SelectTypes> = (props) => {
         <Select
           classNames={{
             // control: () => "bg-blue-500 w-full",
-            // container: () => "bg-red-500 w-full",
+            container: () =>
+              cn(
+                "rounded",
+                props.disabled ? "cursor-not-allowed" : "cursor-pointer"
+              ),
             placeholder: () => "px-2 text-muted-foreground",
             input: () => "text-white px-2",
             valueContainer: () => "text-white dark:text-muted-foreground",
@@ -139,6 +145,7 @@ export const HawaSelect: FC<SelectTypes> = (props) => {
           unstyled
           isDisabled={props.disabled}
           options={props.options}
+          defaultValue={props.defaultValue}
           isClearable={props.isClearable}
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
