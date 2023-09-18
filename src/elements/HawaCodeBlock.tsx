@@ -2,6 +2,7 @@ import React, { FC, useState } from "react"
 import { Button } from "./Button"
 import { Tooltip } from "./Tooltip"
 import { cn } from "../util"
+import { useClipboard } from "../hooks/useClipboard"
 
 type CodeBlockTypes = {
   color?: "dark" | "light"
@@ -22,8 +23,9 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
   fileName,
   width = "full",
 }) => {
+  const clipboard = useClipboard()
   const [selectedTab, setSelectedTab] = useState(0)
-  const [copyClicked, setCopyClicked] = useState(false)
+
   let widthStyles = {
     full: "w-full",
     md: "w-full max-w-md",
@@ -31,14 +33,6 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
     xs: "w-full max-w-xs",
   }
 
-  const handleCopyClick = () => {
-    if (!copyClicked) {
-      setCopyClicked(true)
-      setTimeout(() => {
-        setCopyClicked(false)
-      }, 2000)
-    }
-  }
   return (
     <div
       className={cn(
@@ -46,14 +40,13 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
         "w-full flex-col items-center rounded bg-gray-200 text-left text-sm text-white dark:bg-gray-800 sm:text-base"
       )}
     >
-      {" "}
       {tabs && (
-        <div className="flex flex-row gap-2 rounded-t bg-gray-100 p-2 pb-0 text-black   dark:bg-gray-700 dark:text-white">
+        <div className="flex flex-row gap-2 rounded-t bg-gray-100 p-2 pb-0 text-black dark:bg-gray-700 dark:text-white">
           {tabs.map((tab, i) => (
             <div
               className={cn(
                 selectedTab === i
-                  ? " border-b-2   border-primary"
+                  ? " border-b-2 border-primary"
                   : "bg-transparent"
               )}
             >
@@ -91,18 +84,15 @@ export const HawaCodeBlock: FC<CodeBlockTypes> = ({
           </div>
           <div className="flex w-fit flex-row items-center gap-2 p-2">
             <Tooltip
-              open={copyClicked}
+              open={clipboard.copied}
               side="left"
               content={<div>Copied!</div>}
             >
               <Button
                 size="icon"
-                onClick={() => {
-                  handleCopyClick()
-                  navigator.clipboard.writeText(
-                    tabs ? tabs[selectedTab].code : code
-                  )
-                }}
+                onClick={() =>
+                  clipboard.copy(tabs ? tabs[selectedTab].code : code)
+                }
               >
                 <svg
                   aria-label="Copy Icon"

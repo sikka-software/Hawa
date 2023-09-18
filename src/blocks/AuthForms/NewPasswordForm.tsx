@@ -14,7 +14,7 @@ import { Button } from "../../elements/Button"
 type NewPasswordTypes = {
   handleNewPassword: () => void
   direction?: "rtl" | "ltr"
-
+  headless?: boolean
   passwordChanged: any
   texts: {
     passwordPlaceholder: string
@@ -58,13 +58,15 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
       ) : (
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmission)}>
-            <CardHeader>
-              <CardTitle>Create Password</CardTitle>
-              <CardDescription>
-                Set a new password for your account
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+            {!props.headless && (
+              <CardHeader>
+                <CardTitle>Create Password</CardTitle>
+                <CardDescription>
+                  Set a new password for your account
+                </CardDescription>
+              </CardHeader>
+            )}
+            <CardContent headless={props.headless}>
               <Controller
                 control={control}
                 name="password"
