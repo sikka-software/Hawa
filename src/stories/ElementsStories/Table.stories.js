@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, HawaTable, HawaTextField } from "../../elements";
 import { setLocale, t } from "../../translations/i18n";
 import { AiFillAccountBook, AiFillAudio, AiFillLock } from "react-icons/ai";
@@ -121,20 +121,25 @@ let dummyColsData = [
 ];
 
 export const NoData = (args) => {
+  const [d, setD] = useState(false);
   return (
-    <HawaTable
-      direction={args.direction}
-      columns={[
-        { hidden: false, value: "Product" },
-        { hidden: false, value: "Price" },
-        { hidden: false, value: "Date" },
-        { hidden: false, value: "Another" },
-        { hidden: false, value: "Price" },
-        { hidden: false, value: "Date" },
-        { hidden: false, value: "Another" }
-      ]}
-      noDataText={"No data"}
-    />
+    <>
+      <HawaTable
+        isLoading={d}
+        direction={args.direction}
+        columns={[
+          { hidden: false, value: "Product" },
+          { hidden: false, value: "Price" },
+          { hidden: false, value: "Date" },
+          { hidden: false, value: "Another" },
+          { hidden: false, value: "Price" },
+          { hidden: false, value: "Date" },
+          { hidden: false, value: "Another" }
+        ]}
+        noDataText={"No data"}
+      />
+      <Button onClick={() => setD(!d)}>Enable Loading</Button>
+    </>
   );
 };
 export const DataOnly = (args, globals) => {
@@ -150,6 +155,7 @@ export const DataOnly = (args, globals) => {
   return (
     <div dir={globals.globals.locale === "ar" ? "rtl" : "ltr"}>
       <HawaTable
+        isLoading={true}
         direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
         bordersWidth="1"
         // direction={args.direction}

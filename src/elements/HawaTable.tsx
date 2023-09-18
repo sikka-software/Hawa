@@ -3,6 +3,7 @@ import clsx from "clsx"
 import useTable from "../hooks/useTable"
 import { cn } from "../util"
 import { DropdownMenu, MenuItemType } from "./DropdownMenu"
+import { Skeleton } from "./Skeleton"
 
 type RowTypes = {
   hidden: boolean
@@ -16,6 +17,7 @@ type ColTypes = {
 }
 type TableTypes = {
   pagination?: boolean
+  isLoading?: boolean
   columns: ColTypes[]
   actions?: MenuItemType[]
   actionsWidth?: "default" | "sm" | "lg" | "parent"
@@ -108,210 +110,219 @@ export const HawaTable: FC<TableTypes> = ({
 
   return (
     <div className="relative flex flex-col gap-2  ">
-      <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
-        {props.headerTools && (
-          <div className="flex flex-row items-center justify-between gap-2 border bg-background px-2  py-2">
-            {props.headerTools}
-          </div>
-        )}
-        <table
-          className={clsx(
-            // borders === "outer" || borders === "all"
-            //   ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300 dark:outline-gray-700`
-            //   : "",
-            "w-full rounded bg-muted text-left text-sm text-muted-foreground",
-            `bg-${headerColor}`
-          )}
-        >
-          <thead
-            className={clsx(
-              "bg-muted text-xs uppercase text-muted-foreground ",
-              borders === "rows" || borders === "all" || borders === "inner"
-                ? "border-b "
-                : ""
+      {props.isLoading ? (
+        // <div>dd</div>
+        <Skeleton className="h-[105px] w-full" />
+      ) : (
+        <>
+          <div className={`overflow-x-auto rounded  bg-${headerColor}`}>
+            {props.headerTools && (
+              <div className="flex flex-row items-center justify-between gap-2 border bg-background px-2  py-2">
+                {props.headerTools}
+              </div>
             )}
-          >
-            <tr>
-              {props.columns.map((col: any, i: any) => {
-                if (col.hidden) {
-                  return
-                } else {
-                  return (
+            <table
+              className={clsx(
+                // borders === "outer" || borders === "all"
+                //   ? `outline outline-[${bordersWidth}px] -outline-offset-1 outline-gray-300 dark:outline-gray-700`
+                //   : "",
+                "w-full rounded bg-muted text-left text-sm text-muted-foreground",
+                `bg-${headerColor}`
+              )}
+            >
+              <thead
+                className={clsx(
+                  "bg-muted text-xs uppercase text-muted-foreground ",
+                  borders === "rows" || borders === "all" || borders === "inner"
+                    ? "border-b "
+                    : ""
+                )}
+              >
+                <tr>
+                  {props.columns.map((col: any, i: any) => {
+                    if (col.hidden) {
+                      return
+                    } else {
+                      return (
+                        <th
+                          onClick={() =>
+                            col.sortable && handleSort(i, col.sortable)
+                          }
+                          key={i}
+                          scope="col"
+                          colSpan={2}
+                          className={clsx(
+                            col.sortable
+                              ? "cursor-pointer hover:bg-muted-foreground/10"
+                              : "",
+                            sizeStyles[size],
+                            i !== 0 &&
+                              (borders === "cols" ||
+                                borders === "all" ||
+                                borders === "inner")
+                              ? `border-r border-r-[${bordersWidth}px] border-l border-l-[${bordersWidth}px]`
+                              : ""
+                          )}
+                        >
+                          {col.value}
+                          {sortColumn === i && (
+                            <span>{sortDirection === "asc" ? " ▲" : " ▼"}</span>
+                          )}
+                        </th>
+                      )
+                    }
+                  })}
+                  {props.actions ? (
                     <th
-                      onClick={() =>
-                        col.sortable && handleSort(i, col.sortable)
-                      }
-                      key={i}
                       scope="col"
-                      colSpan={2}
                       className={clsx(
-                        col.sortable
-                          ? "cursor-pointer hover:bg-muted-foreground/10"
-                          : "",
                         sizeStyles[size],
-                        i !== 0 &&
-                          (borders === "cols" ||
-                            borders === "all" ||
-                            borders === "inner")
-                          ? `border-r border-r-[${bordersWidth}px] border-l border-l-[${bordersWidth}px]`
-                          : ""
+                        "w-[calc(1%)] text-center"
                       )}
                     >
-                      {col.value}
-                      {sortColumn === i && (
-                        <span>{sortDirection === "asc" ? " ▲" : " ▼"}</span>
-                      )}
+                      {props.texts?.actions ?? "Actions"}
                     </th>
-                  )
+                  ) : null}
+                </tr>
+              </thead>
+              <tbody
+                className={
+                  bodyColor && props.rows ? `bg-${bodyColor}` : "bg-transparent"
                 }
-              })}
-              {props.actions ? (
-                <th
-                  scope="col"
-                  className={clsx(sizeStyles[size], "w-[calc(1%)] text-center")}
-                >
-                  {props.texts?.actions ?? "Actions"}
-                </th>
-              ) : null}
-            </tr>
-          </thead>
-          <tbody
-            className={
-              bodyColor && props.rows ? `bg-${bodyColor}` : "bg-transparent"
-            }
-          >
-            {/* Table Rows */}
-            {sortedRows ? (
-              slice?.map((singleRow: any, rowIndex: any) => {
-                let lastRow = rowIndex == slice?.length - 1
-                return (
-                  <tr
-                    key={rowIndex}
-                    className={clsx(
-                      " text-mute-foreground  border bg-background",
-                      props.clickable ? "hover:bg-gray-100" : "",
-                      !lastRow &&
-                        (borders === "all" ||
-                          borders === "rows" ||
-                          borders === "inner")
-                        ? `border-b border-b-[${bordersWidth}px]`
-                        : ""
-                    )}
-                  >
-                    {singleRow?.map((r: any, i: any) => {
-                      let firstCell = i === 0
-                      let lastCell = i === singleRow?.length - 1
-                      let isRTLLastCell =
-                        isRTL && lastRow && lastCell && !props.actions
-                      let isRTLFirstCell = isRTL && lastRow && firstCell
-                      let isLTRFirstCell = !isRTL && lastRow && firstCell
-                      let isLTRLastCell =
-                        !isRTL && lastRow && lastCell && !props.actions
-
-                      if (r.hidden) {
-                        return
-                      } else {
-                        return (
-                          <td
-                            colSpan={2}
-                            key={i}
-                            className={clsx(
-                              // borders === "outer" ? "border" : "",
-                              sizeStyles[size],
-                              highlightFirst && firstCell
-                                ? "font-bold"
-                                : "font-normal",
-                              isRTLFirstCell
-                                ? "rounded-bl-none rounded-br"
-                                : isRTLLastCell
-                                ? "rounded-bl rounded-br-none"
-                                : isLTRFirstCell
-                                ? "rounded-bl rounded-br-none"
-                                : isLTRLastCell
-                                ? "rounded-bl-none rounded-br"
-                                : "",
-
-                              !firstCell &&
-                                !lastCell &&
-                                (borders === "cols" ||
-                                  borders === "inner" ||
-                                  borders === "all")
-                                ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
-                                : !firstCell &&
-                                  props.actions &&
-                                  (borders === "cols" ||
-                                    borders === "inner" ||
-                                    borders === "all")
-                                ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
-                                : ""
-                              // bodyColor ? `bg-${bodyColor}` : "bg-white"
-                            )}
-                          >
-                            {r.value} {r.suffix && r.suffix}
-                          </td>
-                        )
-                      }
-                    })}
-                    {props.actions && (
-                      <td
-                        align={isRTL ? "right" : "left"}
-                        className={cn(
-                          isRTL && lastRow && "rounded-bl rounded-br-none",
-                          !isRTL && lastRow && "rounded-bl-none rounded-br"
+              >
+                {/* Table Rows */}
+                {sortedRows ? (
+                  slice?.map((singleRow: any, rowIndex: any) => {
+                    let lastRow = rowIndex == slice?.length - 1
+                    return (
+                      <tr
+                        key={rowIndex}
+                        className={clsx(
+                          " text-mute-foreground  border bg-background",
+                          props.clickable ? "hover:bg-gray-100" : "",
+                          !lastRow &&
+                            (borders === "all" ||
+                              borders === "rows" ||
+                              borders === "inner")
+                            ? `border-b border-b-[${bordersWidth}px]`
+                            : ""
                         )}
-                        colSpan={1}
                       >
-                        <div className="flex items-center justify-center">
-                          <DropdownMenu
-                            width={props.actionsWidth}
-                            size={props.actionsSize}
-                            direction={direction}
-                            side="right"
-                            items={props.actions}
-                            selectCallback={(e) =>
-                              props.handleActionClick(e, singleRow)
-                            }
-                            trigger={
-                              <div className="flex w-fit cursor-pointer items-center justify-center rounded p-2 transition-all hover:bg-primary/20 ">
-                                <svg
-                                  aria-label="Vertical Three Dots Menu Icon"
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth="0"
-                                  viewBox="0 0 16 16"
-                                  height="1em"
-                                  width="1em"
-                                >
-                                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
-                                </svg>
-                              </div>
-                            }
-                          />
-                        </div>
-                      </td>
-                    )}
-                  </tr>
-                )
-              })
-            ) : (
-              <tr className="bg-transparent">
-                <td colSpan={20}>
-                  <div
-                    className={clsx(
-                      "w-full rounded-b  border p-5 text-center",
-                      // bodyColor ? `bg-${bodyColor}` : "bg-background"
-                      "bg-background"
-                    )}
-                  >
-                    {props.texts?.noData ?? "No Data"}
-                  </div>
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+                        {singleRow?.map((r: any, i: any) => {
+                          let firstCell = i === 0
+                          let lastCell = i === singleRow?.length - 1
+                          let isRTLLastCell =
+                            isRTL && lastRow && lastCell && !props.actions
+                          let isRTLFirstCell = isRTL && lastRow && firstCell
+                          let isLTRFirstCell = !isRTL && lastRow && firstCell
+                          let isLTRLastCell =
+                            !isRTL && lastRow && lastCell && !props.actions
 
+                          if (r.hidden) {
+                            return
+                          } else {
+                            return (
+                              <td
+                                colSpan={2}
+                                key={i}
+                                className={clsx(
+                                  // borders === "outer" ? "border" : "",
+                                  sizeStyles[size],
+                                  highlightFirst && firstCell
+                                    ? "font-bold"
+                                    : "font-normal",
+                                  isRTLFirstCell
+                                    ? "rounded-bl-none rounded-br"
+                                    : isRTLLastCell
+                                    ? "rounded-bl rounded-br-none"
+                                    : isLTRFirstCell
+                                    ? "rounded-bl rounded-br-none"
+                                    : isLTRLastCell
+                                    ? "rounded-bl-none rounded-br"
+                                    : "",
+
+                                  !firstCell &&
+                                    !lastCell &&
+                                    (borders === "cols" ||
+                                      borders === "inner" ||
+                                      borders === "all")
+                                    ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
+                                    : !firstCell &&
+                                      props.actions &&
+                                      (borders === "cols" ||
+                                        borders === "inner" ||
+                                        borders === "all")
+                                    ? `border-l border-l-[${bordersWidth}px] border-r border-r-[${bordersWidth}px]`
+                                    : ""
+                                  // bodyColor ? `bg-${bodyColor}` : "bg-white"
+                                )}
+                              >
+                                {r.value} {r.suffix && r.suffix}
+                              </td>
+                            )
+                          }
+                        })}
+                        {props.actions && (
+                          <td
+                            align={isRTL ? "right" : "left"}
+                            className={cn(
+                              isRTL && lastRow && "rounded-bl rounded-br-none",
+                              !isRTL && lastRow && "rounded-bl-none rounded-br"
+                            )}
+                            colSpan={1}
+                          >
+                            <div className="flex items-center justify-center">
+                              <DropdownMenu
+                                width={props.actionsWidth}
+                                size={props.actionsSize}
+                                direction={direction}
+                                side="right"
+                                items={props.actions}
+                                selectCallback={(e) =>
+                                  props.handleActionClick(e, singleRow)
+                                }
+                                trigger={
+                                  <div className="flex w-fit cursor-pointer items-center justify-center rounded p-2 transition-all hover:bg-primary/20 ">
+                                    <svg
+                                      aria-label="Vertical Three Dots Menu Icon"
+                                      stroke="currentColor"
+                                      fill="currentColor"
+                                      strokeWidth="0"
+                                      viewBox="0 0 16 16"
+                                      height="1em"
+                                      width="1em"
+                                    >
+                                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
+                                    </svg>
+                                  </div>
+                                }
+                              />
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    )
+                  })
+                ) : (
+                  <tr className="bg-transparent">
+                    <td colSpan={20}>
+                      <div
+                        className={clsx(
+                          "w-full rounded-b  border p-5 text-center",
+                          // bodyColor ? `bg-${bodyColor}` : "bg-background"
+                          "bg-background"
+                        )}
+                      >
+                        {props.texts?.noData ?? "No Data"}
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
       {pagination && (
         <div className="flex flex-row items-center justify-between ">
           {/* Pagination Pages  */}
