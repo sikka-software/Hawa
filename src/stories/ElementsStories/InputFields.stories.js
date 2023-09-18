@@ -99,27 +99,35 @@ export const TextField = (args) => {
             </span>
           </div>
         </div>
-        <div>
-          <div className="flex flex-row gap-2">
-            <HawaTextField
-              isLoading={loading}
-              defaultValue={"https://sikka.io"}
-              label="Website"
-              placeholder="https://example.com"
-              type="text"
-              width="small"
-              preview={true}
-            />
-            <HawaTextField
-              isLoading={loading}
-              defaultValue={"@sikka_io"}
-              label="Twitter"
-              placeholder="@example"
-              type="text"
-              width="small"
-              preview={true}
-            />
-          </div>
+        <div className="flex flex-row gap-6">
+          <HawaTextField
+            isLoading={loading}
+            defaultValue={"https://sikka.io"}
+            label="Website"
+            placeholder="https://example.com"
+            type="text"
+            width="small"
+            preview={true}
+          />
+          <HawaSelect
+            isLoading={loading}
+            label={"Role"}
+            options={[
+              { label: "Option 1", value: "option1" },
+              { label: "Option 2", value: "option2" },
+              { label: "Option 3", value: "option3" }
+            ]}
+            value={"option1"}
+          />
+          <HawaTextField
+            isLoading={loading}
+            defaultValue={"@sikka_io"}
+            label="Twitter"
+            placeholder="@example"
+            type="text"
+            width="small"
+            preview={true}
+          />
         </div>
       </div>
     </div>

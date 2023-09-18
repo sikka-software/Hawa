@@ -4,6 +4,7 @@ import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 import { Label } from "./Label"
 import { cn } from "../util"
+import { Skeleton } from "./Skeleton"
 
 type ControlTypes = {
   cx: any
@@ -59,7 +60,7 @@ const Menu: FC<MenuTypes> = ({
 }) => {
   return (
     <div
-      className="absolute z-10 mt-2 flex w-full  flex-col justify-start  rounded  border  bg-background p-1  px-1.5"
+      className="absolute z-10 mt-2 flex w-full  flex-col justify-start  rounded  border  bg-background  p-1.5"
       ref={innerRef}
       {...innerProps}
       // {...props}
@@ -115,18 +116,16 @@ type SelectTypes = {
   getOptionLabel?: any
   disabled?: boolean
   defaultValue?: any
+  isLoading?: any
 }
 export const HawaSelect: FC<SelectTypes> = (props) => {
   return (
     <div className=" flex w-full flex-col gap-2">
       {props.label && <Label>{props.label}</Label>}
 
-      {/* {props.label && (
-        <div className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          {props.label}
-        </div>
-      )} */}
-      {!props.isCreatable && (
+      {props.isLoading ? (
+        <Skeleton className="h-[38px] w-full" />
+      ) : !props.isCreatable ? (
         <Select
           classNames={{
             // control: () => "bg-blue-500 w-full",
@@ -160,8 +159,7 @@ export const HawaSelect: FC<SelectTypes> = (props) => {
           }}
           getOptionLabel={props.getOptionLabel}
         />
-      )}
-      {props.isCreatable && (
+      ) : (
         <CreatableSelect
           styles={{
             input: (base) => ({
