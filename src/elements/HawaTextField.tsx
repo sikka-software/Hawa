@@ -1,11 +1,13 @@
 import React, { FC, PropsWithRef } from "react"
 import { Label } from "./Label"
 import { cn } from "../util"
+import { Skeleton } from "./Skeleton"
 
 // TODO: make icon based on direction
 // TODO: Preferebly use context to pass direction rtl | ltr
 
 type TextFieldTypes = {
+  isLoading?: boolean
   margin?: "none" | "normal" | "large"
   width?: "small" | "normal" | "full"
   /** The label of the input field   */
@@ -62,40 +64,46 @@ export const HawaTextField: FC<TextFieldTypes> = ({
   return (
     <div className={cn(defaultStyle, marginStyles[margin], widthStyles[width])}>
       {props.label && <Label>{props.label}</Label>}
-      <div
-        className={cn(
-          "absolute top-[22px] h-[0.8px] w-full bg-gray-200 transition-all dark:bg-gray-800",
-          preview ? "opacity-100" : "opacity-0"
-        )}
-      ></div>
-      <>
-        <div className={cn("relative")}>
-          {props.icon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-              {props.icon}
-            </div>
-          )}
-          <input
-            {...props}
+      {props.isLoading ? (
+        <Skeleton className="h-[38px] w-full" />
+      ) : (
+        <>
+          <div
             className={cn(
-              defaultInputStyle,
-              props.icon && "pl-10",
-              preview && "border-transparent bg-transparent px-0"
+              "absolute top-[22px] h-[0.8px] w-full bg-gray-200 transition-all dark:bg-gray-800",
+              preview ? "opacity-100" : "opacity-0"
             )}
-            disabled={preview}
-          />
-        </div>
-        {props.iconInside && (
-          <div className="absolute right-1 top-[41px]  -translate-y-1/2">
-            {props.iconInside}
-          </div>
-        )}
-        {props.helpertext ? (
-          <p className="mb-0 mt-0 text-xs text-red-600 dark:text-red-500">
-            {props.helpertext}
-          </p>
-        ) : null}
-      </>
+          ></div>
+          <>
+            <div className={cn("relative")}>
+              {props.icon && (
+                <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                  {props.icon}
+                </div>
+              )}
+              <input
+                {...props}
+                className={cn(
+                  defaultInputStyle,
+                  props.icon && "pl-10",
+                  preview && "border-transparent bg-transparent px-0"
+                )}
+                disabled={preview}
+              />
+            </div>
+            {props.iconInside && (
+              <div className="absolute right-1 top-[41px]  -translate-y-1/2">
+                {props.iconInside}
+              </div>
+            )}
+            {props.helpertext ? (
+              <p className="mb-0 mt-0 text-xs text-red-600 dark:text-red-500">
+                {props.helpertext}
+              </p>
+            ) : null}
+          </>
+        </>
+      )}
     </div>
   )
 }

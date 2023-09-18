@@ -14,12 +14,7 @@ import {
 export default {
   title: "Elements/Input Fields",
   component: [HawaTextField, HawaPhoneInput, HawaSelect, HawaColorPicker],
-  parameters: {
-    // backgrounds: {
-    //   default: "light",
-    //   values: [{ name: "light", value: "#ECEBE4" }]
-    // }
-  },
+
   argsTypes: {
     type: {
       name: "type",
@@ -37,50 +32,97 @@ export default {
 
 export const TextField = (args) => {
   const [editable, setEditable] = useState(false);
+  const [loading, setLoading] = useState(false);
   return (
     <div>
       <HawaTextField {...args} width="full" label="Full Width" />
       <HawaTextField {...args} width="normal" label="Normal Width" />
       <HawaTextField {...args} width="small" label="Small Width" />
 
-      <div className="mb-6 mt-10 flex flex-row items-center gap-2">
-        <Button onClick={() => setEditable(!editable)} size={"sm"}>
-          Turn {editable ? "ON" : "OFF"}
-        </Button>
-        <div className="flex flex-col">
-          <span className="text-xl font-bold">Edit Mode</span>
-          <span className="text-sm text-muted-foreground">
-            Treat the input field as a regular text when edit mode is off.
-          </span>
+      <div>
+        <div className="mb-6 mt-10 flex flex-row items-center gap-2">
+          <Button onClick={() => setEditable(!editable)} size={"sm"}>
+            Turn {editable ? "ON" : "OFF"}
+          </Button>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold">Edit Mode</span>
+            <span className="text-sm text-muted-foreground">
+              Treat the input field as a regular text when edit mode is off.
+            </span>
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-row gap-2">
+            <HawaTextField
+              defaultValue={"https://sikka.io"}
+              label="Website"
+              placeholder="https://example.com"
+              type="text"
+              width="small"
+              preview={editable}
+            />
+            <HawaTextField
+              defaultValue={"@sikka_io"}
+              label="Twitter"
+              placeholder="@example"
+              type="text"
+              width="small"
+              preview={editable}
+            />
+            <HawaTextField
+              defaultValue={"@sikka_io"}
+              label="Twitter"
+              placeholder="@example"
+              type="text"
+              width="small"
+              isLoading
+              preview={false}
+            />
+          </div>
         </div>
       </div>
       <div>
-        <div className="flex flex-row gap-2">
-          <HawaTextField
-            defaultValue={"https://sikka.io"}
-            label="Website"
-            placeholder="https://example.com"
-            type="text"
-            width="small"
-            preview={editable}
-          />
-          <HawaTextField
-            defaultValue={"@sikka_io"}
-            label="Twitter"
-            placeholder="@example"
-            type="text"
-            width="small"
-            preview={editable}
-          />
-          {/* <HawaPhoneInput
-            label="Label test"
-            // helpertext="something invalid"
-            placeholder="input placeholder"
-            // value="3434"
-            type="text"
-            width="small"
-            // preview={true}
-          /> */}
+        <div className="mb-6 mt-10 flex flex-row items-center gap-2">
+          <Button onClick={() => setLoading(!loading)} size={"sm"}>
+            Turn {loading ? "ON" : "OFF"}
+          </Button>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold">Loading Mode</span>
+            <span className="text-sm text-muted-foreground">
+              Treat the input field as a regular text when edit mode is off.
+            </span>
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-col gap-2">
+            <HawaTextField
+              isLoading={loading}
+              defaultValue={"https://sikka.io"}
+              label="Website"
+              placeholder="https://example.com"
+              type="text"
+              width="small"
+              preview={true}
+            />
+            <HawaTextField
+              isLoading={loading}
+              defaultValue={"@sikka_io"}
+              label="Twitter"
+              placeholder="@example"
+              type="text"
+              width="small"
+              preview={true}
+            />
+            <HawaTextField
+              // isLoading={loading}
+              defaultValue={"@sikka_io"}
+              label="Twitter"
+              placeholder="@example"
+              type="text"
+              width="small"
+              preview={true}
+            />
+          </div>
         </div>
       </div>
     </div>
