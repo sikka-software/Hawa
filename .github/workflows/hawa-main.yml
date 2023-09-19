@@ -1,0 +1,40 @@
+name: Hawa CI - @latest
+
+env:
+  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: |
+          if [ -e 'package-lock.json' ]; then 
+           npm ci
+          else 
+           npm install
+          fi
+      - name: Build Library
+        run: npm run build-up
+      - name: Build Styles
+        run: npm run build:styles
+      - name: Generate Tailwind Styles
+        run: npm run generate-css
+      - name: Publish to NPM main tag
+        run: npm publish

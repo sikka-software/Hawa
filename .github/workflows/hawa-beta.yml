@@ -1,4 +1,4 @@
-name: Hawa CI
+name: Hawa CI - @beta
 
 env:
   NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -37,7 +37,7 @@ jobs:
         run: npm run build:styles
       - name: Generate Tailwind Styles
         run: npm run generate-css
-      - name: Publish to NPM
+      - name: Publish to NPM @beta tag
         run: npm publish --tag $NPM_PUBLISH_TAG # Specify the tag here
 
   deploy-landing:
