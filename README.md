@@ -4,15 +4,20 @@
 
 # Hawa | هواء
 
-[![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
-[![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa)
+[![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=1082c3)](https://www.npmjs.com/package/@sikka/hawa)
+[![NPM@beta](https://img.shields.io/npm/v/@sikka/hawa/beta.svg?style=flat&colorA=000000&colorB=ea7637)](https://www.npmjs.com/package/@sikka/hawa)
+
+<!-- [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa) -->
+
+
 
 > Opinionated UI Kit for web apps and websites built with TailwindCSS
 
 [Docs](https://hawa.style/docs)
 
 ## Install
-
+**Note:** `@beta` only points to pre-releases.
+Use `@latest` for the latest stable release.
 ```bash
 npm install @sikka/hawa
 ```
