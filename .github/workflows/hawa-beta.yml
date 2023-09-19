@@ -18,7 +18,11 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
-
+      - name: Append -beta to package.json version
+        run: |
+          apt-get update && apt-get install -y jq
+          jq '.version = .version + "-beta"' package.json > package.json.tmp
+          mv package.json.tmp package.json
       - name: Use Node.js v16
         uses: actions/setup-node@v2
         with:
