@@ -315,7 +315,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   }
   return (
     <DropdownMenuRoot dir={direction}>
-      <DropdownMenuTrigger className={triggerClassname}>
+      <DropdownMenuTrigger asChild className={triggerClassname}>
         {trigger}
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
@@ -328,9 +328,11 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         >
           {items.map((item, index) => {
             if (item.type === "separator") {
-              return <DropdownMenuSeparator />
+              return <DropdownMenuSeparator key={index} />
             } else if (item.type === "label") {
-              return <DropdownMenuLabel>{item.label}</DropdownMenuLabel>
+              return (
+                <DropdownMenuLabel key={index}>{item.label}</DropdownMenuLabel>
+              )
             } else {
               return item.subitems ? (
                 <DropdownMenuSub key={index}>
@@ -345,6 +347,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     <DropdownMenuSubContent>
                       {item.subitems.map((subitem, subIndex) => (
                         <DropdownMenuItem
+                          key={subIndex}
                           className={cn(
                             sizeStyles[size],
 
@@ -360,7 +363,6 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                               selectCallback(subitem.value)
                             }
                           }}
-                          key={subIndex}
                         >
                           {subitem.icon && subitem.icon}
                           {subitem.label && subitem.label}
@@ -371,8 +373,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                 </DropdownMenuSub>
               ) : (
                 <DropdownMenuItem
-                  disabled={item.disabled}
                   key={index}
+                  disabled={item.disabled}
                   onSelect={(e) => {
                     if (item.presist) {
                       e.preventDefault()

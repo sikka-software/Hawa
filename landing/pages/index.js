@@ -42,8 +42,11 @@ export default function Home() {
       "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/black-symbol.png";
   }
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   return (
-    <main>
+    <main className="m-0 flex min-h-screen flex-col gap-2 p-0">
       <div className="relative flex w-full flex-col items-center justify-center border-b bg-primary-foreground ">
         <nav className=" flex w-full max-w-7xl items-center justify-between  p-3">
           <div className="flex items-center ">
@@ -144,7 +147,7 @@ export default function Home() {
           </div>
         </nav>{" "}
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-1 flex-row">
         <div className="mt-10 flex w-full flex-col  items-center p-10 ">
           <div className="flex max-w-2xl flex-col items-center justify-center gap-4">
             {/* <h1 className="project-name">Hawa | هواء</h1> */}
@@ -222,11 +225,8 @@ export default function Home() {
             </a>
           </div>
         </div>
-        {/* <div className="grid w-1/2 grid-cols-2 gap-2 p-4 bg-red-500">
-          <Card>TEST CARD</Card>
-        </div> */}
       </div>
-      <div className="fixed bottom-0 mt-10 flex w-full flex-col items-center opacity-50 ">
+      <div className=" mt-10 flex w-full flex-col items-center opacity-50 ">
         <a href="https://sikka.io">
           <img width="20" alt="Sikka" src={sikkaLogoURL} />
         </a>

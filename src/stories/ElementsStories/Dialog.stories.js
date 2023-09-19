@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger
@@ -30,6 +31,10 @@ const Template = (args) => {
               account and remove your data from our servers.
             </DialogDescription>
           </DialogHeader>
+          <DialogFooter>
+            <Button variant="destructive">Yes, I am</Button>
+            <Button variant="outline">Cancel</Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
