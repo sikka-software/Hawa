@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
-import useDiscloser from "../hooks/useDiscloser"
 import useBreakpoint from "../hooks/useBreakpoint"
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements"
 import { SidebarGroup } from "./Sidebar"
@@ -27,6 +26,7 @@ type AppLayoutTypes = {
   profileMenuWidth: "default" | "sm" | "lg" | "parent"
   onSettingsClick?: () => void
   onDrawerExpand?: (e) => void
+  keepDrawerOpen?: boolean
   DrawerFooterActions?: any
   clickedItem?: any
   texts?: {
@@ -85,7 +85,15 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   } else {
     size = 1200
   }
-  const [keepOpen, setKeepOpen] = useState(size > 600 ? true : false)
+  const [keepOpen, setKeepOpen] = useState(() => {
+    if (size > 600) {
+      // If size is larger than 600, use prop.isDrawerOpen if it exists, or default to true.
+      return props.keepDrawerOpen !== undefined ? props.keepDrawerOpen : true
+    } else {
+      // If size is less than or equal to 600, set keepOpen to false.
+      return false
+    }
+  })
   const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false)
 
   let drawerSizeCondition =
