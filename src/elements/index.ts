@@ -51,6 +51,7 @@ export * from "./HawaStoreButtons"
 export * from "./ActionCard"
 export * from "./StickyFeatures"
 export * from "./UserReferralSource"
+export * from "./Icons"
 
 // v0.1
 export * from "./Button"
