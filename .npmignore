@@ -2,6 +2,7 @@
 /node_modules
 /public
 /src/stories
+/src/translations
 /storybook-static
 /.vscode
 /tools
