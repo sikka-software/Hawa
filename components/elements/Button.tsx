@@ -5,32 +5,33 @@ import { cn } from "../util";
 import { Loading } from "./Loading";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center select-none rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "hawa-inline-flex hawa-items-center hawa-justify-center hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        light: "bg-primary/20 text-primary hover:bg-primary/40",
+        default:
+          "hawa-bg-primary hawa-text-primary-foreground hover:hawa-bg-primary/90",
+        light: "hawa-bg-primary/20 hawa-text-primary hover:hawa-bg-primary/40",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "hawa-bg-destructive hawa-text-destructive-foreground hover:hawa-bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "hawa-border hawa-border-input hawa-bg-background hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "hawa-bg-secondary hawa-text-secondary-foreground hover:hawa-bg-secondary/80",
+        ghost: "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
+        link: "hawa-text-primary hawa-underline-offset-4 hover:hawa-underline",
         neoBrutalism:
-          "cursor-pointer transition-all uppercase font-mono  dark:bg-black font-bold py-2 px-4 rounded border-2 border-primary shadow-color-primary transition-[transform_50ms, box-shadow_50ms] active:translate-x-0.5 active:translate-y-0.5 active:shadow-color-primary-active",
+          "hawa-cursor-pointer hawa-transition-all hawa-uppercase hawa-font-mono  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary hawa-shadow-color-primary hawa-transition-[transform_50ms, box-shadow_50ms] active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 active:hawa-shadow-color-primary-active",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        heightless: "px-4 py-4",
-        xs: "h-fit py-1 text-[10px] px-2 ",
-        sm: "h-9 text-[11px] rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        xl: "h-14 rounded-md px-10",
-        icon: "h-10 w-10",
-        smallIcon: "h-7 w-7",
+        default: "hawa-h-10 hawa-px-4 hawa-py-2",
+        heightless: "hawa-px-4 hawa-py-4",
+        xs: "hawa-h-fit hawa-py-1 hawa-text-[10px] hawa-px-2 ",
+        sm: "hawa-h-9 hawa-text-[11px] hawa-rounded-md hawa-px-3",
+        lg: "hawa-h-11 hawa-rounded-md hawa-px-8",
+        xl: "hawa-h-14 hawa-rounded-md hawa-px-10",
+        icon: "hawa-h-10 hawa-w-10",
+        smallIcon: "hawa-h-7 hawa-w-7",
       },
     },
     defaultVariants: {
@@ -65,8 +66,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // Determine the color for the HawaLoading component based on the variant
     const loadingColor =
       variant === "outline" || variant === "ghost" || variant === "neoBrutalism"
-        ? "bg-primary"
-        : "bg-primary-foreground";
+        ? "hawa-bg-primary"
+        : "hawa-bg-primary-foreground";
 
     return (
       <Comp

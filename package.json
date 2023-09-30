@@ -1,16 +1,17 @@
 {
-  "name": "new-hawa",
-  "version": "0.1.0",
+  "name": "@sikka/hawa",
+  "version": "0.1.5-next",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.mjs"
+      "import": "./dist/index.js"
     },
     "./dist/style.css": "./dist/index.css"
   },
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,7 +20,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-lib": "tsup components/index.tsx --format cjs,esm --dts",
-    "build-css": "postcss styles/globals.css -o dist/index.css"
+    "build-css": "postcss styles/globals.css -o dist/index.css",
+    "prepublish": "npm run build-lib && npm run build-css",
+    "pub": "npm publish --tag next"
   },
   "dependencies": {
     "@types/node": "20.8.0",

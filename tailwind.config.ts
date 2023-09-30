@@ -6,6 +6,11 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  prefix: "hawa-",
+
+  corePlugins: {
+    preflight: false,
+  },
 
   darkMode: ["class"],
   theme: {
