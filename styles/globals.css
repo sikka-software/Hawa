@@ -1,17 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* @import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
+body {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    /* --card: 0 0% 100%; */
     --card: 210 50% 98%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -26,50 +24,23 @@
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
     --info: 209 62% 50%;
     --info-foreground: 0 0% 98%;
-
     --success: 148 48% 43%;
     --success-foreground: 0 0% 98%;
-
     --warning: 24 75% 50%;
     --warning-foreground: 0 0% 98%;
-
     --error: 0 84.2% 60.2%;
     --error-foreground: 0 0% 98%;
-    /* // info: "text-info-700 bg-info-100",
-    // warning: "text-warning-700 bg-warning-100",
-    // error: "text-destructive-700 bg-destructive-100",
-    // success: "text-success-700 bg-success-100", */
-
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5% 64.9%;
     --radius: 0.5rem;
     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
-
-    --layout-primary-700: #b7aff7;
-    --layout-primary-500: #fdfdfd;
-    --layout-primary-600: #f7f7f7;
-    --layout-primary-300: #e7e5fa;
-    --layout-secondary: #d2cdfa;
-
-    --button-primary-300: 247 72% 61%;
-    --button-primary-500: 247 82% 57%;
-    --button-primary-500-hsl: hsl(247, 82%, 57%);
-    --button-primary-700: 247 71% 39%;
-    --button-secondary-500: #ffc011;
-    --button-secondary-700: #b48d24;
   }
   .dark {
-    --layout-primary-500: #363636;
-    --layout-primary-600: #2d2d2d;
-    --layout-primary-700: #1d1d1d;
-    --layout-primary-300: #4a4a4a;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    /* --card: 240 10% 3.9%; */
     --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -88,7 +59,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+}
 
+@layer base {
+  * {
+    @apply hawa-border-border;
+  }
+  body {
+    @apply hawa-bg-background hawa-text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+@layer components {
   .link::after {
     content: url("data:image/svg+xml,%3Csvg stroke='%234c37eb' fill='none' stroke-width='2' viewBox='0 0 24 24' aria-hidden='true' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'%3E%3C/path%3E%3C/svg%3E");
     display: inline-block;
@@ -105,19 +87,11 @@
     text-decoration: underline;
     color: var(--button-primary-700);
   }
-
   .inline-code {
     font-size: 0.75rem;
-    /* color: theme("colors.slate.500"); */
-    /* background-color: theme("colors.stone.100"); */
+    width: fit-content;
     border-radius: theme("borderRadius.DEFAULT");
-    /* padding-left: theme("spacing[1.5]");
-    padding-right: theme("spacing[1.5]");
-    padding-top: theme("spacing.1");
-    padding-bottom: theme("spacing.1"); */
     padding: theme("spacing.1") theme("spacing[1.5]");
-    /* margin: theme("spacing.0") theme("spacing.1");  */
-
     border: theme("colors.gray.300") 1px solid;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       Liberation Mono, Courier New, monospace;
@@ -146,7 +120,6 @@
     width: 15px;
     height: 15px;
     border-radius: 11px;
-    /* border: 2px solid var(--button-primary-500); */
     border: 2px solid #a3a3a3;
     background-color: transparent;
   }
@@ -173,16 +146,9 @@
     display: block;
     background: hsl(var(--primary));
   }
-  /* * {
-    @apply border-border;
+  .clickable-link {
+    @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
   }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  } */
-}
-
-@layer components {
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);
   }
@@ -196,41 +162,11 @@
     --tw-shadow: 0.125rem 0.125rem hsl(var(--primary));
     box-shadow: var(--tw-shadow);
   }
-
-  /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
-body {
-  font-family: "IBM Plex Sans Arabic", sans-serif;
-}
-
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */

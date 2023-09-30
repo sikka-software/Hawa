@@ -22,9 +22,9 @@ type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 const TheStory = () => (
-  <div className="flex flex-col gap-2">
+  <div className="hawa-flex hawa-flex-col hawa-gap-2">
     <h1>Variations</h1>
-    <div className="flex flex-row gap-2 flex-wrap">
+    <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
       <Button variant={"default"}>Default</Button>
       <Button variant={"outline"}>Outline</Button>
       <Button variant={"destructive"}>Destructive</Button>
@@ -34,8 +34,10 @@ const TheStory = () => (
       <Button variant={"link"}>Link</Button>
       <Button variant={"neoBrutalism"}>NeoBrutalism</Button>
     </div>
+      <div className="clickable-link">Something</div>
+      <div className="inline-code">Something</div>
     <h1>Loading</h1>
-    <div className="flex flex-row gap-2 flex-wrap">
+    <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
       <Button isLoading variant={"default"}>
         Default
       </Button>
