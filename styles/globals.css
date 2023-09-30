@@ -2,7 +2,218 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    /* --card: 0 0% 100%; */
+    --card: 210 50% 98%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --info: 209 62% 50%;
+    --info-foreground: 0 0% 98%;
+
+    --success: 148 48% 43%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 24 75% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --error: 0 84.2% 60.2%;
+    --error-foreground: 0 0% 98%;
+    /* // info: "text-info-700 bg-info-100",
+    // warning: "text-warning-700 bg-warning-100",
+    // error: "text-destructive-700 bg-destructive-100",
+    // success: "text-success-700 bg-success-100", */
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5% 64.9%;
+    --radius: 0.5rem;
+    --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
+
+    --layout-primary-700: #b7aff7;
+    --layout-primary-500: #fdfdfd;
+    --layout-primary-600: #f7f7f7;
+    --layout-primary-300: #e7e5fa;
+    --layout-secondary: #d2cdfa;
+
+    --button-primary-300: 247 72% 61%;
+    --button-primary-500: 247 82% 57%;
+    --button-primary-500-hsl: hsl(247, 82%, 57%);
+    --button-primary-700: 247 71% 39%;
+    --button-secondary-500: #ffc011;
+    --button-secondary-700: #b48d24;
+  }
+  .dark {
+    --layout-primary-500: #363636;
+    --layout-primary-600: #2d2d2d;
+    --layout-primary-700: #1d1d1d;
+    --layout-primary-300: #4a4a4a;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    /* --card: 240 10% 3.9%; */
+    --card: 0 0% 2%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+@layer base {
+  .link::after {
+    content: url("data:image/svg+xml,%3Csvg stroke='%234c37eb' fill='none' stroke-width='2' viewBox='0 0 24 24' aria-hidden='true' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'%3E%3C/path%3E%3C/svg%3E");
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    width: 0.75em;
+    vertical-align: middle;
+    color: hsl(var(--primary));
+  }
+  .link {
+    color: hsl(var(--primary));
+  }
+  .link:hover {
+    text-decoration: underline;
+    color: var(--button-primary-700);
+  }
+
+  .inline-code {
+    font-size: 0.75rem;
+    /* color: theme("colors.slate.500"); */
+    /* background-color: theme("colors.stone.100"); */
+    border-radius: theme("borderRadius.DEFAULT");
+    /* padding-left: theme("spacing[1.5]");
+    padding-right: theme("spacing[1.5]");
+    padding-top: theme("spacing.1");
+    padding-bottom: theme("spacing.1"); */
+    padding: theme("spacing.1") theme("spacing[1.5]");
+    /* margin: theme("spacing.0") theme("spacing.1");  */
+
+    border: theme("colors.gray.300") 1px solid;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      Liberation Mono, Courier New, monospace;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .radio-item {
+    position: relative;
+  }
+
+  .radio-item input[type="radio"] {
+    display: none;
+  }
+
+  .radio-item label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin: 0 5px 0 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 11px;
+    /* border: 2px solid var(--button-primary-500); */
+    border: 2px solid #a3a3a3;
+    background-color: transparent;
+  }
+
+  .radio-item-default input[type="radio"]:checked + label:after {
+    border-radius: 100%;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 6px;
+    left: 3px;
+    content: " ";
+    display: block;
+    background: hsl(var(--primary));
+  }
+  .radio-item-bordered input[type="radio"]:checked + label:after {
+    border-radius: 100%;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 22px;
+    left: 23px;
+    content: " ";
+    display: block;
+    background: hsl(var(--primary));
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+@layer components {
+  .ddm-w-parent {
+    width: var(--radix-dropdown-menu-trigger-width);
+  }
+}
+@layer utilities {
+  .shadow-color-primary {
+    --tw-shadow: 0.25rem 0.25rem hsl(var(--primary));
+    box-shadow: var(--tw-shadow);
+  }
+  .shadow-color-primary-active {
+    --tw-shadow: 0.125rem 0.125rem hsl(var(--primary));
+    box-shadow: var(--tw-shadow);
+  }
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+body {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +235,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
