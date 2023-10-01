@@ -37,7 +37,7 @@ jobs:
         run: npm publish --tag $NPM_PUBLISH_TAG # Specify the tag here
 
   deploy-landing:
-    if: ${{ contains(github.event.head_commit.message, 'build_landing') }}
+    if: ${{ contains(github.event.head_commit.message, 'deploy_landing') }}
 
     runs-on: [self-hosted, linux, x64, sikka-sofware-server-development]
     strategy:
@@ -45,6 +45,8 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: deploy-landing-path
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -52,12 +54,12 @@ jobs:
       - name: Install Hawa Landing
         run: |
           rm -fr /home/cloudpanel/htdocs/hawa.style || true
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path/landing
           rm -fr package-lock.json || true
           rm -fr node_modules  || true
           npm install
           npm run build --if-present
-          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa /home/cloudpanel/htdocs/hawa.style
+          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path/landing /home/cloudpanel/htdocs/hawa.style
           pm2 stop hawa-landing || true
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
@@ -71,13 +73,15 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: build-storybook-path
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: Generate Storybook Static Files
         run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path
           rm -fr package-lock.json || true
           npm install
           npm run build-storybook
