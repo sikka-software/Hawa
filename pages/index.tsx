@@ -1,15 +1,4 @@
-import {
-  Button,
-  //  Card,
-  //  DropdownMenu,
-  //  HawaCodeBlock,
-  //  HawaRadio
-} from "../components";
-import dynamic from "next/dynamic";
-
-// const Button = dynamic(() => import("@sikka/hawa").then((mod) => mod.Button), {
-//   ssr: false,
-// });
+import { Button } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -25,7 +14,6 @@ export default function Home() {
       localStorage.setItem("theme", currentTheme);
     };
 
-    // Setting theme from local storage or media query at the first render
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
@@ -58,42 +46,22 @@ export default function Home() {
         <nav className=" hawa-flex  hawa-items-center hawa-justify-between  hawa-p-4  hawa-h-fit hawa-w-full hawa-max-w-4xl">
           {/*  */}
           <div className="hawa-flex hawa-items-center  hawa-h-fit">
-            {/* <img
-              className="w-28"
+            <img
+              className="hawa-w-36"
               src={
                 theme === "dark" ||
                 (theme !== "light" &&
-                typeof window !== "undefined" &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-                ? "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo-dark-mode.png"
-                : "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-logo.png"
-              }
-              alt="Hawa | هواء"
-            /> */}
-            <img
-              className="hawa-w-8"
-              src={
-                "https://xakher-images.s3.ap-southeast-1.amazonaws.com/hawa-symbol.png"
+                  typeof window !== "undefined" &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches)
+                  ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-full-wordmark-white.png"
+                  : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-full-wordmark-black.png"
               }
               alt="Hawa Logo"
             />
-            <h1 className="hawa-text-2xl hawa-ml-2 hawa-font-bold hawa-m-0">
-              Hawa
-            </h1>
+
             <span className="hawa-sr-only">Hawa Logo</span>
           </div>
           <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">
-            {/* <a
-              href="https://www.npmjs.com/package/@sikka/hawa"
-              className=" hawa-w-fit"
-            >
-              <img
-                width="100"
-                className="w-24 rounded"
-                alt="Sikka"
-                src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
-              />
-            </a> */}
             <Button
               variant="outline"
               size="smallIcon"
@@ -151,7 +119,7 @@ export default function Home() {
               )}
             </Button>
           </div>
-        </nav>{" "}
+        </nav>
       </div>
       <div className="hawa-flex hawa-flex-1 hawa-flex-row">
         <div className="hawa-mt-10 hawa-flex hawa-w-full hawa-flex-col  hawa-items-center hawa-p-10 ">
@@ -201,7 +169,7 @@ export default function Home() {
               <Button
                 isLoading={isItLoading}
                 variant="outline"
-                // onClick={() => window.open("https://hawa.style/docs")}
+                onClick={() => window.open("https://hawa.style/docs")}
                 // onClick={() => setIsItLoading(!isItLoading)}
               >
                 Docs

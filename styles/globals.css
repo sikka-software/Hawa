@@ -88,13 +88,13 @@ body {
     color: var(--button-primary-700);
   }
   .inline-code {
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     width: fit-content;
     border-radius: theme("borderRadius.DEFAULT");
     padding: theme("spacing.1") theme("spacing[1.5]");
     border: theme("colors.gray.300") 1px solid;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      Liberation Mono, Courier New, monospace;
+      Liberation Mono, Courier New, monospace !important;
   }
 
   input[type="number"]::-webkit-inner-spin-button,

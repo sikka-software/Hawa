@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
+import { ArgsTable } from "@storybook/blocks";
 // import { Button } from "../../components/elements";
 import { Loading } from "../../components/elements";
 
@@ -9,10 +9,20 @@ const meta = {
   component: Loading,
   parameters: {
     layout: "centered",
+    docs: {
+      page: () => (
+        <>
+          <h1>test</h1>
+          <ArgsTable />
+          {/* <DocBlock.title></DocBlock.title> */}
+        </>
+      ),
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+
   argTypes: {
     // design: {
     //   options: ["spinner", "dots"],

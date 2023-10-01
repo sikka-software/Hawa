@@ -1,16 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Card, Button } from "../../components/elements";
+import {
+  Card,
+  Button,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+  CardContent,
+} from "../../components/elements";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Elements/Cards",
+  title: "Elements/Cards/Container",
   component: Card,
   parameters: {
     layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  // tags: ["autodocs"],
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     // backgroundColor: { control: "color" },
@@ -25,7 +33,15 @@ type Story = StoryObj<typeof Card>;
 const CardTemplate = (args: any) => (
   <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64">
     {" "}
-    <Card {...args}>tet</Card>
+    <Card {...args}>
+      <CardHeader>
+        Header
+        <CardTitle>Title here</CardTitle>
+        <CardDescription>Description here</CardDescription>
+      </CardHeader>
+      <CardContent>Content here</CardContent>
+      <CardFooter>Footer here</CardFooter>
+    </Card>
   </div>
 );
 

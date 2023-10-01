@@ -10,9 +10,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       className={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm",
+        "hawa-rounded-lg hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
         clickable &&
-          "cursor-pointer transition-all hover:drop-shadow-md dark:hover:shadow-dark",
+          "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:hawa-shadow-dark",
         className
       )}
       {...props}
@@ -27,7 +27,10 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    className={cn(
+      "hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-p-6",
+      className
+    )}
     {...props}
   />
 ));
@@ -40,7 +43,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "hawa-text-2xl hawa-font-semibold hawa-leading-none hawa-tracking-tight",
       className
     )}
     {...props}
@@ -54,7 +57,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("hawa-text-sm hawa-text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -68,7 +71,11 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ headless, className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("p-6", headless ? "pt-6" : "pt-0", className)}
+      className={cn(
+        "hawa-p-6",
+        headless ? "hawa-pt-6" : "hawa-pt-0",
+        className
+      )}
       {...props}
     />
   )
@@ -81,7 +88,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
+    className={cn("hawa-flex hawa-items-center hawa-p-6 hawa-pt-0", className)}
     {...props}
   />
 ));
