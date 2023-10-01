@@ -2,9 +2,9 @@ import { addons } from "@storybook/manager-api";
 
 addons.setConfig({
   sidebar: {
-    renderLabel: () => "😅",
+    // renderLabel: () => "😅",
     filters: {
-      patterns: (item) => {
+      patterns: (item: any) => {
         return !item.tags.includes("hide");
       },
     },

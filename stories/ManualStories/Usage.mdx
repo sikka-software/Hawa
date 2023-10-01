@@ -1,0 +1,58 @@
+import { Meta, ArgsTable, Story } from "@storybook/blocks";
+import * as DialogStories from "../../stories/ElementsStories/Dialog.stories.tsx";
+import { Button, DialogContent, CodeBlock } from "../../components/elements";
+
+<Meta title="Usage" />
+
+# Usage
+
+## Installation
+
+Install `@sikka/hawa` via npm or yarn:
+
+```bash
+npm install @sikka/hawa
+# or
+yarn add @sikka/hawa
+```
+
+## Theming
+
+Override the global CSS variables to customize the theme:
+
+```css
+:root {
+  --primary: 240 5.9% 50%;
+  --background: 240 10% 20%;
+  /* ...other variables */
+}
+
+.dark {
+  --primary: 0 0% 98%;
+  --background: 240 10% 3.9%;
+  /* ...other variables */
+}
+```
+
+## Components
+
+Import and use components from `@sikka/hawa`:
+
+```jsx
+import { Button } from "@sikka/hawa";
+
+function MyApp() {
+  return <Button>Click me</Button>;
+}
+```
+
+For further details on each component and prop types, refer to the component documentation.
+
+## Handling Dark Mode
+
+Coming soon
+{/* Toggle the `dark` class on your root element to switch between light and dark themes. */}
+
+{/* ```javascript
+document.documentElement.classList.toggle("dark");
+``` */}

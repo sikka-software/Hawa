@@ -1,0 +1,45 @@
+import { Meta, ArgsTable, Story } from "@storybook/blocks";
+import * as DialogStories from "../../stories/ElementsStories/Dialog.stories.tsx";
+import { Button, DialogContent, CodeBlock } from "../../components/elements";
+
+<Meta title="Installation" />
+
+<div>
+  <h1>Installation</h1>
+
+  <p>Run one of the following commands to add Hawa to your project:</p>
+  <CodeBlock
+    tabs={[
+      {
+        title: "npm",
+        code: "npm install @sikka/hawa",
+      },
+      {
+        title: "yarn",
+        code: "yarn add @sikka/hawa",
+      },
+      {
+        title: "pnpm",
+        code: "pnpm add @sikka/hawa",
+      },
+    ]}
+  />
+</div>
+
+Note: The @beta tag is used for pre-releases. Use the @latest tag for the latest stable release.
+
+After installation, import the components you want to use from `@sikka/hawa`. For example:
+
+```javascript
+import { Button } from '@sikka/hawa';
+
+function App() {
+  return (
+    <Button>Click me</Button>
+  );
+}
+
+export default App;
+```
+
+This way, you can start using the UI components provided by `@sikka/hawa` in your project.

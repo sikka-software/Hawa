@@ -10,7 +10,7 @@ const meta = {
       page: () => (
         <>
           {/* <Title /> */}
-          <Story of={Docs} />
+          {/* <Story of={Docs} /> */}
           <ArgsTable />
         </>
       ),
@@ -37,7 +37,7 @@ export default meta;
 //   render: () => <Template />,
 // };
 
-export const Docs = () => (
+export const Default = () => (
   <div>
     {" "}
     <Breadcrumb

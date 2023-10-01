@@ -1,6 +1,7 @@
 import { Button } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -36,7 +37,6 @@ export default function Home() {
       "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/black-symbol.png";
   }
 
-  const [isItLoading, setIsItLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -166,14 +166,14 @@ export default function Home() {
                   },
                 ]}
               /> */}
-              <Button
-                isLoading={isItLoading}
-                variant="outline"
-                onClick={() => window.open("https://hawa.style/docs")}
-                // onClick={() => setIsItLoading(!isItLoading)}
-              >
-                Docs
-              </Button>
+              <Link href={"/docs"}>
+                <Button
+                  variant="outline"
+                  // onClick={() => window.open("https://hawa.style/docs")}
+                >
+                  Docs
+                </Button>
+              </Link>
             </div>
             {/* <HawaCodeBlock code="npm install @sikka/hawa" /> */}
             <a

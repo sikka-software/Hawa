@@ -1,84 +1,74 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArgsTable } from "@storybook/blocks";
+import { ArgsTable, Title } from "@storybook/blocks";
 // import { Button } from "../../components/elements";
-import { Loading } from "../../components/elements";
+import { CodeBlock, Loading } from "../../components/elements";
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Elements/Loading",
   component: Loading,
   parameters: {
-    layout: "centered",
     docs: {
       page: () => (
         <>
-          <h1>test</h1>
+          <h1>{"<Loading/>"}</h1>
+          <span>
+            The Loading component provides visual feedback during data fetching
+            or other asynchronous tasks. It offers two design variations: a
+            spinner and a dots-pulse animation (more to come). <br /> This
+            loading component is already built-in{" "}
+            <span className="inline-code">{"<Button/>"}</span> and other
+            components & blocks.
+          </span>
           <ArgsTable />
-          {/* <DocBlock.title></DocBlock.title> */}
         </>
       ),
     },
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-
   argTypes: {
-    // design: {
-    //   options: ["spinner", "dots"],
-    //   control: { type: "radio" },
-    // },
-    // backgroundColor: { control: "color" },
+    design: {
+      options: ["spinner", "dots"],
+      control: { type: "radio" },
+    },
   },
 } satisfies Meta<typeof Loading>;
 
 export default meta;
 type Story = StoryObj<typeof Loading>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-const StoryTemplate = (args: any) => (
-  <div className="hawa-flex hawa-flex-col hawa-gap-2">
-    <div className="hawa-flex hawa-flex-col hawa-gap-6 hawa-divide-y-2">
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full  ">
-        <h3>Extra Small</h3>
-        <Loading design={args.design} size="xs" />
+const Template = (args: any) => {
+  let sizes = [
+    { prop: "xl", title: "Extra Large" },
+    { prop: "lg", title: "Large" },
+    { prop: "normal", title: "Normal" },
+    { prop: "sm", title: "Small" },
+    { prop: "button", title: "Button Size" },
+    { prop: "xs", title: "Extra Small" },
+  ];
+  return (
+    <div className="hawa-flex hawa-flex-col hawa-gap-2">
+      <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
+        {sizes.map((s) => (
+          <div className=" hawa-p-4 hawa-border hawa-flex hawa-flex-col hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full  ">
+            <h3>{s.title}</h3>
+            <Loading
+              design={args.design}
+              size={s.prop as "xs" | "button" | "sm" | "normal" | "lg" | "xl"}
+            />
+          </div>
+        ))}
       </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full ">
-        <h3>Button Size</h3>
-        <Loading design={args.design} size="button" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full ">
-        <h3>Small</h3>
-        <Loading design={args.design} size="sm" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full ">
-        <h3>Normal</h3>
-        <Loading design={args.design} size="normal" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full ">
-        <h3>Large</h3>
-        <Loading design={args.design} size="lg" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full ">
-        <h3>Extra Large</h3>
-        <Loading design={args.design} size="xl" />
-      </div>
-      {/* <Loading design={args.design} size="button" />
-      <Loading design={args.design} size="sm" />
-      <Loading design={args.design} size="normal" />
-      <Loading design={args.design} size="lg" />
-      <Loading design={args.design} size="xl" /> */}
     </div>
-  </div>
-);
+  );
+};
 export const Spinner: Story = {
-  render: (args) => <StoryTemplate {...args} />,
+  render: (args) => <Template {...args} />,
   args: {
-    design: "dots-pulse",
+    design: "spinner",
   },
 };
 export const Dots: Story = {
-  render: (args) => <StoryTemplate {...args} />,
+  render: (args) => <Template {...args} />,
   args: {
     design: "dots-pulse",
   },

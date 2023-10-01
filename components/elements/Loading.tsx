@@ -2,9 +2,12 @@ import React, { FC } from "react";
 import clsx from "clsx";
 
 type LoadingTypes = {
+  /** Specifies the size of the loading component.*/
   size?: "button" | "xs" | "sm" | "normal" | "lg" | "xl";
+  /** Determines the design of the loading animation.*/
   design?: "spinner" | "dots-bounce" | "dots-pulse" | "pulse" | "spinner-dots";
-  color?: any;
+  /** Specifies the color of the loading component. By default it will inherit the value of <span className="inline-code">--primary</span> global CSS variable*/
+  color?: string;
 };
 
 export const Loading: FC<LoadingTypes> = ({

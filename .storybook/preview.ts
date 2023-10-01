@@ -32,8 +32,8 @@ const preview: Preview = {
         brandImage:
           "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-wordmark-white.png",
       },
-      darkClass: "dark",
-      lightClass: "light",
+      darkClass: ["hawa-dark", "dark"],
+      lightClass: ["hawa-light", "light"],
       stylePreview: true,
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -58,17 +58,5 @@ export const globalTypes = {
       ],
     },
   },
-  // gogo : {
-  //   name: "gogo",
-  //   description: "test button",
-  //   defaultValue: "en",
-  //   toolbar: {
-  //     icon: "globe",
-  //     items: [
-  //       { value: "en", right: "EN", title: "English" },
-  //       { value: "ar", right: "AR", title: "Arabic" }
-  //     ]
-  //   }
-  // }
 };
 export default preview;
