@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.2.41",
+  "version": "0.2.42",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -46,6 +46,8 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-select": "^5.7.7",
     "tailwind-merge": "^1.14.0",
     "typescript": "5.2.2"
   },

@@ -18,11 +18,16 @@ export * from "./Popover";
 export * from "./Textarea";
 export * from "./Slider";
 export * from "./DropdownMenu";
+export * from "./ColorPicker";
 
 // Might need categorization
 export * from "./PinInput";
 
 // Non-premitive
 export * from "./ActionCard";
+export * from "./FileDropzone";
+export * from "./PhoneInput";
 
 export * from "./AppStores";
+
+export * from "./BackToTop";
