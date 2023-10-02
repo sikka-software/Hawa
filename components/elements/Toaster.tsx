@@ -22,7 +22,7 @@ export function Toaster(props: ToasterProps) {
       {toasts.map(function ({ id, title, description, action, ...toastProps }) {
         return (
           <Toast direction={props.direction} key={id} {...toastProps}>
-            <div className={"grid gap-1 text-start"}>
+            <div className={"hawa-grid hawa-gap-1 hawa-text-start"}>
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
                 <ToastDescription>{description}</ToastDescription>
@@ -33,7 +33,9 @@ export function Toaster(props: ToasterProps) {
           </Toast>
         );
       })}
-      <ToastViewport className={cn("gap-2", isRTL && "fixed left-0")} />
+      <ToastViewport
+        className={cn("hawa-gap-2", isRTL && "hawa-fixed hawa-left-0")}
+      />
     </ToastProvider>
   );
 }

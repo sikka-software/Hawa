@@ -33,7 +33,7 @@
       "  return <div>${1:Template} story</div>;",
       "};",
       "export const Default: Story = {",
-      "  render: () => <Template/>,",
+      "  render: Template.bind({}),",
       "};"
     ]
   }

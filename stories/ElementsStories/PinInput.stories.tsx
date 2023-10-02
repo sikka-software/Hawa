@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PinInput } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import { ArgsTable, Story } from "@storybook/blocks";
 
 const meta = {
   title: "Elements/PinInput",
@@ -30,6 +29,9 @@ type Story = StoryObj<typeof PinInput>;
 
 export const Default: Story = {
   render: (args) => <PinInput {...args} />,
+  parameters: {
+    backgrounds: { default: "offwhite" },
+  },
   args: {
     getPins: () => console.log("getting pins"),
     width: "normal",

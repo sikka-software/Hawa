@@ -108,5 +108,5 @@ const Template = (args: any, globals: any) => {
 };
 
 export const Default: Story = {
-  render: () => <Template />,
+  render: Template.bind({}),
 };

@@ -54,7 +54,7 @@ export const globalTypes = {
       icon: "globe",
       items: [
         { value: "en", right: "EN", title: "English" },
-        { value: "ar", right: "AR", title: "Arabic" },
+        { value: "ar", right: "AR", title: "عربي" },
       ],
     },
   },

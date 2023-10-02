@@ -1,22 +1,25 @@
-import * as React from "react"
-import * as ToastPrimitives from "@radix-ui/react-toast"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../util"
+import * as React from "react";
+import * as ToastPrimitives from "@radix-ui/react-toast";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../util";
 
 const toastVariants = cva(
-  "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border  shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80  data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  "hawa-group hawa-pointer-events-auto hawa-relative hawa-flex hawa-w-full hawa-items-center hawa-justify-between hawa-space-x-4 hawa-overflow-hidden hawa-rounded-md hawa-border  hawa-shadow-lg hawa-transition-all data-[swipe=cancel]:hawa-translate-x-0 data-[swipe=end]:hawa-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:hawa-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:hawa-transition-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[swipe=end]:hawa-animate-out data-[state=closed]:hawa-fade-out-80  data-[state=open]:hawa-slide-in-from-top-full data-[state=open]:sm:hawa-slide-in-from-bottom-full",
   {
     variants: {
       variant: {
-        default: "border bg-background text-foreground",
+        default: "hawa-border hawa-bg-background hawa-text-foreground",
         destructive:
-          "destructive group border-destructive bg-destructive text-destructive-foreground",
+          "hawa-destructive hawa-group hawa-border-destructive hawa-bg-destructive hawa-text-destructive-foreground",
       },
       severity: {
-        info: "info group text-info-foreground bg-info",
-        warning: "warning group text-warning-foreground bg-warning",
-        error: "error group border-error bg-error text-error-foreground",
-        success: "success group text-success-foreground bg-success",
+        info: "hawa-info hawa-group hawa-text-info-foreground hawa-bg-info",
+        warning:
+          "hawa-warning hawa-group hawa-text-warning-foreground hawa-bg-warning",
+        error:
+          "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-error-foreground",
+        success:
+          "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
         none: "",
       },
     },
@@ -25,9 +28,9 @@ const toastVariants = cva(
       variant: "default",
     },
   }
-)
+);
 
-const ToastProvider = ToastPrimitives.Provider
+const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
@@ -36,20 +39,20 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      "hawa-fixed hawa-top-0 hawa-z-[100] hawa-flex hawa-max-h-screen hawa-w-full hawa-flex-col-reverse hawa-p-4 sm:hawa-bottom-0 sm:hawa-right-0 sm:hawa-top-auto sm:hawa-flex-col md:hawa-max-w-[420px]",
       className
     )}
     {...props}
   />
-))
-ToastViewport.displayName = ToastPrimitives.Viewport.displayName
+));
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants> & {
-      severity?: "info" | "warning" | "error" | "success" | "none"
-      direction?: "rtl" | "ltr"
+      severity?: "info" | "warning" | "error" | "success" | "none";
+      direction?: "rtl" | "ltr";
     }
 >(({ className, variant, severity = "none", direction, ...props }, ref) => {
   return (
@@ -59,15 +62,15 @@ const Toast = React.forwardRef<
         toastVariants({ variant, severity }),
         className,
         direction === "rtl"
-          ? "p-6 pl-0 pr-10 data-[state=closed]:slide-out-to-left-full"
-          : "p-6 pr-8 data-[state=closed]:slide-out-to-right-full"
+          ? "hawa-p-6 hawa-pl-0 hawa-pr-10 data-[state=closed]:hawa-slide-out-to-left-full"
+          : "hawa-p-6 hawa-pr-8 data-[state=closed]:hawa-slide-out-to-right-full"
       )}
       dir={direction}
       {...props}
     />
-  )
-})
-Toast.displayName = ToastPrimitives.Root.displayName
+  );
+});
+Toast.displayName = ToastPrimitives.Root.displayName;
 
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
@@ -77,18 +80,18 @@ const ToastAction = React.forwardRef<
     <ToastPrimitives.Action
       ref={ref}
       className={cn(
-        "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-        "group-[.info]:border-muted/40 group-[.info]:hover:border-info/30 group-[.info]:hover:bg-info group-[.info]:hover:text-info-foreground group-[.info]:focus:ring-info",
-        "group-[.error]:border-muted/40 group-[.error]:hover:border-error/30 group-[.error]:hover:bg-error group-[.error]:hover:text-error-foreground group-[.error]:focus:ring-error",
-        "group-[.success]:border-muted/40 group-[.success]:hover:border-success/30 group-[.success]:hover:bg-success group-[.success]:hover:text-success-foreground group-[.success]:focus:ring-success",
-        "group-[.warning]:border-muted/40 group-[.warning]:hover:border-warning/30 group-[.warning]:hover:bg-warning group-[.warning]:hover:text-warning-foreground group-[.warning]:focus:ring-warning",
+        "hawa-inline-flex hawa-h-8 hawa-shrink-0 hawa-items-center hawa-justify-center hawa-rounded-md hawa-border hawa-bg-transparent hawa-px-3 hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors hover:hawa-bg-secondary hover:hawa-text-secondary-foreground focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
+        "group-[.info]:hawa-border-muted/40 group-[.info]:hover:hawa-border-info/30 group-[.info]:hover:hawa-bg-info group-[.info]:hover:hawa-text-info-foreground group-[.info]:focus:hawa-ring-info",
+        "group-[.error]:hawa-border-muted/40 group-[.error]:hover:hawa-border-error/30 group-[.error]:hover:hawa-bg-error group-[.error]:hover:hawa-text-error-foreground group-[.error]:focus:hawa-ring-error",
+        "group-[.success]:hawa-border-muted/40 group-[.success]:hover:hawa-border-success/30 group-[.success]:hover:hawa-bg-success group-[.success]:hover:hawa-text-success-foreground group-[.success]:focus:hawa-ring-success",
+        "group-[.warning]:hawa-border-muted/40 group-[.warning]:hover:hawa-border-warning/30 group-[.warning]:hover:hawa-bg-warning group-[.warning]:hover:hawa-text-warning-foreground group-[.warning]:focus:hawa-ring-warning",
         className
       )}
       {...props}
     />
-  )
-})
-ToastAction.displayName = ToastPrimitives.Action.displayName
+  );
+});
+ToastAction.displayName = ToastPrimitives.Action.displayName;
 
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
@@ -97,7 +100,7 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+      "hawa-absolute hawa-right-2 hawa-top-2 hawa-rounded-md hawa-p-1 hawa-text-foreground/50 hawa-opacity-0 hawa-transition-opacity hover:hawa-text-foreground focus:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 group-hover:hawa-opacity-100 group-[.destructive]:hawa-text-red-300 group-[.destructive]:hover:hawa-text-red-50 group-[.destructive]:focus:hawa-ring-red-400 group-[.destructive]:focus:hawa-ring-offset-red-600",
       className
     )}
     toast-close=""
@@ -106,7 +109,7 @@ const ToastClose = React.forwardRef<
     <svg
       aria-label="Close Icon"
       aria-hidden="true"
-      className="h-4 w-4"
+      className="hawa-h-4 hawa-w-4"
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -117,8 +120,8 @@ const ToastClose = React.forwardRef<
       ></path>
     </svg>
   </ToastPrimitives.Close>
-))
-ToastClose.displayName = ToastPrimitives.Close.displayName
+));
+ToastClose.displayName = ToastPrimitives.Close.displayName;
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
@@ -126,11 +129,11 @@ const ToastTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
-    className={cn("text-sm font-semibold", className)}
+    className={cn("hawa-text-sm hawa-font-semibold", className)}
     {...props}
   />
-))
-ToastTitle.displayName = ToastPrimitives.Title.displayName
+));
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
@@ -138,14 +141,14 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-sm opacity-90", className)}
+    className={cn("hawa-text-sm hawa-opacity-90", className)}
     {...props}
   />
-))
-ToastDescription.displayName = ToastPrimitives.Description.displayName
+));
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
-type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
-type ToastActionElement = React.ReactElement<typeof ToastAction>
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
+type ToastActionElement = React.ReactElement<typeof ToastAction>;
 
 export {
   type ToastProps,
@@ -157,4 +160,4 @@ export {
   ToastDescription,
   ToastClose,
   ToastAction,
-}
+};
