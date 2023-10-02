@@ -40,6 +40,11 @@ const config: Config = {
         height: "height",
       },
       keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
         slideDown: {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },

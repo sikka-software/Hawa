@@ -17,7 +17,7 @@ const meta = {
     docs: {
       page: () => (
         <>
-          <h1>{"<Toast/>"}</h1>
+          <h1>{"<Switch/>"}</h1>
           <ArgsTable />
           <p>
             In order to to use switch as RTL, you must wrap it with a component

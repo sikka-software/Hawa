@@ -10,6 +10,7 @@ export * from "./Toast";
 export * from "./Toaster";
 export * from "./Switch";
 export * from "./Radio";
+export * from "./Skeleton";
 export * from "./DropdownMenu";
 
 // Non-premitive

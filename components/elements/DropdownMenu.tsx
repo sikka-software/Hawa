@@ -259,10 +259,10 @@ export type MenuItemType = {
   value?: any;
   end?: any;
   presist?: boolean;
-  type?: "separator" | "label";
+  itemType?: "separator" | "label" | string;
   action?: () => void;
   highlighted?: boolean;
-  subitems?: SubItem[]; // Note the use of the optional modifier
+  subitems?: SubItem[];
   disabled?: boolean;
 };
 interface DropdownMenuProps {
@@ -279,26 +279,6 @@ interface DropdownMenuProps {
   size?: "default" | "sm";
   onItemSelect?: any;
 }
-
-// const dropDownMenuVariants = cva(
-//   "inline-flex items-center justify-center select-none rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-//   {
-//     variants: {
-//       width: {
-//         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-//       },
-//       size: {
-//         default: "h-10 px-4 py-2",
-//         sm: "h-9 rounded-md px-3",
-//       },
-//     },
-//     defaultVariants: {
-//       width: "default",
-//       size: "default",
-//     },
-//   }
-// )
-
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
   items,
@@ -342,9 +322,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         >
           {items &&
             items.map((item, index) => {
-              if (item.type === "separator") {
+              if (item.itemType === "separator") {
                 return <DropdownMenuSeparator key={index} />;
-              } else if (item.type === "label") {
+              } else if (item.itemType === "label") {
                 return (
                   <DropdownMenuLabel key={index}>
                     {item.label}
