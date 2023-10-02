@@ -1,0 +1,40 @@
+{
+  "hawaStoryTemplate": {
+    "key": "hawaStoryTemplate",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "Template Story for Storybook",
+    "prefix": "hawastory",
+    "body": [
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
+      "import { ${1:Template} } from \"../../components/elements\";",
+      "import { ArgsTable, Story, Title } from \"@storybook/blocks\";",
+      "import { setLocale, t } from \"../translations/i18n\";\n",
+      "const meta = {",
+      "  title: \"Elements/${1:Template}\",",
+      "  component: ${1:Template},",
+      "  parameters: {",
+      "    layout: \"centered\",",
+      "    docs: {",
+      "      page: () => (",
+      "        <>",
+      "          <h1>{\"<${1:Template}/>\"}</h1>",
+      "          <ArgsTable />",
+      "        </>",
+      "      ),",
+      "    },",
+      "  },",
+      "  tags: [\"autodocs\"],",
+      "} satisfies Meta<typeof ${1:Template}>;\n",
+      "export default meta;",
+      "type Story = StoryObj<typeof ${1:Template}>;\n",
+      "const Template = (args: any, globals: any) => {",
+      "  const locale = globals.globals?.locale === \"ar\" ? \"ar\" : \"en\";",
+      "  setLocale(locale);\n",
+      "  return <div>${1:Template} story</div>;",
+      "};",
+      "export const Default: Story = {",
+      "  render: () => <Template/>,",
+      "};"
+    ]
+  }
+}

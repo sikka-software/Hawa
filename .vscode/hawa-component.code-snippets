@@ -1,0 +1,23 @@
+{
+  "hawaElementTSComponent": {
+    "key": "hawaElementTSComponent",
+    "description": "Creates a Hawa component in Typescript",
+    "prefix": "hawats",
+    "body": [
+      "import React from 'react'",
+      "import { cn } from '../util'",
+      "",
+      "type ${1:${TM_FILENAME_BASE}}Type = {",
+      "test?: any",
+      "}",
+      "",
+      "export const ${1:${TM_FILENAME_BASE}}: React.FC<${1:${TM_FILENAME_BASE}}Type> = ({test,...props}) => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  }
+}

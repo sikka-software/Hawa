@@ -4,14 +4,14 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
-  title: "Elements/DropdownMenu",
+  title: "Elements/Template",
   component: Button,
   parameters: {
     layout: "centered",
     docs: {
       page: () => (
         <>
-          <h1>{"<Toast/>"}</h1>
+          <h1>{"<Template/>"}</h1>
           <ArgsTable />
         </>
       ),

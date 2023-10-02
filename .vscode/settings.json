@@ -1,0 +1,9 @@
+{
+  "todo-tree.tree.showBadges": true,
+  "css.customData": [".vscode/tailwind.json"],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#007fff",
+    "titleBar.activeForeground": "#ffffff"
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
