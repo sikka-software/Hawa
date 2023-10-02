@@ -89,7 +89,7 @@ body {
   }
   .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace !important;
+      Liberation Mono, Courier New, monospace !important;
   }
   .inline-code {
     font-size: 0.75rem !important;
@@ -152,6 +152,9 @@ body {
   }
   .clickable-link {
     @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
+  }
+  .hawa-icon {
+    @apply hawa-w-4 hawa-h-4;
   }
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);

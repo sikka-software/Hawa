@@ -15,7 +15,7 @@ const buttonVariants = cva(
         destructive:
           "hawa-bg-destructive hawa-text-destructive-foreground hover:hawa-bg-destructive/90",
         outline:
-          "hawa-border  hawa-border-input hawa-bg-background hover:hawa-bg-accent hover:hawa-text-accent-foreground",
+          "hawa-border  hawa-border-input hawa-bg-transparent hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         secondary:
           "hawa-bg-secondary hawa-text-secondary-foreground hover:hawa-bg-secondary/80",
         ghost: "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
