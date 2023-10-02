@@ -12,7 +12,12 @@ export * from "./Switch";
 export * from "./Radio";
 export * from "./Skeleton";
 export * from "./Chip";
+export * from "./Label";
+export * from "./Alert";
 export * from "./DropdownMenu";
+
+// Might need categorization
+export * from "./PinInput";
 
 // Non-premitive
 export * from "./ActionCard";
