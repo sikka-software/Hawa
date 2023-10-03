@@ -1,15 +1,16 @@
 import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
-  HawaTextField,
+  Input,
   Alert,
   PhoneInput,
   //   InterfaceSettings,
   Loading,
+  Logos,
 } from "../elements";
 import { Card, CardContent, CardFooter } from "../elements/Card";
 import { Button } from "../elements/Button";
-import { Icons } from "../elements/Icons";
+
 import { cn } from "../util";
 
 type SignInFormTypes = {
@@ -105,7 +106,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 control={control}
                 name="email"
                 render={({ field }: any) => (
-                  <HawaTextField
+                  <Input
                     width="full"
                     type="text"
                     autoComplete="email"
@@ -117,11 +118,11 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                   />
                 )}
                 rules={{
-                  required: props.texts.emailRequiredText,
+                  required: props.texts?.emailRequiredText,
                   pattern: {
                     value:
                       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: props.texts.emailInvalidText,
+                    message: props.texts?.emailInvalidText,
                   },
                 }}
               />
@@ -131,20 +132,20 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 name="username"
                 render={({ field }) => {
                   return (
-                    <HawaTextField
+                    <Input
                       width="full"
                       type="text"
                       autoComplete="username"
-                      label={props.texts.usernameLabel}
+                      label={props.texts?.usernameLabel}
                       helperText={errors.username?.message}
-                      placeholder={props.texts.usernamePlaceholder}
+                      placeholder={props.texts?.usernamePlaceholder}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   );
                 }}
                 rules={{
-                  required: props.texts.usernameRequired,
+                  required: props.texts?.usernameRequired,
                 }}
               />
             ) : (
@@ -152,7 +153,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 control={control}
                 name="phone"
                 render={({ field }) => <HawaPhoneInput label="Phone number" />}
-                rules={{ required: props.texts.phoneRequiredText }}
+                rules={{ required: props.texts?.phoneRequiredText }}
               />
             )}
             {props.signInType !== "phone" && (
@@ -161,19 +162,19 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                   control={control}
                   name="password"
                   render={({ field }) => (
-                    <HawaTextField
+                    <Input
                       width="full"
                       autoComplete="current-password"
                       type="password"
-                      label={props.texts.passwordLabel}
-                      placeholder={props.texts.passwordPlaceholder}
+                      label={props.texts?.passwordLabel}
+                      placeholder={props.texts?.passwordPlaceholder}
                       helperText={errors.password?.message}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   )}
                   rules={{
-                    required: props.texts.passwordRequiredText,
+                    required: props.texts?.passwordRequiredText,
                     minLength: 5,
                   }}
                 />
@@ -182,7 +183,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                     onClick={props.handleForgotPassword}
                     className="mb-3 w-fit cursor-pointer text-xs dark:text-gray-300"
                   >
-                    {props.texts.forgotPasswordText}
+                    {props.texts?.forgotPasswordText}
                   </div>
                 )}
               </>
@@ -197,16 +198,16 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               // }
               isLoading={props.isLoading}
             >
-              {props.texts.signInText}
+              {props.texts?.signInText}
             </Button>
             {!props.withoutSignUp && (
               <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
-                {props.texts.newUserText}{" "}
+                {props.texts?.newUserText}{" "}
                 <span
                   onClick={props.handleRouteToSignUp}
                   className="clickable-link"
                 >
-                  {props.texts.createAccount}
+                  {props.texts?.createAccount}
                 </span>
               </div>
             )}
@@ -232,9 +233,9 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 {props.isGoogleLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Icons.google className="h-4 w-4" />
+                  <Logos.google className="h-4 w-4" />
                 )}
-                {!props.logosOnly && props.texts.signInViaGoogleLabel}
+                {!props.logosOnly && props.texts?.signInViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
@@ -247,9 +248,9 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 {props.isGithubLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Icons.gitHub className="h-4 w-4" />
+                  <Logos.gitHub className="h-4 w-4" />
                 )}
-                {!props.logosOnly && props.texts.signInViaGithubLabel}
+                {!props.logosOnly && props.texts?.signInViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
@@ -262,9 +263,9 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 {props.isTwitterLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Icons.twitter className="h-4 w-4" />
+                  <Logos.twitter className="h-4 w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts.signInViaTwitterLabel}
+                {!props.logosOnly && props.texts?.signInViaTwitterLabel}
               </Button>
             )}
           </CardFooter>

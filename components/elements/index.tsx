@@ -33,3 +33,5 @@ export * from "./AppStores";
 export * from "./BackToTop";
 export * from "./Input";
 export * from "./Tabs";
+export * from "./ScrollArea";
+export * from "./Logos";
