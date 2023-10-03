@@ -94,7 +94,8 @@ export const Input: FC<TextFieldTypes> = ({
                   props.icon && "hawa-pl-10",
                   "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
                   preview &&
-                    "hawa-border-transparent hawa-bg-transparent hawa-px-0"
+                    "hawa-border-transparent hawa-bg-transparent hawa-px-0",
+                  props.inputProps?.className
                 )}
                 disabled={preview}
               />

@@ -76,17 +76,17 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         </div>
       )}
       <pre>
-        <code
+        <div
           className={cn(
-            "hawa-relative hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between    hawa-p-0 hawa-text-left  hawa-text-sm sm:hawa-text-base hawa-bg-gray-300 ",
+            "hawa-relative hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between    hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base hawa-bg-gray-300 ",
             tabs || fileName
               ? "hawa-rounded-b hawa-rounded-t-none"
               : "hawa-rounded"
           )}
         >
-          <div className="hawa-flex hawa-min-h-[37.75px] hawa-w-full  hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono   ">
+          <code className="hawa-flex hawa-min-h-[37.75px] hawa-w-full hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono">
             {tabs ? tabs[selectedTab].code : code}
-          </div>
+          </code>
           <div className="hawa-absolute hawa-right-0 hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-p-2">
             <Tooltip
               open={clipboard.copied}
@@ -118,7 +118,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               </Button>
             </Tooltip>
           </div>
-        </code>
+        </div>
       </pre>
     </div>
   );

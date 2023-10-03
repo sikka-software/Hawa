@@ -1,8 +1,8 @@
 import React, { useState, FC } from "react";
 import Countries from "../countries";
-import Select from "react-select";
+// import Select from "react-select";
 import { Input } from "./Input";
-
+import { Select } from "./Select";
 type MenuTypes = {
   cx: any;
   children: any;
@@ -77,35 +77,35 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
       )}
       <div dir="ltr" className="hawa-flex hawa-flex-row ">
         <Select
-          classNames={{
-            control: () =>
-              "hawa-w-[64px] hawa-text-right hawa-pr-2 hawa-cursor-pointer hawa-z-10 hawa-border hawa-rounded-l hawa-bg-background",
-            placeholder: (state: any) =>
-              "hawa-text-muted-foreground hawa-text-right ",
-            input: (state: any) =>
-              "hawa-bg-transparent hawa-cursor-pointer dark:hawa-text-white hawa-p-2 hawa-rounded-l hawa-text-[0.875rem] ",
-            valueContainer: () =>
-              "hawa-rounded-l hawa-h-auto hawa-text-[0.875rem]",
-          }}
-          styles={{
-            placeholder: (base: any) => ({
-              ...base,
-              fontSize: "0.875rem",
-              textAlign: "right",
-            }),
-          }}
-          components={{
-            Option,
-            Menu,
-            DropdownIndicator: () => null,
-            IndicatorSeparator: () => null,
-          }}
+          // classNames={{
+          //   control: () =>
+          //     "hawa-w-[64px] hawa-text-right hawa-pr-2 hawa-cursor-pointer hawa-z-10 hawa-border hawa-rounded-l hawa-bg-background",
+          //   placeholder: (state: any) =>
+          //     "hawa-text-muted-foreground hawa-text-right ",
+          //   input: (state: any) =>
+          //     "hawa-bg-transparent hawa-cursor-pointer dark:hawa-text-white hawa-p-2 hawa-rounded-l hawa-text-[0.875rem] ",
+          //   valueContainer: () =>
+          //     "hawa-rounded-l hawa-h-auto hawa-text-[0.875rem]",
+          // }}
+          // styles={{
+          //   placeholder: (base: any) => ({
+          //     ...base,
+          //     // fontSize: "0.875rem",
+          //     // textAlign: "right",
+          //   }),
+          // }}
+          // components={{
+          //   Option,
+          //   Menu,
+          //   DropdownIndicator: () => null,
+          //   IndicatorSeparator: () => null,
+          // }}
           options={Countries}
           isMulti={false}
           isSearchable={true}
           isClearable={false}
-          placeholder="+966"
-          unstyled
+          // placeholder="+966"
+          // unstyled
           defaultValue={props.preferredCountry}
           value={selectedCountry}
           onChange={(newValue: any, action: any) =>
@@ -116,6 +116,9 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           onChange={props.handleChange}
           type="number"
           placeholder="531045453"
+          inputProps={{
+            className: "hawa-border-l-0 hawa-border-l-transparent",
+          }}
           // className="hawa-block hawa-w-full hawa-rounded-r hawa-z-50  hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500"
         />
         {/* <input

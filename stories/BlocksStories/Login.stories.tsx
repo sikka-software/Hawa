@@ -13,7 +13,9 @@ const meta = {
       page: () => (
         <>
           <h1>{"<LoginForm/>"}</h1>
-          <ArgsTable />
+          <ArgsTable exclude={["texts"]} />
+          <h1>Texts Object</h1>
+          <ArgsTable include={["texts"]} />
         </>
       ),
     },

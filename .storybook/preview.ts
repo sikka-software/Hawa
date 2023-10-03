@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 import { DocsContainer } from "./DocsContainer";
+import "./stories.css";
 
 const preview: Preview = {
   parameters: {

@@ -36,3 +36,4 @@ export * from "./Tabs";
 export * from "./ScrollArea";
 export * from "./Logos";
 export * from "./Command";
+export * from "./Select";
