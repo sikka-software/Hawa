@@ -4,7 +4,7 @@ import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale } from "../translations/i18n";
 
 const meta = {
-  title: "Elements/Textarea",
+  title: "Elements/Inputs/Textarea",
   component: Textarea,
   parameters: {
     layout: "centered",

@@ -5,7 +5,7 @@ import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 
 const meta = {
-  title: "Elements/ColorPicker",
+  title: "Elements/Inputs/Color Picker",
   component: ColorPicker,
   parameters: {
     layout: "centered",

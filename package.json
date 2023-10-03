@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.2.42",
+  "version": "0.2.43",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -32,6 +32,7 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@types/node": "20.8.0",

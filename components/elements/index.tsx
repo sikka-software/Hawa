@@ -31,3 +31,5 @@ export * from "./PhoneInput";
 export * from "./AppStores";
 
 export * from "./BackToTop";
+export * from "./Input";
+export * from "./Tabs";

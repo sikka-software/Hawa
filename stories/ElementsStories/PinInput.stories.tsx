@@ -3,7 +3,7 @@ import { PinInput } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 
 const meta = {
-  title: "Elements/PinInput",
+  title: "Elements/Inputs/Pin Input",
   component: PinInput,
   parameters: {
     backgrounds: {
