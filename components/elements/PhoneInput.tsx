@@ -1,6 +1,7 @@
 import React, { useState, FC } from "react";
 import Countries from "../countries";
 import Select from "react-select";
+import { Input } from "./Input";
 
 type MenuTypes = {
   cx: any;
@@ -111,12 +112,18 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
             setSelectedCountry(newValue)
           }
         />
-        <input
+        <Input
+          onChange={props.handleChange}
+          type="number"
+          placeholder="531045453"
+          // className="hawa-block hawa-w-full hawa-rounded-r hawa-z-50  hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500"
+        />
+        {/* <input
           onChange={props.handleChange}
           type="number"
           placeholder="531045453"
           className="hawa-block hawa-w-full hawa-rounded-r hawa-z-50  hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500"
-        />
+        /> */}
         {props.helperText && (
           <p className="hawa-mb-1 hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
             {props.helperText}

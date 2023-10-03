@@ -35,3 +35,4 @@ export * from "./Input";
 export * from "./Tabs";
 export * from "./ScrollArea";
 export * from "./Logos";
+export * from "./Command";

@@ -8,7 +8,11 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ["Elements", ["Loading", "Button", "Cards"]],
+        order: [
+          "Blocks",
+          "Elements",
+          ["Cards", "Input", "Loading", "Button", "Cards"],
+        ],
       },
     },
 

@@ -13,7 +13,7 @@ import { Button } from "../elements/Button";
 
 import { cn } from "../util";
 
-type SignInFormTypes = {
+type LoginFormTypes = {
   texts?: {
     emailLabel?: string;
     emailPlaceholder?: string;
@@ -72,7 +72,7 @@ type SignInFormTypes = {
   handleTwitterSignIn?: () => void;
 };
 
-export const SignInForm: FC<SignInFormTypes> = (props) => {
+export const LoginForm: FC<LoginFormTypes> = (props) => {
   const {
     formState: { errors },
     handleSubmit,
@@ -80,7 +80,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
   } = useForm();
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="hawa-flex hawa-flex-col hawa-gap-4">
       <Card dir={props.direction}>
         <CardContent headless>
           <form
@@ -152,7 +152,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               <Controller
                 control={control}
                 name="phone"
-                render={({ field }) => <HawaPhoneInput label="Phone number" />}
+                render={({ field }) => <PhoneInput label="Phone number" />}
                 rules={{ required: props.texts?.phoneRequiredText }}
               />
             )}
@@ -181,7 +181,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
                 {!props.withoutResetPassword && (
                   <div
                     onClick={props.handleForgotPassword}
-                    className="mb-3 w-fit cursor-pointer text-xs dark:text-gray-300"
+                    className="hawa-mb-3 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                   >
                     {props.texts?.forgotPasswordText}
                   </div>
@@ -190,7 +190,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
             )}
 
             <Button
-              className="mt-4 w-full"
+              className="hawa-mt-4 hawa-w-full"
               // disabled={
               //   props.isGithubLoading ||
               //   props.isGoogleLoading ||
@@ -201,7 +201,7 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
               {props.texts?.signInText}
             </Button>
             {!props.withoutSignUp && (
-              <div className="p-3 text-center text-sm font-normal dark:text-gray-300">
+              <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
                 {props.texts?.newUserText}{" "}
                 <span
                   onClick={props.handleRouteToSignUp}
@@ -219,21 +219,21 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
           <CardFooter
             className={cn(
               props.logosOnly
-                ? "flex flex-row justify-center gap-2"
-                : "grid grid-cols-1 gap-2"
+                ? "hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2"
+                : "hawa-grid hawa-grid-cols-1 hawa-gap-2"
             )}
           >
             {props.viaGoogle && (
               <Button
                 // isLoading={props.isGoogleLoading}
-                className="flex flex-row items-center gap-2"
+                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleGoogleSignIn}
               >
                 {props.isGoogleLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Logos.google className="h-4 w-4" />
+                  <Logos.google className="hawa-h-4 hawa-w-4" />
                 )}
                 {!props.logosOnly && props.texts?.signInViaGoogleLabel}
               </Button>
@@ -241,14 +241,14 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
             {props.viaGithub && (
               <Button
                 // isLoading={props.isGithubLoading}
-                className="flex flex-row items-center gap-2"
+                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleGithubSignIn}
               >
                 {props.isGithubLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Logos.gitHub className="h-4 w-4" />
+                  <Logos.gitHub className="hawa-h-4 hawa-w-4" />
                 )}
                 {!props.logosOnly && props.texts?.signInViaGithubLabel}
               </Button>
@@ -256,14 +256,14 @@ export const SignInForm: FC<SignInFormTypes> = (props) => {
             {props.viaTwitter && (
               <Button
                 // isLoading={props.isTwitterLoading}
-                className="flex flex-row items-center gap-2"
+                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleTwitterSignIn}
               >
                 {props.isTwitterLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Logos.twitter className="h-4 w-4" />
+                  <Logos.twitter className="hawa-h-4 hawa-w-4" />
                 )}{" "}
                 {!props.logosOnly && props.texts?.signInViaTwitterLabel}
               </Button>
