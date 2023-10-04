@@ -30,6 +30,8 @@ export * from "./PhoneInput";
 
 export * from "./AppStores";
 
+export * from "./Separator";
+export * from "./Progress";
 export * from "./BackToTop";
 export * from "./Input";
 export * from "./Tabs";

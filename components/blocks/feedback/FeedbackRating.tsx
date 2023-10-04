@@ -5,13 +5,14 @@ import { Button } from "../../elements";
 type ComponentTypes = {
   title?: string;
   question: string;
-  options?: [];
+  banner?: boolean;
+  options?: any[];
   texts?: {
     least: string;
     most: string;
   };
   position?: "bottom-right" | "bottom-left";
-  onOptionClicked?: (option) => void;
+  onOptionClicked?: (option: any) => void;
 };
 
 // TODO: add option to turn it into a banner
@@ -27,8 +28,8 @@ export const FeedbackRating: FC<ComponentTypes> = ({
   const popUpRef = useRef<HTMLDivElement>(null);
 
   const boxPosition = {
-    "bottom-right": "right-4",
-    "bottom-left": "left-4",
+    "bottom-right": "hawa-right-4",
+    "bottom-left": "hawa-left-4",
   };
   useEffect(() => {
     //To change opacity and hide the component
@@ -54,25 +55,32 @@ export const FeedbackRating: FC<ComponentTypes> = ({
   return (
     <div
       ref={popUpRef}
-      className={clsx("fixed bottom-4 ", boxPosition[position])}
+      className={clsx(
+        props.banner
+          ? "hawa-w-full hawa-left-0 hawa-fixed hawa-bottom-0"
+          : "hawa-fixed hawa-bottom-4 ",
+        boxPosition[position]
+      )}
     >
       <div
         className={clsx(
-          "relative flex w-full max-w-sm flex-col gap-2 rounded border bg-background p-4 shadow-md transition-all",
-          closed ? "opacity-0" : "opacity-100"
+          "hawa-relative hawa-flex hawa-w-full  hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
+          closed ? "hawa-opacity-0" : "hawa-opacity-100"
         )}
       >
-        <div className="absolute left-2 top-2 p-1.5 text-sm">{props.title}</div>
+        <div className="hawa-absolute hawa-left-2 hawa-top-2 hawa-p-1.5 hawa-text-sm">
+          {props.title}
+        </div>
         <button
           type="button"
-          className="absolute right-2 top-2 inline-flex h-8 w-8 rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="hawa-absolute hawa-right-2 hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white"
           data-dismiss-target="#toast-default"
           aria-label="Close"
           onClick={() => slowClose()}
         >
           <svg
             aria-hidden="true"
-            className="h-5 w-5"
+            className="hawa-h-5 hawa-w-5"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -83,46 +91,51 @@ export const FeedbackRating: FC<ComponentTypes> = ({
             ></path>
           </svg>
         </button>
-        <div className="mt-8">{props.question}</div>
-        <div className="flex w-full flex-row gap-1 rounded">
-          {props.options.map((op) => (
-            <span
-              onClick={() => {
-                props.onOptionClicked(op);
-                setClickedOption(op);
-                setAnswered(true);
-                const timeoutDestroy = setTimeout(() => {
-                  setClosed(true);
-                }, 4800);
-                setTimeout(() => {
-                  popUpRef.current.removeChild(popUpRef.current.children[0]);
-                  clearTimeout(timeoutDestroy);
-                }, 5300);
-              }}
-              className={clsx(
-                "w-full cursor-pointer rounded border  p-4 text-center transition-all ",
-                clickedOption === op
-                  ? "bg-gray-500 text-white"
-                  : "border bg-background hover:bg-gray-300 dark:hover:bg-gray-700"
-              )}
-            >
-              {op}
-            </span>
-          ))}
+        <div className="hawa-mt-8">{props.question}</div>
+        <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded">
+          {props.options &&
+            props.options.map((op) => (
+              <span
+                onClick={() => {
+                  if (props.onOptionClicked) {
+                    props.onOptionClicked(op);
+                  }
+                  setClickedOption(op);
+                  setAnswered(true);
+                  const timeoutDestroy = setTimeout(() => {
+                    setClosed(true);
+                  }, 4800);
+                  setTimeout(() => {
+                    popUpRef.current?.removeChild(
+                      popUpRef.current?.children[0]
+                    );
+                    clearTimeout(timeoutDestroy);
+                  }, 5300);
+                }}
+                className={clsx(
+                  "hawa-w-full hawa-cursor-pointer hawa-rounded hawa-border  hawa-p-4 hawa-text-center hawa-transition-all ",
+                  clickedOption === op
+                    ? "hawa-bg-gray-500 hawa-text-white"
+                    : "hawa-border hawa-bg-background hover:hawa-bg-gray-300 dark:hover:hawa-bg-gray-700"
+                )}
+              >
+                {op}
+              </span>
+            ))}
         </div>
         {props.texts && (
-          <div className=" flex flex-row justify-between text-xs">
+          <div className=" hawa-flex hawa-flex-row hawa-justify-between hawa-text-xs">
             <span>{props.texts.least}</span>
             <span>{props.texts.most}</span>
           </div>
         )}
         {answered && (
-          <div className="absolute left-0 top-0 gap-2 flex h-full w-full flex-col items-center justify-center rounded bg-black bg-opacity-80 p-4 text-center transition-all">
+          <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-gap-2 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-rounded hawa-bg-black hawa-bg-opacity-80 hawa-p-4 hawa-text-center hawa-transition-all">
             <span className="font-bold text-white">
               Thank you for your answer. This box will disappear in
               {" " + closingTimer} seconds
             </span>
-            <div className="flex flex-row gap-2">
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
               <Button onClick={() => slowClose()}>Close</Button>
             </div>
           </div>

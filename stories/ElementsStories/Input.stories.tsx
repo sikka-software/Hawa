@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input } from "../../components/elements";
+import { Button, Input } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import { useState } from "react";
 
 const meta = {
   title: "Elements/Inputs/Input",
@@ -11,7 +12,7 @@ const meta = {
     //   default: "offwhite",
     //   values: [{ name: "offwhite", value: "#ededed" }],
     // },
-    layout: "centered",
+    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -34,5 +35,41 @@ const Template = (args: any, globals: any) => {
   return <div>Input story</div>;
 };
 export const Default: Story = {
-  render: () => <Input label={"Input Field"} />,
+  render: () => (
+    <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+      <Input label={"Input Field"} />
+    </div>
+  ),
+};
+export const PreviewMode: Story = {
+  render: () => {
+    const [preview, setPreview] = useState(false);
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+        <Button onClick={() => setPreview(!preview)}>
+          {preview ? "Disable" : "Enable"} Preview
+        </Button>
+        <Input label={"First Name"} preview={preview} value={"Fulan"} />
+        <Input label={"Middle Name"} preview={preview} value={"Fulani"} />
+        <Input label={"Last Name"} preview={preview} value={"Al-Fulani"} />
+        <Input label={"Username"} preview={preview} value={"fulan"} />
+      </div>
+    );
+  },
+};
+export const LoadingMode: Story = {
+  render: () => {
+    const [loading, setLoading] = useState(true);
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+        <Button onClick={() => setLoading(!loading)}>
+          {loading ? "Disable" : "Enable"} Loading
+        </Button>
+        <Input label={"First Name"} isLoading={loading} value={"Fulan"} />
+        <Input label={"Middle Name"} isLoading={loading} value={"Fulani"} />
+        <Input label={"Last Name"} isLoading={loading} value={"Al-Fulani"} />
+        <Input label={"Username"} isLoading={loading} value={"fulan"} />
+      </div>
+    );
+  },
 };

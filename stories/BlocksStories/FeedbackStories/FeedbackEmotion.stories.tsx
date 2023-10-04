@@ -1,69 +1,50 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserReferralSource, FeedbackRating } from "../../../components/blocks";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { FeedbackEmoji } from "../../../components/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+import { useState } from "react";
 
 const meta = {
-  title: "Blocks/User Feedback/Referral Source",
-  component: UserReferralSource,
+  title: "Blocks/User Feedback/Feedback Emotion",
+  component: FeedbackEmoji,
   parameters: {
     layout: "centered",
     docs: {
       page: () => (
         <>
-          <h1>{"<UserReferralSource/>"}</h1>
+          <h1>{"<FeedbackEmoji/>"}</h1>
           <ArgsTable />
         </>
       ),
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof UserReferralSource>;
+} satisfies Meta<typeof FeedbackEmoji>;
 
 export default meta;
-type Story = StoryObj<typeof UserReferralSource>;
+type Story = StoryObj<typeof FeedbackEmoji>;
 
-export const UserSource: Story = {
-  render: (args) => (
-    <UserReferralSource
-      {...args}
-      options={[
-        { label: "Coworker/Friend", value: "friend" },
-        { label: "Research", value: "research" },
-        { label: "TikTok", value: "tiktok" },
-        { label: "Advertisement", value: "ad" },
-        { label: "Twitter", value: "twitter" },
-      ]}
-    />
-  ),
-  args: {
-    question: "How did you hear about us?",
-    description:
-      "Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.",
-    tag: "Deploy faster",
+export const FeedbackEmotion: Story = {
+  render: (args) => {
+    const [isSuccess, setIsSuccess] = useState(false);
+    const mockSubmit = async (data: any) => {
+      return new Promise((resolve, reject) => {
+        // Simulate an asynchronous operation (e.g., a 2-second delay)
+        setTimeout(() => {
+          // Simulate a successful submission
+          setIsSuccess(true);
+          resolve("Submission successful");
+          // Simulate an error
+          // reject("Submission failed");
+        }, 2000); // 2-second delay
+      });
+    };
+    return (
+      <FeedbackEmoji
+        {...args}
+        handleSubmit={mockSubmit}
+        showSuccess={isSuccess}
+      />
+    );
   },
 };
-// export const FeedbackRatingStory: Story = {
-//   render: (args) => (
-//     <FeedbackRating
-//     //   {...args}
-//     //   options={[
-//     //     { label: "Coworker/Friend", value: "friend" },
-//     //     { label: "Research", value: "research" },
-//     //     { label: "TikTok", value: "tiktok" },
-//     //     { label: "Advertisement", value: "ad" },
-//     //     { label: "Twitter", value: "twitter" },
-//     //   ]}
-//     />
-//   ),
-//   args: {
-//     title: "Quick question",
-//     question: "How satisfied are you with the invoicing system?",
-//     texts: {
-//       least: "Not at all satisfied",
-//       most: "Extremely satisfied",
-//     },
-//     options: [1, 2, 3, 4, 5],
-//     onOptionClicked: (e) => console.log("clicking option ", e),
-//   },
-// };
