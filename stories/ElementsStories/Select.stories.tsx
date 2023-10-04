@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Select } from "../../components/elements";
+import { Input, Select } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
@@ -35,14 +35,6 @@ export const Default: Story = {
       <div className="hawa-max-w-md hawa-w-full ">
         <Select {...args} />
       </div>
-      {/* <HawaTextField
-        helperText="something invalid"
-        placeholder="input placeholder"
-        // preview: true,
-        type="text"
-        width="full"
-        label="Full Width"
-      /> */}
     </div>
   ),
   args: {
@@ -71,14 +63,6 @@ export const Creatable: Story = {
       <div className="hawa-max-w-md hawa-w-full ">
         <Select {...args} />
       </div>
-      {/* <HawaTextField
-        helperText="something invalid"
-        placeholder="input placeholder"
-        // preview: true,
-        type="text"
-        width="full"
-        label="Full Width"
-      /> */}
     </div>
   ),
   args: {
@@ -101,3 +85,40 @@ export const Creatable: Story = {
     },
   },
 };
+// export const Old: Story = {
+//   render: (args) => (
+//     <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
+//       <div className="hawa-max-w-md hawa-w-full hawa-flex hawa-flex-row ">
+//         <Select />
+//         <Input />
+//       </div>
+//       {/* <HawaTextField
+//         helperText="something invalid"
+//         placeholder="input placeholder"
+//         // preview: true,
+//         type="text"
+//         width="full"
+//         label="Full Width"
+//       /> */}
+//     </div>
+//   ),
+//   args: {
+//     label: "Select Input",
+//     // fullWidth: true,
+//     isCreatable: false,
+//     isMulti: false,
+//     isClearable: false,
+//     isSearchable: true,
+//     options: [
+//       { value: "chocolate", label: "Chocolate" },
+//       { value: "strawberry", label: "Strawberry" },
+//       { value: "vanilla", label: "Vanilla" },
+//     ],
+//     onChange: (newValue: any, action: any) => {
+//       console.log("new value: ", newValue, "\n", "action", action);
+//     },
+//     onInputChange: (newValue: any, action: any) => {
+//       console.log("new value: ", newValue, "\n", "action", action);
+//     },
+//   },
+// };

@@ -8,8 +8,9 @@ import { Skeleton } from "./Skeleton";
 
 type TextFieldTypes = {
   isLoading?: boolean;
+  containerClassName?: string;
   margin?: "none" | "normal" | "large";
-  width?: "small" | "normal" | "full";
+  width?: "small" | "normal" | "full" | "auto";
   /** The label of the input field   */
   label?: any;
   /** Disable/Enable multiple line text input field   */
@@ -53,6 +54,7 @@ export const Input: FC<TextFieldTypes> = ({
     small: "hawa-w-full hawa-max-w-2xs",
     normal: "hawa-w-1/2",
     full: "hawa-w-full",
+    auto: "",
   };
 
   let defaultStyle =
@@ -66,7 +68,8 @@ export const Input: FC<TextFieldTypes> = ({
         defaultStyle,
         marginStyles[margin],
         widthStyles[width],
-        props.className
+        props.containerClassName,
+        "hawa-w-full"
       )}
     >
       {props.label && <Label>{props.label}</Label>}
@@ -88,7 +91,7 @@ export const Input: FC<TextFieldTypes> = ({
                 </div>
               )}
               <input
-                {...props}
+                // {...props.inputProps}
                 className={cn(
                   defaultInputStyle,
                   props.icon && "hawa-pl-10",
@@ -97,7 +100,12 @@ export const Input: FC<TextFieldTypes> = ({
                     "hawa-border-transparent hawa-bg-transparent hawa-px-0",
                   props.inputProps?.className
                 )}
+                value={props.value}
+                defaultValue={props.defaultValue}
+                type={props.type}
+                placeholder={props.placeholder}
                 disabled={preview}
+                style={{ width: width === "auto" ? "auto" : "100%" }}
               />
             </div>
             {props.iconInside && (

@@ -14,36 +14,6 @@ type ControlTypes = {
   innerRef: any;
   size?: "small" | "normal" | "large";
 };
-const Control: FC<ControlTypes> = ({
-  cx,
-  children,
-  getStyles,
-  innerProps,
-  innerRef,
-  size = "normal",
-  ...props
-}) => {
-  let sizeStyles = {
-    small: "hawa-h-7 hawa-text-xs",
-    normal: "hawa-h-[2.38rem]  hawa-text-sm",
-    large: "",
-  };
-  return (
-    <div
-      ref={innerRef}
-      className={clsx(
-        sizeStyles[size],
-        "hawa-flex  hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500"
-      )}
-      {...innerProps}
-      //   style={{
-      //     height: "10px",
-      //   }}
-    >
-      {children}
-    </div>
-  );
-};
 // The options container
 type MenuTypes = {
   cx: any;
@@ -108,6 +78,8 @@ type SelectTypes = {
   isClearable?: boolean;
   isMulti?: boolean;
   isSearchable?: boolean;
+  controlClassNames?: string;
+  containerClassNames?: string;
   onChange?: any;
   helperText?: any;
   onInputChange?: any;
@@ -125,6 +97,38 @@ type SelectTypes = {
   };
 };
 export const Select: FC<SelectTypes> = (props) => {
+  const Control: FC<ControlTypes> = ({
+    // cx,
+    children,
+    // getStyles,
+    innerProps,
+    innerRef,
+    // size = "normal",
+    // ...props
+  }) => {
+    // let sizeStyles = {
+    //   small: "hawa-h-7 hawa-text-xs",
+    //   normal: "hawa-h-[36px]  hawa-text-sm",
+    //   large: "",
+    // };
+    return (
+      <div
+        ref={innerRef}
+        className={clsx(
+          // sizeStyles[size],
+          " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500"
+          // props.className
+        )}
+        {...innerProps}
+        //   style={{
+        //     height: "10px",
+        //   }}
+      >
+        {children}
+      </div>
+    );
+  };
+
   const NoOption = () => {
     return <div>{props.texts?.noOptions ?? "No Items Found"}</div>;
   };
@@ -139,9 +143,15 @@ export const Select: FC<SelectTypes> = (props) => {
         <ReactSelect
           noOptionsMessage={NoOption}
           classNames={{
+            control: () =>
+              cn(
+                " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500",
+                props.controlClassNames
+              ),
             container: () =>
               cn(
                 "hawa-rounded",
+                props.containerClassNames,
                 props.disabled
                   ? "hawa-cursor-not-allowed"
                   : "hawa-cursor-pointer"
@@ -153,7 +163,7 @@ export const Select: FC<SelectTypes> = (props) => {
               "hawa-text-white dark:hawa-text-muted-foreground",
             singleValue: () => "hawa-text-black dark:hawa-text-white hawa-px-2",
             indicatorsContainer: () =>
-              " hawa-px-2 hawa-cursor-pointer hawa-text-muted-foreground",
+              " hawa-px-0 hawa-cursor-pointer hawa-text-muted-foreground",
           }}
           unstyled
           isDisabled={props.disabled}
@@ -168,7 +178,7 @@ export const Select: FC<SelectTypes> = (props) => {
             props.onChange(newValue, action)
           }
           components={{
-            Control,
+            // Control,
             Option,
             Menu,
           }}
@@ -182,7 +192,7 @@ export const Select: FC<SelectTypes> = (props) => {
           classNames={{
             container: () =>
               cn(
-                "hawa-rounded",
+                "hawa-rounded ",
                 props.disabled
                   ? "hawa-cursor-not-allowed"
                   : "hawa-cursor-pointer"

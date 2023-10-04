@@ -75,37 +75,14 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           {props.label}
         </label>
       )}
-      <div dir="ltr" className="hawa-flex hawa-flex-row ">
+      <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full ">
         <Select
-          // classNames={{
-          //   control: () =>
-          //     "hawa-w-[64px] hawa-text-right hawa-pr-2 hawa-cursor-pointer hawa-z-10 hawa-border hawa-rounded-l hawa-bg-background",
-          //   placeholder: (state: any) =>
-          //     "hawa-text-muted-foreground hawa-text-right ",
-          //   input: (state: any) =>
-          //     "hawa-bg-transparent hawa-cursor-pointer dark:hawa-text-white hawa-p-2 hawa-rounded-l hawa-text-[0.875rem] ",
-          //   valueContainer: () =>
-          //     "hawa-rounded-l hawa-h-auto hawa-text-[0.875rem]",
-          // }}
-          // styles={{
-          //   placeholder: (base: any) => ({
-          //     ...base,
-          //     // fontSize: "0.875rem",
-          //     // textAlign: "right",
-          //   }),
-          // }}
-          // components={{
-          //   Option,
-          //   Menu,
-          //   DropdownIndicator: () => null,
-          //   IndicatorSeparator: () => null,
-          // }}
+          controlClassNames="hawa-rounded-r-none"
+          containerClassNames="hawa-w-[100px] hawa-p-0 hawa-rounded-r-none"
           options={Countries}
           isMulti={false}
           isSearchable={true}
           isClearable={false}
-          // placeholder="+966"
-          // unstyled
           defaultValue={props.preferredCountry}
           value={selectedCountry}
           onChange={(newValue: any, action: any) =>
@@ -116,19 +93,15 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           onChange={props.handleChange}
           type="number"
           placeholder="531045453"
+          width="auto"
           inputProps={{
-            className: "hawa-border-l-0 hawa-border-l-transparent",
+            className:
+              "input-inside-input hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none ",
           }}
-          // className="hawa-block hawa-w-full hawa-rounded-r hawa-z-50  hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500"
         />
-        {/* <input
-          onChange={props.handleChange}
-          type="number"
-          placeholder="531045453"
-          className="hawa-block hawa-w-full hawa-rounded-r hawa-z-50  hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500"
-        /> */}
+
         {props.helperText && (
-          <p className="hawa-mb-1 hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
+          <p className="hawa-mb-1  hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
             {props.helperText}
           </p>
         )}
