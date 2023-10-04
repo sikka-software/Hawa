@@ -1,17 +1,19 @@
 import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
+  Card,
+  CardContent,
+  CardFooter,
+  Button,
   Input,
   Alert,
   PhoneInput,
-  //   InterfaceSettings,
   Loading,
   Logos,
-} from "../elements";
-import { Card, CardContent, CardFooter } from "../elements/Card";
-import { Button } from "../elements/Button";
+  //   InterfaceSettings,
+} from "../../elements";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type LoginFormTypes = {
   texts?: {

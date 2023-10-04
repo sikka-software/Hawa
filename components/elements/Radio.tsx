@@ -1,16 +1,18 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 import { cn } from "../util";
 
+export type RadioOptionsTypes = {
+  value: any;
+  label: any;
+  disabled?: any;
+  sublabel?: any;
+  icon?: any;
+};
+
 type RadioTypes = {
   orientation?: "vertical" | "horizontal";
   design?: "default" | "tabs" | "cards" | "bordered";
-  options?: {
-    value: any;
-    label: any;
-    disabled?: any;
-    sublabel?: any;
-    icon?: any;
-  }[];
+  options?: RadioOptionsTypes[];
   width?: "default" | "full";
   onChangeTab?: any;
   defaultValue?: any;
