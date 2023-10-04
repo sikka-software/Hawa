@@ -166,14 +166,14 @@ export default function Home() {
                   },
                 ]}
               /> */}
-              <Link href={"/docs"}>
+              <a href="http://hawa.style/docs">
                 <Button
                   variant="outline"
                   // onClick={() => window.open("https://hawa.style/docs")}
                 >
                   Docs
                 </Button>
-              </Link>
+              </a>
             </div>
             {/* <HawaCodeBlock code="npm install @sikka/hawa" /> */}
             <a
