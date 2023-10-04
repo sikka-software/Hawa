@@ -77,6 +77,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
       )}
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full ">
         <Select
+          width="fit"
           controlClassNames="hawa-rounded-r-none"
           containerClassNames="hawa-w-[100px] hawa-p-0 hawa-rounded-r-none"
           options={Countries}
@@ -96,12 +97,12 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           width="auto"
           inputProps={{
             className:
-              "input-inside-input hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none ",
+              "hawa-w-full hawa-min-w-full hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none ",
           }}
         />
 
         {props.helperText && (
-          <p className="hawa-mb-1  hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
+          <p className="hawa-mb-1   hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
             {props.helperText}
           </p>
         )}

@@ -23,21 +23,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Alert>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return (
-    <div>
-      <Alert
-        title="Default Alert"
-        text="This is an alert that can be used to share certain information without any severity."
-        severity="info"
-        persistant={true}
-      />
-    </div>
-  );
-};
 export const Default: Story = {
   render: () => (
     <div>

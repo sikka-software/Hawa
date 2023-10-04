@@ -31,9 +31,8 @@
   "passwordRequiredText": "Password is required",
   "forgotPasswordText": "Forgot password?",
   "newUserText": "New user?",
-  "signUpText": "Sign up",
+  "registerText": "Register",
   "createAccount": "Create Account",
-  "signInText": "Sign in",
 
   "continueWithGoogle": "Continue with Google",
   "continueWithTwitter": "Continue with Twitter",
@@ -43,12 +42,13 @@
   "continueWithEmail": "Continue with Email",
   "continueWithPhone": "Continue with Phone",
 
-  "signInViaGoogleLabel": "Sign in with Google",
-  "signInViaGithubLabel": "Sign in with Github",
-  "signInViaTwitterLabel": "Sign in with Twitter",
-  "signUpViaGoogleLabel": "Sign up with Google",
-  "signUpViaGithubLabel": "Sign up with Github",
-  "signUpViaTwitterLabel": "Sign up with Twitter",
+  "loginText": "Login",
+  "loginViaGoogleLabel": "Login with Google",
+  "loginViaGithubLabel": "Login with Github",
+  "loginViaTwitterLabel": "Login with Twitter",
+  "registerViaGoogleLabel": "Continue with Google",
+  "registerViaGithubLabel": "Continue with Github",
+  "registerViaTwitterLabel": "Continue with Twitter",
   "expandSidebar": "Expand Sidebar",
   "collapseSidebar": "Collapse Sidebar",
   "fullNameRequiredText": "Full name is required",
@@ -68,5 +68,5 @@
   "option": "Option",
   "checkEmail": "Check you email",
   "resendEmail": "Resend Email",
-  "pleaseVerify": "Thank you for signing up! To complete your registration, we've sent a verification email to the address you provided. Please check your inbox and follow the instructions in the email to activate your account."
+  "pleaseVerify": "Thank you for registering! To complete your registration, we've sent a verification email to the address you provided. Please check your inbox and follow the instructions in the email to activate your account."
 }

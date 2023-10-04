@@ -58,7 +58,7 @@ export const Input: FC<TextFieldTypes> = ({
   };
 
   let defaultStyle =
-    "hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-2";
+    "hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
   let defaultInputStyle =
     "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-black dark:hawa-text-white ";
 
@@ -69,7 +69,7 @@ export const Input: FC<TextFieldTypes> = ({
         marginStyles[margin],
         widthStyles[width],
         props.containerClassName,
-        "hawa-w-full"
+        "hawa-w-full hawa-gap-2"
       )}
     >
       {props.label && <Label>{props.label}</Label>}
@@ -100,12 +100,15 @@ export const Input: FC<TextFieldTypes> = ({
                     "hawa-border-transparent hawa-bg-transparent hawa-px-0",
                   props.inputProps?.className
                 )}
+                onChange={props.onChange}
+                autoComplete={props.autoComplete}
                 value={props.value}
                 defaultValue={props.defaultValue}
                 type={props.type}
                 placeholder={props.placeholder}
                 disabled={preview}
-                style={{ width: width === "auto" ? "auto" : "100%" }}
+                // style={{ width: width === "auto" ? "auto" : "100%" }}
+                style={{minWidth:"100%", width:'auto'}}
               />
             </div>
             {props.iconInside && (

@@ -40,3 +40,5 @@ export * from "./Logos";
 export * from "./Command";
 export * from "./Combobox";
 export * from "./Select";
+export * from "./Form";
+export * from "./InterfaceSettings";

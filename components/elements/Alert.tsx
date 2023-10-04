@@ -154,7 +154,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               }, 200);
             }}
           >
-            <span className="sr-only">Close</span>
+            <span className="hawa-sr-only">Close</span>
             <svg
               aria-label="Close Icon"
               aria-hidden="true"

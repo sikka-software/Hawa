@@ -84,7 +84,7 @@ type SelectTypes = {
   helperText?: any;
   onInputChange?: any;
   native?: any;
-  width?: "full" | "small";
+  width?: "full" | "small" | "fit";
   value?: any;
   children?: any;
   getOptionLabel?: any;
@@ -134,7 +134,12 @@ export const Select: FC<SelectTypes> = (props) => {
   };
 
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2">
+    <div
+      className={cn(
+        "hawa-flex hawa-flex-col hawa-gap-2",
+        props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
+      )}
+    >
       {props.label && <Label>{props.label}</Label>}
 
       {props.isLoading ? (
@@ -145,7 +150,7 @@ export const Select: FC<SelectTypes> = (props) => {
           classNames={{
             control: () =>
               cn(
-                " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500",
+                " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full  hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500",
                 props.controlClassNames
               ),
             container: () =>

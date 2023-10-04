@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PhoneInput } from "../../components/elements";
+import { PhoneInput, Select } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
@@ -7,7 +7,7 @@ const meta = {
   title: "Elements/Inputs/Phone Input",
   component: PhoneInput,
   parameters: {
-    layout: "centered",
+    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -27,7 +27,11 @@ const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   setLocale(locale);
 
-  return <PhoneInput />;
+  return (
+    <div className="hawa-w-full hawa-max-w-sm hawa-p-2">
+      <PhoneInput />
+    </div>
+  );
 };
 export const Default: Story = {
   render: Template.bind({}),

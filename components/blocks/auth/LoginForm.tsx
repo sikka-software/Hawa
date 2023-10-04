@@ -1,18 +1,17 @@
 import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
+  InterfaceSettings,
   Card,
   CardContent,
   CardFooter,
-  Button,
-  Input,
   Alert,
   PhoneInput,
   Loading,
+  Input,
   Logos,
-  //   InterfaceSettings,
+  Button,
 } from "../../elements";
-
 import { cn } from "../../util";
 
 type LoginFormTypes = {
@@ -31,10 +30,10 @@ type LoginFormTypes = {
     forgotPasswordText?: string;
     newUserText?: string;
     createAccount?: string;
-    signInText?: string;
-    signInViaGoogleLabel?: string;
-    signInViaGithubLabel?: string;
-    signInViaTwitterLabel?: string;
+    loginText?: string;
+    loginViaGoogleLabel?: string;
+    loginViaGithubLabel?: string;
+    loginViaTwitterLabel?: string;
   };
   handleLanguage?: () => void;
   currentLanguage?: any;
@@ -45,7 +44,7 @@ type LoginFormTypes = {
   showError?: any;
   errorTitle?: string;
   errorText?: string;
-  signInType?: "email" | "username" | "phone";
+  loginType?: "email" | "username" | "phone";
   withoutResetPassword?: boolean;
   withoutSignUp?: boolean;
   /**
@@ -61,17 +60,17 @@ type LoginFormTypes = {
   viaGithub?: boolean;
   viaTwitter?: boolean;
   /**
-   * Handle the sign in .
+   * Handle the login function.
    */
-  handleSignIn?: (e: any) => void;
+  handleLogin?: (e: any) => void;
   /**
-   * Handle routing to sign up page
+   * Handle routing to register page
    */
   handleRouteToSignUp?: () => void;
   handleForgotPassword?: () => void;
-  handleGoogleSignIn?: () => void;
-  handleGithubSignIn?: () => void;
-  handleTwitterSignIn?: () => void;
+  handleGoogleLogin?: () => void;
+  handleGithubLogin?: () => void;
+  handleTwitterLogin?: () => void;
 };
 
 export const LoginForm: FC<LoginFormTypes> = (props) => {
@@ -85,50 +84,56 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
       <Card dir={props.direction}>
         <CardContent headless>
+          {props.showError && (
+            <Alert
+              title={props.errorTitle}
+              text={props.errorText}
+              severity="error"
+            />
+          )}
           <form
+            className="hawa-flex hawa-flex-col hawa-gap-4"
             onSubmit={handleSubmit((e) => {
-              if (props.handleSignIn) {
-                props.handleSignIn(e);
+              if (props.handleLogin) {
+                console.log("attempting to login");
+                props.handleLogin(e);
               } else {
                 console.log(
-                  "Form is submitted but handleSignIn prop is missing"
+                  "Form is submitted but handleLogin prop is missing"
                 );
               }
             })}
           >
-            {props.showError && (
-              <Alert
-                title={props.errorTitle}
-                text={props.errorText}
-                severity="error"
-              />
-            )}
-            {props.signInType === "email" ? (
+            {props.loginType === "email" ? (
               <Controller
                 control={control}
                 name="email"
-                render={({ field }: any) => (
+                render={({ field }) => (
                   <Input
                     width="full"
                     type="text"
                     autoComplete="email"
-                    label={props.texts?.emailLabel}
+                    label={props.texts?.emailLabel || "Email"}
                     helperText={errors.email?.message}
-                    placeholder={props.texts?.emailPlaceholder}
+                    placeholder={
+                      props.texts?.emailPlaceholder || "contact@sikka.io"
+                    }
                     value={field.value ?? ""}
                     onChange={field.onChange}
                   />
                 )}
                 rules={{
-                  required: props.texts?.emailRequiredText,
+                  required:
+                    props.texts?.emailRequiredText || "Email is required",
                   pattern: {
                     value:
                       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: props.texts?.emailInvalidText,
+                    message:
+                      props.texts?.emailInvalidText || "Invalid email format",
                   },
                 }}
               />
-            ) : props.signInType === "username" ? (
+            ) : props.loginType === "username" ? (
               <Controller
                 control={control}
                 name="username"
@@ -138,28 +143,47 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                       width="full"
                       type="text"
                       autoComplete="username"
-                      label={props.texts?.usernameLabel}
+                      label={props.texts?.usernameLabel || "Username"}
                       helperText={errors.username?.message}
-                      placeholder={props.texts?.usernamePlaceholder}
+                      placeholder={
+                        props.texts?.usernamePlaceholder || "sikka_sa"
+                      }
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   );
                 }}
                 rules={{
-                  required: props.texts?.usernameRequired,
+                  required:
+                    props.texts?.usernameRequired || "Username is required",
                 }}
               />
             ) : (
               <Controller
                 control={control}
                 name="phone"
-                render={({ field }) => <PhoneInput label="Phone number" />}
-                rules={{ required: props.texts?.phoneRequiredText }}
+                render={({ field }) => (
+                  <PhoneInput
+                    label="Phone number"
+                    // width="full"
+                    // type="text"
+                    // autoComplete="username"
+                    // label={props.texts?.usernameLabel || "Username"}
+                    helperText={errors.username?.message}
+                    // placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
+                    // onChange={field.onChange}
+                    // value={field.value ?? ""}
+                  />
+                )}
+                rules={{
+                  required:
+                    props.texts?.phoneRequiredText ||
+                    "Phone number is required",
+                }}
               />
             )}
-            {props.signInType !== "phone" && (
-              <>
+            {props.loginType !== "phone" && (
+              <div>
                 <Controller
                   control={control}
                   name="password"
@@ -168,55 +192,61 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                       width="full"
                       autoComplete="current-password"
                       type="password"
-                      label={props.texts?.passwordLabel}
-                      placeholder={props.texts?.passwordPlaceholder}
+                      label={props.texts?.passwordLabel || "Password"}
+                      placeholder={
+                        props.texts?.passwordPlaceholder ||
+                        "Enter your password"
+                      }
                       helperText={errors.password?.message}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   )}
                   rules={{
-                    required: props.texts?.passwordRequiredText,
+                    required:
+                      props.texts?.passwordRequiredText ||
+                      "Password is required",
                     minLength: 5,
                   }}
                 />
                 {!props.withoutResetPassword && (
                   <div
                     onClick={props.handleForgotPassword}
-                    className="hawa-mb-3 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                    className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                   >
-                    {props.texts?.forgotPasswordText}
+                    {props.texts?.forgotPasswordText || "Forgot Password?"}
                   </div>
                 )}
-              </>
+              </div>
             )}
 
             <Button
-              className="hawa-mt-4 hawa-w-full"
+              className="hawa-mt-0 hawa-w-full"
               // disabled={
               //   props.isGithubLoading ||
               //   props.isGoogleLoading ||
               //   props.isTwitterLoading
               // }
+              type="submit"
               isLoading={props.isLoading}
             >
-              {props.texts?.signInText}
+              {props.texts?.loginText || "Login"}
             </Button>
             {!props.withoutSignUp && (
               <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
-                {props.texts?.newUserText}{" "}
+                {props.texts?.newUserText || "New user?"}{" "}
                 <span
                   onClick={props.handleRouteToSignUp}
                   className="clickable-link"
                 >
-                  {props.texts?.createAccount}
+                  {props.texts?.createAccount || "Create Account"}
                 </span>
               </div>
             )}
           </form>
         </CardContent>
 
-        {/* 3rd Party Sign Auth Buttons */}
+        {/* 3rd Party Auth Buttons */}
         {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
           <CardFooter
             className={cn(
@@ -230,14 +260,14 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 // isLoading={props.isGoogleLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGoogleSignIn}
+                onClick={props.handleGoogleLogin}
               >
                 {props.isGoogleLoading ? (
                   <Loading size="button" />
                 ) : (
                   <Logos.google className="hawa-h-4 hawa-w-4" />
                 )}
-                {!props.logosOnly && props.texts?.signInViaGoogleLabel}
+                {!props.logosOnly && props.texts?.loginViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
@@ -245,14 +275,14 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 // isLoading={props.isGithubLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGithubSignIn}
+                onClick={props.handleGithubLogin}
               >
                 {props.isGithubLoading ? (
                   <Loading size="button" />
                 ) : (
                   <Logos.gitHub className="hawa-h-4 hawa-w-4" />
                 )}
-                {!props.logosOnly && props.texts?.signInViaGithubLabel}
+                {!props.logosOnly && props.texts?.loginViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
@@ -260,25 +290,27 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 // isLoading={props.isTwitterLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleTwitterSignIn}
+                onClick={props.handleTwitterLogin}
               >
                 {props.isTwitterLoading ? (
                   <Loading size="button" />
                 ) : (
                   <Logos.twitter className="hawa-h-4 hawa-w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts?.signInViaTwitterLabel}
+                {!props.logosOnly && props.texts?.loginViaTwitterLabel}
               </Button>
             )}
           </CardFooter>
         ) : null}
       </Card>
-      {/* <InterfaceSettings
-        currentColorMode={props.currentColorMode}
-        currentLanguage={props.currentLanguage}
-        handleColorMode={props.handleColorMode}
-        handleLanguage={props.handleLanguage}
-      /> */}
+      {props.handleColorMode && props.handleLanguage && (
+        <InterfaceSettings
+          currentColorMode={props.currentColorMode}
+          currentLanguage={props.currentLanguage}
+          handleColorMode={props.handleColorMode}
+          handleLanguage={props.handleLanguage}
+        />
+      )}
     </div>
   );
 };
