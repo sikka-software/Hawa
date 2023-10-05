@@ -12,8 +12,9 @@ export const SortButton: React.FC<SortButtonProps> = (props) => {
   return (
     <Button
       variant="ghost"
+      centered={false}
       className={cn(
-        "hawa-flex hawa-w-full hawa-flex-row hawa-justify-start hawa-gap-2 hawa-text-start hawa-items-start hawa-bg-green-500",
+        "hawa-flex hawa-w-full hawa-flex-row hawa-justify-start hawa-gap-2 hawa-text-start hawa-items-start",
         props.condensed && "hawa-h-6"
       )}
       onClick={props.onSort}

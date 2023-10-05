@@ -5,7 +5,7 @@ import { cn } from "../util";
 import { Loading } from "./Loading";
 
 const buttonVariants = cva(
-  "hawa-inline-flex hawa-items-center hawa-justify-center hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
+  "hawa-inline-flex hawa-items-center  hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
   {
     variants: {
       variant: {
@@ -45,6 +45,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  centered?: boolean;
   isLoading?: boolean;
 }
 
@@ -55,6 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       size,
       asChild = false,
+      centered = true,
       isLoading,
       children,
       ...props
@@ -71,7 +73,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          centered && "hawa-justify-center"
+        )}
         ref={ref}
         {...props}
       >

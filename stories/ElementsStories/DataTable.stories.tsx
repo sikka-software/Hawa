@@ -28,6 +28,11 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof DataTable>;
+
+// id: "m5gr84i9",
+// amount: 316,
+// status: "success",
+// email: "ken99@yahoo.com",
 let companiesData: Company[] = [
   {
     name: "Microsoft",
@@ -416,7 +421,7 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div dir={direction} className="hawa-w-full ">
-      <DataTable
+      <DataTable<Company>
         isLoading={isLoading}
         defaultSort="share_price"
         columns={companiesColumns}
@@ -426,7 +431,7 @@ const Template = (args: any, globals: any) => {
         direction={locale === "ar" ? "rtl" : "ltr"}
         texts={{
           searchPlaceholder: t("search-items"),
-          items: "عناصر",
+          //   items: "عناصر",
           noData: t("no-data"),
           page: t("page"),
           of: t("of"),

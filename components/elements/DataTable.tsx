@@ -28,9 +28,9 @@ import { Skeleton } from "./Skeleton";
 import { Button } from "./Button";
 import { cn } from "../util";
 
-type DataProps = {};
 
-type DataTableProps = {
+
+type DataTableProps<DataProps = {}> = {
   direction?: "rtl" | "ltr";
   columns: ColumnDef<DataProps>[];
   data: DataProps[];
@@ -53,11 +53,11 @@ declare module "@tanstack/table-core" {
   }
 }
 
-export const DataTable: React.FC<DataTableProps> = ({
+export const DataTable = <DataProps extends {}>({
   columns,
   data,
   ...props
-}) => {
+}: DataTableProps<DataProps>) => {
   const [sorting, setSorting] = React.useState<SortingState>([
     {
       id: props.defaultSort || "",
