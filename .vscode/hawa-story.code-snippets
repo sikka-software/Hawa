@@ -6,7 +6,7 @@
     "prefix": "hawastory",
     "body": [
       "import type { Meta, StoryObj } from \"@storybook/react\";",
-      "import { ${1:Template} } from \"../../components/elements\";",
+      "import { ${1:Template} } from \"../../components\";",
       "import { ArgsTable, Story, Title } from \"@storybook/blocks\";",
       "import { setLocale, t } from \"../translations/i18n\";\n",
       "const meta = {",
