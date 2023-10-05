@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { LegalTexts } from "../../../components/blocks";
+import { LegalTexts } from "../../../components";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/Misc/Legal Texts",
   component: LegalTexts,
+
   parameters: {
+    layout: "centered",
     docs: {
       page: () => (
         <>

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FeedbackEmoji } from "../../../components/blocks";
+import { FeedbackEmoji } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";

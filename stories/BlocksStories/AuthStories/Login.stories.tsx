@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LoginForm } from "../../components/blocks";
+import { LoginForm } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";
 import { useDarkMode } from "storybook-dark-mode";
-import TranslationTable from "../TranslationTable";
+import TranslationTable from "../../TranslationTable";
 
 const meta = {
-  title: "Blocks/Login Form",
+  title: "Blocks/User Auth/Login Form",
   component: LoginForm,
   parameters: {
     // layout: "centered",
