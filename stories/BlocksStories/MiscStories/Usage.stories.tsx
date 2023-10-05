@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Usage } from "../../components/blocks";
+import { Usage } from "../../../components/blocks";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
-  title: "Blocks/Usage",
+  title: "Blocks/Misc/Usage",
   component: Usage,
   parameters: {
     // layout: "centered",

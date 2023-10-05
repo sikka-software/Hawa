@@ -12,7 +12,7 @@ export type RadioOptionsTypes = {
 type RadioTypes = {
   orientation?: "vertical" | "horizontal";
   design?: "default" | "tabs" | "cards" | "bordered";
-  options?: RadioOptionsTypes[];
+  options: RadioOptionsTypes[];
   width?: "default" | "full";
   onChangeTab?: any;
   defaultValue?: any;

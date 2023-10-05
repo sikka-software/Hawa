@@ -30,6 +30,11 @@ export * from "./PhoneInput";
 
 export * from "./AppStores";
 
+export * from "./SortButton";
+export * from "./DataTable";
+export * from "./SimpleTable";
+export * from "./Table";
+export * from "./Accordion";
 export * from "./Separator";
 export * from "./Progress";
 export * from "./BackToTop";
