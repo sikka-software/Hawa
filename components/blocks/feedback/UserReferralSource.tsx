@@ -25,6 +25,7 @@ type ComponentTypes = {
 };
 export const UserReferralSource: FC<ComponentTypes> = ({
   position = "bottom-right",
+  options = [],
   ...props
 }) => {
   const [closed, setClosed] = useState(false);
@@ -95,7 +96,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
         >
           <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
           <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded ">
-            <Radio orientation="vertical" options={props.options}></Radio>
+            <Radio orientation="vertical" options={options}></Radio>
           </div>
           <div>
             <Textarea />
