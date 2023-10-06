@@ -228,7 +228,7 @@ export const Select: FC<SelectTypes> = (props) => {
         />
       )}
       {props.helperText && (
-        <p className="hawa-mt-2 hawa-text-sm hawa-text-red-600 dark:hawa-text-red-500">
+        <p className="hawa-text-sm hawa-text-red-600 dark:hawa-text-red-500">
           {props.helperText}
         </p>
       )}

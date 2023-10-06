@@ -15,18 +15,16 @@ type TLeadGenerator = {
     title?: string;
     subtitle?: string;
     submit?: string;
+    invalidEmail?: string;
   };
-  handleNewsletterSub: (e: string) => void;
+  submitHandler: (e: string) => void;
 };
 
-export const LeadGenerator: FC<TLeadGenerator> = ({
-  texts,
-  handleNewsletterSub,
-}) => {
+export const LeadGenerator: FC<TLeadGenerator> = ({ texts, submitHandler }) => {
   const { handleSubmit, control, formState } = useForm();
   const onSubmit = (data: any) => {
-    if (handleNewsletterSub) {
-      handleNewsletterSub(data.email);
+    if (submitHandler) {
+      submitHandler(data.email);
     } else {
       console.log("handleNewsletterSub props was not provided");
     }
@@ -42,21 +40,23 @@ export const LeadGenerator: FC<TLeadGenerator> = ({
         <form
           className="hawa-flex hawa-flex-row hawa-gap-2"
           onSubmit={handleSubmit(onSubmit)}
-
-          // onSubmit={(e) => {
-          //   e.preventDefault();
-          // }}
         >
           <Controller
             name="email"
             control={control}
-            rules={{ required: true }} // Add this line
+            rules={{
+              required: true,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: texts?.invalidEmail || "Invalid email address",
+              },
+            }}
+            // rules={{ required: true }}
             defaultValue=""
             render={({ field }) => (
               <Input {...field} type="email" placeholder="example@sikka.io" />
             )}
           />
-          {/* <Input type="email" name="email" placeholder="example@sikka.io" /> */}
           <Button type="submit" disabled={!formState.isValid}>
             {texts?.submit ?? "Submit"}
           </Button>
@@ -65,6 +65,3 @@ export const LeadGenerator: FC<TLeadGenerator> = ({
     </Card>
   );
 };
-
-// console.log("e is ", e);
-// handleNewsletterSub(e.target?.value);

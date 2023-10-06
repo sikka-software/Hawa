@@ -13,6 +13,8 @@ import {
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
 type RegisterFormTypes = {
   handleLanguage?: () => void;
@@ -77,10 +79,59 @@ type RegisterFormTypes = {
 export const RegisterForm: FC<RegisterFormTypes> = (props) => {
   const methods = useForm();
   const {
-    formState: { errors },
-    handleSubmit,
-    control,
-  } = methods;
+    userReferenceLabel,
+    usernameLabel,
+    usernamePlaceholder,
+    usernameRequired,
+    newUserText,
+    existingUserText,
+    emailInvalidText,
+    emailLabel,
+    emailPlaceholder,
+    emailRequiredText,
+    passwordLabel,
+    passwordPlaceholder,
+    passwordRequiredText,
+    passwordTooShortText,
+    forgotPasswordText,
+    confirmPasswordLabel,
+    confirmPasswordPlaceholder,
+    termsRequiredText,
+    fullNameRequiredText,
+  } = props.texts;
+  const formSchema = z
+    .object({
+      fullName: z.string().optional(),
+      email: z
+        .string({ required_error: emailRequiredText })
+        .email({ message: emailInvalidText })
+        .nonempty({ message: usernameRequired }),
+      username: z
+        .string({ required_error: usernameRequired })
+        .refine((value) => value !== "", { message: usernameRequired }),
+      password: z
+        .string({ required_error: passwordRequiredText })
+        .min(5, { message: passwordTooShortText })
+        .refine((value) => value !== "", { message: passwordRequiredText }),
+      confirm_password: z
+        .string()
+        .refine((value) => value !== "", { message: passwordRequiredText }),
+      refCode: z.string().optional(),
+      reference: z.string().optional(),
+      terms_accepted: z
+        .boolean({ required_error: termsRequiredText })
+        .refine((value) => value, { message: termsRequiredText }),
+
+      newsletter_accepted: z.boolean().optional(),
+    })
+    .refine((data) => data.password === data.confirm_password, {
+      message: "Passwords don't match",
+      path: ["confirm_password"],
+    });
+
+  const { handleSubmit, control, formState } = useForm({
+    resolver: zodResolver(formSchema),
+  });
 
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
@@ -113,14 +164,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                               type="text"
                               label={props.texts.fullNameLabel}
                               placeholder={props.texts.fullNamePlaceholder}
-                              helperText={errors.fullName?.message}
+                              helperText={formState.errors.fullName?.message}
                               onChange={field.onChange}
                               value={field.value ?? ""}
                             />
                           )}
-                          rules={{
-                            required: props.texts.fullNameRequiredText,
-                          }}
                         />
                       );
                     }
@@ -136,7 +184,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                               type="text"
                               autoComplete="email"
                               label={props.texts.emailLabel}
-                              helperText={errors.email?.message}
+                              helperText={formState.errors.email?.message}
                               placeholder={
                                 props.texts.emailPlaceholder ||
                                 "Enter your email"
@@ -145,14 +193,6 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                               value={field.value ?? ""}
                             />
                           )}
-                          rules={{
-                            required: props.texts.emailRequiredText,
-                            pattern: {
-                              value:
-                                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                              message: props.texts.emailInvalidText,
-                            },
-                          }}
                         />
                       );
                     }
@@ -168,15 +208,12 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                               type="text"
                               autoComplete="username"
                               label={props.texts.usernameLabel}
-                              helperText={errors.username?.message}
+                              helperText={formState.errors.username?.message}
                               placeholder={props.texts.usernamePlaceholder}
                               onChange={field.onChange}
                               value={field.value ?? ""}
                             />
                           )}
-                          rules={{
-                            required: props.texts.usernameRequired,
-                          }}
                         />
                       );
                     }
@@ -193,12 +230,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       // defaultValue={field.value ?? ""}
                       label={props.texts.passwordLabel}
                       placeholder={props.texts.passwordPlaceholder}
-                      helperText={errors.password?.message}
+                      helperText={formState.errors.password?.message}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   )}
-                  rules={{ required: props.texts.passwordRequiredText }}
                 />
                 <Controller
                   control={control}
@@ -211,12 +247,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       // defaultValue={field.value ?? ""}
                       label={props.texts.confirmPasswordLabel}
                       placeholder={props.texts.confirmPasswordPlaceholder}
-                      helperText={errors.confirm_password?.message}
+                      helperText={formState.errors.confirm_password?.message}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   )}
-                  rules={{ required: props.texts.passwordRequiredText }}
                 />
                 {props.showRefCode && (
                   <Controller
@@ -232,7 +267,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           props.texts.refCodePlaceholder ||
                           "Enter the referral code"
                         }
-                        helperText={errors.refCode?.message}
+                        helperText={formState.errors.refCode?.message}
                         value={field.value ?? ""}
                         onChange={field.onChange}
                       />
@@ -275,7 +310,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       render={({ field }) => (
                         <Checkbox
                           id="terms_accepted"
-                          helperText={errors.terms_accepted?.message?.toString()}
+                          helperText={formState.errors.terms_accepted?.message?.toString()}
                           onCheckedChange={(e) => field.onChange(e)}
                           label={
                             <span>
@@ -290,7 +325,6 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           }
                         />
                       )}
-                      rules={{ required: props.texts.termsRequiredText }}
                     />
                   )}
                   {/* TODO: make this an array so the consumer can cusomize the checkboxes they want */}

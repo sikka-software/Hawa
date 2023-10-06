@@ -13,6 +13,8 @@ import {
   Button,
 } from "../../elements";
 import { cn } from "../../util";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
 type LoginFormTypes = {
   texts?: {
@@ -74,11 +76,29 @@ type LoginFormTypes = {
 };
 
 export const LoginForm: FC<LoginFormTypes> = (props) => {
-  const {
-    formState: { errors },
-    handleSubmit,
-    control,
-  } = useForm();
+  const formSchema = z.object({
+    email: z
+      .string({
+        required_error: props.texts?.emailRequiredText,
+      })
+      .nonempty({ message: props.texts?.emailRequiredText })
+      .email({ message: props.texts?.emailInvalidText }),
+    password: z
+      .string({
+        required_error: props.texts?.passwordRequiredText,
+      })
+      .min(5, { message: "Password must be at least 5 characters long" })
+      .nonempty({ message: props.texts?.passwordRequiredText }),
+    username: z
+      .string()
+      .min(2, { message: "Username must be at least 2 characters" })
+      .nonempty({ message: props.texts?.usernameRequired }),
+    phone: z.string().nonempty({ message: "Phone number is required" }),
+  });
+
+  const { handleSubmit, control, formState } = useForm({
+    resolver: zodResolver(formSchema),
+  });
 
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
@@ -114,7 +134,7 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     type="text"
                     autoComplete="email"
                     label={props.texts?.emailLabel || "Email"}
-                    helperText={errors.email?.message}
+                    helperText={formState.errors.email?.message}
                     placeholder={
                       props.texts?.emailPlaceholder || "contact@sikka.io"
                     }
@@ -122,16 +142,16 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     onChange={field.onChange}
                   />
                 )}
-                rules={{
-                  required:
-                    props.texts?.emailRequiredText || "Email is required",
-                  pattern: {
-                    value:
-                      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message:
-                      props.texts?.emailInvalidText || "Invalid email format",
-                  },
-                }}
+                // rules={{
+                //   required:
+                //     props.texts?.emailRequiredText || "Email is required",
+                //   pattern: {
+                //     value:
+                //       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                //     message:
+                //       props.texts?.emailInvalidText || "Invalid email format",
+                //   },
+                // }}
               />
             ) : props.loginType === "username" ? (
               <Controller
@@ -144,7 +164,7 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                       type="text"
                       autoComplete="username"
                       label={props.texts?.usernameLabel || "Username"}
-                      helperText={errors.username?.message}
+                      helperText={formState.errors.username?.message}
                       placeholder={
                         props.texts?.usernamePlaceholder || "sikka_sa"
                       }
@@ -153,10 +173,10 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     />
                   );
                 }}
-                rules={{
-                  required:
-                    props.texts?.usernameRequired || "Username is required",
-                }}
+                // rules={{
+                //   required:
+                //     props.texts?.usernameRequired || "Username is required",
+                // }}
               />
             ) : (
               <Controller
@@ -169,17 +189,17 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     // type="text"
                     // autoComplete="username"
                     // label={props.texts?.usernameLabel || "Username"}
-                    helperText={errors.username?.message}
+                    helperText={formState.errors.username?.message}
                     // placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
                     // onChange={field.onChange}
                     // value={field.value ?? ""}
                   />
                 )}
-                rules={{
-                  required:
-                    props.texts?.phoneRequiredText ||
-                    "Phone number is required",
-                }}
+                // rules={{
+                //   required:
+                //     props.texts?.phoneRequiredText ||
+                //     "Phone number is required",
+                // }}
               />
             )}
             {props.loginType !== "phone" && (
@@ -197,17 +217,17 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                         props.texts?.passwordPlaceholder ||
                         "Enter your password"
                       }
-                      helperText={errors.password?.message}
+                      helperText={formState.errors.password?.message}
                       onChange={field.onChange}
                       value={field.value ?? ""}
                     />
                   )}
-                  rules={{
-                    required:
-                      props.texts?.passwordRequiredText ||
-                      "Password is required",
-                    minLength: 5,
-                  }}
+                  // rules={{
+                  //   required:
+                  //     props.texts?.passwordRequiredText ||
+                  //     "Password is required",
+                  //   minLength: 5,
+                  // }}
                 />
                 {!props.withoutResetPassword && (
                   <div

@@ -1,27 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LeadGenerator } from "../../../components";
+import { FeedbackForm } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
-  title: "Blocks/Misc/LeadGenerator",
-  component: LeadGenerator,
+  title: "Blocks/User Feedback/Feedback Form",
+  component: FeedbackForm,
   parameters: {
     layout: "centered",
     docs: {
       page: () => (
         <>
-          <h1>{"<LeadGenerator/>"}</h1>
+          <h1>{"<FeedbackForm/>"}</h1>
           <ArgsTable />
         </>
       ),
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof LeadGenerator>;
+} satisfies Meta<typeof FeedbackForm>;
 
 export default meta;
-type Story = StoryObj<typeof LeadGenerator>;
+type Story = StoryObj<typeof FeedbackForm>;
 
 const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
@@ -30,20 +30,12 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div dir={direction}>
-      <LeadGenerator
-        submitHandler={(e) => console.log("Form Submitted: ", e)}
-        {...args}
+      <FeedbackForm
+        onSubmit={(e) => console.log("submitting feedback form : ", e)}
       />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
-  args: {
-    texts: {
-      submit: "Submit",
-      title: "Get a free book guide",
-      subtitle: "Sign up to get free samples of our top books",
-    },
-  },
 };
