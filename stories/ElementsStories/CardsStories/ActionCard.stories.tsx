@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ActionCard, Button } from "../../components/elements";
+import { ActionCard, Button } from "../../../components/elements";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -30,7 +30,6 @@ const Template = (args: any) => (
 );
 
 export const Default: Story = {
-  name: "Action Card",
   render: (args) => <Template {...args} />,
   args: {
     title: "Bismillah",

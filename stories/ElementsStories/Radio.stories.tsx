@@ -123,7 +123,7 @@ export const Cards: Story = {
 
     return (
       <div
-        className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10"
+        className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10 hawa-max-w-sm"
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">

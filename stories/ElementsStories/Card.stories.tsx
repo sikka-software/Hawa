@@ -45,8 +45,7 @@ const CardTemplate = (args: any) => (
   </div>
 );
 
-export const CardStory: Story = {
-  name: "Card",
+export const Default: Story = {
   render: (args) => <CardTemplate {...args} />,
 };
 
