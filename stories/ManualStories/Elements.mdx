@@ -1,0 +1,59 @@
+import { Meta } from "@storybook/blocks";
+import { linkTo } from "@storybook/addon-links";
+
+export const DocCard = ({ title, subtitle, handleClick }) => (
+  <div
+    onClick={handleClick}
+    className="hawa-inline-flex hawa-w-full hawa-max-w-full hawa-transform-gpu hawa-cursor-pointer hawa-flex-col hawa-rounded hawa-border  hawa-bg-background  hawa-p-5 hawa-transition-all hover:hawa-drop-shadow-lg  dark:hover:hawa-bg-gray-800"
+  >
+    <h3 className="hawa-font-bold">{title}</h3>
+    {subtitle && <span className="hawa-text-sm">{subtitle}</span>}{" "}
+  </div>
+);
+
+<Meta title="Elements/Introduction" />
+
+# Elements
+
+<span className="badge">Notice</span>This page is still in progress
+
+The "Elements" section in the Hawa repository encapsulates a rich set
+of UI components designed to facilitate the rapid development of web
+applications and websites. These elements, built with the
+utility-first TailwindCSS framework, are highly customizable and can
+be integrated seamlessly into your projects.
+
+Within this section, you will find a diverse range of elements
+including, but not limited to:
+
+<ul className="flex flex-col gap-2 mb-10">
+  <li>
+    <strong>Input Fields:</strong> <br /> Various input components to gather
+    data from users, including text fields, radio buttons, checkboxes, and more.
+  </li>
+  <li>
+    <strong>Navigation Components:</strong> <br /> Components like breadcrumbs
+    and tabs that assist in creating a seamless navigation experience.
+  </li>
+  <li>
+    <strong>Notification Elements:</strong> <br /> Elements such as alerts and
+    toasts to provide feedback or notifications to users.
+  </li>
+  <li>
+    <strong>Interactive Components:</strong> <br /> Components like dropdown
+    menus and modals that facilitate user interaction with the application.
+  </li>
+  <li>
+    <strong>Utility Components:</strong> <br /> Various utility components like
+    tooltips, popovers, and carousels to enhance the user interface.
+  </li>
+</ul>
+
+Each element is crafted with attention to detail, ensuring both
+functionality and aesthetic appeal. The elements are also designed to
+be responsive, providing a consistent user experience across various
+device types and screen sizes.
+
+We encourage developers to explore this section to discover the wide
+array of elements available, and to leverage them to build visually
+appealing and user-friendly web applications and websites.

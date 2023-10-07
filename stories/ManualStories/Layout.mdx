@@ -1,0 +1,65 @@
+import { Meta } from "@storybook/blocks";
+import { linkTo } from "@storybook/addon-links";
+import "../../styles/stories.css";
+export const DocCard = ({ title, subtitle, handleClick }) => (
+  <div
+    onClick={handleClick}
+    className="hawa-inline-flex hawa-w-full hawa-max-w-full hawa-transform-gpu hawa-cursor-pointer hawa-flex-col hawa-rounded hawa-border  hawa-bg-background  hawa-p-5 hawa-transition-all hover:hawa-drop-shadow-lg  dark:hover:hawa-bg-gray-800"
+  >
+    <h3 className="hawa-font-bold">{title}</h3>
+    {subtitle && <span className="hawa-text-sm">{subtitle}</span>}{" "}
+  </div>
+);
+
+<Meta title="Layout/Introduction" />
+
+# Layout
+
+<span className="badge">Notice</span>This page is still in progress
+
+Hawa layout components are used as the foundation for Hawa blocks and can
+be used to organize and structure your web app.
+
+<div className="subheading">Concept</div>
+
+Elements The smallest components of this UI kit are the typical
+low-level components.
+
+<h3>Blocks</h3>
+Blocks are commonly used collection of components.
+<h3>Boxes</h3>
+Most components and blocks will live inside **boxes**. Windows can show anything.
+It can show a video, image, form, iFrame, etc. Boxes make out the layout of your
+website or application. Boxes can be arranged in different layouts Points - The content
+inside each box can be scrollable (vertical/horizontal/Both) with one prop - you
+can control the spacing of the content inside each box with one prop - you can also
+control the spacing of all the box in the layout - some boxes can float (animation
+of open and close modal) - some boxes can go full screen (animation to transition)
+
+<div className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-3 hawa-my-4">
+  <DocCard
+    title="Container"
+    subtitle={"Simple installation guide for React and Next projects"}
+    handleClick={linkTo("Layout/Container")}
+  />
+  <DocCard
+    title="AppBar"
+    subtitle={"Simple installation guide for React and Next projects"}
+    handleClick={linkTo("Getting Started/Usage")}
+  />
+  <DocCard
+    title="AppLayout"
+    subtitle={"a few methods to use to customize Hawa kit in your project"}
+    handleClick={linkTo("Getting Started/Customization")}
+  />
+  <DocCard
+    title="Dialog"
+    subtitle={"a few methods to use to customize Hawa kit in your project"}
+    handleClick={linkTo("Getting Started/Customization")}
+  />
+  <DocCard
+    title="PopMenu"
+    subtitle={"a few methods to use to customize Hawa kit in your project"}
+    handleClick={linkTo("Getting Started/Customization")}
+  />
+</div>

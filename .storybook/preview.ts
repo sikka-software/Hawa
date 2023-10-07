@@ -11,8 +11,9 @@ const preview: Preview = {
       storySort: {
         order: [
           "Blocks",
+          "Layout",
           "Elements",
-          ["Cards", "Input", "Loading", "Button", "Cards"],
+          ["Introduction", "Cards", "Input", "Loading", "Button", "Cards"],
         ],
       },
     },
