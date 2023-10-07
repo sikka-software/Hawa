@@ -1,71 +1,83 @@
-import React, { FC } from "react"
-import { HawaPricingCard, HawaRadio } from "../../elements"
+import React, { FC } from "react";
+import { PricingCard, Radio } from "../../elements";
 
 type PricingPlansTypes = {
   plans: [
     {
-      direction: "rtl" | "ltr"
-      features: [{ included: boolean; text: string }]
-      price: number
+      direction: "rtl" | "ltr";
+      features: [{ included: boolean; text: string }];
+      price: number;
       texts: {
-        title: string
-        subtitle: string
-        buttonText: string
-        cycleText: string
-        currencyText: string
-      }
-      size: "small" | "medium" | "large"
+        title: string;
+        subtitle: string;
+        buttonText: string;
+        cycleText: string;
+        currencyText: string;
+      };
+      size: "small" | "medium" | "large";
     }
-  ]
+  ];
   currencies: [
     {
-      label: string
-      value: string
+      label: string;
+      value: string;
     }
-  ]
+  ];
   billingCycles: [
     {
-      label: string
-      value: string
+      label: string;
+      value: string;
     }
-  ]
-  onPlanClicked?: (e) => void
+  ];
+  onPlanClicked?: (e: any) => void;
   currentCycle: {
-    label: string
-    value: string
-  }
+    label: string;
+    value: string;
+  };
   currentCurrency: {
-    label: string
-    value: string
-  }
-  onCycleChange?: (e) => void
-  onCurrencyChange?: (e) => void
-  direction?: "rtl" | "ltr"
-}
+    label: string;
+    value: string;
+  };
+  onCycleChange?: (e: any) => void;
+  onCurrencyChange?: (e: any) => void;
+  direction?: "rtl" | "ltr";
+};
 export const PricingPlans: FC<PricingPlansTypes> = (props) => {
   return (
     <div>
-      <div className="mb-2 flex w-full justify-between">
-        <HawaRadio
+      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
+        <Radio
           design="tabs"
           defaultValue={props.currentCycle}
           options={props.billingCycles}
-          onChangeTab={(e: any) => props.onCycleChange(e)}
+          onChangeTab={(e: any) => {
+            if (props.onCycleChange) {
+              props.onCycleChange(e);
+            }
+          }}
         />
-        <HawaRadio
+        <Radio
           design="tabs"
           defaultValue={props.currentCurrency}
           options={props.currencies}
-          onChangeTab={(e: any) => props.onCurrencyChange(e)}
+          onChangeTab={(e: any) => {
+            if (props.onCurrencyChange) {
+              props.onCurrencyChange(e);
+            }
+          }}
         />
       </div>
 
-      <div className="flex flex-row justify-between">
+      <div className="hawa-flex hawa-flex-row hawa-justify-between">
         {props.plans.map((plan: any, index) => {
           return (
-            <HawaPricingCard
+            <PricingCard
               key={index}
-              onPlanClicked={() => props.onPlanClicked(plan)}
+              onPlanClicked={() => {
+                if (props.onPlanClicked) {
+                  props.onPlanClicked(plan);
+                }
+              }}
               {...plan}
               texts={{
                 ...plan.texts,
@@ -73,9 +85,9 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
                 cycleText: props.currentCycle,
               }}
             />
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};

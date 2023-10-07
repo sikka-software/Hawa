@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { FC } from "react";
 import { Button } from "../Button";
+import { Card } from "../Card";
 
 // TODO: if feature.excluded is false, show gray and x
 // TODO: add badge to feature if soon
@@ -8,7 +9,7 @@ import { Button } from "../Button";
 
 type PricingCardTypes = {
   direction?: "rtl" | "ltr";
-  features: [{ included: boolean; text: string }];
+  features: { included: boolean; text: string }[];
   price: number;
   texts: {
     title: string;
@@ -31,50 +32,52 @@ export const PricingCard: FC<PricingCardTypes> = ({
   let isArabic = direction === "rtl";
   let cardSizes = {
     small:
-      "mx-1 w-full  max-w-sm rounded border dark:border-gray-700 bg-background ",
+      "hawa-mx-1 hawa-w-full hawa-max-w-sm hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
     medium:
-      "mx-1 w-full rounded min-w-fit border dark:border-gray-700 bg-background ",
+      "hawa-mx-1 hawa-w-full hawa-rounded hawa-min-w-fit hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
     large:
-      "mx-1 w-full max-w-lg rounded border dark:border-gray-700 bg-background ",
+      "hawa-mx-1 hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
   };
   return (
-    <div
+    <Card
       dir={isArabic ? "rtl" : "ltr"}
       className={clsx(
-        currentPlan ? "border-primary" : "bg-background",
+        currentPlan
+          ? "hawa-border-primary dark:hawa-border-primary/70 hawa-border-2 "
+          : "hawa-border",
         cardSizes[size],
-        "flex flex-col gap-4 rounded border-2 p-4"
+        "hawa-flex hawa-flex-col hawa-gap-4 hawa-rounded hawa-p-4 "
       )}
     >
-      <h5 className="text-md 0 font-bold text-primary/70">
+      <h5 className="hawa-text-md 0 hawa-font-bold hawa-text-primary/70">
         {props.texts.title}
       </h5>
-      <div className=" text-primary/ flex  items-baseline">
+      <div className=" hawa-text-primary hawa-flex  hawa-items-baseline">
         <>
-          <span className="text-5xl font-extrabold tracking-tight">
+          <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
             {props.price}
           </span>
-          <span className="mx-1 text-sm font-semibold">
+          <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
             {props.texts.currencyText}
           </span>
         </>
-        <span className="ml-1 text-xl font-normal text-primary/70">
+        <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-primary/70">
           / {props.texts.cycleText}
         </span>
       </div>
-      <h5 className="text-md  font-normal text-primary/70">
+      <h5 className="hawa-text-sm  hawa-font-normal hawa-text-primary/70">
         {props.texts.subtitle}
       </h5>
 
       {props.features && (
-        <ul role="list" className="space-y-0 ">
+        <ul role="list" className="hawa-space-y-0 ">
           {props.features?.map((feature, o) => {
             return (
-              <li key={o} className="flex ">
+              <li key={o} className="hawa-flex">
                 <svg
                   aria-label="Check Icon"
                   aria-hidden="true"
-                  className="m-2 h-5 w-5 flex-shrink-0 text-primary"
+                  className="hawa-m-2 hawa-h-5 hawa-w-5 hawa-flex-shrink-0 hawa-text-primary"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -84,7 +87,7 @@ export const PricingCard: FC<PricingCardTypes> = ({
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="flex items-center  text-center font-normal leading-tight text-primary/70 ">
+                <span className="hawa-flex hawa-items-center  hawa-text-center hawa-font-normal hawa-leading-tight hawa-text-primary/70 ">
                   {feature.text}
                 </span>
               </li>
@@ -95,10 +98,10 @@ export const PricingCard: FC<PricingCardTypes> = ({
       <Button
         onClick={props.onPlanClicked}
         disabled={currentPlan}
-        className="w-full"
+        className="hawa-w-full"
       >
         {props.texts.buttonText}
       </Button>
-    </div>
+    </Card>
   );
 };
