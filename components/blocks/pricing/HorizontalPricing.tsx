@@ -3,39 +3,30 @@ import { Radio } from "../../elements";
 import clsx from "clsx";
 
 type HorizontalPricingTypes = {
-  plans: [
-    {
-      direction: "rtl" | "ltr";
-      features: [{ included: boolean; text: string }];
-      price: number;
-      texts: {
-        title: string;
-        subtitle: string;
-        buttonText: string;
-        cycleText: string;
-        currencyText: string;
-      };
-      size: "small" | "medium" | "large";
-    }
-  ];
-  currencies: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
-  billingCycles: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
+  plans: {
+    currentPlan?: boolean;
+    direction?: "rtl" | "ltr";
+    currency?: string;
+    cycleText?: string;
+    features?: { included: boolean; text: string; description?: string }[];
+    price?: number;
+    texts?: {
+      title: string;
+      subtitle: string;
+      buttonText?: string;
+      cycleText?: string;
+      currencyText?: string;
+    };
+    size?: "small" | "medium" | "large";
+  }[];
+  currencies: { label: string; value: string }[];
+  billingCycles: { label: string; value: string }[];
   onPlanClicked?: (e: any) => void;
-  currentCycle: {
+  currentCycle?: {
     label: string;
     value: string;
   };
-  currentCurrency: {
+  currentCurrency?: {
     label: string;
     value: string;
   };
@@ -51,9 +42,9 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
     { title: "enterprise", price: "$149", cycle: "/mo" },
   ];
   return (
-    <div className="z-10 w-full max-w-screen-sm">
-      <div className="max-w-2xl ">
-        <div className="flex flex-row justify-between">
+    <div className="hawa-z-10 hawa-w-full hawa-max-w-screen-sm">
+      <div className="hawa-max-w-2xl ">
+        <div className="hawa-flex hawa-flex-row hawa-justify-between">
           <Radio
             design="tabs"
             options={props.currencies}
@@ -75,15 +66,17 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
               type="radio"
               name="radio"
               id={d.title}
-              className="peer appearance-none"
+              className="hawa-peer hawa-appearance-none"
             />
             <div
               className={clsx(
-                selectedCard === d.title ? "peer-checked:border-blue-500" : "",
-                "peer flex cursor-pointer items-center justify-between  rounded-xl border bg-background px-5   py-4 shadow dark:text-white  peer-checked:[&_.active]:block peer-checked:[&_.default]:hidden"
+                selectedCard === d.title
+                  ? "peer-checked:hawa-border-blue-500"
+                  : "",
+                "hawa-peer hawa-flex hawa-cursor-pointer hawa-items-center hawa-justify-between  hawa-rounded-xl hawa-border hawa-bg-background hawa-px-5   hawa-py-4 hawa-shadow dark:hawa-text-white  peer-checked:[&_.active]:hawa-block peer-checked:[&_.default]:hawa-hidden"
               )}
             >
-              <div className="peer flex items-center gap-4">
+              <div className="hawa-peer hawa-flex hawa-items-center hawa-gap-4">
                 <CheckIcons />
                 <CardText
                   title="Enterprise"
@@ -107,7 +100,7 @@ const CheckIcons = () => (
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="default h-8 w-8 text-neutral-500"
+      className="hawa-default hawa-h-8 hawa-w-8 hawa-text-neutral-500"
     >
       <path
         strokeLinecap="round"
@@ -118,7 +111,7 @@ const CheckIcons = () => (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="active hidden h-8 w-8 text-blue-500"
+      className="hawa-active hawa-hidden hawa-h-8 hawa-w-8 hawa-text-blue-500"
     >
       <path
         fillRule="evenodd"
@@ -129,19 +122,19 @@ const CheckIcons = () => (
   </>
 );
 const CardText = (props: any) => (
-  <div className="peer flex flex-col items-start ">
-    <h2 className="font-medium text-neutral-700 dark:text-gray-100 sm:text-xl">
+  <div className="hawa-peer hawa-flex hawa-flex-col hawa-items-start ">
+    <h2 className="hawa-font-medium hawa-text-neutral-700 dark:hawa-text-gray-100 sm:hawa-text-xl">
       {props.title}
     </h2>
-    <p className="text-sm text-neutral-500 dark:text-gray-300">
+    <p className="hawa-text-sm hawa-text-neutral-500 dark:hawa-text-gray-300">
       {props.subtitle}{" "}
     </p>
   </div>
 );
 const CardPrice = (props: any) => (
-  <h2 className="peer text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
+  <h2 className="hawa-peer hawa-text-xl hawa-font-semibold hawa-text-neutral-900 dark:hawa-text-white sm:hawa-text-2xl">
     {props.amount}
-    <span className="text-base font-medium text-neutral-400">
+    <span className="hawa-text-base hawa-font-medium hawa-text-neutral-400">
       {props.cycle}
     </span>
   </h2>
