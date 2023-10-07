@@ -157,23 +157,32 @@ body {
   .radio-item {
     position: relative;
   }
-
   .radio-item input[type="radio"] {
     display: none;
   }
-
   .radio-item label:before {
     content: " ";
     display: inline-block;
     position: relative;
     top: 3px;
-    margin: 0 5px 0 0;
+    /* margin: 0 5px 0 0; */
+
     width: 15px;
     height: 15px;
     border-radius: 11px;
     border: 2px solid #a3a3a3;
     background-color: transparent;
   }
+
+
+  .radio-item.margin-right label:before {
+    margin: 0 5px 0 0; /* top right bottom left */
+  }
+
+  .radio-item.margin-left label:before {
+    margin: 0 0 0 5px; /* top right bottom left */
+  }
+
   .radio-item-default input[type="radio"]:checked + label:after {
     border-radius: 100%;
     width: 9px;

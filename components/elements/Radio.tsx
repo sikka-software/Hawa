@@ -16,6 +16,7 @@ type RadioTypes = {
   width?: "default" | "full";
   onChangeTab?: any;
   defaultValue?: any;
+  direction?: "rtl" | "ltr";
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
@@ -99,7 +100,10 @@ export const Radio: FC<RadioTypes> = ({
             props.options.map((opt, i) => (
               <div className="hawa-rounded hawa-border hawa-border-gray-200 ">
                 <div
-                  className="radio-item radio-item-bordered hawa-flex hawa-items-center hawa-transition-all"
+                  className={cn(
+                    "radio-item radio-item-bordered hawa-flex hawa-items-center hawa-transition-all",
+                    props.direction === "rtl" ? "margin-left" : "margin-right"
+                  )}
                   key={i + 1}
                 >
                   <input
@@ -162,12 +166,16 @@ export const Radio: FC<RadioTypes> = ({
       );
 
     default:
+      console.log("ds", parentDirection);
       return (
         <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
           {props.options &&
             props.options.map((opt, i) => (
               <div
-                className="radio-item radio-item-default  hawa-flex hawa-items-center hawa-transition-all"
+                className={cn(
+                  "radio-item radio-item-default hawa-flex hawa-items-center hawa-transition-all",
+                  props.direction === "rtl" ? "margin-left" : "margin-right"
+                )}
                 key={i + 1}
               >
                 <input
@@ -176,12 +184,11 @@ export const Radio: FC<RadioTypes> = ({
                   type="radio"
                   value={opt.value}
                   name="default-radio"
-                  // className="h-4 w-4 border-gray-300 "
                 />
                 <label
                   htmlFor={opt.value.toString()}
                   className={cn(
-                    "hawa-text-sm hawa-font-medium dark:hawa-text-white",
+                    "hawa-text-sm hawa-font-medium  dark:hawa-text-white",
                     opt.disabled
                       ? "hawa-text-gray-400"
                       : "hawa-cursor-pointer hawa-text-gray-900"
