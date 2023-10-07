@@ -2,6 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AppLayout, Button } from "../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import {
+  BarChart,
+  FolderArchive,
+  FolderClosed,
+  LayoutDashboard,
+  PhoneCall,
+  Users2,
+} from "lucide-react";
 
 const meta = {
   title: "Layout/App Layout",
@@ -83,12 +91,13 @@ export const Default: Story = {
         value: "/home",
         onClick: () => console.log("going to /home"),
         //   icon: <MdDashboard />,
+        icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
       },
       {
         label: "Items",
         value: "/items",
         onClick: () => console.log("going to /items"),
-        //   icon: <FaFolderOpen />,
+        icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
         subitems: [
           {
             label: "New Item",
@@ -121,37 +130,33 @@ export const Default: Story = {
         label: "Analytics",
         value: "/analytics",
         onClick: () => console.log("going to /analytics"),
-
+        icon: <BarChart className="hawa-w-4 hawa-h-4" />,
         //   icon: <FaPoll />,
       },
       {
         label: "Jobs",
         value: "/jobs",
         onClick: () => console.log("going to /jobs"),
-
-        //   icon: <FaPoll />,
+        icon: <Users2 className="hawa-w-4 hawa-h-4" />,
         subitems: [
           {
             label: "New Job Item",
             value: "/new-job",
             onClick: () => console.log("going to /new-jobs"),
-
-            //   icon: <FaFolderOpen />,
+            icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
           },
-
           {
             label: "Files Items",
             value: "/files",
             onClick: () => console.log("going to /files"),
-
-            //   icon: <FaFolderOpen />,
+            icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
           },
         ],
       },
       {
         label: "Activity",
         value: "/activity",
-        //   icon: <FaPoll />,
+        icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
         onClick: () => console.log("going to /activity"),
       },
     ],

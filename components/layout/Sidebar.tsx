@@ -169,7 +169,7 @@ const SidebarItem: React.FC<{
               item.subitems.some(
                 (subitem) => props.selectedItem === subitem.value
               )
-              ? "hawa-bg-primary hawa-text-primary-foreground hover:hawa-bg-primary"
+              ? "hawa-bg-primary/90 hawa-text-primary-foreground hover:hawa-bg-primary/90"
               : ""
           )}
           showArrow={isOpen}
