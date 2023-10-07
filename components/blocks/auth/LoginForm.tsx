@@ -37,41 +37,55 @@ type LoginFormTypes = {
     loginViaGithubLabel?: string;
     loginViaTwitterLabel?: string;
   };
+  /** Function to handle language change.   */
   handleLanguage?: () => void;
-  currentLanguage?: any;
+  /** Current selected language.   */
+  currentLanguage?: string;
+  /** Function to handle theme color mode change.   */
   handleColorMode?: () => void;
-  currentColorMode?: any;
+  /** Current selected theme color mode.   */
+  currentColorMode?: "light" | "dark";
+  /** If true, only logos are displayed in third-party auth buttons.   */
   logosOnly?: boolean;
+  /** Direction of text and UI elements, either left-to-right or right-to-left.   */
   direction?: "rtl" | "ltr";
-  showError?: any;
+  /** If true, an error alert is displayed at the top of the form.   */
+  showError?: boolean;
+  /** Title text of error alert.   */
   errorTitle?: string;
+  /** Description text of error alert.   */
   errorText?: string;
+  /** Login identifier type user will use to log in.   */
   loginType?: "email" | "username" | "phone";
+  /** If true, the reset password option is hidden.   */
   withoutResetPassword?: boolean;
+  /** If true, the sign-up option is hidden.   */
   withoutSignUp?: boolean;
-  /**
-   *show spinner if true
-   */
-  isLoading?: any;
-
+  /** If true, a loading spinner is displayed within the main form submit button.   */
+  isLoading?: boolean;
+  /** If true, a loading spinner is displayed within the Google login button.   */
   isGoogleLoading?: boolean;
+  /** If true, a loading spinner is displayed within the Twitter login button.   */
   isTwitterLoading?: boolean;
+  /** If true, a loading spinner is displayed within the Github login button.   */
   isGithubLoading?: boolean;
-
+  /** If true, Google login option is displayed.   */
   viaGoogle?: boolean;
+  /** If true, Github login option is displayed.   */
   viaGithub?: boolean;
+  /** If true, Twitter login option is displayed.   */
   viaTwitter?: boolean;
-  /**
-   * Handle the login function.
-   */
+  /** Function to handle form submission.   */
   handleLogin?: (e: any) => void;
-  /**
-   * Handle routing to register page
-   */
+  /** Function to route user to the sign-up page.   */
   handleRouteToSignUp?: () => void;
+  /** Function to handle forgotten password case.   */
   handleForgotPassword?: () => void;
+  /** Function to handle Google login.   */
   handleGoogleLogin?: () => void;
+  /** Function to handle Github login.   */
   handleGithubLogin?: () => void;
+  /** Function to handle Twitter login.   */
   handleTwitterLogin?: () => void;
 };
 
@@ -142,16 +156,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     onChange={field.onChange}
                   />
                 )}
-                // rules={{
-                //   required:
-                //     props.texts?.emailRequiredText || "Email is required",
-                //   pattern: {
-                //     value:
-                //       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                //     message:
-                //       props.texts?.emailInvalidText || "Invalid email format",
-                //   },
-                // }}
               />
             ) : props.loginType === "username" ? (
               <Controller
@@ -173,10 +177,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                     />
                   );
                 }}
-                // rules={{
-                //   required:
-                //     props.texts?.usernameRequired || "Username is required",
-                // }}
               />
             ) : (
               <Controller
@@ -185,21 +185,16 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 render={({ field }) => (
                   <PhoneInput
                     label="Phone number"
+                    helperText={formState.errors.username?.message}
                     // width="full"
                     // type="text"
                     // autoComplete="username"
                     // label={props.texts?.usernameLabel || "Username"}
-                    helperText={formState.errors.username?.message}
                     // placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
                     // onChange={field.onChange}
                     // value={field.value ?? ""}
                   />
                 )}
-                // rules={{
-                //   required:
-                //     props.texts?.phoneRequiredText ||
-                //     "Phone number is required",
-                // }}
               />
             )}
             {props.loginType !== "phone" && (
@@ -277,7 +272,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
           >
             {props.viaGoogle && (
               <Button
-                // isLoading={props.isGoogleLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleGoogleLogin}
@@ -292,7 +286,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
             )}
             {props.viaGithub && (
               <Button
-                // isLoading={props.isGithubLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleGithubLogin}
@@ -307,7 +300,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
             )}
             {props.viaTwitter && (
               <Button
-                // isLoading={props.isTwitterLoading}
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
                 onClick={props.handleTwitterLogin}

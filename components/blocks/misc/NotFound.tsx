@@ -1,15 +1,15 @@
-import React, { FC } from "react"
-import { Card, CardContent } from "../../elements/Card"
-import { Button } from "../../elements/Button"
+import React, { FC } from "react";
+import { Card, CardContent } from "../../elements/Card";
+import { Button } from "../../elements/Button";
 
 type NotFoundTypes = {
-  variant?: "outlined" | "contained" | "neobrutalism"
+  variant?: "outlined" | "contained" | "neobrutalism";
   texts?: {
-    pageNotFound?: string
-    ifLost?: string
-    home?: string
-  }
-}
+    pageNotFound?: string;
+    ifLost?: string;
+    home?: string;
+  };
+};
 
 export const NotFound: FC<NotFoundTypes> = ({
   variant = "contained",
@@ -18,12 +18,14 @@ export const NotFound: FC<NotFoundTypes> = ({
   return (
     <Card>
       <CardContent headless>
-        <div className="flex flex-col items-center dark:text-white">
-          <div className="text-center text-6xl font-bold ">404</div>
-          <div className="m-2 text-center text-xl font-bold ">
+        <div className="hawa-flex hawa-flex-col hawa-items-center dark:hawa-text-white">
+          <div className="hawa-text-center hawa-text-6xl hawa-font-bold ">
+            404
+          </div>
+          <div className="hawa-m-2 hawa-text-center hawa-text-xl hawa-font-bold ">
             {texts?.pageNotFound ?? "Page Not Found"}
           </div>
-          <div className="mb-4 text-center">
+          <div className="hawa-mb-4 hawa-text-center">
             {texts?.ifLost ?? (
               <>
                 If you're lost please contact us{" "}
@@ -31,9 +33,9 @@ export const NotFound: FC<NotFoundTypes> = ({
               </>
             )}
           </div>
-          <Button className="w-full">{texts?.home ?? "Home"}</Button>
+          <Button className="hawa-w-full">{texts?.home ?? "Home"}</Button>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};

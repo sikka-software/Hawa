@@ -15,6 +15,10 @@ const meta = {
       page: () => (
         <>
           <h1>{"<LoginForm/>"}</h1>
+          <h4>
+            Use this form block in your application to display a login form to
+            the users.
+          </h4>
           <ArgsTable
             exclude={[
               "texts",
@@ -29,6 +33,10 @@ const meta = {
             ]}
           />
           <h1>Login Handlers</h1>
+          <h4>
+            Functions to handle the actual authentication process for a regular
+            login and for 3rd party login.
+          </h4>
           <ArgsTable
             include={[
               "handleLogin",
@@ -38,6 +46,11 @@ const meta = {
             ]}
           />
           <h1>Loading Booleans</h1>
+          <h4>
+            Booleans to control loading spinners in the LoginForm block. Make
+            sure to use this to show feedback to the user that something is
+            happening behind the scene.
+          </h4>
           <ArgsTable
             include={[
               "isLoading",
@@ -47,6 +60,7 @@ const meta = {
             ]}
           />
           <h1>Texts Object</h1>
+          <h4>Text labels and placeholders used within the form.</h4>
           <TranslationTable
             componentProps={[
               {
@@ -174,7 +188,6 @@ export const Default: Story = {
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           {...args}
-          // showError={false}
           texts={{
             emailLabel: t("emailLabel"),
             emailPlaceholder: t("emailPlaceholder"),
