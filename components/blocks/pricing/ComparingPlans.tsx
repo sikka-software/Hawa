@@ -4,7 +4,7 @@ import { Tooltip } from "../../elements/Tooltip";
 
 const CheckMark = () => (
   <svg
-    className="h-5 w-5 text-green-500"
+    className="hawa-h-5 hawa-w-5 hawa-text-green-500"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -19,7 +19,7 @@ const CheckMark = () => (
 
 const UncheckMark = () => (
   <svg
-    className="h-5 w-5 text-red-500"
+    className="hawa-h-5 hawa-w-5 hawa-text-red-500"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -33,33 +33,21 @@ const UncheckMark = () => (
 );
 
 type ComparingPlansTypes = {
-  plans: [
-    {
-      direction: "rtl" | "ltr";
-      features: [{ included: boolean; text: string; description?: string }];
-      price: number;
-      texts: {
-        title: string;
-        subtitle: string;
-        buttonText: string;
-        cycleText: string;
-        currencyText: string;
-      };
-      size: "small" | "medium" | "large";
-    }
-  ];
-  currencies: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
-  billingCycles: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
+  plans: {
+    direction?: "rtl" | "ltr";
+    features: { included: boolean; text: string; description?: string }[];
+    price?: number;
+    texts?: {
+      title?: string;
+      subtitle?: string;
+      buttonText?: string;
+      cycleText?: string;
+      currencyText?: string;
+    };
+    size?: "small" | "medium" | "large";
+  }[];
+  currencies: { label: string; value: string }[];
+  billingCycles: { label: string; value: string }[];
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
   direction?: "rtl" | "ltr";
@@ -69,8 +57,8 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCycle, setCurrentCycle] = useState("month");
 
   return (
-    <div id="detailed-pricing" className="w-full overflow-x-auto">
-      <div className="mb-2 flex w-full justify-between">
+    <div id="detailed-pricing" className="hawa-w-full hawa-overflow-x-auto">
+      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
         <Radio
           design="tabs"
           defaultValue={currentCycle}
@@ -96,29 +84,29 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           }}
         />
       </div>
-      <div className=" overflow-hidden rounded">
-        <div className="grid grid-cols-4 gap-x-2 border-b border-t border-gray-200 bg-gray-100 p-4 text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
-          <div className="flex items-center"></div>
+      <div className=" hawa-overflow-hidden hawa-rounded">
+        <div className="hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-border-gray-200 hawa-bg-gray-100 hawa-p-4 hawa-text-sm hawa-font-medium hawa-text-gray-900 dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-white">
+          <div className="hawa-flex hawa-items-center"></div>
           {props.plans.map((plan: any) => (
             <div>
-              <h5 className="text-md 0 font-bold text-gray-500 dark:text-gray-400">
+              <h5 className="hawa-text-md hawa-font-bold hawa-text-gray-500 dark:hawa-text-gray-400">
                 {plan.texts.title}
               </h5>
 
-              <div className=" flex items-baseline  text-gray-900 dark:text-white">
+              <div className=" hawa-flex hawa-items-baseline  hawa-text-gray-900 dark:hawa-text-white">
                 <>
-                  <span className="text-5xl font-extrabold tracking-tight">
+                  <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
                     {plan.price}
                   </span>
-                  <span className="mx-1 text-sm font-semibold">
+                  <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
                     {plan.texts.currencyText}
                   </span>
                 </>
-                <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
+                <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-gray-500 dark:hawa-text-gray-400">
                   / {plan.texts.cycleText}
                 </span>
               </div>
-              <h5 className="text-md  font-normal text-gray-500 dark:text-gray-400">
+              <h5 className="hawa-text-md  hawa-font-normal hawa-text-gray-500 dark:hawa-text-gray-400">
                 {plan.texts.subtitle}
               </h5>
             </div>
@@ -127,8 +115,8 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
         {props.plans?.map((plan) => {
           return plan.features.map((feature) => {
             return (
-              <div className="grid grid-cols-4 gap-x-16 border-b border-gray-200 px-4 py-5 text-sm text-gray-700 dark:border-gray-700">
-                <div className="  flex flex-row items-center gap-2  text-gray-500 dark:text-gray-400">
+              <div className="hawa-grid hawa-grid-cols-4 hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:hawa-border-gray-700">
+                <div className="  hawa-flex hawa-flex-row hawa-items-center hawa-gap-2  hawa-text-gray-500 dark:hawa-text-gray-400">
                   {feature.text}
                   {feature.description && (
                     <Tooltip side="right" content={feature.description}>
