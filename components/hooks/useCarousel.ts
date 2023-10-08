@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 const useCarousel = (imageWidth: number) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -31,10 +31,12 @@ const useCarousel = (imageWidth: number) => {
 
   const handleDragEnd = () => {
     setIsDragging(false);
-    const closestSnapPoint = findClosestSnapPoint(containerRef.current!.scrollLeft);
+    const closestSnapPoint = findClosestSnapPoint(
+      containerRef.current!.scrollLeft
+    );
     containerRef.current!.scrollTo({
       left: closestSnapPoint,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 

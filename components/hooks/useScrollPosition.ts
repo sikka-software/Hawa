@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function useScrollPosition(ref) {
+function useScrollPosition(ref: any) {
   const [scrollPosition, setScrollPosition] = useState(0);
   // const savedRef = useRef();
 

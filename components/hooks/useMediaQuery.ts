@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react";
 
 export interface UseMediaQueryOptions {
-  getInitialValueInEffect: boolean
+  getInitialValueInEffect: boolean;
 }
 
-type MediaQueryCallback = (event: { matches: boolean; media: string }) => void
+type MediaQueryCallback = (event: { matches: boolean; media: string }) => void;
 
 /**
  * Older versions of Safari (shipped withCatalina and before) do not support addEventListener on matchMedia
@@ -15,24 +15,24 @@ function attachMediaListener(
   callback: MediaQueryCallback
 ) {
   try {
-    query.addEventListener("change", callback)
-    return () => query.removeEventListener("change", callback)
+    query.addEventListener("change", callback);
+    return () => query.removeEventListener("change", callback);
   } catch (e) {
-    query.addListener(callback)
-    return () => query.removeListener(callback)
+    query.addListener(callback);
+    return () => query.removeListener(callback);
   }
 }
 
 function getInitialValue(query: string, initialValue?: boolean) {
   if (typeof initialValue === "boolean") {
-    return initialValue
+    return initialValue;
   }
 
   if (typeof window !== "undefined" && "matchMedia" in window) {
-    return window.matchMedia(query).matches
+    return window.matchMedia(query).matches;
   }
 
-  return false
+  return false;
 }
 
 export function useMediaQuery(
@@ -46,20 +46,20 @@ export function useMediaQuery(
     getInitialValueInEffect
       ? initialValue
       : getInitialValue(query, initialValue)
-  )
-  const queryRef = useRef<MediaQueryList>()
+  );
+  const queryRef = useRef<MediaQueryList>();
 
   useEffect(() => {
     if ("matchMedia" in window) {
-      queryRef.current = window.matchMedia(query)
-      setMatches(queryRef.current.matches)
+      queryRef.current = window.matchMedia(query);
+      setMatches(queryRef.current.matches);
       return attachMediaListener(queryRef.current, (event) =>
         setMatches(event.matches)
-      )
+      );
     }
 
-    return undefined
-  }, [query])
+    return undefined;
+  }, [query]);
 
-  return matches
+  return matches;
 }
