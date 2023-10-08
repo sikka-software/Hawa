@@ -5,7 +5,7 @@ import { cn } from "../util";
 const Accordion = AccordionPrimitive.Root;
 
 let triggerStyles =
-  "hawa-flex hawa-flex-1 hawa-items-center hawa-select-none hawa-cursor-pointer hawa-bg-primary-foreground hawa-rounded hawa-justify-between hawa-p-2 hawa-px-3 hawa-font-medium hawa-transition-all  [&[data-state=open]>svg]:hawa--rotate-90";
+  "hawa-flex hawa-flex-1 hawa-items-center hawa-duration-75 hawa-select-none hawa-cursor-pointer  hawa-rounded hawa-justify-between hawa-p-2 hawa-px-3 hawa-font-medium hawa-transition-all  [&[data-state=open]>svg]:hawa--rotate-90";
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>

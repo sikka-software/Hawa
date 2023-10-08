@@ -10,6 +10,7 @@ import {
   PhoneCall,
   Users2,
 } from "lucide-react";
+import { useState } from "react";
 
 const meta = {
   title: "Layout/App Layout",
@@ -31,36 +32,117 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof AppLayout>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  const direction = locale === "ar" ? "rtl" : "ltr";
-  setLocale(locale);
-
-  return (
-    <AppLayout
-      {...args}
-      direction={locale === "ar" ? "rtl" : "ltr"}
-      texts={{
-        expandSidebar: t("expandSidebar"),
-        collapseSidebar: t("collapseSidebar"),
-      }}
-      // clickedItem={(e) => console.log("clicked item is ", e)}
-    >
-      <div className=" hawa-h-full  hawa-p-4">
-        <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
-          <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
-            App Content
-          </span>
-        </div>
-      </div>
-    </AppLayout>
-  );
-};
 export const Default: Story = {
-  render: Template.bind({}),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const [selectedPage, setSelectedPage] = useState("/home");
+    return (
+      <AppLayout
+        direction={locale === "ar" ? "rtl" : "ltr"}
+        texts={{
+          expandSidebar: t("expandSidebar"),
+          collapseSidebar: t("collapseSidebar"),
+        }}
+        currentPage={selectedPage}
+        {...args}
+        drawerItems={[
+          {
+            label: "لوحة القيادة",
+            value: "/home",
+            onClick: () => {
+              setSelectedPage("/home");
+              console.log("going to /home");
+            },
+            //   icon: <MdDashboard />,
+            // icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
+          },
+          {
+            label: "Items",
+            value: "/items",
+            onClick: () => console.log("going to /items"),
+            // icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
+            subitems: [
+              {
+                label: "New Item",
+                value: "/new-item",
+                onClick: () => setSelectedPage("/new-item"),
+                //   icon: <FaFolderOpen />,
+              },
+              {
+                label: "New Item",
+                value: "/new-item2",
+                onClick: () => console.log("going to /new-item2"),
+                //   icon: <FaFolderOpen />,
+              },
+              {
+                label: "New Item",
+                value: "/new-item3",
+                onClick: () => console.log("going to /new-item3"),
+                //   icon: <FaFolderOpen />,
+              },
+              {
+                label: "Files Items",
+                value: "/file-item",
+                onClick: () => console.log("going to /file-item"),
+                //   icon: <FaFolderOpen />,
+              },
+            ],
+          },
+
+          {
+            label: "Analytics",
+            value: "/analytics",
+            onClick: () => {
+              setSelectedPage("/analytics");
+              console.log("going to /analytics");
+            },
+            // icon: <BarChart className="hawa-w-4 hawa-h-4" />,
+            //   icon: <FaPoll />,
+          },
+          // {
+          //   label: "Jobs",
+          //   value: "/jobs",
+          //   onClick: () => console.log("going to /jobs"),
+          //   icon: <Users2 className="hawa-w-4 hawa-h-4" />,
+          //   subitems: [
+          //     {
+          //       label: "New Job Item",
+          //       value: "/new-job",
+          //       onClick: () => console.log("going to /new-jobs"),
+          //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
+          //     },
+          //     {
+          //       label: "Files Items",
+          //       value: "/files",
+          //       onClick: () => console.log("going to /files"),
+          //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
+          //     },
+          //   ],
+          // },
+          // {
+          //   label: "Activity",
+          //   value: "/activity",
+          //   icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
+          //   onClick: () => console.log("going to /activity"),
+          // },
+        ]}
+        // clickedItem={(e) => console.log("clicked item is ", e)}
+      >
+        <div className=" hawa-h-full  hawa-p-4">
+          <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
+            <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
+              App Content
+            </span>
+          </div>
+        </div>
+      </AppLayout>
+    );
+  },
   args: {
     onSettingsClick: () => console.log("going to settings"),
-    currentPage: "/new-item",
+    // currentPage: "/new-item",
     profileMenuItems: [
       {
         label: "Profile",
@@ -85,81 +167,81 @@ export const Default: Story = {
         highlighted: true,
       },
     ],
-    drawerItems: [
-      {
-        label: "لوحة القيادة",
-        value: "/home",
-        onClick: () => console.log("going to /home"),
-        //   icon: <MdDashboard />,
-        icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
-      },
-      {
-        label: "Items",
-        value: "/items",
-        onClick: () => console.log("going to /items"),
-        icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
-        subitems: [
-          {
-            label: "New Item",
-            value: "/new-item",
-            onClick: () => console.log("going to /new-item"),
-            //   icon: <FaFolderOpen />,
-          },
-          {
-            label: "New Item",
-            value: "/new-item2",
-            onClick: () => console.log("going to /new-item2"),
-            //   icon: <FaFolderOpen />,
-          },
-          {
-            label: "New Item",
-            value: "/new-item3",
-            onClick: () => console.log("going to /new-item3"),
-            //   icon: <FaFolderOpen />,
-          },
-          {
-            label: "Files Items",
-            value: "/file-item",
-            onClick: () => console.log("going to /file-item"),
-            //   icon: <FaFolderOpen />,
-          },
-        ],
-      },
+    // drawerItems: [
+    //   {
+    //     label: "لوحة القيادة",
+    //     value: "/home",
+    //     onClick: () => console.log("going to /home"),
+    //     //   icon: <MdDashboard />,
+    //     icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
+    //   },
+    //   // {
+    //   //   label: "Items",
+    //   //   value: "/items",
+    //   //   onClick: () => console.log("going to /items"),
+    //   //   icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
+    //   //   subitems: [
+    //   //     {
+    //   //       label: "New Item",
+    //   //       value: "/new-item",
+    //   //       onClick: () => console.log("going to /new-item"),
+    //   //       //   icon: <FaFolderOpen />,
+    //   //     },
+    //   //     {
+    //   //       label: "New Item",
+    //   //       value: "/new-item2",
+    //   //       onClick: () => console.log("going to /new-item2"),
+    //   //       //   icon: <FaFolderOpen />,
+    //   //     },
+    //   //     {
+    //   //       label: "New Item",
+    //   //       value: "/new-item3",
+    //   //       onClick: () => console.log("going to /new-item3"),
+    //   //       //   icon: <FaFolderOpen />,
+    //   //     },
+    //   //     {
+    //   //       label: "Files Items",
+    //   //       value: "/file-item",
+    //   //       onClick: () => console.log("going to /file-item"),
+    //   //       //   icon: <FaFolderOpen />,
+    //   //     },
+    //   //   ],
+    //   // },
 
-      {
-        label: "Analytics",
-        value: "/analytics",
-        onClick: () => console.log("going to /analytics"),
-        icon: <BarChart className="hawa-w-4 hawa-h-4" />,
-        //   icon: <FaPoll />,
-      },
-      {
-        label: "Jobs",
-        value: "/jobs",
-        onClick: () => console.log("going to /jobs"),
-        icon: <Users2 className="hawa-w-4 hawa-h-4" />,
-        subitems: [
-          {
-            label: "New Job Item",
-            value: "/new-job",
-            onClick: () => console.log("going to /new-jobs"),
-            icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-          },
-          {
-            label: "Files Items",
-            value: "/files",
-            onClick: () => console.log("going to /files"),
-            icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-          },
-        ],
-      },
-      {
-        label: "Activity",
-        value: "/activity",
-        icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
-        onClick: () => console.log("going to /activity"),
-      },
-    ],
+    //   {
+    //     label: "Analytics",
+    //     value: "/analytics",
+    //     onClick: () => console.log("going to /analytics"),
+    //     icon: <BarChart className="hawa-w-4 hawa-h-4" />,
+    //     //   icon: <FaPoll />,
+    //   },
+    //   // {
+    //   //   label: "Jobs",
+    //   //   value: "/jobs",
+    //   //   onClick: () => console.log("going to /jobs"),
+    //   //   icon: <Users2 className="hawa-w-4 hawa-h-4" />,
+    //   //   subitems: [
+    //   //     {
+    //   //       label: "New Job Item",
+    //   //       value: "/new-job",
+    //   //       onClick: () => console.log("going to /new-jobs"),
+    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
+    //   //     },
+    //   //     {
+    //   //       label: "Files Items",
+    //   //       value: "/files",
+    //   //       onClick: () => console.log("going to /files"),
+    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
+    //   //     },
+    //   //   ],
+    //   // },
+    //   // {
+    //   //   label: "Activity",
+    //   //   value: "/activity",
+    //   //   icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
+    //   //   onClick: () => console.log("going to /activity"),
+    //   // },
+    // ],
     pageTitle: "Dashboard Page",
     topBar: true,
     username: "Zakher Masri",
