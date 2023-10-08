@@ -37,7 +37,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     <th
       ref={ref}
       className={cn(
-        " hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
+        "hawa-bg-muted/60 dark:hawa-bg-muted/40 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
         "[&:not(:last-child)]:hawa-border-r",
 
         props.condensed ? "hawa-h-8" : "hawa-h-12",
@@ -92,7 +92,7 @@ const TableRow = React.forwardRef<
     ref={ref}
     className={cn(
       // "border-b",
-      "hawa-transition-colors  data-[state=selected]:hawa-bg-muted",
+      "hawa-transition-colors  data-[state=selected]:hawa-bg-muted hawa-bg-background",
       // hover:bg-muted/50
       "[&:not(:last-child)&:not(:first-child)]:hawa-border-y",
       "[&:not(:last-child)]:hawa-border-b",
