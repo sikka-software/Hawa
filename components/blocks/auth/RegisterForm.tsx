@@ -40,6 +40,7 @@ type RegisterFormTypes = {
     passwordTooShortText: string;
     confirmPasswordLabel: string;
     confirmPasswordPlaceholder: string;
+    confirmPasswordRequired: string;
     refCodePlaceholder: string;
     subscribeToNewsletter: string;
     forgotPasswordText: string;
@@ -93,28 +94,45 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
     passwordPlaceholder,
     passwordRequiredText,
     passwordTooShortText,
+    confirmPasswordRequired,
     forgotPasswordText,
     confirmPasswordLabel,
     confirmPasswordPlaceholder,
     termsRequiredText,
     fullNameRequiredText,
   } = props.texts;
+
+  let fieldSchemas: any = {};
+
+  props.registerFields.forEach((field) => {
+    switch (field) {
+      case "fullname":
+        fieldSchemas["fullName"] = z.string().optional();
+        break;
+      case "email":
+        fieldSchemas["email"] = z
+          .string({ required_error: emailRequiredText })
+          .email({ message: emailInvalidText })
+          .nonempty({ message: usernameRequired });
+        break;
+      case "username":
+        fieldSchemas["username"] = z
+          .string({ required_error: usernameRequired })
+          .refine((value) => value !== "", { message: usernameRequired });
+        break;
+      // ... other cases for different fields
+    }
+  });
+
   const formSchema = z
     .object({
-      fullName: z.string().optional(),
-      email: z
-        .string({ required_error: emailRequiredText })
-        .email({ message: emailInvalidText })
-        .nonempty({ message: usernameRequired }),
-      username: z
-        .string({ required_error: usernameRequired })
-        .refine((value) => value !== "", { message: usernameRequired }),
+      ...fieldSchemas,
       password: z
         .string({ required_error: passwordRequiredText })
         .min(5, { message: passwordTooShortText })
         .refine((value) => value !== "", { message: passwordRequiredText }),
       confirm_password: z
-        .string()
+        .string({ required_error: confirmPasswordRequired })
         .refine((value) => value !== "", { message: passwordRequiredText }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
@@ -128,6 +146,36 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
       message: "Passwords don't match",
       path: ["confirm_password"],
     });
+
+  // const formSchema = z
+  //   .object({
+  //     fullName: z.string().optional(),
+  //     email: z
+  //       .string({ required_error: emailRequiredText })
+  //       .email({ message: emailInvalidText })
+  //       .nonempty({ message: usernameRequired }),
+  //     username: z
+  //       .string({ required_error: usernameRequired })
+  //       .refine((value) => value !== "", { message: usernameRequired }),
+  //     password: z
+  //       .string({ required_error: passwordRequiredText })
+  //       .min(5, { message: passwordTooShortText })
+  //       .refine((value) => value !== "", { message: passwordRequiredText }),
+  //     confirm_password: z
+  //       .string()
+  //       .refine((value) => value !== "", { message: passwordRequiredText }),
+  //     refCode: z.string().optional(),
+  //     reference: z.string().optional(),
+  //     terms_accepted: z
+  //       .boolean({ required_error: termsRequiredText })
+  //       .refine((value) => value, { message: termsRequiredText }),
+
+  //     newsletter_accepted: z.boolean().optional(),
+  //   })
+  //   .refine((data) => data.password === data.confirm_password, {
+  //     message: "Passwords don't match",
+  //     path: ["confirm_password"],
+  //   });
 
   const { handleSubmit, control, formState } = useForm({
     resolver: zodResolver(formSchema),
@@ -147,7 +195,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
             )}
             <FormProvider {...methods}>
               <form
-                onSubmit={handleSubmit((e) => props.handleRegister(e))}
+                onSubmit={handleSubmit(props.handleRegister)}
                 className="hawa-flex hawa-flex-col hawa-gap-4"
               >
                 <div className="hawa-flex hawa-flex-col hawa-gap-4">

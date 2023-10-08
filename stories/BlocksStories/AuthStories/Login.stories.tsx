@@ -181,13 +181,13 @@ export const Default: Story = {
           handleForgotPassword={() => console.log("forgot password")}
           handleLogin={(e) => {
             console.log("Form result: ", e);
-            setError(!isError);
+            // setError(!isError);
           }}
-          handleColorMode={(e: any) => console.log("switching color mode")}
-          handleLanguage={(e: any) => console.log("testing", e)}
+          // handleColorMode={(e: any) => console.log("switching color mode")}
+          // handleLanguage={(e: any) => console.log("testing", e)}
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
-          {...args}
+          showError={isError}
           texts={{
             emailLabel: t("emailLabel"),
             emailPlaceholder: t("emailPlaceholder"),
@@ -212,7 +212,5 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    showError: false,
-  },
+
 };

@@ -70,7 +70,7 @@ const Template = (args: any, globals: any) => {
         viaGithub={args.viaGithub}
         registerFields={["fullname", "username", "email"]}
         viaTwitter={args.viaTwitter}
-        handleRegister={(e) => console.log("singing up via email", e)}
+        handleRegister={(e) => console.log("Registering ... ", e)}
         handleGoogleRegister={() => console.log("continue via google")}
         handleGithubRegister={() => console.log("continue via github")}
         handleTwitterRegister={() => console.log("continue via Twitter")}

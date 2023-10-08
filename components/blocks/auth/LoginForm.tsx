@@ -90,25 +90,43 @@ type LoginFormTypes = {
 };
 
 export const LoginForm: FC<LoginFormTypes> = (props) => {
-  const formSchema = z.object({
-    email: z
-      .string({
-        required_error: props.texts?.emailRequiredText,
-      })
-      .nonempty({ message: props.texts?.emailRequiredText })
-      .email({ message: props.texts?.emailInvalidText }),
-    password: z
-      .string({
-        required_error: props.texts?.passwordRequiredText,
-      })
-      .min(5, { message: "Password must be at least 5 characters long" })
-      .nonempty({ message: props.texts?.passwordRequiredText }),
-    username: z
-      .string()
-      .min(2, { message: "Username must be at least 2 characters" })
-      .nonempty({ message: props.texts?.usernameRequired }),
-    phone: z.string().nonempty({ message: "Phone number is required" }),
-  });
+  let formSchema;
+
+  if (props.loginType === "email") {
+    formSchema = z.object({
+      email: z
+        .string({
+          required_error: props.texts?.emailRequiredText,
+        })
+        .nonempty({ message: props.texts?.emailRequiredText })
+        .email({ message: props.texts?.emailInvalidText }),
+      password: z
+        .string({
+          required_error: props.texts?.passwordRequiredText,
+        })
+        .min(5, { message: "Password must be at least 5 characters long" })
+        .nonempty({ message: props.texts?.passwordRequiredText }),
+    });
+  } else if (props.loginType === "username") {
+    formSchema = z.object({
+      username: z
+        .string()
+        .min(2, { message: "Username must be at least 2 characters" })
+        .nonempty({ message: props.texts?.usernameRequired }),
+      password: z
+        .string({
+          required_error: props.texts?.passwordRequiredText,
+        })
+        .min(5, { message: "Password must be at least 5 characters long" })
+        .nonempty({ message: props.texts?.passwordRequiredText }),
+    });
+  } else if (props.loginType === "phone") {
+    formSchema = z.object({
+      phone: z.string().nonempty({ message: "Phone number is required" }),
+    });
+  } else {
+    formSchema = z.object({});
+  }
 
   const { handleSubmit, control, formState } = useForm({
     resolver: zodResolver(formSchema),
@@ -130,7 +148,7 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
             onSubmit={handleSubmit((e) => {
               if (props.handleLogin) {
                 console.log("attempting to login");
-                props.handleLogin(e);
+                return props.handleLogin(e);
               } else {
                 console.log(
                   "Form is submitted but handleLogin prop is missing"
