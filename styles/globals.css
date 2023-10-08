@@ -47,25 +47,8 @@ body {
     --ring: 240 5% 64.9%;
     --radius: 0.5rem;
     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
-
-    --layout-primary-700: #b7aff7;
-    --layout-primary-500: #fdfdfd;
-    --layout-primary-600: #f7f7f7;
-    --layout-primary-300: #e7e5fa;
-    --layout-secondary: #d2cdfa;
-
-    --button-primary-300: 247 72% 61%;
-    --button-primary-500: 247 82% 57%;
-    --button-primary-500-hsl: hsl(247, 82%, 57%);
-    --button-primary-700: 247 71% 39%;
-    --button-secondary-500: #ffc011;
-    --button-secondary-700: #b48d24;
   }
   .dark {
-    --layout-primary-500: #363636;
-    --layout-primary-600: #2d2d2d;
-    --layout-primary-700: #1d1d1d;
-    --layout-primary-300: #4a4a4a;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     /* --card: 240 10% 3.9%; */
