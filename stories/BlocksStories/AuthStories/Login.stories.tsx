@@ -176,7 +176,6 @@ export const Default: Story = {
     return (
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
         <LoginForm
-          loginType="email"
           direction={locale === "ar" ? "rtl" : "ltr"}
           handleForgotPassword={() => console.log("forgot password")}
           handleLogin={(e) => {
@@ -208,9 +207,12 @@ export const Default: Story = {
             loginViaGithubLabel: t("loginViaGithubLabel"),
             loginViaTwitterLabel: t("loginViaTwitterLabel"),
           }}
+          {...args}
         />
       </div>
     );
   },
-
+  args: {
+    // loginType="email"
+  },
 };

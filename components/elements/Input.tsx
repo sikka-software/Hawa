@@ -108,7 +108,7 @@ export const Input: FC<TextFieldTypes> = ({
                 placeholder={props.placeholder}
                 disabled={preview}
                 // style={{ width: width === "auto" ? "auto" : "100%" }}
-                style={{minWidth:"100%", width:'auto'}}
+                // style={{minWidth:"100%", width:'auto'}}
               />
             </div>
             {props.iconInside && (

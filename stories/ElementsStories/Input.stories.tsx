@@ -73,3 +73,41 @@ export const LoadingMode: Story = {
     );
   },
 };
+
+export const Examples: Story = {
+  render: () => {
+    return (
+      <div className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
+        <Input type={"text"} label={t("username") + " *"} value={"username"} />
+        <Input type={"text"} label={t("email") + " *"} value={"email"} />
+        <Input
+          type={"password"}
+          label={t("password") + " *"}
+          value={"password"}
+        />
+
+        <Input
+          type={"text"}
+          label={t("first-name") + " - " + t("english")}
+          value={"firstname"}
+        />
+
+        <Input
+          type={"text"}
+          label={t("first-name") + " - " + t("arabic")}
+          value={"firstname"}
+        />
+        <Input
+          type={"text"}
+          label={t("last-name") + " - " + t("english")}
+          value={"username"}
+        />
+        <Input
+          type={"text"}
+          label={t("last-name") + " - " + t("arabic")}
+          value={"lastname"}
+        />
+      </div>
+    );
+  },
+};
