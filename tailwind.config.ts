@@ -10,9 +10,10 @@ const config: Config = {
   ],
   prefix: "hawa-",
 
-  corePlugins: {
-    preflight: true,
-  },
+  // corePlugins: {
+  //   // preflight: false //will break all styles
+  //   preflight: true,
+  // },
 
   darkMode: ["class"],
   theme: {
