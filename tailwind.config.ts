@@ -11,7 +11,7 @@ const config: Config = {
   prefix: "hawa-",
 
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
 
   darkMode: ["class"],
