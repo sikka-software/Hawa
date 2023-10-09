@@ -184,6 +184,9 @@ export const Default: Story = {
           }}
           // handleColorMode={(e: any) => console.log("switching color mode")}
           // handleLanguage={(e: any) => console.log("testing", e)}
+          handleRouteToRegister={() =>
+            console.log("redirecting to register page")
+          }
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}
@@ -212,7 +215,9 @@ export const Default: Story = {
       </div>
     );
   },
+  
   args: {
-    // loginType="email"
+    loginType: "email",
+    handleRouteToRegister: () => console.log("redirecting to register page"),
   },
 };

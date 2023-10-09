@@ -69,7 +69,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
   const [selectedCountry, setSelectedCountry] = useState("+966");
 
   return (
-    <div className="hawa-mb-3 hawa-flex hawa-flex-col">
+    <div className="hawa-flex hawa-flex-col">
       {props.label && (
         <label className="hawa-mb-2 hawa-block hawa-text-sm hawa-font-medium">
           {props.label}

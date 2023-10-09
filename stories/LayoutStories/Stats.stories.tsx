@@ -43,6 +43,15 @@ const Template = (args: any, globals: any) => {
         icon={<Users2 className="hawa-w-4 hawa-h-4" />}
       />
       <Stats
+        handleClick={() => console.log("clickable stats")}
+        width="full"
+        variant="default"
+        number="+2350"
+        label="Subscriptions"
+        helperText="+180.1% from last month"
+        icon={<Users2 className="hawa-w-4 hawa-h-4" />}
+      />
+      <Stats
         width="full"
         variant="default"
         number="+2350"

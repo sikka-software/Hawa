@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../elements";
+import { cn } from "../util";
 
 type StatTypes = {
   label?: string;
@@ -24,10 +25,15 @@ type StatTypes = {
   width?: "full" | "min" | "normal";
   isLoading?: boolean;
   handleClick?: () => void;
+  className?: string;
 };
 export const Stats: FC<StatTypes> = ({ variant = "default", ...props }) => {
   return (
-    <Card onClick={props.handleClick} clickable={Boolean(props.handleClick)}>
+    <Card
+      onClick={props.handleClick}
+      clickable={Boolean(props.handleClick)}
+      className={cn(props.className)}
+    >
       {/* className="hawa-flex hawa-bg-red-500 hawa-flex-row hawa-items-center hawa-justify-between hawa-space-y-0 hawa-pb-2" */}
       {/* <CardHeader className="hawa-flex"> */}
       <div className="hawa-flex hawa-flex-row hawa-justify-between hawa-p-4 hawa-items-center">

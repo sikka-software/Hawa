@@ -55,7 +55,13 @@ export const Default: Story = {
               setSelectedPage("/home");
               console.log("going to /home");
             },
-            //   icon: <MdDashboard />,
+            // BarChart,
+            // FolderArchive,
+            // FolderClosed,
+            // LayoutDashboard,
+            // PhoneCall,
+            // Users2,
+            icon: () => <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
             // icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
           },
           {
@@ -73,19 +79,19 @@ export const Default: Story = {
               {
                 label: "New Item",
                 value: "/new-item2",
-                onClick: () => console.log("going to /new-item2"),
+                onClick: () => setSelectedPage("/new-item2"),
                 //   icon: <FaFolderOpen />,
               },
               {
                 label: "New Item",
                 value: "/new-item3",
-                onClick: () => console.log("going to /new-item3"),
+                onClick: () => setSelectedPage("/new-item3"),
                 //   icon: <FaFolderOpen />,
               },
               {
                 label: "Files Items",
                 value: "/file-item",
-                onClick: () => console.log("going to /file-item"),
+                onClick: () => setSelectedPage("/file-item"),
                 //   icon: <FaFolderOpen />,
               },
             ],

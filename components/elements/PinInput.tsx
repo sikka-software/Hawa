@@ -60,7 +60,7 @@ export const PinInput: FC<PinInputTypes> = ({
   };
 
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-center hawa-gap-2">
+    <div className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-center hawa-gap-2" dir="ltr">
       {pin.map((value, index) => (
         <input
           key={index}

@@ -12,7 +12,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       className={cn(
         "hawa-rounded-lg hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
         clickable &&
-          "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:hawa-shadow-dark",
+          "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:dark-shadow",
         className
       )}
       {...props}

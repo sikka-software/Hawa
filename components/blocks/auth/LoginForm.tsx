@@ -60,7 +60,7 @@ type LoginFormTypes = {
   /** If true, the reset password option is hidden.   */
   withoutResetPassword?: boolean;
   /** If true, the sign-up option is hidden.   */
-  withoutSignUp?: boolean;
+  withoutRegister?: boolean;
   /** If true, a loading spinner is displayed within the main form submit button.   */
   isLoading?: boolean;
   /** If true, a loading spinner is displayed within the Google login button.   */
@@ -78,7 +78,7 @@ type LoginFormTypes = {
   /** Function to handle form submission.   */
   handleLogin?: (e: any) => void;
   /** Function to route user to the sign-up page.   */
-  handleRouteToSignUp?: () => void;
+  handleRouteToRegister?: () => void;
   /** Function to handle forgotten password case.   */
   handleForgotPassword?: () => void;
   /** Function to handle Google login.   */
@@ -265,11 +265,11 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
             >
               {props.texts?.loginText || "Login"}
             </Button>
-            {!props.withoutSignUp && (
-              <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
+            {!props.withoutRegister && (
+              <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
                 {props.texts?.newUserText || "New user?"}{" "}
                 <span
-                  onClick={props.handleRouteToSignUp}
+                  onClick={props.handleRouteToRegister}
                   className="clickable-link"
                 >
                   {props.texts?.createAccount || "Create Account"}
