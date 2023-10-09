@@ -177,16 +177,11 @@ export const Default: Story = {
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
         <LoginForm
           direction={locale === "ar" ? "rtl" : "ltr"}
-          handleForgotPassword={() => console.log("forgot password")}
-          handleLogin={(e) => {
-            console.log("Form result: ", e);
-            // setError(!isError);
-          }}
           // handleColorMode={(e: any) => console.log("switching color mode")}
           // handleLanguage={(e: any) => console.log("testing", e)}
-          handleRouteToRegister={() =>
-            console.log("redirecting to register page")
-          }
+          // handleRouteToRegister={() =>
+          //   console.log("redirecting to register page")
+          // }
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}
@@ -215,9 +210,15 @@ export const Default: Story = {
       </div>
     );
   },
-  
+
   args: {
     loginType: "email",
-    handleRouteToRegister: () => console.log("redirecting to register page"),
+  },
+  argTypes: {
+    handleRouteToRegister: { action: "handleRouteToRegister" },
+    handleForgotPassword: { action: "handleForgotPassword" },
+    handleLogin: { action: "handleLogin" },
+    handleColorMode: { action: "handleColorMode" },
+    handleLanguage: { action: "handleLanguage" },
   },
 };

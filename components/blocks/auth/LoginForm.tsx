@@ -59,7 +59,7 @@ type LoginFormTypes = {
   loginType?: "email" | "username" | "phone";
   /** If true, the reset password option is hidden.   */
   withoutResetPassword?: boolean;
-  /** If true, the sign-up option is hidden.   */
+  /** If true, the register option is hidden.   */
   withoutRegister?: boolean;
   /** If true, a loading spinner is displayed within the main form submit button.   */
   isLoading?: boolean;
@@ -77,7 +77,7 @@ type LoginFormTypes = {
   viaTwitter?: boolean;
   /** Function to handle form submission.   */
   handleLogin?: (e: any) => void;
-  /** Function to route user to the sign-up page.   */
+  /** Function to route user to the register page.   */
   handleRouteToRegister?: () => void;
   /** Function to handle forgotten password case.   */
   handleForgotPassword?: () => void;

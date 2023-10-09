@@ -33,7 +33,6 @@ const Template = (args: any, globals: any) => {
       <RegisterForm
         logosOnly
         direction={locale === "ar" ? "rtl" : "ltr"}
-        {...args}
         texts={{
           fullNameLabel: t("fullNameLabel"),
           fullNamePlaceholder: t("fullNamePlaceholder"),
@@ -65,17 +64,7 @@ const Template = (args: any, globals: any) => {
           registerViaTwitterLabel: t("registerViaTwitterLabel"),
           refCode: t("refCode"),
         }}
-        showError={args.showError}
-        viaGoogle={args.viaGoogle}
-        viaGithub={args.viaGithub}
-        registerFields={["fullname", "username", "email"]}
-        viaTwitter={args.viaTwitter}
-        handleRegister={(e) => console.log("Registering ... ", e)}
-        handleGoogleRegister={() => console.log("continue via google")}
-        handleGithubRegister={() => console.log("continue via github")}
-        handleTwitterRegister={() => console.log("continue via Twitter")}
-        handleRouteToLogin={() => console.log("switching to sign in")}
-        handleRouteToTOS={() => console.log("routing to TOS page")}
+        {...args}
       />
     </div>
   );
@@ -83,6 +72,7 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
+    logosOnly: false,
     viaGoogle: true,
     viaGithub: true,
     viaTwitter: true,
@@ -93,5 +83,16 @@ export const Default: Story = {
     showError: false,
     errorTitle: "Error",
     errorText: "Something went wrong",
+    registerFields: ["fullname", "username", "email"],
+  },
+  argTypes: {
+    handleRegister: { action: "handleRegister" },
+    handleGoogleRegister: { action: "handleGoogleRegister" },
+    handleGithubRegister: { action: "handleGithubRegister" },
+    handleTwitterRegister: { action: "handleTwitterRegister" },
+    handleRouteToLogin: { action: "handleRouteToLogin" },
+    handleRouteToTOS: { action: "handleRouteToTOS" },
+    handleColorMode: { action: "handleColorMode" },
+    handleLanguage: { action: "handleLanguage" },
   },
 };

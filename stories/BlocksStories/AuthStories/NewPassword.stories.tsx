@@ -38,7 +38,6 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    handleNewPassword: () => console.log("changing password"),
     passwordChanged: false,
     texts: {
       passwordPlaceholder: "Enter password",
@@ -47,10 +46,15 @@ export const Default: Story = {
       passwordLabel: "Choose new password",
       confirmPasswordPlaceholder: "Confirm password",
       confirmPasswordLabel: "Confirm",
+      confirmPasswordRequired: "Confirmation is required",
       confirmPasswordRequiredText: "Confirmation is required",
+      passwordTooShortText: "Pasword must be more than 5 characters",
       passwordMatchError: "Password doesn't match",
       passwordChanged:
         "Your password has been changed, you'll be redirected to sign in page",
     },
+  },
+  argTypes: {
+    handleNewPassword: { action: "handleNewPassword" },
   },
 };

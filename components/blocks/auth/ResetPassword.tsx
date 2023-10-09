@@ -12,6 +12,9 @@ import {
   Button,
 } from "../../elements";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
   handleRouteToRegister: () => void;
@@ -31,13 +34,17 @@ type ResetPasswordType = {
 };
 
 export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
-  const methods = useForm();
-  const {
-    formState: { errors },
-    handleSubmit,
-    register,
-    control,
-  } = methods;
+  const formSchema = z.object({
+    email: z
+      .string({ required_error: props.texts?.emailRequiredText })
+      .email({ message: props.texts?.emailInvalidText })
+      .nonempty({ message: props.texts?.emailRequiredText }),
+  });
+
+  const { handleSubmit, control, formState } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
   return (
     <Card dir={props.direction}>
       {!props.sent ? (
@@ -50,11 +57,19 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
               </CardDescription>
             </CardHeader>
           )}
-          <form onSubmit={handleSubmit(props.handleResetPassword)}>
-            <CardContent
-              headless={props.headless}
-              //   className="hawa-flex hawa-flex-col hawa-gap-4"
-            >
+          <form
+            onSubmit={handleSubmit((e) => {
+              if (props.handleResetPassword) {
+                console.log("attempting to login");
+                return props.handleResetPassword(e);
+              } else {
+                console.log(
+                  "Form is submitted but handleResetPassword prop is missing"
+                );
+              }
+            })}
+          >
+            <CardContent headless={props.headless}>
               <Controller
                 control={control}
                 name="email"
@@ -63,22 +78,12 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                     width="full"
                     type="text"
                     label={props.texts?.emailLabel}
-                    helperText={errors.email?.message}
+                    helperText={formState.errors.email?.message}
                     placeholder={props.texts?.emailPlaceholder}
                     {...field}
                     value={field.value ?? ""}
                   />
                 )}
-                rules={{
-                  required: props.texts?.emailRequiredText,
-                  pattern: {
-                    value:
-                      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message:
-                      props.texts?.emailInvalidText ||
-                      "Email format is invalid",
-                  },
-                }}
               />
               <div className="hawa-mt-2 hawa-pb-2 hawa-text-start hawa-text-sm dark:hawa-text-gray-300">
                 {props.texts?.dontHaveAccount ?? "Don't have an account? "}

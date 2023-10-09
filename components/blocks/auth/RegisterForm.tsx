@@ -80,23 +80,15 @@ type RegisterFormTypes = {
 export const RegisterForm: FC<RegisterFormTypes> = (props) => {
   const methods = useForm();
   const {
-    userReferenceLabel,
-    usernameLabel,
     usernamePlaceholder,
     usernameRequired,
-    newUserText,
-    existingUserText,
     emailInvalidText,
-    emailLabel,
     emailPlaceholder,
     emailRequiredText,
-    passwordLabel,
     passwordPlaceholder,
     passwordRequiredText,
     passwordTooShortText,
     confirmPasswordRequired,
-    forgotPasswordText,
-    confirmPasswordLabel,
     confirmPasswordPlaceholder,
     termsRequiredText,
     fullNameRequiredText,
@@ -146,37 +138,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
       message: "Passwords don't match",
       path: ["confirm_password"],
     });
-
-  // const formSchema = z
-  //   .object({
-  //     fullName: z.string().optional(),
-  //     email: z
-  //       .string({ required_error: emailRequiredText })
-  //       .email({ message: emailInvalidText })
-  //       .nonempty({ message: usernameRequired }),
-  //     username: z
-  //       .string({ required_error: usernameRequired })
-  //       .refine((value) => value !== "", { message: usernameRequired }),
-  //     password: z
-  //       .string({ required_error: passwordRequiredText })
-  //       .min(5, { message: passwordTooShortText })
-  //       .refine((value) => value !== "", { message: passwordRequiredText }),
-  //     confirm_password: z
-  //       .string()
-  //       .refine((value) => value !== "", { message: passwordRequiredText }),
-  //     refCode: z.string().optional(),
-  //     reference: z.string().optional(),
-  //     terms_accepted: z
-  //       .boolean({ required_error: termsRequiredText })
-  //       .refine((value) => value, { message: termsRequiredText }),
-
-  //     newsletter_accepted: z.boolean().optional(),
-  //   })
-  //   .refine((data) => data.password === data.confirm_password, {
-  //     message: "Passwords don't match",
-  //     path: ["confirm_password"],
-  //   });
-
+    
   const { handleSubmit, control, formState } = useForm({
     resolver: zodResolver(formSchema),
   });

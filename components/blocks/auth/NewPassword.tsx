@@ -12,8 +12,11 @@ import {
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 type NewPasswordTypes = {
-  handleNewPassword: () => void;
+  handleNewPassword: (e: any) => void;
   direction?: "rtl" | "ltr";
   headless?: boolean;
   passwordChanged: any;
@@ -27,25 +30,36 @@ type NewPasswordTypes = {
     confirmPasswordRequiredText: string;
     passwordMatchError: string;
     passwordChanged: string;
+    passwordTooShortText: string;
+    confirmPasswordRequired: string;
   };
 };
 
 export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
-  const [matchError, setMatchError] = useState(false);
-  const methods = useForm();
-  const {
-    formState: { errors },
-    handleSubmit,
-    control,
-  } = methods;
+  const formSchema = z
+    .object({
+      password: z
+        .string({ required_error: props.texts.passwordRequiredText })
+        .min(5, { message: props.texts.passwordTooShortText })
+        .refine((value) => value !== "", {
+          message: props.texts.passwordRequiredText,
+        }),
+      confirm_password: z
+        .string({ required_error: props.texts.confirmPasswordRequired })
+        .refine((value) => value !== "", {
+          message: props.texts.passwordRequiredText,
+        }),
+    })
+    .refine((data) => data.password === data.confirm_password, {
+      message: "Passwords don't match",
+      path: ["confirm_password"],
+    });
 
-  const handleSubmission = (e: any) => {
-    if (e.password === e.confirmPassword) {
-      props.handleNewPassword();
-    } else {
-      setMatchError(true);
-    }
-  };
+  const { handleSubmit, control, formState } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
+  const [matchError, setMatchError] = useState(false);
 
   return (
     <Card dir={props.direction}>
@@ -57,67 +71,70 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
           <div className="hawa-text-center">{props.texts.passwordChanged}</div>
         </CardContent>
       ) : (
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(handleSubmission)}>
-            {!props.headless && (
-              <CardHeader>
-                <CardTitle>Create Password</CardTitle>
-                <CardDescription>
-                  Set a new password for your account
-                </CardDescription>
-              </CardHeader>
-            )}
-            <CardContent
-              headless={props.headless}
-              className="hawa-flex hawa-flex-col hawa-gap-4"
-            >
-              <Controller
-                control={control}
-                name="password"
-                render={({ field }) => (
-                  <Input
-                    width="full"
-                    type="password"
-                    autoComplete="new-password"
-                    label={props.texts.passwordLabel}
-                    placeholder={props.texts.passwordPlaceholder}
-                    helperText={errors.password?.message}
-                    {...field}
-                    value={field.value ?? ""}
-                  />
-                )}
-                rules={{
-                  required: props.texts.passwordRequiredText,
-                }}
-              />
-              <Controller
-                control={control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <Input
-                    width="full"
-                    type="password"
-                    autoComplete="new-password"
-                    label={props.texts.confirmPasswordLabel}
-                    placeholder={props.texts.confirmPasswordPlaceholder}
-                    helperText={errors.confirmPassword?.message}
-                    {...field}
-                    value={field.value ?? ""}
-                  />
-                )}
-                rules={{
-                  required: props.texts.confirmPasswordRequiredText,
-                }}
-              />
-            </CardContent>
+        <form
+          onSubmit={handleSubmit((e) => {
+            if (props.handleNewPassword) {
+              console.log("attempting to login");
+              return props.handleNewPassword(e);
+            } else {
+              console.log(
+                "Form is submitted but handleSubmission prop is missing"
+              );
+            }
+          })}
+        >
+          {!props.headless && (
+            <CardHeader>
+              <CardTitle>Create Password</CardTitle>
+              <CardDescription>
+                Set a new password for your account
+              </CardDescription>
+            </CardHeader>
+          )}
+          <CardContent
+            headless={props.headless}
+            className="hawa-flex hawa-flex-col hawa-gap-4"
+          >
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <Input
+                  width="full"
+                  type="password"
+                  autoComplete="new-password"
+                  label={props.texts.passwordLabel}
+                  placeholder={props.texts.passwordPlaceholder}
+                  helperText={formState.errors.password?.message}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+            />
+            <Controller
+              control={control}
+              name="confirm_password"
+              render={({ field }) => (
+                <Input
+                  width="full"
+                  type="password"
+                  autoComplete="new-password"
+                  label={props.texts.confirmPasswordLabel}
+                  placeholder={props.texts.confirmPasswordPlaceholder}
+                  helperText={formState.errors.confirm_password?.message}
+                  {...field}
+                  value={field.value ?? ""}
+                />
+              )}
+            />
+          </CardContent>
 
-            <CardFooter>
-              <Button className="hawa-w-full" type="submit">
-                {props.texts.updatePassword}
-              </Button>
-            </CardFooter>
-          </form>
-        </FormProvider>
+          <CardFooter>
+            <Button className="hawa-w-full" type="submit">
+              {props.texts.updatePassword}
+            </Button>
+          </CardFooter>
+        </form>
       )}
     </Card>
   );

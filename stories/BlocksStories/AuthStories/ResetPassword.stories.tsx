@@ -32,8 +32,8 @@ const Template = (args: any, globals: any) => {
     <div className="hawa-max-w-md" dir={direction}>
       {" "}
       <ResetPasswordForm
-        {...args}
         direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
+        {...args}
       />
     </div>
   );
@@ -42,8 +42,6 @@ export const Default: Story = {
   render: Template.bind({}),
   args: {
     sent: false,
-    handleResetPassword: (e) => console.log("resetting password,", e),
-
     texts: {
       emailLabel: "Email",
       emailPlaceholder: "Enter your email",
@@ -54,5 +52,9 @@ export const Default: Story = {
       registerText: "Register",
       dontHaveAccount: "Don't have an account? ",
     },
+  },
+  argTypes: {
+    handleResetPassword: { action: "handleResetPassword" },
+    handleRouteToRegister: {action:"handleRouteToRegister"}
   },
 };
