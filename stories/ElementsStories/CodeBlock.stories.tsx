@@ -59,6 +59,9 @@ export const withFileName: Story = {
   render: (args) => <Template {...args} />,
   args: {
     fileName: "hawa.js",
-    code: "<CodeBlock fileName='hawa.js'/>",
+    language: "jsx",
+    code: `<CodeBlock fileName='hawa.js'>
+   Testing again
+</CodeBlock>`,
   },
 };

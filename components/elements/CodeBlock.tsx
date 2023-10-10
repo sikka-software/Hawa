@@ -1,8 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Button } from "./Button";
 import { Tooltip } from "./Tooltip";
 import { cn } from "../util";
 import { useClipboard } from "../hooks/useClipboard";
+import { Highlight, themes } from "prism-react-renderer";
 
 type CodeBlockTypes = {
   /** Specifies the programming language for syntax highlighting.*/
@@ -15,16 +16,23 @@ type CodeBlockTypes = {
   fileName?: string;
   /** Code content to be displayed within the code block.*/
   code?: string;
+  lineNumbers?: boolean;
+  forcedDarkMode?: boolean;
 };
 
 export const CodeBlock: FC<CodeBlockTypes> = ({
   tabs,
   code,
   fileName,
+  language = "javascript", // default to JavaScript if no language is provided
   width = "full",
+  ...props
 }) => {
   const clipboard = useClipboard();
   const [selectedTab, setSelectedTab] = useState(0);
+  const isDarkMode =
+    props.forcedDarkMode || document.body.classList.contains("dark");
+  const theme = isDarkMode ? themes.vsDark : themes.vsLight;
 
   let widthStyles = {
     full: "hawa-w-full",
@@ -66,7 +74,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono">
           <div
             className={cn(
-              "hawa-mb-1 hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center hawa-text-[1rem]"
+              "hawa-mb-1 mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center hawa-text-[1rem]"
             )}
           >
             {fileName}
@@ -76,15 +84,42 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       <pre>
         <div
           className={cn(
-            "hawa-relative hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between    hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base hawa-bg-gray-300 ",
+            "hawa-relative hawa-flex hawa-w-full hawa-flex-row hawa-border hawa-items-start hawa-justify-between hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
             tabs || fileName
               ? "hawa-rounded-b hawa-rounded-t-none"
               : "hawa-rounded"
           )}
         >
-          <code className="hawa-flex hawa-min-h-[37.75px] hawa-w-full hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono">
+          <Highlight
+            theme={theme}
+            code={tabs ? tabs[selectedTab].code : code || ""}
+            language={language}
+          >
+            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+              <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-font-mono">
+                {tokens.map((line, i) => (
+                  <div key={i} {...getLineProps({ line })}>
+                    {props.lineNumbers && (
+                      <span className="hawa-mr-4">{i + 1}</span>
+                    )}
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
+              </pre>
+            )}
+          </Highlight>
+
+          {/* <code
+            className={cn(
+              "language-jsx",
+              "hawa-flex hawa-min-h-[37.75px] hawa-w-full hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono"
+            )}
+          >
             {tabs ? tabs[selectedTab].code : code}
-          </code>
+          </code> */}
+
           <div className="hawa-absolute hawa-right-0 hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-p-2">
             <Tooltip
               open={clipboard.copied}

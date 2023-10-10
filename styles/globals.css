@@ -97,6 +97,9 @@ body {
     text-decoration: underline;
     color: var(--button-primary-700);
   }
+  .code-highlight {
+    background-color: transparent !important;
+}
   .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       Liberation Mono, Courier New, monospace !important;
