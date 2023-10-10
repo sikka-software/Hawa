@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
 import { cn } from "../util";
 
 type AccordionItem = {
@@ -48,7 +47,21 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <ChevronDown className="hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-transition-transform hawa-duration-200" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-transition-transform hawa-duration-200"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+      {/* <ChevronDown className="hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-transition-transform hawa-duration-200" /> */}
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));

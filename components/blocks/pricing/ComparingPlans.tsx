@@ -87,8 +87,8 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       <div className=" hawa-overflow-hidden hawa-rounded">
         <div className="hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-border-gray-200 hawa-bg-gray-100 hawa-p-4 hawa-text-sm hawa-font-medium hawa-text-gray-900 dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-white">
           <div className="hawa-flex hawa-items-center"></div>
-          {props.plans.map((plan: any) => (
-            <div>
+          {props.plans.map((plan: any, i) => (
+            <div key={i}>
               <h5 className="hawa-text-md hawa-font-bold hawa-text-gray-500 dark:hawa-text-gray-400">
                 {plan.texts.title}
               </h5>
@@ -113,9 +113,12 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           ))}
         </div>
         {props.plans?.map((plan) => {
-          return plan.features.map((feature) => {
+          return plan.features.map((feature, j) => {
             return (
-              <div className="hawa-grid hawa-grid-cols-4 hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:hawa-border-gray-700">
+              <div
+                key={j}
+                className="hawa-grid hawa-grid-cols-4 hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:hawa-border-gray-700"
+              >
                 <div className="  hawa-flex hawa-flex-row hawa-items-center hawa-gap-2  hawa-text-gray-500 dark:hawa-text-gray-400">
                   {feature.text}
                   {feature.description && (

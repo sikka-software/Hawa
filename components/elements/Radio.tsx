@@ -98,7 +98,10 @@ export const Radio: FC<RadioTypes> = ({
         <div className={cn(orientationStyle[orientation], "hawa-gap-4")}>
           {props.options &&
             props.options.map((opt, i) => (
-              <div className="hawa-rounded hawa-border hawa-border-gray-200 ">
+              <div
+                key={i}
+                className="hawa-rounded hawa-border hawa-border-gray-200 "
+              >
                 <div
                   className={cn(
                     "radio-item radio-item-bordered hawa-flex hawa-items-center hawa-transition-all",
@@ -136,7 +139,7 @@ export const Radio: FC<RadioTypes> = ({
       return (
         <ul className={cn(orientationStyle[orientation], "hawa-gap-4")}>
           {props.options?.map((opt: any, o) => (
-            <li>
+            <li key={o}>
               <input
                 type="radio"
                 id={opt.value.toString()}

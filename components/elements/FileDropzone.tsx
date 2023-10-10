@@ -117,6 +117,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       case "file-too-large":
         return (
           <Alert
+            key={i}
             text={rej.file.name}
             title={texts.fileTooLarge}
             severity="error"
@@ -125,6 +126,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       case "too-many-files":
         return (
           <Alert
+            key={i}
             text={rej.file.name}
             title={texts.tooManyFiles}
             severity="error"
@@ -133,6 +135,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       case "file-invalid-type":
         return (
           <Alert
+            key={i}
             text={rej.file.name}
             title={texts.invalidFileType}
             severity="error"
@@ -142,6 +145,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       default:
         return (
           <Alert
+            key={i}
             text={rej.file.name}
             title={rej.errors[0].code}
             severity="error"
@@ -150,7 +154,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
     }
   });
   const thumbs = files?.map((file: any, index: any) => (
-    <div className="hawa-relative hawa-rounded">
+    <div className="hawa-relative hawa-rounded" key={index}>
       <button
         onClick={(e) => {
           e.stopPropagation();

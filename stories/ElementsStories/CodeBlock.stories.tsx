@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CodeBlock } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { useDarkMode } from "storybook-dark-mode";
 
 const meta = {
   title: "Elements/CodeBlock",
@@ -23,21 +24,33 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof CodeBlock>;
 
-const Template = (args: any) => (
-  <div className="hawa-max-w-lg">
-    <CodeBlock {...args} tabs={args.tabs} />
-  </div>
-);
-
 export const Default: Story = {
-  render: (args) => <Template {...args} />,
+  render: (args) => {
+    const isDark = useDarkMode();
+
+    return (
+      <div className="hawa-max-w-lg hawa-flex hawa-flex-col hawa-gap-6">
+        <CodeBlock {...args} tabs={args.tabs} />
+        <CodeBlock
+          language="jsx"
+          code={`<CodeBlock fileName='hawa.js'>
+  Testing again
+</CodeBlock>`}
+        />
+      </div>
+    );
+  },
   args: {
     code: "npm install @sikka/hawa",
   },
 };
 
 export const withTabs: Story = {
-  render: (args) => <Template {...args} />,
+  render: (args) => (
+    <div className="hawa-max-w-lg">
+      <CodeBlock {...args} tabs={args.tabs} />
+    </div>
+  ),
   args: {
     tabs: [
       {
@@ -56,7 +69,11 @@ export const withTabs: Story = {
   },
 };
 export const withFileName: Story = {
-  render: (args) => <Template {...args} />,
+  render: (args) => (
+    <div className="hawa-max-w-lg">
+      <CodeBlock {...args} tabs={args.tabs} />
+    </div>
+  ),
   args: {
     fileName: "hawa.js",
     language: "jsx",

@@ -42,9 +42,9 @@ export const FullPage: Story = {
           <h1 className="hawa-text-xl hawa-font-bold">
             Scroll down to see the button
           </h1>
-          {new Array(1000).fill(0).map((e) => {
+          {new Array(1000).fill(0).map((e, i) => {
             return (
-              <div>
+              <div key={i}>
                 {Math.random()}
                 <br />
               </div>
@@ -69,9 +69,9 @@ export const InContainer: Story = {
           ref={ref1}
         >
           <BackToTop anchor={ref1} />
-          {new Array(300).fill(0).map((e) => {
+          {new Array(300).fill(0).map((e, k) => {
             return (
-              <div>
+              <div key={k}>
                 {Math.random()}
                 <br />
               </div>
@@ -83,9 +83,9 @@ export const InContainer: Story = {
           ref={ref2}
         >
           <BackToTop anchor={ref2} />
-          {new Array(300).fill(0).map((e) => {
+          {new Array(300).fill(0).map((e, s) => {
             return (
-              <div>
+              <div key={s}>
                 {Math.random()}
                 <br />
               </div>

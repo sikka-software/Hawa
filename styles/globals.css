@@ -10,7 +10,6 @@ body {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    /* --card: 0 0% 100%; */
     --card: 210 50% 98%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -25,23 +24,14 @@ body {
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
     --info: 209 62% 50%;
     --info-foreground: 0 0% 98%;
-
     --success: 148 48% 43%;
     --success-foreground: 0 0% 98%;
-
     --warning: 24 75% 50%;
     --warning-foreground: 0 0% 98%;
-
     --error: 0 84.2% 60.2%;
     --error-foreground: 0 0% 98%;
-    /* // info: "text-info-700 bg-info-100",
-    // warning: "text-warning-700 bg-warning-100",
-    // error: "text-destructive-700 bg-destructive-100",
-    // success: "text-success-700 bg-success-100", */
-
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5% 64.9%;
@@ -51,7 +41,6 @@ body {
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    /* --card: 240 10% 3.9%; */
     --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;

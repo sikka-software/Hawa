@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import {
@@ -52,7 +51,22 @@ export function Combobox() {
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
             : "Select framework..."}
-          <ChevronsUpDown className="hawa-ml-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50" />
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="hawa-ml-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50"
+          >
+            <path d="m7 15 5 5 5-5" />
+            <path d="m7 9 5-5 5 5" />
+          </svg>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="hawa-w-[200px] hawa-p-0">
@@ -68,14 +82,26 @@ export function Combobox() {
                   setOpen(false);
                 }}
               >
-                <Check
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className={cn(
                     "hawa-mr-2 hawa-h-4 hawa-w-4",
                     value === framework.value
                       ? "hawa-opacity-100"
                       : "hawa-opacity-0"
                   )}
-                />
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+
                 {framework.label}
               </CommandItem>
             ))}

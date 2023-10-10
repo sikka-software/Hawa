@@ -1,7 +1,6 @@
 import * as React from "react";
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
-import { Search } from "lucide-react";
 
 import { Dialog, DialogContent } from "./Dialog";
 import { cn } from "../util";
@@ -45,7 +44,21 @@ const CommandInput = React.forwardRef<
     className="hawa-flex hawa-items-center hawa-border-b hawa-px-3"
     cmdk-input-wrapper=""
   >
-    <Search className="hawa-mr-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="hawa-mr-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
     <CommandPrimitive.Input
       ref={ref}
       className={cn(

@@ -56,8 +56,9 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             defaultValue={props.currentCycle}
           />
         </div>
-        {data.map((d) => (
+        {data.map((d, i) => (
           <label
+            key={i}
             htmlFor={d.title}
             className=""
             onClick={() => setSelectedCard(d.title)}

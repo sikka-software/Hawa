@@ -49,7 +49,7 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-w-full hawa-max-w-md" dir={direction}>
-      <Accordion items={accordionData} type="single" />
+      <Accordion items={accordionData} type="single" {...args} />
     </div>
   );
 };

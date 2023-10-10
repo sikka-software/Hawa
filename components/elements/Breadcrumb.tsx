@@ -11,7 +11,10 @@ const Breadcrumb: FC<TBreadcrumb> = ({ breadcrumbLinks, separator = ">" }) => {
   return (
     <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm">
       {breadcrumbLinks.map((singleBreadcrumbLink, index) => (
-        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2">
+        <div
+          key={index}
+          className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2"
+        >
           <a
             href={singleBreadcrumbLink.href}
             className={

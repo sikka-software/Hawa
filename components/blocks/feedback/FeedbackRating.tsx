@@ -94,8 +94,9 @@ export const FeedbackRating: FC<ComponentTypes> = ({
         <div className="hawa-mt-8">{props.question}</div>
         <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded">
           {props.options &&
-            props.options.map((op) => (
+            props.options.map((op, i) => (
               <span
+                key={i}
                 onClick={() => {
                   if (props.onOptionClicked) {
                     props.onOptionClicked(op);

@@ -52,6 +52,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted  hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono ">
           {tabs.map((tab, i) => (
             <div
+              key={i}
               className={cn(
                 selectedTab === i
                   ? " hawa-border-b-2 hawa-border-primary"

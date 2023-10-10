@@ -48,8 +48,11 @@ const Template = (args: any) => {
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-2">
       <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
-        {sizes.map((s) => (
-          <div className=" hawa-p-4 hawa-border hawa-flex hawa-flex-col hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full  ">
+        {sizes.map((s, i) => (
+          <div
+            key={i}
+            className=" hawa-p-4 hawa-border hawa-flex hawa-flex-col hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full  "
+          >
             <h3>{s.title}</h3>
             <Loading
               design={args.design}

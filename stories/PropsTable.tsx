@@ -51,8 +51,8 @@ const PropsTable: FC<PropsTableTypes> = ({ componentProps, title }) => {
             </tr>
           </thead>
           <tbody className="hawa-divide-y hawa-divide-gray-200 ">
-            {componentProps.map((prop) => (
-              <tr key={prop.name}>
+            {componentProps.map((prop, i) => (
+              <tr key={i}>
                 <td className="hawa-whitespace-nowrap hawa-px-6 hawa-py-4">
                   <div className="hawa-text-sm hawa-text-foreground">
                     {prop.name}
