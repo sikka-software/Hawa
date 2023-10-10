@@ -110,19 +110,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof DialogContent>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-  const [isDialogVisible, setIsDialogVisible] = useState(false);
-
-  return (
+export const Default: Story = {
+  render: (args: any) => (
     <div className="hawa-flex hawa-flex-row hawa-gap-2">
       <Dialog>
         <DialogTrigger>
           <Button>Open Dialog</Button>
         </DialogTrigger>
-
-        <DialogContent dir={locale === "ar" ? "rtl" : "ltr"}>
+        <DialogContent>
           <DialogHeader>
             <DialogTitle>{t("are-you-sure")}</DialogTitle>
             <DialogDescription>
@@ -135,50 +130,77 @@ const Template = (args: any, globals: any) => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
-      {/* */}
-
-      <Dialog open={isDialogVisible} onOpenChange={setIsDialogVisible}>
-        <DialogTrigger>
-          <Button>Open Persistant Dialog</Button>
-        </DialogTrigger>
-        <DialogContent persist>
-          <DialogHeader>
-            <DialogTitle>Clicking outside doesn't close this</DialogTitle>
-            <DialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button
-              onClick={() => setIsDialogVisible(false)}
-              variant={"destructive"}
-            >
-              Yes, I am
-            </Button>
-            <Button
-              variant={"outline"}
-              onClick={() => setIsDialogVisible(false)}
-            >
-              Cancel
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
-  );
-};
+  ),
 
-export const Default: Story = {
-  render: () => <Template />,
   args: {
     persist: true,
   },
 };
 export const Persistant: Story = {
-  render: () => <Template />,
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const [isDialogVisible, setIsDialogVisible] = useState(false);
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Dialog open={isDialogVisible} onOpenChange={setIsDialogVisible}>
+          <DialogTrigger>
+            <Button>Open Persistant Dialog</Button>
+          </DialogTrigger>
+          <DialogContent persist>
+            <DialogHeader>
+              <DialogTitle>Clicking outside doesn't close this</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button
+                onClick={() => setIsDialogVisible(false)}
+                variant={"destructive"}
+              >
+                Yes, I am
+              </Button>
+              <Button
+                variant={"outline"}
+                onClick={() => setIsDialogVisible(false)}
+              >
+                Cancel
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    );
+  },
   args: {
     persist: true,
   },
+};
+export const RTL: Story = {
+  render: (args: any) => (
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
+      <Dialog>
+        <DialogTrigger>
+          <Button>Open RTL Dialog</Button>
+        </DialogTrigger>
+        <DialogContent dir="rtl">
+          <DialogHeader dir="rtl">
+            <DialogTitle>هل انت متأكد؟</DialogTitle>
+            <DialogDescription>
+              لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك نهائيًا
+              وإزالة بياناتك من خوادمنا.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant={"destructive"}>نعم</Button>
+            <Button variant={"outline"}>إلغاء</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  ),
 };
