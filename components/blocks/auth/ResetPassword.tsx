@@ -60,7 +60,6 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
           <form
             onSubmit={handleSubmit((e) => {
               if (props.handleResetPassword) {
-                console.log("attempting to login");
                 return props.handleResetPassword(e);
               } else {
                 console.log(

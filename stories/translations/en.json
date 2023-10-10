@@ -35,6 +35,7 @@
   "passwordLabel": "Password",
   "passwordPlaceholder": "Enter password",
   "passwordRequiredText": "Password is required",
+  "passwordsDontMatch": "Passwords don't match",
   "forgotPasswordText": "Forgot password?",
   "newUserText": "New user?",
   "registerText": "Register",
@@ -62,6 +63,8 @@
   "subscribeToNewsletter": "Subscribe to newsletter?",
   "confirmPasswordLabel": "Confirm Password",
   "confirmPasswordPlaceholder": "Minimum 8 characters",
+  "confirmPasswordRequired": "Confirm password is required",
+
   "iAcceptText": "I accept the",
   "termsText": "terms & conditions",
   "termsRequiredText": "you must accept the terms & conditions",

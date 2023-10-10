@@ -39,7 +39,7 @@ export const Default: Story = {
   ),
   args: {
     label: "Select Input",
-    // fullWidth: true,
+    placeholder: "Choose something",
     isCreatable: false,
     isMulti: false,
     isClearable: false,
@@ -72,6 +72,7 @@ export const Creatable: Story = {
     isMulti: false,
     isClearable: false,
     isSearchable: true,
+    placeholder: "Choose something",
     options: [
       { value: "chocolate", label: "Chocolate" },
       { value: "strawberry", label: "Strawberry" },
@@ -83,6 +84,9 @@ export const Creatable: Story = {
     onInputChange: (newValue: any, action: any) => {
       console.log("new value: ", newValue, "\n", "action", action);
     },
+  },
+  argTypes: {
+    handleCreateOption: { actions: "handleCreateOption" },
   },
 };
 // export const Old: Story = {

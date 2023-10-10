@@ -147,7 +147,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
             className="hawa-flex hawa-flex-col hawa-gap-4"
             onSubmit={handleSubmit((e) => {
               if (props.handleLogin) {
-                console.log("attempting to login");
                 return props.handleLogin(e);
               } else {
                 console.log(

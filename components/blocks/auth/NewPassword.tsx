@@ -74,7 +74,6 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
         <form
           onSubmit={handleSubmit((e) => {
             if (props.handleNewPassword) {
-              console.log("attempting to login");
               return props.handleNewPassword(e);
             } else {
               console.log(

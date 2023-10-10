@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import ReactSelect from "react-select";
+import ReactSelect, { MenuListProps, MenuProps } from "react-select";
 import CreatableSelect from "react-select/creatable";
 import { Label } from "./Label";
 import { cn } from "../util";
@@ -14,8 +14,45 @@ type ControlTypes = {
   innerRef: any;
   size?: "small" | "normal" | "large";
 };
+
+// type MenuListTypes = MenuListProps & {
+//   cx: any;
+//   children: any;
+//   getStyles: any;
+//   innerProps: any;
+//   innerRef: any;
+// };
+// const MenuList: FC<MenuListTypes> = ({
+//   cx,
+//   children,
+//   getStyles,
+//   innerProps,
+//   innerRef,
+//   ...props
+// }) => {
+//   console.log("inner ", props.selectProps);
+
+//   return (
+//     <div
+//       className={cn(
+//         "hawa-absolute hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-2 hawa-flex hawa-w-full  hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border  hawa-bg-background  hawa-p-1.5"
+//         // props.on
+//         // props.selectProps?.menuIsOpen
+//         //   ? "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
+//         //   : "hawa-zoom-out-95 hawa-fade-out-0 hawa-animate-out"
+//         // "hawa-zoom-in-95 hawa-animate-in hawa-animate-out hawa-fade-out-0 hawa-fade-in-0 hawa-zoom-out-95"
+//         // "data-[state=open]:hawa-zoom-in-95 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95"
+//       )}
+//       ref={innerRef}
+//       {...innerProps}
+//       // {...props}
+//     >
+//       {children}
+//     </div>
+//   );
+// };
 // The options container
-type MenuTypes = {
+type MenuTypes = MenuProps & {
   cx: any;
   children: any;
   getStyles: any;
@@ -30,9 +67,21 @@ const Menu: FC<MenuTypes> = ({
   innerRef,
   ...props
 }) => {
+  const menuOpen = props.selectProps.menuIsOpen;
   return (
     <div
-      className="hawa-absolute hawa-z-10 hawa-mt-2 hawa-flex hawa-w-full  hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border  hawa-bg-background  hawa-p-1.5"
+      className={cn(
+        "hawa-absolute hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-2 hawa-flex hawa-w-full  hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border  hawa-bg-background  hawa-p-1.5",
+
+        menuOpen && "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
+
+        // menuOpen
+        //   ? "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
+        //   : "hawa-zoom-out-95 hawa-fade-out-0 hawa-animate-out"
+
+        // "hawa-zoom-in-95 hawa-animate-in hawa-animate-out hawa-fade-out-0 hawa-fade-in-0 hawa-zoom-out-95"
+        // "data-[state=open]:hawa-zoom-in-95 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95"
+      )}
       ref={innerRef}
       {...innerProps}
       // {...props}
@@ -58,15 +107,17 @@ const Option: FC<OptionTypes> = ({
   innerRef,
   size = "normal",
   ...props
-}) => (
-  <div
-    ref={innerRef}
-    className="hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hover:hawa-bg-primary hover:hawa-text-primary-foreground"
-    {...innerProps}
-  >
-    {children}
-  </div>
-);
+}) => {
+  return (
+    <div
+      ref={innerRef}
+      className="hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hover:hawa-bg-primary hawa-transition-all hover:hawa-text-primary-foreground "
+      {...innerProps}
+    >
+      {children}
+    </div>
+  );
+};
 
 type SelectTypes = {
   label?: string;
@@ -90,6 +141,8 @@ type SelectTypes = {
   getOptionLabel?: any;
   disabled?: boolean;
   defaultValue?: any;
+  handleCreateOption?: () => void;
+  placeholder?: string;
   isLoading?: any;
   texts?: {
     noOptions?: string;
@@ -148,6 +201,15 @@ export const Select: FC<SelectTypes> = (props) => {
         <ReactSelect
           noOptionsMessage={NoOption}
           classNames={{
+            // menuList: (d) => {
+            //   console.log("d is ", d.selectProps.menuIsOpen);
+            //   return cn(
+            //     "hawa-absolute hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-2 hawa-flex hawa-w-full  hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border  hawa-bg-background  hawa-p-1.5",
+            //     d.selectProps.menuIsOpen
+            //       ? "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
+            //       : "hawa-zoom-out-95 hawa-fade-out-0 hawa-animate-out"
+            //   );
+            // },
             control: () =>
               cn(
                 " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full  hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500",
@@ -177,6 +239,7 @@ export const Select: FC<SelectTypes> = (props) => {
           isClearable={props.isClearable}
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
+          placeholder={props.placeholder}
           autoFocus
           onChange={(newValue: any, action) =>
             // props.onChange(newValue.label, action)
@@ -215,7 +278,8 @@ export const Select: FC<SelectTypes> = (props) => {
           isClearable={props.isClearable}
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
-          onCreateOption={() => console.log("im changing")}
+          placeholder={props.placeholder}
+          onCreateOption={props.handleCreateOption}
           onChange={(newValue, action) => props.onChange(newValue, action)}
           onInputChange={(newValue, action) =>
             props.onInputChange(newValue, action)

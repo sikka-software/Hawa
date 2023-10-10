@@ -17,12 +17,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 type RegisterFormTypes = {
+  /** Callback function triggered to handle language changes.*/
   handleLanguage?: () => void;
+  /** The current language being used in the application. */
   currentLanguage?: any;
+  /** Callback function triggered to handle color mode changes. */
   handleColorMode?: () => void;
+  /** The current color mode being used in the application. */
   currentColorMode?: any;
+  /** Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right). */
   direction?: "rtl" | "ltr";
+  /** Determines whether to display logos only or with text in the social media registration section. */
   logosOnly?: boolean;
+  /** Object containing text labels used throughout the form. */
   texts: {
     fullNameLabel: string;
     fullNamePlaceholder: string;
@@ -38,6 +45,7 @@ type RegisterFormTypes = {
     passwordPlaceholder: string;
     passwordRequiredText: string;
     passwordTooShortText: string;
+    passwordsDontMatch: string;
     confirmPasswordLabel: string;
     confirmPasswordPlaceholder: string;
     confirmPasswordRequired: string;
@@ -57,23 +65,41 @@ type RegisterFormTypes = {
     refCode: string;
     userReferenceLabel: string;
   };
+  /** Enables registration via Google when set to true. */
   viaGoogle: boolean;
+  /** Enables registration via Github when set to true. */
   viaGithub: boolean;
+  /** Enables registration via Twitter when set to true. */
   viaTwitter: boolean;
+  /** Determines whether to show the referral code field. */
   showRefCode: boolean;
+  /** Determines whether to show the user source selection. */
   showUserSource: boolean;
+  /** Determines whether to show the terms acceptance checkbox. */
   showTermsOption: boolean;
+  /** Determines whether to show the newsletter subscription checkbox. */
   showNewsletterOption: boolean;
+  /** Callback function triggered on form submission. */
   handleRegister: (e: any) => void;
+  /** Callback function triggered to route to the login page. */
   handleRouteToLogin: () => void;
+  /** Callback function triggered to handle registration via Google. */
   handleGoogleRegister: () => void;
+  /** Callback function triggered to handle registration via Github. */
   handleGithubRegister: () => void;
+  /** Callback function triggered to handle registration via Twitter. */
   handleTwitterRegister: () => void;
+  /** Callback function triggered to route to the Terms of Service page. */
   handleRouteToTOS: () => void;
+  /** Determines whether to show an error alert. */
   showError: any;
+  /** Title for the error alert. */
   errorTitle: any;
+  /** Text for the error alert. */
   errorText: any;
+  /** Array containing the fields to be included in the form. */
   registerFields: any[];
+  /** Indicates whether the form submission is in progress. */
   isLoading?: boolean;
 };
 
@@ -88,6 +114,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
     passwordPlaceholder,
     passwordRequiredText,
     passwordTooShortText,
+    passwordsDontMatch,
     confirmPasswordRequired,
     confirmPasswordPlaceholder,
     termsRequiredText,
@@ -135,10 +162,10 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
       newsletter_accepted: z.boolean().optional(),
     })
     .refine((data) => data.password === data.confirm_password, {
-      message: "Passwords don't match",
+      message: passwordsDontMatch,
       path: ["confirm_password"],
     });
-    
+
   const { handleSubmit, control, formState } = useForm({
     resolver: zodResolver(formSchema),
   });
@@ -157,7 +184,15 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
             )}
             <FormProvider {...methods}>
               <form
-                onSubmit={handleSubmit(props.handleRegister)}
+                onSubmit={handleSubmit((e) => {
+                  if (props.handleRegister) {
+                    return props.handleRegister(e);
+                  } else {
+                    console.log(
+                      "Form is submitted but handleRegister prop is missing"
+                    );
+                  }
+                })}
                 className="hawa-flex hawa-flex-col hawa-gap-4"
               >
                 <div className="hawa-flex hawa-flex-col hawa-gap-4">

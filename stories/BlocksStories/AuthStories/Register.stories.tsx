@@ -1,20 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RegisterForm } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { CodeBlock, RegisterForm } from "../../../components";
+import {
+  ArgsTable,
+  CodeOrSourceMdx,
+  Markdown,
+  Story,
+  Title,
+} from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
-
+import RegisterDocs from "./Register.mdx";
 const meta = {
   title: "Blocks/User Auth/Register Form",
   component: RegisterForm,
   parameters: {
-    // layout: "centered",
     docs: {
-      page: () => (
-        <>
-          <h1>{"<RegisterForm/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
+      toc: { headingSelector: "h2" },
+      page: RegisterDocs,
     },
   },
   tags: ["autodocs"],
@@ -48,9 +49,11 @@ const Template = (args: any, globals: any) => {
           passwordPlaceholder: t("passwordPlaceholder"),
           passwordRequiredText: t("passwordRequiredText"),
           passwordTooShortText: t("passwordTooShortText"),
+          passwordsDontMatch: t("passwordsDontMatch"),
           subscribeToNewsletter: t("subscribeToNewsletter"),
           confirmPasswordLabel: t("confirmPasswordLabel"),
           confirmPasswordPlaceholder: t("confirmPasswordPlaceholder"),
+          confirmPasswordRequired: t("confirmPasswordRequired"),
           iAcceptText: t("iAcceptText"),
           termsText: t("termsText"),
           termsRequiredText: t("termsRequiredText"),
