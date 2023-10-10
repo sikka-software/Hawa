@@ -60,7 +60,7 @@ export const Input: FC<TextFieldTypes> = ({
   let defaultStyle =
     "hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
   let defaultInputStyle =
-    "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-black dark:hawa-text-white ";
+    "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm ";
 
   return (
     <div
@@ -94,6 +94,7 @@ export const Input: FC<TextFieldTypes> = ({
                 // {...props.inputProps}
                 className={cn(
                   defaultInputStyle,
+                  "hawa-text-black dark:hawa-text-white ",
                   props.icon && "hawa-pl-10",
                   "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
                   preview &&

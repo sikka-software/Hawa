@@ -1,37 +1,69 @@
 import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 import useBreakpoint from "../hooks/useBreakpoint";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
 import { SidebarGroup } from "./Sidebar";
+import { cn } from "../util";
 
 type AppLayoutTypes = {
   design?: "default" | "bubbles" | "floating";
   /** The pages of the side drawer */
   drawerItems: Item[];
-  // The direction of the layout
+  /** The direction of the layout */
   direction?: "rtl" | "ltr";
-  // The title of the current selected page, make sure it's the same as the drawerItem slug
+  /** The title of the current selected page, make sure it's the same as the drawerItem slug */
   currentPage: string;
+  /** Specifies the title of the page. */
   pageTitle?: string;
+  /** Specifies the symbol for the logo. */
   logoSymbol?: any;
+  /** Specifies the link for the logo. */
   logoLink?: string;
+  /** Specifies the text for the logo. */
   logoText?: any;
+  /** Specifies the content to be displayed in the layout. */
   children?: any;
+  /** Specifies whether to display the top bar. */
   topBar?: boolean;
+  /** Specifies the username to be displayed. */
   username?: string;
+  /** Specifies the user email to be displayed. */
   email?: string;
+  /** Specifies the image for the avatar. */
   avatarImage?: any;
+  /**
+   * Specifies the size of the drawer.
+   * - 'sm': Small.
+   * - 'md': Medium.
+   * - 'large': Large.
+   */
   drawerSize?: "sm" | "md" | "large";
+  /** Specifies the menu items for the profile menu. */
   profileMenuItems?: MenuItemType[];
+  /**
+   * Specifies the width of the profile menu.
+   * - 'default': Default width.
+   * - 'sm': Small width.
+   * - 'lg': Large width.
+   * - 'parent': Inherits width from parent element.
+   */
   profileMenuWidth: "default" | "sm" | "lg" | "parent";
+  /** Event handler for settings button click. */
   onSettingsClick?: () => void;
+  /** Event handler for drawer expansion. */
   onDrawerExpand?: (e: any) => void;
+  /** Specifies whether to keep the drawer open. */
   keepDrawerOpen?: boolean;
+  /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
+  /** Specifies the item that was clicked. */
   clickedItem?: any;
+  /** Event handler for logo button click. */
   onLogoClick?: () => void;
+  /** Text labels for various UI elements. */
   texts?: {
+    /** Label for expand sidebar button. */
     expandSidebar?: string;
+    /** Label for collapse sidebar button. */
     collapseSidebar?: string;
   };
 };
@@ -123,7 +155,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       {props.topBar && (
         <div
-          className={clsx(
+          className={cn(
             "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
             isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
           )}
@@ -131,7 +163,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {/* Nav Side Of Navbar */}
           {size > 600 ? (
             <div
-              className={clsx(
+              className={cn(
                 "dark:hawa-text-white",
                 isRTL
                   ? [
@@ -199,7 +231,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           )}
 
           <div
-            className={clsx(
+            className={cn(
               "hawa-flex hawa-gap-2 dark:hawa-text-white",
               isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
             )}
@@ -258,7 +290,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * ----------------------------------------------------------------------------------------------------
        */}
       <div
-        className={clsx(
+        className={cn(
           "hawa-fixed hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
           design === "floating"
             ? isRTL
@@ -300,9 +332,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         <div
           onClick={props.onLogoClick}
           dir={direction}
-          className={
-            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all"
-          }
+          className={cn(
+            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all",
+            props.onLogoClick && "hawa-cursor-pointer"
+          )}
           style={{
             width:
               size > 600
@@ -316,7 +349,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            * ----------------------------------------------------------------------------------------------------
            */}
           <img
-            className={clsx(
+            className={cn(
               "hawa-h-9  hawa-opacity-0 hawa-transition-all",
               !openSideMenu
                 ? "hawa-invisible hawa-opacity-0"
@@ -331,7 +364,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            */}
           {size > 600 ? (
             <img
-              className={clsx(
+              className={cn(
                 "hawa-fixed  hawa-h-9  hawa-transition-all",
                 // isRTL ? "right-2.5" : "left-2.5",
 
@@ -357,7 +390,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          * ----------------------------------------------------------------------------------------------------
          */}
         <div
-          className={clsx(
+          className={cn(
             "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-2 hawa-py-2 hawa-transition-all",
             design === "floating" ? "hawa-top-[76px]" : "hawa-top-14",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
@@ -406,7 +439,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          * ----------------------------------------------------------------------------------------------------
          */}
         <div
-          className={clsx(
+          className={cn(
             "hawa-fixed  hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-bg-primary-foreground  hawa-transition-all",
             direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
             design === "floating" ? "hawa-bottom-5" : "hawa-bottom-0"
@@ -444,7 +477,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 size="smallIcon"
               >
                 <svg
-                  className={clsx(
+                  className={cn(
                     "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all  disabled:hawa-bg-gray-200 ",
                     keepOpen
                       ? isRTL

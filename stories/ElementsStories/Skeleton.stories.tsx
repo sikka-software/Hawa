@@ -81,12 +81,17 @@ export const Animations: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
-        <h1>Pulse Animation</h1>
+        <h1>No Animation (Static)</h1>
+        <Skeleton animation="none" className="hawa-h-10 hawa-w-10" />
+        <Skeleton animation="none" className="hawa-h-10 hawa-w-64" />
+      </div>
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        <h1>Pulse Animation (Default)</h1>
         <Skeleton className="hawa-h-10 hawa-w-10" />
         <Skeleton className="hawa-h-10 hawa-w-64" />
       </div>
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
-        <h1>Shear Animation</h1>
+        <h1>Shimmer Animation</h1>
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-10" />
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-64" />
       </div>
