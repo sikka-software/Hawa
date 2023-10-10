@@ -5,8 +5,6 @@ import { cn } from "../util";
 import { useClipboard } from "../hooks/useClipboard";
 
 type CodeBlockTypes = {
-  /** Sets the theme color of the code block.*/
-  color?: "dark" | "light";
   /** Specifies the programming language for syntax highlighting.*/
   language?: string;
   /** Defines the width of the code block.*/

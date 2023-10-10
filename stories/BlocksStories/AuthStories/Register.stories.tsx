@@ -1,21 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CodeBlock, RegisterForm } from "../../../components";
-import {
-  ArgsTable,
-  CodeOrSourceMdx,
-  Markdown,
-  Story,
-  Title,
-} from "@storybook/blocks";
+import { RegisterForm } from "../../../components";
+import { ArgsTable, Markdown, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
-import RegisterDocs from "./Register.mdx";
+import RegisterDocs from "./Register";
+
 const meta = {
   title: "Blocks/User Auth/Register Form",
   component: RegisterForm,
   parameters: {
     docs: {
-      toc: { headingSelector: "h2" },
-      page: RegisterDocs,
+      page: () => <RegisterDocs />,
+      toc: {
+        title: "Register Form",
+        headingSelector: "h2,h3",
+        ignoreSelector: "div",
+      },
     },
   },
   tags: ["autodocs"],
