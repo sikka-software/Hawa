@@ -128,8 +128,6 @@ body {
     display: inline-block;
     position: relative;
     top: 3px;
-    /* margin: 0 5px 0 0; */
-
     width: 15px;
     height: 15px;
     border-radius: 11px;
@@ -151,10 +149,15 @@ body {
     height: 9px;
     position: absolute;
     top: 6px;
-    left: 3px;
     content: " ";
     display: block;
     background: hsl(var(--primary));
+  }
+  .radio-item-default.right-3px input[type="radio"]:checked + label:after {
+    right: 3px;
+  }
+  .radio-item-default.left-3px input[type="radio"]:checked + label:after {
+    left: 3px;
   }
   .radio-item-bordered input[type="radio"]:checked + label:after {
     border-radius: 100%;
@@ -162,10 +165,15 @@ body {
     height: 9px;
     position: absolute;
     top: 22px;
-    left: 23px;
     content: " ";
     display: block;
     background: hsl(var(--primary));
+  }
+  .radio-item-bordered.left-23px input[type="radio"]:checked + label:after {
+    left: 23px;
+  }
+  .radio-item-bordered.right-19px input[type="radio"]:checked + label:after {
+    right: 19px;
   }
   .dark-shadow {
     box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),

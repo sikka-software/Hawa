@@ -102,7 +102,9 @@ export const Radio: FC<RadioTypes> = ({
                 <div
                   className={cn(
                     "radio-item radio-item-bordered hawa-flex hawa-items-center hawa-transition-all",
-                    props.direction === "rtl" ? "margin-left" : "margin-right"
+                    props.direction === "rtl"
+                      ? "margin-left right-19px"
+                      : "margin-right left-23px"
                   )}
                   key={i + 1}
                 >
@@ -166,7 +168,6 @@ export const Radio: FC<RadioTypes> = ({
       );
 
     default:
-      console.log("ds", parentDirection);
       return (
         <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
           {props.options &&
@@ -174,7 +175,9 @@ export const Radio: FC<RadioTypes> = ({
               <div
                 className={cn(
                   "radio-item radio-item-default hawa-flex hawa-items-center hawa-transition-all",
-                  props.direction === "rtl" ? "margin-left" : "margin-right"
+                  props.direction === "rtl"
+                    ? "margin-left right-3px"
+                    : "margin-right left-3px"
                 )}
                 key={i + 1}
               >
