@@ -46,11 +46,15 @@ export const Default: Story = {
 };
 
 export const withTabs: Story = {
-  render: (args) => (
-    <div className="hawa-max-w-lg">
-      <CodeBlock {...args} tabs={args.tabs} />
-    </div>
-  ),
+  render: (args) => {
+    const isDark = useDarkMode();
+
+    return (
+      <div className="hawa-max-w-lg">
+        <CodeBlock {...args} tabs={args.tabs} />
+      </div>
+    );
+  },
   args: {
     tabs: [
       {
@@ -69,16 +73,49 @@ export const withTabs: Story = {
   },
 };
 export const withFileName: Story = {
-  render: (args) => (
-    <div className="hawa-max-w-lg">
-      <CodeBlock {...args} tabs={args.tabs} />
-    </div>
-  ),
+  render: (args) => {
+    const isDark = useDarkMode();
+
+    return (
+      <div className="hawa-max-w-lg">
+        <CodeBlock {...args} tabs={args.tabs} />
+      </div>
+    );
+  },
   args: {
     fileName: "hawa.js",
     language: "jsx",
     code: `<CodeBlock fileName='hawa.js'>
    Testing again
 </CodeBlock>`,
+  },
+};
+export const withBoth: Story = {
+  render: (args) => {
+    const isDark = useDarkMode();
+
+    return (
+      <div className="hawa-max-w-lg">
+        <CodeBlock {...args} tabs={args.tabs} />
+      </div>
+    );
+  },
+  args: {
+    fileName: "hawa.js",
+    language: "jsx",
+    tabs: [
+      {
+        title: "npm",
+        code: "npm install @sikka/hawa",
+      },
+      {
+        title: "yarn",
+        code: "yarn add @sikka/hawa",
+      },
+      {
+        title: "pnpm",
+        code: "pnpm add @sikka/hawa",
+      },
+    ],
   },
 };

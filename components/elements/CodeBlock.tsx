@@ -48,8 +48,29 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         "hawa-w-full hawa-flex-col  hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base"
       )}
     >
+      {fileName && (
+        <div
+          className={cn(
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  dark:hawa-bg-muted hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-text-foreground hawa-font-mono",
+            fileName && tabs ? "hawa-bg-gray-300 dark:hawa-bg-muted/50" : "hawa-bg-gray-200"
+          )}
+        >
+          <div
+            className={cn(
+              "mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
+            )}
+          >
+            {fileName}
+          </div>
+        </div>
+      )}
       {tabs && (
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted  hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono ">
+        <div
+          className={cn(
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted  hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono",
+            tabs && fileName && "hawa-rounded-t-none"
+          )}
+        >
           {tabs.map((tab, i) => (
             <div
               key={i}
@@ -71,17 +92,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           ))}
         </div>
       )}
-      {fileName && (
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono">
-          <div
-            className={cn(
-              "hawa-mb-1 mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center hawa-text-[1rem]"
-            )}
-          >
-            {fileName}
-          </div>
-        </div>
-      )}
+
       <pre>
         <div
           className={cn(
