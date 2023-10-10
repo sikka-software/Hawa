@@ -296,4 +296,7 @@ export const Default: Story = {
     //   },
     // ],
   },
+  argTypes: {
+    onLogoClick: { action: "onLogoClick" },
+  },
 };

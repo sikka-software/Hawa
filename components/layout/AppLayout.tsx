@@ -29,6 +29,7 @@ type AppLayoutTypes = {
   keepDrawerOpen?: boolean;
   DrawerFooterActions?: any;
   clickedItem?: any;
+  onLogoClick?: () => void;
   texts?: {
     expandSidebar?: string;
     collapseSidebar?: string;
@@ -297,6 +298,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          * ----------------------------------------------------------------------------------------------------
          */}
         <div
+          onClick={props.onLogoClick}
           dir={direction}
           className={
             "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all"
