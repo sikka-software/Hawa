@@ -38,8 +38,9 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
       ref={ref}
       className={cn(
         "hawa-bg-muted/60 dark:hawa-bg-muted/40 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
-        "[&:not(:last-child)]:hawa-border-r",
-
+        props.dir === "rtl"
+          ? "[&:not(:last-child)]:hawa-border-l"
+          : "[&:not(:last-child)]:hawa-border-r",
         props.condensed ? "hawa-h-8" : "hawa-h-12",
         props.clickable ? "hawa-px-1" : "hawa-px-4", //First and last columns
         props.clickable
@@ -117,8 +118,10 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
         props.condensed ? "hawa-p-0 hawa-px-4" : "hawa-p-4",
         "hawa-align-middle [&:has([role=checkbox])]:hawa-pr-0 ",
         "[&:not(:last-child)&:not(:first-child)]:hawa-border-x",
-        "[&:not(:last-child)]:hawa-border-r",
-
+        // "[&:not(:last-child)]:hawa-border-r",
+        props.dir === "rtl"
+          ? "[&:not(:last-child)]:hawa-border-l"
+          : "[&:not(:last-child)]:hawa-border-r",
         className
       )}
       {...props}

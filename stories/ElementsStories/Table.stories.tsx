@@ -34,9 +34,11 @@ const Template = (args: any, globals: any) => {
       dir={direction}
     >
       <SimpleTable
+        direction={direction}
         columns={[
           { header: "Project", accessorKey: "project" },
           { header: "Version", accessorKey: "version" },
+          // { header: "Version", accessorKey: "version" },
         ]}
         data={[
           { project: "Hawa", version: "0.4.8" },

@@ -1,5 +1,11 @@
 {
   "no-data": "No Data",
+  "submit": "Submit",
+  "description": "Description",
+  "descriptionTooShort": "Description is too short.",
+  "descriptionRequired": "Description Required",
+  "requestType": "Request Type:",
+  "requestTypeRequired": "Request type is required",
   "actions": "Actions",
   "search-items": "Search Items ...",
   "are-you-sure": "Are you sure absolutely sure?",

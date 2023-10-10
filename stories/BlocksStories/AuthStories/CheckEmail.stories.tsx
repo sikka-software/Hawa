@@ -44,4 +44,9 @@ const Template = (args: any, globals: any) => {
 };
 export const Default: Story = {
   render: Template.bind({}),
+  argTypes: {
+    handleResend: {
+      action: "handleResend",
+    },
+  },
 };

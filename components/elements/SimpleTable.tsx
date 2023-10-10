@@ -68,6 +68,7 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
                         return (
                           <TableHead
                             condensed={props.condensed}
+                            dir={props.direction}
                             // clickable={isSortable}
                             key={header.id}
                           >
@@ -92,7 +93,11 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
                       data-state={row.getIsSelected() && "selected"}
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <TableCell condensed={props.condensed} key={cell.id}>
+                        <TableCell
+                          dir={props.direction}
+                          condensed={props.condensed}
+                          key={cell.id}
+                        >
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()

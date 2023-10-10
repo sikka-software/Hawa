@@ -24,11 +24,9 @@ type AppLandingTypes = {
   withoutSignUp?: boolean;
   size: "small" | "normal" | "full";
   direction: "rtl" | "ltr";
-  handleSignIn: () => void;
-  handleSignUp: () => void;
+  handleRouteToRegister: () => void;
   handleLanguage: () => void;
   handleColorMode: () => void;
-  handleRouteToSignUp?: () => void;
   handleGoogle?: () => void;
   handleTwitter?: () => void;
   handleApple?: () => void;
@@ -118,7 +116,7 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
             <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
               {props.texts?.newUserText}{" "}
               <span
-                onClick={props.handleRouteToSignUp}
+                onClick={props.handleRouteToRegister}
                 className="clickable-link"
               >
                 {props.texts?.createAccount}

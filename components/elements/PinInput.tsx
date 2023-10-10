@@ -12,6 +12,8 @@ type PinInputTypes = {
   width?: "normal" | "full";
   /** Function to get the value of pins */
   getPins?: (pins: string[]) => void;
+  /** The small red text under the input field to show validation or a hint.   */
+  helperText?: any;
 };
 
 export const PinInput: FC<PinInputTypes> = ({
@@ -60,25 +62,36 @@ export const PinInput: FC<PinInputTypes> = ({
   };
 
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-center hawa-gap-2" dir="ltr">
-      {pin.map((value, index) => (
-        <input
-          key={index}
-          type="text"
-          maxLength={1}
-          value={value}
-          id={`input-${index}`}
-          pattern="[0-9]*"
-          className={clsx(
-            "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center",
-            width === "full" ? "hawa-w-full" : "hawa-w-10"
-          )}
-          onChange={(e) => handleChange(e, index)}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-          onFocus={(e) => e.target.select()}
-          {...props}
-        />
-      ))}
+    <div className="hawa-flex hawa-flex-col hawa-gap-2">
+      <div
+        className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-center hawa-gap-2"
+        dir="ltr"
+      >
+        {pin.map((value, index) => (
+          <input
+            key={index}
+            type="text"
+            maxLength={1}
+            value={value}
+            id={`input-${index}`}
+            pattern="[0-9]*"
+            className={clsx(
+              "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center",
+              width === "full" ? "hawa-w-full" : "hawa-w-10"
+            )}
+            onChange={(e) => handleChange(e, index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            onFocus={(e) => e.target.select()}
+            {...props}
+          />
+        ))}
+      </div>
+
+      {props.helperText && (
+        <p className="hawa-mb-0 hawa-mt-0 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
+          {props.helperText}
+        </p>
+      )}
     </div>
   );
 };

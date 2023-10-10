@@ -7,7 +7,6 @@ const meta = {
   title: "Blocks/User Auth/CodeConfirmation",
   component: CodeConfirmation,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -30,19 +29,22 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md" dir={direction}>
-      <CodeConfirmation
-        submitConfirmation={(e: any) => console.log("submitting e", e)}
-        showError={args.showError}
-        texts={{
-          codeLabel: "Code",
-          codePlaceholder: "123456",
-          codeRequiredText: "Code is required",
-          confirm: "Confirm",
-        }}
-      />
+      <CodeConfirmation showError={args.showError} {...args} />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
+  args: {
+    texts: {
+      codeLabel: "Code",
+      codePlaceholder: "123456",
+      codeRequiredText: "Code is required",
+      codeTooShort: "Please enter the full OTP code",
+      confirm: "Confirm",
+    },
+  },
+  argTypes: {
+    handleConfirm: { action: "handleConfirm" },
+  },
 };

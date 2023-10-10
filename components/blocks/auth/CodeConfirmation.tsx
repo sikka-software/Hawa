@@ -1,5 +1,9 @@
 import React, { useState, FC } from "react";
 import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
 type TConfirmation = {
   showError?: any;
@@ -13,16 +17,25 @@ type TConfirmation = {
     codeLabel?: string;
     codePlaceholder?: string;
     codeRequiredText?: string;
+    codeTooShort?: string;
     confirm?: string;
     cancel?: string;
   };
   phoneNumber?: string;
-  submitConfirmation?: any;
-  handleSignIn?: any;
+  handleConfirm?: any;
 };
 
 export const CodeConfirmation: FC<TConfirmation> = (props) => {
-  const [pins, setPins] = useState(null);
+  const formSchema = z.object({
+    otp_code: z
+      .string({ required_error: props.texts?.codeRequiredText })
+      .min(6, { message: props.texts?.codeTooShort }),
+  });
+
+  const { handleSubmit, control, formState, setValue } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
   return (
     <Card>
       <CardContent headless>
@@ -43,14 +56,28 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           </div>{" "}
         </div>
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (pins) {
-              props.submitConfirmation(pins);
+          onSubmit={handleSubmit((e) => {
+            if (props.handleConfirm) {
+              return props.handleConfirm(e);
+            } else {
+              console.log(
+                "Form is submitted but handleConfirm prop is missing"
+              );
             }
-          }}
+          })}
         >
-          <PinInput width="full" digits={6} getPins={(e: any) => setPins(e)} />
+          <Controller
+            control={control}
+            name="otp_code"
+            render={({ field }) => (
+              <PinInput
+                width="full"
+                digits={6}
+                getPins={(e: any) => setValue("otp_code", e.join(""))}
+                helperText={formState.errors.otp_code?.message}
+              />
+            )}
+          />
           <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
             <span>{props.texts?.didntGetCode ?? "Didn't get the code?"}</span>{" "}
             <span className="clickable-link">

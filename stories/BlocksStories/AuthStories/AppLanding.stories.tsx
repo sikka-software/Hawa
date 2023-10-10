@@ -30,31 +30,13 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md">
-      <AppLanding
-        {...args}
-        direction={locale === "ar" ? "rtl" : "ltr"}
-        texts={{
-          lang: "عربي",
-          newUserText: t("newUserText"),
-          createAccount: t("createAccount"),
-          continueWithGoogle: t("continueWithGoogle"),
-          continueWithTwitter: t("continueWithTwitter"),
-          continueWithApple: t("continueWithApple"),
-          continueWithMicrosoft: t("continueWithMicrosoft"),
-          continueWithEmail: t("continueWithEmail"),
-          continueWithPhone: t("continueWithPhone"),
-          continueWithGithub: t("continueWithGithub"),
-        }}
-      />
+      <AppLanding direction={locale === "ar" ? "rtl" : "ltr"} {...args} />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    handleSignIn: () => console.log("routing to sign in page"),
-    handleSignUp: () => console.log("routing to sign up page"),
-    handleLanguage: () => console.log("changing language"),
     viaGoogle: true,
     viaTwitter: true,
     viaGithub: true,
@@ -62,5 +44,28 @@ export const Default: Story = {
     viaEmail: true,
     viaPhone: true,
     viaApple: true,
+    texts: {
+      newUserText: t("newUserText"),
+      createAccount: t("createAccount"),
+      continueWithGoogle: t("continueWithGoogle"),
+      continueWithTwitter: t("continueWithTwitter"),
+      continueWithApple: t("continueWithApple"),
+      continueWithMicrosoft: t("continueWithMicrosoft"),
+      continueWithEmail: t("continueWithEmail"),
+      continueWithPhone: t("continueWithPhone"),
+      continueWithGithub: t("continueWithGithub"),
+    },
+  },
+  argTypes: {
+    handleApple: { action: "handleApple" },
+    handleColorMode: { action: "handleColorMode" },
+    handleEmail: { action: "handleEmail" },
+    handleGithub: { action: "handleGithub" },
+    handleGoogle: { action: "handleGoogle" },
+    handleMicrosoft: { action: "handleMicrosoft" },
+    handleLanguage: { action: "handleLanguage" },
+    handlePhone: { action: "handlePhone" },
+    handleRouteToRegister: { action: "handleRouteToRegister" },
+    handleTwitter: { action: "handleTwitter" },
   },
 };

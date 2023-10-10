@@ -3,7 +3,12 @@
   "actions": "الإجرائات",
   "are-you-sure": "هل انت متأكد؟",
   "are-you-sure-description": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك نهائيًا وإزالة بياناتك من خوادمنا.",
-
+  "submit": "إرسال",
+  "description": "وصف التذكرة",
+  "descriptionTooShort": "محتوى الوصف قصير جدا",
+  "descriptionRequired": "الوصف مطلوب",
+  "requestType": "نوع التذكرة",
+  "requestTypeRequired": "نوع التذكرة مطلوب",
   "yes": "نعم",
   "cancel": "إلغاء",
   "search-items": "إبحث عن عنصر ...",
