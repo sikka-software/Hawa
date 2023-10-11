@@ -8,6 +8,7 @@ type AdCardTypes = {
   imageURL: string;
   handleHide?: any;
   handleCantHide?: () => void;
+  handleClick?: () => void;
   canHide: boolean;
 };
 export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
@@ -54,6 +55,7 @@ export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
       <div
         className={clsx(cardStyles[orientation], "dark:hawa-text-white")}
         {...props}
+        onClick={props.handleClick}
       >
         <div className="hawa-flex hawa-aspect-square hawa-w-full  hawa-max-w-fit  hawa-items-start ">
           <img
@@ -70,7 +72,8 @@ export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
         {props.canHide && (
           <span
             // onClick={props.handleHide}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               if (props.canHide) {
                 setClosed(true);
                 setTimeout(() => {

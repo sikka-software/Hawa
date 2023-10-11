@@ -40,7 +40,7 @@ const Template = (args: any) => (
 );
 
 export const Default: Story = {
-//   name: "Action Card",
+  //   name: "Action Card",
   render: (args) => <Template {...args} />,
   args: {
     handleCantHide: () => console.log("cant hide the ad, please sub to pro"),
@@ -48,6 +48,11 @@ export const Default: Story = {
     title: "Seera App",
     description:
       "Increase your hiring chances by turning your CV into a digital one with a link",
+  },
+  argTypes: {
+    handleClick: {
+      action: "clicking ad",
+    },
   },
 };
 
