@@ -2,12 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Chip } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import { KeyIcon, KeyRound } from "lucide-react";
 
 const meta = {
   title: "Elements/Chip",
   component: Chip,
   parameters: {
-    layout: "centered",
+    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -23,42 +24,50 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Chip>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return (
-    <div>
-      <h1>Small</h1>
-      <Chip variant="outline" size="small" label="small" color={"green"} />
-      <h1>Normal</h1>
-      <Chip variant="outline" size="normal" label="normal" color={"red"} />
-      <h1>Large</h1>
-      <Chip
-        size="normal"
-        label="Available"
-        dot={true}
-        color={"green"}
-        dotType={"available"}
-      />
-    </div>
-  );
-};
-export const Default: Story = {
+export const Colors: Story = {
   render: () => (
-    <div>
-      <h1>Small</h1>
-      <Chip variant="outline" size="small" label="small" color={"green"} />
-      <h1>Normal</h1>
-      <Chip variant="outline" size="normal" label="normal" color={"red"} />
-      <h1>Large</h1>
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
+      <Chip size="normal" label="Red" color={"red"} />
+      <Chip size="normal" label="Green" color={"green"} />
+      <Chip size="normal" label="Blue" color={"blue"} />
+      <Chip size="normal" label="Yellow" color={"yellow"} />
+      <Chip size="normal" label="Purple" color={"purple"} />
+      <Chip size="normal" label="No Color" />
+    </div>
+  ),
+};
+export const Sizes: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
+      <Chip size="small" label="Small" color={"green"} />
+      <Chip size="normal" label="Normal" color={"green"} />
+      <Chip size="large" label="Large" color={"green"} />
+    </div>
+  ),
+};
+export const AsStatus: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
       <Chip
         size="normal"
-        label="Available"
-        dot={true}
-        color={"green"}
-        dotType={"available"}
+        label="Unavailable"
+        dotType="unavailable"
+        color="red"
       />
+      <Chip size="normal" label="Available" dotType="available" color="green" />
+    </div>
+  ),
+};
+export const WithIcons: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
+      <Chip
+        icon={<KeyRound className="hawa-h-4 hawa-w-4" />}
+        size="normal"
+        label="Unavailable"
+        color="red"
+      />
+      <Chip size="normal" label="Available" dotType="available" color="green" />
     </div>
   ),
 };

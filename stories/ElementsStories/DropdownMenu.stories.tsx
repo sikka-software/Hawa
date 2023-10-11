@@ -151,6 +151,23 @@ const items = [
       },
     ],
   },
+  {
+    label: "Item 3",
+    value: "item3",
+    icon: <AtSign className="hawa-icon" />,
+    subitems: [
+      {
+        label: "subitem 1",
+        value: "subitem 1",
+        icon: <MedalIcon className="hawa-icon" />,
+      },
+      {
+        label: "subitem 2",
+        value: "subitem 2",
+        icon: <AlignVerticalDistributeStart className="hawa-icon" />,
+      },
+    ],
+  },
 ];
 
 export const Default: Story = {

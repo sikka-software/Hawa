@@ -18,7 +18,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-px-2 hawa-py-3 hawa-text-sm hawa-outline-none focus:hawa-bg-accent data-[state=open]:hawa-bg-accent",
+      "hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-text-sm hawa-outline-none focus:hawa-bg-accent data-[state=open]:hawa-bg-accent",
       inset && "hawa-pl-8",
       className
     )}
@@ -54,7 +54,7 @@ const DropdownMenuSubContent = React.forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "hawa-z-50 hawa-min-w-[8rem] hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
+      "hawa-z-50 hawa-min-w-[8rem] hawa-gap-1 hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
       className
     )}
     {...props}
@@ -301,7 +301,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   };
   const sizeStyles = {
     default: "hawa-px-2 hawa-py-3 ",
-    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5",
+    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
   return (
     <DropdownMenuRoot dir={direction}>
@@ -315,7 +315,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           className={cn(
             className,
             widthStyles[width],
-            "hawa-flex hawa-flex-col hawa-gap-2"
+            "hawa-flex hawa-flex-col hawa-gap-1"
           )}
           align={align}
           alignOffset={alignOffset}

@@ -93,7 +93,7 @@ export const Input: FC<TextFieldTypes> = ({
               <input
                 className={cn(
                   defaultInputStyle,
-                  "hawa-text-black dark:hawa-text-white",
+                  " dark:hawa-text-white",
                   props.icon && "hawa-pl-10",
                   "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
                   preview &&

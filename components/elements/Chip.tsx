@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import clsx from "clsx";
 
-type TChipTypes = {
+export type TChipTypes = {
   /** The text inside the chip */
   label: string;
   /** The small icon before the chip label  */
@@ -14,7 +14,6 @@ type TChipTypes = {
   dot?: boolean;
   /** Red/Green dot next to the label of the chip indicating online/offline or available/unavailable */
   dotType?: "available" | "unavailable";
-  variant?: "default" | "outline";
 };
 
 export const Chip: FC<TChipTypes> = ({
@@ -22,16 +21,15 @@ export const Chip: FC<TChipTypes> = ({
   size = "normal",
   icon,
   color,
-  dot,
-  dotType = "available",
+  dotType,
 }) => {
   let defaultStyles =
-    "hawa-flex hawa-flex-row hawa-w-fit hawa-gap-1 hawa-items-center hawa-rounded  hawa-px-2.5 hawa-py-0.5  hawa-font-bold hawa-text-blue-800 hawa-bg-blue-200 dark:hawa-text-blue-800";
+    "hawa-flex hawa-flex-row hawa-w-fit hawa-gap-1 hawa-items-center hawa-rounded  hawa-px-2.5 hawa-py-1  hawa-font-bold ";
   let sizeStyles = {
     small:
-      "hawa-h-full hawa-leading-4 hawa-px-1 hawa-py-0 hawa-text-[9px] hawa-gap-0.5 ",
+      "hawa-h-[15px] hawa-leading-4 hawa-px-0 hawa-py-0 hawa-text-[9px] hawa-gap-0.5 ",
     normal: "hawa-h-fit hawa-text-xs",
-    large: "",
+    large: "hawa-text-base",
   };
 
   let dotStyles = {
@@ -43,17 +41,24 @@ export const Chip: FC<TChipTypes> = ({
     available: "hawa-bg-green-500",
     unavailable: "hawa-bg-red-500",
   };
+  let colorStyles: any = {
+    green: "hawa-bg-green-100 hawa-text-green-500",
+    blue: "hawa-bg-blue-100 hawa-text-blue-500",
+    red: "hawa-bg-red-100 hawa-text-red-500",
+    yellow: "hawa-bg-yellow-100 hawa-text-yellow-500",
+    orange: "hawa-bg-orange-100 hawa-text-orange-500",
+    purple: "hawa-bg-purple-100 hawa-text-purple-500",
+    cyan: "hawa-bg-cyan-100 hawa-text-cyan-500",
+  };
   return (
     <span
       className={clsx(
         defaultStyles,
         sizeStyles[size],
-        color
-          ? `hawa-bg-${color}-100 hawa-text-${color}-500`
-          : "hawa-bg-layoutPrimary-500"
+        color ? colorStyles[color] : "hawa-border hawa-bg-none"
       )}
     >
-      {dot && (
+      {dotType && (
         <span className={clsx(dotStyles[size], dotTypeStyles[dotType])}></span>
       )}
       {icon && icon}
