@@ -72,7 +72,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
       props.anchor.current?.removeEventListener("scroll", onScroll);
       clearInterval(interval);
     };
-  }, []);
+  }, [onScroll, props.anchor]);
 
   const getStyles = () => {
     if (!props.anchor.current || !self.current) return {};

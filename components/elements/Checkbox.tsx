@@ -9,10 +9,10 @@ type TCheckBoxTypes = {
   helperText?: any;
 };
 
-type HawaCheckboxProps = TCheckBoxTypes &
+type CheckboxProps = TCheckBoxTypes &
   React.ComponentProps<typeof CheckboxElement>;
 
-export const Checkbox: React.FC<HawaCheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   label,
   sublabel,
@@ -26,7 +26,6 @@ export const Checkbox: React.FC<HawaCheckboxProps> = ({
         <div className={"hawa-grid hawa-gap-1.5 hawa-leading-none"}>
           {label && (
             <label
-              role="checkbox"
               htmlFor={id}
               className={cn(
                 "hawa-cursor-pointer hawa-select-none hawa-text-sm hawa-font-medium hawa-leading-none hawa-pt-0.5",
@@ -39,7 +38,6 @@ export const Checkbox: React.FC<HawaCheckboxProps> = ({
           )}
           {sublabel && (
             <label
-              role="checkbox"
               htmlFor={id}
               className={cn(
                 "hawa-cursor-pointer hawa-select-none hawa-text-sm hawa-text-muted-foreground",
@@ -52,7 +50,6 @@ export const Checkbox: React.FC<HawaCheckboxProps> = ({
           )}
           {helperText && !checkboxProps.disabled && (
             <label
-              role="checkbox"
               htmlFor={id}
               className={cn(
                 "hawa-select-none hawa-text-xs  hawa-text-red-500",

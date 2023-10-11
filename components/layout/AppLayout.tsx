@@ -112,10 +112,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [selectedItem, setSelectedItem] = useState(currentPage);
 
-  let size: any;
-  if (typeof window !== "undefined") {
-    size = useBreakpoint();
-  } else {
+  let size = useBreakpoint();
+  if (typeof window == "undefined") {
     size = 1200;
   }
   const [keepOpen, setKeepOpen] = useState(() => {

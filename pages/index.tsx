@@ -1,6 +1,7 @@
 import { Button, CodeBlock } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -24,7 +25,7 @@ export default function Home() {
     mediaQuery.addEventListener("change", changeHandler);
 
     return () => mediaQuery.removeEventListener("change", changeHandler);
-  }, []);
+  }, [setTheme]);
 
   if (
     theme === "light" ||
@@ -45,8 +46,9 @@ export default function Home() {
         <nav className=" hawa-flex  hawa-items-center hawa-justify-between  hawa-p-4  hawa-h-fit hawa-w-full hawa-max-w-4xl">
           {/*  */}
           <div className="hawa-flex hawa-items-center  hawa-h-fit">
-            <img
-              className="hawa-w-36"
+            <Image
+              width={144}
+              height={50}
               src={
                 theme === "dark" ||
                 (theme !== "light" &&
@@ -168,7 +170,7 @@ export default function Home() {
               />
             </a>
 
-            <a
+            {/* <a
               href="https://www.github.com/sikka-software/hawa"
               className="hawa-w-fit"
             >
@@ -177,13 +179,13 @@ export default function Home() {
                 alt="Repobeats analytics image"
                 src="https://repobeats.axiom.co/api/embed/0aa365b7bd1591de135582699d523de7b262eecb.svg"
               />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
       <div className=" hawa-mt-10 hawa-flex hawa-w-full hawa-flex-col hawa-items-center hawa-opacity-50 ">
         <a href="https://sikka.io">
-          <img width="20" alt="Sikka" src={sikkaLogoURL} />
+          <Image width={20} height={50} alt="Sikka" src={sikkaLogoURL} />
         </a>
         <p className="hawa-m-0 hawa-mb-4">
           <sub>

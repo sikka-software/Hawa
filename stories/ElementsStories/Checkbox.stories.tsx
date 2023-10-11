@@ -63,13 +63,14 @@ const Template = (args: any, globals: any) => {
 
 export const Default: Story = {
   render: (args) => <Template {...args} />,
-  args: { label: "Accept terms and conditions" },
+  args: { label: "Accept terms and conditions", id: "checkbox_id" },
 };
 export const withSubtitle: Story = {
   render: (args) => <Template {...args} />,
   args: {
     label: "Accept terms and conditions",
     sublabel: "You agree to our Terms of Service and Privacy Policy.",
+    id: "checkbox_id",
   },
 };
 export const withHelperText: Story = {
@@ -78,6 +79,7 @@ export const withHelperText: Story = {
     label: "Accept terms and conditions",
     sublabel: "You agree to our Terms of Service and Privacy Policy.",
     helperText: "You must agree to the TOS to continue",
+    id: "checkbox_id",
   },
 };
 

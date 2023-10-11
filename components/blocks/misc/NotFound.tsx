@@ -28,7 +28,7 @@ export const NotFound: FC<NotFoundTypes> = ({
           <div className="hawa-mb-4 hawa-text-center">
             {texts?.ifLost ?? (
               <>
-                If you're lost please contact us{" "}
+                {"If you're lost please contact us "}
                 <span className="clickable-link">help@sikka.io</span>
               </>
             )}

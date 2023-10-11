@@ -89,7 +89,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
   );
   useEffect(() => {
     setFiles(acceptedFiles);
-  }, [acceptedFiles, cmp]);
+  }, [acceptedFiles, cmp, setFiles]);
   onClearFiles = () => {
     acceptedFiles.length = 0;
     acceptedFiles.splice(0, acceptedFiles.length);
