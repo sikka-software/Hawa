@@ -9,42 +9,21 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "hawa-",
-
-  // corePlugins: {
-  //   // preflight: false //will break all styles
-  //   preflight: true,
-  // },
-
   darkMode: ["class"],
   theme: {
-    fontFamily: {
-      plex: ["IBM Plex Sans Arabic"],
-    },
-
+    fontFamily: { plex: ["IBM Plex Sans Arabic"] },
     container: {
       center: true,
       padding: "2rem",
       screens: { "2xl": "1400px" },
     },
     extend: {
-      boxShadow: {
-        neobrutalism: "5px 5px 0px 0px rgba(0,0,0,1);",
-      },
-      maxWidth: {
-        "2xs": "250px",
-      },
-      screens: {
-        xs: "440px",
-      },
-      transitionProperty: {
-        height: "height",
-      },
+      boxShadow: { neobrutalism: "5px 5px 0px 0px rgba(0,0,0,1);" },
+      maxWidth: { "2xs": "250px" },
+      screens: { xs: "440px" },
+      transitionProperty: { height: "height" },
       keyframes: {
-        shimmer: {
-          "100%": {
-            transform: "translateX(100%)",
-          },
-        },
+        shimmer: { "100%": { transform: "translateX(100%)" } },
         slideDown: {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -182,9 +161,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    // , require("./components/plugin")
+    //require("./components/plugin")
   ],
 };
 export default config;
-
-// plugins: [require("tailwindcss-animate"), require("./src/plugin")]
