@@ -1,4 +1,4 @@
-import { Button } from "../components";
+import { Button, CodeBlock } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -135,47 +135,36 @@ export default function Home() {
               exceptional web experiences with Hawa, one block at a time.
             </p>
             <div className="hawa-flex hawa-flex-row hawa-gap-2">
-              {/* <DropdownMenu
-                // width="parent"
-                trigger={
-                  <Button>
-                    <a href="https://hawa.style/documentation">Themes</a>
-                  </Button>
-                }
-                items={[
-                  {
-                    value: "theme-generator",
-                    label: "Theme Generator",
-                    disabled: true,
-                    // action: () =>
-                    //   window.open(
-                    //     "https://github.com/sikka-software/Hawa/tree/main/src/blocks",
-                    //     "_blank"
-                    //   )
-                  },
-
-                  {
-                    value: "explore-themes",
-                    label: "Explore Themes",
-                    disabled: true,
-                    // action: () =>
-                    //   window.open(
-                    //     "https://github.com/sikka-software/Hawa/tree/main/src/blocks",
-                    //     "_blank"
-                    //   )
-                  },
-                ]}
-              /> */}
-              <a href="http://hawa.style/docs">
-                <Button
-                  variant="outline"
-                  // onClick={() => window.open("https://hawa.style/docs")}
-                >
-                  Docs
-                </Button>
-              </a>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  try {
+                    window.open(
+                      "https://hawa.style/docs",
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
+                  } catch (e) {
+                    console.error("Failed to open URL:", e);
+                  }
+                }}
+                aria-label="Open Documentation"
+              >
+                Docs
+              </Button>
             </div>
-            {/* <HawaCodeBlock code="npm install @sikka/hawa" /> */}
+            <CodeBlock
+              tabs={[
+                {
+                  title: "npm",
+                  code: "npm install @sikka/hawa",
+                },
+                {
+                  title: "yarn",
+                  code: "yarn add @sikka/hawa",
+                },
+              ]}
+            />
             <a
               href="https://www.npmjs.com/package/@sikka/hawa"
               className="hawa-w-fit"
