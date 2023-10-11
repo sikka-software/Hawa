@@ -1,7 +1,6 @@
 import { Button, CodeBlock } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Link from "next/link";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -124,7 +123,6 @@ export default function Home() {
       <div className="hawa-flex hawa-flex-1 hawa-flex-row">
         <div className="hawa-mt-10 hawa-flex hawa-w-full hawa-flex-col  hawa-items-center hawa-p-10 ">
           <div className="hawa-flex hawa-max-w-2xl hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-4">
-            {/* <h1 className="project-name">Hawa | هواء</h1> */}
             <span className="hawa-text-center hawa-text-2xl hawa-font-bold">
               Building Blocks <br /> For Your Web Application
             </span>
@@ -155,14 +153,8 @@ export default function Home() {
             </div>
             <CodeBlock
               tabs={[
-                {
-                  title: "npm",
-                  code: "npm install @sikka/hawa",
-                },
-                {
-                  title: "yarn",
-                  code: "yarn add @sikka/hawa",
-                },
+                { title: "npm", code: "npm install @sikka/hawa" },
+                { title: "yarn", code: "yarn add @sikka/hawa" },
               ]}
             />
             <a
