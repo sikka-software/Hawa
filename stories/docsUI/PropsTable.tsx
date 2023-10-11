@@ -11,7 +11,7 @@ interface PropsTableTypes {
   title: string;
   componentProps: ComponentProps[];
 }
-const PropsTable: FC<PropsTableTypes> = ({ componentProps, title }) => {
+export const PropsTable: FC<PropsTableTypes> = ({ componentProps, title }) => {
   return (
     <div className="hawa-mt-10 hawa-flex hawa-flex-col hawa-gap-4">
       <div className="hawa-overflow-x-auto">
@@ -87,5 +87,3 @@ const PropsTable: FC<PropsTableTypes> = ({ componentProps, title }) => {
     </div>
   );
 };
-
-export default PropsTable;

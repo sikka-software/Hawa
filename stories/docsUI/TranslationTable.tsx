@@ -8,7 +8,7 @@ type ComponentProps = {
 interface PropsTableTypes {
   componentProps: ComponentProps[];
 }
-const TranslationTable: FC<PropsTableTypes> = ({ componentProps }) => {
+export const TranslationTable: FC<PropsTableTypes> = ({ componentProps }) => {
   return (
     <div className="hawa-mt-10 hawa-flex hawa-flex-col hawa-gap-4">
       <div className="hawa-overflow-x-auto">
@@ -63,5 +63,3 @@ const TranslationTable: FC<PropsTableTypes> = ({ componentProps }) => {
     </div>
   );
 };
-
-export default TranslationTable;

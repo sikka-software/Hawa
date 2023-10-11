@@ -1,21 +1,7 @@
 import { Meta, ArgsTable, Story, Unstyled } from "@storybook/blocks";
-import * as DialogStories from "../../stories/ElementsStories/Dialog.stories.tsx";
-import { Button, DialogContent, CodeBlock } from "../../components/elements";
-import { useDarkMode } from "storybook-dark-mode";
+import { WrappedCodeBlock } from "../docsUI";
 
 <Meta title="Usage" />
-
-export const WrappedCodeBlock = (props) => {
-  const isDark = useDarkMode();
-  return (
-    <CodeBlock
-      language={props.lang}
-      tabs={props.tabs}
-      fileName={props.fileName}
-      code={props.code}
-    />
-  );
-};
 
 # Usage
 
@@ -23,6 +9,7 @@ After installation, import the components you want to use from `@sikka/hawa`. Fo
 
 <Unstyled>
   <WrappedCodeBlock
+  lang="jsx"
     code={`import { Button } from "@sikka/hawa";
     
 function App() {

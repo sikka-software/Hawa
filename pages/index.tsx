@@ -2,6 +2,7 @@ import { Button, CodeBlock } from "../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { ArgsTable, Story } from "@storybook/blocks";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();

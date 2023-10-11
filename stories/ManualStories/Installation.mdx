@@ -1,22 +1,8 @@
-import { Meta, ArgsTable, Story, Unstyled, Markdown } from "@storybook/blocks";
-import * as DialogStories from "../../stories/ElementsStories/Dialog.stories.tsx";
-import { Button, DialogContent, CodeBlock } from "../../components/elements";
+import { Meta, Unstyled } from "@storybook/blocks";
+import { WrappedCodeBlock } from "../docsUI";
 import { useDarkMode } from "storybook-dark-mode";
 
 <Meta title="Installation" />
-
-export const WrappedCodeBlock = (props) => {
-  const isDark = useDarkMode();
-  return (
-    <CodeBlock
-      language={props.lang}
-      tabs={props.tabs}
-      fileName={props.fileName}
-      code={props.code}
-    />
-
-);
-};
 
 <div className="hawa-pb-4">
   <h1>Installation</h1>

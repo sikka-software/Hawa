@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 import { DocsContainer } from "./DocsContainer";
@@ -25,11 +24,9 @@ const preview: Preview = {
         ],
       },
     },
-
     docs: {
       container: DocsContainer,
     },
-
     darkMode: {
       current: "light",
       light: {

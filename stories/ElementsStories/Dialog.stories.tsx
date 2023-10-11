@@ -9,18 +9,10 @@ import {
   DialogFooter,
   DialogTitle,
 } from "../../components/elements";
-import {
-  ArgTypes,
-  ArgsTable,
-  PureArgsTable,
-  Title,
-  ComponentsTable,
-  Story,
-  Stories,
-} from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
-import PropsTable from "../PropsTable";
+import { PropsTable } from "../docsUI";
 
 const meta = {
   title: "Elements/Dialog",

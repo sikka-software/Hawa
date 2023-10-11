@@ -1,8 +1,10 @@
-import { RegisterForm } from "../../../components";
+import { CodeBlock, RegisterForm } from "../../../components";
 import { ArgsTable, Markdown, Title } from "@storybook/blocks";
-import TranslationTable from "../../TranslationTable";
+import { TranslationTable } from "../../docsUI";
+import { useDarkMode } from "storybook-dark-mode";
 
 const RegisterDocs = (args: any, globals: any) => {
+  const isDark = useDarkMode();
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-6">
       <div>
@@ -222,37 +224,37 @@ const RegisterDocs = (args: any, globals: any) => {
       <div>
         <h2 id="Usage">Usage</h2>
         {/* TODO: use the codeblock component */}
-        <Markdown
-          children={`
+        <CodeBlock
+          code={`
 
-   import React from "react";
-   import { RegisterForm } from "your-library";
-    const MyComponent = () => {
-     const handleRegister = (e) => {
-       console.log("Form submitted:", e);
-     };
-      const texts = {
-       fullNameLabel: "Full Name",
-       emailLabel: "Email",
-       passwordLabel: "Password",
-       // ...other text labels
-     };
-      return (
-       <RegisterForm
-         texts={texts}
-         handleRegister={handleRegister}
-         viaGoogle={true}
-         viaGithub={true}
-         showTermsOption={true}
-         // ...other props
-       />
-     );
+ import React from "react";
+ import { RegisterForm } from "your-library";
+  const MyComponent = () => {
+   const handleRegister = (e) => {
+     console.log("Form submitted:", e);
    };
-    export default MyComponent;
+    const texts = {
+     fullNameLabel: "Full Name",
+     emailLabel: "Email",
+     passwordLabel: "Password",
+     // ...other text labels
+   };
+    return (
+     <RegisterForm
+       texts={texts}
+       handleRegister={handleRegister}
+       viaGoogle={true}
+       viaGithub={true}
+       showTermsOption={true}
+       // ...other props
+     />
+   );
+ };
+  export default MyComponent;
 
-  
-  `}
-        ></Markdown>
+
+`}
+        />
       </div>
 
       <div>
@@ -281,9 +283,17 @@ const RegisterDocs = (args: any, globals: any) => {
           customized by passing different props like{" "}
           <span className="inline-code">viaGoogle</span>,{" "}
           <span className="inline-code">viaGithub</span>,
-          <span className="inline-code">showTermsOption</span>, etc. This allows
-          for a flexible registration form that can adapt to different
-          requirements.
+          <span className="inline-code">showTermsOption</span>, etc. Or by
+          adjusting <span className="inline-code">registerFields</span> prop.
+        </span>
+      </div>
+      <div>
+        <span>
+          If you want to add more fields at between the primary fields and the
+          submit button, you can use{" "}
+          <span className="inline-code">additionalFields</span> prop to pass
+          your custom section inside the Register form block. This allows for a
+          flexible registration form that can adapt to different requirements.
         </span>
       </div>
       <div>
@@ -294,6 +304,7 @@ const RegisterDocs = (args: any, globals: any) => {
           basic usage example and some accessibility and styling information.
         </span>
       </div>
+      <div className="hawa-h-screen"></div>
     </div>
   );
 };
