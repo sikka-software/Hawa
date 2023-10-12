@@ -305,7 +305,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
     sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
   return (
-    <DropdownMenuRoot dir={direction}>
+    <DropdownMenuRoot modal={false} dir={direction}>
       <DropdownMenuTrigger asChild className={triggerClassname}>
         {trigger}
       </DropdownMenuTrigger>
