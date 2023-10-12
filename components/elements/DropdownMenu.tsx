@@ -332,7 +332,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   </DropdownMenuLabel>
                 );
               } else if (item.itemType === "custom") {
-                return item.content;
+                return <div key={index}>{item.content}</div>;
               } else {
                 return item.subitems ? (
                   <DropdownMenuSub key={index}>
