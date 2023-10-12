@@ -257,6 +257,7 @@ export type MenuItemType = {
   icon?: any;
   label?: string;
   value?: any;
+  content?: any;
   end?: any;
   presist?: boolean;
   itemType?: "separator" | "label" | string;
@@ -330,6 +331,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     {item.label}
                   </DropdownMenuLabel>
                 );
+              } else if (item.itemType === "custom") {
+                return item.content;
               } else {
                 return item.subitems ? (
                   <DropdownMenuSub key={index}>

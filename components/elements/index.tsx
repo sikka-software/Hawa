@@ -50,3 +50,5 @@ export * from "./Combobox";
 export * from "./Select";
 export * from "./Form";
 export * from "./InterfaceSettings";
+
+export * from "./NavigationMenu";
