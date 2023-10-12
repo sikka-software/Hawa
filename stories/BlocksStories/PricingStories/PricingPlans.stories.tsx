@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PricingPlans } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+import { useState } from "react";
 
 const meta = {
   title: "Blocks/Pricing/Pricing Plans",
@@ -27,13 +28,18 @@ const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
-
+  const [curr, setCurr] = useState("sar");
+  const [cycl, setCycl] = useState("month");
   return (
     <div dir={direction}>
       {" "}
       <PricingPlans
         {...args}
-        onPlanClicked={(e: any) => console.log("upgradign to ", e)}
+        currentCurrency={curr}
+        currentCycle={cycl}
+        onCurrencyChange={(e) => setCurr(e)}
+        onCycleChange={(e) => setCycl(e)}
+        // onPlanClicked={(e: any) => console.log("upgradign to ", e)}
         billingCycles={[
           { label: `Month`, value: `month` },
           // { label: `3 Months`, value: `3-months` },
@@ -107,4 +113,9 @@ const Template = (args: any, globals: any) => {
 };
 export const Default: Story = {
   render: Template.bind({}),
+  argTypes: {
+    onPlanClicked: {
+      action: "onPlanClicked",
+    },
+  },
 };

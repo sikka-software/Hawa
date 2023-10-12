@@ -2,33 +2,28 @@ import React, { FC } from "react";
 import { PricingCard, Radio } from "../../elements";
 
 type PricingPlansTypes = {
-  plans: [
-    {
-      direction: "rtl" | "ltr";
-      features: [{ included: boolean; text: string }];
-      price: number;
-      texts: {
-        title: string;
-        subtitle: string;
-        buttonText: string;
-        cycleText: string;
-        currencyText: string;
-      };
-      size: "small" | "medium" | "large";
-    }
-  ];
-  currencies: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
-  billingCycles: [
-    {
-      label: string;
-      value: string;
-    }
-  ];
+  plans: {
+    id: any;
+    direction: "rtl" | "ltr";
+    features: [{ included: boolean; text: string }];
+    price: number;
+    size: "small" | "medium" | "large";
+    texts: {
+      title: string;
+      subtitle: string;
+      buttonText: string;
+      cycleText: string;
+      currencyText: string;
+    };
+  }[];
+  currencies: {
+    label: string;
+    value: string;
+  }[];
+  billingCycles: {
+    label: string;
+    value: string;
+  }[];
   onPlanClicked?: (e: any) => void;
   currentCycle: {
     label: string;
@@ -75,7 +70,12 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
               key={index}
               onPlanClicked={() => {
                 if (props.onPlanClicked) {
-                  props.onPlanClicked(plan);
+                  let clickedData = {
+                    plan: plan.id,
+                    currency: props.currentCurrency,
+                    cycle: props.currentCycle,
+                  };
+                  props.onPlanClicked(clickedData);
                 }
               }}
               {...plan}
