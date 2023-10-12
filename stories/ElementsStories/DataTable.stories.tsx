@@ -10,7 +10,7 @@ import { setLocale, t } from "../translations/i18n";
 import { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 const meta = {
-  title: "Elements/DataTable",
+  title: "Elements/Tables/Data Table",
   component: DataTable,
   parameters: {
     // layout: "centered",
@@ -426,6 +426,7 @@ const Template = (args: any, globals: any) => {
         defaultSort="share_price"
         columns={companiesColumns}
         // data={[]}
+        
         data={companiesData}
         condensed
         direction={locale === "ar" ? "rtl" : "ltr"}

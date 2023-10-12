@@ -4,7 +4,8 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
-  title: "Elements/Table",
+  title: "Elements/Tables/Simple Table",
+
   component: Table,
   parameters: {
     // layout: "centered",
@@ -38,7 +39,9 @@ const Template = (args: any, globals: any) => {
         columns={[
           { header: "Project", accessorKey: "project" },
           { header: "Version", accessorKey: "version" },
-          // { header: "Version", accessorKey: "version" },
+          { header: "Version", accessorKey: "version" },
+          { header: "Version", accessorKey: "version" },
+          { header: "Version", accessorKey: "version" },
         ]}
         data={[
           { project: "Hawa", version: "0.4.8" },

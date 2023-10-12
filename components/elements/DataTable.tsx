@@ -28,8 +28,6 @@ import { Skeleton } from "./Skeleton";
 import { Button } from "./Button";
 import { cn } from "../util";
 
-
-
 type DataTableProps<DataProps = {}> = {
   direction?: "rtl" | "ltr";
   columns: ColumnDef<DataProps>[];
@@ -168,6 +166,7 @@ export const DataTable = <DataProps extends {}>({
                         let isSortable = header.column.columnDef.meta?.sortable;
                         return (
                           <TableHead
+                            dir={props.direction}
                             condensed={props.condensed}
                             clickable={isSortable}
                             key={header.id}
@@ -193,7 +192,11 @@ export const DataTable = <DataProps extends {}>({
                       data-state={row.getIsSelected() && "selected"}
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <TableCell condensed={props.condensed} key={cell.id}>
+                        <TableCell
+                          dir={props.direction}
+                          condensed={props.condensed}
+                          key={cell.id}
+                        >
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
