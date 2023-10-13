@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import useBreakpoint from "../hooks/useBreakpoint";
+import { useBreakpoint } from "../hooks/useBreakpoint";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
 import { SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
