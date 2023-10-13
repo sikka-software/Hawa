@@ -4,6 +4,7 @@ export * from "./useToast";
 export * from "./useCarousel";
 export * from "./useClipboard";
 export * from "./useBreakpoint";
+export * from "./useWindowSize";
 export * from "./useFocusWithin";
 export * from "./useMediaQuery";
 export * from "./useScrollPosition";
