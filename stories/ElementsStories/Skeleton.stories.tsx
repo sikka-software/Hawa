@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Skeleton } from "../../components/elements";
 import { ArgsTable, Markdown, Story } from "@storybook/blocks";
+import { Image } from "lucide-react";
 
 const meta = {
   title: "Elements/Skeleton",
@@ -37,7 +38,7 @@ const Template = (args: any) => {
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
       <div className="hawa-flex hawa-flex-row hawa-gap-4">
         <Skeleton className="hawa-h-10 hawa-w-10" />
-        <Skeleton className="hawa-h-10 hawa-w-64" />
+        <Skeleton className="hawa-h-10 hawa-w-64" content="Text here" />
       </div>
       <div className="hawa-flex hawa-flex-row hawa-gap-4">
         <Skeleton className="hawa-h-10 hawa-w-10" />
@@ -67,7 +68,10 @@ export const Sizes: Story = {
         <Skeleton className="hawa-h-10 hawa-w-64" />
       </div>
       <div className="hawa-flex hawa-flex-row hawa-gap-4">
-        <Skeleton className="hawa-h-20 hawa-w-20" />
+        <Skeleton
+          className="hawa-h-20 hawa-w-20"
+          content={<Image className="hawa-text-gray-500" />}
+        />
         <Skeleton className="hawa-h-20 hawa-w-40" />
       </div>
       <div className="hawa-flex hawa-flex-row hawa-gap-4">
@@ -94,6 +98,20 @@ export const Animations: Story = {
         <h1>Shimmer Animation</h1>
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-10" />
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-64" />
+      </div>
+    </div>
+  ),
+};
+
+export const withContent: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      <div className="hawa-flex hawa-flex-row hawa-gap-4">
+        <Skeleton
+          className="hawa-h-20 hawa-w-20"
+          content={<Image className="hawa-text-gray-500" />}
+        />
+        <Skeleton className="hawa-h-20 hawa-w-40" content="Text here" />
       </div>
     </div>
   ),
