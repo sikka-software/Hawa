@@ -57,7 +57,7 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
               variant="outline"
               onClick={props.handleGithub}
             >
-              <Logos.gitHub className="hawa-h-4 hawa-w-4" />
+              <Logos.github className="hawa-h-4 hawa-w-4" />
               {props.texts?.continueWithGithub ?? "Continue With Github"}
             </Button>
           )}

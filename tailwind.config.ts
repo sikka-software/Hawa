@@ -9,7 +9,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "hawa-",
-  darkMode: ["class"],
+  darkMode: ["class", '[data-mode="dark"]'],
   theme: {
     fontFamily: { plex: ["IBM Plex Sans Arabic"] },
     container: {

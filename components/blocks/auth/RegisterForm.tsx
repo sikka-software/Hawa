@@ -431,7 +431,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 variant="outline"
                 onClick={props.handleGithubRegister}
               >
-                <Logos.gitHub className="hawa-h-4 hawa-w-4" />
+                <Logos.github className="hawa-h-4 hawa-w-4" />
                 {!props.logosOnly && props.texts.registerViaGithubLabel}
               </Button>
             )}

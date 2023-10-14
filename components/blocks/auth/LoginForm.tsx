@@ -310,7 +310,7 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 {props.isGithubLoading ? (
                   <Loading size="button" />
                 ) : (
-                  <Logos.gitHub className="hawa-h-4 hawa-w-4" />
+                  <Logos.github className="hawa-h-4 hawa-w-4" />
                 )}
                 {!props.logosOnly && props.texts?.loginViaGithubLabel}
               </Button>
