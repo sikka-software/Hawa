@@ -2,17 +2,53 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FeedbackForm } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+import { TranslationTable } from "../../docsUI";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Form",
   component: FeedbackForm,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
           <h1>{"<FeedbackForm/>"}</h1>
-          <ArgsTable />
+          <ArgsTable exclude={["texts"]} />
+          <h2>Texts Object</h2>
+
+          <TranslationTable
+            componentProps={[
+              {
+                key: "requestType",
+                description: "Label for the request type select input",
+                default: "Request Type",
+              },
+              {
+                key: "requestTypeRequired",
+                description: "Error text if request type is not selected",
+                default: "Request type is required",
+              },
+              {
+                key: "description",
+                description: "Label for the description textarea input",
+                default: "Description",
+              },
+              {
+                key: "descriptionRequired",
+                description: "Error text if description is not provided",
+                default: "Description is required",
+              },
+              {
+                key: "descriptionTooShort",
+                description: "Error text if description text is too short",
+                default: "Description is too short",
+              },
+              {
+                key: "submit",
+                description: "Text for the submit button",
+                default: "Submit",
+              },
+            ]}
+          />
         </>
       ),
     },
@@ -48,5 +84,25 @@ export const Default: Story = {
   render: Template.bind({}),
   argTypes: {
     onSubmit: { action: "onSubmit" },
+  },
+  args: {
+    requestTypes: [
+      {
+        label: "Bug",
+        value: "bug",
+      },
+      {
+        label: "Feature",
+        value: "feature",
+      },
+      {
+        label: "Complain",
+        value: "complain",
+      },
+      {
+        label: "Support",
+        value: "support",
+      },
+    ],
   },
 };

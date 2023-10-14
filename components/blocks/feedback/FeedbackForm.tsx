@@ -13,6 +13,7 @@ import {
 
 type FeedbackFormType = {
   onSubmit: (e: any) => void;
+  requestTypes?: { label: string; value: any }[];
   texts: {
     requestType?: string;
     requestTypeRequired?: string;
@@ -59,24 +60,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
               <Select
                 {...field}
                 onChange={(option: any) => field.onChange(option.value)}
-                options={[
-                  {
-                    label: "Bug",
-                    value: "bug",
-                  },
-                  {
-                    label: "Feature",
-                    value: "feature",
-                  },
-                  {
-                    label: "Complain",
-                    value: "complain",
-                  },
-                  {
-                    label: "Support",
-                    value: "support",
-                  },
-                ]}
+                options={props.requestTypes}
                 helperText={
                   formState.errors.requestType &&
                   formState.errors.requestType?.message
