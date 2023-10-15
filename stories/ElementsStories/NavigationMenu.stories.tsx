@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, NavigationMenu } from "../../components/elements";
+import {
+  Button,
+  NavMenuItem,
+  NavigationMenu,
+  NavigationMenuLink,
+} from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
@@ -47,19 +52,22 @@ export const Default: Story = {
             trigger: "item 1",
             content: (
               <div className=" hawa-p-2 hawa-w-full">
-                <div
-                onClick={()=>console.log('clicked on an item')}
-                  // dir={locale === "ar" ? "rtl" : "ltr"}
-                  className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted"
-                >
-                  <FilePlus2 />
-                  <div className="hawa-flex hawa-flex-col">
-                    <h1 className="hawa-font-bold ">{t("create")}</h1>
-                    <p className="hawa-text-sm">
-                      Subtitle of this menu item here
-                    </p>
+                <NavMenuItem
+                  icon={<FilePlus2 />}
+                  title={t("create")}
+                  subtitle="Subtitle of this menu item here"
+                />
+                <NavigationMenuLink asChild>
+                  <div className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                    <FilePlus2 />
+                    <div className="hawa-flex hawa-flex-col">
+                      <h1 className="hawa-font-bold ">{t("create")}</h1>
+                      <p className="hawa-text-sm">
+                        Subtitle of this menu item here
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </NavigationMenuLink>
 
                 <div
                   // dir={locale === "ar" ? "rtl" : "ltr"}

@@ -90,7 +90,25 @@ const NavigationMenuContent = React.forwardRef<
 ));
 NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 
-const NavigationMenuLink = NavigationMenuPrimitive.Link;
+export const NavigationMenuLink = NavigationMenuPrimitive.Link;
+
+type NavMenuItemTypes = {
+  icon?: any;
+  title: string;
+  subtitle?: string;
+};
+
+export const NavMenuItem: React.FC<NavMenuItemTypes> = (props) => (
+  <NavigationMenuLink>
+    <div className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+      {props.icon && props.icon}
+      <div className="hawa-flex hawa-flex-col">
+        <h1 className="hawa-font-bold ">{props.title}</h1>
+        <p className="hawa-text-sm">{props.subtitle}</p>
+      </div>
+    </div>
+  </NavigationMenuLink>
+);
 
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
@@ -140,7 +158,7 @@ type NavigationMenuTypes = {
 
 export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
   return (
-    <NavigationMenuRoot>
+    <NavigationMenuRoot delayDuration={0}>
       <NavigationMenuList>
         {props.items.map((item, i) => (
           <NavigationMenuItem key={i}>
