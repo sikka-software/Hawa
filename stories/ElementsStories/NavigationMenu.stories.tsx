@@ -47,18 +47,20 @@ export const Default: Story = {
     // setLocale(locale);
     return (
       <NavigationMenu
+        rootClassNames="hawa-bg-red-500"
+        viewportClassNames="hawa-bg-blue-500 hawa-max-w-md"
         items={[
           {
             trigger: "item 1",
             content: (
-              <div className=" hawa-p-2 hawa-w-full">
+              <div className=" hawa-p-2 hawa-bg-green-100 hawa-w-full">
                 <NavMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
                 />
                 <NavigationMenuLink asChild>
-                  <div className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
                       <h1 className="hawa-font-bold ">{t("create")}</h1>
@@ -71,7 +73,7 @@ export const Default: Story = {
 
                 <div
                   // dir={locale === "ar" ? "rtl" : "ltr"}
-                  className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted"
+                  className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted"
                 >
                   <ArrowUpRightSquare />
                   <div className="hawa-flex hawa-flex-col">

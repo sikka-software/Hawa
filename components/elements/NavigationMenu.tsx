@@ -4,20 +4,27 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "../util";
 
+type NavigationMenuRootProps = React.ComponentPropsWithoutRef<
+  typeof NavigationMenuPrimitive.Root
+> & {
+  viewportClassNames?: string;
+};
+
 const NavigationMenuRoot = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
+  NavigationMenuRootProps
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "hawa-relative hawa-z-10 hawa-flex hawa-max-w-max hawa-flex-1 hawa-items-center hawa-justify-center",
+      "hawa-relative hawa-z-10 hawa-flex  hawa-flex-1 hawa-items-center hawa-justify-center",
+      // "hawa-max-w-max",
       className
     )}
     {...props}
   >
     {children}
-    <NavigationMenuViewport />
+    <NavigationMenuViewport className={props.viewportClassNames} />
   </NavigationMenuPrimitive.Root>
 ));
 NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName;
@@ -79,7 +86,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "hawa-absolute hawa-w-auto  hawa-left-0 hawa-top-0 ",
+      "hawa-absolute  hawa-w-full  hawa-left-0 hawa-top-0 ",
       // "md:hawa-absolute md:hawa-w-auto  hawa-left-0 hawa-top-0 ",
       //   animation
       "data-[motion^=from-]:hawa-animate-in data-[motion^=to-]:hawa-animate-out data-[motion^=from-]:hawa-fade-in data-[motion^=to-]:hawa-fade-out data-[motion=from-end]:hawa-slide-in-from-right-52 data-[motion=from-start]:hawa-slide-in-from-left-52 data-[motion=to-end]:hawa-slide-out-to-right-52 data-[motion=to-start]:hawa-slide-out-to-left-52",
@@ -154,11 +161,17 @@ NavigationMenuIndicator.displayName =
 
 type NavigationMenuTypes = {
   items: { trigger: any; content?: any }[];
+  rootClassNames?: string;
+  viewportClassNames?: string;
 };
 
 export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
   return (
-    <NavigationMenuRoot delayDuration={0}>
+    <NavigationMenuRoot
+      delayDuration={0}
+      className={props.rootClassNames}
+      viewportClassNames={props.viewportClassNames}
+    >
       <NavigationMenuList>
         {props.items.map((item, i) => (
           <NavigationMenuItem key={i}>
