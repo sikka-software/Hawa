@@ -88,7 +88,6 @@ const DropdownMenuItem = React.forwardRef<
     end?: any;
   }
 >(({ className, inset, ...props }, ref) => {
-  console.log("sdsdsds", props.children);
   return (
     <DropdownMenuPrimitive.Item
       disabled={props.disabled}
@@ -279,6 +278,8 @@ interface DropdownMenuProps {
   width?: "default" | "sm" | "lg" | "parent";
   size?: "default" | "sm";
   onItemSelect?: any;
+  onOpenChange?: any;
+  open?: any;
 }
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
@@ -293,6 +294,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   onItemSelect,
   size = "default",
   width = "default",
+  onOpenChange,
+  open,
 }) => {
   const widthStyles = {
     default: "hawa-min-w-[8rem]",
@@ -305,7 +308,12 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
     sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
   return (
-    <DropdownMenuRoot modal={false} dir={direction}>
+    <DropdownMenuRoot
+      onOpenChange={onOpenChange}
+      open={open}
+      modal={false}
+      dir={direction}
+    >
       <DropdownMenuTrigger asChild className={triggerClassname}>
         {trigger}
       </DropdownMenuTrigger>

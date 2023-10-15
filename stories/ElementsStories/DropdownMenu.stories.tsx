@@ -16,6 +16,7 @@ import {
   Home,
   MedalIcon,
 } from "lucide-react";
+import { useState } from "react";
 
 const meta = {
   title: "Elements/DropdownMenu",
@@ -171,17 +172,13 @@ const items = [
 ];
 const items2 = [
   {
-    label: "With Shortcut",
-    value: "item1",
-    icon: <Home className="hawa-icon" />,
-    end: <span>shift + E</span>,
     itemType: "custom",
     content: (
-      <div className="hawa-max-w-md hawa-p-2 hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center hover:hawa-bg-muted">
+      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center hawa-justify-center hover:hawa-bg-muted">
         <FolderOpen />
-        <div className="hawa-flex hawa-flex-col">
-          <h1 className="hawa-font-bold hawa-text-lg">Custom Title</h1>
-          <p className="hawa-text-sm">Subtitle of this menu item here</p>
+        <div className="hawa-flex hawa-flex-col hawa-justify-center ">
+          <div className="hawa-font-bold hawa-text-lg">Custom Title</div>
+          <div className="hawa-text-sm">Subtitle of this menu item here</div>
         </div>
       </div>
     ),
@@ -286,13 +283,19 @@ export const Custom: Story = {
     const handleItemSelect = (value: any) => {
       console.log("Selected item:", value);
     };
+    const [openMenu, setOpenMenu] = useState(false);
 
     return (
       <div className="hawa-flex  hawa-flex-1 hawa-flex-col ">
         <div className="hawa-flex-row hawa-flex hawa-w-full hawa-items-center hawa-justify-center hawa-gap-6 hawa-p-3">
           <DropdownMenu
+            open={openMenu}
             trigger={
-              <Button className="hawa-group hawa-flex hawa-flex-row hawa-gap-2">
+              <Button
+                onMouseEnter={() => setOpenMenu(!openMenu)}
+                onMouseLeave={() => setOpenMenu(false)}
+                className="hawa-group hawa-flex hawa-flex-row hawa-gap-2"
+              >
                 Open Menu
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

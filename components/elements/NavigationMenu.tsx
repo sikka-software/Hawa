@@ -11,7 +11,7 @@ const NavigationMenuRoot = React.forwardRef<
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "hawa-relative hawa-bg-yellow-400 hawa-p-2 hawa-z-10 hawa-flex hawa-max-w-max hawa-flex-1 hawa-items-center hawa-justify-center",
+      "hawa-relative hawa-z-10 hawa-flex hawa-max-w-max hawa-flex-1 hawa-items-center hawa-justify-center",
       className
     )}
     {...props}
@@ -29,7 +29,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "hawa-group hawa-bg-blue-400 hawa-p-2 hawa-flex hawa-flex-1 hawa-list-none hawa-items-center hawa-justify-center hawa-space-x-1",
+      "hawa-group hawa-flex hawa-flex-1 hawa-list-none hawa-items-center hawa-justify-center hawa-space-x-1",
       className
     )}
     {...props}
@@ -79,7 +79,8 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "hawa-bg-green-400 hawa-p-2  hawa-w-full md:hawa-absolute hawa-left-0 hawa-top-0 md:hawa-w-auto ",
+      "hawa-absolute hawa-w-auto  hawa-left-0 hawa-top-0 ",
+      // "md:hawa-absolute md:hawa-w-auto  hawa-left-0 hawa-top-0 ",
       //   animation
       "data-[motion^=from-]:hawa-animate-in data-[motion^=to-]:hawa-animate-out data-[motion^=from-]:hawa-fade-in data-[motion^=to-]:hawa-fade-out data-[motion=from-end]:hawa-slide-in-from-right-52 data-[motion=from-start]:hawa-slide-in-from-left-52 data-[motion=to-end]:hawa-slide-out-to-right-52 data-[motion=to-start]:hawa-slide-out-to-left-52",
       className
@@ -97,12 +98,14 @@ const NavigationMenuViewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     className={cn(
-      "hawa-absolute hawa-left-0 hawa-top-full hawa-flex hawa-justify-center"
+      "hawa-absolute hawa-w-full hawa-top-full hawa-flex hawa-justify-center"
     )}
   >
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "hawa-origin-top-center hawa-relative hawa-mt-1.5 hawa-h-[var(--radix-navigation-menu-viewport-height)] hawa-w-full hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-90 md:hawa-w-[var(--radix-navigation-menu-viewport-width)]",
+        "hawa-origin-top-center hawa-relative hawa-mt-1.5 hawa-h-[var(--radix-navigation-menu-viewport-height)] hawa-w-full hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-90 ",
+
+        // "md:hawa-w-[var(--radix-navigation-menu-viewport-width)]",
         className
       )}
       ref={ref}
@@ -147,7 +150,12 @@ export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
                 <NavigationMenuContent>{item.content}</NavigationMenuContent>
               </>
             ) : (
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "hawa-cursor-pointer hawa-select-none"
+                )}
+              >
                 {item.trigger}
               </NavigationMenuLink>
             )}
