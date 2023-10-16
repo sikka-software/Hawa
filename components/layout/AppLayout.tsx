@@ -389,7 +389,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-2 hawa-py-2 hawa-transition-all",
+            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
             design === "floating" ? "hawa-top-[76px]" : "hawa-top-14",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
           )}

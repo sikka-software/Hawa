@@ -104,7 +104,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
 }) => {
   // console.log("selected item is ", selectedItem)
   return (
-    <div>
+    <div className="hawa-m-2">
       {title && <h3 className="hawa-mb-1 hawa-font-bold">{title}</h3>}
       <ul className="hawa-flex hawa-flex-col hawa-gap-2">
         <Accordion
@@ -180,8 +180,7 @@ const SidebarItem: React.FC<{
               "hawa-flex hawa-w-fit hawa-flex-row hawa-items-center  hawa-gap-2"
             )}
           >
-            {item.icon}
-            {isOpen && (
+            {item.icon && item.icon}
               <span
                 className={cn(
                   "hawa-transition-all ",
@@ -190,7 +189,7 @@ const SidebarItem: React.FC<{
               >
                 {item.label}
               </span>
-            )}
+          
           </div>
         </AccordionTrigger>
         {item.subitems && (
@@ -218,7 +217,7 @@ const SidebarItem: React.FC<{
                     getSelectedStyle(subitem.value)
                   )}
                 >
-                  {subitem.icon}
+                  {subitem.icon && subitem.icon}
                   {subitem.label}
                 </li>
               ))}
@@ -245,10 +244,8 @@ const SidebarItem: React.FC<{
           "hawa-overflow-x-clip "
         )}
       >
-        <div
-          className={"hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"}
-        >
-          {item.icon}
+        <div className={"hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"}>
+          {item.icon && item.icon}
           <span
             className={cn(
               "hawa-whitespace-nowrap hawa-transition-all",

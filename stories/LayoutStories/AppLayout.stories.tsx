@@ -16,7 +16,7 @@ const meta = {
   title: "Layout/App Layout",
   component: AppLayout,
   parameters: {
-    layout: "fullscreen",
+    // layout: "fullscreen",
     docs: {
       page: () => (
         <>
@@ -61,7 +61,7 @@ export const Default: Story = {
             // LayoutDashboard,
             // PhoneCall,
             // Users2,
-            icon: () => <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
+            // icon: () => <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
             // icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
           },
           {
