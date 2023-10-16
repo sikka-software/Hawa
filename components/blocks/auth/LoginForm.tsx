@@ -122,7 +122,11 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
     });
   } else if (props.loginType === "phone") {
     formSchema = z.object({
-      phone: z.string().nonempty({ message: "Phone number is required" }),
+      phone: z
+        .string({ required_error: props.texts?.phoneRequiredText })
+        .refine((value) => value.split("-")[1] !== "", {
+          message: props.texts?.phoneRequiredText,
+        }),
     });
   } else {
     formSchema = z.object({});
@@ -202,14 +206,9 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                 render={({ field }) => (
                   <PhoneInput
                     label="Phone number"
-                    helperText={formState.errors.username?.message}
-                    // width="full"
-                    // type="text"
-                    // autoComplete="username"
-                    // label={props.texts?.usernameLabel || "Username"}
-                    // placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
-                    // onChange={field.onChange}
-                    // value={field.value ?? ""}
+                    helperText={formState.errors.phone?.message}
+                    preferredCountry={{ label: "+966" }}
+                    handleChange={field.onChange}
                   />
                 )}
               />
@@ -234,12 +233,6 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
                       value={field.value ?? ""}
                     />
                   )}
-                  // rules={{
-                  //   required:
-                  //     props.texts?.passwordRequiredText ||
-                  //     "Password is required",
-                  //   minLength: 5,
-                  // }}
                 />
                 {!props.withoutResetPassword && (
                   <div

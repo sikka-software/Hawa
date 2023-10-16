@@ -88,6 +88,10 @@ export const Default: Story = {
   args: {
     requestTypes: [
       {
+        label: "Custom Type",
+        value: "custom-type",
+      },
+      {
         label: "Bug",
         value: "bug",
       },

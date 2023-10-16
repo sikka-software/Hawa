@@ -165,7 +165,7 @@ export const Select: FC<SelectTypes> = (props) => {
       <div
         className={cn(
           "hawa-absolute  hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background",
-          props.phoneCode ? "hawa-p-1.5 hawa-pr-0" : "hawa-p-1.5 hawa-w-full",
+          props.phoneCode ? "hawa-p-1.5" : "hawa-p-1.5 hawa-w-full",
           menuOpen && "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
 
           // menuOpen

@@ -4,7 +4,7 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
-  title: "Playground",
+  title: "Playground (AI)",
   component: Alert,
   parameters: {
     // layout: "centered",
@@ -66,6 +66,58 @@ export const Carousel: Story = {
     </div>
   ),
 };
+export const GaugeStory: Story = {
+  name: "Gauge",
+  render: () => (
+    <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
+      <Gauge value={23} />
+    </div>
+  ),
+};
+export const NavBar: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
+      <ShopNavBar />
+    </div>
+  ),
+};
+export const WifiIcon: Story = {
+  name: "Wifi Icon (non-AI)",
+  render: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      // class="lucide lucide-wifi"
+    >
+      <path
+        className=" hawa-delay-500 hawa-duration-1000 hawa-animate-pulse"
+        d="M5 13a10 10 0 0 1 14 0"
+      />
+      <path
+        className="hawa-delay-300 hawa-duration-1000 hawa-animate-pulse"
+        d="M8.5 16.5a5 5 0 0 1 7 0"
+      />
+      <path
+        className="hawa-delay-100 hawa-duration-1000 hawa-animate-pulse"
+        d="M2 8.82a15 15 0 0 1 20 0"
+      />
+      <line
+        className="hawa-delay-75 hawa-duration-1000 hawa-animate-pulse"
+        x1="12"
+        x2="12.01"
+        y1="20"
+        y2="20"
+      />
+    </svg>
+  ),
+};
 
 const WidgetCard = ({ imageSrc, title, description, isNew }) => (
   <div className="hawa-relative  hawa-bg-white hawa-rounded-xl hawa-shadow-md hawa-mx-4 hawa-p-6 hawa-flex hawa-flex-col hawa-space-y-4 hawa-w-64">
@@ -83,7 +135,6 @@ const WidgetCard = ({ imageSrc, title, description, isNew }) => (
     <p className="hawa-text-gray-600 hawa-flex-grow">{description}</p>
   </div>
 );
-
 const WidgetContainer = () => (
   <div className="hawa-relative hawa-p-10 hawa-bg-gray-100">
     <button className="hawa-absolute hawa-top-1/2 hawa-left-4 hawa-transform hawa--translate-y-1/2 hawa-text-3xl hawa-text-gray-400">
@@ -118,3 +169,45 @@ const WidgetContainer = () => (
     </button>
   </div>
 );
+const Gauge = ({ value }) => {
+  const angle = (value / 100) * 180; // Assuming the gauge spans 180 degrees
+
+  return (
+    <div className="hawa-relative hawa-w-32 hawa-h-16">
+      <div className="hawa-absolute hawa-w-32 hawa-h-32 hawa-rounded-full hawa-border hawa-border-gray-300 hawa-bottom-0"></div>
+      <div className="hawa-absolute hawa-w-32 hawa-h-16 hawa-bg-white hawa-bottom-0"></div>
+      <div className="hawa-absolute hawa-w-32 hawa-h-16 hawa-overflow-hidden hawa-bottom-0">
+        <div
+          className="hawa-w-32 hawa-h-32 hawa-bg-green-400 hawa-rounded-full hawa-transform hawa-origin-bottom"
+          style={{ transform: `rotate(${angle}deg)` }}
+        ></div>
+      </div>
+      <div className="hawa-absolute hawa-w-full hawa-h-16 hawa-flex hawa-items-center hawa-justify-center hawa-bottom-0">
+        <span className="hawa-text-2xl hawa-font-bold">{value}/100</span>
+      </div>
+    </div>
+  );
+};
+const ShopNavBar = () => {
+  return (
+    <div className="hawa-bg-white hawa-shadow-md hawa-rounded-lg hawa-flex hawa-justify-between hawa-items-center hawa-p-2">
+      <button className="hawa-px-3 hawa-py-2 hawa-bg-transparent hawa-text-blue-600 hawa-border hawa-border-blue-600 hawa-rounded hawa-flex hawa-items-center">
+        <i className="icon-home"></i>{" "}
+        {/* Replace 'icon-home' with your home icon's class */}
+        <span className="hawa-ml-2">Shop</span>
+      </button>
+
+      <button className="hawa-px-3 hawa-py-2 hawa-bg-transparent hawa-text-blue-600 hawa-border hawa-border-transparent hawa-rounded hawa-flex hawa-items-center">
+        <i className="icon-cart"></i>{" "}
+        {/* Replace 'icon-cart' with your cart icon's class */}
+        <span className="hawa-ml-2">Cart</span>
+      </button>
+
+      <button className="hawa-px-4 hawa-py-2 hawa-bg-blue-600 hawa-text-white hawa-border hawa-border-blue-600 hawa-rounded hawa-flex hawa-items-center">
+        <i className="icon-checkout"></i>{" "}
+        {/* Replace 'icon-checkout' with your checkout icon's class */}
+        <span className="hawa-ml-2">Checkout</span>
+      </button>
+    </div>
+  );
+};
