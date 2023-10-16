@@ -17,6 +17,13 @@
   "location": "المقر الرئيسي",
   "employees": "عدد الموظفين",
   "share-price": "سعر السهم",
+  "userReferenceLabel": "كيف عرفت عننا؟",
+
+  "refCodePlaceholder": "أدخل رمز الإحالة",
+  "userReferencePlaceholder": "إختر إحدى الخيارات",
+  "friends-family": "الأهل أو الأصدقاء",
+  "ad": "إعلان",
+  "other": "أخرى",
 
   "of": "من",
   "page": "صفحة",

@@ -32,13 +32,69 @@ export const Default: Story = {
     return (
       <NavigationMenu
         direction="ltr"
-        rootClassNames="hawa-bg-yellow-500 hawa-w-fit"
-        viewportClassNames="hawa-max-w-md hawa-bg-red-400"
+        rootClassNames="hawa-w-fit"
+        viewportClassNames="hawa-max-w-md"
         items={[
           {
             trigger: "item 1",
             content: (
-              <div className=" hawa-p-2  hawa-w-full hawa-bg-green-500">
+              <div className=" hawa-p-2  hawa-w-full">
+                <NavMenuItem
+                  icon={<FilePlus2 />}
+                  title={t("create")}
+                  subtitle="Subtitle of this menu item here"
+                />
+                <NavigationMenuLink asChild>
+                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                    <FilePlus2 />
+                    <div className="hawa-flex hawa-flex-col">
+                      <h1 className="hawa-font-bold ">{t("create")}</h1>
+                      <p className="hawa-text-sm">
+                        Subtitle of this menu item here
+                      </p>
+                    </div>
+                  </div>
+                </NavigationMenuLink>
+
+                <div
+                  // dir={locale === "ar" ? "rtl" : "ltr"}
+                  className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted"
+                >
+                  <ArrowUpRightSquare />
+                  <div className="hawa-flex hawa-flex-col">
+                    <h1 className="hawa-font-bold ">{t("share")}</h1>
+                    <p className="hawa-text-sm">
+                      Subtitle of this menu item here
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ),
+          },
+          {
+            trigger: "item 2",
+          },
+          {
+            trigger: "item 3",
+            content: <div className="hawa-p-4">something here</div>,
+          },
+        ]}
+      />
+    );
+  },
+};
+export const RTL: Story = {
+  render: () => {
+    return (
+      <NavigationMenu
+        direction="rtl"
+        rootClassNames="hawa-w-fit"
+        viewportClassNames="hawa-max-w-md"
+        items={[
+          {
+            trigger: "item 1",
+            content: (
+              <div className=" hawa-p-2  hawa-w-full">
                 <NavMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}

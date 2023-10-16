@@ -212,7 +212,7 @@ export const Default: Story = {
   },
 
   args: {
-    loginType: "email",
+    loginType: "phone",
   },
   argTypes: {
     handleRouteToRegister: { action: "handleRouteToRegister" },

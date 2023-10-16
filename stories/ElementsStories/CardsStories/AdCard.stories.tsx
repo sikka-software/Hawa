@@ -25,13 +25,13 @@ type Story = StoryObj<typeof AdCard>;
 const Template = (args: any) => (
   <>
     <div>
-      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold dark:hawa-text-white">
+      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
         Horizontal
       </div>
       <AdCard orientation="horizontal" {...args} />
     </div>
     <div>
-      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold dark:hawa-text-white">
+      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
         Vertical
       </div>
       <AdCard orientation="vertical" {...args} />

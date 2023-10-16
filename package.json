@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.7.20",
+  "version": "0.8.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

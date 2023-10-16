@@ -53,7 +53,7 @@ export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
   return (
     <div ref={adRef}>
       <div
-        className={clsx(cardStyles[orientation], "dark:hawa-text-white")}
+        className={clsx(cardStyles[orientation], "")}
         {...props}
         onClick={props.handleClick}
       >

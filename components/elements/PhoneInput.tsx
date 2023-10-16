@@ -77,9 +77,12 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
       )}
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full ">
         <Select
+          phoneCode
+          hideIndicator
           width="fit"
-          controlClassNames="hawa-rounded-r-none"
-          containerClassNames="hawa-w-[100px] hawa-p-0 hawa-rounded-r-none"
+          // controlClassNames="hawa-rounded-r-none"
+          // containerClassNames="hawa-w-[100px] hawa-p-0 hawa-rounded-r-none"
+          placeholder="Code"
           options={Countries}
           isMulti={false}
           isSearchable={true}

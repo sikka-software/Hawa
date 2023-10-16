@@ -64,8 +64,16 @@ const Template = (args: any, globals: any) => {
           registerViaGoogleLabel: t("registerViaGoogleLabel"),
           registerViaGithubLabel: t("registerViaGithubLabel"),
           registerViaTwitterLabel: t("registerViaTwitterLabel"),
+          userReferenceLabel: t("userReferenceLabel"),
+          userReferencePlaceholder: t("userReferencePlaceholder"),
           refCode: t("refCode"),
+          refCodePlaceholder: t("refCodePlaceholder"),
         }}
+        userReferenceOptions={[
+          { label: t("friends-family"), value: "friends-family" },
+          { label: t("ad"), value: "ad" },
+          { label: t("other"), value: "other" },
+        ]}
         {...args}
       />
     </div>

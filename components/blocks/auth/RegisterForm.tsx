@@ -10,6 +10,7 @@ import {
   Card,
   CardContent,
   CardFooter,
+  SelectOptionProps,
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
@@ -49,7 +50,6 @@ type RegisterFormTypes = {
     confirmPasswordLabel: string;
     confirmPasswordPlaceholder: string;
     confirmPasswordRequired: string;
-    refCodePlaceholder: string;
     subscribeToNewsletter: string;
     forgotPasswordText: string;
     termsText: string;
@@ -63,7 +63,9 @@ type RegisterFormTypes = {
     registerViaGithubLabel: string;
     registerViaTwitterLabel: string;
     refCode: string;
+    refCodePlaceholder: string;
     userReferenceLabel: string;
+    userReferencePlaceholder: string;
   };
   /** Enables registration via Google when set to true. */
   viaGoogle: boolean;
@@ -101,6 +103,8 @@ type RegisterFormTypes = {
   registerFields: any[];
   /** Indicates whether the form submission is in progress. */
   isLoading?: boolean;
+
+  userReferenceOptions: SelectOptionProps[];
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = (props) => {
@@ -327,18 +331,20 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       render={({ field }) => (
                         <Select
                           label={
-                            props.texts.userReferenceLabel ||
+                            props.texts?.userReferenceLabel ||
                             "How did you learn about us?"
                           }
+                          placeholder={props.texts?.userReferencePlaceholder}
                           isCreatable={false}
                           isMulti={false ?? false}
                           isSearchable={false}
                           isClearable={false ?? false}
-                          options={[
-                            { value: "friend", label: "From a friend" },
-                            { value: "ad", label: "Advertisement" },
-                            { value: "other", label: "Other" },
-                          ]}
+                          options={props.userReferenceOptions}
+                          // options={[
+                          //   { value: "friend", label: "From a friend" },
+                          //   { value: "ad", label: "Advertisement" },
+                          //   { value: "other", label: "Other" },
+                          // ]}
                           onChange={(e: any) => {
                             field.onChange(e.value);
                           }}
