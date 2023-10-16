@@ -1,24 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  Button,
   NavMenuItem,
   NavigationMenu,
   NavigationMenuLink,
 } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
-import { useState } from "react";
+import { ArgsTable, Story } from "@storybook/blocks";
+import { t } from "../translations/i18n";
 import { ArrowUpRightSquare, FilePlus2 } from "lucide-react";
 
 const meta = {
   title: "Elements/Navigation Menu",
   component: NavigationMenu,
   parameters: {
-    // backgrounds: {
-    //   default: "offwhite",
-    //   values: [{ name: "offwhite", value: "#ededed" }],
-    // },
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -34,26 +27,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof NavigationMenu>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return <div>NavigationMenu story</div>;
-};
-
 export const Default: Story = {
   render: () => {
-    // const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-    // setLocale(locale);
     return (
       <NavigationMenu
-        rootClassNames="hawa-bg-red-500"
-        viewportClassNames="hawa-bg-blue-500 hawa-max-w-md"
+        direction="ltr"
+        rootClassNames="hawa-bg-yellow-500 hawa-w-fit"
+        viewportClassNames="hawa-max-w-md hawa-bg-red-400"
         items={[
           {
             trigger: "item 1",
             content: (
-              <div className=" hawa-p-2 hawa-bg-green-100 hawa-w-full">
+              <div className=" hawa-p-2  hawa-w-full hawa-bg-green-500">
                 <NavMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}

@@ -36,7 +36,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "hawa-group hawa-flex hawa-flex-1 hawa-list-none hawa-items-center hawa-justify-center hawa-space-x-1",
+      "hawa-group hawa-flex hawa-flex-1 hawa-list-none hawa-items-center hawa-justify-center hawa-gap-1",
       className
     )}
     {...props}
@@ -47,7 +47,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
-  "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 data-[state=open]:hawa-bg-accent/50"
+  "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-gap-1 hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 data-[state=open]:hawa-bg-accent/50"
 );
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -71,7 +71,7 @@ const NavigationMenuTrigger = React.forwardRef<
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true"
-      className="hawa-relative hawa-top-[1px] hawa-ml-1 hawa-h-4 hawa-w-4 hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
+      className="hawa-relative hawa-top-[1px] hawa-h-4 hawa-w-4 hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
@@ -163,11 +163,13 @@ type NavigationMenuTypes = {
   items: { trigger: any; content?: any }[];
   rootClassNames?: string;
   viewportClassNames?: string;
+  direction?: "rtl" | "ltr";
 };
 
 export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
   return (
     <NavigationMenuRoot
+      dir={props.direction}
       delayDuration={0}
       className={props.rootClassNames}
       viewportClassNames={props.viewportClassNames}
@@ -196,6 +198,7 @@ export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
     </NavigationMenuRoot>
   );
 };
+
 // export {
 //   navigationMenuTriggerStyle,
 //   NavigationMenu,
