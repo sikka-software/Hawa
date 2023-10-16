@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LoginForm } from "../../../components";
+import { Button, LoginForm } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";
@@ -213,6 +213,66 @@ export const Default: Story = {
 
   args: {
     loginType: "phone",
+  },
+  argTypes: {
+    handleRouteToRegister: { action: "handleRouteToRegister" },
+    handleForgotPassword: { action: "handleForgotPassword" },
+    handleLogin: { action: "handleLogin" },
+    handleColorMode: { action: "handleColorMode" },
+    handleLanguage: { action: "handleLanguage" },
+  },
+};
+export const MagicLink: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+
+    setLocale(locale);
+    const [isError, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    let d = useDarkMode();
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
+        <LoginForm
+          direction={locale === "ar" ? "rtl" : "ltr"}
+          // handleColorMode={(e: any) => console.log("switching color mode")}
+          // handleLanguage={(e: any) => console.log("testing", e)}
+          // handleRouteToRegister={() =>
+          //   console.log("redirecting to register page")
+          // }
+          currentColorMode={d ? "dark" : "light"}
+          currentLanguage={globals.globals.locale}
+          showError={isError}
+          texts={{
+            emailLabel: t("emailLabel"),
+            emailPlaceholder: t("emailPlaceholder"),
+            emailRequiredText: t("emailRequiredText"),
+            emailInvalidText: t("emailInvalidText"),
+            usernameLabel: t("usernameLabel"),
+            usernamePlaceholder: t("usernamePlaceholder"),
+            usernameRequired: t("usernameRequired"),
+            phoneRequiredText: t("phoneRequiredText"),
+            passwordLabel: t("passwordLabel"),
+            passwordPlaceholder: t("passwordPlaceholder"),
+            passwordRequiredText: t("passwordRequiredText"),
+            forgotPasswordText: t("forgotPasswordText"),
+            newUserText: t("newUserText"),
+            createAccount: t("createAccount"),
+            loginText: t("send-email-to-login"),
+            loginViaGoogleLabel: t("loginViaGoogleLabel"),
+            loginViaGithubLabel: t("loginViaGithubLabel"),
+            loginViaTwitterLabel: t("loginViaTwitterLabel"),
+          }}
+          additionalButtons={
+            <Button variant={"outline"}>{t("type-password")}</Button>
+          }
+          {...args}
+        />
+      </div>
+    );
+  },
+
+  args: {
+    loginType: "link",
   },
   argTypes: {
     handleRouteToRegister: { action: "handleRouteToRegister" },

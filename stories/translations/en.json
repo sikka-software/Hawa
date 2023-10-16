@@ -19,7 +19,8 @@
   "share-price": "Share Price",
   "userReferenceLabel": "How did you learn about us?",
   "refCode": "Referral Code",
-
+  "send-email-to-login": "Send link to login",
+  "type-password": "Type password",
   "refCodePlaceholder": "Enter your reference code",
   "userReferencePlaceholder": "Select a source",
   "friends-family": "Friends or family",

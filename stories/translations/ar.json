@@ -18,7 +18,8 @@
   "employees": "عدد الموظفين",
   "share-price": "سعر السهم",
   "userReferenceLabel": "كيف عرفت عننا؟",
-
+  "send-email-to-login": "أرسل رابط الدخول",
+  "type-password": "أدخل كلمة المرور",
   "refCodePlaceholder": "أدخل رمز الإحالة",
   "userReferencePlaceholder": "إختر إحدى الخيارات",
   "friends-family": "الأهل أو الأصدقاء",

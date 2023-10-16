@@ -56,7 +56,7 @@ type LoginFormTypes = {
   /** Description text of error alert.   */
   errorText?: string;
   /** Login identifier type user will use to log in.   */
-  loginType?: "email" | "username" | "phone";
+  loginType?: "email" | "username" | "phone" | "link";
   /** If true, the reset password option is hidden.   */
   withoutResetPassword?: boolean;
   /** If true, the register option is hidden.   */
@@ -87,12 +87,13 @@ type LoginFormTypes = {
   handleGithubLogin?: () => void;
   /** Function to handle Twitter login.   */
   handleTwitterLogin?: () => void;
+  additionalButtons?: any;
 };
 
-export const LoginForm: FC<LoginFormTypes> = (props) => {
+export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
   let formSchema;
 
-  if (props.loginType === "email") {
+  if (loginType === "email") {
     formSchema = z.object({
       email: z
         .string({
@@ -107,7 +108,7 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
         .min(5, { message: "Password must be at least 5 characters long" })
         .nonempty({ message: props.texts?.passwordRequiredText }),
     });
-  } else if (props.loginType === "username") {
+  } else if (loginType === "username") {
     formSchema = z.object({
       username: z
         .string()
@@ -120,13 +121,22 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
         .min(5, { message: "Password must be at least 5 characters long" })
         .nonempty({ message: props.texts?.passwordRequiredText }),
     });
-  } else if (props.loginType === "phone") {
+  } else if (loginType === "phone") {
     formSchema = z.object({
       phone: z
         .string({ required_error: props.texts?.phoneRequiredText })
         .refine((value) => value.split("-")[1] !== "", {
           message: props.texts?.phoneRequiredText,
         }),
+    });
+  } else if (loginType === "link") {
+    formSchema = z.object({
+      email: z
+        .string({
+          required_error: props.texts?.emailRequiredText,
+        })
+        .nonempty({ message: props.texts?.emailRequiredText })
+        .email({ message: props.texts?.emailInvalidText }),
     });
   } else {
     formSchema = z.object({});
@@ -136,6 +146,155 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
     resolver: zodResolver(formSchema),
   });
 
+  const renderFields = () => {
+    switch (loginType) {
+      case "email":
+        return (
+          <>
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <Input
+                  width="full"
+                  type="text"
+                  autoComplete="email"
+                  label={props.texts?.emailLabel || "Email"}
+                  helperText={formState.errors.email?.message}
+                  placeholder={
+                    props.texts?.emailPlaceholder || "contact@sikka.io"
+                  }
+                  value={field.value ?? ""}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            <div>
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <Input
+                    width="full"
+                    autoComplete="current-password"
+                    type="password"
+                    label={props.texts?.passwordLabel || "Password"}
+                    placeholder={
+                      props.texts?.passwordPlaceholder || "Enter your password"
+                    }
+                    helperText={formState.errors.password?.message}
+                    onChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                )}
+              />
+              {!props.withoutResetPassword && (
+                <div
+                  onClick={props.handleForgotPassword}
+                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                >
+                  {props.texts?.forgotPasswordText || "Forgot Password?"}
+                </div>
+              )}
+            </div>
+          </>
+        );
+      case "username":
+        return (
+          <>
+            <Controller
+              control={control}
+              name="username"
+              render={({ field }) => {
+                return (
+                  <Input
+                    width="full"
+                    type="text"
+                    autoComplete="username"
+                    label={props.texts?.usernameLabel || "Username"}
+                    helperText={formState.errors.username?.message}
+                    placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
+                    onChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                );
+              }}
+            />
+            <div>
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <Input
+                    width="full"
+                    autoComplete="current-password"
+                    type="password"
+                    label={props.texts?.passwordLabel || "Password"}
+                    placeholder={
+                      props.texts?.passwordPlaceholder || "Enter your password"
+                    }
+                    helperText={formState.errors.password?.message}
+                    onChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                )}
+              />
+              {!props.withoutResetPassword && (
+                <div
+                  onClick={props.handleForgotPassword}
+                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                >
+                  {props.texts?.forgotPasswordText || "Forgot Password?"}
+                </div>
+              )}
+            </div>
+          </>
+        );
+      case "phone":
+        return (
+          <>
+            <Controller
+              control={control}
+              name="phone"
+              render={({ field }) => (
+                <PhoneInput
+                  label="Phone number"
+                  helperText={formState.errors.phone?.message}
+                  preferredCountry={{ label: "+966" }}
+                  handleChange={field.onChange}
+                />
+              )}
+            />
+          </>
+        );
+      case "link":
+        return (
+          <>
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <Input
+                  width="full"
+                  type="text"
+                  autoComplete="email"
+                  label={props.texts?.emailLabel || "Email"}
+                  helperText={formState.errors.email?.message}
+                  placeholder={
+                    props.texts?.emailPlaceholder || "contact@sikka.io"
+                  }
+                  value={field.value ?? ""}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+          </>
+        );
+
+      default:
+        break;
+    }
+  };
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
       <Card dir={props.direction}>
@@ -159,104 +318,16 @@ export const LoginForm: FC<LoginFormTypes> = (props) => {
               }
             })}
           >
-            {props.loginType === "email" ? (
-              <Controller
-                control={control}
-                name="email"
-                render={({ field }) => (
-                  <Input
-                    width="full"
-                    type="text"
-                    autoComplete="email"
-                    label={props.texts?.emailLabel || "Email"}
-                    helperText={formState.errors.email?.message}
-                    placeholder={
-                      props.texts?.emailPlaceholder || "contact@sikka.io"
-                    }
-                    value={field.value ?? ""}
-                    onChange={field.onChange}
-                  />
-                )}
-              />
-            ) : props.loginType === "username" ? (
-              <Controller
-                control={control}
-                name="username"
-                render={({ field }) => {
-                  return (
-                    <Input
-                      width="full"
-                      type="text"
-                      autoComplete="username"
-                      label={props.texts?.usernameLabel || "Username"}
-                      helperText={formState.errors.username?.message}
-                      placeholder={
-                        props.texts?.usernamePlaceholder || "sikka_sa"
-                      }
-                      onChange={field.onChange}
-                      value={field.value ?? ""}
-                    />
-                  );
-                }}
-              />
-            ) : (
-              <Controller
-                control={control}
-                name="phone"
-                render={({ field }) => (
-                  <PhoneInput
-                    label="Phone number"
-                    helperText={formState.errors.phone?.message}
-                    preferredCountry={{ label: "+966" }}
-                    handleChange={field.onChange}
-                  />
-                )}
-              />
-            )}
-            {props.loginType !== "phone" && (
-              <div>
-                <Controller
-                  control={control}
-                  name="password"
-                  render={({ field }) => (
-                    <Input
-                      width="full"
-                      autoComplete="current-password"
-                      type="password"
-                      label={props.texts?.passwordLabel || "Password"}
-                      placeholder={
-                        props.texts?.passwordPlaceholder ||
-                        "Enter your password"
-                      }
-                      helperText={formState.errors.password?.message}
-                      onChange={field.onChange}
-                      value={field.value ?? ""}
-                    />
-                  )}
-                />
-                {!props.withoutResetPassword && (
-                  <div
-                    onClick={props.handleForgotPassword}
-                    className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
-                  >
-                    {props.texts?.forgotPasswordText || "Forgot Password?"}
-                  </div>
-                )}
-              </div>
-            )}
+            {renderFields()}
 
             <Button
               className="hawa-mt-0 hawa-w-full"
-              // disabled={
-              //   props.isGithubLoading ||
-              //   props.isGoogleLoading ||
-              //   props.isTwitterLoading
-              // }
               type="submit"
               isLoading={props.isLoading}
             >
               {props.texts?.loginText || "Login"}
             </Button>
+            {props.additionalButtons}
             {!props.withoutRegister && (
               <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
                 {props.texts?.newUserText || "New user?"}{" "}
