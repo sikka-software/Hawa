@@ -11,6 +11,7 @@ import {
   CardContent,
   CardFooter,
   SelectOptionProps,
+  Loading,
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
@@ -103,7 +104,12 @@ type RegisterFormTypes = {
   registerFields: any[];
   /** Indicates whether the form submission is in progress. */
   isLoading?: boolean;
-
+  /** If true, a loading spinner is displayed within the Google login button.   */
+  isGoogleLoading?: boolean;
+  /** If true, a loading spinner is displayed within the Twitter login button.   */
+  isTwitterLoading?: boolean;
+  /** If true, a loading spinner is displayed within the Github login button.   */
+  isGithubLoading?: boolean;
   userReferenceOptions: SelectOptionProps[];
 };
 
@@ -427,7 +433,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 variant="outline"
                 onClick={props.handleGoogleRegister}
               >
-                <Logos.google className="hawa-h-4 hawa-w-4" />
+                {props.isGoogleLoading ? (
+                  <Loading size="button" />
+                ) : (
+                  <Logos.google className="hawa-h-4 hawa-w-4" />
+                )}{" "}
                 {!props.logosOnly && props.texts.registerViaGoogleLabel}
               </Button>
             )}
@@ -437,7 +447,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 variant="outline"
                 onClick={props.handleGithubRegister}
               >
-                <Logos.github className="hawa-h-4 hawa-w-4" />
+                {props.isGithubLoading ? (
+                  <Loading size="button" />
+                ) : (
+                  <Logos.github className="hawa-h-4 hawa-w-4" />
+                )}{" "}
                 {!props.logosOnly && props.texts.registerViaGithubLabel}
               </Button>
             )}
@@ -447,7 +461,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 variant="outline"
                 onClick={props.handleTwitterRegister}
               >
-                <Logos.twitter className="hawa-h-4 hawa-w-4" />
+                {props.isTwitterLoading ? (
+                  <Loading size="button" />
+                ) : (
+                  <Logos.twitter className="hawa-h-4 hawa-w-4" />
+                )}{" "}
                 {!props.logosOnly && props.texts.registerViaTwitterLabel}
               </Button>
             )}
