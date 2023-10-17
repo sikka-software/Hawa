@@ -269,8 +269,8 @@ export default function Home() {
           Customize Hawa
         </div>
         <div className="hawa-text-lg hawa-max-w-lg hawa-leading-6">
-          Adjust the colors to generate the global roots that you can copy and
-          paste into your primary css file
+          Adjust the colors to generate the global CSS variables that you can copy and
+          paste into your primary CSS file
         </div>
       </div>
 

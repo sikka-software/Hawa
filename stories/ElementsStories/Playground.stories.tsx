@@ -20,14 +20,14 @@ const meta = {
   tags: ["autodocs"],
 } satisfies Meta<typeof Alert>;
 
-const ProgressBar = ({ currentMetric, maxMetric }) => {
-  const percentage = (currentMetric / maxMetric) * 100;
+const ProgressBar = (props: any) => {
+  const percentage = (props.currentMetric / props.maxMetric) * 100;
 
   return (
     <div className="hawa-p-4 hawa-bg-gray-100 hawa-rounded-md">
       {/* Numeric display of the current metric value */}
       <div className="hawa-text-center hawa-mb-4 hawa-text-xl hawa-font-bold">
-        {currentMetric}/{maxMetric}
+        {props.currentMetric}/{props.maxMetric}
       </div>
 
       {/* Horizontal progress bar */}
@@ -119,20 +119,20 @@ export const WifiIcon: Story = {
   ),
 };
 
-const WidgetCard = ({ imageSrc, title, description, isNew }) => (
+const WidgetCard = (props: any) => (
   <div className="hawa-relative  hawa-bg-white hawa-rounded-xl hawa-shadow-md hawa-mx-4 hawa-p-6 hawa-flex hawa-flex-col hawa-space-y-4 hawa-w-64">
-    {isNew && (
+    {props.isNew && (
       <span className="hawa-absolute hawa-top-4 hawa-right-4 hawa-bg-green-500 hawa-text-white hawa-text-xs hawa-px-2 hawa-py-1 hawa-rounded-full">
         New
       </span>
     )}
     <img
-      src={imageSrc}
-      alt={title}
+      src={props.imageSrc}
+      alt={props.title}
       className="hawa-w-full hawa-h-40 hawa-object-cover hawa-rounded-md"
     />
-    <h3 className="hawa-text-xl hawa-font-bold">{title}</h3>
-    <p className="hawa-text-gray-600 hawa-flex-grow">{description}</p>
+    <h3 className="hawa-text-xl hawa-font-bold">{props.title}</h3>
+    <p className="hawa-text-gray-600 hawa-flex-grow">{props.description}</p>
   </div>
 );
 const WidgetContainer = () => (
@@ -169,8 +169,8 @@ const WidgetContainer = () => (
     </button>
   </div>
 );
-const Gauge = ({ value }) => {
-  const angle = (value / 100) * 180; // Assuming the gauge spans 180 degrees
+const Gauge = (props: any) => {
+  const angle = (props.value / 100) * 180; // Assuming the gauge spans 180 degrees
 
   return (
     <div className="hawa-relative hawa-w-32 hawa-h-16">
@@ -183,7 +183,7 @@ const Gauge = ({ value }) => {
         ></div>
       </div>
       <div className="hawa-absolute hawa-w-full hawa-h-16 hawa-flex hawa-items-center hawa-justify-center hawa-bottom-0">
-        <span className="hawa-text-2xl hawa-font-bold">{value}/100</span>
+        <span className="hawa-text-2xl hawa-font-bold">{props.value}/100</span>
       </div>
     </div>
   );
