@@ -1,4 +1,6 @@
+import { cn } from "../../components/util";
 import React, { useState, FC } from "react";
+import { useDarkMode } from "storybook-dark-mode";
 
 type ComponentProps = {
   key?: any;
@@ -9,28 +11,39 @@ interface PropsTableTypes {
   componentProps: ComponentProps[];
 }
 export const TranslationTable: FC<PropsTableTypes> = ({ componentProps }) => {
+  const dark = useDarkMode();
+
   return (
     <div className="hawa-mt-10 hawa-flex hawa-flex-col hawa-gap-4">
       <div className="hawa-overflow-x-auto">
-        <table className="hawa-min-w-full hawa-divide-y hawa-divide-gray-200 hawa-border hawa-border-gray-300 hawa-bg-white">
-          <thead className="hawa-bg-gray-50">
+        <table
+          className={cn(
+            "hawa-min-w-full"
+            // "hawa-divide-y hawa-divide-gray-200 hawa-border hawa-border-gray-300",
+            // dark ? "hawa-bg-gray-800" : "hawa-bg-white"
+          )}
+        >
+          <thead
+            className={cn(dark ? "hawa-bg-gray-700 " : "hawa-bg-gray-300")}
+          >
             <tr>
               <th
                 scope="col"
-                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-text-xs hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
+                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
+                // className="hawa-px-6 hawa-py-3 hawa-text-start hawa-text-xs hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
               >
                 Key
               </th>
 
               <th
                 scope="col"
-                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-text-xs hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
+                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
               >
                 Default
               </th>
               <th
                 scope="col"
-                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-text-xs hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
+                className="hawa-px-6 hawa-py-3 hawa-text-start hawa-font-medium hawa-uppercase hawa-tracking-wider hawa-text-gray-500"
               >
                 Description
               </th>
@@ -45,7 +58,7 @@ export const TranslationTable: FC<PropsTableTypes> = ({ componentProps }) => {
                   </div>
                 </td>
 
-                <td className="hawa-whitespace-break-spaces hawa-px-6 hawa-py-4 wh">
+                <td className="hawa-whitespace-break-spaces hawa-px-6 hawa-py-4">
                   <div className="hawa-text-xs hawa-text-foreground">
                     {prop.default}
                   </div>
