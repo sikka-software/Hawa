@@ -265,6 +265,7 @@ export type MenuItemType = {
   subitems?: SubItem[];
   disabled?: boolean;
   onMiddleClick?: any;
+  onClick?: any;
 };
 interface DropdownMenuProps {
   trigger?: any;
@@ -391,6 +392,11 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         if (item.onMiddleClick) {
                           item.onMiddleClick(item.value);
                         }
+                      }
+                    }}
+                    onClick={(event: any) => {
+                      if (item.onClick) {
+                        item.onClick(item.value);
                       }
                     }}
                     onSelect={(e) => {
