@@ -62,14 +62,15 @@ CardDescription.displayName = "CardDescription";
 
 type CardContentProps = {
   headless?: boolean;
+  noPadding?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
-  ({ headless, className, ...props }, ref) => (
+  ({ headless, noPadding, className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        "hawa-p-6",
+        noPadding ? "hawa-p-0" : "hawa-p-6",
         headless ? "hawa-pt-6" : "hawa-pt-0",
         className
       )}
