@@ -9,21 +9,44 @@ type AccordionItem = {
 
 type AccordionProps = {
   items: AccordionItem[];
+  itemClassNames: string;
+  triggerclassNames: string;
+  contentclassNames: string;
 } & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   AccordionProps
->(({ items, className, ...props }, ref) => (
-  <AccordionPrimitive.Root type={props.type} collapsible>
-    {items.map((item, index) => (
-      <AccordionItem key={index} value={`item-${index}`}>
-        <AccordionTrigger>{item.trigger}</AccordionTrigger>
-        <AccordionContent>{item.content}</AccordionContent>
-      </AccordionItem>
-    ))}
-  </AccordionPrimitive.Root>
-));
+>(
+  (
+    {
+      items,
+      itemClassNames,
+      triggerclassNames,
+      contentclassNames,
+      className,
+      ...props
+    },
+    ref
+  ) => (
+    <AccordionPrimitive.Root type={props.type} collapsible>
+      {items.map((item, index) => (
+        <AccordionItem
+          className={itemClassNames}
+          key={index}
+          value={`item-${index}`}
+        >
+          <AccordionTrigger className={triggerclassNames}>
+            {item.trigger}
+          </AccordionTrigger>
+          <AccordionContent className={contentclassNames}>
+            {item.content}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </AccordionPrimitive.Root>
+  )
+);
 Accordion.displayName = "Accordion";
 
 const AccordionItem = React.forwardRef<
