@@ -12,7 +12,7 @@ import {
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
-import { PropsTable } from "../docsUI";
+import { PropsTable } from "../../sharedUI/docsUI";
 
 const meta = {
   title: "Elements/Dialog",

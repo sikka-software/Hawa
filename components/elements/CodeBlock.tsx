@@ -47,7 +47,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={cn(
         widthStyles[width],
-        "hawa-w-full hawa-flex-col  hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base",
+        "hawa-w-full hawa-flex-col hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base",
         className
       )}
     >
@@ -98,37 +98,36 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         </div>
       )}
 
-      <pre>
-        <div
-          className={cn(
-            "hawa-relative hawa-flex hawa-w-full hawa-flex-row hawa-border hawa-items-start hawa-justify-between hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
-            tabs || fileName
-              ? "hawa-rounded-b hawa-rounded-t-none"
-              : "hawa-rounded"
-          )}
+      <div
+        className={cn(
+          "hawa-flex hawa-w-full hawa-flex-row hawa-border hawa-items-start hawa-justify-between hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
+          tabs || fileName
+            ? "hawa-rounded-b hawa-rounded-t-none"
+            : "hawa-rounded"
+        )}
+      >
+        <Highlight
+          theme={theme}
+          code={tabs ? tabs[selectedTab].code : code || ""}
+          language={language}
         >
-          <Highlight
-            theme={theme}
-            code={tabs ? tabs[selectedTab].code : code || ""}
-            language={language}
-          >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-font-mono">
-                {tokens.map((line, i) => (
-                  <div key={i} {...getLineProps({ line })}>
-                    {props.lineNumbers && (
-                      <span className="hawa-mr-4">{i + 1}</span>
-                    )}
-                    {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({ token })} />
-                    ))}
-                  </div>
-                ))}
-              </pre>
-            )}
-          </Highlight>
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-font-mono">
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line })}>
+                  {props.lineNumbers && (
+                    <span className="hawa-mr-4">{i + 1}</span>
+                  )}
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
 
-          {/* <code
+        {/* <code
             className={cn(
               "language-jsx",
               "hawa-flex hawa-min-h-[37.75px] hawa-w-full hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono"
@@ -137,39 +136,38 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             {tabs ? tabs[selectedTab].code : code}
           </code> */}
 
-          <div className="hawa-absolute hawa-right-0 hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-p-2">
-            <Tooltip
-              open={clipboard.copied}
-              side="left"
-              content={<div>Copied!</div>}
+        <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-p-2">
+          <Tooltip
+            open={clipboard.copied}
+            side="left"
+            content={<div>Copied!</div>}
+          >
+            <Button
+              size="icon"
+              onClick={() =>
+                clipboard.copy(tabs ? tabs[selectedTab].code : code)
+              }
+              variant="outline"
+              className="hawa-opacity-50 sm:hawa-opacity-100 hawa-text-foreground"
             >
-              <Button
-                size="icon"
-                onClick={() =>
-                  clipboard.copy(tabs ? tabs[selectedTab].code : code)
-                }
-                variant="outline"
-                className="hawa-opacity-50 sm:hawa-opacity-100 hawa-text-foreground"
+              <svg
+                aria-label="Copy Icon"
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                height="1em"
+                width="1em"
               >
-                <svg
-                  aria-label="Copy Icon"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  height="1em"
-                  width="1em"
-                >
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-                </svg>
-              </Button>
-            </Tooltip>
-          </div>
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+            </Button>
+          </Tooltip>
         </div>
-      </pre>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FeedbackForm } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
-import { TranslationTable } from "../../docsUI";
+import { TranslationTable } from "../../../sharedUI/docsUI";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Form",

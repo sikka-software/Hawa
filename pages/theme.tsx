@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionTrigger,
   Button,
   Card,
   CardContent,
@@ -177,81 +180,47 @@ ${cssVariables}    --radius: 0.5rem;
     return css;
   };
 
-  //   --background: 0 0% 100%;
-  //     --foreground: 240 10% 3.9%;
-  //     --card: 210 50% 98%;
-  //     --card-foreground: 240 10% 3.9%;
-  //     --popover: 0 0% 100%;
-  //     --popover-foreground: 240 10% 3.9%;
-  //     --primary: 240 5.9% 10%;
-  //     --primary-foreground: 0 0% 98%;
-  //     --secondary: 240 4.8% 95.9%;
-  //     --secondary-foreground: 240 5.9% 10%;
-  //     --muted: 240 4.8% 95.9%;
-  //     --muted-foreground: 240 3.8% 46.1%;
-  //     --accent: 240 4.8% 95.9%;
-  //     --accent-foreground: 240 5.9% 10%;
-  //     --destructive: 0 84.2% 60.2%;
-  //     --destructive-foreground: 0 0% 98%;
-  //     --info: 209 62% 50%;
-  //     --info-foreground: 0 0% 98%;
-  //     --success: 148 48% 43%;
-  //     --success-foreground: 0 0% 98%;
-  //     --warning: 24 75% 50%;
-  //     --warning-foreground: 0 0% 98%;
-  //     --error: 0 84.2% 60.2%;
-  //     --error-foreground: 0 0% 98%;
-  //     --border: 240 5.9% 90%;
-  //     --input: 240 5.9% 90%;
-  //     --ring: 240 5% 64.9%;
-  //     --radius: 0.5rem;
-  //     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
-
   useEffect(() => {
     setGeneratedCSS(generateCSS());
   }, [generateCSS]);
   return (
-    <div className="hawa-w-full hawa-flex hawa-flex-row hawa-gap-10  hawa-p-10">
+    <div className="hawa-w-full hawa-flex hawa-flex-row hawa-gap-10 ">
       <Card className="hawa-w-full">
-        <CardHeader>
-          <CardTitle>Theme Customizer</CardTitle>
-          <CardContent
-            noPadding
-            className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10"
-          >
-            {colorSettingsArray.map((colorSetting) => (
-              <div key={colorSetting.id}>
-                <Label htmlFor={colorSetting.id} className="hawa-mb-2">
-                  {colorSetting.label}
-                </Label>
-                <ColorPicker
-                  containerProps={{ id: colorSetting.id }}
-                  color={hslToHex(...colorSetting.hsl)}
-                  handleChange={(e) =>
-                    handleColorChange(colorSetting.id, e.target.value)
-                  }
-                />
-              </div>
-            ))}
-          </CardContent>
-        </CardHeader>
-        {/* <CardFooter>
-          <Button
-            onClick={() => {
-              setGeneratedCSS(generateCSS());
-              //   // Generate the CSS variables
-              //   const cssVariables = Object.entries(theme)
-              //     .map(([key, value]) => `--${key}: ${value};`)
-              //     .join("\n");
-              //   console.log(cssVariables);
-            }}
+        <CardContent
+          headless
+          className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10"
+        >
+          {/* <Accordion
             className="hawa-w-full"
-          >
-            Generate Variables
-          </Button>
-        </CardFooter> */}
+            items={[
+              {
+                trigger: "Card",
+                content: <div>fdfd</div>,
+              },
+            ]}
+            type="single"
+
+            // {...args}
+          /> */}
+          {colorSettingsArray.map((colorSetting) => (
+            <div key={colorSetting.id}>
+              <Label htmlFor={colorSetting.id} className="hawa-mb-2">
+                {colorSetting.label}
+              </Label>
+              <ColorPicker
+                colorTextClassNames="hawa-w-full"
+                containerProps={{ id: colorSetting.id }}
+                color={hslToHex(...colorSetting.hsl)}
+                handleChange={(e) =>
+                  handleColorChange(colorSetting.id, e.target.value)
+                }
+              />
+            </div>
+          ))}
+        </CardContent>
       </Card>
-      <CodeBlock code={generatedCSS} />
+
+      <CodeBlock className="hawa-z-0" language="css" code={generatedCSS} />
     </div>
   );
 };
@@ -294,7 +263,17 @@ export default function Home() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
-    <main className="hawa-m-0 hawa-flex hawa-min-h-screen hawa-flex-col hawa-gap-2 hawa-p-0">
+    <main className="hawa-m-0 hawa-flex hawa-flex-col hawa-gap-2 hawa-p-10 ">
+      <div className="hawa-flex hawa-flex-col hawa-gap-1 hawa-mb-4">
+        <div className="hawa-font-bold hawa-text-4xl hawa-leading-none">
+          Customize Hawa
+        </div>
+        <div className="hawa-text-lg hawa-max-w-lg hawa-leading-6">
+          Adjust the colors to generate the global roots that you can copy and
+          paste into your primary css file
+        </div>
+      </div>
+
       <ThemeCustomizer />
     </main>
   );

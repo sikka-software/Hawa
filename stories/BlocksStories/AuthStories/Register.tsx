@@ -1,6 +1,6 @@
 import { CodeBlock, RegisterForm } from "../../../components";
 import { ArgsTable, Markdown, Title } from "@storybook/blocks";
-import { TranslationTable } from "../../docsUI";
+import { TranslationTable } from "../../../sharedUI/docsUI";
 import { useDarkMode } from "storybook-dark-mode";
 
 const RegisterDocs = (args: any, globals: any) => {

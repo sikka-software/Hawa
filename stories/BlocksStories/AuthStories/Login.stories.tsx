@@ -4,7 +4,7 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";
 import { useDarkMode } from "storybook-dark-mode";
-import { TranslationTable } from "../../docsUI";
+import { TranslationTable } from "../../../sharedUI/docsUI";
 
 const meta = {
   title: "Blocks/User Auth/Login Form",

@@ -10,6 +10,7 @@ const config: Config = {
   ],
   prefix: "hawa-",
   darkMode: ["class", '[data-mode="dark"]'],
+  // darkMode: "class",
   theme: {
     fontFamily: { plex: ["IBM Plex Sans Arabic"] },
     container: {
@@ -22,6 +23,7 @@ const config: Config = {
       maxWidth: { "2xs": "250px" },
       screens: { xs: "440px" },
       transitionProperty: { height: "height" },
+
       keyframes: {
         shimmer: { "100%": { transform: "translateX(100%)" } },
         slideDown: {
@@ -105,7 +107,6 @@ const config: Config = {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
-
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

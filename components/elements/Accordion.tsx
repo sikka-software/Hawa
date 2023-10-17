@@ -42,7 +42,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "hawa-flex hawa-bg-muted/50 hawa-flex-1 hover:hawa-bg-muted  hawa-items-center hawa-justify-between hawa-p-4 hawa-font-medium hawa-transition-all  [&[data-state=open]>svg]:hawa-rotate-180",
+        "hawa-flex hawa-bg-muted/50  hawa-flex-1 hover:hawa-bg-muted  hawa-items-center hawa-justify-between hawa-p-4 hawa-font-medium hawa-transition-all  [&[data-state=open]>svg]:hawa-rotate-180",
         className
       )}
       {...props}
