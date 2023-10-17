@@ -42,6 +42,7 @@ const items = [
   {
     label: "With Shortcut",
     value: "item1",
+    onMiddleClick: (e: any) => console.log("middle clicked ", e),
     icon: <Home className="hawa-icon" />,
     end: <span>shift + E</span>,
   },

@@ -264,6 +264,7 @@ export type MenuItemType = {
   highlighted?: boolean;
   subitems?: SubItem[];
   disabled?: boolean;
+  onMiddleClick?: any;
 };
 interface DropdownMenuProps {
   trigger?: any;
@@ -279,6 +280,7 @@ interface DropdownMenuProps {
   size?: "default" | "sm";
   onItemSelect?: any;
   onOpenChange?: any;
+
   open?: any;
 }
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
@@ -383,6 +385,14 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   <DropdownMenuItem
                     key={index}
                     disabled={item.disabled}
+                    onMouseDown={(event: any) => {
+                      if (event.button === 1) {
+                        event.preventDefault(); // This line prevents the default behavior of the middle button
+                        if (item.onMiddleClick) {
+                          item.onMiddleClick(item.value);
+                        }
+                      }
+                    }}
                     onSelect={(e) => {
                       if (item.presist) {
                         e.preventDefault();
