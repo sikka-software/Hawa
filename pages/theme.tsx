@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { SketchPicker } from "react-color";
 import {
   Button,
   Card,
@@ -12,7 +11,84 @@ import {
   Label,
 } from "../components";
 import { useTheme } from "next-themes";
-import Image from "next/image";
+type ColorSetting = {
+  id: string;
+  label: string;
+  hsl: [number, number, number];
+};
+const colorSettingsArray: ColorSetting[] = [
+  { id: "background-color", label: "Background Color", hsl: [0, 0, 100] },
+  { id: "foreground-color", label: "Foreground Color", hsl: [240, 10, 3.9] },
+  { id: "card-color", label: "Card Color", hsl: [210, 50, 98] },
+  {
+    id: "card-foreground-color",
+    label: "Card Foreground Color",
+    hsl: [240, 10, 3.9],
+  },
+  { id: "popover-color", label: "Popover Color", hsl: [0, 0, 100] },
+  {
+    id: "popover-foreground-color",
+    label: "Popover Foreground Color",
+    hsl: [240, 10, 3.9],
+  },
+  { id: "primary-color", label: "Primary Color", hsl: [240, 5.9, 10] },
+  {
+    id: "primary-foreground-color",
+    label: "Primary Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "secondary-color", label: "Secondary Color", hsl: [240, 4.8, 95.9] },
+  {
+    id: "secondary-foreground-color",
+    label: "Secondary Foreground Color",
+    hsl: [240, 5.9, 10],
+  },
+  { id: "muted-color", label: "Muted Color", hsl: [240, 4.8, 95.9] },
+  {
+    id: "muted-foreground-color",
+    label: "Muted Foreground Color",
+    hsl: [240, 3.8, 46.1],
+  },
+  { id: "accent-color", label: "Accent Color", hsl: [240, 4.8, 95.9] },
+  {
+    id: "accent-foreground-color",
+    label: "Accent Foreground Color",
+    hsl: [240, 5.9, 10],
+  },
+  { id: "destructive-color", label: "Destructive Color", hsl: [0, 84.2, 60.2] },
+  {
+    id: "destructive-foreground-color",
+    label: "Destructive Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "info-color", label: "Info Color", hsl: [209, 62, 50] },
+  {
+    id: "info-foreground-color",
+    label: "Info Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "success-color", label: "Success Color", hsl: [148, 48, 43] },
+  {
+    id: "success-foreground-color",
+    label: "Success Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "warning-color", label: "Warning Color", hsl: [24, 75, 50] },
+  {
+    id: "warning-foreground-color",
+    label: "Warning Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "error-color", label: "Error Color", hsl: [0, 84.2, 60.2] },
+  {
+    id: "error-foreground-color",
+    label: "Error Foreground Color",
+    hsl: [0, 0, 98],
+  },
+  { id: "border-color", label: "Border Color", hsl: [240, 5.9, 90] },
+  { id: "input-color", label: "Input Color", hsl: [240, 5.9, 90] },
+  { id: "ring-color", label: "Ring Color", hsl: [240, 5, 64.9] },
+];
 
 function hslToHex(h: any, s: any, l: any) {
   l /= 100;
@@ -27,19 +103,79 @@ function hslToHex(h: any, s: any, l: any) {
   return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-const ThemeCustomizer = () => {
-  const [theme, setTheme] = useState({
-    background: "0 0% 100%",
-    foreground: "240 10% 3.9%",
-    // ... other theme variables
-  });
+const hexToHSL = (hex: string): [number, number, number] => {
+  let r: number = parseInt(hex.substring(1, 3), 16);
+  let g: number = parseInt(hex.substring(3, 5), 16);
+  let b: number = parseInt(hex.substring(5, 7), 16);
 
-  //   const handleColorChange = (variable) => (color) => {
-  // setTheme((prevTheme) => ({
-  //   ...prevTheme,
-  //   [variable]: color.rgb,
-  // }));
-  //   };
+  r /= 255;
+  g /= 255;
+  b /= 255;
+
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  let h: number = 0,
+    s,
+    l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0; // achromatic
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+
+  return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+};
+
+const ThemeCustomizer = () => {
+  const [generatedCSS, setGeneratedCSS] = useState("");
+
+  const [colorSettings, setColorSettings] = useState(colorSettingsArray);
+
+  const handleColorChange = (id: string, newColor: string) => {
+    const newHSL = hexToHSL(newColor) as [number, number, number]; // Assert type here
+
+    setColorSettings((prevSettings) =>
+      prevSettings.map((setting) =>
+        setting.id === id ? { ...setting, hsl: newHSL } : setting
+      )
+    );
+    setGeneratedCSS(generateCSS());
+  };
+
+  const generateCSS = () => {
+    let cssVariables = "";
+
+    colorSettings.forEach((setting: any) => {
+      const hslValue = setting.hsl.join(" ");
+      cssVariables += `    --${setting.id.replace(
+        "-color",
+        ""
+      )}: ${hslValue}%;\n`; // Added four spaces at the start
+    });
+
+    const css = `@layer base {
+  :root {
+${cssVariables}    --radius: 0.5rem;
+    --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
+  }
+}`;
+
+    return css;
+  };
 
   //   --background: 0 0% 100%;
   //     --foreground: 240 10% 3.9%;
@@ -71,95 +207,51 @@ const ThemeCustomizer = () => {
   //     --radius: 0.5rem;
   //     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
 
+  useEffect(() => {
+    setGeneratedCSS(generateCSS());
+  }, [generateCSS]);
   return (
-    <div className="hawa-w-full hawa-p-10">
-      <Card className="hawa-w-fit">
+    <div className="hawa-w-full hawa-flex hawa-flex-row hawa-gap-10  hawa-p-10">
+      <Card className="hawa-w-full">
         <CardHeader>
           <CardTitle>Theme Customizer</CardTitle>
           <CardContent
             noPadding
             className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10"
           >
-            <div>
-              <Label htmlFor="background-color" className="hawa-mb-2">
-                Background Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "background-color" }}
-                color={hslToHex(0, 0, 100)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="foreground-color" className="hawa-mb-2">
-                Foreground Color
-              </Label>
-              <ColorPicker
-                containerProps={{ id: "foreground-color" }}
-                color={hslToHex(240, 10, 3.9)}
-              />
-            </div>
+            {colorSettingsArray.map((colorSetting) => (
+              <div key={colorSetting.id}>
+                <Label htmlFor={colorSetting.id} className="hawa-mb-2">
+                  {colorSetting.label}
+                </Label>
+                <ColorPicker
+                  containerProps={{ id: colorSetting.id }}
+                  color={hslToHex(...colorSetting.hsl)}
+                  handleChange={(e) =>
+                    handleColorChange(colorSetting.id, e.target.value)
+                  }
+                />
+              </div>
+            ))}
           </CardContent>
         </CardHeader>
-        <CardFooter>
+        {/* <CardFooter>
           <Button
             onClick={() => {
-              // Generate the CSS variables
-              const cssVariables = Object.entries(theme)
-                .map(([key, value]) => `--${key}: ${value};`)
-                .join("\n");
-              console.log(cssVariables);
+              setGeneratedCSS(generateCSS());
+              //   // Generate the CSS variables
+              //   const cssVariables = Object.entries(theme)
+              //     .map(([key, value]) => `--${key}: ${value};`)
+              //     .join("\n");
+              //   console.log(cssVariables);
             }}
             className="hawa-w-full"
           >
             Generate Variables
           </Button>
-        </CardFooter>
+        </CardFooter> */}
       </Card>
+      <CodeBlock code={generatedCSS} />
     </div>
   );
 };

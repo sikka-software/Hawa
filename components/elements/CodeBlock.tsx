@@ -18,12 +18,14 @@ type CodeBlockTypes = {
   code?: string;
   lineNumbers?: boolean;
   forcedDarkMode?: boolean;
+  className?: string;
 };
 
 export const CodeBlock: FC<CodeBlockTypes> = ({
   tabs,
   code,
   fileName,
+  className,
   language = "javascript", // default to JavaScript if no language is provided
   width = "full",
   ...props
@@ -45,14 +47,17 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={cn(
         widthStyles[width],
-        "hawa-w-full hawa-flex-col  hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base"
+        "hawa-w-full hawa-flex-col  hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base",
+        className
       )}
     >
       {fileName && (
         <div
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  dark:hawa-bg-muted hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-text-foreground hawa-font-mono",
-            fileName && tabs ? "hawa-bg-gray-300 dark:hawa-bg-muted/50" : "hawa-bg-gray-200"
+            fileName && tabs
+              ? "hawa-bg-gray-300 dark:hawa-bg-muted/50"
+              : "hawa-bg-gray-200"
           )}
         >
           <div
