@@ -48,7 +48,9 @@ export const Default: Story = {
                   <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
-                      <h1 className="hawa-font-bold ">{t("create")}</h1>
+                      <h1 className="hawa-font-bold hawa-text-xl ">
+                        {t("create")}
+                      </h1>
                       <p className="hawa-text-sm">
                         Subtitle of this menu item here
                       </p>
@@ -62,7 +64,9 @@ export const Default: Story = {
                 >
                   <ArrowUpRightSquare />
                   <div className="hawa-flex hawa-flex-col">
-                    <h1 className="hawa-font-bold ">{t("share")}</h1>
+                    <h1 className="hawa-font-bold hawa-text-xl">
+                      {t("share")}
+                    </h1>
                     <p className="hawa-text-sm">
                       Subtitle of this menu item here
                     </p>
@@ -73,6 +77,7 @@ export const Default: Story = {
           },
           {
             trigger: "item 2",
+            action: () => console.log("clicked on item"),
           },
           {
             trigger: "item 3",

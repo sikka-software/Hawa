@@ -110,7 +110,7 @@ export const NavMenuItem: React.FC<NavMenuItemTypes> = (props) => (
     <div className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
       {props.icon && props.icon}
       <div className="hawa-flex hawa-flex-col">
-        <h1 className="hawa-font-bold ">{props.title}</h1>
+        <h1 className="hawa-font-bold hawa-text-xl">{props.title}</h1>
         <p className="hawa-text-sm">{props.subtitle}</p>
       </div>
     </div>
@@ -160,7 +160,7 @@ NavigationMenuIndicator.displayName =
   NavigationMenuPrimitive.Indicator.displayName;
 
 type NavigationMenuTypes = {
-  items: { trigger: any; content?: any }[];
+  items: { trigger: any; content?: any; action?: any }[];
   rootClassNames?: string;
   viewportClassNames?: string;
   direction?: "rtl" | "ltr";
@@ -184,6 +184,11 @@ export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
               </>
             ) : (
               <NavigationMenuLink
+                onClick={() => {
+                  if (item.action) {
+                    item.action();
+                  }
+                }}
                 className={cn(
                   navigationMenuTriggerStyle(),
                   "hawa-cursor-pointer hawa-select-none"
