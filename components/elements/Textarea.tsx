@@ -18,11 +18,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           {...props}
         />
-        {props.helperText && (
-          <p className="hawa-text-sm hawa-text-red-600 dark:hawa-text-red-500">
-            {props.helperText}
-          </p>
-        )}
+        {props.helperText && <p className="helper-text">{props.helperText}</p>}
       </div>
     );
   }

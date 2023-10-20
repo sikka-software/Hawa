@@ -61,10 +61,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                 {...field}
                 onChange={(option: any) => field.onChange(option.value)}
                 options={props.requestTypes}
-                helperText={
-                  formState.errors.requestType &&
-                  formState.errors.requestType?.message
-                }
+                helperText={formState.errors.requestType?.message?.toString()}
               />
             )}
           />
