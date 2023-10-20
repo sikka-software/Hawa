@@ -84,7 +84,7 @@ type SelectTypes = {
   controlClassNames?: string;
   containerClassNames?: string;
   onChange?: any;
-  helperText?: any;
+  helperText?: string;
   onInputChange?: any;
   native?: any;
   width?: "full" | "small" | "fit";
@@ -221,8 +221,7 @@ export const Select: FC<SelectTypes> = (props) => {
 
             placeholder: () =>
               "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1",
-            valueContainer: () =>
-              "hawa-text-foreground hawa-px-1 ",
+            valueContainer: () => "hawa-text-foreground hawa-px-1 ",
             singleValue: () => "hawa-text-foreground",
             indicatorsContainer: () =>
               cn(
@@ -278,11 +277,7 @@ export const Select: FC<SelectTypes> = (props) => {
           }
         />
       )}
-      {props.helperText && (
-        <p className="hawa-text-sm hawa-text-red-600 dark:hawa-text-red-500">
-          {props.helperText}
-        </p>
-      )}
+      {props.helperText && <p className="helper-text">{props.helperText}</p>}
     </div>
   );
 };

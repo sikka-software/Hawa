@@ -53,18 +53,17 @@ body {
     --muted-foreground: 240 5% 64.9%;
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
-   
-  
-    --success: 106 70% 40%;  /* A shade of green */
-    --success-foreground: 0 0% 100%;  /* White */
-    --info: 200 100% 30%;  /* A shade of blue */
-    --info-foreground: 0 0% 100%;  /* White */
-    --warning: 45 100% 50%;  /* A shade of yellow */
-    --warning-foreground: 0 0% 20%;  /* Dark grey */
-   
+
+    --success: 106 70% 40%; /* A shade of green */
+    --success-foreground: 0 0% 100%; /* White */
+    --info: 200 100% 30%; /* A shade of blue */
+    --info-foreground: 0 0% 100%; /* White */
+    --warning: 45 100% 50%; /* A shade of yellow */
+    --warning-foreground: 0 0% 20%; /* Dark grey */
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-   
+
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
@@ -186,6 +185,9 @@ body {
   }
   .hawa-icon {
     @apply hawa-w-4 hawa-h-4;
+  }
+  .helper-text {
+    @apply hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500;
   }
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);

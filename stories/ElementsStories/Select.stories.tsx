@@ -23,12 +23,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return <div>Select story</div>;
-};
 export const Default: Story = {
   render: (args) => (
     <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
@@ -49,12 +43,10 @@ export const Default: Story = {
       { value: "strawberry", label: "Strawberry" },
       { value: "vanilla", label: "Vanilla" },
     ],
-    onChange: (newValue: any, action: any) => {
-      console.log("new value: ", newValue, "\n", "action", action);
-    },
-    onInputChange: (newValue: any, action: any) => {
-      console.log("new value: ", newValue, "\n", "action", action);
-    },
+  },
+  argTypes: {
+    onChange: { action: "onChange" },
+    onInputChange: { action: "onInputChange" },
   },
 };
 export const Creatable: Story = {
@@ -67,7 +59,6 @@ export const Creatable: Story = {
   ),
   args: {
     label: "Select Input",
-    // fullWidth: true,
     isCreatable: true,
     isMulti: false,
     isClearable: false,
@@ -78,15 +69,11 @@ export const Creatable: Story = {
       { value: "strawberry", label: "Strawberry" },
       { value: "vanilla", label: "Vanilla" },
     ],
-    onChange: (newValue: any, action: any) => {
-      console.log("new value: ", newValue, "\n", "action", action);
-    },
-    onInputChange: (newValue: any, action: any) => {
-      console.log("new value: ", newValue, "\n", "action", action);
-    },
   },
   argTypes: {
     handleCreateOption: { actions: "handleCreateOption" },
+    onChange: { action: "onChange" },
+    onInputChange: { action: "onInputChange" },
   },
 };
 // export const Old: Story = {
