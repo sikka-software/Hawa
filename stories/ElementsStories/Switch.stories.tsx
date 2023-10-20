@@ -77,3 +77,12 @@ export const Direction: Story = {
     </div>
   ),
 };
+export const Roundedness: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      <Switch roundedness="none" label="None" />
+      <Switch roundedness="full" label="Full" />
+      <Switch roundedness="inherit" label="Inherit" />
+    </div>
+  ),
+};
