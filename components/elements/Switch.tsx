@@ -47,7 +47,8 @@ export const Switch = React.forwardRef<
     <div className="hawa-flex hawa-flex-row hawa-items-center" ref={parentRef}>
       <SwitchPrimitives.Root
         className={cn(
-          "hawa-relative  hawa-cursor-pointer hawa-rounded-full hawa-bg-primary/20 hawa-outline-none data-[state=checked]:hawa-bg-primary",
+          "hawa-relative  hawa-cursor-pointer hawa-rounded-inner hawa-bg-primary/20 hawa-outline-none data-[state=checked]:hawa-bg-primary",
+          // hawa-rounded-full
           className,
           rootSize[size]
         )}
@@ -57,8 +58,8 @@ export const Switch = React.forwardRef<
         <SwitchPrimitives.Thumb
           className={cn(
             thumbSize[size],
-            "hawa-block hawa-rounded-full hawa-bg-white hawa-transition-transform  hawa-duration-100 hawa-will-change-transform data-[state=checked]:hawa-bg-primary-foreground  dark:hawa-bg-background",
-
+            "hawa-block hawa-rounded-inner hawa-bg-white hawa-transition-transform  hawa-duration-100 hawa-will-change-transform data-[state=checked]:hawa-bg-primary-foreground  dark:hawa-bg-background",
+            // hawa-rounded-full
             parentDirection === "rtl"
               ? "hawa--translate-x-0.5 data-[state=checked]:hawa--translate-x-[19px]"
               : "hawa-translate-x-0.5 data-[state=checked]:hawa-translate-x-[19px]"

@@ -24,32 +24,46 @@ export default meta;
 type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
-  render: () => (
+  render: (args) => (
     <div>
       <Alert
+        {...args}
+        title="Default Alert"
+        text="This is an alert that can be used to share certain information without any severity."
+        severity="none"
+        // persistant={true}
+      />
+      <Alert
+        {...args}
         title="Default Alert"
         text="This is an alert that can be used to share certain information without any severity."
         severity="info"
-        persistant={true}
+        // persistant={true}
       />
       <Alert
+        {...args}
         title="Default Alert"
         text="This is an alert that can be used to share certain information without any severity."
         severity="success"
-        persistant={true}
+        // persistant={true}
       />
       <Alert
+        {...args}
         title="Default Alert"
         text="This is an alert that can be used to share certain information without any severity."
         severity="warning"
-        persistant={true}
+        // persistant={true}
       />
       <Alert
+        {...args}
         title="Default Alert"
         text="This is an alert that can be used to share certain information without any severity."
         severity="error"
-        persistant={true}
+        // persistant={true}
       />
     </div>
   ),
+  args: {
+    persistant: false,
+  },
 };

@@ -4,7 +4,7 @@ import { Button } from "./Button";
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
-  severity?: "info" | "warning" | "error" | "success";
+  severity?: "info" | "warning" | "error" | "success" | "none";
   /** The title of the alert placed above the text of the alert. Can be used alone */
   title?: any;
   /** The text of the alert placed below the title of the alert. Can be used alone */
@@ -69,34 +69,48 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     }
   }, [duration]);
   let closeButtonStyle = {
-    none: "hover:hawa-bg-gray-300",
-    info: "hover:hawa-bg-blue-300",
-    warning: "hover:hawa-bg-yellow-300",
-    error: "hover:hawa-bg-red-300",
-    success: "hover:hawa-bg-green-300",
+    none: "",
+    info: "",
+    warning: "",
+    error: "",
+    success: "",
   };
   let styleVariant = {
-    // normal: {
-    none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-200 dark:hawa-text-gray-800",
-    info: "hawa-text-blue-700 hawa-bg-blue-100 dark:hawa-bg-blue-200 dark:hawa-text-blue-800",
-    warning:
-      "hawa-text-yellow-700 hawa-bg-yellow-100 dark:hawa-bg-yellow-200 dark:hawa-text-yellow-800",
-    error:
-      "hawa-text-red-700 hawa-bg-red-100 dark:hawa-bg-red-200 dark:hawa-text-red-800",
-    success:
-      "hawa-text-green-700 hawa-bg-green-100 dark:hawa-bg-green-200 dark:hawa-text-green-800",
+    none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-900 ",
+    info: "hawa-text-info-foreground hawa-bg-info/90",
+    warning: "hawa-text-warning-foreground hawa-bg-warning/90",
+    error: "hawa-text-destructive-foreground hawa-bg-destructive/90",
+    success: "hawa-text-success-foreground hawa-bg-success/90",
   };
+  // let closeButtonStyle = {
+  //   none: "hover:hawa-bg-gray-300",
+  //   info: "hover:hawa-bg-blue-300",
+  //   warning: "hover:hawa-bg-yellow-300",
+  //   error: "hover:hawa-bg-red-300",
+  //   success: "hover:hawa-bg-green-300",
+  // };
+  // let styleVariant = {
+  //   // normal: {
+  //   none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-200 dark:hawa-text-gray-800",
+  //   info: "hawa-text-blue-700 hawa-bg-blue-100 dark:hawa-bg-blue-200 dark:hawa-text-blue-800",
+  //   warning:
+  //     "hawa-text-yellow-700 hawa-bg-yellow-100 dark:hawa-bg-yellow-200 dark:hawa-text-yellow-800",
+  //   error:
+  //     "hawa-text-red-700 hawa-bg-red-100 dark:hawa-bg-red-200 dark:hawa-text-red-800",
+  //   success:
+  //     "hawa-text-green-700 hawa-bg-green-100 dark:hawa-bg-green-200 dark:hawa-text-green-800",
+  // };
   return (
     <div ref={alertRef}>
       <div
+        role="alert"
+        dir={direction}
         className={clsx(
           "hawa-relative hawa-mb-4 hawa-flex hawa-flex-col hawa-rounded hawa-p-4 hawa-text-sm hawa-transition-all",
           styleVariant[severity],
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
           className
         )}
-        role="alert"
-        dir={direction}
       >
         <div className="hawa-flex hawa-flex-row">
           {icon && (
@@ -139,7 +153,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           <button
             type="button"
             className={clsx(
-              "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-text-gray-400 hawa-transition-all  hover:hawa-text-gray-900",
+              "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all  hover:hawa-text-gray-900",
               closeButtonStyle[severity],
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2"
             )}
