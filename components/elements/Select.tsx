@@ -225,8 +225,8 @@ export const Select: FC<SelectTypes> = (props) => {
             singleValue: () => "hawa-text-foreground",
             indicatorsContainer: () =>
               cn(
-                " hawa-px-0 hawa-cursor-pointer hawa-text-muted-foreground",
-                props.hideIndicator && "hawa-invisible"
+                "hawa-cursor-pointer hawa-text-muted-foreground",
+                props.hideIndicator ? "hawa-invisible" : "hawa-px-1"
               ),
           }}
           unstyled
@@ -239,7 +239,18 @@ export const Select: FC<SelectTypes> = (props) => {
           placeholder={props.placeholder}
           autoFocus
           onChange={(newValue: any, action) => props.onChange(newValue, action)}
-          components={{ Option, Menu, IndicatorsContainer: () => null }}
+          components={
+            props.hideIndicator
+              ? {
+                  Option,
+                  Menu,
+                  IndicatorsContainer: () => null, // Set to null if phoneCode is true, otherwise undefined
+                }
+              : {
+                  Option,
+                  Menu,
+                }
+          }
           getOptionLabel={props.getOptionLabel}
         />
       ) : (
