@@ -202,8 +202,6 @@ export const Select: FC<SelectTypes> = (props) => {
           classNames={{
             control: () =>
               cn(
-                // "hawa-text-sm hawa-flex hawa-w-full hawa-rounded hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500 hawa-cursor-pointer hawa-border",
-                // "hawa-p-2",
                 props.phoneCode && "hawa-rounded-r-none",
                 props.controlClassNames
               ),
@@ -218,7 +216,6 @@ export const Select: FC<SelectTypes> = (props) => {
                   ? "hawa-cursor-not-allowed"
                   : "hawa-cursor-pointer"
               ),
-
             placeholder: () =>
               "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1",
             valueContainer: () => "hawa-text-foreground hawa-px-1 ",
@@ -230,6 +227,13 @@ export const Select: FC<SelectTypes> = (props) => {
               ),
           }}
           unstyled
+          autoFocus
+          components={
+            props.hideIndicator
+              ? { Option, Menu, IndicatorsContainer: () => null }
+              : { Option, Menu }
+          }
+          onChange={(newValue: any, action) => props.onChange(newValue, action)}
           isDisabled={props.disabled}
           options={props.options}
           defaultValue={props.defaultValue}
@@ -237,20 +241,6 @@ export const Select: FC<SelectTypes> = (props) => {
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
           placeholder={props.placeholder}
-          autoFocus
-          onChange={(newValue: any, action) => props.onChange(newValue, action)}
-          components={
-            props.hideIndicator
-              ? {
-                  Option,
-                  Menu,
-                  IndicatorsContainer: () => null, // Set to null if phoneCode is true, otherwise undefined
-                }
-              : {
-                  Option,
-                  Menu,
-                }
-          }
           getOptionLabel={props.getOptionLabel}
         />
       ) : (

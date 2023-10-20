@@ -107,8 +107,8 @@ export const Input: FC<TextFieldTypes> = ({
                 type={props.type}
                 placeholder={props.placeholder}
                 disabled={preview}
-                // style={{ width: width === "auto" ? "auto" : "100%" }}
-                // style={{minWidth:"100%", width:'auto'}}
+                style={{ height: 40 }}
+
               />
             </div>
             {props.iconInside && (
@@ -117,7 +117,7 @@ export const Input: FC<TextFieldTypes> = ({
               </div>
             )}
             {props.helperText && (
-              <p className="hawa-mb-0 hawa-mt-0 helper-text">
+              <p className="hawa-mb-0 hawa-mt-0 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
                 {props.helperText}
               </p>
             )}

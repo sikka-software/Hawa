@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Alert } from "../../components/elements";
+import { Alert, Combobox, Input, Select } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
@@ -116,6 +116,31 @@ export const WifiIcon: Story = {
         y2="20"
       />
     </svg>
+  ),
+};
+export const SelectAndInput: Story = {
+  name: "Select & Input",
+  render: () => (
+    <div>
+      <div className="hawa-flex hawa-flex-row hawa-gap-0 hawa-bg-red-100 hawa-mb-4">
+        <Input type={"password"} label={t("password")} />
+        <Select label={t("role")}>
+          <option></option>
+        </Select>
+      </div>
+      {/* <div className="hawa-grid hawa-grid-cols-1 hawa-items-start hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
+        <Input type={"text"} label={t("username") + " *"} />
+        <Input type={"text"} label={t("email") + " *"} />
+        <Input type={"password"} label={t("password") + " *"} />
+        <Select label={t("role") + " *"}>
+          <option></option>
+        </Select>
+        <Input type={"text"} label={t("first-name") + " - " + t("english")} />
+        <Input type={"text"} label={t("first-name") + " - " + t("arabic")} />
+        <Input type={"text"} label={t("last-name") + " - " + t("english")} />
+        <Input type={"text"} label={t("last-name") + " - " + t("arabic")} />
+      </div> */}
+    </div>
   ),
 };
 
