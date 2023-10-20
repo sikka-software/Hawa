@@ -194,7 +194,7 @@ export const Select: FC<SelectTypes> = (props) => {
       {props.label && <Label>{props.label}</Label>}
 
       {props.isLoading ? (
-        <Skeleton className="hawa-h-[38px] hawa-w-full" />
+        <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : !props.isCreatable ? (
         //   TODO: enable keyboard to go to the next item in the list
         <ReactSelect

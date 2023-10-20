@@ -1,7 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Alert, Combobox, Input, Select } from "../../components/elements";
+import {
+  Alert,
+  Button,
+  Combobox,
+  Input,
+  Select,
+} from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import { useState } from "react";
 
 const meta = {
   title: "Playground (AI)",
@@ -120,15 +127,18 @@ export const WifiIcon: Story = {
 };
 export const SelectAndInput: Story = {
   name: "Select & Input",
-  render: () => (
-    <div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-0 hawa-bg-red-100 hawa-mb-4">
-        <Input type={"password"} label={t("password")} />
-        <Select label={t("role")}>
-          <option></option>
-        </Select>
-      </div>
-      {/* <div className="hawa-grid hawa-grid-cols-1 hawa-items-start hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
+  render: () => {
+    const [loading, setLoading] = useState(false);
+    return (
+      <div>
+        <Button onClick={() => setLoading(!loading)}>Loading</Button>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-bg-red-100 hawa-mb-4">
+          <Input isLoading={loading} type={"password"} label={t("password")} />
+          <Select isLoading={loading} label={t("role")}>
+            <option></option>
+          </Select>
+        </div>
+        {/* <div className="hawa-grid hawa-grid-cols-1 hawa-items-start hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
         <Input type={"text"} label={t("username") + " *"} />
         <Input type={"text"} label={t("email") + " *"} />
         <Input type={"password"} label={t("password") + " *"} />
@@ -140,8 +150,9 @@ export const SelectAndInput: Story = {
         <Input type={"text"} label={t("last-name") + " - " + t("english")} />
         <Input type={"text"} label={t("last-name") + " - " + t("arabic")} />
       </div> */}
-    </div>
-  ),
+      </div>
+    );
+  },
 };
 
 const WidgetCard = (props: any) => (

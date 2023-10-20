@@ -74,7 +74,7 @@ export const Input: FC<TextFieldTypes> = ({
     >
       {props.label && <Label>{props.label}</Label>}
       {props.isLoading ? (
-        <Skeleton className="hawa-h-[38px] hawa-w-full" />
+        <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : (
         <>
           <div
