@@ -48,6 +48,7 @@ export * from "./Logos";
 export * from "./Command";
 export * from "./Combobox";
 export * from "./Select";
+export * from "./Count";
 export * from "./Form";
 export * from "./InterfaceSettings";
 
