@@ -11,7 +11,7 @@ interface ItemCardTypes {
   /** a URL for the image of the card */
   cardImage?: string;
   /** a function that fires when the card is clicked anywhere */
-  onCardClick?: any;
+  onCardClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   /** a React node with HawaIconCount children to have counters at the bottom of the card */
   counts?: JSX.Element;
   /** The action buttons on the bottom right of the card */
@@ -69,7 +69,8 @@ export const ItemCard: FC<ItemCardTypes> = ({
 
   const [openActionHeader, setOpenActionHeader] = useState(false);
 
-  function handleOpenActionHeader() {
+  function handleOpenActionHeader(e: any) {
+    e.stopPropagation();
     setOpenActionHeader(!openActionHeader);
   }
 
@@ -85,12 +86,18 @@ export const ItemCard: FC<ItemCardTypes> = ({
   return (
     <div
       className={clsx(defaultStyle, orientationStyles[orientation])}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (props.onCardClick) {
+          props.onCardClick(e);
+        }
+      }}
       {...props}
     >
       {cardImage && (
         <div className="hawa-group hawa-relative hawa-overflow-clip">
           <img
-            src={"https://via.placeholder.com/50"}
+            src={cardImage}
             className={clsx(
               imageStyles[orientation],
               clickableImage
@@ -156,10 +163,18 @@ export const ItemCard: FC<ItemCardTypes> = ({
             )}
           >
             {counts}
-            {actions}
+            <StopPropagationWrapper>{actions}</StopPropagationWrapper>
           </div>
         ) : null}
       </div>
     </div>
   );
+};
+
+const StopPropagationWrapper = (props: any) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
+  return <div onClick={handleClick}>{props.children}</div>;
 };

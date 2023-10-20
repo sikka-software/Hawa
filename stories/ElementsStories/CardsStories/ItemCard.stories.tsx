@@ -1,24 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ItemCard, Button, Tooltip, Count } from "../../../components/elements";
-import {
-  ArrowBigDownDash,
-  ArrowRightCircle,
-  CalendarHeart,
-  CloverIcon,
-  CornerUpLeft,
-  Edit2,
-  Heart,
-  Trash2,
-} from "lucide-react";
+import { ArrowRightCircle, CopyIcon, Edit2, Heart, Trash2 } from "lucide-react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Elements/Cards/Item Card",
   component: ItemCard,
-  parameters: {
-    layout: "centered",
-  },
+  //   parameters: {
+  //     layout: "centered",
+  //   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
@@ -34,12 +25,8 @@ type Story = StoryObj<typeof ItemCard>;
 
 const Template = (args: any) => (
   <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64">
-    {" "}
     <ItemCard
-      {...args}
-      cardImage={"ji"}
-      // onCardClick={() => console.log("card clicked")}
-      headerActions={[
+        headerActions={[
         { label: "QR Code", action: () => console.log("clicking on QR") },
         {
           label: "Menu Settings",
@@ -65,8 +52,8 @@ const Template = (args: any) => (
       content={
         <div>
           <p>
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
+            All the icons and buttons of this card are customizable, yet all the
+            props are optional.
           </p>
         </div>
       }
@@ -74,7 +61,7 @@ const Template = (args: any) => (
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
           <Tooltip delayDuration={200} content={"Duplicate"}>
             <Button size="icon" variant="ghost">
-              <CloverIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-w-5 hawa-h-5" />
             </Button>
           </Tooltip>
 
@@ -112,26 +99,14 @@ const Template = (args: any) => (
         </div>
       }
       {...args}
-    >
-      tet
-    </ItemCard>
+    />
   </div>
 );
 
 export const Default: Story = {
   render: (args) => <Template {...args} />,
   args: {},
+  argTypes: {
+    onCardClick: { action: "onCardClick" },
+  },
 };
-
-// export const Large: Story = {
-//   args: {
-//     size: "large",
-//     label: "Button",
-//   },
-// };
-
-// export const Small: Story = {
-//   args: {
-//     label: "Button",
-//   },
-// };
