@@ -162,12 +162,19 @@ const ThemeCustomizer = () => {
   const generateCSS = () => {
     let cssVariables = "";
 
+    // colorSettings.forEach((setting: any) => {
+    //   const hslValue = setting.hsl.join(" ");
+    //   cssVariables += `    --${setting.id.replace(
+    //     "-color",
+    //     ""
+    //   )}: ${hslValue}%;\n`; // Added four spaces at the start
+    // });
     colorSettings.forEach((setting: any) => {
-      const hslValue = setting.hsl.join(" ");
+      const hslValue = setting.hsl.map((value: any) => `${value}%`).join(" "); // Fix here
       cssVariables += `    --${setting.id.replace(
         "-color",
         ""
-      )}: ${hslValue}%;\n`; // Added four spaces at the start
+      )}: ${hslValue};\n`;
     });
 
     const css = `@layer base {
@@ -269,8 +276,8 @@ export default function Home() {
           Customize Hawa
         </div>
         <div className="hawa-text-lg hawa-max-w-lg hawa-leading-6">
-          Adjust the colors to generate the global CSS variables that you can copy and
-          paste into your primary CSS file
+          Adjust the colors to generate the global CSS variables that you can
+          copy and paste into your primary CSS file
         </div>
       </div>
 
