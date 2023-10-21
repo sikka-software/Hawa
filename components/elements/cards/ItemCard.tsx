@@ -2,6 +2,7 @@ import React, { useEffect, useState, FC } from "react";
 import clsx from "clsx";
 import { Button } from "../Button";
 import { DropdownMenu, MenuItemType } from "../DropdownMenu";
+import { StopPropagationWrapper } from "../StopPropagationWrapper";
 
 interface ItemCardTypes {
   headerActions?: MenuItemType[];
@@ -169,12 +170,4 @@ export const ItemCard: FC<ItemCardTypes> = ({
       </div>
     </div>
   );
-};
-
-const StopPropagationWrapper = (props: any) => {
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
-  return <div onClick={handleClick}>{props.children}</div>;
 };

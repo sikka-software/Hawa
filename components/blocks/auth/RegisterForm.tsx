@@ -12,6 +12,7 @@ import {
   CardFooter,
   SelectOptionProps,
   Loading,
+  StopPropagationWrapper,
 } from "../../elements";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
@@ -83,17 +84,17 @@ type RegisterFormTypes = {
   /** Determines whether to show the newsletter subscription checkbox. */
   showNewsletterOption: boolean;
   /** Callback function triggered on form submission. */
-  handleRegister: (e: any) => void;
+  onRegister: (e: any) => void;
   /** Callback function triggered to route to the login page. */
-  handleRouteToLogin: () => void;
+  onRouteToLogin: () => void;
   /** Callback function triggered to handle registration via Google. */
-  handleGoogleRegister: () => void;
+  onGoogleRegister: () => void;
   /** Callback function triggered to handle registration via Github. */
-  handleGithubRegister: () => void;
+  onGithubRegister: () => void;
   /** Callback function triggered to handle registration via Twitter. */
-  handleTwitterRegister: () => void;
+  onTwitterRegister: () => void;
   /** Callback function triggered to route to the Terms of Service page. */
-  handleRouteToTOS: () => void;
+  onRouteToTOS: () => void;
   /** Determines whether to show an error alert. */
   showError: any;
   /** Title for the error alert. */
@@ -195,11 +196,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
             <FormProvider {...methods}>
               <form
                 onSubmit={handleSubmit((e) => {
-                  if (props.handleRegister) {
-                    return props.handleRegister(e);
+                  if (props.onRegister) {
+                    return props.onRegister(e);
                   } else {
                     console.log(
-                      "Form is submitted but handleRegister prop is missing"
+                      "Form is submitted but onRegister prop is missing"
                     );
                   }
                 })}
@@ -370,15 +371,17 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           helperText={formState.errors.terms_accepted?.message?.toString()}
                           onCheckedChange={(e) => field.onChange(e)}
                           label={
-                            <span>
-                              {props.texts.iAcceptText}{" "}
-                              <a
-                                onClick={props.handleRouteToTOS}
-                                className="clickable-link"
-                              >
-                                {props.texts.termsText}
-                              </a>
-                            </span>
+                            <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
+                              <span>{props.texts.iAcceptText}</span>{" "}
+                              <StopPropagationWrapper>
+                                <a
+                                  onClick={props.onRouteToTOS}
+                                  className="clickable-link"
+                                >
+                                  {props.texts.termsText}
+                                </a>
+                              </StopPropagationWrapper>
+                            </div>
                           }
                         />
                       )}
@@ -409,10 +412,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
             </FormProvider>
             <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
               <span>{props.texts.existingUserText}</span>
-              <span
-                onClick={props.handleRouteToLogin}
-                className="clickable-link"
-              >
+              <span onClick={props.onRouteToLogin} className="clickable-link">
                 {props.texts.loginText || "Login"}
               </span>
             </div>
@@ -431,7 +431,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGoogleRegister}
+                onClick={props.onGoogleRegister}
               >
                 {props.isGoogleLoading ? (
                   <Loading size="button" />
@@ -445,7 +445,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGithubRegister}
+                onClick={props.onGithubRegister}
               >
                 {props.isGithubLoading ? (
                   <Loading size="button" />
@@ -459,7 +459,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleTwitterRegister}
+                onClick={props.onTwitterRegister}
               >
                 {props.isTwitterLoading ? (
                   <Loading size="button" />

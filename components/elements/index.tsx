@@ -53,3 +53,4 @@ export * from "./Form";
 export * from "./InterfaceSettings";
 
 export * from "./NavigationMenu";
+export * from "./StopPropagationWrapper";

@@ -25,10 +25,10 @@ const LoginDocs = (args: any, globals: any) => {
             "isGoogleLoading",
             "isTwitterLoading",
             "isGithubLoading",
-            "handleLogin",
-            "handleGoogleLogin",
-            "handleGithubLogin",
-            "handleTwitterLogin",
+            "onLogin",
+            "onGoogleLogin",
+            "onGithubLogin",
+            "onTwitterLogin",
           ]}
         />
       </div>
@@ -39,10 +39,10 @@ const LoginDocs = (args: any, globals: any) => {
       </h4>
       <ArgsTable
         include={[
-          "handleLogin",
-          "handleGoogleLogin",
-          "handleGithubLogin",
-          "handleTwitterLogin",
+          "onLogin",
+          "onGoogleLogin",
+          "onGithubLogin",
+          "onTwitterLogin",
         ]}
       />
       <h2 id="loading">Loading Booleans</h2>
@@ -180,7 +180,7 @@ const LoginDocs = (args: any, globals: any) => {
     return (
      <LoginForm
        texts={texts}
-       handleLogin={handleLogin}
+       onLogin={handleLogin}
        viaGoogle={true}
        viaGithub={true}
        // ...other props
@@ -219,8 +219,8 @@ const LoginDocs = (args: any, globals: any) => {
           The <span className="inline-code">LoginForm</span> component can be
           customized by passing different props like{" "}
           <span className="inline-code">viaGoogle</span>,{" "}
-          <span className="inline-code">viaGithub</span>, etc. Or by
-          adjusting <span className="inline-code">loginType</span> prop.
+          <span className="inline-code">viaGithub</span>, etc. Or by adjusting{" "}
+          <span className="inline-code">loginType</span> prop.
         </span>
       </div>
       {/* <div>

@@ -2,6 +2,7 @@ import React, { useState, FC, useRef, useEffect } from "react";
 import Countries from "../countries";
 import { Select } from "./Select";
 import { cn } from "../util";
+import { Label } from "./Label";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };
@@ -30,15 +31,9 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
   };
 
   return (
-    <div className="hawa-flex hawa-flex-col">
-      {props.label && (
-        <label
-          htmlFor="phone-number"
-          className="hawa-mb-2 hawa-block hawa-text-sm hawa-font-medium"
-        >
-          {props.label}
-        </label>
-      )}
+    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
+      {props.label && <Label>{props.label}</Label>}
+
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full ">
         <Select
           width="fit"
@@ -59,7 +54,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
             ref={inputRef}
             id="phone-number"
             className={cn(
-              "hawa-block hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm  hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none"
+              "hawa-block hawa-h-[40px] hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm  hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none hawa-w-full"
             )}
             onChange={handleInputChange}
             value={phoneNumber}
@@ -69,7 +64,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
         </div>
       </div>
       {props.helperText && (
-        <p className="hawa-mt-1 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
+        <p className="hawa-mt-0 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
           {props.helperText}
         </p>
       )}

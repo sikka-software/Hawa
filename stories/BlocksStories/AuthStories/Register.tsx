@@ -26,9 +26,9 @@ const RegisterDocs = (args: any, globals: any) => {
             "viaGoogle",
             "viaGithub",
             "viaTwitter",
-            "handleGoogleRegister",
-            "handleTwitterRegister",
-            "handleGithubRegister",
+            "onGoogleRegister",
+            "onTwitterRegister",
+            "onGithubRegister",
           ]}
         />
       </div>
@@ -40,9 +40,9 @@ const RegisterDocs = (args: any, globals: any) => {
             "viaGoogle",
             "viaGithub",
             "viaTwitter",
-            "handleGoogleRegister",
-            "handleTwitterRegister",
-            "handleGithubRegister",
+            "onGoogleRegister",
+            "onTwitterRegister",
+            "onGithubRegister",
           ]}
         />
       </div>
@@ -242,7 +242,7 @@ const RegisterDocs = (args: any, globals: any) => {
     return (
      <RegisterForm
        texts={texts}
-       handleRegister={handleRegister}
+       onRegister={handleRegister}
        viaGoogle={true}
        viaGithub={true}
        showTermsOption={true}

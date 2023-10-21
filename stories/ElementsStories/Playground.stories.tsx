@@ -4,6 +4,7 @@ import {
   Button,
   Combobox,
   Input,
+  PhoneInput,
   Select,
 } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
@@ -132,24 +133,31 @@ export const SelectAndInput: Story = {
     return (
       <div>
         <Button onClick={() => setLoading(!loading)}>Loading</Button>
-        <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-bg-red-100 hawa-mb-4">
-          <Input isLoading={loading} type={"password"} label={t("password")} />
-          <Select isLoading={loading} label={t("role")}>
-            <option></option>
-          </Select>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div className="hawa-flex hawa-flex-row hawa-bg-red-100 hawa-mb-4 hawa-py-2">
+            <Input
+              isLoading={loading}
+              type={"password"}
+              label={t("password")}
+            />
+            <Select isLoading={loading} label={t("role")}>
+              <option></option>
+            </Select>
+          </div>
+          <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-bg-red-100 hawa-mb-4 hawa-py-2">
+            <Input
+              isLoading={loading}
+              type={"password"}
+              label={t("password")}
+            />
+            <PhoneInput
+              label="Phone number"
+              // helperText={"helper text test"}
+              preferredCountry={{ label: "+966" }}
+              // handleChange={field.onChange}
+            />
+          </div>
         </div>
-        {/* <div className="hawa-grid hawa-grid-cols-1 hawa-items-start hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
-        <Input type={"text"} label={t("username") + " *"} />
-        <Input type={"text"} label={t("email") + " *"} />
-        <Input type={"password"} label={t("password") + " *"} />
-        <Select label={t("role") + " *"}>
-          <option></option>
-        </Select>
-        <Input type={"text"} label={t("first-name") + " - " + t("english")} />
-        <Input type={"text"} label={t("first-name") + " - " + t("arabic")} />
-        <Input type={"text"} label={t("last-name") + " - " + t("english")} />
-        <Input type={"text"} label={t("last-name") + " - " + t("arabic")} />
-      </div> */}
       </div>
     );
   },

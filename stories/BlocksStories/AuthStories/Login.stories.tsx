@@ -37,11 +37,6 @@ export const Default: Story = {
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
         <LoginForm
           direction={locale === "ar" ? "rtl" : "ltr"}
-          // handleColorMode={(e: any) => console.log("switching color mode")}
-          // handleLanguage={(e: any) => console.log("testing", e)}
-          // handleRouteToRegister={() =>
-          //   console.log("redirecting to register page")
-          // }
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}
@@ -75,9 +70,9 @@ export const Default: Story = {
     loginType: "phone",
   },
   argTypes: {
-    handleRouteToRegister: { action: "handleRouteToRegister" },
-    handleForgotPassword: { action: "handleForgotPassword" },
-    handleLogin: { action: "handleLogin" },
+    onLogin: { action: "onLogin" },
+    onRouteToRegister: { action: "onRouteToRegister" },
+    onForgotPassword: { action: "onForgotPassword" },
     handleColorMode: { action: "handleColorMode" },
     handleLanguage: { action: "handleLanguage" },
   },
@@ -94,11 +89,6 @@ export const MagicLink: Story = {
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
         <LoginForm
           direction={locale === "ar" ? "rtl" : "ltr"}
-          // handleColorMode={(e: any) => console.log("switching color mode")}
-          // handleLanguage={(e: any) => console.log("testing", e)}
-          // handleRouteToRegister={() =>
-          //   console.log("redirecting to register page")
-          // }
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}
@@ -135,9 +125,9 @@ export const MagicLink: Story = {
     loginType: "link",
   },
   argTypes: {
-    handleRouteToRegister: { action: "handleRouteToRegister" },
-    handleForgotPassword: { action: "handleForgotPassword" },
-    handleLogin: { action: "handleLogin" },
+    onLogin: { action: "onLogin" },
+    onRouteToRegister: { action: "onRouteToRegister" },
+    onForgotPassword: { action: "onForgotPassword" },
     handleColorMode: { action: "handleColorMode" },
     handleLanguage: { action: "handleLanguage" },
   },

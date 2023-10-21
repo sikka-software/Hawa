@@ -76,17 +76,17 @@ type LoginFormTypes = {
   /** If true, Twitter login option is displayed.   */
   viaTwitter?: boolean;
   /** Function to handle form submission.   */
-  handleLogin?: (e: any) => void;
+  onLogin?: (e: any) => void;
   /** Function to route user to the register page.   */
-  handleRouteToRegister?: () => void;
+  onRouteToRegister?: () => void;
   /** Function to handle forgotten password case.   */
-  handleForgotPassword?: () => void;
+  onForgotPassword?: () => void;
   /** Function to handle Google login.   */
-  handleGoogleLogin?: () => void;
+  onGoogleLogin?: () => void;
   /** Function to handle Github login.   */
-  handleGithubLogin?: () => void;
+  onGithubLogin?: () => void;
   /** Function to handle Twitter login.   */
-  handleTwitterLogin?: () => void;
+  onTwitterLogin?: () => void;
   additionalButtons?: any;
 };
 
@@ -190,7 +190,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               />
               {!props.withoutResetPassword && (
                 <div
-                  onClick={props.handleForgotPassword}
+                  onClick={props.onForgotPassword}
                   className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {props.texts?.forgotPasswordText || "Forgot Password?"}
@@ -241,7 +241,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               />
               {!props.withoutResetPassword && (
                 <div
-                  onClick={props.handleForgotPassword}
+                  onClick={props.onForgotPassword}
                   className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {props.texts?.forgotPasswordText || "Forgot Password?"}
@@ -309,11 +309,11 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
           <form
             className="hawa-flex hawa-flex-col hawa-gap-4"
             onSubmit={handleSubmit((e) => {
-              if (props.handleLogin) {
-                return props.handleLogin(e);
+              if (props.onLogin) {
+                return props.onLogin(e);
               } else {
                 console.log(
-                  "Form is submitted but handleLogin prop is missing"
+                  "Form is submitted but onLogin prop is missing"
                 );
               }
             })}
@@ -332,7 +332,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
                 {props.texts?.newUserText || "New user?"}{" "}
                 <span
-                  onClick={props.handleRouteToRegister}
+                  onClick={props.onRouteToRegister}
                   className="clickable-link"
                 >
                   {props.texts?.createAccount || "Create Account"}
@@ -355,7 +355,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGoogleLogin}
+                onClick={props.onGoogleLogin}
               >
                 {props.isGoogleLoading ? (
                   <Loading size="button" />
@@ -369,7 +369,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleGithubLogin}
+                onClick={props.onGithubLogin}
               >
                 {props.isGithubLoading ? (
                   <Loading size="button" />
@@ -383,7 +383,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
-                onClick={props.handleTwitterLogin}
+                onClick={props.onTwitterLogin}
               >
                 {props.isTwitterLoading ? (
                   <Loading size="button" />

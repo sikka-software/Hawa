@@ -164,7 +164,7 @@ export const Select: FC<SelectTypes> = (props) => {
     return (
       <div
         className={cn(
-          "hawa-absolute  hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background",
+          "hawa-absolute  hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background -hawa-ml-1",
           props.phoneCode ? "hawa-p-1.5" : "hawa-p-1.5 hawa-w-full",
           menuOpen && "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
 
@@ -209,7 +209,7 @@ export const Select: FC<SelectTypes> = (props) => {
               cn(
                 "hawa-rounded",
                 props.phoneCode &&
-                  "hawa-w-fit hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[37.5px] ",
+                  "hawa-w-fit hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px] ",
 
                 "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm",
                 props.disabled
