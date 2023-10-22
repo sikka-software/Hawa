@@ -51,7 +51,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   multiline?: boolean;
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
-
+  hint?: string;
   //   /** The value of the input field */
   //   value?: any;
   //   props?: PropsWithRef<"input">;
@@ -107,7 +107,11 @@ export const Input: FC<TextFieldTypes> = ({
         "hawa-w-full hawa-gap-2"
       )}
     >
-      {props.label && <Label>{props.label}</Label>}
+      {props.label && (
+        <Label htmlFor={props.id} hint={props.hint}>
+          {props.label}
+        </Label>
+      )}
       {props.isLoading ? (
         <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : (

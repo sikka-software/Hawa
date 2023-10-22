@@ -262,6 +262,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           name="username"
                           render={({ field }) => (
                             <Input
+                            hint="something something"
                               width="full"
                               type="text"
                               autoComplete="username"

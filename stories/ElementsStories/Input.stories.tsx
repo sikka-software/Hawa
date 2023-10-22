@@ -102,7 +102,12 @@ export const Examples: Story = {
           control={control}
           name="username"
           render={({ field }) => (
-            <Input type={"text"} label={t("username") + " *"} {...field} />
+            <Input
+              hint="Only underscore and dash are acccepted"
+              type={"text"}
+              label={t("username") + " *"}
+              {...field}
+            />
           )}
         />
         <Controller
