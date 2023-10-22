@@ -12,12 +12,13 @@ const labelVariants = cva(
 type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
   VariantProps<typeof labelVariants> & {
     hint?: React.ReactNode; // Define hint prop as optional, you can make it required by removing the '?'
+    hintSide?: "top" | "bottom" | "right" | "left"; // Define hint prop as optional, you can make it required by removing the '?'
   };
 
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   LabelProps // Use the new LabelProps type here
->(({ className, hint, ...props }, ref) => (
+>(({ className, hint, hintSide, ...props }, ref) => (
   <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center  ">
     <LabelPrimitive.Root
       ref={ref}
@@ -25,7 +26,7 @@ const Label = React.forwardRef<
       {...props}
     />
     {hint && (
-      <Tooltip content={hint} side="right">
+      <Tooltip content={hint} side={hintSide}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           // width="24"

@@ -52,6 +52,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
   hint?: string;
+  hintSide?: "top" | "bottom" | "right" | "left";
   //   /** The value of the input field */
   //   value?: any;
   //   props?: PropsWithRef<"input">;
@@ -108,7 +109,7 @@ export const Input: FC<TextFieldTypes> = ({
       )}
     >
       {props.label && (
-        <Label htmlFor={props.id} hint={props.hint}>
+        <Label htmlFor={props.id} hint={props.hint} hintSide={props.hintSide}>
           {props.label}
         </Label>
       )}
