@@ -24,26 +24,36 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
-  render: (args) => (
-    <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-      <div className="hawa-max-w-md hawa-w-full ">
-        <Select {...args} />
+  render: (args: any, globals: any) => {
+    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+
+    setLocale(locale);
+    return (
+      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
+        <div
+          className="hawa-max-w-md hawa-w-full"
+          dir={locale === "ar" ? "rtl" : "ltr"}
+        >
+          <Select
+            label={"Select Input"}
+            placeholder={"Choose something"}
+            isCreatable={false}
+            isMulti={false}
+            isClearable={false}
+            isSearchable={true}
+            options={[
+              { value: "chocolate", label: "Chocolate" },
+              { value: "strawberry", label: "Strawberry" },
+              { value: "vanilla", label: "Vanilla" },
+            ]}
+            defaultValue={{ label: "Chocolate" }}
+            {...args}
+          />
+        </div>
       </div>
-    </div>
-  ),
-  args: {
-    label: "Select Input",
-    placeholder: "Choose something",
-    isCreatable: false,
-    isMulti: false,
-    isClearable: false,
-    isSearchable: true,
-    options: [
-      { value: "chocolate", label: "Chocolate" },
-      { value: "strawberry", label: "Strawberry" },
-      { value: "vanilla", label: "Vanilla" },
-    ],
+    );
   },
+  args: {},
   argTypes: {
     onChange: { action: "onChange" },
     onInputChange: { action: "onInputChange" },

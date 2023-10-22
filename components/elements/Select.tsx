@@ -15,42 +15,6 @@ type ControlTypes = {
   size?: "small" | "normal" | "large";
 };
 
-// type MenuListTypes = MenuListProps & {
-//   cx: any;
-//   children: any;
-//   getStyles: any;
-//   innerProps: any;
-//   innerRef: any;
-// };
-// const MenuList: FC<MenuListTypes> = ({
-//   cx,
-//   children,
-//   getStyles,
-//   innerProps,
-//   innerRef,
-//   ...props
-// }) => {
-//   console.log("inner ", props.selectProps);
-
-//   return (
-//     <div
-//       className={cn(
-//         "hawa-absolute hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-2 hawa-flex hawa-w-full  hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border  hawa-bg-background  hawa-p-1.5"
-//         // props.on
-//         // props.selectProps?.menuIsOpen
-//         //   ? "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
-//         //   : "hawa-zoom-out-95 hawa-fade-out-0 hawa-animate-out"
-//         // "hawa-zoom-in-95 hawa-animate-in hawa-animate-out hawa-fade-out-0 hawa-fade-in-0 hawa-zoom-out-95"
-//         // "data-[state=open]:hawa-zoom-in-95 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95"
-//       )}
-//       ref={innerRef}
-//       {...innerProps}
-//       // {...props}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
 // The options container
 type MenuTypes = MenuProps & {
   cx: any;
@@ -77,6 +41,7 @@ export type SelectOptionProps = {
 type SelectTypes = {
   label?: string;
   options?: SelectOptionProps[];
+  labelKey?: string;
   isCreatable?: boolean;
   isClearable?: boolean;
   isMulti?: boolean;
@@ -103,41 +68,22 @@ type SelectTypes = {
     createLabel?: string;
   };
 };
-export const Select: FC<SelectTypes> = (props) => {
-  const Control: FC<ControlTypes> = ({
-    // cx,
-    children,
-    // getStyles,
-    innerProps,
-    innerRef,
-    // size = "normal",
-    // ...props
-  }) => {
-    // let sizeStyles = {
-    //   small: "hawa-h-7 hawa-text-xs",
-    //   normal: "hawa-h-[36px]  hawa-text-sm",
-    //   large: "",
-    // };
+export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
+  const NoOption = () => {
+    return <div>{props.texts?.noOptions ?? "No Items Found"}</div>;
+  };
+  const Control: FC<ControlTypes> = ({ children, innerProps, innerRef }) => {
     return (
       <div
         ref={innerRef}
         className={clsx(
-          // sizeStyles[size],
-          " hawa-text-sm hawa-flex hawa-p-2 hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500"
-          // props.className
+          "hawa-text-sm hawa-flex hawa-p-2 hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500"
         )}
         {...innerProps}
-        //   style={{
-        //     height: "10px",
-        //   }}
       >
         {children}
       </div>
     );
-  };
-
-  const NoOption = () => {
-    return <div>{props.texts?.noOptions ?? "No Items Found"}</div>;
   };
   const Option: FC<OptionTypes> = ({ children, innerProps, innerRef }) => {
     return (
@@ -164,16 +110,9 @@ export const Select: FC<SelectTypes> = (props) => {
     return (
       <div
         className={cn(
-          "hawa-absolute  hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background -hawa-ml-1",
+          "hawa-absolute  hawa-shadow-md dark:dark-shadow hawa-z-10 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background -hawa-mx-1",
           props.phoneCode ? "hawa-p-1.5" : "hawa-p-1.5 hawa-w-full",
           menuOpen && "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
-
-          // menuOpen
-          //   ? "hawa-zoom-in-95 hawa-animate-in hawa-fade-in-0 "
-          //   : "hawa-zoom-out-95 hawa-fade-out-0 hawa-animate-out"
-
-          // "hawa-zoom-in-95 hawa-animate-in hawa-animate-out hawa-fade-out-0 hawa-fade-in-0 hawa-zoom-out-95"
-          // "data-[state=open]:hawa-zoom-in-95 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95"
         )}
         ref={innerRef}
         {...innerProps}
@@ -234,14 +173,14 @@ export const Select: FC<SelectTypes> = (props) => {
               : { Option, Menu }
           }
           onChange={(newValue: any, action) => props.onChange(newValue, action)}
-          isDisabled={props.disabled}
           options={props.options}
+          getOptionLabel={props.getOptionLabel}
           defaultValue={props.defaultValue}
+          placeholder={props.placeholder}
+          isDisabled={props.disabled}
           isClearable={props.isClearable}
           isMulti={props.isMulti}
           isSearchable={props.isSearchable}
-          placeholder={props.placeholder}
-          getOptionLabel={props.getOptionLabel}
         />
       ) : (
         <CreatableSelect

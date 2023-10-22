@@ -119,7 +119,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                 />
               }
             >
-              <span>Please enter your feedback</span>{" "}
+              <span className="hawa-m-2">Please enter your feedback</span>{" "}
             </Popover>
             <Button
               isLoading={loadingSubmit}

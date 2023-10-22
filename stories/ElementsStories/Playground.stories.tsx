@@ -126,6 +126,29 @@ export const WifiIcon: Story = {
     </svg>
   ),
 };
+
+let roles = [
+  {
+    _id: "09849846540345",
+    label: "Superadmin",
+  },
+  {
+    _id: "013216506546584098",
+    label: "Admin",
+  },
+  {
+    _id: "84940984065496",
+    label: "Viewer",
+  },
+  {
+    _id: "6401651321",
+    label: "User",
+  },
+  {
+    _id: "84040984098",
+    label: "Editor",
+  },
+];
 export const SelectAndInput: Story = {
   name: "Select & Input",
   render: () => {
@@ -134,11 +157,22 @@ export const SelectAndInput: Story = {
       <div>
         <Button onClick={() => setLoading(!loading)}>Loading</Button>
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <div className="hawa-flex hawa-flex-row hawa-bg-red-100 hawa-mb-4 hawa-py-2">
+          <div className="hawa-flex hawa-flex-row hawa-items-start  hawa-mb-4 hawa-py-2">
             <Input
               isLoading={loading}
-              type={"password"}
-              label={t("password")}
+              type={"text"}
+              label={t("Input")}
+              helperText={"Testing helperText"}
+            />
+            <Combobox
+              label="Role"
+              data={roles}
+              labelKey={"label"}
+              valueKey={"_id"}
+              placeholder="Select something"
+              searchPlaceholder="Search ..."
+              helperText={"Testing helperText"}
+              defaultValue="84040984098"
             />
             <Select isLoading={loading} label={t("role")}>
               <option></option>

@@ -29,7 +29,7 @@ const Template = (args: any, globals: any) => {
 
   return (
     <Popover side={args.side} trigger={<Button>Show Popover</Button>}>
-      <div>This is the content of the popover</div>
+      <div className="hawa-m-4">This is the content of the popover</div>
     </Popover>
   );
 };
