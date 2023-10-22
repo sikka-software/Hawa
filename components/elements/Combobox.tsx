@@ -28,6 +28,7 @@ type ComboboxTypes<T> = {
   buttonClassName?: string;
   /** This the same value as the one with the key valueKey */
   defaultValue?: string;
+  onChange?: (e: any) => void;
 };
 
 export const Combobox: React.FC<ComboboxTypes<any>> = ({
@@ -63,7 +64,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
               role="combobox"
               aria-expanded={open}
               className={cn(
-                "hawa-justify-between hawa-bg-background",
+                "hawa-justify-between hawa-bg-background hawa-font-normal",
                 buttonClassName
               )}
             >
@@ -72,7 +73,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                     data.find((item: any) => item[valueKey] === value) || {},
                     labelKey
                   )
-                : props.placeholder}
+                : props.placeholder || "..."}
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +100,12 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                     onSelect={() => {
                       // Adjusted line
                       const newValue = getProperty(item, valueKey);
-                      console.log("seleelelelele", newValue);
                       setValue(newValue === value ? "" : (newValue as string));
+                      if (props.onChange) {
+                        props.onChange(
+                          newValue === value ? "" : (newValue as string)
+                        );
+                      }
                       setOpen(false);
                     }}
                   >

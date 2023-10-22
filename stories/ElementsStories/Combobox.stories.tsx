@@ -81,7 +81,8 @@ export const Default: Story = {
           {/* <Combobox data={frameworks} /> */}
           <Combobox
             label="Role"
-            defaultValue="84040984098"
+            // defaultValue="84040984098"
+            placeholder="Select Role"
             data={roles}
             valueKey={"_id"}
           />
