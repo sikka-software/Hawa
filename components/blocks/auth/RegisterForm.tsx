@@ -111,7 +111,9 @@ type RegisterFormTypes = {
   isTwitterLoading?: boolean;
   /** If true, a loading spinner is displayed within the Github login button.   */
   isGithubLoading?: boolean;
-  userReferenceOptions: SelectOptionProps[];
+  userReferenceOptions?: SelectOptionProps[];
+  additionalButtons?: any;
+  additionalInputs?: any;
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = (props) => {
@@ -309,6 +311,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                     />
                   )}
                 />
+                {props.additionalInputs}
                 {props.showRefCode && (
                   <Controller
                     control={control}
@@ -317,7 +320,6 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       <Input
                         width="full"
                         type="text"
-                        // defaultValue={field.value ?? ""}
                         label={props.texts.refCode}
                         placeholder={
                           props.texts.refCodePlaceholder ||
@@ -331,34 +333,27 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                   />
                 )}
                 {props.showUserSource && (
-                  <div>
-                    <Controller
-                      control={control}
-                      name="reference"
-                      render={({ field }) => (
-                        <Select
-                          label={
-                            props.texts?.userReferenceLabel ||
-                            "How did you learn about us?"
-                          }
-                          placeholder={props.texts?.userReferencePlaceholder}
-                          isCreatable={false}
-                          isMulti={false ?? false}
-                          isSearchable={false}
-                          isClearable={false ?? false}
-                          options={props.userReferenceOptions}
-                          // options={[
-                          //   { value: "friend", label: "From a friend" },
-                          //   { value: "ad", label: "Advertisement" },
-                          //   { value: "other", label: "Other" },
-                          // ]}
-                          onChange={(e: any) => {
-                            field.onChange(e.value);
-                          }}
-                        />
-                      )}
-                    />
-                  </div>
+                  <Controller
+                    control={control}
+                    name="reference"
+                    render={({ field }) => (
+                      <Select
+                        label={
+                          props.texts?.userReferenceLabel ||
+                          "How did you learn about us?"
+                        }
+                        placeholder={props.texts?.userReferencePlaceholder}
+                        isCreatable={false}
+                        isMulti={false ?? false}
+                        isSearchable={false}
+                        isClearable={false ?? false}
+                        options={props.userReferenceOptions}
+                        onChange={(e: any) => {
+                          field.onChange(e.value);
+                        }}
+                      />
+                    )}
+                  />
                 )}
                 <div className="hawa-flex hawa-flex-col hawa-gap-3">
                   {props.showTermsOption && (
@@ -408,6 +403,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 >
                   {props.texts.registerText}
                 </Button>
+                {props.additionalButtons}
               </form>
             </FormProvider>
             <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RegisterForm } from "../../../components";
+import { RegisterForm, Button, Input } from "../../../components";
 import { ArgsTable, Markdown, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import RegisterDocs from "./Register";
@@ -74,6 +74,15 @@ const Template = (args: any, globals: any) => {
           { label: t("ad"), value: "ad" },
           { label: t("other"), value: "other" },
         ]}
+        additionalInputs={
+          <Input
+            label={"Extra Field"}
+            placeholder={"Added via additionalInput prop"}
+          />
+        }
+        additionalButtons={
+          <Button variant={"outline"}>{t("Extra Optional Button")}</Button>
+        }
         {...args}
       />
     </div>
