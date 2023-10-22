@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionTrigger,
-  Button,
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
   CodeBlock,
   ColorPicker,
   Label,
@@ -191,7 +184,7 @@ ${cssVariables}    --radius: 0.5rem;
     setGeneratedCSS(generateCSS());
   }, [generateCSS]);
   return (
-    <div className="hawa-w-full hawa-flex hawa-flex-row hawa-gap-10 ">
+    <div className="hawa-w-full hawa-flex hawa-flex-col lg:hawa-flex-row hawa-gap-10 ">
       <Card className="hawa-w-full">
         <CardContent
           headless

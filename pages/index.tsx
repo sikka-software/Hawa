@@ -75,9 +75,7 @@ export default function Home() {
                 Docs
               </Button>
               <Link href={"/theme"}>
-                <Button  aria-label="Open Documentation">
-                  Customize
-                </Button>
+                <Button aria-label="Open Documentation">Customize</Button>
               </Link>
             </div>
             <CodeBlock
@@ -87,16 +85,22 @@ export default function Home() {
                 { title: "yarn", code: "yarn add @sikka/hawa" },
               ]}
             />
-            <a
-              href="https://www.npmjs.com/package/@sikka/hawa"
-              className="hawa-w-fit"
-            >
-              <img
-                className="hawa-w-24 hawa-rounded"
-                alt="Sikka"
-                src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000"
-              />
-            </a>
+
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <a href="https://www.npmjs.com/package/@sikka/hawa">
+                <img
+                  src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=1082c3"
+                  alt="npm"
+                />
+              </a>
+
+              <a href="https://www.npmjs.com/package/@sikka/hawa">
+                <img
+                  src="https://img.shields.io/npm/v/@sikka/hawa/next.svg?style=flat&colorA=000000&colorB=ea7637"
+                  alt="@next tag"
+                />
+              </a>
+            </div>
 
             {/* <a
               href="https://www.github.com/sikka-software/hawa"
