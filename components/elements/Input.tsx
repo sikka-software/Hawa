@@ -6,7 +6,41 @@ import { Skeleton } from "./Skeleton";
 // TODO: make icon based on direction
 // TODO: Preferebly use context to pass direction rtl | ltr
 
-type TextFieldTypes = {
+// type TextFieldTypes = {
+//   isLoading?: boolean;
+//   containerClassName?: string;
+//   margin?: "none" | "normal" | "large";
+//   width?: "small" | "normal" | "full" | "auto";
+//   /** The label of the input field   */
+//   label?: any;
+//   /** Disable/Enable multiple line text input field   */
+//   multiline?: boolean;
+//   /** The small red text under the input field to show validation or a hint.   */
+//   helperText?: any;
+//   /** The value of the input field */
+//   value?: any;
+//   props?: PropsWithRef<"input">;
+//   /** The type of input field. Same as the types of the HTML input element */
+//   type?: any;
+//   /** The placeholder of the input field  */
+//   placeholder?: any;
+//   defaultValue?: any;
+//   name?: any;
+//   inputProps?: any;
+//   onChange?: any;
+//   ref?: any;
+//   dir?: "rtl" | "ltr";
+//   /** The icon inside the input field */
+//   icon?: any;
+//   /** Boolean to enable/disable editing the input field and using it as a text field   */
+//   preview?: boolean;
+//   autoComplete?: any;
+//   maxLength?: any;
+//   className?: any;
+//   iconInside?: React.ReactNode;
+// };
+
+type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
   containerClassName?: string;
   margin?: "none" | "normal" | "large";
@@ -17,28 +51,29 @@ type TextFieldTypes = {
   multiline?: boolean;
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
-  /** The value of the input field */
-  value?: any;
-  props?: PropsWithRef<"input">;
-  /** The type of input field. Same as the types of the HTML input element */
-  type?: any;
-  /** The placeholder of the input field  */
-  placeholder?: any;
-  defaultValue?: any;
-  name?: any;
+
+  //   /** The value of the input field */
+  //   value?: any;
+  //   props?: PropsWithRef<"input">;
+  //   /** The type of input field. Same as the types of the HTML input element */
+  //   type?: any;
+  //   /** The placeholder of the input field  */
+  //   placeholder?: any;
+  //   defaultValue?: any;
+  //   name?: any;
   inputProps?: any;
-  onChange?: any;
-  ref?: any;
+  //   onChange?: any;
+  //   ref?: any;
+  //   dir?: "rtl" | "ltr";
   /** The icon inside the input field */
   icon?: any;
   /** Boolean to enable/disable editing the input field and using it as a text field   */
   preview?: boolean;
-  autoComplete?: any;
-  maxLength?: any;
-  className?: any;
+  //   autoComplete?: any;
+  //   maxLength?: any;
+  //   className?: any;
   iconInside?: React.ReactNode;
 };
-
 export const Input: FC<TextFieldTypes> = ({
   margin = "none",
   width = "full",
@@ -100,15 +135,15 @@ export const Input: FC<TextFieldTypes> = ({
                     "hawa-border-transparent hawa-bg-transparent hawa-px-0",
                   props.inputProps?.className
                 )}
+                dir={props.dir}
+                type={props.type}
+                value={props.value}
                 onChange={props.onChange}
                 autoComplete={props.autoComplete}
-                value={props.value}
                 defaultValue={props.defaultValue}
-                type={props.type}
                 placeholder={props.placeholder}
                 disabled={preview}
                 style={{ height: 40 }}
-
               />
             </div>
             {props.iconInside && (

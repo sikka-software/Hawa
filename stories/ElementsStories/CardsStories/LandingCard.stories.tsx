@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof LandingCard>;
 
 export const Default: Story = {
-  render: (args) => (
+  render: () => (
     <LandingCard
       className={"hawa-max-w-md"}
       title="Title of landing card"

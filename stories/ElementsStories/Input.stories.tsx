@@ -3,6 +3,7 @@ import { Button, Input } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 const meta = {
   title: "Elements/Inputs/Input",
@@ -75,37 +76,48 @@ export const LoadingMode: Story = {
 };
 
 export const Examples: Story = {
-  render: () => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const { handleSubmit, control, formState } = useForm({});
+
     return (
-      <div className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4">
-        <Input type={"text"} label={t("username") + " *"} value={"username"} />
-        <Input type={"text"} label={t("email") + " *"} value={"email"} />
-        <Input
-          type={"password"}
-          label={t("password") + " *"}
-          value={"password"}
+      <div
+        className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
+        dir={locale === "ar" ? "rtl" : "ltr"}
+      >
+        <Controller
+          control={control}
+          name="email"
+          render={({ field }) => (
+            <Input
+              dir={"ltr"}
+              inputProps={{ className: "hawa-text-right" }}
+              label={"Email"}
+              {...field}
+            />
+          )}
         />
-
-        <Input
-          type={"text"}
-          label={t("first-name") + " - " + t("english")}
-          value={"firstname"}
+        <Controller
+          control={control}
+          name="username"
+          render={({ field }) => (
+            <Input type={"text"} label={t("username") + " *"} {...field} />
+          )}
         />
-
-        <Input
-          type={"text"}
-          label={t("first-name") + " - " + t("arabic")}
-          value={"firstname"}
+        <Controller
+          control={control}
+          name="password"
+          render={({ field }) => (
+            <Input type={"password"} label={t("password") + " *"} {...field} />
+          )}
         />
-        <Input
-          type={"text"}
-          label={t("last-name") + " - " + t("english")}
-          value={"username"}
-        />
-        <Input
-          type={"text"}
-          label={t("last-name") + " - " + t("arabic")}
-          value={"lastname"}
+        <Controller
+          control={control}
+          name="firstName"
+          render={({ field }) => (
+            <Input type={"text"} label={t("first-name") + " *"} {...field} />
+          )}
         />
       </div>
     );
