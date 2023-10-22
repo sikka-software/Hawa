@@ -51,7 +51,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
   ...props
 }) => {
   let defaultStyle =
-    "hawa-block hawa-rounded hawa-border hawa-border-gray-200 hawa-bg-white hawa-shadow-sm hover:hawa-shadow-lg hawa-transition-all dark:hawa-border-gray-700 dark:hawa-bg-gray-800 ";
+    "hawa-block hawa-rounded hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm hawa-transition-all";
 
   let orientationStyles = {
     vertical: "hawa-max-w-sm",
@@ -86,7 +86,11 @@ export const ItemCard: FC<ItemCardTypes> = ({
 
   return (
     <div
-      className={clsx(defaultStyle, orientationStyles[orientation])}
+      className={clsx(
+        defaultStyle,
+        props.onCardClick && " hover:hawa-shadow-lg hawa-cursor-pointer",
+        orientationStyles[orientation]
+      )}
       onClick={(e) => {
         e.stopPropagation();
         if (props.onCardClick) {
@@ -121,45 +125,47 @@ export const ItemCard: FC<ItemCardTypes> = ({
           )}
         </div>
       )}
-      <div className="hawa-relative hawa-w-full hawa-p-6">
+      <div className="hawa-relative hawa-w-full hawa-p-4 xs:hawa-p-6 xs:hawa-pb-2 xs:hawa-px-2">
         {headerActions && (
-          <div className="hawa-max-h- hawa-bg-red hawa-absolute hawa-right-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pr-3 hawa-pt-3">
+          <div className="hawa-absolute hawa-right-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pr-3 hawa-pt-3">
             <DropdownMenu
               items={headerActions}
               trigger={
-                <div
-                  className={clsx(headerActionsButtonStyle)}
+                <Button
+                  variant={"ghost"}
+                  size={"smallIcon"}
+                  // className={clsx(headerActionsButtonStyle)}
                   onClick={handleOpenActionHeader}
                 >
                   <span className="hawa-sr-only">Open dropdown</span>
                   <svg
-                    className="hawa-h-6 hawa-w-6"
+                    className="hawa-h-5 hawa-w-5"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
                     <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
                   </svg>
-                </div>
+                </Button>
               }
             />
           </div>
         )}
 
-        {header && (
-          <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight hawa-text-gray-900 dark:hawa-text-white">
-            {header}
-          </h5>
-        )}
-        {content && (
-          <span className="hawa-w-full hawa-font-normal hawa-text-gray-700 dark:hawa-text-gray-400">
-            {content}
-          </span>
-        )}
+        <div className=" hawa-mx-2">
+          {header && (
+            <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight ">
+              {header}
+            </h5>
+          )}
+          {content && (
+            <span className="hawa-w-full hawa-font-normal ">{content}</span>
+          )}
+        </div>
         {actions || counts ? (
           <div
             className={clsx(
-              "hawa-mt-3 hawa-flex hawa-items-center hawa-rounded-b-lg dark:hawa-text-white ",
+              "hawa-mt-3 hawa-flex hawa-flex-col xs:hawa-flex-row hawa-items-center hawa-rounded-b-lg dark:hawa-text-white ",
               actions && counts ? "hawa-justify-between" : "hawa-justify-end"
             )}
           >

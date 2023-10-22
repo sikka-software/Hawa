@@ -26,7 +26,7 @@ type Story = StoryObj<typeof ItemCard>;
 const Template = (args: any) => (
   <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64">
     <ItemCard
-        headerActions={[
+      headerActions={[
         { label: "QR Code", action: () => console.log("clicking on QR") },
         {
           label: "Menu Settings",
