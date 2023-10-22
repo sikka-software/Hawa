@@ -27,6 +27,7 @@ const colorSettingsArray: ColorSetting[] = [
     label: "Popover Foreground Color",
     hsl: [240, 10, 3.9],
   },
+  { id: "helper-text", label: "Helper Text Color", hsl: [0, 72, 51] },
   { id: "primary-color", label: "Primary Color", hsl: [240, 5.9, 10] },
   {
     id: "primary-foreground-color",
