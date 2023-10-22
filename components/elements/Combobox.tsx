@@ -18,13 +18,14 @@ type ComboboxTypes<T> = {
   labelKey?: keyof T;
   valueKey?: keyof T;
   data: T[];
-  // ... other props
   width?: string;
   label?: string;
   isLoading?: boolean;
   helperText?: string;
   placeholder?: string;
   searchPlaceholder?: string;
+  popoverClassName?: string;
+  buttonClassName?: string;
   /** This the same value as the one with the key valueKey */
   defaultValue?: string;
 };
@@ -33,7 +34,8 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
   labelKey = "label",
   valueKey = "value",
   defaultValue = "",
-
+  popoverClassName,
+  buttonClassName,
   data,
   ...props
 }) => {
@@ -60,7 +62,10 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
               variant="combobox"
               role="combobox"
               aria-expanded={open}
-              className="hawa-w-[200px] hawa-justify-between hawa-bg-background"
+              className={cn(
+                "hawa-justify-between hawa-bg-background",
+                buttonClassName
+              )}
             >
               {value
                 ? getProperty(
@@ -71,26 +76,23 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                className="hawa-w-4 hawa-h-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="hawa-ml-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50"
               >
-                <path d="m7 15 5 5 5-5" />
-                <path d="m7 9 5-5 5 5" />
+                <path d="m6 9 6 6 6-6" />
               </svg>
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="hawa-w-[200px] hawa-p-0 hawa-bg-yellow-600">
+          <PopoverContent className={cn("popover-w-parent")}>
             <Command>
               <CommandInput placeholder={props.searchPlaceholder} />
               <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandGroup>
+              <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
                 {data.map((item: any) => (
                   <CommandItem
                     key={getProperty(item, valueKey)} // Updated line

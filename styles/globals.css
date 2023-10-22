@@ -192,6 +192,9 @@ body {
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);
   }
+  .popover-w-parent {
+    width: var(--radix-popover-trigger-width);
+  }
   .badge {
     background: rgb(220, 232, 58);
     font-size: 10px !important;

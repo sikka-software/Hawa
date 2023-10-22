@@ -188,7 +188,7 @@ ${cssVariables}    --radius: 0.5rem;
       <Card className="hawa-w-full">
         <CardContent
           headless
-          className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10"
+          className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10 hawa-items-end"
         >
           {/* <Accordion
             className="hawa-w-full"

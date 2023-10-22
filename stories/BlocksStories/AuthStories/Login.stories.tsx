@@ -25,46 +25,61 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
-export const Default: Story = {
-  render: (args: any, globals: any) => {
-    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+const Template = (args: any, globals: any) => {
+  const locale = globals.globals.locale === "ar" ? "ar" : "en";
 
-    setLocale(locale);
-    const [isError, setError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    let d = useDarkMode();
-    return (
-      <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
-        <LoginForm
-          direction={locale === "ar" ? "rtl" : "ltr"}
-          currentColorMode={d ? "dark" : "light"}
-          currentLanguage={globals.globals.locale}
-          showError={isError}
-          texts={{
-            emailLabel: t("emailLabel"),
-            emailPlaceholder: t("emailPlaceholder"),
-            emailRequiredText: t("emailRequiredText"),
-            emailInvalidText: t("emailInvalidText"),
-            usernameLabel: t("usernameLabel"),
-            usernamePlaceholder: t("usernamePlaceholder"),
-            usernameRequired: t("usernameRequired"),
-            phoneRequiredText: t("phoneRequiredText"),
-            passwordLabel: t("passwordLabel"),
-            passwordPlaceholder: t("passwordPlaceholder"),
-            passwordRequiredText: t("passwordRequiredText"),
-            forgotPasswordText: t("forgotPasswordText"),
-            newUserText: t("newUserText"),
-            createAccount: t("createAccount"),
-            loginText: t("loginText"),
-            loginViaGoogleLabel: t("loginViaGoogleLabel"),
-            loginViaGithubLabel: t("loginViaGithubLabel"),
-            loginViaTwitterLabel: t("loginViaTwitterLabel"),
-          }}
-          {...args}
-        />
-      </div>
-    );
+  setLocale(locale);
+  const [isError, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  let d = useDarkMode();
+  return (
+    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
+      <LoginForm
+        direction={locale === "ar" ? "rtl" : "ltr"}
+        currentColorMode={d ? "dark" : "light"}
+        currentLanguage={globals.globals.locale}
+        showError={isError}
+        texts={{
+          emailLabel: t("emailLabel"),
+          emailPlaceholder: t("emailPlaceholder"),
+          emailRequiredText: t("emailRequiredText"),
+          emailInvalidText: t("emailInvalidText"),
+          usernameLabel: t("usernameLabel"),
+          usernamePlaceholder: t("usernamePlaceholder"),
+          usernameRequired: t("usernameRequired"),
+          phoneRequiredText: t("phoneRequiredText"),
+          passwordLabel: t("passwordLabel"),
+          passwordPlaceholder: t("passwordPlaceholder"),
+          passwordRequiredText: t("passwordRequiredText"),
+          forgotPasswordText: t("forgotPasswordText"),
+          newUserText: t("newUserText"),
+          createAccount: t("createAccount"),
+          loginText: t("loginText"),
+          loginViaGoogleLabel: t("loginViaGoogleLabel"),
+          loginViaGithubLabel: t("loginViaGithubLabel"),
+          loginViaTwitterLabel: t("loginViaTwitterLabel"),
+        }}
+        {...args}
+      />
+    </div>
+  );
+};
+export const Default: Story = {
+  render: Template.bind({}),
+
+  args: {
+    loginType: "email",
   },
+  argTypes: {
+    onLogin: { action: "onLogin" },
+    onRouteToRegister: { action: "onRouteToRegister" },
+    onForgotPassword: { action: "onForgotPassword" },
+    handleColorMode: { action: "handleColorMode" },
+    handleLanguage: { action: "handleLanguage" },
+  },
+};
+export const viaPhone: Story = {
+  render: Template.bind({}),
 
   args: {
     loginType: "phone",

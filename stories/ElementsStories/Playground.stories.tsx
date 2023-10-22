@@ -12,7 +12,7 @@ import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 
 const meta = {
-  title: "Playground (AI)",
+  title: "Playground",
   component: Alert,
   parameters: {
     // layout: "centered",
@@ -61,6 +61,7 @@ export default meta;
 type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
+  name: "ProgressBar (AI)",
   render: () => (
     <div className="min-h-screen flex items-center justify-center">
       <ProgressBar currentMetric={70} maxMetric={100} />
@@ -68,6 +69,8 @@ export const Default: Story = {
   ),
 };
 export const Carousel: Story = {
+  name: "Carousel (AI)",
+
   render: () => (
     <div className="min-h-screen flex items-center justify-center">
       <WidgetContainer />
@@ -75,7 +78,7 @@ export const Carousel: Story = {
   ),
 };
 export const GaugeStory: Story = {
-  name: "Gauge",
+  name: "Gauge (AI)",
   render: () => (
     <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
       <Gauge value={23} />
@@ -83,6 +86,8 @@ export const GaugeStory: Story = {
   ),
 };
 export const NavBar: Story = {
+  name: "Navbar (AI)",
+
   render: () => (
     <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
       <ShopNavBar />
@@ -90,7 +95,7 @@ export const NavBar: Story = {
   ),
 };
 export const WifiIcon: Story = {
-  name: "Wifi Icon (non-AI)",
+  name: "Wifi Icon",
   render: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -172,13 +177,14 @@ export const SelectAndInput: Story = {
               placeholder="Select something"
               searchPlaceholder="Search ..."
               helperText={"Testing helperText"}
+              popoverClassName="hawa-w-full"
               defaultValue="84040984098"
             />
             <Select isLoading={loading} label={t("role")}>
               <option></option>
             </Select>
           </div>
-          <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-bg-red-100 hawa-mb-4 hawa-py-2">
+          <div className="hawa-flex hawa-flex-row hawa-gap-2  hawa-mb-4 hawa-py-2">
             <Input
               isLoading={loading}
               type={"password"}

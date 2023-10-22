@@ -79,7 +79,12 @@ export const Default: Story = {
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
           {/* <Combobox data={frameworks} /> */}
-          <Combobox label="Role" data={[]} valueKey={"_id"} />
+          <Combobox
+            label="Role"
+            defaultValue="84040984098"
+            data={roles}
+            valueKey={"_id"}
+          />
         </div>
       </div>
     );

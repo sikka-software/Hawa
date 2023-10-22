@@ -3,6 +3,7 @@ import Countries from "../countries";
 import { Select } from "./Select";
 import { cn } from "../util";
 import { Label } from "./Label";
+import { Combobox } from "./Combobox";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };
@@ -34,7 +35,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
     <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
       {props.label && <Label>{props.label}</Label>}
 
-      <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full ">
+      <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
         <Select
           width="fit"
           phoneCode
@@ -48,6 +49,8 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           value={countryCode?.label}
           onChange={setCountryCode}
         />
+        {/* TODO: attempt to use this one */}
+        {/* <Combobox data={Countries} valueKey={"label"} width="fit" /> */}
 
         <div className="hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-w-full hawa-gap-0">
           <input
