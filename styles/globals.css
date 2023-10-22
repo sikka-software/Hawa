@@ -34,11 +34,14 @@ body {
     --error-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
+    --helper-text: 0 72% 51%;
     --ring: 240 5% 64.9%;
     --radius: 0.5rem;
     --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
   }
   .dark {
+    --helper-text: 0 84% 60%;
+    /* --helper-text: 61 97% 45%; */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 2%;
@@ -186,9 +189,7 @@ body {
   .hawa-icon {
     @apply hawa-w-4 hawa-h-4;
   }
-  .helper-text {
-    @apply hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500;
-  }
+
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);
   }

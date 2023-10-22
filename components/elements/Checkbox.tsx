@@ -52,7 +52,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <label
               htmlFor={id}
               className={cn(
-                "hawa-select-none helper-text",
+                "hawa-select-none hawa-text-xs hawa-text-helper-color",
                 checkboxProps.disabled &&
                   "hawa-cursor-not-allowed hawa-opacity-70"
               )}

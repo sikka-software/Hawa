@@ -30,7 +30,7 @@ const Template = (args: any, globals: any) => {
   return (
     <div className="hawa-w-64 hawa-flex hawa-flex-col hawa-gap-4">
       <Label>Textarea Component</Label>
-      <Textarea />
+      <Textarea helperText="Helper text here" />
     </div>
   );
 };

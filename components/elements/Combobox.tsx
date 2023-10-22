@@ -136,7 +136,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
           </PopoverContent>
         </PopoverPrimitive.Root>
       )}
-      {props.helperText && <p className="helper-text">{props.helperText}</p>}
+      {props.helperText && <p className="hawa-text-xs hawa-text-helper-color">{props.helperText}</p>}
     </div>
   );
 };

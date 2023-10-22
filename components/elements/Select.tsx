@@ -217,7 +217,7 @@ export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
           }
         />
       )}
-      {props.helperText && <p className="helper-text">{props.helperText}</p>}
+      {props.helperText && <p className="hawa-text-xs hawa-text-helper-color">{props.helperText}</p>}
     </div>
   );
 };

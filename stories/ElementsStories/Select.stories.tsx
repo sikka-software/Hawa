@@ -47,6 +47,7 @@ export const Default: Story = {
               { value: "vanilla", label: "Vanilla" },
             ]}
             defaultValue={{ label: "Chocolate" }}
+            helperText="Helper text here"
             {...args}
           />
         </div>

@@ -33,7 +33,6 @@ export const Default: Story = {
     // label: "Profit",
     // number: "SAR 333.22",
     // variant: "contained",
-    // helperText: "warning",
     currentUsage: "22.11 MB",
     percent: 40,
     title: "Storage",
@@ -48,10 +47,7 @@ export const Default: Story = {
     //   control: "text",
     //   description: "The content text of the alert",
     // },
-    // helperText: {
-    //   control: "text",
-    //   description: "The content text of the alert",
-    // },
+
     // variant: {
     //   control: "select",
     //   options: ["plain", "contained", "outlined"],

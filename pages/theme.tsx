@@ -154,16 +154,9 @@ const ThemeCustomizer = () => {
 
   const generateCSS = () => {
     let cssVariables = "";
-
-    // colorSettings.forEach((setting: any) => {
-    //   const hslValue = setting.hsl.join(" ");
-    //   cssVariables += `    --${setting.id.replace(
-    //     "-color",
-    //     ""
-    //   )}: ${hslValue}%;\n`; // Added four spaces at the start
-    // });
     colorSettings.forEach((setting: any) => {
-      const hslValue = setting.hsl.map((value: any) => `${value}%`).join(" "); // Fix here
+      const [h, s, l] = setting.hsl;
+      const hslValue = `${h} ${s}% ${l}%`;
       cssVariables += `    --${setting.id.replace(
         "-color",
         ""

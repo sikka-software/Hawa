@@ -152,7 +152,7 @@ export const Input: FC<TextFieldTypes> = ({
               </div>
             )}
             {props.helperText && (
-              <p className="hawa-mb-0 hawa-mt-0 hawa-text-xs hawa-text-red-600 dark:hawa-text-red-500">
+              <p className="hawa-my-0 hawa-text-xs hawa-text-helper-color">
                 {props.helperText}
               </p>
             )}

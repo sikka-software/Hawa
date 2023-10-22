@@ -41,14 +41,12 @@ const Template = (args: any, globals: any) => {
           // id="testcheckbox"
           // label="Accept terms and conditions"
           // sublabel="You agree to our Terms of Service and Privacy Policy."
-          // helperText="You must agree to the TOS to continue"
         />
         {/* <Checkbox
           disabled
           id="disabledcheck"
           label="Accept terms and conditions"
           sublabel="You agree to our Terms of Service and Privacy Policy."
-          helperText="You must agree to the TOS to continue"
         />
         <Checkbox id="disabledcheck1" label="Accept terms and conditions" />
         <Checkbox
