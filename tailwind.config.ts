@@ -7,10 +7,10 @@ const config: Config = {
     "./stories/**/*.{js,ts,jsx,tsx,mdx}",
     "./stories/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sharedUI/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "hawa-",
   darkMode: ["class", '[data-mode="dark"]'],
-  // darkMode: "class",
   theme: {
     fontFamily: { plex: ["IBM Plex Sans Arabic"] },
     container: {
@@ -160,9 +160,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    //require("./components/plugin")
-  ],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;

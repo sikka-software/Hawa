@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Logos } from "../../components";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
@@ -7,29 +9,29 @@ import Link from "next/link";
 export default function Navigation() {
   const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const changeHandler = () => {
-      const currentTheme = mediaQuery.matches ? "dark" : "light";
-      setTheme(currentTheme);
-      localStorage.setItem("theme", currentTheme);
-    };
+  // useEffect(() => {
+  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  //   const changeHandler = () => {
+  //     const currentTheme = mediaQuery.matches ? "dark" : "light";
+  //     setTheme(currentTheme);
+  //     localStorage.setItem("theme", currentTheme);
+  //   };
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      changeHandler();
-    }
+  //   const savedTheme = localStorage.getItem("theme");
+  //   if (savedTheme) {
+  //     setTheme(savedTheme);
+  //   } else {
+  //     changeHandler();
+  //   }
 
-    mediaQuery.addEventListener("change", changeHandler);
+  //   mediaQuery.addEventListener("change", changeHandler);
 
-    return () => mediaQuery.removeEventListener("change", changeHandler);
-  }, [setTheme]);
+  //   return () => mediaQuery.removeEventListener("change", changeHandler);
+  // }, [setTheme]);
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  // const [mounted, setMounted] = useState(false);
+  // useEffect(() => setMounted(true), []);
+  // if (!mounted) return null;
 
   return (
     <div className="hawa-z-50  hawa-sticky hawa-top-0 hawa-items-center hawa-border-b  hawa-w-full hawa-flex hawa-flex-col hawa-justify-center hawa-h-fit hawa-bg-background">
@@ -86,21 +88,45 @@ export default function Navigation() {
           <Button
             variant="outline"
             size="smallIcon"
-            onClick={(e) => {
-              if (
-                theme === "dark" ||
-                (theme !== "light" &&
-                  typeof window !== "undefined" &&
-                  window.matchMedia("(prefers-color-scheme: dark)").matches)
-              ) {
-                setTheme("light");
-              } else {
-                console.log("it dark, switching to light");
-                setTheme("dark");
-              }
-            }}
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+
+            // onClick={(e) => {
+            //   if (
+            //     theme === "dark" ||
+            //     (theme !== "light" &&
+            //       typeof window !== "undefined" &&
+            //       window.matchMedia("(prefers-color-scheme: dark)").matches)
+            //   ) {
+            //     setTheme("light");
+            //   } else {
+            //     console.log("it dark, switching to light");
+            //     setTheme("dark");
+            //   }
+            // }}
           >
-            {theme === "dark" ||
+            <div className="hawa-block dark:hawa-hidden">S</div>
+            <div className="hawa-hidden dark:hawa-block">M</div>
+            {/* <svg
+              className="hawa-h-4 hawa-block dark:hawa-hidden dark:hawa-bg-blue-500 hawa-bg-red-500"
+              aria-label="Sun Icon"
+              fill="currentColor"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"></path>
+            </svg>
+            <svg
+              fill="currentColor"
+              aria-label="Moon Icon"
+              focusable="false"
+              aria-hidden="true"
+              className="hawa-h-4 hawa-hidden dark:hawa-block"
+              viewBox="0 0 24 24"
+            >
+              <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
+            </svg> */}
+            {/* {theme === "dark" ||
             (theme !== "light" &&
               typeof window !== "undefined" &&
               window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
@@ -123,7 +149,7 @@ export default function Navigation() {
               >
                 <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
               </svg>
-            )}
+            )} */}
           </Button>
         </div>
       </div>
