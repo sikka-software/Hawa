@@ -95,11 +95,13 @@ type LoginFormTypes = {
   onTwitterLogin?: () => void;
   /** Additional buttons to add under the login button */
   additionalButtons?: any;
+  passwordLength?: number;
 };
 
 export const LoginForm: FC<LoginFormTypes> = ({
   loginType,
   texts,
+  passwordLength = 8,
   ...props
 }) => {
   let formSchema;
@@ -113,7 +115,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
       password: z
         .string({ required_error: texts?.passwordRequired })
         .min(1, { message: texts?.passwordRequired })
-        .min(8, { message: texts?.passwordTooShort }),
+        .min(passwordLength, { message: texts?.passwordTooShort }),
     });
   } else if (loginType === "username") {
     formSchema = z.object({
@@ -130,7 +132,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
       password: z
         .string({ required_error: texts?.passwordRequired })
         .min(1, { message: texts?.passwordRequired })
-        .min(8, { message: texts?.passwordTooShort }),
+        .min(passwordLength, { message: texts?.passwordTooShort }),
     });
   } else if (loginType === "phone") {
     formSchema = z.object({
