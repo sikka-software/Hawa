@@ -59,6 +59,7 @@ const Template = (args: any, globals: any) => {
           usernameLabel: t("usernameLabel"),
           usernamePlaceholder: t("usernamePlaceholder"),
           usernameRequired: t("usernameRequired"),
+          usernameInvalid: t("usernameInvalid"),
           passwordLabel: t("passwordLabel"),
           passwordPlaceholder: t("passwordPlaceholder"),
           passwordRequiredText: t("passwordRequiredText"),

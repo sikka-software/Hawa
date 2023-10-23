@@ -40,6 +40,7 @@
   "usernameLabel": "اسم المستخدم",
   "usernamePlaceholder": "ادخل المستخدم",
   "usernameRequired": " اسم المستخدم مطلوب",
+  "usernameInvalid": "صيغة إسم المستخدم غير صحيحة",
   "phoneRequiredText": "رقم الجوال مطلوب",
   "phoneInvalid": "صيغة رقم الجوال غير صحيحة",
   "phoneLabel": "رقم الجوال",

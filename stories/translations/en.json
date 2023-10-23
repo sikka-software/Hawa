@@ -40,6 +40,7 @@
   "usernameLabel": "Username",
   "usernamePlaceholder": "Enter your username",
   "usernameRequired": "Username is required",
+  "usernameInvalid": "Username format is invalid",
   "phoneRequiredText": "Phone is required",
   "phoneInvalid": "Phone is invalid",
   "phoneLabel": "Phone number",

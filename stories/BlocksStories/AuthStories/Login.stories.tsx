@@ -119,7 +119,7 @@ export const MagicLink: Story = {
             usernameLabel: t("usernameLabel"),
             usernamePlaceholder: t("usernamePlaceholder"),
             usernameRequired: t("usernameRequired"),
-            usernameInvalid: "tet",
+            usernameInvalid: t("usernameInvalid"),
             phoneRequiredText: t("phoneRequiredText"),
             passwordLabel: t("passwordLabel"),
             passwordPlaceholder: t("passwordPlaceholder"),

@@ -92,6 +92,7 @@ type RegisterFormTypes = {
     emailInvalidText: string;
     usernameLabel: string;
     usernamePlaceholder: string;
+    usernameInvalid: string;
     usernameRequired: string;
     passwordLabel: string;
     passwordPlaceholder: string;
@@ -138,9 +139,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
       case "username":
         fieldSchemas["username"] = z
           .string({ required_error: texts?.usernameRequired })
-          .refine((value) => value !== "", {
-            message: texts?.usernameRequired,
-          });
+          .min(1, { message: texts?.usernameRequired })
+          .refine(
+            (value) => {
+              const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
+              return isValid;
+            },
+            { message: texts?.usernameInvalid }
+          );
         break;
     }
   });
