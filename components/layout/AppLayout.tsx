@@ -129,7 +129,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   //     return false;
   //   }
   // });
-  const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false);
+  // const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false);
+  const [openSideMenu, setOpenSideMenu] = useState(false);
 
   let drawerSizeCondition =
     size > 600

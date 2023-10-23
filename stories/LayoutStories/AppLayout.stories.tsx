@@ -39,10 +39,14 @@ export const Default: Story = {
     setLocale(locale);
     const [selectedPage, setSelectedPage] = useState("/home");
 
-    const [keepOpen, setKeepOpen] = useState(true); // Set initial value as per your requirement
+    const [keepOpen, setKeepOpen] = useState(() => {
+      const savedState = localStorage.getItem("keepOpen");
+      return savedState ? JSON.parse(savedState) : true;
+    });
 
     const handleDrawerExpand = (newKeepOpenState: any) => {
       setKeepOpen(newKeepOpenState);
+      localStorage.setItem("keepOpen", JSON.stringify(newKeepOpenState));
       // Additional logic if needed when drawer expansion state changes
     };
 
