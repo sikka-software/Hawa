@@ -4,11 +4,14 @@ import {
   DataTable,
   DropdownMenu,
   SortButton,
+  Toaster,
 } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
+import { useToast } from "../../components/hooks";
+
 const meta = {
   title: "Elements/Tables/Data Table",
   component: DataTable,
@@ -288,124 +291,124 @@ type Company = {
   share_price: number;
 };
 
-const companiesColumns: ColumnDef<Company>[] = [
-  {
-    accessorKey: "name",
-    header: t("company"),
-  },
-  {
-    accessorKey: "location",
-    header: t("location"),
-  },
-  {
-    accessorKey: "website",
-    meta: { sortable: true },
-    header: ({ column }) => (
-      <SortButton
-        condensed
-        onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        label={t("website")}
-      />
-    ),
-    cell: ({ row }) => (
-      <a href={row.getValue("website")} className="clickable-link">
-        {row.getValue("website")}
-      </a>
-    ),
-  },
-
-  {
-    accessorKey: "employees",
-    meta: { sortable: true },
-    header: ({ column }) => {
-      return (
-        <SortButton
-          condensed
-          label={t("employees")}
-          onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        />
-      );
-    },
-    cell: (d) => (
-      <div className="hawa-font-medium">
-        {d.row.getValue("employees")?.toLocaleString()}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "share_price",
-    meta: { sortable: true },
-    header: ({ column }) => {
-      return (
-        <SortButton
-          condensed
-          label={t("share-price")}
-          onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        />
-      );
-    },
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("share_price"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return <div className="hawa-font-medium">{formatted}</div>;
-    },
-  },
-
-  {
-    id: "actions",
-    header: t("actions"),
-
-    cell: ({ row }) => {
-      const payment = row.original;
-      // console.log("pa, ", payment);
-
-      return (
-        <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
-          <DropdownMenu
-            // width="parent"
-            trigger={
-              <Button className="hawa-m-0 hawa-h-6" variant="ghost">
-                <span className="hawa-sr-only">Open menu</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="1" />
-                  <circle cx="19" cy="12" r="1" />
-                  <circle cx="5" cy="12" r="1" />
-                </svg>
-              </Button>
-            }
-            items={[
-              {
-                label: "copy",
-                value: "copy",
-                // action: () => navigator.clipboard.writeText(payment.id),
-              },
-            ]}
-          />
-        </span>
-      );
-    },
-  },
-];
 const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
+  const companiesColumns: ColumnDef<Company>[] = [
+    {
+      accessorKey: "name",
+      header: t("company"),
+    },
+    {
+      accessorKey: "location",
+      header: t("location"),
+    },
+    {
+      accessorKey: "website",
+      meta: { sortable: true },
+      header: ({ column }) => (
+        <SortButton
+          condensed
+          onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          label={t("website")}
+        />
+      ),
+      cell: ({ row }) => (
+        <a href={row.getValue("website")} className="clickable-link">
+          {row.getValue("website")}
+        </a>
+      ),
+    },
 
+    {
+      accessorKey: "employees",
+      meta: { sortable: true },
+      header: ({ column }) => {
+        return (
+          <SortButton
+            condensed
+            label={t("employees")}
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          />
+        );
+      },
+      cell: (d) => (
+        <div className="hawa-font-medium">
+          {d.row.getValue("employees")?.toLocaleString()}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "share_price",
+      meta: { sortable: true },
+      header: ({ column }) => {
+        return (
+          <SortButton
+            condensed
+            label={t("share-price")}
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          />
+        );
+      },
+      cell: ({ row }) => {
+        const amount = parseFloat(row.getValue("share_price"));
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(amount);
+
+        return <div className="hawa-font-medium">{formatted}</div>;
+      },
+    },
+
+    {
+      id: "actions",
+      header: t("actions"),
+
+      cell: ({ row }) => {
+        const payment = row.original;
+        // console.log("pa, ", payment);
+
+        return (
+          <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
+            <DropdownMenu
+              // width="parent"
+              trigger={
+                <Button className="hawa-m-0 hawa-h-6" variant="ghost">
+                  <span className="hawa-sr-only">Open menu</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="1" />
+                    <circle cx="19" cy="12" r="1" />
+                    <circle cx="5" cy="12" r="1" />
+                  </svg>
+                </Button>
+              }
+              items={[
+                {
+                  label: "copy",
+                  value: "copy",
+                  // action: () => navigator.clipboard.writeText(payment.id),
+                },
+              ]}
+            />
+          </span>
+        );
+      },
+    },
+  ];
   const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
     // Set a timeout to change isLoading to true after 2 seconds
@@ -421,23 +424,37 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div dir={direction} className="hawa-w-full ">
+      <Button
+        onClick={() =>
+          toast({
+            title: "test",
+            description: "Description",
+            severity: "success",
+            duration: 5000,
+          })
+        }
+      >
+        Toast``
+      </Button>
       <DataTable<Company>
         isLoading={isLoading}
         defaultSort="share_price"
         columns={companiesColumns}
         // data={[]}
-        
+        showCount
         data={companiesData}
         condensed
         direction={locale === "ar" ? "rtl" : "ltr"}
         texts={{
           searchPlaceholder: t("search-items"),
-          //   items: "عناصر",
+          item: "عناصر",
+          total: t("total"),
           noData: t("no-data"),
           page: t("page"),
           of: t("of"),
         }}
       />
+      <Toaster />
     </div>
   );
 };

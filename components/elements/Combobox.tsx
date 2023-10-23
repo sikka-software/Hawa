@@ -80,20 +80,23 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                       labelKey
                     )
                   : props.placeholder || "..."}
-                {!props.preview && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="hawa-w-4 hawa-h-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                )}
+                {/* {!props.preview && ( */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={cn(
+                    "hawa-w-4 hawa-h-4 hawa-transition-all",
+                    !props.preview ? "hawa-opacity-100 hawa-visible" : "hawa-opacity-0 hawa-invisible"
+                  )}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+                {/* )} */}
               </button>
             </div>
           )}

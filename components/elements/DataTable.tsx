@@ -32,11 +32,13 @@ type DataTableProps<DataProps = {}> = {
   direction?: "rtl" | "ltr";
   columns: ColumnDef<DataProps>[];
   data: DataProps[];
+  showCount?: boolean;
   condensed?: boolean;
   isLoading?: boolean;
   defaultSort?: string;
   texts?: {
     searchPlaceholder?: string;
+    item?: string;
     noData?: any;
     page?: string;
     filter?: string;
@@ -104,53 +106,10 @@ export const DataTable = <DataProps extends {}>({
         <Input
           placeholder={props.texts?.searchPlaceholder}
           value={globalFilter ?? ""}
-          // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""} //For filtering sngle column
-          onChange={
-            (event: any) => setGlobalFilter(event.target.value)
-            // table.getColumn('email')?.setFilterValue(event.target.value) //For filtering sngle column
-          }
+          onChange={(event: any) => setGlobalFilter(event.target.value)}
           margin="none"
           className="hawa-w-full md:hawa-max-w-sm"
         />
-        {/* <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu> */}
       </div>
       {props.isLoading ? (
         <Skeleton className="hawa-h-[130px] hawa-w-full" />
@@ -219,15 +178,20 @@ export const DataTable = <DataProps extends {}>({
             </Table>
           </div>
           <div className="hawa-flex hawa-items-center hawa-justify-between">
-            <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm hawa-text-muted-foreground">
-              {/* {data.length + " " + (props.texts?.total ?? "Total")} */}
-            </div>
+            {!props.showCount && (
+              <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm hawa-text-muted-foreground"></div>
+            )}
 
             {/* CAPTION FOR CURRENT SELECTED ROWS */}
-            {/* <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div> */}
+            {props.showCount && (
+              <div
+                className="text-sm text-muted-foreground"
+                dir={props.direction}
+              >
+                <span>{props.texts?.total}</span>{" "}
+                <span>{table.getFilteredRowModel().rows.length}</span>
+              </div>
+            )}
 
             {/* NEXT & PREV BUTTONS */}
 
