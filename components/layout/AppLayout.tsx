@@ -52,7 +52,9 @@ type AppLayoutTypes = {
   /** Event handler for drawer expansion. */
   onDrawerExpand?: (e: any) => void;
   /** Specifies whether to keep the drawer open. */
-  keepDrawerOpen?: boolean;
+  // keepDrawerOpen?: boolean;
+  keepOpen: boolean;
+  setKeepOpen: (value: boolean) => void;
   /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
   /** Specifies the item that was clicked. */
@@ -88,6 +90,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   DrawerFooterActions,
   currentPage,
   clickedItem,
+  keepOpen,
+  setKeepOpen,
   design = "default",
   ...props
 }) => {
@@ -116,15 +120,15 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   if (typeof window == "undefined") {
     size = 1200;
   }
-  const [keepOpen, setKeepOpen] = useState(() => {
-    if (size > 600) {
-      // If size is larger than 600, use prop.isDrawerOpen if it exists, or default to true.
-      return props.keepDrawerOpen !== undefined ? props.keepDrawerOpen : true;
-    } else {
-      // If size is less than or equal to 600, set keepOpen to false.
-      return false;
-    }
-  });
+  // const [keepOpen, setKeepOpen] = useState(() => {
+  //   if (size > 600) {
+  //     // If size is larger than 600, use prop.isDrawerOpen if it exists, or default to true.
+  //     return props.keepDrawerOpen !== undefined ? props.keepDrawerOpen : true;
+  //   } else {
+  //     // If size is less than or equal to 600, set keepOpen to false.
+  //     return false;
+  //   }
+  // });
   const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false);
 
   let drawerSizeCondition =
@@ -467,11 +471,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               <Button
                 variant="light"
                 onClick={() => {
-                  setKeepOpen(!keepOpen);
+                  const newKeepOpenState = !keepOpen;
                   if (props.onDrawerExpand) {
-                    props.onDrawerExpand(keepOpen);
+                    props.onDrawerExpand(newKeepOpenState);
                   }
+                  setKeepOpen(newKeepOpenState);
                 }}
+                // onClick={() => {
+                //   setKeepOpen(!keepOpen);
+                //   if (props.onDrawerExpand) {
+                //     props.onDrawerExpand(keepOpen);
+                //   }
+                // }}
                 size="smallIcon"
               >
                 <svg

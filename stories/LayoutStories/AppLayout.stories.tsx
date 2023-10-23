@@ -38,8 +38,19 @@ export const Default: Story = {
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
     const [selectedPage, setSelectedPage] = useState("/home");
+
+    const [keepOpen, setKeepOpen] = useState(true); // Set initial value as per your requirement
+
+    const handleDrawerExpand = (newKeepOpenState: any) => {
+      setKeepOpen(newKeepOpenState);
+      // Additional logic if needed when drawer expansion state changes
+    };
+
     return (
       <AppLayout
+        keepOpen={keepOpen}
+        setKeepOpen={setKeepOpen}
+        onDrawerExpand={handleDrawerExpand}
         direction={locale === "ar" ? "rtl" : "ltr"}
         texts={{
           expandSidebar: t("expandSidebar"),
