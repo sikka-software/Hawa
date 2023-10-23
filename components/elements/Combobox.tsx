@@ -54,11 +54,11 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
     >
       {props.label && <Label>{props.label}</Label>}
 
-      {props.isLoading ? (
-        <Skeleton className="hawa-h-[40px] hawa-w-full" />
-      ) : (
-        <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-          <PopoverTrigger asChild>
+      <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
+        <PopoverTrigger disabled={props.isLoading} asChild>
+          {props.isLoading ? (
+            <Skeleton className="hawa-h-[40px] hawa-w-full" />
+          ) : (
             <Button
               variant="combobox"
               role="combobox"
@@ -88,55 +88,60 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </Button>
-          </PopoverTrigger>
-          <PopoverContent className={cn("popover-w-parent")}>
-            <Command>
-              <CommandInput placeholder={props.searchPlaceholder} />
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
-                {data.map((item: any) => (
-                  <CommandItem
-                    key={getProperty(item, valueKey)} // Updated line
-                    onSelect={() => {
-                      // Adjusted line
-                      const newValue = getProperty(item, valueKey);
-                      setValue(newValue === value ? "" : (newValue as string));
-                      if (props.onChange) {
-                        props.onChange(
-                          newValue === value ? "" : (newValue as string)
-                        );
-                      }
-                      setOpen(false);
-                    }}
+          )}
+        </PopoverTrigger>
+        <PopoverContent className={cn("popover-w-parent")}>
+          <Command>
+            <CommandInput placeholder={props.searchPlaceholder} />
+            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
+              {data.map((item: any) => (
+                <CommandItem
+                  key={getProperty(item, valueKey)} // Updated line
+                  onSelect={() => {
+                    // Adjusted line
+                    const newValue = getProperty(item, valueKey);
+                    setValue(newValue === value ? "" : (newValue as string));
+                    if (props.onChange) {
+                      props.onChange(
+                        newValue === value ? "" : (newValue as string)
+                      );
+                    }
+                    setOpen(false);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={cn(
+                      "hawa-mr-2 hawa-h-4 hawa-w-4",
+                      value === getProperty(item, valueKey)
+                        ? "hawa-opacity-100"
+                        : "hawa-opacity-0"
+                    )}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={cn(
-                        "hawa-mr-2 hawa-h-4 hawa-w-4",
-                        value === getProperty(item, valueKey)
-                          ? "hawa-opacity-100"
-                          : "hawa-opacity-0"
-                      )}
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    {getProperty(item, labelKey)}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </Command>
-          </PopoverContent>
-        </PopoverPrimitive.Root>
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {getProperty(item, labelKey)}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </Command>
+        </PopoverContent>
+      </PopoverPrimitive.Root>
+
+      {props.helperText && (
+        <p className="hawa-text-xs hawa-text-helper-color">
+          {props.helperText}
+        </p>
       )}
-      {props.helperText && <p className="hawa-text-xs hawa-text-helper-color">{props.helperText}</p>}
     </div>
   );
 };

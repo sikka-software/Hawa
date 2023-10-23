@@ -7,7 +7,7 @@ const meta = {
   title: "Elements/Combobox",
   component: Combobox,
   parameters: {
-    layout: "fullscreen",
+    // layout: "fullscreen",
     docs: {
       page: () => (
         <>
@@ -81,6 +81,20 @@ export const Default: Story = {
           {/* <Combobox data={frameworks} /> */}
           <Combobox
             label="Role"
+            // defaultValue="84040984098"
+            placeholder="Select Role"
+            data={roles}
+            valueKey={"_id"}
+          />
+        </div>
+        <div
+          className="hawa-max-w-md hawa-w-full"
+          dir={locale === "ar" ? "rtl" : "ltr"}
+        >
+          {/* <Combobox data={frameworks} /> */}
+          <Combobox
+            label="Loading"
+            isLoading
             // defaultValue="84040984098"
             placeholder="Select Role"
             data={roles}
