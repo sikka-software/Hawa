@@ -26,6 +26,7 @@ type ComboboxTypes<T> = {
   /** This the same value as the one with the key valueKey */
   defaultValue?: string;
   preview?: boolean;
+  hideInput?: boolean;
   onChange?: (e: any) => void;
 };
 
@@ -99,7 +100,9 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
         </PopoverTrigger>
         <PopoverContent className={cn("popover-w-parent")}>
           <Command>
-            <CommandInput placeholder={props.searchPlaceholder} />
+            {!props.hideInput && (
+              <CommandInput placeholder={props.searchPlaceholder} />
+            )}
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
               {data.map((item: any) => (

@@ -115,6 +115,18 @@ export const Default: Story = {
             valueKey={"_id"}
           />
         </div>
+        <div
+          className="hawa-max-w-md hawa-w-full"
+          dir={locale === "ar" ? "rtl" : "ltr"}
+        >
+          <Combobox
+            label="No Search"
+            hideInput
+            placeholder="Select Role"
+            data={roles}
+            valueKey={"_id"}
+          />
+        </div>
       </div>
     );
   },
