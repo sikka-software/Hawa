@@ -70,7 +70,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                   "hawa-text-primary hawa-border hawa-h-10 hawa-py-2 hawa-justify-between hawa-w-full hawa-font-normal hawa-inline-flex hawa-items-center hawa-transition-all hawa-select-none hawa-rounded-md hawa-text-sm  hawa-ring-offset-background  focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
                   props.preview
                     ? "hawa-px-0 hawa-rounded-none hawa-border-transparent hawa-cursor-default"
-                    : "hawa-px-4 hawa-bg-background "
+                    : "hawa-px-3 hawa-bg-background "
                 )}
               >
                 {value

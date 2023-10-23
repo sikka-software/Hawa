@@ -78,7 +78,7 @@ export const Input: FC<TextFieldTypes> = ({
   let defaultStyle =
     "hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
   let defaultInputStyle =
-    "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm ";
+    "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-3 hawa-text-sm ";
 
   return (
     <div

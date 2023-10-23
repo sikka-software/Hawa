@@ -166,7 +166,7 @@ export const SelectAndInput: Story = {
           <Button onClick={() => setLoading(!loading)}>Loading</Button>
         </div>{" "}
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <div className="hawa-flex hawa-gap-2 hawa-flex-row hawa-items-start  hawa-mb-4 hawa-py-2">
+          <div className="hawa-flex hawa-gap-2 hawa-flex-col hawa-items-start  hawa-mb-4 hawa-py-2">
             <Input
               isLoading={loading}
               preview={preview}
