@@ -45,10 +45,10 @@
 
 ### Tools used
 
-- Tailwind
-- Radix-UI
-- React Icons
-- @tanstack/react-table
+- [Tailwind](https://tailwindcss.com/)
+- [Radix-UI](https://www.radix-ui.com/)
+- [react-hook-form](https://react-hook-form.com/)
+- [@tanstack/react-table](https://tanstack.com/table/v8)
 
 ## Install
 
