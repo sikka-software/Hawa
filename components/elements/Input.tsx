@@ -1,10 +1,9 @@
-import React, { FC, PropsWithRef } from "react";
+import React, { FC } from "react";
 import { Label } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
 
 // TODO: make icon based on direction
-// TODO: Preferebly use context to pass direction rtl | ltr
 
 // type TextFieldTypes = {
 //   isLoading?: boolean;
@@ -29,14 +28,8 @@ import { Skeleton } from "./Skeleton";
 //   inputProps?: any;
 //   onChange?: any;
 //   ref?: any;
-//   dir?: "rtl" | "ltr";
-//   /** The icon inside the input field */
-//   icon?: any;
 //   /** Boolean to enable/disable editing the input field and using it as a text field   */
 //   preview?: boolean;
-//   autoComplete?: any;
-//   maxLength?: any;
-//   className?: any;
 //   iconInside?: React.ReactNode;
 // };
 
@@ -55,24 +48,13 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   hintSide?: "top" | "bottom" | "right" | "left";
   //   /** The value of the input field */
   //   value?: any;
-  //   props?: PropsWithRef<"input">;
-  //   /** The type of input field. Same as the types of the HTML input element */
-  //   type?: any;
-  //   /** The placeholder of the input field  */
-  //   placeholder?: any;
-  //   defaultValue?: any;
   //   name?: any;
   inputProps?: any;
-  //   onChange?: any;
-  //   ref?: any;
-  //   dir?: "rtl" | "ltr";
   /** The icon inside the input field */
   icon?: any;
   /** Boolean to enable/disable editing the input field and using it as a text field   */
   preview?: boolean;
-  //   autoComplete?: any;
   //   maxLength?: any;
-  //   className?: any;
   iconInside?: React.ReactNode;
 };
 export const Input: FC<TextFieldTypes> = ({
@@ -156,11 +138,17 @@ export const Input: FC<TextFieldTypes> = ({
                 {props.iconInside}
               </div>
             )}
-            {props.helperText && (
-              <p className="hawa-my-0 hawa-text-xs hawa-text-helper-color">
-                {props.helperText}
-              </p>
-            )}
+
+            <p
+              className={cn(
+                "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                props.helperText
+                  ? "hawa-opacity-100 hawa-h-4"
+                  : "hawa-opacity-0 hawa-h-0"
+              )}
+            >
+              {props.helperText}
+            </p>
           </>
         </>
       )}

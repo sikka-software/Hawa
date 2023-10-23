@@ -158,19 +158,27 @@ export const SelectAndInput: Story = {
   name: "Select & Input",
   render: () => {
     const [loading, setLoading] = useState(false);
+    const [preview, setPreview] = useState(true);
     return (
       <div>
-        <Button onClick={() => setLoading(!loading)}>Loading</Button>
+        <div className="hawa-flex hawa-flex-row hawa-gap-2">
+          <Button onClick={() => setPreview(!preview)}>Preview</Button>
+          <Button onClick={() => setLoading(!loading)}>Loading</Button>
+        </div>{" "}
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <div className="hawa-flex hawa-flex-row hawa-items-start  hawa-mb-4 hawa-py-2">
+          <div className="hawa-flex hawa-gap-2 hawa-flex-row hawa-items-start  hawa-mb-4 hawa-py-2">
             <Input
               isLoading={loading}
+              preview={preview}
               type={"text"}
               label={t("Input")}
+              defaultValue={"Random text"}
               helperText={"Testing helperText"}
             />
             <Combobox
               label="Role"
+              preview={preview}
+              isLoading={loading}
               data={roles}
               labelKey={"label"}
               valueKey={"_id"}
@@ -179,6 +187,15 @@ export const SelectAndInput: Story = {
               helperText={"Testing helperText"}
               popoverClassName="hawa-w-full"
               defaultValue="84040984098"
+            />
+
+            <Input
+              preview={preview}
+              isLoading={loading}
+              type={"text"}
+              defaultValue={"Random text"}
+              label={t("Input")}
+              helperText={"Testing helperText"}
             />
             <Select isLoading={loading} label={t("role")}>
               <option></option>
@@ -295,3 +312,4 @@ const ShopNavBar = () => {
     </div>
   );
 };
+// style={{ paddingLeft: props.preview ? 0 : 16, paddingRight: 0 }}
