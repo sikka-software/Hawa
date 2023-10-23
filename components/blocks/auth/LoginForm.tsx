@@ -66,7 +66,7 @@ type LoginFormTypes = {
   /** If true, the reset password option is hidden.   */
   withoutResetPassword?: boolean;
   /** If true, the register option is hidden.   */
-  withoutRegister?: boolean;
+  allowRegister?: boolean;
   /** If true, a loading spinner is displayed within the main form submit button.   */
   isLoading?: boolean;
   /** If true, a loading spinner is displayed within the Google login button.   */
@@ -327,7 +327,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {texts?.loginText || "Login"}
             </Button>
             {props.additionalButtons}
-            {!props.withoutRegister && (
+            {props.allowRegister && (
               <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
                 {texts?.newUserText || "New user?"}{" "}
                 <span

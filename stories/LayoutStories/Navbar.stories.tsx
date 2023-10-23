@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Navbar } from "../../components";
+import { Button, Logos, Navbar } from "../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import {
@@ -39,7 +39,26 @@ export const Default: Story = {
     setLocale(locale);
     return (
       <div>
-        <Navbar />
+        <Navbar
+          // menuItems={[
+          //   {
+          //     trigger: "item 2",
+          //     action: () => console.log("clicked on item"),
+          //   },
+          //   {
+          //     trigger: "item 3",
+          //     content: <div className="hawa-p-4">something here</div>,
+          //   },
+          // ]}
+          logo={<Logos.sikka className="hawa-h-6 hawa-w-6" />}
+          buttons={
+            <>
+              <Button>Login</Button>
+              <Button>Login</Button>
+              <Button>Login</Button>
+            </>
+          }
+        />
       </div>
     );
   },
