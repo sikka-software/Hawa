@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NewPasswordForm } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+
+import { NewPasswordForm } from "../../../components";
 
 const meta = {
   title: "Blocks/User Auth/New Password Form",
   component: NewPasswordForm,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -30,7 +30,6 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md" dir={direction}>
-      {" "}
       <NewPasswordForm {...args} />
     </div>
   );
@@ -40,15 +39,14 @@ export const Default: Story = {
   args: {
     passwordChanged: false,
     texts: {
-      passwordPlaceholder: "Enter password",
       updatePassword: "Update Password",
-      passwordRequiredText: "Password is required",
-      passwordLabel: "Choose new password",
       confirmPasswordPlaceholder: "Confirm password",
       confirmPasswordLabel: "Confirm",
       confirmPasswordRequired: "Confirmation is required",
-      confirmPasswordRequiredText: "Confirmation is required",
-      passwordTooShortText: "Pasword must be more than 5 characters",
+      passwordPlaceholder: "Enter password",
+      passwordRequired: "Password is required",
+      passwordLabel: "Choose new password",
+      passwordTooShort: "Pasword must be more than 5 characters",
       passwordMatchError: "Password doesn't match",
       passwordChanged:
         "Your password has been changed, you'll be redirected to sign in page",

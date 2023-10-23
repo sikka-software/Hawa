@@ -4,6 +4,7 @@ import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";
 import { useDarkMode } from "storybook-dark-mode";
+
 import LoginDocs from "./Login";
 
 const meta = {
@@ -42,16 +43,19 @@ const Template = (args: any, globals: any) => {
         texts={{
           emailLabel: t("emailLabel"),
           emailPlaceholder: t("emailPlaceholder"),
-          emailRequiredText: t("emailRequiredText"),
-          emailInvalidText: t("emailInvalidText"),
+          emailRequired: t("emailRequiredText"),
+          emailInvalid: t("emailInvalidText"),
           usernameLabel: t("usernameLabel"),
           usernamePlaceholder: t("usernamePlaceholder"),
           usernameRequired: t("usernameRequired"),
-          phoneRequiredText: t("phoneRequiredText"),
+          phoneRequired: t("phoneRequiredText"),
+          phoneInvalid: t("phoneInvalid"),
+          phoneLabel: t("phoneLabel"),
           passwordLabel: t("passwordLabel"),
           passwordPlaceholder: t("passwordPlaceholder"),
-          passwordRequiredText: t("passwordRequiredText"),
-          forgotPasswordText: t("forgotPasswordText"),
+          passwordRequired: t("passwordRequiredText"),
+          passwordTooShort: t("passwordTooShort"),
+          forgotPassword: t("forgotPasswordText"),
           newUserText: t("newUserText"),
           createAccount: t("createAccount"),
           loginText: t("loginText"),
@@ -115,10 +119,12 @@ export const MagicLink: Story = {
             usernameLabel: t("usernameLabel"),
             usernamePlaceholder: t("usernamePlaceholder"),
             usernameRequired: t("usernameRequired"),
+            usernameInvalid: "tet",
             phoneRequiredText: t("phoneRequiredText"),
             passwordLabel: t("passwordLabel"),
             passwordPlaceholder: t("passwordPlaceholder"),
             passwordRequiredText: t("passwordRequiredText"),
+            passwordTooShort: t("passwordTooShort"),
             forgotPasswordText: t("forgotPasswordText"),
             newUserText: t("newUserText"),
             createAccount: t("createAccount"),

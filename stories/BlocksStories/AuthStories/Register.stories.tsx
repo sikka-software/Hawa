@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RegisterForm, Button, Input } from "../../../components";
-import { ArgsTable, Markdown, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+
 import RegisterDocs from "./Register";
 
 const meta = {
@@ -32,7 +33,21 @@ const Template = (args: any, globals: any) => {
     <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
       <RegisterForm
         logosOnly
-        direction={locale === "ar" ? "rtl" : "ltr"}
+        direction={direction}
+        userReferenceOptions={[
+          { label: t("friends-family"), value: "friends-family" },
+          { label: t("ad"), value: "ad" },
+          { label: t("other"), value: "other" },
+        ]}
+        additionalInputs={
+          <Input
+            label={"Extra Field"}
+            placeholder={"Added via additionalInput prop"}
+          />
+        }
+        additionalButtons={
+          <Button variant={"outline"}>{t("Extra Optional Button")}</Button>
+        }
         texts={{
           fullNameLabel: t("fullNameLabel"),
           fullNamePlaceholder: t("fullNamePlaceholder"),
@@ -58,9 +73,9 @@ const Template = (args: any, globals: any) => {
           termsRequiredText: t("termsRequiredText"),
           forgotPasswordText: t("forgotPasswordText"),
           newUserText: t("newUserText"),
-          registerText: t("registerText"),
           loginText: t("loginText"),
           existingUserText: t("existingUserText"),
+          registerText: t("registerText"),
           registerViaGoogleLabel: t("registerViaGoogleLabel"),
           registerViaGithubLabel: t("registerViaGithubLabel"),
           registerViaTwitterLabel: t("registerViaTwitterLabel"),
@@ -69,20 +84,6 @@ const Template = (args: any, globals: any) => {
           refCode: t("refCode"),
           refCodePlaceholder: t("refCodePlaceholder"),
         }}
-        userReferenceOptions={[
-          { label: t("friends-family"), value: "friends-family" },
-          { label: t("ad"), value: "ad" },
-          { label: t("other"), value: "other" },
-        ]}
-        additionalInputs={
-          <Input
-            label={"Extra Field"}
-            placeholder={"Added via additionalInput prop"}
-          />
-        }
-        additionalButtons={
-          <Button variant={"outline"}>{t("Extra Optional Button")}</Button>
-        }
         {...args}
       />
     </div>
@@ -95,10 +96,10 @@ export const Default: Story = {
     viaGoogle: true,
     viaGithub: true,
     viaTwitter: true,
-    showUserSource: true,
-    showNewsletterOption: true,
-    showTermsOption: true,
     showRefCode: true,
+    showUserSource: true,
+    showTermsOption: true,
+    showNewsletterOption: true,
     showError: false,
     errorTitle: "Error",
     errorText: "Something went wrong",
@@ -109,9 +110,9 @@ export const Default: Story = {
     onGoogleRegister: { action: "onGoogleRegister" },
     onGithubRegister: { action: "onGithubRegister" },
     onTwitterRegister: { action: "onTwitterRegister" },
-    onRouteToLogin: { action: "onRouteToLogin" },
     onRouteToTOS: { action: "onRouteToTOS" },
-    handleColorMode: { action: "handleColorMode" },
+    onRouteToLogin: { action: "onRouteToLogin" },
     handleLanguage: { action: "handleLanguage" },
+    handleColorMode: { action: "handleColorMode" },
   },
 };

@@ -66,11 +66,22 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           />
         </div>
       </div>
-      {props.helperText && (
+
+      <p
+        className={cn(
+          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+          props.helperText
+            ? "hawa-opacity-100 hawa-h-4"
+            : "hawa-opacity-0 hawa-h-0"
+        )}
+      >
+        {props.helperText}
+      </p>
+      {/* {props.helperText && (
         <p className="hawa-my-0 hawa-text-xs hawa-text-helper-color">
           {props.helperText}
         </p>
-      )}
+      )} */}
     </div>
   );
 };

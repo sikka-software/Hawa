@@ -10,7 +10,7 @@ import {
   CardTitle,
   Button,
 } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -21,33 +21,30 @@ type NewPasswordTypes = {
   headless?: boolean;
   passwordChanged: any;
   texts: {
-    passwordPlaceholder: string;
     updatePassword: string;
-    passwordRequiredText: string;
+    passwordPlaceholder: string;
+    passwordRequired: string;
     passwordLabel: string;
-    confirmPasswordPlaceholder: string;
-    confirmPasswordLabel: string;
-    confirmPasswordRequiredText: string;
     passwordMatchError: string;
     passwordChanged: string;
-    passwordTooShortText: string;
+    passwordTooShort: string;
+    confirmPasswordPlaceholder: string;
+    confirmPasswordLabel: string;
     confirmPasswordRequired: string;
   };
 };
 
-export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
+export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
   const formSchema = z
     .object({
       password: z
-        .string({ required_error: props.texts.passwordRequiredText })
-        .min(5, { message: props.texts.passwordTooShortText })
-        .refine((value) => value !== "", {
-          message: props.texts.passwordRequiredText,
-        }),
+        .string({ required_error: texts?.passwordRequired })
+        .min(1, { message: texts?.passwordRequired })
+        .min(8, { message: texts?.passwordTooShort }),
       confirm_password: z
-        .string({ required_error: props.texts.confirmPasswordRequired })
+        .string({ required_error: texts?.confirmPasswordRequired })
         .refine((value) => value !== "", {
-          message: props.texts.passwordRequiredText,
+          message: texts?.passwordRequired,
         }),
     })
     .refine((data) => data.password === data.confirm_password, {
@@ -64,11 +61,11 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
   return (
     <Card dir={props.direction}>
       {matchError && (
-        <Alert text={props.texts.passwordMatchError} severity="error" />
+        <Alert text={texts?.passwordMatchError} severity="error" />
       )}
       {props.passwordChanged ? (
         <CardContent headless>
-          <div className="hawa-text-center">{props.texts.passwordChanged}</div>
+          <div className="hawa-text-center">{texts?.passwordChanged}</div>
         </CardContent>
       ) : (
         <form
@@ -102,11 +99,10 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
                   width="full"
                   type="password"
                   autoComplete="new-password"
-                  label={props.texts.passwordLabel}
-                  placeholder={props.texts.passwordPlaceholder}
+                  label={texts?.passwordLabel}
+                  placeholder={texts?.passwordPlaceholder}
                   helperText={formState.errors.password?.message}
                   {...field}
-                  value={field.value ?? ""}
                 />
               )}
             />
@@ -118,11 +114,10 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
                   width="full"
                   type="password"
                   autoComplete="new-password"
-                  label={props.texts.confirmPasswordLabel}
-                  placeholder={props.texts.confirmPasswordPlaceholder}
+                  label={texts?.confirmPasswordLabel}
+                  placeholder={texts?.confirmPasswordPlaceholder}
                   helperText={formState.errors.confirm_password?.message}
                   {...field}
-                  value={field.value ?? ""}
                 />
               )}
             />
@@ -130,7 +125,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = (props) => {
 
           <CardFooter>
             <Button className="hawa-w-full" type="submit">
-              {props.texts.updatePassword}
+              {texts?.updatePassword}
             </Button>
           </CardFooter>
         </form>

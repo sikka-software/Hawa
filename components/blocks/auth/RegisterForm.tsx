@@ -1,4 +1,9 @@
 import React, { FC } from "react";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import { cn } from "../../util";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 import {
   Input,
   InterfaceSettings,
@@ -14,10 +19,6 @@ import {
   Loading,
   StopPropagationWrapper,
 } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import { cn } from "../../util";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 
 type RegisterFormTypes = {
   /** Callback function triggered to handle language changes.*/
@@ -32,43 +33,6 @@ type RegisterFormTypes = {
   direction?: "rtl" | "ltr";
   /** Determines whether to display logos only or with text in the social media registration section. */
   logosOnly?: boolean;
-  /** Object containing text labels used throughout the form. */
-  texts: {
-    fullNameLabel: string;
-    fullNamePlaceholder: string;
-    fullNameRequiredText: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    emailRequiredText: string;
-    emailInvalidText: string;
-    usernameLabel: string;
-    usernamePlaceholder: string;
-    usernameRequired: string;
-    passwordLabel: string;
-    passwordPlaceholder: string;
-    passwordRequiredText: string;
-    passwordTooShortText: string;
-    passwordsDontMatch: string;
-    confirmPasswordLabel: string;
-    confirmPasswordPlaceholder: string;
-    confirmPasswordRequired: string;
-    subscribeToNewsletter: string;
-    forgotPasswordText: string;
-    termsText: string;
-    iAcceptText: string;
-    termsRequiredText: string;
-    newUserText: string;
-    registerText: string;
-    loginText: string;
-    existingUserText: string;
-    registerViaGoogleLabel: string;
-    registerViaGithubLabel: string;
-    registerViaTwitterLabel: string;
-    refCode: string;
-    refCodePlaceholder: string;
-    userReferenceLabel: string;
-    userReferencePlaceholder: string;
-  };
   /** Enables registration via Google when set to true. */
   viaGoogle: boolean;
   /** Enables registration via Github when set to true. */
@@ -111,29 +75,53 @@ type RegisterFormTypes = {
   isTwitterLoading?: boolean;
   /** If true, a loading spinner is displayed within the Github login button.   */
   isGithubLoading?: boolean;
+  /** The options of "How did you learn about us?" select field.   */
   userReferenceOptions?: SelectOptionProps[];
+  /** To add more custom buttons under the register button.   */
   additionalButtons?: any;
+  /** To add more custom input fields   */
   additionalInputs?: any;
+  /** Object containing text labels used throughout the form. */
+  texts: {
+    fullNameLabel: string;
+    fullNamePlaceholder: string;
+    fullNameRequiredText: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    emailRequiredText: string;
+    emailInvalidText: string;
+    usernameLabel: string;
+    usernamePlaceholder: string;
+    usernameRequired: string;
+    passwordLabel: string;
+    passwordPlaceholder: string;
+    passwordRequiredText: string;
+    passwordTooShortText: string;
+    passwordsDontMatch: string;
+    confirmPasswordLabel: string;
+    confirmPasswordPlaceholder: string;
+    confirmPasswordRequired: string;
+    subscribeToNewsletter: string;
+    forgotPasswordText: string;
+    termsText: string;
+    iAcceptText: string;
+    termsRequiredText: string;
+    newUserText: string;
+    registerText: string;
+    loginText: string;
+    existingUserText: string;
+    registerViaGoogleLabel: string;
+    registerViaGithubLabel: string;
+    registerViaTwitterLabel: string;
+    refCode: string;
+    refCodePlaceholder: string;
+    userReferenceLabel: string;
+    userReferencePlaceholder: string;
+  };
 };
 
-export const RegisterForm: FC<RegisterFormTypes> = (props) => {
+export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
   const methods = useForm();
-  const {
-    usernamePlaceholder,
-    usernameRequired,
-    emailInvalidText,
-    emailPlaceholder,
-    emailRequiredText,
-    passwordPlaceholder,
-    passwordRequiredText,
-    passwordTooShortText,
-    passwordsDontMatch,
-    confirmPasswordRequired,
-    confirmPasswordPlaceholder,
-    termsRequiredText,
-    fullNameRequiredText,
-  } = props.texts;
-
   let fieldSchemas: any = {};
 
   props.registerFields.forEach((field) => {
@@ -143,16 +131,17 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
         break;
       case "email":
         fieldSchemas["email"] = z
-          .string({ required_error: emailRequiredText })
-          .email({ message: emailInvalidText })
-          .nonempty({ message: usernameRequired });
+          .string({ required_error: texts?.emailRequiredText })
+          .email({ message: texts?.emailInvalidText })
+          .min(1, { message: texts?.emailRequiredText });
         break;
       case "username":
         fieldSchemas["username"] = z
-          .string({ required_error: usernameRequired })
-          .refine((value) => value !== "", { message: usernameRequired });
+          .string({ required_error: texts?.usernameRequired })
+          .refine((value) => value !== "", {
+            message: texts?.usernameRequired,
+          });
         break;
-      // ... other cases for different fields
     }
   });
 
@@ -160,22 +149,25 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
     .object({
       ...fieldSchemas,
       password: z
-        .string({ required_error: passwordRequiredText })
-        .min(5, { message: passwordTooShortText })
-        .refine((value) => value !== "", { message: passwordRequiredText }),
+        .string({ required_error: texts?.passwordRequiredText })
+        .min(5, { message: texts?.passwordTooShortText })
+        .refine((value) => value !== "", {
+          message: texts?.passwordRequiredText,
+        }),
       confirm_password: z
-        .string({ required_error: confirmPasswordRequired })
-        .refine((value) => value !== "", { message: passwordRequiredText }),
+        .string({ required_error: texts?.confirmPasswordRequired })
+        .refine((value) => value !== "", {
+          message: texts?.passwordRequiredText,
+        }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
       terms_accepted: z
-        .boolean({ required_error: termsRequiredText })
-        .refine((value) => value, { message: termsRequiredText }),
-
+        .boolean({ required_error: texts?.termsRequiredText })
+        .refine((value) => value, { message: texts?.termsRequiredText }),
       newsletter_accepted: z.boolean().optional(),
     })
     .refine((data) => data.password === data.confirm_password, {
-      message: passwordsDontMatch,
+      message: texts?.passwordsDontMatch,
       path: ["confirm_password"],
     });
 
@@ -219,12 +211,10 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           render={({ field }) => (
                             <Input
                               width="full"
-                              type="text"
-                              label={props.texts.fullNameLabel}
-                              placeholder={props.texts.fullNamePlaceholder}
+                              label={texts?.fullNameLabel}
+                              placeholder={texts?.fullNamePlaceholder}
                               helperText={formState.errors.fullName?.message}
-                              onChange={field.onChange}
-                              value={field.value ?? ""}
+                              {...field}
                             />
                           )}
                         />
@@ -239,16 +229,13 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           render={({ field }) => (
                             <Input
                               width="full"
-                              type="text"
                               autoComplete="email"
-                              label={props.texts.emailLabel}
+                              label={texts?.emailLabel}
                               helperText={formState.errors.email?.message}
                               placeholder={
-                                props.texts.emailPlaceholder ||
-                                "Enter your email"
+                                texts?.emailPlaceholder || "Enter your email"
                               }
-                              onChange={field.onChange}
-                              value={field.value ?? ""}
+                              {...field}
                             />
                           )}
                         />
@@ -263,13 +250,11 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           render={({ field }) => (
                             <Input
                               width="full"
-                              type="text"
                               autoComplete="username"
-                              label={props.texts.usernameLabel}
+                              label={texts?.usernameLabel}
                               helperText={formState.errors.username?.message}
-                              placeholder={props.texts.usernamePlaceholder}
-                              onChange={field.onChange}
-                              value={field.value ?? ""}
+                              placeholder={texts?.usernamePlaceholder}
+                              {...field}
                             />
                           )}
                         />
@@ -285,12 +270,10 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       width="full"
                       type="password"
                       autoComplete="new-password"
-                      // defaultValue={field.value ?? ""}
-                      label={props.texts.passwordLabel}
-                      placeholder={props.texts.passwordPlaceholder}
+                      label={texts?.passwordLabel}
+                      placeholder={texts?.passwordPlaceholder}
                       helperText={formState.errors.password?.message}
-                      onChange={field.onChange}
-                      value={field.value ?? ""}
+                      {...field}
                     />
                   )}
                 />
@@ -302,12 +285,10 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       width="full"
                       type="password"
                       autoComplete="new-password"
-                      // defaultValue={field.value ?? ""}
-                      label={props.texts.confirmPasswordLabel}
-                      placeholder={props.texts.confirmPasswordPlaceholder}
+                      label={texts?.confirmPasswordLabel}
+                      placeholder={texts?.confirmPasswordPlaceholder}
                       helperText={formState.errors.confirm_password?.message}
-                      onChange={field.onChange}
-                      value={field.value ?? ""}
+                      {...field}
                     />
                   )}
                 />
@@ -319,15 +300,12 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                     render={({ field }) => (
                       <Input
                         width="full"
-                        type="text"
-                        label={props.texts.refCode}
+                        label={texts?.refCode}
                         placeholder={
-                          props.texts.refCodePlaceholder ||
-                          "Enter the referral code"
+                          texts?.refCodePlaceholder || "Enter the referral code"
                         }
                         helperText={formState.errors.refCode?.message}
-                        value={field.value ?? ""}
-                        onChange={field.onChange}
+                        {...field}
                       />
                     )}
                   />
@@ -339,10 +317,10 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                     render={({ field }) => (
                       <Select
                         label={
-                          props.texts?.userReferenceLabel ||
+                          texts?.userReferenceLabel ||
                           "How did you learn about us?"
                         }
-                        placeholder={props.texts?.userReferencePlaceholder}
+                        placeholder={texts?.userReferencePlaceholder}
                         isCreatable={false}
                         isMulti={false ?? false}
                         isSearchable={false}
@@ -367,13 +345,13 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                           onCheckedChange={(e) => field.onChange(e)}
                           label={
                             <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
-                              <span>{props.texts.iAcceptText}</span>{" "}
+                              <span>{texts?.iAcceptText}</span>{" "}
                               <StopPropagationWrapper>
                                 <a
                                   onClick={props.onRouteToTOS}
                                   className="clickable-link"
                                 >
-                                  {props.texts.termsText}
+                                  {texts?.termsText}
                                 </a>
                               </StopPropagationWrapper>
                             </div>
@@ -382,7 +360,6 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       )}
                     />
                   )}
-                  {/* TODO: make this an array so the consumer can cusomize the checkboxes they want */}
                   {props.showNewsletterOption && (
                     <Controller
                       control={control}
@@ -390,7 +367,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                       render={({ field }) => (
                         <Checkbox
                           id="newsletter_accepted"
-                          label={props.texts.subscribeToNewsletter}
+                          label={texts?.subscribeToNewsletter}
                           onCheckedChange={field.onChange}
                         />
                       )}
@@ -398,18 +375,18 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                   )}
                 </div>
                 <Button
-                  className="hawa-w-full hawa-mt-4"
                   isLoading={props.isLoading}
+                  className="hawa-w-full hawa-mt-4"
                 >
-                  {props.texts.registerText}
+                  {texts?.registerText}
                 </Button>
                 {props.additionalButtons}
               </form>
             </FormProvider>
             <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
-              <span>{props.texts.existingUserText}</span>
+              <span>{texts?.existingUserText}</span>
               <span onClick={props.onRouteToLogin} className="clickable-link">
-                {props.texts.loginText || "Login"}
+                {texts?.loginText || "Login"}
               </span>
             </div>
           </div>
@@ -434,7 +411,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 ) : (
                   <Logos.google className="hawa-h-4 hawa-w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts.registerViaGoogleLabel}
+                {!props.logosOnly && texts?.registerViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
@@ -448,7 +425,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 ) : (
                   <Logos.github className="hawa-h-4 hawa-w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts.registerViaGithubLabel}
+                {!props.logosOnly && texts?.registerViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
@@ -462,7 +439,7 @@ export const RegisterForm: FC<RegisterFormTypes> = (props) => {
                 ) : (
                   <Logos.twitter className="hawa-h-4 hawa-w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts.registerViaTwitterLabel}
+                {!props.logosOnly && texts?.registerViaTwitterLabel}
               </Button>
             )}
           </CardFooter>

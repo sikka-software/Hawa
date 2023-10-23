@@ -1,5 +1,10 @@
 import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { cn } from "../../util";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { parsePhoneNumber } from "libphonenumber-js";
+import * as z from "zod";
+
 import {
   InterfaceSettings,
   Card,
@@ -12,24 +17,25 @@ import {
   Logos,
   Button,
 } from "../../elements";
-import { cn } from "../../util";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 
 type LoginFormTypes = {
   texts?: {
     emailLabel?: string;
     emailPlaceholder?: string;
-    emailRequiredText?: string;
-    emailInvalidText?: string;
+    emailRequired?: string;
+    emailInvalid?: string;
     usernameLabel?: string;
     usernamePlaceholder?: string;
     usernameRequired?: string;
-    phoneRequiredText?: string;
+    usernameInvalid?: string;
+    phoneRequired?: string;
+    phoneInvalid?: string;
+    phoneLabel?: string;
     passwordLabel?: string;
     passwordPlaceholder?: string;
-    passwordRequiredText?: string;
-    forgotPasswordText?: string;
+    passwordRequired?: string;
+    passwordTooShort?: string;
+    forgotPassword?: string;
     newUserText?: string;
     createAccount?: string;
     loginText?: string;
@@ -87,56 +93,61 @@ type LoginFormTypes = {
   onGithubLogin?: () => void;
   /** Function to handle Twitter login.   */
   onTwitterLogin?: () => void;
+  /** Additional buttons to add under the login button */
   additionalButtons?: any;
 };
 
-export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
+export const LoginForm: FC<LoginFormTypes> = ({
+  loginType,
+  texts,
+  ...props
+}) => {
   let formSchema;
 
   if (loginType === "email") {
     formSchema = z.object({
       email: z
-        .string({
-          required_error: props.texts?.emailRequiredText,
-        })
-        .nonempty({ message: props.texts?.emailRequiredText })
-        .email({ message: props.texts?.emailInvalidText }),
+        .string({ required_error: texts?.emailRequired })
+        .min(1, { message: texts?.emailRequired })
+        .email({ message: texts?.emailInvalid }),
       password: z
-        .string({
-          required_error: props.texts?.passwordRequiredText,
-        })
-        .min(5, { message: "Password must be at least 5 characters long" })
-        .nonempty({ message: props.texts?.passwordRequiredText }),
+        .string({ required_error: texts?.passwordRequired })
+        .min(1, { message: texts?.passwordRequired })
+        .min(8, { message: texts?.passwordTooShort }),
     });
   } else if (loginType === "username") {
     formSchema = z.object({
       username: z
-        .string()
+        .string({ required_error: texts?.usernameRequired })
         .min(2, { message: "Username must be at least 2 characters" })
-        .nonempty({ message: props.texts?.usernameRequired }),
+        .refine(
+          (value) => {
+            const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
+            return isValid;
+          },
+          { message: texts?.usernameInvalid }
+        ),
       password: z
-        .string({
-          required_error: props.texts?.passwordRequiredText,
-        })
-        .min(5, { message: "Password must be at least 5 characters long" })
-        .nonempty({ message: props.texts?.passwordRequiredText }),
+        .string({ required_error: texts?.passwordRequired })
+        .min(1, { message: texts?.passwordRequired })
+        .min(8, { message: texts?.passwordTooShort }),
     });
   } else if (loginType === "phone") {
     formSchema = z.object({
-      phone: z
-        .string({ required_error: props.texts?.phoneRequiredText })
-        .refine((value) => value.split("-")[1] !== "", {
-          message: props.texts?.phoneRequiredText,
-        }),
+      phone: z.string({ required_error: texts?.phoneRequired }).refine(
+        (value) => {
+          let phoneNumber = parsePhoneNumber(value);
+          return phoneNumber.isValid();
+        },
+        { message: texts?.phoneInvalid }
+      ),
     });
   } else if (loginType === "link") {
     formSchema = z.object({
       email: z
-        .string({
-          required_error: props.texts?.emailRequiredText,
-        })
-        .nonempty({ message: props.texts?.emailRequiredText })
-        .email({ message: props.texts?.emailInvalidText }),
+        .string({ required_error: texts?.emailRequired })
+        .min(1, { message: texts?.emailRequired })
+        .email({ message: texts?.emailInvalid }),
     });
   } else {
     formSchema = z.object({});
@@ -157,15 +168,11 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               render={({ field }) => (
                 <Input
                   width="full"
-                  type="text"
                   autoComplete="email"
-                  label={props.texts?.emailLabel || "Email"}
+                  label={texts?.emailLabel || "Email"}
                   helperText={formState.errors.email?.message}
-                  placeholder={
-                    props.texts?.emailPlaceholder || "contact@sikka.io"
-                  }
-                  value={field.value ?? ""}
-                  onChange={field.onChange}
+                  placeholder={texts?.emailPlaceholder || "contact@sikka.io"}
+                  {...field}
                 />
               )}
             />
@@ -178,13 +185,12 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                     width="full"
                     autoComplete="current-password"
                     type="password"
-                    label={props.texts?.passwordLabel || "Password"}
+                    label={texts?.passwordLabel || "Password"}
                     placeholder={
-                      props.texts?.passwordPlaceholder || "Enter your password"
+                      texts?.passwordPlaceholder || "Enter your password"
                     }
                     helperText={formState.errors.password?.message}
-                    onChange={field.onChange}
-                    value={field.value ?? ""}
+                    {...field}
                   />
                 )}
               />
@@ -193,7 +199,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                   onClick={props.onForgotPassword}
                   className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
-                  {props.texts?.forgotPasswordText || "Forgot Password?"}
+                  {texts?.forgotPassword || "Forgot Password?"}
                 </div>
               )}
             </div>
@@ -209,13 +215,11 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                 return (
                   <Input
                     width="full"
-                    type="text"
                     autoComplete="username"
-                    label={props.texts?.usernameLabel || "Username"}
+                    label={texts?.usernameLabel || "Username"}
                     helperText={formState.errors.username?.message}
-                    placeholder={props.texts?.usernamePlaceholder || "sikka_sa"}
-                    onChange={field.onChange}
-                    value={field.value ?? ""}
+                    placeholder={texts?.usernamePlaceholder || "sikka_sa"}
+                    {...field}
                   />
                 );
               }}
@@ -229,13 +233,12 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                     width="full"
                     autoComplete="current-password"
                     type="password"
-                    label={props.texts?.passwordLabel || "Password"}
+                    label={texts?.passwordLabel || "Password"}
                     placeholder={
-                      props.texts?.passwordPlaceholder || "Enter your password"
+                      texts?.passwordPlaceholder || "Enter your password"
                     }
                     helperText={formState.errors.password?.message}
-                    onChange={field.onChange}
-                    value={field.value ?? ""}
+                    {...field}
                   />
                 )}
               />
@@ -244,7 +247,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                   onClick={props.onForgotPassword}
                   className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
-                  {props.texts?.forgotPasswordText || "Forgot Password?"}
+                  {texts?.forgotPassword || "Forgot Password?"}
                 </div>
               )}
             </div>
@@ -258,10 +261,12 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               name="phone"
               render={({ field }) => (
                 <PhoneInput
-                  label="Phone number"
+                  label={texts?.phoneLabel}
                   helperText={formState.errors.phone?.message}
                   preferredCountry={{ label: "+966" }}
-                  handleChange={field.onChange}
+                  handleChange={(e) =>
+                    field.onChange(parsePhoneNumber(e).number)
+                  }
                 />
               )}
             />
@@ -276,15 +281,11 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               render={({ field }) => (
                 <Input
                   width="full"
-                  type="text"
                   autoComplete="email"
-                  label={props.texts?.emailLabel || "Email"}
+                  label={texts?.emailLabel || "Email"}
                   helperText={formState.errors.email?.message}
-                  placeholder={
-                    props.texts?.emailPlaceholder || "contact@sikka.io"
-                  }
-                  value={field.value ?? ""}
-                  onChange={field.onChange}
+                  placeholder={texts?.emailPlaceholder || "contact@sikka.io"}
+                  {...field}
                 />
               )}
             />
@@ -312,9 +313,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               if (props.onLogin) {
                 return props.onLogin(e);
               } else {
-                console.log(
-                  "Form is submitted but onLogin prop is missing"
-                );
+                console.log("Form is submitted but onLogin prop is missing");
               }
             })}
           >
@@ -325,17 +324,17 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
               type="submit"
               isLoading={props.isLoading}
             >
-              {props.texts?.loginText || "Login"}
+              {texts?.loginText || "Login"}
             </Button>
             {props.additionalButtons}
             {!props.withoutRegister && (
               <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
-                {props.texts?.newUserText || "New user?"}{" "}
+                {texts?.newUserText || "New user?"}{" "}
                 <span
                   onClick={props.onRouteToRegister}
                   className="clickable-link"
                 >
-                  {props.texts?.createAccount || "Create Account"}
+                  {texts?.createAccount || "Create Account"}
                 </span>
               </div>
             )}
@@ -362,7 +361,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                 ) : (
                   <Logos.google className="hawa-h-4 hawa-w-4" />
                 )}
-                {!props.logosOnly && props.texts?.loginViaGoogleLabel}
+                {!props.logosOnly && texts?.loginViaGoogleLabel}
               </Button>
             )}
             {props.viaGithub && (
@@ -376,7 +375,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                 ) : (
                   <Logos.github className="hawa-h-4 hawa-w-4" />
                 )}
-                {!props.logosOnly && props.texts?.loginViaGithubLabel}
+                {!props.logosOnly && texts?.loginViaGithubLabel}
               </Button>
             )}
             {props.viaTwitter && (
@@ -390,7 +389,7 @@ export const LoginForm: FC<LoginFormTypes> = ({ loginType, ...props }) => {
                 ) : (
                   <Logos.twitter className="hawa-h-4 hawa-w-4" />
                 )}{" "}
-                {!props.logosOnly && props.texts?.loginViaTwitterLabel}
+                {!props.logosOnly && texts?.loginViaTwitterLabel}
               </Button>
             )}
           </CardFooter>
