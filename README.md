@@ -52,9 +52,9 @@
 
 ## Install
 
-**Note:** Current npm tags 👇 
+**Note:** Current npm tags 👇
 
-`@beta` is archived. 
+`@beta` is archived.
 
 `@next` only points to pre-releases.
 
@@ -69,6 +69,21 @@ npm install @sikka/hawa
 # Contributing
 
 To contribute, clone this github repository and run the development server
+
+```js
+// To preview the components
+npm run storybook
+// To run the landing pages
+npm run dev
+```
+To build the library to /dist
+```
+npm run build-lib
+```
+To generate /dist/index.css
+```
+npm run build-css
+```
 
 </br>
 
