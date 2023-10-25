@@ -133,7 +133,11 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             >
               {props.title}
             </span>
-            <span>{props.text}</span>
+            <span
+              className={clsx(direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8")}
+            >
+              {props.text}
+            </span>
             {props.actions && (
               <div className="hawa-mt-2 hawa-flex hawa-flex-row hawa-gap-2">
                 {props.actions.map((act, index) => (
