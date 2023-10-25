@@ -14,7 +14,6 @@ const meta = {
     controls: {
       exclude: ["direction"],
     },
-
     docs: {
       page: () => <LoginDocs />,
       toc: {

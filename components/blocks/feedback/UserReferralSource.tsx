@@ -7,8 +7,7 @@ import {
   CardContent,
   RadioOptionsTypes,
 } from "../../elements";
-
-import clsx from "clsx";
+import { cn } from "../../util";
 
 type ComponentTypes = {
   title?: string;
@@ -16,12 +15,13 @@ type ComponentTypes = {
   description?: string;
   tag?: any;
   options?: RadioOptionsTypes[];
+  position?: "bottom-right" | "bottom-left";
+  onOptionClicked?: (option: any) => void;
+  direction?: "rtl" | "ltr";
   texts?: {
     least: string;
     most: string;
   };
-  position?: "bottom-right" | "bottom-left";
-  onOptionClicked?: (option: any) => void;
 };
 export const UserReferralSource: FC<ComponentTypes> = ({
   position = "bottom-right",
@@ -62,14 +62,18 @@ export const UserReferralSource: FC<ComponentTypes> = ({
   return (
     <Card
       ref={popUpRef}
-      className={clsx(
+      className={cn(
         "hawa-fixed hawa-bottom-4 hawa-p-0 ",
         boxPosition[position]
       )}
+      dir={props.direction}
     >
       <button
         type="button"
-        className="hawa-absolute hawa-right-2 hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white"
+        className={cn(
+          props.direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
+          "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white"
+        )}
         data-dismiss-target="#toast-default"
         aria-label="Close"
         onClick={() => slowClose()}
@@ -89,14 +93,18 @@ export const UserReferralSource: FC<ComponentTypes> = ({
       </button>
       <CardContent headless>
         <div
-          className={clsx(
+          className={cn(
             "hawa-flex hawa-flex-col hawa-gap-4",
             closed ? "hawa-opacity-0" : "hawa-opacity-100"
           )}
         >
           <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
           <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded ">
-            <Radio orientation="vertical" options={options}></Radio>
+            <Radio
+              direction={props.direction}
+              orientation="vertical"
+              options={options}
+            ></Radio>
           </div>
           <div>
             <Textarea />
