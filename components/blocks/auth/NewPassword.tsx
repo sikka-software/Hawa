@@ -17,8 +17,10 @@ import * as z from "zod";
 
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
+  handleRouteToRegister: () => void;
   direction?: "rtl" | "ltr";
   headless?: boolean;
+  allowRegister?: boolean;
   passwordChanged: any;
   texts: {
     updatePassword: string;
@@ -31,6 +33,8 @@ type NewPasswordTypes = {
     confirmPasswordPlaceholder: string;
     confirmPasswordLabel: string;
     confirmPasswordRequired: string;
+    dontHaveAccount?: string;
+    registerText?: string;
   };
 };
 
@@ -122,11 +126,21 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
               )}
             />
           </CardContent>
-
-          <CardFooter>
+          <CardFooter className="hawa-flex hawa-flex-col">
             <Button className="hawa-w-full" type="submit">
               {texts?.updatePassword}
             </Button>
+            {props.allowRegister && (
+              <div className="hawa-mt-4 hawa-pb-0 hawa-text-center hawa-text-sm dark:hawa-text-gray-300">
+                {texts?.dontHaveAccount ?? "Don't have an account? "}
+                <span
+                  className="clickable-link"
+                  onClick={props.handleRouteToRegister}
+                >
+                  {texts?.registerText ?? "Register"}
+                </span>
+              </div>
+            )}
           </CardFooter>
         </form>
       )}

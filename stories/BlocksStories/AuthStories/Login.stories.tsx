@@ -73,6 +73,7 @@ export const Default: Story = {
 
   args: {
     loginType: "email",
+    allowRegister: true,
   },
   argTypes: {
     onLogin: { action: "onLogin" },

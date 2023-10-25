@@ -7,7 +7,6 @@ const meta = {
   title: "Blocks/User Auth/Reset Password Form",
   component: ResetPasswordForm,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -45,8 +44,8 @@ export const Default: Story = {
     texts: {
       emailLabel: "Email",
       emailPlaceholder: "Enter your email",
-      emailRequiredText: "Email is required",
-      emailInvalidText: "Invalid email address",
+      emailRequired: "Email is required",
+      emailInvalid: "Invalid email address",
       emailSentText: "The reset password link was sent to your email",
       resetPassword: "Reset Password",
       registerText: "Register",
@@ -55,6 +54,6 @@ export const Default: Story = {
   },
   argTypes: {
     handleResetPassword: { action: "handleResetPassword" },
-    handleRouteToRegister: {action:"handleRouteToRegister"}
+    handleRouteToRegister: { action: "handleRouteToRegister" },
   },
 };

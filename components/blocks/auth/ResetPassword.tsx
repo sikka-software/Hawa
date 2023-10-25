@@ -19,26 +19,29 @@ type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
   handleRouteToRegister: () => void;
   sent: any;
+  headless?: boolean;
+  allowRegister?: boolean;
+  direction?: "rtl" | "ltr";
   texts?: {
     emailLabel: string;
     emailPlaceholder: string;
-    emailRequiredText: string;
-    emailInvalidText: string;
+    emailRequired: string;
+    emailInvalid: string;
     emailSentText: string;
-    resetPassword: string;
     registerText: string;
+    resetPassword: string;
     dontHaveAccount: string;
+    headTitle?: string;
+    headDescription?: string;
   };
-  headless?: boolean;
-  direction?: "rtl" | "ltr";
 };
 
 export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
   const formSchema = z.object({
     email: z
-      .string({ required_error: props.texts?.emailRequiredText })
-      .email({ message: props.texts?.emailInvalidText })
-      .nonempty({ message: props.texts?.emailRequiredText }),
+      .string({ required_error: props.texts?.emailRequired })
+      .email({ message: props.texts?.emailInvalid })
+      .min(1, { message: props.texts?.emailRequired }),
   });
 
   const { handleSubmit, control, formState } = useForm({
@@ -51,9 +54,13 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
         <>
           {!props.headless && (
             <CardHeader>
-              <CardTitle>Reset Password</CardTitle>
+              <CardTitle>
+                {" "}
+                {props.texts?.headTitle || "Reset Password"}
+              </CardTitle>
               <CardDescription>
-                Enter your email to reset your account password
+                {props.texts?.headDescription ||
+                  "Enter your email to reset your account password"}
               </CardDescription>
             </CardHeader>
           )}
@@ -62,9 +69,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
               if (props.handleResetPassword) {
                 return props.handleResetPassword(e);
               } else {
-                console.log(
-                  "Form is submitted but handleResetPassword prop is missing"
-                );
+                console.log("handleResetPassword prop is missing");
               }
             })}
           >
@@ -75,29 +80,29 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                 render={({ field }) => (
                   <Input
                     width="full"
-                    type="text"
                     label={props.texts?.emailLabel}
                     helperText={formState.errors.email?.message}
                     placeholder={props.texts?.emailPlaceholder}
                     {...field}
-                    value={field.value ?? ""}
                   />
                 )}
               />
-              <div className="hawa-mt-2 hawa-pb-2 hawa-text-start hawa-text-sm dark:hawa-text-gray-300">
-                {props.texts?.dontHaveAccount ?? "Don't have an account? "}
-                <span
-                  onClick={props.handleRouteToRegister}
-                  className="clickable-link"
-                >
-                  {props.texts?.registerText ?? "Register"}
-                </span>
-              </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="hawa-flex hawa-flex-col">
               <Button type="submit" className="hawa-w-full">
                 {props.texts?.resetPassword}
               </Button>
+              {props.allowRegister && (
+                <div className="hawa-mt-4 hawa-pb-0 hawa-text-center hawa-text-sm dark:hawa-text-gray-300">
+                  {props.texts?.dontHaveAccount ?? "Don't have an account? "}
+                  <span
+                    className="clickable-link"
+                    onClick={props.handleRouteToRegister}
+                  >
+                    {props.texts?.registerText ?? "Register"}
+                  </span>
+                </div>
+              )}
             </CardFooter>
           </form>
         </>
