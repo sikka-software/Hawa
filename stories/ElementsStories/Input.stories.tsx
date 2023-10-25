@@ -105,7 +105,8 @@ export const Examples: Story = {
             <Input
               hint="Only underscore and dash are acccepted"
               type={"text"}
-              label={t("username") + " *"}
+              isRequired={true}
+              label={t("username")}
               {...field}
             />
           )}
@@ -114,14 +115,14 @@ export const Examples: Story = {
           control={control}
           name="password"
           render={({ field }) => (
-            <Input type={"password"} label={t("password") + " *"} {...field} />
+            <Input type={"password"} label={t("password")} {...field} />
           )}
         />
         <Controller
           control={control}
           name="firstName"
           render={({ field }) => (
-            <Input type={"text"} label={t("first-name") + " *"} {...field} />
+            <Input type={"text"} label={t("first-name")} {...field} />
           )}
         />
       </div>

@@ -56,6 +56,8 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   preview?: boolean;
   //   maxLength?: any;
   iconInside?: React.ReactNode;
+  /** If true, it will show a red asterisk next to the label*/
+  isRequired?: boolean;
 };
 export const Input: FC<TextFieldTypes> = ({
   margin = "none",
@@ -91,7 +93,12 @@ export const Input: FC<TextFieldTypes> = ({
       )}
     >
       {props.label && (
-        <Label htmlFor={props.id} hint={props.hint} hintSide={props.hintSide}>
+        <Label
+          htmlFor={props.id}
+          hint={props.hint}
+          hintSide={props.hintSide}
+          required={props.isRequired}
+        >
           {props.label}
         </Label>
       )}
@@ -113,6 +120,7 @@ export const Input: FC<TextFieldTypes> = ({
                 </div>
               )}
               <input
+                required
                 className={cn(
                   defaultInputStyle,
                   " dark:hawa-text-white",
