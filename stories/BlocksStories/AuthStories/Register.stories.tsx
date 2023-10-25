@@ -9,6 +9,9 @@ const meta = {
   title: "Blocks/User Auth/Register Form",
   component: RegisterForm,
   parameters: {
+    controls: {
+      exclude: ["direction"],
+    },
     docs: {
       page: () => <RegisterDocs />,
       toc: {

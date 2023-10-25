@@ -11,6 +11,10 @@ const meta = {
   title: "Blocks/User Auth/Login Form",
   component: LoginForm,
   parameters: {
+    controls: {
+      exclude: ["direction"],
+    },
+
     docs: {
       page: () => <LoginDocs />,
       toc: {
