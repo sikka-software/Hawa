@@ -5,18 +5,26 @@ const config: StorybookConfig = {
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "storybook-dark-mode",
+    "@storybook/addon-mdx-gfm"
   ],
+
   staticDirs: ["../public"],
+
+  // docs: { autodocs: "tag" },
   framework: {
     name: "@storybook/nextjs",
     options: {},
   },
-  // docs: { autodocs: "tag" },
+
+  docs: {
+    autodocs: true
+  }
 };
 export default config;
