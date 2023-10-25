@@ -38,8 +38,9 @@ export const UserSource: Story = {
   ),
   args: {
     question: "How did you hear about us?",
-    description:
-      "Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.",
-    tag: "Deploy faster",
+    texts: {
+      pleaseSelectOption: "Please select an option",
+      textTooShort: "Please add more details",
+    },
   },
 };

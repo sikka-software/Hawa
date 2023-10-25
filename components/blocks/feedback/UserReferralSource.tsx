@@ -8,6 +8,10 @@ import {
   RadioOptionsTypes,
 } from "../../elements";
 import { cn } from "../../util";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import * as z from "zod";
 
 type ComponentTypes = {
   title?: string;
@@ -19,8 +23,9 @@ type ComponentTypes = {
   onOptionClicked?: (option: any) => void;
   direction?: "rtl" | "ltr";
   texts?: {
-    least: string;
-    most: string;
+    pleaseSelectOption: string;
+    textTooShort: string;
+    submit?: string;
   };
 };
 export const UserReferralSource: FC<ComponentTypes> = ({
@@ -29,10 +34,17 @@ export const UserReferralSource: FC<ComponentTypes> = ({
   ...props
 }) => {
   const [closed, setClosed] = useState(false);
-  const [answered, setAnswered] = useState(false);
-  const [clickedOption, setClickedOption] = useState(null);
   const [closingTimer, setClosingTimer] = useState(5);
   const popUpRef = useRef<HTMLDivElement>(null);
+
+  const formSchema = z.object({
+    source: z.string({ required_error: props.texts?.pleaseSelectOption }),
+    feedback: z.string().optional(),
+  });
+
+  const { handleSubmit, control, formState } = useForm({
+    resolver: zodResolver(formSchema),
+  });
 
   const boxPosition = {
     "bottom-right": "hawa-right-4",
@@ -92,25 +104,47 @@ export const UserReferralSource: FC<ComponentTypes> = ({
         </svg>
       </button>
       <CardContent headless>
-        <div
-          className={cn(
-            "hawa-flex hawa-flex-col hawa-gap-4",
-            closed ? "hawa-opacity-0" : "hawa-opacity-100"
-          )}
-        >
-          <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
-          <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded ">
-            <Radio
-              direction={props.direction}
-              orientation="vertical"
-              options={options}
-            ></Radio>
+        <form onSubmit={handleSubmit((e) => console.log("e is ", e))}>
+          <div
+            className={cn(
+              "hawa-flex hawa-flex-col hawa-gap-4",
+              closed ? "hawa-opacity-0" : "hawa-opacity-100"
+            )}
+          >
+            <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
+            <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded ">
+              <Controller
+                control={control}
+                name="source"
+                render={({ field }) => (
+                  <Radio
+                    direction={props.direction}
+                    orientation="vertical"
+                    options={options}
+                    defaultValue={field.value}
+                    onChangeTab={(e: any) => field.onChange(e)}
+                    helperText={formState.errors.source?.message?.toString()}
+                  ></Radio>
+                )}
+              />
+            </div>
+            <div>
+              <Controller
+                control={control}
+                name="feedback"
+                render={({ field }) => (
+                  <Textarea
+                    {...field}
+                    helperText={formState.errors.feedback?.message?.toString()}
+                  />
+                )}
+              />
+            </div>
           </div>
-          <div>
-            <Textarea />
-          </div>
-        </div>
-        <Button className="hawa-mt-4 hawa-w-full">Submit</Button>
+          <Button type="submit" className="hawa-mt-4 hawa-w-full">
+            {props.texts?.submit || "Submit"}
+          </Button>
+        </form>
       </CardContent>
     </Card>
   );

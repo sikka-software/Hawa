@@ -17,6 +17,7 @@ type RadioTypes = {
   onChangeTab?: any;
   defaultValue?: any;
   direction?: "rtl" | "ltr";
+  helperText?: string;
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
@@ -190,6 +191,10 @@ export const Radio: FC<RadioTypes> = ({
                   type="radio"
                   value={opt.value}
                   name="default-radio"
+                  onChange={() => {
+                    setSelectedOption(opt.value);
+                    props.onChangeTab(opt.value);
+                  }}
                 />
                 <label
                   htmlFor={opt.value.toString()}
@@ -204,6 +209,11 @@ export const Radio: FC<RadioTypes> = ({
                 </label>
               </div>
             ))}
+          {props.helperText && (
+            <p className="hawa-text-xs hawa-text-helper-color">
+              {props.helperText}
+            </p>
+          )}
         </div>
       );
   }
