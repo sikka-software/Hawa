@@ -60,7 +60,7 @@ type RegisterFormTypes = {
   /** Callback function triggered to route to the Terms of Service page. */
   onRouteToTOS: () => void;
   /** Determines whether to show an error alert. */
-  showError: any;
+  showError: boolean;
   /** Title for the error alert. */
   errorTitle: any;
   /** Text for the error alert. */

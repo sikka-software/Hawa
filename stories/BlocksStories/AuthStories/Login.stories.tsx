@@ -146,6 +146,7 @@ export const MagicLink: Story = {
   args: {
     loginType: "link",
   },
+
   argTypes: {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
