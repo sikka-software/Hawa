@@ -5,14 +5,16 @@ const config: StorybookConfig = {
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-
+  core: {
+    disableWhatsNewNotifications: true,
+  },
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "storybook-dark-mode",
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
   ],
 
   staticDirs: ["../public"],
@@ -24,7 +26,7 @@ const config: StorybookConfig = {
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 };
 export default config;
