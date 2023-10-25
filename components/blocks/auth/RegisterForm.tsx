@@ -85,32 +85,24 @@ type RegisterFormTypes = {
   texts: {
     fullNameLabel: string;
     fullNamePlaceholder: string;
-    fullNameRequiredText: string;
     emailLabel: string;
     emailPlaceholder: string;
-    emailRequiredText: string;
-    emailInvalidText: string;
+    emailRequired: string;
+    emailInvalid: string;
     usernameLabel: string;
     usernamePlaceholder: string;
     usernameInvalid: string;
     usernameRequired: string;
     passwordLabel: string;
     passwordPlaceholder: string;
-    passwordRequiredText: string;
-    passwordTooShortText: string;
+    passwordRequired: string;
+    passwordTooShort: string;
     passwordsDontMatch: string;
     confirmPasswordLabel: string;
     confirmPasswordPlaceholder: string;
     confirmPasswordRequired: string;
     subscribeToNewsletter: string;
-    forgotPasswordText: string;
-    termsText: string;
-    iAcceptText: string;
-    termsRequiredText: string;
-    newUserText: string;
-    registerText: string;
-    loginText: string;
-    existingUserText: string;
+    termsRequired: string;
     registerViaGoogleLabel: string;
     registerViaGithubLabel: string;
     registerViaTwitterLabel: string;
@@ -118,6 +110,11 @@ type RegisterFormTypes = {
     refCodePlaceholder: string;
     userReferenceLabel: string;
     userReferencePlaceholder: string;
+    existingUserText: string;
+    termsText: string;
+    iAcceptText: string;
+    registerText: string;
+    loginText: string;
   };
 };
 
@@ -132,9 +129,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
         break;
       case "email":
         fieldSchemas["email"] = z
-          .string({ required_error: texts?.emailRequiredText })
-          .email({ message: texts?.emailInvalidText })
-          .min(1, { message: texts?.emailRequiredText });
+          .string({ required_error: texts?.emailRequired })
+          .email({ message: texts?.emailInvalid })
+          .min(1, { message: texts?.emailRequired });
         break;
       case "username":
         fieldSchemas["username"] = z
@@ -155,21 +152,21 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
     .object({
       ...fieldSchemas,
       password: z
-        .string({ required_error: texts?.passwordRequiredText })
-        .min(5, { message: texts?.passwordTooShortText })
+        .string({ required_error: texts?.passwordRequired })
+        .min(5, { message: texts?.passwordTooShort })
         .refine((value) => value !== "", {
-          message: texts?.passwordRequiredText,
+          message: texts?.passwordRequired,
         }),
       confirm_password: z
         .string({ required_error: texts?.confirmPasswordRequired })
         .refine((value) => value !== "", {
-          message: texts?.passwordRequiredText,
+          message: texts?.passwordRequired,
         }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
       terms_accepted: z
-        .boolean({ required_error: texts?.termsRequiredText })
-        .refine((value) => value, { message: texts?.termsRequiredText }),
+        .boolean({ required_error: texts?.termsRequired })
+        .refine((value) => value, { message: texts?.termsRequired }),
       newsletter_accepted: z.boolean().optional(),
     })
     .refine((data) => data.password === data.confirm_password, {
