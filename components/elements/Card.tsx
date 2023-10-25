@@ -3,21 +3,31 @@ import { cn } from "../util";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   clickable?: boolean;
+  variant?: "default" | "neoBrutalism";
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, clickable = false, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
+  ({ className, variant = "default", clickable = false, ...props }, ref) => {
+    let variantStyles = {
+      default: cn(
         "hawa-rounded-lg hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
         clickable &&
-          "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:dark-shadow",
-        className
-      )}
-      {...props}
-    />
-  )
+          "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:dark-shadow"
+      ),
+      neoBrutalism: cn(
+        "hawa-transition-all hawa-uppercase hawa-font-mono  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary hawa-shadow-color-primary hawa-transition-[hawa-transform_50ms, hawa-box-shadow_50ms] transition-all uppercase font-mono  dark:bg-black font-bold py-2 px-4 rounded border-2 border-primary shadow-color-primary transition-[transform_50ms, box-shadow_50ms]",
+        clickable &&
+          "hawa-cursor-pointer active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 active:hawa-shadow-color-primary-active active:translate-x-0.5 active:translate-y-0.5 active:shadow-color-primary-active"
+      ),
+    };
+    return (
+      <div
+        ref={ref}
+        className={cn(className, variantStyles[variant])}
+        {...props}
+      />
+    );
+  }
 );
 Card.displayName = "Card";
 
