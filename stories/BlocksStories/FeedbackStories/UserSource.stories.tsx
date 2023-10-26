@@ -43,4 +43,9 @@ export const UserSource: Story = {
       textTooShort: "Please add more details",
     },
   },
+  argTypes: {
+    onSubmitForm: {
+      action: "onSubmitForm",
+    },
+  },
 };
