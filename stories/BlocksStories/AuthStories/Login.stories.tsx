@@ -62,9 +62,9 @@ const Template = (args: any, globals: any) => {
           newUserText: t("newUserText"),
           createAccount: t("createAccount"),
           loginText: t("loginText"),
-          loginViaGoogleLabel: t("loginViaGoogleLabel"),
-          loginViaGithubLabel: t("loginViaGithubLabel"),
-          loginViaTwitterLabel: t("loginViaTwitterLabel"),
+          continueWithGoogle: t("loginViaGoogleLabel"),
+          continueWithGithub: t("loginViaGithubLabel"),
+          continueWithTwitter: t("loginViaTwitterLabel"),
         }}
         {...args}
       />

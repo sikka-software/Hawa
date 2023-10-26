@@ -1,15 +1,5 @@
-import React, { useState, FC } from "react";
-// import { HawaAlert, HawaPinInput } from "../../elements"
-// import { Card, CardContent, CardFooter } from "../../elements/Card"
-// import { Button } from "../../elements/Button"
-import {
-  Button,
-  Card,
-  CardContent,
-  CardFooter,
-  Alert,
-  PinInput,
-} from "../../elements";
+import React, { FC } from "react";
+import { Card, CardContent, CardFooter } from "../../elements";
 
 type CheckEmailBlocks = {
   texts?: {

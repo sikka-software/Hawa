@@ -3,7 +3,6 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
 import {
   Input,
   InterfaceSettings,
@@ -19,8 +18,48 @@ import {
   Loading,
   StopPropagationWrapper,
 } from "../../elements";
+import { ThirdPartyAuthTextsTypes } from "@/components/types/textTypes";
+import { AuthButtons } from "./AuthButtons";
+
+export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
+  fullNameLabel: string;
+  fullNamePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  emailRequired: string;
+  emailInvalid: string;
+  usernameLabel: string;
+  usernamePlaceholder: string;
+  usernameInvalid: string;
+  usernameRequired: string;
+  passwordLabel: string;
+  passwordPlaceholder: string;
+  passwordRequired: string;
+  passwordTooShort: string;
+  passwordsDontMatch: string;
+  confirmPasswordLabel: string;
+  confirmPasswordPlaceholder: string;
+  confirmPasswordRequired: string;
+  subscribeToNewsletter: string;
+  termsRequired: string;
+  // registerViaGoogleLabel: string;
+  // registerViaGithubLabel: string;
+  // registerViaTwitterLabel: string;
+  refCode: string;
+  refCodePlaceholder: string;
+  userReferenceLabel: string;
+  userReferencePlaceholder: string;
+  existingUserText: string;
+  termsText: string;
+  iAcceptText: string;
+  registerText: string;
+  loginText: string;
+};
 
 type RegisterFormTypes = {
+  /** Object containing text labels used throughout the form. */
+  texts: RegisterFormTextsTypes;
+
   /** Callback function triggered to handle language changes.*/
   handleLanguage?: () => void;
   /** The current language being used in the application. */
@@ -81,44 +120,19 @@ type RegisterFormTypes = {
   additionalButtons?: any;
   /** To add more custom input fields   */
   additionalInputs?: any;
-  /** Object containing text labels used throughout the form. */
-  texts: {
-    fullNameLabel: string;
-    fullNamePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    emailRequired: string;
-    emailInvalid: string;
-    usernameLabel: string;
-    usernamePlaceholder: string;
-    usernameInvalid: string;
-    usernameRequired: string;
-    passwordLabel: string;
-    passwordPlaceholder: string;
-    passwordRequired: string;
-    passwordTooShort: string;
-    passwordsDontMatch: string;
-    confirmPasswordLabel: string;
-    confirmPasswordPlaceholder: string;
-    confirmPasswordRequired: string;
-    subscribeToNewsletter: string;
-    termsRequired: string;
-    registerViaGoogleLabel: string;
-    registerViaGithubLabel: string;
-    registerViaTwitterLabel: string;
-    refCode: string;
-    refCodePlaceholder: string;
-    userReferenceLabel: string;
-    userReferencePlaceholder: string;
-    existingUserText: string;
-    termsText: string;
-    iAcceptText: string;
-    registerText: string;
-    loginText: string;
-  };
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
+  const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
+    continueWithGoogle: texts?.continueWithGoogle,
+    continueWithTwitter: texts?.continueWithTwitter,
+    continueWithApple: texts?.continueWithApple,
+    continueWithMicrosoft: texts?.continueWithMicrosoft,
+    continueWithGithub: texts?.continueWithGithub,
+    continueWithEmail: texts?.continueWithEmail,
+    continueWithPhone: texts?.continueWithPhone,
+  };
+
   const methods = useForm();
   let fieldSchemas: any = {};
 
@@ -403,7 +417,16 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                 : "hawa-grid hawa-grid-cols-1 hawa-gap-2"
             )}
           >
-            {props.viaGoogle && (
+            <AuthButtons
+              texts={thirdPartyAuthTexts}
+              viaGoogle={props.viaGoogle}
+              viaGithub={props.viaGithub}
+              viaTwitter={props.viaTwitter}
+              handleGoogle={props.onGoogleRegister}
+              handleGithub={props.onGithubRegister}
+              handleTwitter={props.onTwitterRegister}
+            />
+            {/* {props.viaGoogle && (
               <Button
                 className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
                 variant="outline"
@@ -444,7 +467,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                 )}{" "}
                 {!props.logosOnly && texts?.registerViaTwitterLabel}
               </Button>
-            )}
+            )} */}
           </CardFooter>
         ) : null}
       </Card>

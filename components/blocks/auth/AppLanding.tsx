@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Button, Card, CardContent, Radio, Logos } from "../../elements";
+import { AuthButtons } from "./AuthButtons";
 
 type AppLandingTypes = {
   texts?: {
@@ -20,7 +21,6 @@ type AppLandingTypes = {
   viaEmail?: boolean;
   viaPhone?: boolean;
   viaApple?: boolean;
-
   withoutSignUp?: boolean;
   size: "small" | "normal" | "full";
   direction: "rtl" | "ltr";
@@ -41,78 +41,25 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
     <div dir={props.direction}>
       <Card>
         <CardContent headless className="hawa-flex hawa-flex-col hawa-gap-6">
-          {props.viaGoogle && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleGoogle}
-            >
-              <Logos.google className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithGoogle ?? "Continue With Google"}
-            </Button>
-          )}
-          {props.viaGithub && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleGithub}
-            >
-              <Logos.github className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithGithub ?? "Continue With Github"}
-            </Button>
-          )}
-          {props.viaTwitter && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleTwitter}
-            >
-              <Logos.twitter className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithTwitter ?? "Continue With Twitter"}
-            </Button>
-          )}
-          {props.viaApple && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleApple}
-            >
-              <Logos.apple className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithApple ?? "Continue With Apple"}
-            </Button>
-          )}
-          {props.viaMicrosoft && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleMicrosoft}
-            >
-              <Logos.microsoft className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithMicrosoft ?? "Continue With Microsoft"}
-            </Button>
-          )}
-          {props.viaEmail && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handleEmail}
-            >
-              <Logos.mail className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithEmail ?? "Continue With Email"}
-            </Button>
-          )}
-          {props.viaPhone && (
-            <Button
-              className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-              variant="outline"
-              onClick={props.handlePhone}
-            >
-              <Logos.phone className="hawa-h-4 hawa-w-4" />
-              {props.texts?.continueWithPhone ?? "Continue With Phone"}
-            </Button>
-          )}
+          <AuthButtons
+            texts={{ ...props.texts }}
+            viaApple={props.viaApple}
+            viaGoogle={props.viaGoogle}
+            viaEmail={props.viaEmail}
+            viaGithub={props.viaGithub}
+            viaMicrosoft={props.viaMicrosoft}
+            viaPhone={props.viaPhone}
+            viaTwitter={props.viaTwitter}
+            handleApple={props.handleApple}
+            handleGoogle={props.handleGoogle}
+            handleTwitter={props.handleTwitter}
+            handleMicrosoft={props.handleMicrosoft}
+            handleGithub={props.handleGithub}
+            handleEmail={props.handleEmail}
+            handlePhone={props.handlePhone}
+          />
 
-          {!props.withoutSignUp && (
+          {!props.withoutSignUp && ( //TODO: change to "register"
             <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
               {props.texts?.newUserText}{" "}
               <span

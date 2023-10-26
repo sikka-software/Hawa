@@ -17,32 +17,32 @@ import {
   Logos,
   Button,
 } from "../../elements";
+import { AuthButtons } from "./AuthButtons";
+import { ThirdPartyAuthTextsTypes } from "@/components/types/textTypes";
 
+export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
+  emailLabel?: string;
+  emailPlaceholder?: string;
+  emailRequired?: string;
+  emailInvalid?: string;
+  usernameLabel?: string;
+  usernamePlaceholder?: string;
+  usernameRequired?: string;
+  usernameInvalid?: string;
+  phoneRequired?: string;
+  phoneInvalid?: string;
+  phoneLabel?: string;
+  passwordLabel?: string;
+  passwordPlaceholder?: string;
+  passwordRequired?: string;
+  passwordTooShort?: string;
+  forgotPassword?: string;
+  newUserText?: string;
+  createAccount?: string;
+  loginText?: string;
+};
 type LoginFormTypes = {
-  texts?: {
-    emailLabel?: string;
-    emailPlaceholder?: string;
-    emailRequired?: string;
-    emailInvalid?: string;
-    usernameLabel?: string;
-    usernamePlaceholder?: string;
-    usernameRequired?: string;
-    usernameInvalid?: string;
-    phoneRequired?: string;
-    phoneInvalid?: string;
-    phoneLabel?: string;
-    passwordLabel?: string;
-    passwordPlaceholder?: string;
-    passwordRequired?: string;
-    passwordTooShort?: string;
-    forgotPassword?: string;
-    newUserText?: string;
-    createAccount?: string;
-    loginText?: string;
-    loginViaGoogleLabel?: string;
-    loginViaGithubLabel?: string;
-    loginViaTwitterLabel?: string;
-  };
+  texts?: LoginFormTextsTypes;
   /** Function to handle language change.   */
   handleLanguage?: () => void;
   /** Current selected language.   */
@@ -104,6 +104,15 @@ export const LoginForm: FC<LoginFormTypes> = ({
   passwordLength = 8,
   ...props
 }) => {
+  const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
+    continueWithGoogle: texts?.continueWithGoogle,
+    continueWithTwitter: texts?.continueWithTwitter,
+    continueWithApple: texts?.continueWithApple,
+    continueWithMicrosoft: texts?.continueWithMicrosoft,
+    continueWithGithub: texts?.continueWithGithub,
+    continueWithEmail: texts?.continueWithEmail,
+    continueWithPhone: texts?.continueWithPhone,
+  };
   let formSchema;
 
   if (loginType === "email") {
@@ -352,48 +361,15 @@ export const LoginForm: FC<LoginFormTypes> = ({
                 : "hawa-grid hawa-grid-cols-1 hawa-gap-2"
             )}
           >
-            {props.viaGoogle && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onGoogleLogin}
-              >
-                {props.isGoogleLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.google className="hawa-h-4 hawa-w-4" />
-                )}
-                {!props.logosOnly && texts?.loginViaGoogleLabel}
-              </Button>
-            )}
-            {props.viaGithub && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onGithubLogin}
-              >
-                {props.isGithubLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.github className="hawa-h-4 hawa-w-4" />
-                )}
-                {!props.logosOnly && texts?.loginViaGithubLabel}
-              </Button>
-            )}
-            {props.viaTwitter && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onTwitterLogin}
-              >
-                {props.isTwitterLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.twitter className="hawa-h-4 hawa-w-4" />
-                )}{" "}
-                {!props.logosOnly && texts?.loginViaTwitterLabel}
-              </Button>
-            )}
+            <AuthButtons
+              texts={thirdPartyAuthTexts}
+              viaGoogle={props.viaGoogle}
+              viaGithub={props.viaGithub}
+              viaTwitter={props.viaTwitter}
+              handleGoogle={props.onGoogleLogin}
+              handleGithub={props.onGithubLogin}
+              handleTwitter={props.onTwitterLogin}
+            />
           </CardFooter>
         ) : null}
       </Card>
