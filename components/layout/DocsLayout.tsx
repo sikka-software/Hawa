@@ -1,0 +1,439 @@
+import React, { useEffect, useRef, useState } from "react";
+import { useBreakpoint } from "../hooks/useBreakpoint";
+import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
+import { SidebarGroup } from "./Sidebar";
+import { cn } from "../util";
+import { DocsSidebar } from "./DocsSidebar";
+
+type AppLayoutTypes = {
+  design?: "default" | "bubbles" | "floating";
+  /** The pages of the side drawer */
+  drawerItems: Item[];
+  /** The direction of the layout */
+  direction?: "rtl" | "ltr";
+  /** The title of the current selected page, make sure it's the same as the drawerItem slug */
+  currentPage: string;
+  /** Specifies the title of the page. */
+  pageTitle?: string;
+  /** Specifies the symbol for the logo. */
+  logoSymbol?: any;
+  /** Specifies the link for the logo. */
+  logoLink?: string;
+  /** Specifies the text for the logo. */
+  logoText?: any;
+  /** Specifies the content to be displayed in the layout. */
+  children?: any;
+  /** Specifies whether to display the top bar. */
+  topBar?: boolean;
+  /** Specifies the username to be displayed. */
+  username?: string;
+  /** Specifies the user email to be displayed. */
+  email?: string;
+  /** Specifies the image for the avatar. */
+  avatarImage?: any;
+  /**
+   * Specifies the size of the drawer.
+   * - 'sm': Small.
+   * - 'md': Medium.
+   * - 'large': Large.
+   */
+  drawerSize?: "sm" | "md" | "large";
+  /** Specifies the menu items for the profile menu. */
+  profileMenuItems?: MenuItemType[];
+  /**
+   * Specifies the width of the profile menu.
+   * - 'default': Default width.
+   * - 'sm': Small width.
+   * - 'lg': Large width.
+   * - 'parent': Inherits width from parent element.
+   */
+  profileMenuWidth: "default" | "sm" | "lg" | "parent";
+  /** Event handler for settings button click. */
+  onSettingsClick?: () => void;
+  /** Event handler for drawer expansion. */
+  onDrawerExpand?: (e: any) => void;
+  /** Specifies whether to keep the drawer open. */
+  // keepDrawerOpen?: boolean;
+  keepOpen: boolean;
+  setKeepOpen: (value: boolean) => void;
+  /** Specifies additional actions for the drawer footer. */
+  DrawerFooterActions?: any;
+  /** Specifies the item that was clicked. */
+  clickedItem?: any;
+  /** Event handler for logo button click. */
+  onLogoClick?: () => void;
+  /** Text labels for various UI elements. */
+  texts?: {
+    /** Label for expand sidebar button. */
+    expandSidebar?: string;
+    /** Label for collapse sidebar button. */
+    collapseSidebar?: string;
+  };
+};
+type Item = {
+  value: string;
+  label: string;
+  icon?: any;
+  subitems?: SubItem[];
+  onClick?: () => void;
+};
+type SubItem = {
+  value: string;
+  label: string;
+  icon?: any;
+  onClick?: () => void;
+};
+
+export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
+  direction = "ltr",
+  drawerSize = "md",
+  onSettingsClick,
+  DrawerFooterActions,
+  currentPage,
+  clickedItem,
+  keepOpen,
+  setKeepOpen,
+  design = "default",
+  ...props
+}) => {
+  let closeDrawerWidth = 56;
+  let openDrawerWidth = 200;
+  let drawerSizeStyle: any = {
+    opened: {
+      sm: "100",
+      md: openDrawerWidth,
+      lg: "250",
+    },
+    closed: {
+      sm: closeDrawerWidth,
+      md: closeDrawerWidth,
+      lg: closeDrawerWidth,
+    },
+  };
+
+  const ref = useRef<HTMLDivElement>(null);
+  const isRTL = direction === "rtl";
+
+  let size = useBreakpoint();
+  if (typeof window == "undefined") {
+    size = 1200;
+  }
+
+  const [openSideMenu, setOpenSideMenu] = useState(
+    size > 600 ? keepOpen : false
+  );
+
+  let drawerSizeCondition =
+    size > 600
+      ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
+      : 0;
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
+        setOpenSideMenu(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [keepOpen]);
+
+  return (
+    <div className="hawa-fixed">
+      {props.topBar && (
+        <div
+          className={cn(
+            "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
+            isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
+          )}
+        >
+          {/* Nav Side Of Navbar */}
+          {size > 600 ? (
+            <div
+              className={cn(
+                "dark:hawa-text-white",
+                isRTL
+                  ? [
+                      size > 600 ? "hawa-mr-14" : "hawa-mr-2",
+                      keepOpen ? "hawa-mr-40" : "",
+                    ]
+                  : [
+                      size > 600 ? "hawa-ml-14" : "hawa-ml-2",
+                      keepOpen ? "hawa-ml-40" : "",
+                    ]
+              )}
+              style={
+                isRTL
+                  ? {
+                      marginRight: `${
+                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                          drawerSize
+                        ]
+                      }px`,
+                    }
+                  : {
+                      marginLeft: `${
+                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                          drawerSize
+                        ]
+                      }px`,
+                    }
+              }
+            >
+              {props.pageTitle}
+            </div>
+          ) : (
+            // Mobile Drawer Menu Button
+            <div
+              dir={direction}
+              className="hawa-flex hawa-items-center hawa-justify-center hawa-gap-0.5"
+            >
+              <div
+                onClick={() => setOpenSideMenu(true)}
+                className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer  hawa-rounded hawa-p-2  hawa-transition-all hover:hawa-bg-gray-100"
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth={0}
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  height="1.6em"
+                  width="1.6em"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  ></path>
+                </svg>
+              </div>
+              {/* Mobile Page Title */}
+              {props.pageTitle ? (
+                <div className="hawa-text-sm">{props.pageTitle}</div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          )}
+
+          <div
+            className={cn(
+              "hawa-flex hawa-gap-2 dark:hawa-text-white",
+              isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
+            )}
+          >
+            {/* User Info */}
+            {size > 600 ? (
+              <div
+                className={
+                  isRTL
+                    ? "hawa-text-left hawa-text-xs"
+                    : "hawa-text-right hawa-text-xs"
+                }
+              >
+                <div className="hawa-font-bold">{props.username}</div>{" "}
+                <div>{props.email}</div>
+              </div>
+            ) : null}
+            {/* Profile Icon & Menu */}
+            <DropdownMenu
+              triggerClassname="hawa-mx-2"
+              align="end"
+              alignOffset={8}
+              side={"bottom"}
+              sideOffset={5}
+              width={props.profileMenuWidth}
+              direction={isRTL ? "rtl" : "ltr"}
+              items={props.profileMenuItems}
+              onItemSelect={(e: any) => console.log("selecting item ", e)}
+              trigger={
+                <div className="hawa-relative hawa-h-8 hawa-w-8  hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600">
+                  {props.avatarImage ? (
+                    <img src={props.avatarImage} alt="User Avatar" />
+                  ) : (
+                    <svg
+                      aria-label="Avatar Icon"
+                      className="hawa-absolute hawa--left-1 hawa-h-10 hawa-w-10 hawa-text-gray-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  )}
+                </div>
+              }
+            />
+          </div>
+        </div>
+      )}
+      {/*
+       * ----------------------------------------------------------------------------------------------------
+       * Drawer Container
+       * ----------------------------------------------------------------------------------------------------
+       */}
+      <div
+        className={cn(
+          "hawa-fixed hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          design === "floating"
+            ? isRTL
+              ? "hawa-right-5 hawa-top-5"
+              : "hawa-bottom-5 hawa-left-5 hawa-top-5"
+            : isRTL
+            ? "hawa-right-0 hawa-top-0 hawa-h-full"
+            : "hawa-left-0 hawa-top-0 hawa-h-full"
+        )}
+        style={{
+          width:
+            size > 600
+              ? openSideMenu
+                ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                : `${drawerSizeStyle["closed"][drawerSize]}px`
+              : openSideMenu
+              ? `${drawerSizeStyle["opened"][drawerSize]}px`
+              : "0px",
+        }}
+        onMouseEnter={() => {
+          setOpenSideMenu(true);
+        }}
+        onMouseLeave={() => {
+          if (keepOpen) {
+            setOpenSideMenu(true);
+          } else {
+            setOpenSideMenu(false);
+          }
+          // keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
+        }}
+        ref={ref}
+      >
+        {/*
+         * ----------------------------------------------------------------------------------------------------
+         * Drawer Header
+         * ----------------------------------------------------------------------------------------------------
+         */}
+        <div
+          onClick={props.onLogoClick}
+          dir={direction}
+          className={cn(
+            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all",
+            props.onLogoClick && "hawa-cursor-pointer"
+          )}
+          style={{
+            width:
+              size > 600
+                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                : `${openSideMenu ? openDrawerWidth : 0}px`,
+          }}
+        >
+          {/*
+           * ----------------------------------------------------------------------------------------------------
+           * Full Logo
+           * ----------------------------------------------------------------------------------------------------
+           */}
+          <img
+            className={cn(
+              "hawa-h-9  hawa-opacity-0 hawa-transition-all",
+              !openSideMenu
+                ? "hawa-invisible hawa-opacity-0"
+                : "hawa-visible hawa-opacity-100"
+            )}
+            src={props.logoLink}
+          />
+          {/*
+           * ----------------------------------------------------------------------------------------------------
+           * Logo Symbol
+           * ----------------------------------------------------------------------------------------------------
+           */}
+          {size > 600 ? (
+            <img
+              className={cn(
+                "hawa-fixed  hawa-h-9  hawa-transition-all",
+                // isRTL ? "right-2.5" : "left-2.5",
+
+                design === "floating"
+                  ? isRTL
+                    ? "hawa-right-7.5 hawa-top-7"
+                    : "hawa-left-7.5 hawa-top-7"
+                  : isRTL
+                  ? "hawa-right-2.5 hawa-top-2.5"
+                  : "hawa-left-2.5 hawa-top-2.5",
+
+                openSideMenu
+                  ? "hawa-invisible hawa-opacity-0"
+                  : "hawa-visible hawa-opacity-100"
+              )}
+              src={props.logoSymbol}
+            />
+          ) : null}
+        </div>
+        {/*
+         * ----------------------------------------------------------------------------------------------------
+         * Drawer Content Container
+         * ----------------------------------------------------------------------------------------------------
+         */}
+        <div
+          className={cn(
+            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
+            design === "floating" ? "hawa-top-[76px]" : "hawa-top-14",
+            openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
+          )}
+          style={{
+            height:
+              design === "floating"
+                ? "calc(100% - 152px)"
+                : "calc(100% - 112px)",
+            width:
+              size > 600
+                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                : `${openSideMenu ? openDrawerWidth : 0}px`,
+          }}
+        >
+          {/*
+           * ----------------------------------------------------------------------------------------------------
+           * Docs Sidebar Pages
+           * ----------------------------------------------------------------------------------------------------
+           */}
+
+          <DocsSidebar />
+        </div>
+      </div>
+      {/*
+       * ----------------------------------------------------------------------------------------------------
+       * Children Container
+       * ----------------------------------------------------------------------------------------------------
+       */}
+      <div
+        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all  hawa-top-0 hawa-h-[calc(100dvh)]"
+        style={
+          design === "floating"
+            ? isRTL
+              ? {
+                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
+                  left: "0px",
+                }
+              : {
+                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
+                  left: `${drawerSizeCondition + 20}px`,
+                }
+            : isRTL
+            ? {
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                left: "0px",
+              }
+            : {
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                left: `${drawerSizeCondition}px`,
+              }
+        }
+      >
+        {props.children}
+      </div>
+    </div>
+  );
+};
