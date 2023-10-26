@@ -30,18 +30,12 @@
   </a>
 </p>
 
-# Hawa | هواء
+---
 
-<!-- [![NPM](https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=1082c3)](https://www.npmjs.com/package/@sikka/hawa) -->
+<p style="font-size: 40px; font-weight: 500" align="center">Hawa | هــواء</p>
+<p align="center">Opinionated UI Kit for web apps and websites built with TailwindCSS</p>
 
-<!-- [![NPM@beta](https://img.shields.io/npm/v/@sikka/hawa/beta.svg?style=flat&colorA=000000&colorB=ea7637)](https://www.npmjs.com/package/@sikka/hawa) -->
-<!--
-[![Hawa CI - @latest](https://github.com/sikka-software/Hawa/actions/workflows/hawa-main.yml/badge.svg)](https://github.com/sikka-software/Hawa/actions/workflows/hawa-main.yml)
-[![Hawa CI - @beta](https://github.com/sikka-software/Hawa/actions/workflows/hawa-beta.yml/badge.svg)](https://github.com/sikka-software/Hawa/actions/workflows/hawa-beta.yml) -->
-
-<!-- [![NPM](https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@sikka/hawa) -->
-
-> Opinionated UI Kit for web apps and websites built with TailwindCSS
+---
 
 ### Tools used
 
