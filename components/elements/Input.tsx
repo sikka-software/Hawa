@@ -78,7 +78,7 @@ export const Input: FC<TextFieldTypes> = ({
   };
 
   let defaultStyle =
-    "hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
+    "hawa-flex hawa-max-h-fit hawa-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
   let defaultInputStyle =
     "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-3 hawa-text-sm ";
 
@@ -89,7 +89,7 @@ export const Input: FC<TextFieldTypes> = ({
         marginStyles[margin],
         widthStyles[width],
         props.containerClassName,
-        "hawa-w-full hawa-gap-2"
+        "hawa-w-full hawa-gap-2 "
       )}
     >
       {props.label && (
@@ -103,7 +103,9 @@ export const Input: FC<TextFieldTypes> = ({
         </Label>
       )}
       {props.isLoading ? (
-        <Skeleton className="hawa-h-[40px] hawa-w-full" />
+        <div className="hawa-pb-2">
+          <Skeleton className="hawa-h-[40px] hawa-w-full" />
+        </div>
       ) : (
         <>
           <div

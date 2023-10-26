@@ -173,7 +173,7 @@ export const SelectAndInput: Story = {
               type={"text"}
               label={t("Input")}
               defaultValue={"Random text"}
-              helperText={"Testing helperText"}
+              // helperText={"Testing helperText"}
             />
             <Combobox
               label="Role"
@@ -184,7 +184,7 @@ export const SelectAndInput: Story = {
               valueKey={"_id"}
               placeholder="Select something"
               searchPlaceholder="Search ..."
-              helperText={"Testing helperText"}
+              // helperText={"Testing helperText"}
               popoverClassName="hawa-w-full"
               defaultValue="84040984098"
             />
@@ -195,7 +195,7 @@ export const SelectAndInput: Story = {
               type={"text"}
               defaultValue={"Random text"}
               label={t("Input")}
-              helperText={"Testing helperText"}
+              // helperText={"Testing helperText"}
             />
             <Select isLoading={loading} label={t("role")}>
               <option></option>

@@ -46,7 +46,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
   return (
     <div
       className={cn(
-        "hawa-flex hawa-flex-col hawa-gap-2 hawa-relative",
+        "hawa-flex hawa-flex-col hawa-gap-2 hawa-relative hawa-h-fit",
         props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
       )}
     >
@@ -54,9 +54,11 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
       <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
         <PopoverTrigger disabled={props.isLoading || props.preview}>
           {props.isLoading ? (
-            <Skeleton className="hawa-h-[40px] hawa-w-full" />
+            <div className="hawa-pb-2">
+              <Skeleton className="hawa-h-[40px] hawa-w-full" />
+            </div>
           ) : (
-            <div>
+            <div className="hawa-flex hawa-flex-col hawa-gap-2 ">
               <div
                 className={cn(
                   "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
@@ -64,7 +66,6 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                 )}
               ></div>
               <button
-                // variant="combobox"
                 role="combobox"
                 aria-expanded={open}
                 className={cn(
@@ -80,12 +81,13 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                       labelKey
                     )
                   : props.placeholder || "..."}
-                {/* {!props.preview && ( */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={cn(
                     "hawa-w-4 hawa-h-4 hawa-transition-all",
-                    !props.preview ? "hawa-opacity-100 hawa-visible" : "hawa-opacity-0 hawa-invisible"
+                    !props.preview
+                      ? "hawa-opacity-100 hawa-visible"
+                      : "hawa-opacity-0 hawa-invisible"
                   )}
                   viewBox="0 0 24 24"
                   fill="none"
@@ -96,8 +98,17 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
-                {/* )} */}
               </button>
+              <p
+                className={cn(
+                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                  props.helperText
+                    ? "hawa-opacity-100 hawa-h-4"
+                    : "hawa-opacity-0 hawa-h-0"
+                )}
+              >
+                {props.helperText}
+              </p>{" "}
             </div>
           )}
         </PopoverTrigger>
@@ -149,16 +160,6 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
           </Command>
         </PopoverContent>
       </PopoverPrimitive.Root>
-      <p
-        className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
-          props.helperText && !props.isLoading
-            ? "hawa-opacity-100 hawa-h-4"
-            : "hawa-opacity-0 hawa-h-0"
-        )}
-      >
-        {props.helperText}
-      </p>
     </div>
   );
 };
