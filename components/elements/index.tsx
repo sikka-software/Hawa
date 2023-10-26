@@ -23,6 +23,7 @@ export * from "./Textarea";
 export * from "./Slider";
 export * from "./DropdownMenu";
 export * from "./ColorPicker";
+export * from "./DestroyableCard";
 
 // Might need categorization
 export * from "./PinInput";
