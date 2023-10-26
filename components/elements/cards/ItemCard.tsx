@@ -128,27 +128,29 @@ export const ItemCard: FC<ItemCardTypes> = ({
       <div className="hawa-relative hawa-w-full hawa-p-4 xs:hawa-p-6 xs:hawa-pb-2 xs:hawa-px-2">
         {headerActions && (
           <div className="hawa-absolute hawa-right-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pr-3 hawa-pt-3">
-            <DropdownMenu
-              items={headerActions}
-              trigger={
-                <Button
-                  variant={"ghost"}
-                  size={"smallIcon"}
-                  // className={clsx(headerActionsButtonStyle)}
-                  onClick={handleOpenActionHeader}
-                >
-                  <span className="hawa-sr-only">Open dropdown</span>
-                  <svg
-                    className="hawa-h-5 hawa-w-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+            <StopPropagationWrapper>
+              <DropdownMenu
+                items={headerActions}
+                trigger={
+                  <Button
+                    variant={"ghost"}
+                    size={"smallIcon"}
+                    // className={clsx(headerActionsButtonStyle)}
+                    onClick={handleOpenActionHeader}
                   >
-                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-                  </svg>
-                </Button>
-              }
-            />
+                    <span className="hawa-sr-only">Open dropdown</span>
+                    <svg
+                      className="hawa-h-5 hawa-w-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                    </svg>
+                  </Button>
+                }
+              />
+            </StopPropagationWrapper>
           </div>
         )}
 
