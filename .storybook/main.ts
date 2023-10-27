@@ -14,7 +14,6 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "storybook-dark-mode",
-    "@storybook/addon-mdx-gfm",
   ],
 
   staticDirs: ["../public"],

@@ -51,6 +51,7 @@ export * from "./Combobox";
 export * from "./Select";
 export * from "./Count";
 export * from "./InterfaceSettings";
+export * from "./Sheet";
 
 export * from "./NavigationMenu";
 export * from "./StopPropagationWrapper";

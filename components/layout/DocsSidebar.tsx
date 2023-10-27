@@ -20,15 +20,15 @@ export const DocsSidebar: React.FC<DocsSidebarType> = ({ test, ...props }) => {
   };
 
   return (
-    <div className="hawa-flex hawa-flex-col">
+    <div className="hawa-flex hawa-flex-col hawa-overflow-x-clip">
       {pages.map((page, index) => (
         <a
           // href={`#${page.replace(" ", "-").toLowerCase()}`}
           key={index}
           className={cn(
-            "hawa-py-1 hawa-text-xs hawa-cursor-pointer hawa-px-3 hover:hawa-bg-gray-100 hawa-transition-all",
+            "hawa-py-1 hawa-text-xs hawa-cursor-pointer  hawa-whitespace-nowrap hawa-px-3 hover:hawa-bg-gray-100 hawa-transition-all",
             currentPage === page
-              ? "hawa-border-l-2 hawa-border-red-500 hawa-border-collapse"
+              ? "hawa-border-l-4  hawa-border-primary hawa-border-collapse"
               : ""
           )}
           onClick={() => handlePageClick(page)}

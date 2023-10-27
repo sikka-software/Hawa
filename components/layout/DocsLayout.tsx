@@ -1,11 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useBreakpoint } from "../hooks/useBreakpoint";
-import { Button, Logos } from "../elements";
+import {
+  Button,
+  Logos,
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
+  SheetTitle,
+  SheetTrigger,
+} from "../elements";
 import { cn } from "../util";
 import { DocsSidebar } from "./DocsSidebar";
 
 type AppLayoutTypes = {
-
   /** The direction of the layout */
   direction?: "rtl" | "ltr";
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
@@ -90,7 +102,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
   setKeepOpen,
   ...props
 }) => {
-  let closeDrawerWidth = 56;
+  let closeDrawerWidth = 0;
   let openDrawerWidth = 200;
   let drawerSizeStyle: any = {
     opened: {
@@ -113,18 +125,11 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
     size = 1200;
   }
 
-  const [openSideMenu, setOpenSideMenu] = useState(
-    size > 600 ? keepOpen : false
-  );
-
-  let drawerSizeCondition =
-    size > 600
-      ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
-      : 0;
+  const [openSideMenu, setOpenSideMenu] = useState(true);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
+      if (ref.current && !ref.current.contains(event.target) && !openSideMenu) {
         setOpenSideMenu(false);
       }
     };
@@ -132,7 +137,27 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
+  }, [openSideMenu]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpenSideMenu(window.innerWidth > 600 ? true : false);
+    };
+
+    // Set initial state based on window size
+    handleResize();
+
+    // Set up the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [keepOpen]);
+
+  let drawerSizeCondition =
+    drawerSizeStyle[openSideMenu ? "opened" : "closed"][drawerSize];
 
   return (
     <div className="hawa-fixed">
@@ -147,7 +172,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
           <div onClick={props.onLogoClick} dir={direction}>
             <img
               className={cn(
-                "hawa-h-9  hawa-opacity-0 hawa-transition-all",
+                "hawa-h-8  hawa-opacity-0 hawa-transition-all",
                 !openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
                   : "hawa-visible hawa-opacity-100"
@@ -161,26 +186,46 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
             dir={direction}
             className="hawa-flex hawa-items-center hawa-justify-center hawa-gap-0.5"
           >
-            <div
-              onClick={() => setOpenSideMenu(true)}
-              className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer  hawa-rounded hawa-p-2  hawa-transition-all hover:hawa-bg-gray-100"
-            >
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth={0}
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-                height="1.6em"
-                width="1.6em"
+            <Sheet>
+              <SheetTrigger>
+                {" "}
+                <div
+                  // onClick={() => setOpenSideMenu(true)}
+                  className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer  hawa-rounded hawa-p-2  hawa-transition-all hover:hawa-bg-gray-100"
+                >
+                  <svg
+                    aria-label="Menu Icon"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth={0}
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                    height="1.6em"
+                    width="1.6em"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    ></path>
+                  </svg>
+                </div>
+              </SheetTrigger>
+              <SheetContent
+                side={isRTL ? "right" : "left"}
+                className="hawa-pt-10"
               >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                ></path>
-              </svg>
-            </div>
+                {/* <SheetHeader>
+                  <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+                  <SheetDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </SheetDescription>
+                </SheetHeader> */}{" "}
+                <DocsSidebar />
+              </SheetContent>
+            </Sheet>
+
             {/* Mobile Page Title */}
             {/* {props.pageTitle ? (
                 <div className="hawa-text-sm">{props.pageTitle}</div>
@@ -207,14 +252,25 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * Drawer Container
        * ----------------------------------------------------------------------------------------------------
        */}
-      {/* <div
+      <div
+        // style={{
+        //   height: "calc(100%)",
+        //   width: `${openSideMenu ? openDrawerWidth : 0}px`,
+        // }}
+
         className={cn(
-          "hawa-fixed hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
-         isRTL
+          "hawa-fixed hawa-bg-primary-foreground hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-full"
-            : "hawa-left-0 hawa-top-0 hawa-h-full"
+            : "hawa-left-0 hawa-top-0 hawa-h-full",
+
+          "hawa-fixed  hawa-p-0 hawa-py-2 hawa-overflow-x-clip hawa-transition-all",
+          "hawa-top-14",
+          openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
         )}
         style={{
+          //   height: "calc(100%)",
+
           width:
             size > 600
               ? openSideMenu
@@ -228,64 +284,43 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
           setOpenSideMenu(true);
         }}
         onMouseLeave={() => {
-          if (keepOpen) {
-            setOpenSideMenu(true);
-          } else {
-            setOpenSideMenu(false);
+          if (size < 600) {
+            setOpenSideMenu(!openSideMenu);
           }
-          // keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
         }}
         ref={ref}
-      > */}
+      >
+        {/*
+         * ----------------------------------------------------------------------------------------------------
+         * Docs Sidebar Pages
+         * ----------------------------------------------------------------------------------------------------
+         */}
 
-      {/*
-       * ----------------------------------------------------------------------------------------------------
-       * Drawer Content Container
-       * ----------------------------------------------------------------------------------------------------
-       */}
-      {/* <div
-          className={cn(
-            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
-          "hawa-top-14",
-            openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
-          )}
-          style={{
-            height:
-              "calc(100% - 112px)",
-            width:
-              size > 600
-                ? `${openSideMenu ? openDrawerWidth : 56}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
-          }}
-        > */}
-      {/*
-       * ----------------------------------------------------------------------------------------------------
-       * Docs Sidebar Pages
-       * ----------------------------------------------------------------------------------------------------
-       */}
-
-      {/* <DocsSidebar />
-        </div>
-      </div> */}
+        <DocsSidebar />
+      </div>
       {/*
        * ----------------------------------------------------------------------------------------------------
        * Children Container
        * ----------------------------------------------------------------------------------------------------
        */}
+
+      <div>overlay sidebar</div>
       <div
-        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all"
+        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all "
         style={
           isRTL
             ? {
-                height: `calc(100% - 56px)`,
+                height: "calc(100% - 56px)",
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: "0px",
                 top: "56px",
               }
             : {
-                height: `calc(100% - 56px)`,
+                height: "calc(100% - 56px)",
                 width: `calc(100% - ${drawerSizeCondition}px)`,
+                // width: `calc(100% - ${0}px)`,
                 left: `${drawerSizeCondition}px`,
+                right: `${drawerSizeCondition}px`,
                 top: "56px",
               }
         }
