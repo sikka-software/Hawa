@@ -8,57 +8,23 @@ import {
   InterfaceSettings,
   Alert,
   Select,
-  Logos,
   Checkbox,
   Button,
   Card,
   CardContent,
   CardFooter,
   SelectOptionProps,
-  Loading,
   StopPropagationWrapper,
 } from "../../elements";
-import { ThirdPartyAuthTextsTypes } from "@/components/types/textTypes";
+import {
+  RegisterFormTextsTypes,
+  ThirdPartyAuthTextsTypes,
+} from "../../types/textTypes";
 import { AuthButtons } from "./AuthButtons";
-
-export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
-  fullNameLabel: string;
-  fullNamePlaceholder: string;
-
-  emailLabel: string;
-  emailPlaceholder: string;
-  emailRequired: string;
-  emailInvalid: string;
-
-  usernameLabel: string;
-  usernamePlaceholder: string;
-  usernameInvalid: string;
-  usernameRequired: string;
-  passwordLabel: string;
-  passwordPlaceholder: string;
-  passwordRequired: string;
-  passwordTooShort: string;
-  passwordsDontMatch: string;
-  confirmPasswordLabel: string;
-  confirmPasswordPlaceholder: string;
-  confirmPasswordRequired: string;
-  subscribeToNewsletter: string;
-  termsRequired: string;
-  refCode: string;
-  refCodePlaceholder: string;
-  userReferenceLabel: string;
-  userReferencePlaceholder: string;
-  existingUserText: string;
-  termsText: string;
-  iAcceptText: string;
-  registerText: string;
-  loginText: string;
-};
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
   texts: RegisterFormTextsTypes;
-
   /** Callback function triggered to handle language changes.*/
   handleLanguage?: () => void;
   /** The current language being used in the application. */
@@ -142,20 +108,20 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
         break;
       case "email":
         fieldSchemas["email"] = z
-          .string({ required_error: texts?.emailRequired })
-          .email({ message: texts?.emailInvalid })
-          .min(1, { message: texts?.emailRequired });
+          .string({ required_error: texts?.email?.required })
+          .email({ message: texts?.email?.invalid })
+          .min(1, { message: texts?.email?.required });
         break;
       case "username":
         fieldSchemas["username"] = z
-          .string({ required_error: texts?.usernameRequired })
-          .min(1, { message: texts?.usernameRequired })
+          .string({ required_error: texts?.username?.required })
+          .min(1, { message: texts?.username?.required })
           .refine(
             (value) => {
               const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
               return isValid;
             },
-            { message: texts?.usernameInvalid }
+            { message: texts?.username?.invalid }
           );
         break;
     }
@@ -165,15 +131,15 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
     .object({
       ...fieldSchemas,
       password: z
-        .string({ required_error: texts?.passwordRequired })
-        .min(5, { message: texts?.passwordTooShort })
+        .string({ required_error: texts?.password?.required })
+        .min(5, { message: texts?.password?.tooShort })
         .refine((value) => value !== "", {
-          message: texts?.passwordRequired,
+          message: texts?.password?.required,
         }),
       confirm_password: z
-        .string({ required_error: texts?.confirmPasswordRequired })
+        .string({ required_error: texts?.confirm?.required })
         .refine((value) => value !== "", {
-          message: texts?.passwordRequired,
+          message: texts?.password?.required,
         }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
@@ -183,7 +149,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
       newsletter_accepted: z.boolean().optional(),
     })
     .refine((data) => data.password === data.confirm_password, {
-      message: texts?.passwordsDontMatch,
+      message: texts?.confirm?.dontMatch,
       path: ["confirm_password"],
     });
 
@@ -247,10 +213,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                             <Input
                               width="full"
                               autoComplete="email"
-                              label={texts?.emailLabel}
+                              label={texts?.email?.label}
                               helperText={formState.errors.email?.message}
                               placeholder={
-                                texts?.emailPlaceholder || "Enter your email"
+                                texts?.email?.placeholder || "Enter your email"
                               }
                               {...field}
                             />
@@ -268,9 +234,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                             <Input
                               width="full"
                               autoComplete="username"
-                              label={texts?.usernameLabel}
+                              label={texts?.username?.label}
                               helperText={formState.errors.username?.message}
-                              placeholder={texts?.usernamePlaceholder}
+                              placeholder={texts?.username?.placeholder}
                               {...field}
                             />
                           )}
@@ -287,8 +253,8 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                       width="full"
                       type="password"
                       autoComplete="new-password"
-                      label={texts?.passwordLabel}
-                      placeholder={texts?.passwordPlaceholder}
+                      label={texts?.password?.label}
+                      placeholder={texts?.password?.placeholder}
                       helperText={formState.errors.password?.message}
                       {...field}
                     />
@@ -302,8 +268,8 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                       width="full"
                       type="password"
                       autoComplete="new-password"
-                      label={texts?.confirmPasswordLabel}
-                      placeholder={texts?.confirmPasswordPlaceholder}
+                      label={texts?.confirm?.label}
+                      placeholder={texts?.confirm?.placeholder}
                       helperText={formState.errors.confirm_password?.message}
                       {...field}
                     />
@@ -334,10 +300,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                     render={({ field }) => (
                       <Select
                         label={
-                          texts?.userReferenceLabel ||
+                          texts?.userReference.label ||
                           "How did you learn about us?"
                         }
-                        placeholder={texts?.userReferencePlaceholder}
+                        placeholder={texts?.userReference.placeholder}
                         isCreatable={false}
                         isMulti={false ?? false}
                         isSearchable={false}

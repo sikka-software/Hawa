@@ -41,6 +41,7 @@
   "usernamePlaceholder": "ادخل المستخدم",
   "usernameRequired": " اسم المستخدم مطلوب",
   "usernameInvalid": "صيغة إسم المستخدم غير صحيحة",
+  "usernameTooShort":"يجب ان يكون اسم المستخدم اكثر من حرفين",
   "phoneRequiredText": "رقم الجوال مطلوب",
   "phoneInvalid": "صيغة رقم الجوال غير صحيحة",
   "phoneLabel": "رقم الجوال",

@@ -4,7 +4,6 @@ import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { parsePhoneNumber } from "libphonenumber-js";
 import * as z from "zod";
-
 import {
   InterfaceSettings,
   Card,
@@ -20,44 +19,6 @@ import {
   LoginFormTextsTypes,
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
-
-// export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
-//   email?: TextInputType;
-//   username?: TextInputType;
-//   phone?: TextInputType;
-//   password?: PasswordInputType;
-//   forgotPassword?: string;
-//   newUserText?: string;
-//   createAccount?: string;
-//   loginText?: string;
-// };
-
-// type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
-//   emailLabel?: string;
-//   emailPlaceholder?: string;
-//   emailRequired?: string;
-//   emailInvalid?: string;
-
-//   usernameLabel?: string;
-//   usernamePlaceholder?: string;
-//   usernameRequired?: string;
-//   usernameInvalid?: string;
-
-//   phoneRequired?: string;
-//   phoneInvalid?: string;
-//   phoneLabel?: string;
-//   phonePlaceholder?: string;
-
-//   passwordLabel?: string;
-//   passwordPlaceholder?: string;
-//   passwordRequired?: string;
-//   passwordTooShort?: string;
-
-//   forgotPassword?: string;
-//   newUserText?: string;
-//   createAccount?: string;
-//   loginText?: string;
-// };
 
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
@@ -149,7 +110,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
     formSchema = z.object({
       username: z
         .string({ required_error: texts?.username?.required })
-        .min(2, { message: "Username must be at least 2 characters" })
+        .min(2, { message: texts?.username?.tooShort })
         .refine(
           (value) => {
             const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);

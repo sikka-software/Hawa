@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RegisterForm, Button, Input } from "../../../components";
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
-
 import RegisterDocs from "./Register";
 
 const meta = {
@@ -57,32 +56,41 @@ const Template = (args: any, globals: any) => {
           continueWithTwitter: t("registerViaTwitterLabel"),
           fullNameLabel: t("fullNameLabel"),
           fullNamePlaceholder: t("fullNamePlaceholder"),
-          emailLabel: t("emailLabel"),
-          emailPlaceholder: t("emailPlaceholder"),
-          emailRequired: t("emailRequiredText"),
-          emailInvalid: t("emailInvalidText"),
-          usernameLabel: t("usernameLabel"),
-          usernamePlaceholder: t("usernamePlaceholder"),
-          usernameRequired: t("usernameRequired"),
-          usernameInvalid: t("usernameInvalid"),
-          passwordLabel: t("passwordLabel"),
-          passwordPlaceholder: t("passwordPlaceholder"),
-          passwordRequired: t("passwordRequiredText"),
-          passwordTooShort: t("passwordTooShortText"),
-          passwordsDontMatch: t("passwordsDontMatch"),
+          email: {
+            label: t("emailLabel"),
+            placeholder: t("emailPlaceholder"),
+            required: t("emailRequiredText"),
+            invalid: t("emailInvalidText"),
+          },
+          username: {
+            label: t("usernameLabel"),
+            placeholder: t("usernamePlaceholder"),
+            required: t("usernameRequired"),
+            invalid: t("usernameInvalid"),
+          },
+          password: {
+            label: t("passwordLabel"),
+            placeholder: t("passwordPlaceholder"),
+            required: t("passwordRequiredText"),
+            tooShort: t("passwordTooShortText"),
+          },
+          confirm: {
+            label: t("confirmPasswordLabel"),
+            placeholder: t("confirmPasswordPlaceholder"),
+            required: t("confirmPasswordRequired"),
+            dontMatch: t("passwordsDontMatch"),
+          },
+          userReference: {
+            label: t("userReferenceLabel"),
+            placeholder: t("userReferencePlaceholder"),
+          },
           subscribeToNewsletter: t("subscribeToNewsletter"),
-          confirmPasswordLabel: t("confirmPasswordLabel"),
-          confirmPasswordPlaceholder: t("confirmPasswordPlaceholder"),
-          confirmPasswordRequired: t("confirmPasswordRequired"),
           iAcceptText: t("iAcceptText"),
           termsText: t("termsText"),
-          termsRequiredText: t("termsRequiredText"),
-          newUserText: t("newUserText"),
+          termsRequired: t("termsRequiredText"),
           loginText: t("loginText"),
           existingUserText: t("existingUserText"),
           registerText: t("registerText"),
-          userReferenceLabel: t("userReferenceLabel"),
-          userReferencePlaceholder: t("userReferencePlaceholder"),
           refCode: t("refCode"),
           refCodePlaceholder: t("refCodePlaceholder"),
         }}

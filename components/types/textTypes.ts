@@ -7,28 +7,55 @@ export type ThirdPartyAuthTextsTypes = {
   continueWithEmail?: string;
   continueWithPhone?: string;
 };
-
-export type ValidationTexts = {
-  required?: string;
-  invalid?: string;
-};
-
-export type TextInputType = ValidationTexts & {
+type BaseInputType = {
   label?: string;
   placeholder?: string;
 };
-
-export type PasswordInputType = TextInputType & {
+type ValidationTexts = {
+  required?: string;
+  invalid?: string;
+};
+type TextInputType = ValidationTexts & {
+  label?: string;
+  placeholder?: string;
+};
+type PasswordInputType = BaseInputType & {
+  required?: string;
   tooShort?: string;
 };
-
+type UsernameInputType = TextInputType & {
+  tooShort?: string;
+};
+type ConfirmInputType = BaseInputType & {
+  required?: string;
+  dontMatch?: string;
+};
 export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
   email?: TextInputType;
-  username?: TextInputType;
+  username?: UsernameInputType;
   phone?: TextInputType;
   password?: PasswordInputType;
   forgotPassword?: string;
   newUserText?: string;
   createAccount?: string;
   loginText?: string;
+};
+
+export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
+  fullNameLabel: string;
+  fullNamePlaceholder: string;
+  email?: TextInputType;
+  username?: UsernameInputType;
+  password?: PasswordInputType;
+  confirm?: ConfirmInputType;
+  userReference: BaseInputType;
+  subscribeToNewsletter: string;
+  termsRequired: string;
+  refCode: string;
+  refCodePlaceholder: string;
+  existingUserText: string;
+  termsText: string;
+  iAcceptText: string;
+  registerText: string;
+  loginText: string;
 };

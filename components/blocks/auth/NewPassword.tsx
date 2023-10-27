@@ -23,13 +23,14 @@ type NewPasswordTypes = {
   allowRegister?: boolean;
   passwordChanged: any;
   texts: {
-    updatePassword: string;
     passwordPlaceholder: string;
     passwordRequired: string;
     passwordLabel: string;
     passwordMatchError: string;
-    passwordChanged: string;
     passwordTooShort: string;
+    
+    updatePassword: string;
+    passwordChanged: string;
     confirmPasswordPlaceholder: string;
     confirmPasswordLabel: string;
     confirmPasswordRequired: string;
