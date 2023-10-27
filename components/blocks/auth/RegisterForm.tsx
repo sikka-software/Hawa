@@ -24,7 +24,7 @@ import { AuthButtons } from "./AuthButtons";
 export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
   fullNameLabel: string;
   fullNamePlaceholder: string;
-  
+
   emailLabel: string;
   emailPlaceholder: string;
   emailRequired: string;
@@ -205,6 +205,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
             )}
             <FormProvider {...methods}>
               <form
+                noValidate
                 onSubmit={handleSubmit((e) => {
                   if (props.onRegister) {
                     return props.onRegister(e);

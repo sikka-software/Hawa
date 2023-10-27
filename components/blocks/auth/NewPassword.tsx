@@ -73,6 +73,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
         </CardContent>
       ) : (
         <form
+          noValidate
           onSubmit={handleSubmit((e) => {
             if (props.handleNewPassword) {
               return props.handleNewPassword(e);

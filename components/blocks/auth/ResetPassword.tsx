@@ -65,6 +65,7 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
             </CardHeader>
           )}
           <form
+            noValidate
             onSubmit={handleSubmit((e) => {
               if (props.handleResetPassword) {
                 return props.handleResetPassword(e);

@@ -137,47 +137,47 @@ export const LoginForm: FC<LoginFormTypes> = ({
   if (loginType === "email") {
     formSchema = z.object({
       email: z
-        .string({ required_error: texts?.emailRequired })
-        .min(1, { message: texts?.emailRequired })
-        .email({ message: texts?.emailInvalid }),
+        .string({ required_error: texts?.email?.required })
+        .min(1, { message: texts?.email?.required })
+        .email({ message: texts?.email?.invalid }),
       password: z
-        .string({ required_error: texts?.passwordRequired })
-        .min(1, { message: texts?.passwordRequired })
-        .min(passwordLength, { message: texts?.passwordTooShort }),
+        .string({ required_error: texts?.password?.required })
+        .min(1, { message: texts?.password?.required })
+        .min(passwordLength, { message: texts?.password?.tooShort }),
     });
   } else if (loginType === "username") {
     formSchema = z.object({
       username: z
-        .string({ required_error: texts?.usernameRequired })
+        .string({ required_error: texts?.username?.required })
         .min(2, { message: "Username must be at least 2 characters" })
         .refine(
           (value) => {
             const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
             return isValid;
           },
-          { message: texts?.usernameInvalid }
+          { message: texts?.username?.invalid }
         ),
       password: z
-        .string({ required_error: texts?.passwordRequired })
-        .min(1, { message: texts?.passwordRequired })
-        .min(passwordLength, { message: texts?.passwordTooShort }),
+        .string({ required_error: texts?.password?.required })
+        .min(1, { message: texts?.password?.required })
+        .min(passwordLength, { message: texts?.password?.tooShort }),
     });
   } else if (loginType === "phone") {
     formSchema = z.object({
-      phone: z.string({ required_error: texts?.phoneRequired }).refine(
+      phone: z.string({ required_error: texts?.phone?.required }).refine(
         (value) => {
           let phoneNumber = parsePhoneNumber(value);
           return phoneNumber.isValid();
         },
-        { message: texts?.phoneInvalid }
+        { message: texts?.phone?.invalid }
       ),
     });
   } else if (loginType === "link") {
     formSchema = z.object({
       email: z
-        .string({ required_error: texts?.emailRequired })
-        .min(1, { message: texts?.emailRequired })
-        .email({ message: texts?.emailInvalid }),
+        .string({ required_error: texts?.email?.required })
+        .min(1, { message: texts?.email?.required })
+        .email({ message: texts?.email?.invalid }),
     });
   } else {
     formSchema = z.object({});
@@ -198,7 +198,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               render={({ field }) => (
                 <Input
                   width="full"
-                  autoComplete="email"
+                  // autoComplete="email"
                   label={texts?.email?.label}
                   helperText={formState.errors.email?.message}
                   placeholder={texts?.email?.placeholder || "contact@sikka.io"}
@@ -215,9 +215,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     width="full"
                     autoComplete="current-password"
                     type="password"
-                    label={texts?.passwordLabel || "Password"}
+                    label={texts?.password?.label || "Password"}
                     placeholder={
-                      texts?.passwordPlaceholder || "Enter your password"
+                      texts?.password?.placeholder || "Enter your password"
                     }
                     helperText={formState.errors.password?.message}
                     {...field}
@@ -246,9 +246,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   <Input
                     width="full"
                     autoComplete="username"
-                    label={texts?.usernameLabel || "Username"}
+                    label={texts?.username?.label || "Username"}
                     helperText={formState.errors.username?.message}
-                    placeholder={texts?.usernamePlaceholder || "sikka_sa"}
+                    placeholder={texts?.username?.placeholder || "sikka_sa"}
                     {...field}
                   />
                 );
@@ -263,9 +263,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     width="full"
                     autoComplete="current-password"
                     type="password"
-                    label={texts?.passwordLabel || "Password"}
+                    label={texts?.password?.label}
                     placeholder={
-                      texts?.passwordPlaceholder || "Enter your password"
+                      texts?.password?.placeholder || "Enter your password"
                     }
                     helperText={formState.errors.password?.message}
                     {...field}
@@ -291,7 +291,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               name="phone"
               render={({ field }) => (
                 <PhoneInput
-                  label={texts?.phoneLabel}
+                  label={texts?.phone?.label}
                   helperText={formState.errors.phone?.message}
                   preferredCountry={{ label: "+966" }}
                   handleChange={(e) =>
@@ -312,9 +312,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                 <Input
                   width="full"
                   autoComplete="email"
-                  label={texts?.emailLabel || "Email"}
+                  label={texts?.email?.label || "Email"}
                   helperText={formState.errors.email?.message}
-                  placeholder={texts?.emailPlaceholder || "contact@sikka.io"}
+                  placeholder={texts?.email?.placeholder || "contact@sikka.io"}
                   {...field}
                 />
               )}
@@ -338,6 +338,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             />
           )}
           <form
+            noValidate
             className="hawa-flex hawa-flex-col hawa-gap-4"
             onSubmit={handleSubmit((e) => {
               if (props.onLogin) {

@@ -56,6 +56,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           </div>{" "}
         </div>
         <form
+          noValidate
           onSubmit={handleSubmit((e) => {
             if (props.handleConfirm) {
               return props.handleConfirm(e);

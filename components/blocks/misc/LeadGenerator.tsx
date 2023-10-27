@@ -38,6 +38,7 @@ export const LeadGenerator: FC<TLeadGenerator> = ({ texts, submitHandler }) => {
       </CardHeader>
       <CardContent>
         <form
+          noValidate
           className="hawa-flex hawa-flex-row hawa-gap-2"
           onSubmit={handleSubmit(onSubmit)}
         >

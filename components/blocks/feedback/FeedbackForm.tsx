@@ -43,6 +43,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
     <Card>
       <CardContent headless>
         <form
+          noValidate
           onSubmit={handleSubmit((e) => {
             if (props.onSubmit) {
               return props.onSubmit(e);

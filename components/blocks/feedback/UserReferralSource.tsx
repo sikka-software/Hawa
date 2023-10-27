@@ -97,6 +97,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
         </button>
         <CardContent headless>
           <form
+            noValidate
             onSubmit={handleSubmit((e) => {
               if (props.onSubmitForm) {
                 props.onSubmitForm(e);
