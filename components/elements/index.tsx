@@ -53,5 +53,7 @@ export * from "./Count";
 export * from "./InterfaceSettings";
 export * from "./Sheet";
 
+export * from "./Gauge";
+
 export * from "./NavigationMenu";
 export * from "./StopPropagationWrapper";

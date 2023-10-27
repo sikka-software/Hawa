@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import clsx from "clsx";
+import { cn } from "../util";
 
 type LoadingTypes = {
   /** Specifies the size of the loading component.*/
@@ -34,7 +34,7 @@ export const Loading: FC<LoadingTypes> = ({
       return (
         <div className="hawa-flex hawa-flex-row hawa-gap-2">
           <div
-            className={clsx(
+            className={cn(
               "hawa-animate-bounce hawa-rounded-full hawa-delay-100 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
@@ -42,7 +42,7 @@ export const Loading: FC<LoadingTypes> = ({
             )}
           ></div>
           <div
-            className={clsx(
+            className={cn(
               "hawa-animate-bounce hawa-rounded-full hawa-delay-200 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
@@ -50,7 +50,7 @@ export const Loading: FC<LoadingTypes> = ({
             )}
           ></div>
           <div
-            className={clsx(
+            className={cn(
               "hawa-animate-bounce hawa-rounded-full hawa-delay-300 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
@@ -65,7 +65,7 @@ export const Loading: FC<LoadingTypes> = ({
         <div className="hawa-flex hawa-flex-row hawa-gap-x-3">
           <div aria-label="Loading..." role="status">
             <svg
-              className={clsx(sizeStyles[size], "hawa-animate-spin")}
+              className={cn(sizeStyles[size], "hawa-animate-spin")}
               viewBox="3 3 18 18"
             >
               <path
