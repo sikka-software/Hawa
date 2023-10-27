@@ -41,7 +41,7 @@
   "usernamePlaceholder": "Enter your username",
   "usernameRequired": "Username is required",
   "usernameInvalid": "Username format is invalid",
-  "usernameTooShort":"Username must be at least 2 characters",
+  "usernameTooShort": "Username must be at least 2 characters",
 
   "phoneRequiredText": "Phone is required",
   "phoneInvalid": "Phone is invalid",
@@ -91,5 +91,6 @@
   "option": "Option",
   "checkEmail": "Check your email",
   "resendEmail": "Resend Email",
-  "pleaseVerify": "Thank you for registering! To complete your registration, we've sent a verification email to the address you provided. Please check your inbox and follow the instructions in the email to activate your account."
+  "pleaseVerify": "Thank you for registering! To complete your registration, we've sent a verification email to the address you provided. Please check your inbox and follow the instructions in the email to activate your account.",
+  "total": "Total"
 }
