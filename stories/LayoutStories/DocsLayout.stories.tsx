@@ -77,108 +77,7 @@ export const Default: Story = {
   },
   args: {
     onSettingsClick: () => console.log("going to settings"),
-    // currentPage: "/new-item",
-    profileMenuItems: [
-      {
-        label: "Profile",
-        value: "Dashboard",
-        // onClick: () => console.log("going to dashboard"),
-      },
-      {
-        value: "Billing",
-        label: "Billing",
-        // onClick: () => console.log("going to Billing"),
-      },
-      {
-        value: "عربي",
-        label: "عربي",
-        // onClick: () => console.log("going to عربي"),
-        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
-      },
-      {
-        label: "Sign Out",
-        value: "Sign Out",
-        // onClick: () => console.log("going to Sign Out"),
-        highlighted: true,
-      },
-    ],
-    // drawerItems: [
-    //   {
-    //     label: "لوحة القيادة",
-    //     value: "/home",
-    //     onClick: () => console.log("going to /home"),
-    //     //   icon: <MdDashboard />,
-    //     icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
-    //   },
-    //   // {
-    //   //   label: "Items",
-    //   //   value: "/items",
-    //   //   onClick: () => console.log("going to /items"),
-    //   //   icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
-    //   //   subitems: [
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item",
-    //   //       onClick: () => console.log("going to /new-item"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item2",
-    //   //       onClick: () => console.log("going to /new-item2"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item3",
-    //   //       onClick: () => console.log("going to /new-item3"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "Files Items",
-    //   //       value: "/file-item",
-    //   //       onClick: () => console.log("going to /file-item"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //   ],
-    //   // },
-
-    //   {
-    //     label: "Analytics",
-    //     value: "/analytics",
-    //     onClick: () => console.log("going to /analytics"),
-    //     icon: <BarChart className="hawa-w-4 hawa-h-4" />,
-    //     //   icon: <FaPoll />,
-    //   },
-    //   // {
-    //   //   label: "Jobs",
-    //   //   value: "/jobs",
-    //   //   onClick: () => console.log("going to /jobs"),
-    //   //   icon: <Users2 className="hawa-w-4 hawa-h-4" />,
-    //   //   subitems: [
-    //   //     {
-    //   //       label: "New Job Item",
-    //   //       value: "/new-job",
-    //   //       onClick: () => console.log("going to /new-jobs"),
-    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-    //   //     },
-    //   //     {
-    //   //       label: "Files Items",
-    //   //       value: "/files",
-    //   //       onClick: () => console.log("going to /files"),
-    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-    //   //     },
-    //   //   ],
-    //   // },
-    //   // {
-    //   //   label: "Activity",
-    //   //   value: "/activity",
-    //   //   icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
-    //   //   onClick: () => console.log("going to /activity"),
-    //   // },
-    // ],
     pageTitle: "Dashboard Page",
-    topBar: true,
     username: "Zakher Masri",
     avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
     email: "zakher@sikka.io",
@@ -205,25 +104,6 @@ export const Default: Story = {
       "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
     logoLink:
       "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
-    // profileItems: [
-    //   {
-    //     text: "Dashboard",
-    //     slug: "home",
-    //   },
-    //   {
-    //     text: "Billing",
-    //     slug: "home",
-    //   },
-
-    //   {
-    //     text: "Analytics",
-    //     slug: "home",
-    //   },
-    //   {
-    //     text: "عربي",
-    //     slug: "home",
-    //   },
-    // ],
   },
   argTypes: {
     onLogoClick: { action: "onLogoClick" },
