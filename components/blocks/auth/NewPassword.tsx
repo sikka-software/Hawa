@@ -14,6 +14,7 @@ import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { NewPasswordTextsTypes } from "@/components/types/textTypes";
 
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
@@ -22,38 +23,24 @@ type NewPasswordTypes = {
   headless?: boolean;
   allowRegister?: boolean;
   passwordChanged: any;
-  texts: {
-    passwordPlaceholder: string;
-    passwordRequired: string;
-    passwordLabel: string;
-    passwordMatchError: string;
-    passwordTooShort: string;
-    
-    updatePassword: string;
-    passwordChanged: string;
-    confirmPasswordPlaceholder: string;
-    confirmPasswordLabel: string;
-    confirmPasswordRequired: string;
-    dontHaveAccount?: string;
-    registerText?: string;
-  };
+  texts: NewPasswordTextsTypes;
 };
 
 export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
   const formSchema = z
     .object({
       password: z
-        .string({ required_error: texts?.passwordRequired })
-        .min(1, { message: texts?.passwordRequired })
-        .min(8, { message: texts?.passwordTooShort }),
+        .string({ required_error: texts?.password?.required })
+        .min(1, { message: texts?.password?.required })
+        .min(8, { message: texts?.password?.tooShort }),
       confirm_password: z
-        .string({ required_error: texts?.confirmPasswordRequired })
+        .string({ required_error: texts?.confirm?.required })
         .refine((value) => value !== "", {
-          message: texts?.passwordRequired,
+          message: texts?.password?.required,
         }),
     })
     .refine((data) => data.password === data.confirm_password, {
-      message: "Passwords don't match",
+      message: texts?.confirm?.dontMatch,
       path: ["confirm_password"],
     });
 
@@ -66,7 +53,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
   return (
     <Card dir={props.direction}>
       {matchError && (
-        <Alert text={texts?.passwordMatchError} severity="error" />
+        <Alert text={texts?.confirm?.dontMatch} severity="error" />
       )}
       {props.passwordChanged ? (
         <CardContent headless>
@@ -105,8 +92,8 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
                   width="full"
                   type="password"
                   autoComplete="new-password"
-                  label={texts?.passwordLabel}
-                  placeholder={texts?.passwordPlaceholder}
+                  label={texts?.password?.label}
+                  placeholder={texts?.password?.placeholder}
                   helperText={formState.errors.password?.message}
                   {...field}
                 />
@@ -120,8 +107,8 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
                   width="full"
                   type="password"
                   autoComplete="new-password"
-                  label={texts?.confirmPasswordLabel}
-                  placeholder={texts?.confirmPasswordPlaceholder}
+                  label={texts?.confirm?.label}
+                  placeholder={texts?.confirm?.placeholder}
                   helperText={formState.errors.confirm_password?.message}
                   {...field}
                 />

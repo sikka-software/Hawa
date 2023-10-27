@@ -54,8 +54,10 @@ const Template = (args: any, globals: any) => {
           continueWithGoogle: t("registerViaGoogleLabel"),
           continueWithGithub: t("registerViaGithubLabel"),
           continueWithTwitter: t("registerViaTwitterLabel"),
-          fullNameLabel: t("fullNameLabel"),
-          fullNamePlaceholder: t("fullNamePlaceholder"),
+          fullName: {
+            label: t("fullNameLabel"),
+            placeholder: t("fullNamePlaceholder"),
+          },
           email: {
             label: t("emailLabel"),
             placeholder: t("emailPlaceholder"),

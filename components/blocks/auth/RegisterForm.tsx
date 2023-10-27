@@ -194,8 +194,8 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                           render={({ field }) => (
                             <Input
                               width="full"
-                              label={texts?.fullNameLabel}
-                              placeholder={texts?.fullNamePlaceholder}
+                              label={texts?.fullName?.label}
+                              placeholder={texts?.fullName?.placeholder}
                               helperText={formState.errors.fullName?.message}
                               {...field}
                             />

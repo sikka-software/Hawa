@@ -40,10 +40,8 @@ export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
   createAccount?: string;
   loginText?: string;
 };
-
 export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
-  fullNameLabel: string;
-  fullNamePlaceholder: string;
+  fullName: BaseInputType;
   email?: TextInputType;
   username?: UsernameInputType;
   password?: PasswordInputType;
@@ -58,4 +56,21 @@ export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
   iAcceptText: string;
   registerText: string;
   loginText: string;
+};
+export type ResetPasswordTextsTypes = {
+  email: TextInputType;
+  emailSentText: string;
+  registerText: string;
+  resetPassword: string;
+  dontHaveAccount: string;
+  headTitle?: string;
+  headDescription?: string;
+};
+export type NewPasswordTextsTypes = {
+  password?: PasswordInputType;
+  confirm?: ConfirmInputType;
+  updatePassword: string;
+  passwordChanged: string;
+  dontHaveAccount?: string;
+  registerText?: string;
 };

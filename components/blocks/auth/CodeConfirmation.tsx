@@ -6,9 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 type TConfirmation = {
-  showError?: any;
-  errorTitle?: any;
-  errorText?: any;
   texts?: {
     checkYourPhone?: string;
     weSentCode?: string;
@@ -21,6 +18,9 @@ type TConfirmation = {
     confirm?: string;
     cancel?: string;
   };
+  showError?: any;
+  errorTitle?: any;
+  errorText?: any;
   phoneNumber?: string;
   handleConfirm?: any;
 };

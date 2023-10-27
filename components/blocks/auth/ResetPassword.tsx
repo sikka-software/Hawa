@@ -14,6 +14,7 @@ import {
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { ResetPasswordTextsTypes } from "@/components/types/textTypes";
 
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
@@ -22,26 +23,15 @@ type ResetPasswordType = {
   headless?: boolean;
   allowRegister?: boolean;
   direction?: "rtl" | "ltr";
-  texts?: {
-    emailLabel: string;
-    emailPlaceholder: string;
-    emailRequired: string;
-    emailInvalid: string;
-    emailSentText: string;
-    registerText: string;
-    resetPassword: string;
-    dontHaveAccount: string;
-    headTitle?: string;
-    headDescription?: string;
-  };
+  texts?: ResetPasswordTextsTypes;
 };
 
 export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
   const formSchema = z.object({
     email: z
-      .string({ required_error: props.texts?.emailRequired })
-      .email({ message: props.texts?.emailInvalid })
-      .min(1, { message: props.texts?.emailRequired }),
+      .string({ required_error: props.texts?.email?.required })
+      .email({ message: props.texts?.email?.invalid })
+      .min(1, { message: props.texts?.email?.required }),
   });
 
   const { handleSubmit, control, formState } = useForm({
@@ -81,9 +71,9 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
                 render={({ field }) => (
                   <Input
                     width="full"
-                    label={props.texts?.emailLabel}
+                    label={props.texts?.email?.label}
                     helperText={formState.errors.email?.message}
-                    placeholder={props.texts?.emailPlaceholder}
+                    placeholder={props.texts?.email?.placeholder}
                     {...field}
                   />
                 )}

@@ -33,6 +33,18 @@ const Template = (args: any, globals: any) => {
       <ResetPasswordForm
         direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
         {...args}
+        texts={{
+          email: {
+            label: t("emailLabel"),
+            placeholder: t("emailPlaceholder"),
+            required: t("emailRequiredText"),
+            invalid: t("emailInvalidText"),
+          },
+          emailSentText: "The reset password link was sent to your email",
+          resetPassword: "Reset Password",
+          registerText: "Register",
+          dontHaveAccount: "Don't have an account? ",
+        }}
       />
     </div>
   );
@@ -41,16 +53,6 @@ export const Default: Story = {
   render: Template.bind({}),
   args: {
     sent: false,
-    texts: {
-      emailLabel: "Email",
-      emailPlaceholder: "Enter your email",
-      emailRequired: "Email is required",
-      emailInvalid: "Invalid email address",
-      emailSentText: "The reset password link was sent to your email",
-      resetPassword: "Reset Password",
-      registerText: "Register",
-      dontHaveAccount: "Don't have an account? ",
-    },
   },
   argTypes: {
     handleResetPassword: { action: "handleResetPassword" },

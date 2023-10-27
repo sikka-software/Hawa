@@ -30,7 +30,26 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md" dir={direction}>
-      <NewPasswordForm {...args} />
+      <NewPasswordForm
+        {...args}
+        texts={{
+          updatePassword: "Update Password",
+          password: {
+            label: t("passwordLabel"),
+            placeholder: t("passwordPlaceholder"),
+            required: t("passwordRequiredText"),
+            tooShort: t("passwordTooShortText"),
+          },
+          confirm: {
+            label: t("confirmPasswordLabel"),
+            placeholder: t("confirmPasswordPlaceholder"),
+            required: t("confirmPasswordRequired"),
+            dontMatch: t("passwordsDontMatch"),
+          },
+          passwordChanged:
+            "Your password has been changed, you'll be redirected to sign in page",
+        }}
+      />
     </div>
   );
 };
@@ -38,19 +57,6 @@ export const Default: Story = {
   render: Template.bind({}),
   args: {
     passwordChanged: false,
-    texts: {
-      updatePassword: "Update Password",
-      confirmPasswordPlaceholder: "Confirm password",
-      confirmPasswordLabel: "Confirm",
-      confirmPasswordRequired: "Confirmation is required",
-      passwordPlaceholder: "Enter password",
-      passwordRequired: "Password is required",
-      passwordLabel: "Choose new password",
-      passwordTooShort: "Pasword must be more than 5 characters",
-      passwordMatchError: "Password doesn't match",
-      passwordChanged:
-        "Your password has been changed, you'll be redirected to sign in page",
-    },
   },
   argTypes: {
     handleNewPassword: { action: "handleNewPassword" },

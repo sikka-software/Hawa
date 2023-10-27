@@ -60,18 +60,13 @@ export const DataTable = <DataProps extends {}>({
   ...props
 }: DataTableProps<DataProps>) => {
   const [sorting, setSorting] = React.useState<SortingState>([
-    {
-      id: props.defaultSort || "",
-      desc: false,
-    },
+    { id: props.defaultSort || "", desc: false },
   ]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
-
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
-
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
@@ -82,7 +77,6 @@ export const DataTable = <DataProps extends {}>({
     onExpandedChange: setExpanded,
     getExpandedRowModel: getExpandedRowModel(),
     onGlobalFilterChange: setGlobalFilter,
-
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -91,7 +85,6 @@ export const DataTable = <DataProps extends {}>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
-
     state: {
       sorting,
       columnFilters,
@@ -101,12 +94,12 @@ export const DataTable = <DataProps extends {}>({
       expanded,
     },
   });
-  const pageText = props.texts?.page || "page"; // Fallback to 'page' if props.texts?.page is undefined
-
+  const pageText = props.texts?.page || "page";
   const itemsPerPageOptions = props.itemsPerPage?.map((item) => ({
     label: `${item} / ${pageText}`,
     value: item,
   }));
+
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
       <div className="hawa-flex hawa-items-center">
