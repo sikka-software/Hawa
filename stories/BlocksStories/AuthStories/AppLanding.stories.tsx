@@ -30,7 +30,21 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md">
-      <AppLanding direction={locale === "ar" ? "rtl" : "ltr"} {...args} />
+      <AppLanding
+        direction={direction}
+        {...args}
+        texts={{
+          newUserText: t("newUserText"),
+          createAccount: t("createAccount"),
+          continueWithGoogle: t("continueWithGoogle"),
+          continueWithTwitter: t("continueWithTwitter"),
+          continueWithApple: t("continueWithApple"),
+          continueWithMicrosoft: t("continueWithMicrosoft"),
+          continueWithEmail: t("continueWithEmail"),
+          continueWithPhone: t("continueWithPhone"),
+          continueWithGithub: t("continueWithGithub"),
+        }}
+      />
     </div>
   );
 };
@@ -44,17 +58,6 @@ export const Default: Story = {
     viaEmail: true,
     viaPhone: true,
     viaApple: true,
-    texts: {
-      newUserText: t("newUserText"),
-      createAccount: t("createAccount"),
-      continueWithGoogle: t("continueWithGoogle"),
-      continueWithTwitter: t("continueWithTwitter"),
-      continueWithApple: t("continueWithApple"),
-      continueWithMicrosoft: t("continueWithMicrosoft"),
-      continueWithEmail: t("continueWithEmail"),
-      continueWithPhone: t("continueWithPhone"),
-      continueWithGithub: t("continueWithGithub"),
-    },
   },
   argTypes: {
     handleApple: { action: "handleApple" },

@@ -52,6 +52,9 @@ const Template = (args: any, globals: any) => {
           <Button variant={"outline"}>{t("Extra Optional Button")}</Button>
         }
         texts={{
+          continueWithGoogle: t("registerViaGoogleLabel"),
+          continueWithGithub: t("registerViaGithubLabel"),
+          continueWithTwitter: t("registerViaTwitterLabel"),
           fullNameLabel: t("fullNameLabel"),
           fullNamePlaceholder: t("fullNamePlaceholder"),
           emailLabel: t("emailLabel"),
@@ -78,9 +81,6 @@ const Template = (args: any, globals: any) => {
           loginText: t("loginText"),
           existingUserText: t("existingUserText"),
           registerText: t("registerText"),
-          continueWithGoogle: t("registerViaGoogleLabel"),
-          continueWithGithub: t("registerViaGithubLabel"),
-          continueWithTwitter: t("registerViaTwitterLabel"),
           userReferenceLabel: t("userReferenceLabel"),
           userReferencePlaceholder: t("userReferencePlaceholder"),
           refCode: t("refCode"),

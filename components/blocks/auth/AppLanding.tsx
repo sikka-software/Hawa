@@ -1,19 +1,15 @@
 import React, { FC } from "react";
-import { Button, Card, CardContent, Radio, Logos } from "../../elements";
+import { Card, CardContent, Radio } from "../../elements";
 import { AuthButtons } from "./AuthButtons";
+import { ThirdPartyAuthTextsTypes } from "../../types/textTypes";
+
+type AppLandingTextsTypes = ThirdPartyAuthTextsTypes & {
+  newUserText?: string;
+  createAccount?: string;
+};
 
 type AppLandingTypes = {
-  texts?: {
-    newUserText?: string;
-    createAccount?: string;
-    continueWithGoogle?: string;
-    continueWithTwitter?: string;
-    continueWithApple?: string;
-    continueWithMicrosoft?: string;
-    continueWithGithub?: string;
-    continueWithEmail?: string;
-    continueWithPhone?: string;
-  };
+  texts?: AppLandingTextsTypes;
   viaGoogle?: boolean;
   viaTwitter?: boolean;
   viaGithub?: boolean;
@@ -36,13 +32,23 @@ type AppLandingTypes = {
   handlePhone?: () => void;
 };
 
-export const AppLanding: FC<AppLandingTypes> = (props) => {
+export const AppLanding: FC<AppLandingTypes> = ({ texts, ...props }) => {
+  const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
+    continueWithGoogle: texts?.continueWithGoogle,
+    continueWithTwitter: texts?.continueWithTwitter,
+    continueWithApple: texts?.continueWithApple,
+    continueWithMicrosoft: texts?.continueWithMicrosoft,
+    continueWithGithub: texts?.continueWithGithub,
+    continueWithEmail: texts?.continueWithEmail,
+    continueWithPhone: texts?.continueWithPhone,
+  };
+
   return (
     <div dir={props.direction}>
       <Card>
         <CardContent headless className="hawa-flex hawa-flex-col hawa-gap-6">
           <AuthButtons
-            texts={{ ...props.texts }}
+            texts={thirdPartyAuthTexts}
             viaApple={props.viaApple}
             viaGoogle={props.viaGoogle}
             viaEmail={props.viaEmail}
@@ -61,12 +67,12 @@ export const AppLanding: FC<AppLandingTypes> = (props) => {
 
           {!props.withoutSignUp && ( //TODO: change to "register"
             <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
-              {props.texts?.newUserText}{" "}
+              {texts?.newUserText}{" "}
               <span
                 onClick={props.handleRouteToRegister}
                 className="clickable-link"
               >
-                {props.texts?.createAccount}
+                {texts?.createAccount}
               </span>
             </div>
           )}

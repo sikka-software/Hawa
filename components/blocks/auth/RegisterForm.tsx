@@ -24,10 +24,12 @@ import { AuthButtons } from "./AuthButtons";
 export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
   fullNameLabel: string;
   fullNamePlaceholder: string;
+  
   emailLabel: string;
   emailPlaceholder: string;
   emailRequired: string;
   emailInvalid: string;
+
   usernameLabel: string;
   usernamePlaceholder: string;
   usernameInvalid: string;
@@ -42,9 +44,6 @@ export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
   confirmPasswordRequired: string;
   subscribeToNewsletter: string;
   termsRequired: string;
-  // registerViaGoogleLabel: string;
-  // registerViaGithubLabel: string;
-  // registerViaTwitterLabel: string;
   refCode: string;
   refCodePlaceholder: string;
   userReferenceLabel: string;

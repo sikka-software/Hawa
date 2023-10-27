@@ -44,6 +44,9 @@ const Template = (args: any, globals: any) => {
         currentLanguage={globals.globals.locale}
         showError={isError}
         texts={{
+          email: {
+            label: t("emailLabel"),
+          },
           emailLabel: t("emailLabel"),
           emailPlaceholder: t("emailPlaceholder"),
           emailRequired: t("emailRequiredText"),

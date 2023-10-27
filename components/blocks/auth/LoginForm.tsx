@@ -12,35 +12,53 @@ import {
   CardFooter,
   Alert,
   PhoneInput,
-  Loading,
   Input,
-  Logos,
   Button,
 } from "../../elements";
 import { AuthButtons } from "./AuthButtons";
-import { ThirdPartyAuthTextsTypes } from "@/components/types/textTypes";
+import {
+  LoginFormTextsTypes,
+  ThirdPartyAuthTextsTypes,
+} from "../../types/textTypes";
 
-export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
-  emailLabel?: string;
-  emailPlaceholder?: string;
-  emailRequired?: string;
-  emailInvalid?: string;
-  usernameLabel?: string;
-  usernamePlaceholder?: string;
-  usernameRequired?: string;
-  usernameInvalid?: string;
-  phoneRequired?: string;
-  phoneInvalid?: string;
-  phoneLabel?: string;
-  passwordLabel?: string;
-  passwordPlaceholder?: string;
-  passwordRequired?: string;
-  passwordTooShort?: string;
-  forgotPassword?: string;
-  newUserText?: string;
-  createAccount?: string;
-  loginText?: string;
-};
+// export type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
+//   email?: TextInputType;
+//   username?: TextInputType;
+//   phone?: TextInputType;
+//   password?: PasswordInputType;
+//   forgotPassword?: string;
+//   newUserText?: string;
+//   createAccount?: string;
+//   loginText?: string;
+// };
+
+// type LoginFormTextsTypes = ThirdPartyAuthTextsTypes & {
+//   emailLabel?: string;
+//   emailPlaceholder?: string;
+//   emailRequired?: string;
+//   emailInvalid?: string;
+
+//   usernameLabel?: string;
+//   usernamePlaceholder?: string;
+//   usernameRequired?: string;
+//   usernameInvalid?: string;
+
+//   phoneRequired?: string;
+//   phoneInvalid?: string;
+//   phoneLabel?: string;
+//   phonePlaceholder?: string;
+
+//   passwordLabel?: string;
+//   passwordPlaceholder?: string;
+//   passwordRequired?: string;
+//   passwordTooShort?: string;
+
+//   forgotPassword?: string;
+//   newUserText?: string;
+//   createAccount?: string;
+//   loginText?: string;
+// };
+
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
   /** Function to handle language change.   */
@@ -113,6 +131,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
     continueWithEmail: texts?.continueWithEmail,
     continueWithPhone: texts?.continueWithPhone,
   };
+
   let formSchema;
 
   if (loginType === "email") {
@@ -180,9 +199,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                 <Input
                   width="full"
                   autoComplete="email"
-                  label={texts?.emailLabel || "Email"}
+                  label={texts?.email?.label}
                   helperText={formState.errors.email?.message}
-                  placeholder={texts?.emailPlaceholder || "contact@sikka.io"}
+                  placeholder={texts?.email?.placeholder || "contact@sikka.io"}
                   {...field}
                 />
               )}
