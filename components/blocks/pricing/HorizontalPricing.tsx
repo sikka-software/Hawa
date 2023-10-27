@@ -72,7 +72,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             <div
               className={clsx(
                 selectedCard === d.title
-                  ? "peer-checked:hawa-border-blue-500"
+                  ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-primary/20 peer-checked:hawa-ring-4 "
                   : "",
                 "hawa-peer hawa-flex hawa-cursor-pointer hawa-items-center hawa-justify-between  hawa-rounded-xl hawa-border hawa-bg-background hawa-px-5   hawa-py-4 hawa-shadow dark:hawa-text-white  peer-checked:[&_.active]:hawa-block peer-checked:[&_.default]:hawa-hidden"
               )}
@@ -124,16 +124,14 @@ const CheckIcons = () => (
 );
 const CardText = (props: any) => (
   <div className="hawa-peer hawa-flex hawa-flex-col hawa-items-start ">
-    <h2 className="hawa-font-medium hawa-text-neutral-700 dark:hawa-text-gray-100 sm:hawa-text-xl">
+    <h2 className="hawa-font-medium hawa-text-primary/90 sm:hawa-text-xl">
       {props.title}
     </h2>
-    <p className="hawa-text-sm hawa-text-neutral-500 dark:hawa-text-gray-300">
-      {props.subtitle}{" "}
-    </p>
+    <p className="hawa-text-sm hawa-text-primary/60">{props.subtitle} </p>
   </div>
 );
 const CardPrice = (props: any) => (
-  <h2 className="hawa-peer hawa-text-xl hawa-font-semibold hawa-text-neutral-900 dark:hawa-text-white sm:hawa-text-2xl">
+  <h2 className="hawa-peer hawa-text-xl hawa-font-semibold hawa-text-primary sm:hawa-text-2xl">
     {props.amount}
     <span className="hawa-text-base hawa-font-medium hawa-text-neutral-400">
       {props.cycle}

@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/globals.css";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
@@ -47,6 +48,7 @@ const preview: Preview = {
       darkClass: ["hawa-dark", "dark"],
       lightClass: ["hawa-light", "light"],
       stylePreview: true,
+      // classTarget: "body",
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

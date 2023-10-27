@@ -5,9 +5,6 @@ const config: StorybookConfig = {
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  core: {
-    disableWhatsNewNotifications: true,
-  },
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -15,17 +12,10 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "storybook-dark-mode",
   ],
-
+  core: { disableWhatsNewNotifications: true },
   staticDirs: ["../public"],
-
-  // docs: { autodocs: "tag" },
-  framework: {
-    name: "@storybook/nextjs",
-    options: {},
-  },
-
-  docs: {
-    autodocs: true,
-  },
+  framework: { name: "@storybook/nextjs", options: {} },
+  docs: { autodocs: true },
 };
+
 export default config;

@@ -12,7 +12,7 @@ import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 
 const meta = {
-  title: "Playground",
+  title: "Elements/Playground",
   component: Alert,
   parameters: {
     // layout: "centered",
