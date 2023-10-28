@@ -34,6 +34,7 @@ type DataTableProps<DataProps = {}> = {
   data: DataProps[];
   itemsPerPage?: any[];
   showCount?: boolean;
+  paginationPosition?: "top" | "bottom";
   condensed?: boolean;
   isLoading?: boolean;
   defaultSort?: string;
@@ -57,6 +58,7 @@ declare module "@tanstack/table-core" {
 export const DataTable = <DataProps extends {}>({
   columns,
   data,
+  paginationPosition = "bottom",
   ...props
 }: DataTableProps<DataProps>) => {
   const [sorting, setSorting] = React.useState<SortingState>([
@@ -104,6 +106,7 @@ export const DataTable = <DataProps extends {}>({
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
       <div className="hawa-flex hawa-items-center">
         <Input
+          forceHideHelperText
           placeholder={props.texts?.searchPlaceholder}
           value={globalFilter ?? ""}
           onChange={(event: any) => setGlobalFilter(event.target.value)}
@@ -114,7 +117,14 @@ export const DataTable = <DataProps extends {}>({
       {props.isLoading ? (
         <Skeleton className="hawa-h-[130px] hawa-w-full" />
       ) : (
-        <>
+        <div
+          className={cn(
+            "hawa-flex hawa-w-full  hawa-gap-4",
+            paginationPosition === "top"
+              ? "hawa-flex-col-reverse"
+              : "hawa-flex-col"
+          )}
+        >
           <div className="hawa-rounded-md">
             <Table>
               {table.getAllColumns().length > 0 && (
@@ -196,7 +206,6 @@ export const DataTable = <DataProps extends {}>({
             )}
 
             {/* NEXT & PREV BUTTONS */}
-
             {table.getPageCount() !== 0 && (
               <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
                 <DropdownMenu
@@ -289,7 +298,7 @@ export const DataTable = <DataProps extends {}>({
               </div>
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

@@ -493,6 +493,7 @@ const Template = (args: any, globals: any) => {
         defaultSort="share_price"
         columns={companiesColumns}
         showCount
+        paginationPosition="top"
         // data={[]}
         // data={companiesData}
         data={generatedData}

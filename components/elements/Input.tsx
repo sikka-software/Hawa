@@ -45,6 +45,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
   hint?: string;
+  forceHideHelperText?: boolean;
   hintSide?: "top" | "bottom" | "right" | "left";
   //   /** The value of the input field */
   //   value?: any;
@@ -63,6 +64,7 @@ export const Input: FC<TextFieldTypes> = ({
   margin = "none",
   width = "full",
   preview = false,
+  forceHideHelperText = false,
   ...props
 }) => {
   let marginStyles = {
@@ -89,7 +91,7 @@ export const Input: FC<TextFieldTypes> = ({
         marginStyles[margin],
         widthStyles[width],
         props.containerClassName,
-        "hawa-w-full hawa-gap-2 "
+        "hawa-w-full hawa-gap-2"
       )}
     >
       {props.label && (
@@ -149,16 +151,18 @@ export const Input: FC<TextFieldTypes> = ({
               </div>
             )}
 
-            <p
-              className={cn(
-                "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                props.helperText
-                  ? "hawa-opacity-100 hawa-h-4"
-                  : "hawa-opacity-0 hawa-h-0"
-              )}
-            >
-              {props.helperText}
-            </p>
+            {!forceHideHelperText && (
+              <p
+                className={cn(
+                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                  props.helperText
+                    ? "hawa-opacity-100 hawa-h-4"
+                    : "hawa-opacity-0 hawa-h-0"
+                )}
+              >
+                {props.helperText}
+              </p>
+            )}
           </>
         </>
       )}
