@@ -46,6 +46,7 @@ const Template = (args: any, globals: any) => {
       <Logo name="Microsoft" />
       <Logo name="Paypal" />
       <Logo name="Github" />
+      <Logo name="Instagram" />
       <Logo name="Twitter" />
       <Logo name="Tailwind" />
       <Logo name="Radix" />
