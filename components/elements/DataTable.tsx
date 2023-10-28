@@ -37,6 +37,7 @@ type DataTableProps<DataProps = {}> = {
   paginationPosition?: "top" | "bottom";
   condensed?: boolean;
   isLoading?: boolean;
+  enableGoTo?: boolean;
   defaultSort?: string;
   texts?: {
     searchPlaceholder?: string;
@@ -46,6 +47,7 @@ type DataTableProps<DataProps = {}> = {
     filter?: string;
     of?: string;
     total?: string;
+    goTo?: string;
   };
 };
 
@@ -208,6 +210,26 @@ export const DataTable = <DataProps extends {}>({
             {/* NEXT & PREV BUTTONS */}
             {table.getPageCount() !== 0 && (
               <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
+                {props.enableGoTo && (
+                  <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-items-center hawa-gap-2">
+                    <span className="hawa-text-sm">{props.texts?.goTo}</span>
+                    <input
+                      max={table.getPageCount()}
+                      min={0}
+                      type="number"
+                      defaultValue={table.getState().pagination.pageIndex + 1}
+                      onChange={(e) => {
+                        let page = Number(e.target.value) - 1;
+                        const max = table.getPageCount();
+                        if (!isNaN(page) && Number(page) > max) {
+                          page = max - 1;
+                        }
+                        table.setPageIndex(page);
+                      }}
+                      className="hawa-w-16 hawa-text-sm hawa-border hawa-rounded hawa-p-1 hawa-px-2"
+                    />
+                  </div>
+                )}
                 <DropdownMenu
                   size="sm"
                   width="sm"

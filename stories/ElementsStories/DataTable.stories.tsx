@@ -320,7 +320,8 @@ function generateDummyCompanies(numCompanies: any) {
 
   for (let i = 0; i < numCompanies; i++) {
     const company = {
-      name: getRandomElement(companyNames),
+      name: i.toString(),
+      // name: getRandomElement(companyNames),
       location: getRandomElement(locations),
       website: getRandomElement(websites),
       employees: getRandomNumber(50, 1000),
@@ -349,7 +350,15 @@ const Template = (args: any, globals: any) => {
   const companiesColumns: ColumnDef<Company>[] = [
     {
       accessorKey: "name",
-      header: t("company"),
+      // header: t("company"),
+      meta: { sortable: true },
+      header: ({ column }) => (
+        <SortButton
+          condensed
+          onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          label={t("company")}
+        />
+      ),
     },
     {
       accessorKey: "location",
@@ -489,11 +498,11 @@ const Template = (args: any, globals: any) => {
         Toast
       </Button>
       <DataTable<Company>
+        {...args}
         isLoading={isLoading}
         defaultSort="share_price"
         columns={companiesColumns}
         showCount
-        paginationPosition="top"
         // data={[]}
         // data={companiesData}
         data={generatedData}
@@ -506,6 +515,7 @@ const Template = (args: any, globals: any) => {
           total: t("total"),
           page: t("page"),
           noData: t("no-data"),
+          goTo: t("go-to"),
           searchPlaceholder: t("search-items"),
         }}
       />
