@@ -2,12 +2,12 @@ import React, { FC, RefObject, useState, useEffect } from "react";
 
 type ScrollIndicatorProps = {
   anchor: RefObject<HTMLInputElement>;
-  inContainer: boolean;
+  inContainer?: boolean;
 };
 
 export const ScrollIndicator: FC<ScrollIndicatorProps> = ({
   anchor,
-  inContainer,
+  inContainer = false,
 }) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
