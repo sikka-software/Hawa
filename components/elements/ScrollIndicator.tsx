@@ -2,9 +2,13 @@ import React, { FC, RefObject, useState, useEffect } from "react";
 
 type ScrollIndicatorProps = {
   anchor: RefObject<HTMLInputElement>;
+  inContainer: boolean;
 };
 
-export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ anchor }) => {
+export const ScrollIndicator: FC<ScrollIndicatorProps> = ({
+  anchor,
+  inContainer,
+}) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
   const onScroll = () => {
@@ -31,7 +35,7 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ anchor }) => {
   return (
     <div
       style={{
-        position: "absolute",
+        position: inContainer ? "absolute" : "fixed",
         top: 0,
         left: 0,
         height: "5px",

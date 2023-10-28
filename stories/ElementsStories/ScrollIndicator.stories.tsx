@@ -89,7 +89,7 @@ export const InContainer: Story = {
               );
             })}
           </div>
-          <ScrollIndicator anchor={ref1} />
+          <ScrollIndicator inContainer anchor={ref1} />
         </div>
 
         <div
@@ -118,7 +118,7 @@ export const InContainer: Story = {
               );
             })}
           </div>
-          <ScrollIndicator anchor={ref2} />
+          <ScrollIndicator inContainer anchor={ref2} />
         </div>
       </div>
     );
