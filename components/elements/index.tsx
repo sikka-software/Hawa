@@ -3,6 +3,7 @@ export * from "./cards";
 
 // Primitives
 export * from "./Button";
+export * from "./SplitButton";
 export * from "./Dialog";
 export * from "./Card";
 export * from "./Loading";
