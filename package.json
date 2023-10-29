@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.12.13",
+  "version": "0.12.14",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -32,6 +32,7 @@
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-menubar": "^1.0.4",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-progress": "^1.0.3",

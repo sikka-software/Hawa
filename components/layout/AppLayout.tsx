@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useBreakpoint } from "../hooks/useBreakpoint";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
 import { SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
@@ -112,25 +111,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
   const ref = useRef<HTMLDivElement>(null);
   const isRTL = direction === "rtl";
-
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
-  const [selectedItem, setSelectedItem] = useState(currentPage);
-
-  let size = 1200;
-  //  useBreakpoint();
-  // if (typeof window == "undefined") {
-  //   size = 1200;
-  // }
-  // const [keepOpen, setKeepOpen] = useState(() => {
-  //   if (size > 600) {
-  //     // If size is larger than 600, use prop.isDrawerOpen if it exists, or default to true.
-  //     return props.keepDrawerOpen !== undefined ? props.keepDrawerOpen : true;
-  //   } else {
-  //     // If size is less than or equal to 600, set keepOpen to false.
-  //     return false;
-  //   }
-  // });
-  // const [openSideMenu, setOpenSideMenu] = useState(size > 600 ? true : false);
+  const [size, setSize] = useState(1200);
   const [openSideMenu, setOpenSideMenu] = useState(
     size > 600 ? keepOpen : false
   );
@@ -139,6 +121,19 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     size > 600
       ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
       : 0;
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const resize = () => {
+        setSize(window.innerWidth);
+      };
+      resize();
+      window.addEventListener("resize", resize);
+      return () => {
+        window.removeEventListener("resize", resize);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -321,10 +316,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           setOpenSideMenu(true);
         }}
         onMouseLeave={() => {
-          if (keepOpen) {
-            setOpenSideMenu(true);
+          if (size > 600) {
+            if (keepOpen) {
+              setOpenSideMenu(true);
+            } else {
+              setOpenedSidebarItem("");
+              setOpenSideMenu(false);
+            }
           } else {
-            setOpenedSidebarItem("");
             setOpenSideMenu(false);
           }
           // keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
@@ -373,16 +372,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             <img
               className={cn(
                 "hawa-fixed  hawa-h-9  hawa-transition-all",
-                // isRTL ? "right-2.5" : "left-2.5",
-
-                design === "floating"
-                  ? isRTL
-                    ? "hawa-right-7.5 hawa-top-7"
-                    : "hawa-left-7.5 hawa-top-7"
-                  : isRTL
+                isRTL
                   ? "hawa-right-2.5 hawa-top-2.5"
                   : "hawa-left-2.5 hawa-top-2.5",
-
                 openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
                   : "hawa-visible hawa-opacity-100"
@@ -399,8 +391,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         <div
           className={cn(
             // hawa-h-[calc(100dvh)]
-            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
-            design === "floating" ? "hawa-top-[76px]" : "hawa-top-14",
+            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all hawa-top-14",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
           )}
           style={{
