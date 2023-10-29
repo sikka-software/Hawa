@@ -1,5 +1,6 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 import { cn } from "../util";
+import { DirectionType, OrientationType } from "../types/commonTypes";
 
 export type RadioOptionsTypes = {
   value: any;
@@ -10,13 +11,13 @@ export type RadioOptionsTypes = {
 };
 
 type RadioTypes = {
-  orientation?: "vertical" | "horizontal";
+  orientation?: OrientationType;
   design?: "default" | "tabs" | "cards" | "bordered";
   options: RadioOptionsTypes[];
   width?: "default" | "full";
   onChangeTab?: any;
   defaultValue?: any;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   helperText?: string;
 };
 export const Radio: FC<RadioTypes> = ({

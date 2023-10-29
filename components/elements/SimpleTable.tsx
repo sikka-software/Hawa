@@ -16,11 +16,12 @@ import {
 } from "./Table";
 
 import { Skeleton } from "./Skeleton";
+import { DirectionType } from "../types/commonTypes";
 
 type DataProps = {};
 
 type SimpleTableProps = {
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   columns: ColumnDef<DataProps>[];
   data: DataProps[];
   condensed?: boolean;

@@ -16,10 +16,11 @@ import {
 } from "../elements";
 import { cn } from "../util";
 import { DocsSidebar } from "./DocsSidebar";
+import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
   /** The direction of the layout */
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
   currentPage: string;
   /** Specifies the title of the page. */

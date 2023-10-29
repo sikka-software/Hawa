@@ -1,6 +1,7 @@
 import React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cn } from "../util";
+import { PositionType } from "../types/commonTypes";
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
@@ -30,7 +31,7 @@ type TooltipTypes = {
   /** Controls the open state of the tooltip. */
   open?: any;
   /** Specifies the side where the tooltip will appear. */
-  side?: "top" | "right" | "bottom" | "left";
+  side?: PositionType;
   /** Content to be displayed within the tooltip. */
   content?: any;
   /** Elements to which the tooltip is anchored. */

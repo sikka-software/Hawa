@@ -28,8 +28,8 @@ const Template = (args: any) => {
   const [currentColor, setCurrentColor] = useState("#f0f0f0");
   return (
     <div>
-      <Label>Color</Label>
       <ColorPicker
+        label="Color"
         color={currentColor}
         handleChange={(e) => {
           console.log("changing color to: ", e.target.value);

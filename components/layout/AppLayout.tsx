@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
 import { SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
   design?: "default";
   /** The pages of the side drawer */
   drawerItems: Item[];
   /** The direction of the layout */
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
   currentPage: string;
   /** Specifies the title of the page. */

@@ -9,9 +9,10 @@ import {
 } from "./Toast";
 import { useToast } from "../hooks/useToast";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 type ToasterProps = {
-  direction?: "ltr" | "rtl";
+  direction?: DirectionType;
 };
 
 export function Toaster(props: ToasterProps) {

@@ -1,14 +1,14 @@
 import React, { FC, useState } from "react";
-
 import { cn } from "../util";
 import { Radio } from "./Radio";
+import { OrientationType } from "../types/commonTypes";
 
 type TypographyTypes = {
   handleLanguage: (e: any) => void;
   currentLanguage: any;
   handleColorMode: (e: any) => void;
   currentColorMode: any;
-  orientation?: "vertical" | "horizontal";
+  orientation?: OrientationType;
   width?: "default" | "full";
 };
 export const InterfaceSettings: FC<TypographyTypes> = ({

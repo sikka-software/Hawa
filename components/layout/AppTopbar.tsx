@@ -1,9 +1,10 @@
 import React from "react";
 import { cn } from "../util";
 import { DropdownMenu, MenuItemType } from "../elements";
+import { DirectionType } from "../types/commonTypes";
 
 type AppTopbarType = {
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   size?: number;
   username?: string;
   email?: string;

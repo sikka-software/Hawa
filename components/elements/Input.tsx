@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Label } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
+import {  PositionType } from "../types/commonTypes";
 
 // TODO: make icon based on direction
 
@@ -46,7 +47,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   helperText?: any;
   hint?: string;
   forceHideHelperText?: boolean;
-  hintSide?: "top" | "bottom" | "right" | "left";
+  hintSide?: PositionType;
   //   /** The value of the input field */
   //   value?: any;
   //   name?: any;

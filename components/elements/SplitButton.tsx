@@ -2,9 +2,10 @@ import * as React from "react";
 import { cn } from "../util";
 import { Button, ButtonProps } from "./Button";
 import { DropdownMenu, MenuItemType } from "./DropdownMenu";
+import { DirectionType } from "../types/commonTypes";
 
 interface SplitButtonProps extends ButtonProps {
-  direction?: "ltr" | "rtl";
+  direction?: DirectionType;
   menuItems?: MenuItemType[];
 }
 

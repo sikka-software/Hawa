@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -88,7 +89,7 @@ interface SidebarGroupProps {
   isOpen?: boolean;
   onItemClick?: (value: string[]) => void;
   onSubItemClick?: (values: string[]) => void;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
 }
 
 const SidebarGroup: React.FC<SidebarGroupProps> = ({

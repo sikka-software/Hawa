@@ -3,7 +3,6 @@ import Countries from "../countries";
 import { Select } from "./Select";
 import { cn } from "../util";
 import { Label } from "./Label";
-import { Combobox } from "./Combobox";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };

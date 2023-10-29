@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Input } from "../../components/elements";
+import { Button, ColorPicker, Input } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
@@ -37,8 +37,9 @@ const Template = (args: any, globals: any) => {
 };
 export const Default: Story = {
   render: () => (
-    <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
-      <Input label={"Input Field"} />
+    <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-max-w-md">
+      {/* <ColorPicker label="Random color" color={"#f39f39"} /> */}
+      <Input label="Input Field" />
     </div>
   ),
 };
@@ -74,7 +75,6 @@ export const LoadingMode: Story = {
     );
   },
 };
-
 export const Examples: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";

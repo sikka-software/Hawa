@@ -5,13 +5,9 @@ import { X } from "lucide-react";
 import { cn } from "../util";
 
 const Sheet = SheetPrimitive.Root;
-
 const SheetTrigger = SheetPrimitive.Trigger;
-
 const SheetClose = SheetPrimitive.Close;
-
 const SheetPortal = SheetPrimitive.Portal;
-
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>

@@ -3,17 +3,12 @@
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { Check, ChevronRight, Circle } from "lucide-react"; //TODO: change this to actual svgs
-
-import { cn } from "@/lib/utils";
+import { cn } from "../util";
 
 const MenubarMenu = MenubarPrimitive.Menu;
-
 const MenubarGroup = MenubarPrimitive.Group;
-
 const MenubarPortal = MenubarPrimitive.Portal;
-
 const MenubarSub = MenubarPrimitive.Sub;
-
 const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
 
 const Menubar = React.forwardRef<

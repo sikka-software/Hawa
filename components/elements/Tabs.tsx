@@ -1,14 +1,15 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "../util";
+import { OrientationType } from "../types/commonTypes";
 
 const TabsContext = React.createContext<{
-  orientation?: "vertical" | "horizontal";
+  orientation?: OrientationType;
 }>({ orientation: "vertical" });
 
 type TabsRootProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
-> & { orientation?: "vertical" | "horizontal" };
+> & { orientation?: OrientationType };
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,

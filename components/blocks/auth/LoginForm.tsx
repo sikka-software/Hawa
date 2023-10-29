@@ -19,6 +19,7 @@ import {
   LoginFormTextsTypes,
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
@@ -33,7 +34,7 @@ type LoginFormTypes = {
   /** If true, only logos are displayed in third-party auth buttons.   */
   logosOnly?: boolean;
   /** Direction of text and UI elements, either left-to-right or right-to-left.   */
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   /** If true, an error alert is displayed at the top of the form.   */
   showError?: boolean;
   /** Title text of error alert.   */

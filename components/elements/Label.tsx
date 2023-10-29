@@ -1,10 +1,11 @@
 import * as React from "react";
 import { cn } from "../util";
 import { Tooltip } from "./Tooltip";
+import { PositionType } from "../types/commonTypes";
 
 type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
   hint?: React.ReactNode;
-  hintSide?: "top" | "bottom" | "right" | "left";
+  hintSide?: PositionType;
   required?: boolean;
 };
 

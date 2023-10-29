@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "../util";
+import { PositionType } from "../types/commonTypes";
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -22,7 +23,7 @@ const PopoverContent = React.forwardRef<
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 interface PopoverProps {
-  side?: "top" | "right" | "bottom" | "left";
+  side?: PositionType;
   align?: "start" | "center" | "end";
   trigger: React.ReactNode;
   children: React.ReactNode;

@@ -6,7 +6,7 @@ type TCheckBoxTypes = {
   id: string;
   label?: any;
   sublabel?: any;
-  helperText?: any;
+  helperText?: string;
 };
 
 type CheckboxProps = TCheckBoxTypes &

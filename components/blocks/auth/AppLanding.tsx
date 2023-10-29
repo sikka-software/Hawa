@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Card, CardContent, Radio } from "../../elements";
 import { AuthButtons } from "./AuthButtons";
 import { ThirdPartyAuthTextsTypes } from "../../types/textTypes";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type AppLandingTextsTypes = ThirdPartyAuthTextsTypes & {
   newUserText?: string;
@@ -19,7 +20,7 @@ type AppLandingTypes = {
   viaApple?: boolean;
   withoutSignUp?: boolean;
   size: "small" | "normal" | "full";
-  direction: "rtl" | "ltr";
+  direction: DirectionType;
   handleRouteToRegister: () => void;
   handleLanguage: () => void;
   handleColorMode: () => void;

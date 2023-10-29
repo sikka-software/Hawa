@@ -198,10 +198,9 @@ ${cssVariables}    --radius: 0.5rem;
           /> */}
           {colorSettingsArray.map((colorSetting) => (
             <div key={colorSetting.id}>
-              <Label htmlFor={colorSetting.id} className="hawa-mb-2">
-                {colorSetting.label}
-              </Label>
               <ColorPicker
+                id={colorSetting.id}
+                label={colorSetting.label}
                 colorTextClassNames="hawa-w-full"
                 containerProps={{ id: colorSetting.id }}
                 color={hslToHex(...colorSetting.hsl)}

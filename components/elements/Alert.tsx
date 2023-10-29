@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import clsx from "clsx";
 import { Button } from "./Button";
+import { SeverityType } from "../types/commonTypes";
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
-  severity?: "info" | "warning" | "error" | "success" | "none";
+  severity?: SeverityType;
   /** The title of the alert placed above the text of the alert. Can be used alone */
   title?: any;
   /** The text of the alert placed below the title of the alert. Can be used alone */
