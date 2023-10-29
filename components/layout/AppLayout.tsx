@@ -4,7 +4,7 @@ import { SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
 
 type AppLayoutTypes = {
-  design?: "default" | "bubbles" | "floating";
+  design?: "default";
   /** The pages of the side drawer */
   drawerItems: Item[];
   /** The direction of the layout */
@@ -113,11 +113,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [size, setSize] = useState(1200);
-  const [openSideMenu, setOpenSideMenu] = useState(
-    size > 600 ? keepOpen : false
-  );
-
-  let drawerSizeCondition =
+  const [openSideMenu, setOpenSideMenu] = useState(true);
+  const drawerSizeCondition =
     size > 600
       ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
       : 0;
@@ -134,7 +131,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       };
     }
   }, []);
-
+  useEffect(() => {
+    if (size > 600) {
+      setOpenSideMenu(keepOpen);
+    } else {
+      setOpenSideMenu(false);
+    }
+  }, [size]);
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
@@ -206,21 +209,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 onClick={() => setOpenSideMenu(true)}
                 className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer  hawa-rounded hawa-p-2  hawa-transition-all hover:hawa-bg-gray-100"
               >
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth={0}
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                  height="1.6em"
-                  width="1.6em"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  ></path>
-                </svg>
+                <MenuIcon />
               </div>
               {/* Mobile Page Title */}
               {props.pageTitle ? (
@@ -293,11 +282,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       <div
         className={cn(
           "hawa-fixed hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
-          design === "floating"
-            ? isRTL
-              ? "hawa-right-5 hawa-top-5"
-              : "hawa-bottom-5 hawa-left-5 hawa-top-5"
-            : isRTL
+          isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-14"
             : "hawa-left-0 hawa-top-0 hawa-h-14",
           "hawa-h-[calc(100dvh)]"
@@ -390,16 +375,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            // hawa-h-[calc(100dvh)]
             "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all hawa-top-14",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
           )}
           style={{
-            // height:
-            //   design === "floating"
-            //     ? "calc(100% - 152px)"
-            //     : "0px",
-            // : "calc(100% - 112px)",
             width:
               size > 600
                 ? `${openSideMenu ? openDrawerWidth : drawerSizeCondition}px`
@@ -414,14 +393,11 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           <SidebarGroup
             direction={direction}
             onItemClick={(values) => {
-              // console.log("vals ", values)
-              // setSelectedItem(values)
               if (clickedItem) {
                 clickedItem(values);
               }
             }}
             onSubItemClick={(values) => {
-              // setSelectedItem(values)
               if (clickedItem) {
                 clickedItem(values);
               }
@@ -510,21 +486,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       <div
         className="hawa-fixed hawa-overflow-y-auto hawa-transition-all"
         style={
-          design === "floating"
-            ? isRTL
-              ? {
-                  height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
-                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
-                  left: "0px",
-                  top: props.topBar ? "56px" : "0px",
-                }
-              : {
-                  height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
-                  width: `calc(100% - ${drawerSizeCondition + 20}px)`,
-                  left: `${drawerSizeCondition + 20}px`,
-                  top: props.topBar ? "56px" : "0px",
-                }
-            : isRTL
+          isRTL
             ? {
                 height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,
@@ -539,10 +501,27 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               }
         }
       >
-        {/* {String(drawerSizeCondition)}
-        {String(keepOpen)} */}
         {props.children}
       </div>
     </div>
   );
 };
+
+const MenuIcon = () => (
+  <svg
+    aria-label="Menu Button"
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth={0}
+    viewBox="0 0 20 20"
+    aria-hidden="true"
+    height="1.6em"
+    width="1.6em"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+    ></path>
+  </svg>
+);
