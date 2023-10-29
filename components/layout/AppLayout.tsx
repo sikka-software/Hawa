@@ -116,10 +116,11 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [selectedItem, setSelectedItem] = useState(currentPage);
 
-  let size = useBreakpoint();
-  if (typeof window == "undefined") {
-    size = 1200;
-  }
+  let size = 1200;
+  //  useBreakpoint();
+  // if (typeof window == "undefined") {
+  //   size = 1200;
+  // }
   // const [keepOpen, setKeepOpen] = useState(() => {
   //   if (size > 600) {
   //     // If size is larger than 600, use prop.isDrawerOpen if it exists, or default to true.
@@ -302,8 +303,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               ? "hawa-right-5 hawa-top-5"
               : "hawa-bottom-5 hawa-left-5 hawa-top-5"
             : isRTL
-            ? "hawa-right-0 hawa-top-0 hawa-h-full"
-            : "hawa-left-0 hawa-top-0 hawa-h-full"
+            ? "hawa-right-0 hawa-top-0 hawa-h-14"
+            : "hawa-left-0 hawa-top-0 hawa-h-14",
+          "hawa-h-[calc(100dvh)]"
         )}
         style={{
           width:
@@ -396,18 +398,20 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
+            // hawa-h-[calc(100dvh)]
             "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
             design === "floating" ? "hawa-top-[76px]" : "hawa-top-14",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
           )}
           style={{
-            height:
-              design === "floating"
-                ? "calc(100% - 152px)"
-                : "calc(100% - 112px)",
+            // height:
+            //   design === "floating"
+            //     ? "calc(100% - 152px)"
+            //     : "0px",
+            // : "calc(100% - 112px)",
             width:
               size > 600
-                ? `${openSideMenu ? openDrawerWidth : 56}px`
+                ? `${openSideMenu ? openDrawerWidth : drawerSizeCondition}px`
                 : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
         >
@@ -434,7 +438,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             selectedItem={currentPage}
             openedItem={openedSidebarItem}
             setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
-            isOpen={openSideMenu}
+            isOpen={keepOpen || openSideMenu}
             items={props.drawerItems}
           />
         </div>
@@ -445,9 +449,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            "hawa-fixed  hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-bg-primary-foreground  hawa-transition-all",
+            "hawa-fixed  hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-bg-primary-foreground  hawa-transition-all",
             direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
-            design === "floating" ? "hawa-bottom-5" : "hawa-bottom-0"
+            "hawa-bottom-0"
           )}
           style={{
             width:
@@ -480,12 +484,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   }
                   setKeepOpen(newKeepOpenState);
                 }}
-                // onClick={() => {
-                //   setKeepOpen(!keepOpen);
-                //   if (props.onDrawerExpand) {
-                //     props.onDrawerExpand(keepOpen);
-                //   }
-                // }}
                 size="smallIcon"
               >
                 <svg
@@ -550,6 +548,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               }
         }
       >
+        {/* {String(drawerSizeCondition)}
+        {String(keepOpen)} */}
         {props.children}
       </div>
     </div>

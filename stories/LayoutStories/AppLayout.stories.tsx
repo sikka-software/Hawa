@@ -1,23 +1,15 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppLayout, Button } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
-import {
-  BarChart,
-  FolderArchive,
-  FolderClosed,
-  LayoutDashboard,
-  PhoneCall,
-  Users2,
-} from "lucide-react";
-import { useState } from "react";
 import { useDarkMode } from "storybook-dark-mode";
 
 const meta = {
   title: "Layout/App Layout",
+  tags: ["autodocs"],
   component: AppLayout,
   parameters: {
-    // layout: "fullscreen",
     docs: {
       page: () => (
         <>
@@ -27,7 +19,6 @@ const meta = {
       ),
     },
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof AppLayout>;
 
 export default meta;
@@ -46,24 +37,23 @@ export const Default: Story = {
       const savedState = localStorage.getItem("keepOpen");
       return savedState ? JSON.parse(savedState) : true;
     });
+    const logoLink =
+      direction === "rtl"
+        ? dark
+          ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
+          : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
+        : dark
+        ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
+        : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
 
     const handleDrawerExpand = (newKeepOpenState: any) => {
       setKeepOpen(newKeepOpenState);
       localStorage.setItem("keepOpen", JSON.stringify(newKeepOpenState));
-      // Additional logic if needed when drawer expansion state changes
     };
 
     return (
       <AppLayout
-        logoLink={
-          direction === "rtl"
-            ? dark
-              ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
-              : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
-            : dark
-            ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
-            : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png"
-        }
+        logoLink={logoLink}
         keepOpen={keepOpen}
         setKeepOpen={setKeepOpen}
         onDrawerExpand={handleDrawerExpand}
@@ -73,7 +63,6 @@ export const Default: Story = {
           collapseSidebar: t("collapseSidebar"),
         }}
         currentPage={"/new-item"}
-        {...args}
         drawerItems={[
           {
             label: "لوحة القيادة",
@@ -119,7 +108,6 @@ export const Default: Story = {
                 label: "Files Items",
                 value: "/file-item",
                 onClick: () => setSelectedPage("/file-item"),
-                //   icon: <FaFolderOpen />,
               },
             ],
           },
@@ -131,37 +119,10 @@ export const Default: Story = {
               setSelectedPage("/analytics");
               console.log("going to /analytics");
             },
-            // icon: <BarChart className="hawa-w-4 hawa-h-4" />,
-            //   icon: <FaPoll />,
           },
-          // {
-          //   label: "Jobs",
-          //   value: "/jobs",
-          //   onClick: () => console.log("going to /jobs"),
-          //   icon: <Users2 className="hawa-w-4 hawa-h-4" />,
-          //   subitems: [
-          //     {
-          //       label: "New Job Item",
-          //       value: "/new-job",
-          //       onClick: () => console.log("going to /new-jobs"),
-          //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-          //     },
-          //     {
-          //       label: "Files Items",
-          //       value: "/files",
-          //       onClick: () => console.log("going to /files"),
-          //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   label: "Activity",
-          //   value: "/activity",
-          //   icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
-          //   onClick: () => console.log("going to /activity"),
-          // },
         ]}
         // clickedItem={(e) => console.log("clicked item is ", e)}
+        {...args}
       >
         <div className=" hawa-h-full  hawa-p-4">
           <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
@@ -176,30 +137,15 @@ export const Default: Story = {
   args: {
     onSettingsClick: () => console.log("going to settings"),
     // currentPage: "/new-item",
-    profileMenuItems: [
-      {
-        label: "Profile",
-        value: "Dashboard",
-        // onClick: () => console.log("going to dashboard"),
-      },
-      {
-        value: "Billing",
-        label: "Billing",
-        // onClick: () => console.log("going to Billing"),
-      },
-      {
-        value: "عربي",
-        label: "عربي",
-        // onClick: () => console.log("going to عربي"),
-        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
-      },
-      {
-        label: "Sign Out",
-        value: "Sign Out",
-        // onClick: () => console.log("going to Sign Out"),
-        highlighted: true,
-      },
-    ],
+    pageTitle: "Dashboard Page",
+    topBar: true,
+    username: "Zakher Masri",
+    avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
+    email: "zakher@sikka.io",
+    logoSymbol:
+      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
+    // logoLink:
+    //   "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
     // drawerItems: [
     //   {
     //     label: "لوحة القيادة",
@@ -275,11 +221,30 @@ export const Default: Story = {
     //   //   onClick: () => console.log("going to /activity"),
     //   // },
     // ],
-    pageTitle: "Dashboard Page",
-    topBar: true,
-    username: "Zakher Masri",
-    avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
-    email: "zakher@sikka.io",
+    profileMenuItems: [
+      {
+        label: "Profile",
+        value: "Dashboard",
+        // onClick: () => console.log("going to dashboard"),
+      },
+      {
+        value: "Billing",
+        label: "Billing",
+        // onClick: () => console.log("going to Billing"),
+      },
+      {
+        value: "عربي",
+        label: "عربي",
+        // onClick: () => console.log("going to عربي"),
+        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
+      },
+      {
+        label: "Sign Out",
+        value: "Sign Out",
+        // onClick: () => console.log("going to Sign Out"),
+        highlighted: true,
+      },
+    ],
     DrawerFooterActions: (
       <>
         <Button size="smallIcon" variant={"light"}>
@@ -299,29 +264,6 @@ export const Default: Story = {
         </Button>
       </>
     ),
-    logoSymbol:
-      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
-    // logoLink:
-    //   "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
-    // profileItems: [
-    //   {
-    //     text: "Dashboard",
-    //     slug: "home",
-    //   },
-    //   {
-    //     text: "Billing",
-    //     slug: "home",
-    //   },
-
-    //   {
-    //     text: "Analytics",
-    //     slug: "home",
-    //   },
-    //   {
-    //     text: "عربي",
-    //     slug: "home",
-    //   },
-    // ],
   },
   argTypes: {
     onLogoClick: { action: "onLogoClick" },
