@@ -156,7 +156,7 @@ const SidebarItem: React.FC<{
     return (
       <AccordionItem
         value={item.value}
-        className="hawa-overflow-x-clip "
+        className="hawa-overflow-x-clip"
         dir={direction}
       >
         <AccordionTrigger
@@ -164,7 +164,7 @@ const SidebarItem: React.FC<{
             "hawa-overflow-x-clip hawa-w-full",
             props.selectedItem === item.value
               ? "hawa-cursor-default hawa-bg-primary  hawa-text-primary-foreground"
-              : "hover:hawa-bg-primary/10",
+              : "hover:hawa-bg-primary/10 hawa-h-10",
             item.subitems &&
               item.subitems.some(
                 (subitem) => props.selectedItem === subitem.value
@@ -181,15 +181,14 @@ const SidebarItem: React.FC<{
             )}
           >
             {item.icon && item.icon}
-              <span
-                className={cn(
-                  "hawa-transition-all ",
-                  isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
-                )}
-              >
-                {item.label}
-              </span>
-          
+            <span
+              className={cn(
+                "hawa-transition-all ",
+                isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
+              )}
+            >
+              {item.label}
+            </span>
           </div>
         </AccordionTrigger>
         {item.subitems && (
@@ -212,7 +211,7 @@ const SidebarItem: React.FC<{
                     }
                   }}
                   className={cn(
-                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-rounded  hawa-p-2 hawa-transition-all",
+                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-rounded  hawa-p-2 hawa-transition-all hawa-overflow-x-clip hawa-whitespace-nowrap",
                     // bg-foreground/10
                     getSelectedStyle(subitem.value)
                   )}

@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/globals.css";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
@@ -7,9 +6,15 @@ import "./stories.css";
 
 const preview: Preview = {
   parameters: {
+    grid: {
+      cellSize: 15
+    },
     options: {
       storySort: {
         order: [
+          "Overview",
+          "Installation",
+          "Usage",
           "Blocks",
           "Layout",
           "Elements",
@@ -36,14 +41,14 @@ const preview: Preview = {
         brandTitle: "Hawa UI",
         brandUrl: "https://sikka.io",
         brandImage:
-          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-wordmark-black.png",
+          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png",
       },
       dark: {
         ...themes.dark,
         brandTitle: "Hawa UI",
         brandUrl: "https://sikka.io",
         brandImage:
-          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-wordmark-white.png",
+          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png",
       },
       darkClass: ["hawa-dark", "dark"],
       lightClass: ["hawa-light", "light"],

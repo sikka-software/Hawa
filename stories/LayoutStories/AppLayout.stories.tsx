@@ -11,6 +11,7 @@ import {
   Users2,
 } from "lucide-react";
 import { useState } from "react";
+import { useDarkMode } from "storybook-dark-mode";
 
 const meta = {
   title: "Layout/App Layout",
@@ -34,6 +35,8 @@ type Story = StoryObj<typeof AppLayout>;
 
 export const Default: Story = {
   render: (args: any, globals: any) => {
+    const dark = useDarkMode();
+
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
@@ -52,6 +55,15 @@ export const Default: Story = {
 
     return (
       <AppLayout
+        logoLink={
+          direction === "rtl"
+            ? dark
+              ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
+              : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
+            : dark
+            ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
+            : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png"
+        }
         keepOpen={keepOpen}
         setKeepOpen={setKeepOpen}
         onDrawerExpand={handleDrawerExpand}
@@ -60,7 +72,7 @@ export const Default: Story = {
           expandSidebar: t("expandSidebar"),
           collapseSidebar: t("collapseSidebar"),
         }}
-        currentPage={selectedPage}
+        currentPage={"/new-item"}
         {...args}
         drawerItems={[
           {
@@ -288,9 +300,9 @@ export const Default: Story = {
       </>
     ),
     logoSymbol:
-      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-symbol-purple.svg",
-    logoLink:
-      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
+      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
+    // logoLink:
+    //   "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
     // profileItems: [
     //   {
     //     text: "Dashboard",

@@ -15,7 +15,7 @@ const config: StorybookConfig = {
   core: { disableWhatsNewNotifications: true },
   staticDirs: ["../public"],
   framework: { name: "@storybook/nextjs", options: {} },
-  docs: { autodocs: true },
+  // docs: { autodocs: true },
 };
 
 export default config;

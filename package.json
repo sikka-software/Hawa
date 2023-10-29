@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.12.9",
+  "version": "0.12.10",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -22,7 +22,8 @@
     "build-lib": "tsup components/index.tsx --format cjs,esm --dts",
     "build-css": "postcss styles/globals.css -o dist/index.css",
     "prepub": "npm run build-lib && npm run build-css",
-    "pub": "npm publish --tag next"
+    "pub": "npm publish --tag next",
+    "chromatic": "npx chromatic --project-token=chpt_9c33d11ef14064f --output-dir ./storybook-static"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",

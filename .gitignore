@@ -19,6 +19,10 @@ package-lock.json
 /build
 /storybook-static
 
+#chromatic
+chromatic.log
+build-storybook.log
+
 # misc
 .DS_Store
 *.pem

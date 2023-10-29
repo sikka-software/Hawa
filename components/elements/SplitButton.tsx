@@ -24,9 +24,10 @@ const SplitButton: React.FC<SplitButtonProps> = ({
     <Button
       variant={variant}
       onClick={() => console.log("btn clicked")}
-      className={
-        direction === "rtl" ? "hawa-rounded-l-none" : "hawa-rounded-r-none"
-      }
+      className={cn(
+        direction === "rtl" ? "hawa-rounded-r-none" : "hawa-rounded-l-none",
+        props.className
+      )}
     >
       {children}
     </Button>
@@ -43,8 +44,9 @@ const SplitButton: React.FC<SplitButtonProps> = ({
           className={cn(
             "hawa-h-10 hawa-w-fit hawa-px-1",
             direction === "rtl"
-              ? "hawa-rounded-r-none hawa-border-r-0"
-              : "hawa-border-l-0 hawa-rounded-l-none"
+              ? "hawa-rounded-l-none hawa-border-rl0"
+              : "hawa-border-r-0 hawa-rounded-r-none",
+            props.className
           )}
         >
           <svg

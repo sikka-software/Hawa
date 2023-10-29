@@ -37,49 +37,51 @@ const Template = (args: any, globals: any) => {
   const [isLoading, setIsLoading] = useState(false);
   let d = useDarkMode();
   return (
-    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
-      <LoginForm
-        direction={locale === "ar" ? "rtl" : "ltr"}
-        currentColorMode={d ? "dark" : "light"}
-        currentLanguage={globals.globals.locale}
-        showError={isError}
-        texts={{
-          email: {
-            label: t("emailLabel"),
-            placeholder: t("emailPlaceholder"),
-            required: t("emailRequiredText"),
-            invalid: t("emailInvalidText"),
-          },
-          password: {
-            label: t("passwordLabel"),
-            placeholder: t("passwordPlaceholder"),
-            required: t("passwordRequiredText"),
-            tooShort: t("passwordTooShort"),
-          },
-          username: {
-            label: t("usernameLabel"),
-            placeholder: t("usernamePlaceholder"),
-            required: t("usernameRequired"),
-            invalid: t("usernameRequired"),
-            tooShort: t("usernameTooShort"),
-          },
-          phone:{
-           required: t("phoneRequiredText"),
-           invalid: t("phoneInvalid"),
-           label: t("phoneLabel"),
-           placeholder: "531045453"
-          },
+    <div className="hawa-flex hawa-flex-col hawa-justify-center hawa-w-full hawa-items-center  hawa-h-[calc(60vh)]">
+      <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md hawa-drop-shadow-2xl">
+        <LoginForm
+          direction={locale === "ar" ? "rtl" : "ltr"}
+          currentColorMode={d ? "dark" : "light"}
+          currentLanguage={globals.globals.locale}
+          showError={isError}
+          texts={{
+            email: {
+              label: t("emailLabel"),
+              placeholder: t("emailPlaceholder"),
+              required: t("emailRequiredText"),
+              invalid: t("emailInvalidText"),
+            },
+            password: {
+              label: t("passwordLabel"),
+              placeholder: t("passwordPlaceholder"),
+              required: t("passwordRequiredText"),
+              tooShort: t("passwordTooShort"),
+            },
+            username: {
+              label: t("usernameLabel"),
+              placeholder: t("usernamePlaceholder"),
+              required: t("usernameRequired"),
+              invalid: t("usernameRequired"),
+              tooShort: t("usernameTooShort"),
+            },
+            phone: {
+              required: t("phoneRequiredText"),
+              invalid: t("phoneInvalid"),
+              label: t("phoneLabel"),
+              placeholder: "531045453",
+            },
 
-          forgotPassword: t("forgotPasswordText"),
-          newUserText: t("newUserText"),
-          createAccount: t("createAccount"),
-          loginText: t("loginText"),
-          continueWithGoogle: t("loginViaGoogleLabel"),
-          continueWithGithub: t("loginViaGithubLabel"),
-          continueWithTwitter: t("loginViaTwitterLabel"),
-        }}
-        {...args}
-      />
+            forgotPassword: t("forgotPasswordText"),
+            newUserText: t("newUserText"),
+            createAccount: t("createAccount"),
+            loginText: t("loginText"),
+            continueWithGoogle: t("loginViaGoogleLabel"),
+            continueWithGithub: t("loginViaGithubLabel"),
+            continueWithTwitter: t("loginViaTwitterLabel"),
+          }}
+          {...args}
+        />
+      </div>
     </div>
   );
 };

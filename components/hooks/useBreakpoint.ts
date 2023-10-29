@@ -7,17 +7,15 @@ export const useBreakpoint = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Client-side-only code
+    if (typeof window == "undefined") return;
 
-      window?.addEventListener("resize", resize);
+    // Client-side-only code
+    window?.addEventListener("resize", resize);
 
-      return () => {
-        window?.removeEventListener("resize", resize);
-      };
-    }
+    return () => {
+      window?.removeEventListener("resize", resize);
+    };
   }, []);
 
   return breakpoint;
 };
-

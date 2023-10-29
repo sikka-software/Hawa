@@ -5,6 +5,8 @@ import Github from "../assets/github.svg";
 import Discord from "../assets/discord.svg";
 import Youtube from "../assets/youtube.svg";
 import Tutorials from "../assets/tutorials.svg";
+import blocksImage from "../assets/hawa-docs-blocks.jpg";
+import elementsImage from "../assets/hawa-docs-elements.jpg";
 import Styling from "../assets/styling.png";
 import Context from "../assets/context.png";
 import Assets from "../assets/assets.png";
@@ -38,61 +40,65 @@ export const RightArrow = () => (
 
 <div className="sb-container">
   <div className='sb-section-title bg-red-500'>
-    # Configure your project
+    # Welcome to Hawa
 
-    Because Storybook works separately from your app, you'll need to configure it for your specific stack and setup. Below, explore guides for configuring Storybook with popular frameworks and tools. If you get stuck, learn how you can ask for help from our community.
+Welcome to Hawa, a comprehensive UI Kit designed to streamline the development of modern web applications. Hawa is an intricately crafted collection of UI components leveraging the power and efficiency of several prominent libraries and frameworks in the React ecosystem. Through Hawa, you can accelerate the design-to-code process, ensuring a seamless user experience across your projects.
 
   </div>
   <div className="sb-section">
     <div className="sb-section-item">
       <Image
-        src={Styling}
+        src={blocksImage}
         alt="A wall of logos representing different styling technologies"
         width={0}
         height={0}
+                className="hawa-border hawa-rounded"
+
         style={{ width: '100%', height: 'auto' }}
       />
-      <h4 className="sb-section-item-heading">Add styling and CSS</h4>
-      <p className="sb-section-item-paragraph">Like with web applications, there are many ways to include CSS within Storybook. Learn more about setting up styling within Storybook.</p>
+      <h4 className="sb-section-item-heading">Blocks</h4>
+      <p className="sb-section-item-paragraph">Blocks are pre-designed, reusable sections of UI that encompass various form-based interactions. They save time and maintain consistency across similar tasks within your application.</p>
       <a
         href="https://storybook.js.org/docs/react/configure/styling-and-css"
         target="_blank"
       >Learn more<RightArrow /></a>
     </div>
     <div className="sb-section-item">
-      <Image 
+      <Image
         width={0}
         height={0}
         style={{ width: '100%', height: 'auto' }}
-        src={Context}
+        src={elementsImage}
+                className="hawa-border hawa-rounded"
+
         alt="An abstraction representing the composition of data for a component"
       />
-      <h4 className="sb-section-item-heading">Provide context and mocking</h4>
-      <p className="sb-section-item-paragraph">Often when a story doesn't render, it's because your component is expecting a specific environment or context (like a theme provider) to be available.</p>
+      <h4 className="sb-section-item-heading">Layout</h4>
+      <p className="sb-section-item-paragraph">Layout components are the backbone of your application's UI architecture. They help in organizing the space within your application in an intuitive and efficient manner.</p>
       <a
         href="https://storybook.js.org/docs/react/writing-stories/decorators#context-for-mocking"
         target="_blank"
       >Learn more<RightArrow /></a>
     </div>
     <div className="sb-section-item">
-      <Image 
+      <Image
         width={0}
         height={0}
-        style={{ width: '100%', height: 'auto' }} 
-        src={Assets} 
-        alt="A representation of typography and image assets" 
+        style={{ width: '100%', height: 'auto' }}
+        src={elementsImage}
+        className="hawa-border hawa-rounded"
+        alt="A representation of typography and image assets"
       />
       <div>
-        <h4 className="sb-section-item-heading">Load assets and resources</h4>
-        <p className="sb-section-item-paragraph">To link static files (like fonts) to your projects and stories, use the
-        `staticDirs` configuration option to specify folders to load when
-        starting Storybook.</p>
+        <h4 className="sb-section-item-heading">Elements</h4>
+        <p className="sb-section-item-paragraph">Elements are the building blocks of your UI, providing all the necessary UI components you need to build a user-friendly interface. </p>
         <a
           href="https://storybook.js.org/docs/react/configure/images-and-assets"
           target="_blank"
         >Learn more<RightArrow /></a>
       </div>
     </div>
+
   </div>
 </div>
 <div className="sb-container">
@@ -237,8 +243,6 @@ export const RightArrow = () => (
         target="_blank"
       >Star on GitHub<RightArrow /></a>
     </div>
-   
- 
 
 </div>
 
@@ -277,6 +281,8 @@ export const RightArrow = () => (
     padding-top: 20px !important;
     padding-bottom: 5px !important;
     margin: 0 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
   }
   .sb-section-item-paragraph {
     margin: 0;

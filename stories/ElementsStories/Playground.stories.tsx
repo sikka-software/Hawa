@@ -4,8 +4,19 @@ import {
   Button,
   Combobox,
   Input,
+  Logos,
   PhoneInput,
   Select,
+  Switch,
+  Card,
+  CardContent,
+  Radio,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  SplitButton,
+  Slider,
 } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
@@ -313,3 +324,75 @@ const ShopNavBar = () => {
   );
 };
 // style={{ paddingLeft: props.preview ? 0 : 16, paddingRight: 0 }}
+
+export const ToScreenshot: Story = {
+  render: () => {
+    const [loading, setLoading] = useState(false);
+    const [preview, setPreview] = useState(true);
+    return (
+      <div className="hawa-h-[calc(60vh)] hawa-flex hawa-flex-col hawa-justify-center ">
+        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-drop-shadow-xl hawa-justify-center">
+          <div
+            className="hawa-flex hawa-flex-col hawa-flex-wrap hawa-gap-2"
+            dir="rtl"
+          >
+            <Input
+              isLoading={loading}
+              type={"password"}
+              label={"إسم الخانة"}
+              dir="rtl"
+            />
+            <Tabs defaultValue="account" dir={"rtl"}>
+              <TabsList className="hawa-w-full">
+                <TabsTrigger value="account">{t("account")}</TabsTrigger>
+                <TabsTrigger value="password">{t("password")}</TabsTrigger>
+                <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
+                <TabsTrigger value="display">{t("display")}</TabsTrigger>
+              </TabsList>
+            </Tabs>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <Button variant={"outline"} className="hawa-bg-white ">
+                إلغاء
+              </Button>
+              <Button>حفظ</Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="hawa-bg-white"
+              >
+                <Logos.github className="hawa-h-4 hawa-w-4 hawa-text-gray-500" />
+              </Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="hawa-bg-white"
+              >
+                <Logos.sikka className="hawa-h-4 hawa-w-4 hawa-text-gray-500" />
+              </Button>
+              <SplitButton
+                // direction={"rtl"}
+                className="hawa-bg-white"
+                variant={"outline"}
+                menuItems={[
+                  {
+                    label: `Discard changes`,
+                    value: 10,
+                    action: () => console.log("discarding changes"),
+                  },
+                  { label: `Save as draft`, value: 10 },
+                  { label: `Send for review`, value: 10 },
+                ]}
+              >
+                نشر
+              </SplitButton>
+            </div>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <Switch />
+              <Slider />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
