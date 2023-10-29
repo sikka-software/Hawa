@@ -7,15 +7,17 @@ export const useBreakpoint = () => {
   };
 
   useEffect(() => {
-    if (typeof window == "undefined") return;
+    // Ensure this code is only run on the client side
+    if (typeof window !== "undefined") {
+      // Now it's safe to use window
+      setBreakpoint(window?.innerWidth);
+      window?.addEventListener("resize", resize);
 
-    // Client-side-only code
-    window?.addEventListener("resize", resize);
-
-    return () => {
-      window?.removeEventListener("resize", resize);
-    };
-  }, []);
+      return () => {
+        window?.removeEventListener("resize", resize);
+      };
+    }
+  }, []); // Empty dependency array ensures this useEffect runs once, similar to componentDidMount
 
   return breakpoint;
 };
