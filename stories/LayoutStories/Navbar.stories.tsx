@@ -16,7 +16,7 @@ const meta = {
   title: "Layout/Navbar",
   component: Navbar,
   parameters: {
-    // layout: "fullscreen",
+    layout: "fullscreen",
     docs: {
       page: () => (
         <>
@@ -40,16 +40,23 @@ export const Default: Story = {
     return (
       <div>
         <Navbar
-          // menuItems={[
-          //   {
-          //     trigger: "item 2",
-          //     action: () => console.log("clicked on item"),
-          //   },
-          //   {
-          //     trigger: "item 3",
-          //     content: <div className="hawa-p-4">something here</div>,
-          //   },
-          // ]}
+          menuItems={[
+            {
+              label: "item 1",
+              trigger: "item 1",
+              action: () => console.log("clicked on item 1"),
+            },
+            {
+              label: "item 2",
+              trigger: "item 2",
+              action: () => console.log("clicked on item 2"),
+            },
+            {
+              label: "item 3",
+              trigger: "item 3",
+              action: () => console.log("clicked on item 3"),
+            },
+          ]}
           logo={<Logos.sikka className="hawa-h-6 hawa-w-6" />}
           buttons={
             <>
@@ -59,6 +66,9 @@ export const Default: Story = {
             </>
           }
         />
+        <div className="hawa-bg-card hawa-h-[calc(200dvh)] hawa-p-10 hawa-m-2 hawa-rounded hawa-border-spacing-3 hawa-border-dashed hawa-border-2 hawa-border-gray-500">
+          Content Area
+        </div>
       </div>
     );
   },

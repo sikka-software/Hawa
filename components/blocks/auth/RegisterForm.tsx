@@ -22,7 +22,7 @@ import {
 } from "../../types/textTypes";
 import { AuthButtons } from "./AuthButtons";
 import { DirectionType } from "@/components/types/commonTypes";
-import { EyeIcon } from "../../icons";
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
@@ -261,7 +261,11 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                           className="hawa-cursor-pointer"
                           onClick={() => setPasswordVisible(!passwordVisible)}
                         >
-                          <EyeIcon classNames="hawa-text-gray-500" />
+                          {passwordVisible ? (
+                            <EyeIcon classNames="hawa-text-gray-500" />
+                          ) : (
+                            <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                          )}{" "}
                         </div>
                       }
                       autoComplete="new-password"

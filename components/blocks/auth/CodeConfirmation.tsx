@@ -1,6 +1,6 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";

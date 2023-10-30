@@ -20,7 +20,7 @@ import {
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
 import { DirectionType } from "@/components/types/commonTypes";
-import { EyeIcon } from "../../icons";
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
 
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
@@ -186,7 +186,11 @@ export const LoginForm: FC<LoginFormTypes> = ({
                         className="hawa-cursor-pointer"
                         onClick={() => setPasswordVisible(!passwordVisible)}
                       >
-                        <EyeIcon classNames="hawa-text-gray-500" />
+                        {passwordVisible ? (
+                          <EyeIcon classNames="hawa-text-gray-500" />
+                        ) : (
+                          <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                        )}
                       </div>
                     }
                     placeholder={
@@ -242,8 +246,11 @@ export const LoginForm: FC<LoginFormTypes> = ({
                         className="hawa-cursor-pointer"
                         onClick={() => setPasswordVisible(!passwordVisible)}
                       >
-                        <EyeIcon classNames="hawa-text-gray-500" />
-                      </div>
+ {passwordVisible ? (
+                          <EyeIcon classNames="hawa-text-gray-500" />
+                        ) : (
+                          <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                        )}                      </div>
                     }
                     placeholder={
                       texts?.password?.placeholder || "Enter your password"
