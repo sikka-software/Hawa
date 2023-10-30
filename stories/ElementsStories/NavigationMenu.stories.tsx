@@ -58,10 +58,7 @@ export const Default: Story = {
                   </div>
                 </NavigationMenuLink>
 
-                <div
-                  // dir={locale === "ar" ? "rtl" : "ltr"}
-                  className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted"
-                >
+                <div className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted">
                   <ArrowUpRightSquare />
                   <div className="hawa-flex hawa-flex-col">
                     <h1 className="hawa-font-bold hawa-text-xl">
@@ -117,10 +114,7 @@ export const RTL: Story = {
                   </div>
                 </NavigationMenuLink>
 
-                <div
-                  // dir={locale === "ar" ? "rtl" : "ltr"}
-                  className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted"
-                >
+                <div className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted">
                   <ArrowUpRightSquare />
                   <div className="hawa-flex hawa-flex-col">
                     <h1 className="hawa-font-bold ">{t("share")}</h1>

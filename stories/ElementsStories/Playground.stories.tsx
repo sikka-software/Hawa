@@ -370,7 +370,6 @@ export const ToScreenshot: Story = {
                 <Logos.sikka className="hawa-h-4 hawa-w-4 hawa-text-gray-500" />
               </Button>
               <SplitButton
-                // direction={"rtl"}
                 className="hawa-bg-white"
                 variant={"outline"}
                 menuItems={[

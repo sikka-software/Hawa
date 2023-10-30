@@ -1,22 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DocsLayout, Button } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
-import {
-  BarChart,
-  FolderArchive,
-  FolderClosed,
-  LayoutDashboard,
-  PhoneCall,
-  Users2,
-} from "lucide-react";
 import { useState } from "react";
 
 const meta = {
   title: "Layout/Docs Layout",
   component: DocsLayout,
   parameters: {
-    // layout: "fullscreen",
     docs: {
       page: () => (
         <>
@@ -55,7 +46,7 @@ export const Default: Story = {
         keepOpen={keepOpen}
         setKeepOpen={setKeepOpen}
         onDrawerExpand={handleDrawerExpand}
-        direction={locale === "ar" ? "rtl" : "ltr"}
+        direction={direction}
         texts={{
           expandSidebar: t("expandSidebar"),
           collapseSidebar: t("collapseSidebar"),

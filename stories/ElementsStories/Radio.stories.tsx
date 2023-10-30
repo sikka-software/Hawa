@@ -23,20 +23,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return <div>Template story</div>;
-};
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
     setLocale(locale);
     return (
       <div
         className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10"
-        dir={locale === "ar" ? "rtl" : "ltr"}
+        dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <h1>
@@ -46,7 +42,7 @@ export const Default: Story = {
             onChangeTab={() => console.log()}
             defaultValue={"option2"}
             design={"default"}
-            direction={locale === "ar" ? "rtl" : "ltr"}
+            direction={direction}
             options={[
               { label: `Option 1`, value: `option1` },
               { label: `Option 2`, value: `option2`, disabled: true },
@@ -59,7 +55,7 @@ export const Default: Story = {
             Orientation: <strong>Vertical</strong>
           </h1>
           <Radio
-            direction={locale === "ar" ? "rtl" : "ltr"}
+            direction={direction}
             onChangeTab={() => console.log()}
             defaultValue={"option6"}
             design={"default"}
@@ -118,13 +114,13 @@ export const Tabs: Story = {
 export const Cards: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-
     setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
       <div
         className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10 hawa-max-w-sm"
-        dir={locale === "ar" ? "rtl" : "ltr"}
+        dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <h1>
@@ -191,11 +187,12 @@ export const Bordered: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
       <div
         className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10"
-        dir={locale === "ar" ? "rtl" : "ltr"}
+        dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <h1>
@@ -205,7 +202,7 @@ export const Bordered: Story = {
             design={"bordered"}
             defaultValue={"option2"}
             onChangeTab={() => console.log()}
-            direction={locale === "ar" ? "rtl" : "ltr"}
+            direction={direction}
             options={[
               {
                 label: `Option 1`,
@@ -235,7 +232,7 @@ export const Bordered: Story = {
             orientation="vertical"
             defaultValue={"option6"}
             onChangeTab={() => console.log()}
-            direction={locale === "ar" ? "rtl" : "ltr"}
+            direction={direction}
             options={[
               {
                 label: `Option 4`,

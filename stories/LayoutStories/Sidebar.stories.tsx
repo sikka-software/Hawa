@@ -8,7 +8,6 @@ const meta = {
   title: "Layout/Sidebar",
   component: SidebarGroup,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -25,54 +24,23 @@ export default meta;
 type Story = StoryObj<typeof SidebarGroup>;
 
 let items = [
-  {
-    value: "item-1",
-    label: "item 1",
-    // icon: <FaHome />
-  },
+  { value: "item-1", label: "item 1" },
   {
     value: "item-2",
     label: "item 2",
-    //   icon: <FaFolderOpen />,
-
     subitems: [
-      {
-        value: "subitem-1",
-        label: "subitem 1",
-        // icon: <FaFolderOpen />
-      },
-      {
-        value: "subitem-2",
-        label: "subitem 2",
-        // icon: <FaFolderOpen />
-      },
+      { value: "subitem-1", label: "subitem 1" },
+      { value: "subitem-2", label: "subitem 2" },
     ],
   },
-  {
-    value: "item-3",
-    label: "item 3",
-    //  icon: <FaPoll />
-  },
-  {
-    value: "item-4",
-    label: "item 4",
-    //  icon: <FaPodcast />
-  },
+  { value: "item-3", label: "item 3" },
+  { value: "item-4", label: "item 4" },
   {
     value: "item-5",
     label: "item 5",
-    //   icon: <FaAddressBook />,
     subitems: [
-      {
-        value: "subitem-1",
-        label: "subitem 1",
-        // icon: <FaFolderOpen />
-      },
-      {
-        value: "subitem-2",
-        label: "subitem 2",
-        //  icon: <FaFolderOpen />
-      },
+      { value: "subitem-1", label: "subitem 1" },
+      { value: "subitem-2", label: "subitem 2" },
     ],
   },
 ];
@@ -80,12 +48,12 @@ let items = [
 const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
-  setLocale(locale);
   const [selectedItem, setSelectedItem] = useState<string[]>([]);
   const [val, setVal] = useState(null);
+  setLocale(locale);
 
   return (
-    <div className="hawa-max-w-xs">
+    <div className="hawa-max-w-xs" dir={direction}>
       <Button onClick={() => setVal(null)}>Collapse Them</Button>
       <SidebarGroup
         openedItem={val}

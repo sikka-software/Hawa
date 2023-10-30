@@ -15,6 +15,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ResetPasswordTextsTypes } from "@/components/types/textTypes";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
@@ -22,7 +23,7 @@ type ResetPasswordType = {
   sent: any;
   headless?: boolean;
   allowRegister?: boolean;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   texts?: ResetPasswordTextsTypes;
 };
 

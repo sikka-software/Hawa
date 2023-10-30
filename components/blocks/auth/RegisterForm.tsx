@@ -21,6 +21,7 @@ import {
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
 import { AuthButtons } from "./AuthButtons";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
@@ -34,7 +35,7 @@ type RegisterFormTypes = {
   /** The current color mode being used in the application. */
   currentColorMode?: any;
   /** Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right). */
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   /** Determines whether to display logos only or with text in the social media registration section. */
   logosOnly?: boolean;
   /** Enables registration via Google when set to true. */

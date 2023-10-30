@@ -1,10 +1,11 @@
 import React, { FC } from "react";
 import { PricingCard, Radio } from "../../elements";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type PricingPlansTypes = {
   plans: {
     id: any;
-    direction: "rtl" | "ltr";
+    direction: DirectionType;
     features: [{ included: boolean; text: string }];
     price: number;
     size: "small" | "medium" | "large";
@@ -35,7 +36,7 @@ type PricingPlansTypes = {
   };
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
 };
 export const PricingPlans: FC<PricingPlansTypes> = (props) => {
   return (

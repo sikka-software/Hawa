@@ -508,7 +508,7 @@ const Template = (args: any, globals: any) => {
         data={generatedData}
         // itemsPerPage={[10, 50, 100, 150, 200, 500]}
         condensed
-        direction={locale === "ar" ? "rtl" : "ltr"}
+        direction={direction}
         texts={{
           of: t("of"),
           item: "عناصر",

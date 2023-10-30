@@ -1,11 +1,12 @@
 import React, { FC, useState } from "react";
 import { Radio } from "../../elements";
 import clsx from "clsx";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type HorizontalPricingTypes = {
   plans: {
     currentPlan?: boolean;
-    direction?: "rtl" | "ltr";
+    direction?: DirectionType;
     currency?: string;
     cycleText?: string;
     features?: { included: boolean; text: string; description?: string }[];
@@ -32,7 +33,7 @@ type HorizontalPricingTypes = {
   };
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
 };
 export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
   const [selectedCard, setSelectedCard] = useState<string>("");

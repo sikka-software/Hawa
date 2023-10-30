@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import clsx from "clsx";
 import { Button } from "./Button";
-import { SeverityType } from "../types/commonTypes";
+import { DirectionType, SeverityType } from "../types/commonTypes";
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
@@ -19,7 +19,7 @@ type AlertTypes = {
     | "left-accent"
     | "right-accent"
     | "bottom-accent";
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   actions?: [
     {
       label: string;

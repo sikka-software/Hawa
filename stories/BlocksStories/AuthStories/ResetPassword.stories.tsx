@@ -31,7 +31,7 @@ const Template = (args: any, globals: any) => {
     <div className="hawa-max-w-md" dir={direction}>
       {" "}
       <ResetPasswordForm
-        direction={globals.globals.locale === "ar" ? "rtl" : "ltr"}
+        direction={direction}
         {...args}
         texts={{
           email: {

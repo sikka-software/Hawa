@@ -136,7 +136,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
 const SidebarItem: React.FC<{
   item: Item;
   selectedItem?: any;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   onItemClick?: (value: string[]) => void;
   onSubItemClick?: (values: string[]) => void;
   isOpen?: boolean;

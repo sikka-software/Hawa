@@ -40,7 +40,7 @@ const Template = (args: any, globals: any) => {
     );
   };
   return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2">
+    <div className="hawa-flex hawa-flex-col hawa-gap-2" dir={direction}>
       <Logo name="Apple" />
       <Logo name="Whatsapp" />
       <Logo name="Microsoft" />

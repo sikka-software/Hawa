@@ -70,55 +70,38 @@ let roles = [
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     setLocale(locale);
     return (
       <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-        <div
-          className="hawa-max-w-md hawa-w-full"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
-          {/* <Combobox data={frameworks} /> */}
+        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Role"
-            // defaultValue="84040984098"
             preview={true}
             placeholder="Select Role"
             data={roles}
             valueKey={"_id"}
           />
         </div>
-        <div
-          className="hawa-max-w-md hawa-w-full"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
-          {/* <Combobox data={frameworks} /> */}
+        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Role"
-            // defaultValue="84040984098"
             placeholder="Select Role"
             data={roles}
             valueKey={"_id"}
           />
         </div>
-        <div
-          className="hawa-max-w-md hawa-w-full"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
-          {/* <Combobox data={frameworks} /> */}
+        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Loading"
             isLoading
-            // defaultValue="84040984098"
             placeholder="Select Role"
             data={roles}
             valueKey={"_id"}
           />
         </div>
-        <div
-          className="hawa-max-w-md hawa-w-full"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
+        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="No Search"
             hideInput

@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -270,7 +271,7 @@ export type MenuItemType = {
 interface DropdownMenuProps {
   trigger?: any;
   items?: MenuItemType[];
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   className?: ExtendedDropdownMenuContentProps["className"];
   triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
   sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"];

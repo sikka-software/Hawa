@@ -4,10 +4,9 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
-  title: "Layout/DocsSidebar",
+  title: "Layout/Docs Sidebar",
   component: DocsSidebar,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>

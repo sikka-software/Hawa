@@ -27,9 +27,10 @@ import { DropdownMenu } from "./DropdownMenu";
 import { Skeleton } from "./Skeleton";
 import { Button } from "./Button";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 type DataTableProps<DataProps = {}> = {
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   columns: ColumnDef<DataProps>[];
   data: DataProps[];
   itemsPerPage?: any[];

@@ -2,13 +2,14 @@ import clsx from "clsx";
 import React, { FC } from "react";
 import { Button } from "../Button";
 import { Card } from "../Card";
+import { DirectionType } from "@/components/types/commonTypes";
 
 // TODO: if feature.excluded is false, show gray and x
 // TODO: add badge to feature if soon
 // TODO: add a discount element
 
 type PricingCardTypes = {
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   features: { included: boolean; text: string }[];
   price: number;
   texts: {
@@ -29,7 +30,6 @@ export const PricingCard: FC<PricingCardTypes> = ({
   currentPlan = false,
   ...props
 }) => {
-  let isArabic = direction === "rtl";
   let cardSizes = {
     small:
       "hawa-mx-1 hawa-w-full hawa-max-w-sm hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
@@ -40,7 +40,7 @@ export const PricingCard: FC<PricingCardTypes> = ({
   };
   return (
     <Card
-      dir={isArabic ? "rtl" : "ltr"}
+      dir={direction}
       className={clsx(
         currentPlan
           ? "hawa-border-primary dark:hawa-border-primary/70 hawa-border-2 "

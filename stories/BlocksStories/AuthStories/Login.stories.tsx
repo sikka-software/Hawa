@@ -31,6 +31,7 @@ type Story = StoryObj<typeof LoginForm>;
 
 const Template = (args: any, globals: any) => {
   const locale = globals.globals.locale === "ar" ? "ar" : "en";
+  const direction = locale === "ar" ? "rtl" : "ltr";
 
   setLocale(locale);
   const [isError, setError] = useState(false);
@@ -40,7 +41,7 @@ const Template = (args: any, globals: any) => {
     <div className="hawa-flex hawa-flex-col hawa-justify-center hawa-w-full hawa-items-center  hawa-h-[calc(60vh)]">
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md hawa-drop-shadow-2xl">
         <LoginForm
-          direction={locale === "ar" ? "rtl" : "ltr"}
+          direction={direction}
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}
@@ -117,6 +118,7 @@ export const viaPhone: Story = {
 export const MagicLink: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     setLocale(locale);
     const [isError, setError] = useState(false);
@@ -125,7 +127,7 @@ export const MagicLink: Story = {
     return (
       <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
         <LoginForm
-          direction={locale === "ar" ? "rtl" : "ltr"}
+          direction={direction}
           currentColorMode={d ? "dark" : "light"}
           currentLanguage={globals.globals.locale}
           showError={isError}

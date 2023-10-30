@@ -42,16 +42,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return (
-    <div>
-      <Switch />
-    </div>
-  );
-};
 export const Default: Story = {
   render: () => <Switch />,
 };

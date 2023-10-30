@@ -15,11 +15,12 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { NewPasswordTextsTypes } from "@/components/types/textTypes";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
   handleRouteToRegister: () => void;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   headless?: boolean;
   allowRegister?: boolean;
   passwordChanged: any;

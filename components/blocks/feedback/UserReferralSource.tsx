@@ -12,6 +12,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import * as z from "zod";
+import { DirectionType } from "@/components/types/commonTypes";
 
 type ComponentTypes = {
   title?: string;
@@ -20,7 +21,7 @@ type ComponentTypes = {
   tag?: any;
   options?: RadioOptionsTypes[];
   position?: "bottom-right" | "bottom-left";
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
   onSubmitForm?: (e: any) => void;
   texts?: {
     pleaseSelectOption: string;

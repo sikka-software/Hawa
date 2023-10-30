@@ -57,7 +57,7 @@ export const Default: Story = {
         keepOpen={keepOpen}
         setKeepOpen={setKeepOpen}
         onDrawerExpand={handleDrawerExpand}
-        direction={locale === "ar" ? "rtl" : "ltr"}
+        direction={direction}
         texts={{
           expandSidebar: t("expandSidebar"),
           collapseSidebar: t("collapseSidebar"),
@@ -71,14 +71,6 @@ export const Default: Story = {
               setSelectedPage("/home");
               console.log("going to /home");
             },
-            // BarChart,
-            // FolderArchive,
-            // FolderClosed,
-            // LayoutDashboard,
-            // PhoneCall,
-            // Users2,
-            // icon: () => <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
-            // icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
           },
           {
             label: "Items",

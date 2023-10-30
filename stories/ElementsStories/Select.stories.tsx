@@ -26,14 +26,12 @@ type Story = StoryObj<typeof Select>;
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     setLocale(locale);
     return (
       <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-        <div
-          className="hawa-max-w-md hawa-w-full"
-          dir={locale === "ar" ? "rtl" : "ltr"}
-        >
+        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Select
             label={"Select Input"}
             placeholder={"Choose something"}
@@ -87,40 +85,3 @@ export const Creatable: Story = {
     onInputChange: { action: "onInputChange" },
   },
 };
-// export const Old: Story = {
-//   render: (args) => (
-//     <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-//       <div className="hawa-max-w-md hawa-w-full hawa-flex hawa-flex-row ">
-//         <Select />
-//         <Input />
-//       </div>
-//       {/* <HawaTextField
-//         helperText="something invalid"
-//         placeholder="input placeholder"
-//         // preview: true,
-//         type="text"
-//         width="full"
-//         label="Full Width"
-//       /> */}
-//     </div>
-//   ),
-//   args: {
-//     label: "Select Input",
-//     // fullWidth: true,
-//     isCreatable: false,
-//     isMulti: false,
-//     isClearable: false,
-//     isSearchable: true,
-//     options: [
-//       { value: "chocolate", label: "Chocolate" },
-//       { value: "strawberry", label: "Strawberry" },
-//       { value: "vanilla", label: "Vanilla" },
-//     ],
-//     onChange: (newValue: any, action: any) => {
-//       console.log("new value: ", newValue, "\n", "action", action);
-//     },
-//     onInputChange: (newValue: any, action: any) => {
-//       console.log("new value: ", newValue, "\n", "action", action);
-//     },
-//   },
-// };

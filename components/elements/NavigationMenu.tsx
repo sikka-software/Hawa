@@ -3,6 +3,7 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 type NavigationMenuRootProps = React.ComponentPropsWithoutRef<
   typeof NavigationMenuPrimitive.Root
@@ -163,7 +164,7 @@ type NavigationMenuTypes = {
   items: { trigger: any; content?: any; action?: any }[];
   rootClassNames?: string;
   viewportClassNames?: string;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
 };
 
 export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {

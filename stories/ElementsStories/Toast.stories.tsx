@@ -37,12 +37,13 @@ type Story = StoryObj<typeof Toaster>;
 const Template = (args: any, globals: any) => {
   const { toast } = useToast();
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+  const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
 
   return (
     <div>
       <div>
-        <Toaster direction={locale === "ar" ? "rtl" : "ltr"} />
+        <Toaster direction={direction} />
         <DropdownMenu
           items={[
             {

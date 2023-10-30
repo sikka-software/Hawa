@@ -14,7 +14,6 @@ const meta = {
   title: "Elements/Tabs",
   component: Tabs,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -33,10 +32,11 @@ type Story = StoryObj<typeof Tabs>;
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
 
     return (
-      <Tabs defaultValue="account" dir={locale === "ar" ? "rtl" : "ltr"}>
+      <Tabs defaultValue="account" dir={direction}>
         <TabsList className="hawa-w-full">
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
@@ -77,14 +77,11 @@ export const Vertical: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
-      <Tabs
-        defaultValue="account"
-        orientation="vertical"
-        dir={locale === "ar" ? "rtl" : "ltr"}
-      >
-        <TabsList >
+      <Tabs defaultValue="account" orientation="vertical" dir={direction}>
+        <TabsList>
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
           <TabsTrigger value="settings">{t("settings")}</TabsTrigger>

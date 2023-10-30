@@ -78,13 +78,14 @@ export const LoadingMode: Story = {
 export const Examples: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
     const { handleSubmit, control, formState } = useForm({});
 
     return (
       <div
         className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
-        dir={locale === "ar" ? "rtl" : "ltr"}
+        dir={direction}
       >
         <Controller
           control={control}

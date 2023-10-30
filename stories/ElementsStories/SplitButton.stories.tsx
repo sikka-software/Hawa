@@ -29,10 +29,7 @@ const Template = (args: any, globals: any) => {
   const direction = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <div
-      className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md"
-      // dir={direction}
-    >
+    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
       <SplitButton
         direction={direction}
         variant={"outline"}

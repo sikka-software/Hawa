@@ -28,7 +28,6 @@ export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const dark = useDarkMode();
-    const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
       <AppTopbar

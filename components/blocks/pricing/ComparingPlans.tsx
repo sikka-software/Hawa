@@ -1,6 +1,7 @@
 import React, { useState, FC } from "react";
 import { Radio } from "../../elements";
 import { Tooltip } from "../../elements/Tooltip";
+import { DirectionType } from "@/components/types/commonTypes";
 
 const CheckMark = () => (
   <svg
@@ -34,7 +35,7 @@ const UncheckMark = () => (
 
 type ComparingPlansTypes = {
   plans: {
-    direction?: "rtl" | "ltr";
+    direction?: DirectionType;
     features: { included: boolean; text: string; description?: string }[];
     price?: number;
     texts?: {
@@ -50,7 +51,7 @@ type ComparingPlansTypes = {
   billingCycles: { label: string; value: string }[];
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
-  direction?: "rtl" | "ltr";
+  direction?: DirectionType;
 };
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
