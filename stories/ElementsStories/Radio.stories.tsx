@@ -35,13 +35,15 @@ export const Default: Story = {
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <h1>
-            Orientation: <strong>Horizontal</strong>
-          </h1>
           <Radio
             onChangeTab={() => console.log()}
             defaultValue={"option2"}
             design={"default"}
+            labelProps={{
+              htmlFor: "horizontal",
+              children: "Horizontal orientation",
+            }}
+            helperText="Please pick an option"
             direction={direction}
             options={[
               { label: `Option 1`, value: `option1` },
@@ -51,15 +53,17 @@ export const Default: Story = {
           />
         </div>
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <h1>
-            Orientation: <strong>Vertical</strong>
-          </h1>
           <Radio
             direction={direction}
             onChangeTab={() => console.log()}
             defaultValue={"option6"}
             design={"default"}
             orientation="vertical"
+            labelProps={{
+              htmlFor: "horizontal",
+              children: "Vertical orientation",
+            }}
+            helperText="Please pick an option"
             options={[
               { label: `Option 4`, value: `option4` },
               { label: `Option 5`, value: `option5`, disabled: true },

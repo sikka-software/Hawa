@@ -1,6 +1,7 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 import { cn } from "../util";
 import { DirectionType, OrientationType } from "../types/commonTypes";
+import { Label, LabelProps } from "./Label";
 
 export type RadioOptionsTypes = {
   value: any;
@@ -19,11 +20,13 @@ type RadioTypes = {
   defaultValue?: any;
   direction?: DirectionType;
   helperText?: string;
+  labelProps?: LabelProps;
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
   width = "default",
   orientation = "horizontal",
+  labelProps,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue);
@@ -174,42 +177,45 @@ export const Radio: FC<RadioTypes> = ({
 
     default:
       return (
-        <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
-          {props.options &&
-            props.options.map((opt, i) => (
-              <div
-                className={cn(
-                  "radio-item radio-item-default hawa-flex hawa-items-center hawa-transition-all",
-                  props.direction === "rtl"
-                    ? "margin-left right-3px"
-                    : "margin-right left-3px"
-                )}
-                key={i + 1}
-              >
-                <input
-                  disabled={opt.disabled}
-                  id={opt.value.toString()}
-                  type="radio"
-                  value={opt.value}
-                  name="default-radio"
-                  onChange={() => {
-                    setSelectedOption(opt.value);
-                    props.onChangeTab(opt.value);
-                  }}
-                />
-                <label
-                  htmlFor={opt.value.toString()}
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          {labelProps && <Label {...labelProps}>{labelProps.children}</Label>}
+          <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
+            {props.options &&
+              props.options.map((opt, i) => (
+                <div
                   className={cn(
-                    "hawa-text-sm hawa-font-medium  dark:hawa-text-white",
-                    opt.disabled
-                      ? "hawa-text-gray-400"
-                      : "hawa-cursor-pointer hawa-text-gray-900"
+                    "radio-item radio-item-default hawa-flex hawa-items-center hawa-transition-all",
+                    props.direction === "rtl"
+                      ? "margin-left right-3px"
+                      : "margin-right left-3px"
                   )}
+                  key={i + 1}
                 >
-                  {opt.label}
-                </label>
-              </div>
-            ))}
+                  <input
+                    disabled={opt.disabled}
+                    id={opt.value.toString()}
+                    type="radio"
+                    value={opt.value}
+                    name="default-radio"
+                    onChange={() => {
+                      setSelectedOption(opt.value);
+                      props.onChangeTab(opt.value);
+                    }}
+                  />
+                  <label
+                    htmlFor={opt.value.toString()}
+                    className={cn(
+                      "hawa-text-sm hawa-font-medium  dark:hawa-text-white",
+                      opt.disabled
+                        ? "hawa-text-gray-400"
+                        : "hawa-cursor-pointer hawa-text-gray-900"
+                    )}
+                  >
+                    {opt.label}
+                  </label>
+                </div>
+              ))}
+          </div>
           {props.helperText && (
             <p className="hawa-text-xs hawa-text-helper-color">
               {props.helperText}
