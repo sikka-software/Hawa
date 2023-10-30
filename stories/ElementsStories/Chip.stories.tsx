@@ -32,6 +32,7 @@ export const Colors: Story = {
       <Chip size="normal" label="Blue" color={"blue"} />
       <Chip size="normal" label="Yellow" color={"yellow"} />
       <Chip size="normal" label="Purple" color={"purple"} />
+      <Chip size="normal" label="Cyan" color={"cyan"} />
       <Chip size="normal" label="No Color" />
     </div>
   ),

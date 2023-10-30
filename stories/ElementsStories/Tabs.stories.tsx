@@ -40,8 +40,18 @@ export const Default: Story = {
         <TabsList className="hawa-w-full">
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
-          <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
-          <TabsTrigger value="display">{t("display")}</TabsTrigger>
+          <TabsTrigger
+            value="settings"
+            chipProps={{ label: "", color: "red", size: "small" }}
+          >
+            {t("settings")}
+          </TabsTrigger>
+          <TabsTrigger
+            value="display"
+            chipProps={{ label: t("new"), color: "red", size: "small" }}
+          >
+            {t("display")}
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <Card>

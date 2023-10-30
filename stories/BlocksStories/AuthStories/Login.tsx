@@ -240,7 +240,7 @@ const LoginDocs = (args: any, globals: any) => {
           basic usage example and some accessibility and styling information.
         </span>
       </div> */}
-      <div className="hawa-h-screen"></div>
+      {/* <div className="hawa-h-screen"></div> */}
     </div>
   );
 };
