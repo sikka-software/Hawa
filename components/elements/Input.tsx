@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Label } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
-import {  PositionType } from "../types/commonTypes";
+import { PositionType } from "../types/commonTypes";
 
 // TODO: make icon based on direction
 
@@ -147,7 +147,7 @@ export const Input: FC<TextFieldTypes> = ({
               />
             </div>
             {props.iconInside && (
-              <div className="hawa-absolute hawa-right-1 hawa-top-[41px]  hawa--translate-y-1/2">
+              <div className="hawa-absolute hawa-right-1 hawa-top-[41px] hawa-mx-1  hawa--translate-y-1/2">
                 {props.iconInside}
               </div>
             )}

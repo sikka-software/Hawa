@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,6 +20,7 @@ import {
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
 import { DirectionType } from "@/components/types/commonTypes";
+import { EyeIcon } from "../../icons";
 
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
@@ -84,6 +85,8 @@ export const LoginForm: FC<LoginFormTypes> = ({
   passwordLength = 8,
   ...props
 }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
     continueWithGoogle: texts?.continueWithGoogle,
     continueWithTwitter: texts?.continueWithTwitter,
@@ -160,7 +163,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               render={({ field }) => (
                 <Input
                   width="full"
-                  // autoComplete="email"
+                  autoComplete="email"
                   label={texts?.email?.label}
                   helperText={formState.errors.email?.message}
                   placeholder={texts?.email?.placeholder || "contact@sikka.io"}
@@ -176,8 +179,16 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   <Input
                     width="full"
                     autoComplete="current-password"
-                    type="password"
+                    type={passwordVisible ? "text" : "password"}
                     label={texts?.password?.label || "Password"}
+                    iconInside={
+                      <div
+                        className="hawa-cursor-pointer"
+                        onClick={() => setPasswordVisible(!passwordVisible)}
+                      >
+                        <EyeIcon classNames="hawa-text-gray-500" />
+                      </div>
+                    }
                     placeholder={
                       texts?.password?.placeholder || "Enter your password"
                     }
@@ -189,7 +200,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {!props.withoutResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
-                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                  className="hawa-mb-3  hawa-select-none hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {texts?.forgotPassword || "Forgot Password?"}
                 </div>
@@ -224,8 +235,16 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   <Input
                     width="full"
                     autoComplete="current-password"
-                    type="password"
+                    type={passwordVisible ? "text" : "password"}
                     label={texts?.password?.label}
+                    iconInside={
+                      <div
+                        className="hawa-cursor-pointer"
+                        onClick={() => setPasswordVisible(!passwordVisible)}
+                      >
+                        <EyeIcon classNames="hawa-text-gray-500" />
+                      </div>
+                    }
                     placeholder={
                       texts?.password?.placeholder || "Enter your password"
                     }
@@ -237,7 +256,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {!props.withoutResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
-                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                  className="hawa-mb-3 hawa-select-none hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {texts?.forgotPassword || "Forgot Password?"}
                 </div>
