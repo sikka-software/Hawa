@@ -13,7 +13,7 @@ type PinInputTypes = {
   /** Function to get the value of pins */
   getPins?: (pins: string[]) => void;
   /** The small red text under the input field to show validation or a hint.   */
-  helperText?: string;
+  helperText?: any;
 };
 
 export const PinInput: FC<PinInputTypes> = ({

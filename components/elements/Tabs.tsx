@@ -71,13 +71,10 @@ const TabsTrigger = React.forwardRef<
         className
       )}
       {...props}
-      children={
-        <>
-          {props.children}
-          {chipProps && <Chip {...chipProps} />}
-        </>
-      }
-    />
+    >
+      {props.children}
+      {chipProps && <Chip {...chipProps} />}
+    </TabsPrimitive.Trigger>
   );
 });
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;

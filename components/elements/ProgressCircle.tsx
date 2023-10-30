@@ -139,6 +139,7 @@ export const ProgressCircle = React.forwardRef<
   );
 });
 
+ProgressCircle.displayName = "ProgressCircle";
 // export const Gauge: React.FC<GaugeType> = ({
 //   value = 0,
 //   maxValue = 100,

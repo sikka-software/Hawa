@@ -80,7 +80,7 @@ export const Examples: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    const { handleSubmit, control, formState } = useForm({});
+    const { control } = useForm({});
 
     return (
       <div

@@ -21,9 +21,9 @@ export const Navbar: React.FC<NavbarType> = (props) => {
       <Collapsible>
         <div className="hawa-container hawa-mx-auto hawa-flex hawa-justify-between hawa-items-center">
           <div className="hawa-flex hawa-items-center">
-            <a href="/" className="hawa-text-white hawa-text-xl hawa-font-bold">
+            <div  className="hawa-text-white hawa-text-xl hawa-font-bold">
               YourLogo
-            </a>
+            </div>
           </div>
 
           <div className="hawa-hidden hawa-md:hawa-flex hawa-space-x-4">
