@@ -44,6 +44,7 @@ export * from "./Separator";
 export * from "./Progress";
 export * from "./BackToTop";
 export * from "./ScrollIndicator";
+export * from "./Badge";
 
 export * from "./Input";
 export * from "./Tabs";
