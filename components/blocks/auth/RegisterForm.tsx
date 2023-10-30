@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,6 +22,7 @@ import {
 } from "../../types/textTypes";
 import { AuthButtons } from "./AuthButtons";
 import { DirectionType } from "@/components/types/commonTypes";
+import { EyeIcon } from "../../icons";
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
@@ -89,6 +90,8 @@ type RegisterFormTypes = {
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
     continueWithGoogle: texts?.continueWithGoogle,
     continueWithTwitter: texts?.continueWithTwitter,
@@ -252,7 +255,15 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                   render={({ field }) => (
                     <Input
                       width="full"
-                      type="password"
+                      type={passwordVisible ? "text" : "password"}
+                      iconInside={
+                        <div
+                          className="hawa-cursor-pointer"
+                          onClick={() => setPasswordVisible(!passwordVisible)}
+                        >
+                          <EyeIcon classNames="hawa-text-gray-500" />
+                        </div>
+                      }
                       autoComplete="new-password"
                       label={texts?.password?.label}
                       placeholder={texts?.password?.placeholder}

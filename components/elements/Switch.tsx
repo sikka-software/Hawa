@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { cn } from "../util";
+import { RadiusType } from "../types/commonTypes";
 
 let rootSize = {
   default: "hawa-h-[25px] hawa-w-[42px]",
@@ -17,7 +18,7 @@ interface SwitchProps
   extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
   size?: "default" | "sm" | "lg"; // Define the possible sizes here
   label?: string;
-  roundedness?: "none" | "full" | "inherit";
+  roundedness?: RadiusType;
 }
 
 export const Switch = React.forwardRef<
