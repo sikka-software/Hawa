@@ -66,8 +66,10 @@ export const Default: Story = {
             </>
           }
         />
-        <div className="hawa-bg-card hawa-h-[calc(200dvh)] hawa-p-10 hawa-m-2 hawa-rounded hawa-border-spacing-3 hawa-border-dashed hawa-border-2 hawa-border-gray-500">
-          Content Area
+        <div className="hawa-bg-card hawa-text-center hawa-flex hawa-flex-col hawa-items-center hawa-justify-start hawa-h-[calc(200dvh)] hawa-p-10 hawa-m-2 hawa-rounded hawa-border-spacing-3 hawa-border-dashed hawa-border-2 hawa-border-gray-500">
+          Content
+          <br />
+          Area
         </div>
       </div>
     );
