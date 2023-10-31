@@ -4,6 +4,7 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { EyeIcon } from "../../components/icons";
 
 const meta = {
   title: "Elements/Inputs/Input",
@@ -71,6 +72,29 @@ export const LoadingMode: Story = {
         <Input label={"Middle Name"} isLoading={loading} value={"Fulani"} />
         <Input label={"Last Name"} isLoading={loading} value={"Al-Fulani"} />
         <Input label={"Username"} isLoading={loading} value={"fulan"} />
+      </div>
+    );
+  },
+};
+export const WithEndIcon: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+
+    return (
+      <div
+        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
+        dir={locale === "ar" ? "rtl" : "ltr"}
+      >
+        <Input
+          label={"First Name"}
+          value={"Fulan"}
+          iconInside={
+            <div className="hawa-cursor-pointer">
+              <EyeIcon classNames="hawa-text-gray-500" />
+            </div>
+          }
+        />
       </div>
     );
   },

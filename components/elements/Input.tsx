@@ -147,7 +147,7 @@ export const Input: FC<TextFieldTypes> = ({
               />
             </div>
             {props.iconInside && (
-              <div className="hawa-absolute hawa-right-1 hawa-top-[41px] hawa-mx-1  hawa--translate-y-1/2">
+              <div className="hawa-absolute hawa-end-2 hawa-top-[41px] hawa-mx-1  hawa--translate-y-1/2">
                 {props.iconInside}
               </div>
             )}
