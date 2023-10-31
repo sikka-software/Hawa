@@ -5,7 +5,7 @@ import { DirectionType, SeverityType } from "../types/commonTypes";
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
-  severity?: SeverityType;
+  severity?: SeverityType | "hyper" | "oceanic";
   /** The title of the alert placed above the text of the alert. Can be used alone */
   title?: any;
   /** The text of the alert placed below the title of the alert. Can be used alone */
@@ -33,7 +33,7 @@ type AlertTypes = {
         | "ghost";
     }
   ];
-  persistant?: boolean;
+  persistent?: boolean;
   icon?: any;
   className?: any;
 };
@@ -75,6 +75,8 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     warning: "",
     error: "",
     success: "",
+    hyper: "",
+    oceanic: "",
   };
   let styleVariant = {
     none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-900 ",
@@ -82,6 +84,10 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     warning: "hawa-text-warning-foreground hawa-bg-warning/90",
     error: "hawa-text-destructive-foreground hawa-bg-destructive/90",
     success: "hawa-text-success-foreground hawa-bg-success/90",
+    hyper:
+      "hawa-text-white hawa-bg-gradient-to-tl hawa-from-pink-700 hawa-via-red-500 hawa-to-yellow-600 ",
+    oceanic:
+      "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500",
   };
   // let closeButtonStyle = {
   //   none: "hover:hawa-bg-gray-300",
@@ -137,7 +143,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             <span
               className={clsx(
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
-                props.persistant ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]"
+                props.persistent ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]"
               )}
             >
               {props.text}
@@ -157,7 +163,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             )}
           </div>
         </div>
-        {!props.persistant && (
+        {!props.persistent && (
           <button
             type="button"
             data-dismiss-target="#alert-default"

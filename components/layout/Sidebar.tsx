@@ -2,6 +2,7 @@ import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
+import { Chip, ChipColors } from "../elements";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -70,6 +71,7 @@ AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 type Item = {
   value: string;
   label: string;
+  badge?: { label: string; color: ChipColors };
   icon?: any;
   subitems?: SubItem[];
   onClick?: () => void;
@@ -248,11 +250,14 @@ const SidebarItem: React.FC<{
           {item.icon && item.icon}
           <span
             className={cn(
-              "hawa-whitespace-nowrap hawa-transition-all",
+              "hawa-whitespace-nowrap hawa-transition-all hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center",
               isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
             )}
           >
-            {item.label}
+            {item.label}{" "}
+            {item.badge && (
+              <Chip label={item.badge.label} color="hyper" size="small" />
+            )}
           </span>
         </div>
       </div>

@@ -73,7 +73,7 @@ export const Default: Story = {
             },
           },
           {
-            label: "Items",
+            label: t("items"),
             value: "/items",
             onClick: () => console.log("going to /items"),
             // icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
@@ -105,8 +105,12 @@ export const Default: Story = {
           },
 
           {
-            label: "Analytics",
+            label: t("analytics"),
             value: "/analytics",
+            badge: {
+              color: "hyper",
+              label: t("new"),
+            },
             onClick: () => {
               setSelectedPage("/analytics");
               console.log("going to /analytics");

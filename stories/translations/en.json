@@ -12,6 +12,8 @@
   "are-you-sure-description": "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
   "yes": "Yes",
   "new": "New",
+  "items": "Items",
+  "analytics": "Analytics",
   "cancel": "Cancel",
   "company": "Company",
   "website": "Website",

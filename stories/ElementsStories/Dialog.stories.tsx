@@ -129,7 +129,7 @@ export const Default: Story = {
     persist: true,
   },
 };
-export const Persistant: Story = {
+export const Persistent: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
@@ -139,7 +139,7 @@ export const Persistant: Story = {
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog open={isDialogVisible} onOpenChange={setIsDialogVisible}>
           <DialogTrigger>
-            <Button>Open Persistant Dialog</Button>
+            <Button>Open Persistent Dialog</Button>
           </DialogTrigger>
           <DialogContent persist>
             <DialogHeader>

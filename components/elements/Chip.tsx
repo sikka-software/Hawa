@@ -2,22 +2,24 @@ import React, { FC } from "react";
 import clsx from "clsx";
 import { RadiusType } from "../types/commonTypes";
 
+export type ChipColors =
+  | "green"
+  | "blue"
+  | "red"
+  | "yellow"
+  | "orange"
+  | "purple"
+  | "cyan"
+  | "hyper"
+  | "oceanic";
+
 export type ChipTypes = {
   /** The text inside the chip */
   label: string;
   /** The small icon before the chip label  */
   icon?: JSX.Element;
   /** The color of the chip, must be a tailwind color */
-  color?:
-    | "green"
-    | "blue"
-    | "red"
-    | "yellow"
-    | "orange"
-    | "purple"
-    | "cyan"
-    | "hyper"
-    | "oceanic";
+  color?: ChipColors;
   /** The size of the chip */
   size?: "small" | "normal" | "large";
   /** Enable/Disable the dot before the label of the chip */
