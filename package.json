@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.13.14",
+  "version": "0.13.15",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -17,6 +17,7 @@
     "build": "next build",
     "start": "next start -p 3032",
     "lint": "next lint",
+    "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-lib": "tsup components/index.tsx --format cjs,esm --dts",
@@ -65,6 +66,7 @@
     "zod": "^3.22.3"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.22.15",
     "@storybook/addon-essentials": "^7.5.2",
     "@storybook/addon-interactions": "^7.5.2",
     "@storybook/addon-links": "^7.5.2",
@@ -76,8 +78,13 @@
     "@storybook/react": "^7.5.2",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.2",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.7",
     "autoprefixer": "^10.4.16",
     "eslint-plugin-storybook": "^0.6.15",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lucide-react": "^0.290.0",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",

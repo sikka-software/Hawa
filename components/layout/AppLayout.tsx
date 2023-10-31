@@ -444,7 +444,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               }
             >
               <Button
-                variant="light"
+                variant="outline"
                 onClick={() => {
                   const newKeepOpenState = !keepOpen;
                   if (props.onDrawerExpand) {

@@ -40,7 +40,7 @@ type AlertTypes = {
 export const Alert: React.FunctionComponent<AlertTypes> = ({
   variant = "normal",
   direction = "ltr",
-  severity = "info",
+  severity = "none",
   duration,
   icon,
   className,
