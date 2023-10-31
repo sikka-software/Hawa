@@ -128,14 +128,17 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           <div className="hawa-flex hawa-flex-col">
             <span
               className={clsx(
-                "font-medium",
+                "hawa-font-bold",
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8"
               )}
             >
               {props.title}
             </span>
             <span
-              className={clsx(direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8")}
+              className={clsx(
+                direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
+                props.persistant ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]"
+              )}
             >
               {props.text}
             </span>
@@ -157,13 +160,13 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
         {!props.persistant && (
           <button
             type="button"
+            data-dismiss-target="#alert-default"
+            aria-label="Close"
             className={clsx(
               "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all  hover:hawa-text-gray-900",
               closeButtonStyle[severity],
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2"
             )}
-            data-dismiss-target="#alert-default"
-            aria-label="Close"
             onClick={() => {
               setClosed(true);
               setTimeout(() => {
