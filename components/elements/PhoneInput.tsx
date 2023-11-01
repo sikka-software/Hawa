@@ -22,7 +22,14 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
   }, []);
 
   const handleInputChange = (e: any) => {
-    setPhoneNumber(e.target.value);
+    const validChars = /^[0-9-()]+$/;
+    const input = e.target.value;
+
+    // If the input is empty or matches the regex, update the state
+    if (input === "" || validChars.test(input)) {
+      setPhoneNumber(input);
+    }
+    // setPhoneNumber(e.target.value);
     if (props.handleChange) {
       props.handleChange(`${countryCode?.label}-${e.target.value}`);
     } else {
