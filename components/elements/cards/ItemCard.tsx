@@ -24,7 +24,7 @@ interface ItemCardTypes {
   /** The function of the action button on the image of the card */
   clickableImageAction?: () => void;
   /** The text of the action button on the image of the card */
-  clickableImageActionText: string;
+  clickableImageActionText?: string;
   /** The icon of the action button on the image of the card */
   clickableImageActionIcon?: any;
 }

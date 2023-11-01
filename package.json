@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.13.19",
+  "version": "0.14.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -50,6 +50,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "embla-carousel-react": "^8.0.0-rc14",
     "eslint": "^8.52.0",
     "eslint-config-next": "^14.0.0",
     "libphonenumber-js": "^1.10.49",

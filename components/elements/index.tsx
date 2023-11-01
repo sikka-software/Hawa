@@ -32,6 +32,7 @@ export * from "./PinInput";
 // Non-premitive
 export * from "./FileDropzone";
 export * from "./PhoneInput";
+export * from "./Carousel";
 
 export * from "./AppStores";
 
