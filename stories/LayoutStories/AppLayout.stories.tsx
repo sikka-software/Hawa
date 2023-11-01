@@ -71,7 +71,7 @@ export const Default: Story = {
           expandSidebar: t("expandSidebar"),
           collapseSidebar: t("collapseSidebar"),
         }}
-        currentPage={"/new-item"}
+        currentPage={"/items"}
         {...args}
       >
         <div className=" hawa-h-full  hawa-p-4">
@@ -107,11 +107,11 @@ export const Default: Story = {
       {
         label: "لوحة القيادة",
         value: "/home",
-        icon: <LayoutDashboard className="hawa-w-5 hawa-h-5" />,
+        icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
       },
       {
         label: t("items"),
-        icon: <FolderOpen className="hawa-w-5 hawa-h-5" />,
+        icon: <FolderOpen className="hawa-w-4 hawa-h-4" />,
         value: "/items",
         subitems: [
           { label: "New Item", value: "/new-item" },
@@ -124,7 +124,7 @@ export const Default: Story = {
       {
         label: t("analytics"),
         value: "/analytics",
-        icon: <BarChart2 className="hawa-w-5 hawa-h-5" />,
+        icon: <BarChart2 className="hawa-w-4 hawa-h-4" />,
         badge: { color: "hyper", label: t("new") },
       },
     ],

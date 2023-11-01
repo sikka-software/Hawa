@@ -159,7 +159,7 @@ const SidebarItem: React.FC<{
     return (
       <AccordionItem
         value={item.value}
-        className="hawa-overflow-x-clip"
+        className="hawa-overflow-x-clip "
         dir={direction}
       >
         <AccordionTrigger
@@ -179,8 +179,7 @@ const SidebarItem: React.FC<{
         >
           <div
             className={cn(
-              !isOpen && "hawa-py-1",
-              "hawa-flex hawa-w-fit hawa-flex-row hawa-items-center  hawa-gap-2"
+              "hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-h-fit"
             )}
           >
             {item.icon && item.icon}
