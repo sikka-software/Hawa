@@ -29,21 +29,27 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-max-w-md" dir={direction}>
-      <CodeConfirmation showError={args.showError} {...args} />
+      <CodeConfirmation
+        showError={args.showError}
+        {...args}
+        texts={{
+          checkYourPhone: t("checkYourPhone"),
+          weSentCode: t("weSentCode"),
+          didntGetCode: t("didntGetCode"),
+          resendCode: t("resendCode"),
+          codeLabel: "Code",
+          codeRequiredText: t('codeRequiredText'),
+          codeTooShort: t('codeTooShort'),
+          cancel: t("cancel"),
+          confirm: t("confirm"),
+        }}
+      />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
-  args: {
-    texts: {
-      codeLabel: "Code",
-      codePlaceholder: "123456",
-      codeRequiredText: "Code is required",
-      codeTooShort: "Please enter the full OTP code",
-      confirm: "Confirm",
-    },
-  },
+  args: {},
   argTypes: {
     handleConfirm: { action: "handleConfirm" },
   },

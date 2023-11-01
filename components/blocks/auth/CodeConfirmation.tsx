@@ -11,8 +11,6 @@ type TConfirmation = {
     weSentCode?: string;
     didntGetCode?: string;
     resendCode?: string;
-    codeLabel?: string;
-    codePlaceholder?: string;
     codeRequiredText?: string;
     codeTooShort?: string;
     confirm?: string;
@@ -48,10 +46,10 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
         )}
         <div className="hawa-mb-4 dark:hawa-text-white">
           <div className="hawa-text-lg hawa-font-bold">
-            {props.texts?.checkYourPhone ?? "Please check your phone"}
+            {props.texts?.checkYourPhone || "Please check your phone"}
           </div>
           <div className="hawa-text-muted-foreground">
-            <span>{props.texts?.weSentCode ?? "We've sent a code to "}</span>
+            <span>{props.texts?.weSentCode || "We've sent a code to "}</span>
             <span>{props.phoneNumber}</span>
           </div>{" "}
         </div>
@@ -82,14 +80,14 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
             <span>{props.texts?.didntGetCode ?? "Didn't get the code?"}</span>{" "}
             <span className="clickable-link">
-              {props.texts?.resendCode ?? "Click to resend"}
+              {props.texts?.resendCode || "Click to resend"}
             </span>
           </div>
           <div className="hawa-mt-4 hawa-grid hawa-grid-cols-2 hawa-gap-2">
             <Button variant="secondary">
-              {props.texts?.cancel ?? "Cancel"}
+              {props.texts?.cancel || "Cancel"}
             </Button>
-            <Button>{props.texts?.confirm ?? "Confirm"}</Button>
+            <Button>{props.texts?.confirm || "Confirm"}</Button>
           </div>
         </form>
       </CardContent>
