@@ -65,7 +65,7 @@ export const WithIcons: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-row hawa-gap-2">
       <Chip
-        icon={<KeyRound className="hawa-h-4 hawa-w-4" />}
+        icon={<KeyRound className="hawa-icon" />}
         size="normal"
         label="Unavailable"
         color="red"
@@ -74,7 +74,7 @@ export const WithIcons: Story = {
       <Chip
         size="large"
         label="Available"
-        icon={<Flame className="hawa-h-4 hawa-w-4" />}
+        icon={<Flame className="hawa-icon" />}
         color="hyper"
       />
     </div>

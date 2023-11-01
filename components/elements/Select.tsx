@@ -40,6 +40,7 @@ export type SelectOptionProps = {
 };
 type SelectTypes = {
   label?: string;
+  hideHelperText?: boolean;
   options?: SelectOptionProps[];
   labelKey?: string;
   isCreatable?: boolean;
@@ -216,16 +217,18 @@ export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
           }
         />
       )}
-      <p
-        className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
-          props.helperText
-            ? "hawa-opacity-100 hawa-h-4"
-            : "hawa-opacity-0 hawa-h-0"
-        )}
-      >
-        {props.helperText}
-      </p>
+      {!props.hideHelperText && (
+        <p
+          className={cn(
+            "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+            props.helperText
+              ? "hawa-opacity-100 hawa-h-4"
+              : "hawa-opacity-0 hawa-h-0"
+          )}
+        >
+          {props.helperText}
+        </p>
+      )}
     </div>
   );
 };

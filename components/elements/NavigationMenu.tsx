@@ -62,6 +62,7 @@ const NavigationMenuTrigger = React.forwardRef<
   >
     {children}{" "}
     <svg
+      aria-label="Chevron Icon"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -72,7 +73,7 @@ const NavigationMenuTrigger = React.forwardRef<
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true"
-      className="hawa-relative hawa-top-[1px] hawa-h-4 hawa-w-4 hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
+      className="hawa-relative hawa-top-[1px] hawa-icon hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>

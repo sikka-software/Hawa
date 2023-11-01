@@ -30,7 +30,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleGoogle}
         >
-          <Logos.google className="hawa-h-4 hawa-w-4" />
+          <Logos.google className="hawa-icon" />
           {props.texts?.continueWithGoogle ?? "Continue With Google"}
         </Button>
       )}
@@ -40,7 +40,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleGithub}
         >
-          <Logos.github className="hawa-h-4 hawa-w-4" />
+          <Logos.github className="hawa-icon" />
           {props.texts?.continueWithGithub ?? "Continue With Github"}
         </Button>
       )}
@@ -50,7 +50,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleTwitter}
         >
-          <Logos.twitter className="hawa-h-4 hawa-w-4" />
+          <Logos.twitter className="hawa-icon" />
           {props.texts?.continueWithTwitter ?? "Continue With Twitter"}
         </Button>
       )}
@@ -60,7 +60,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleApple}
         >
-          <Logos.apple className="hawa-h-4 hawa-w-4" />
+          <Logos.apple className="hawa-icon" />
           {props.texts?.continueWithApple ?? "Continue With Apple"}
         </Button>
       )}
@@ -70,7 +70,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleMicrosoft}
         >
-          <Logos.microsoft className="hawa-h-4 hawa-w-4" />
+          <Logos.microsoft className="hawa-icon" />
           {props.texts?.continueWithMicrosoft ?? "Continue With Microsoft"}
         </Button>
       )}
@@ -80,7 +80,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleEmail}
         >
-          <Logos.mail className="hawa-h-4 hawa-w-4" />
+          <Logos.mail className="hawa-icon" />
           {props.texts?.continueWithEmail ?? "Continue With Email"}
         </Button>
       )}
@@ -90,7 +90,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handlePhone}
         >
-          <Logos.phone className="hawa-h-4 hawa-w-4" />
+          <Logos.phone className="hawa-icon" />
           {props.texts?.continueWithPhone ?? "Continue With Phone"}
         </Button>
       )}

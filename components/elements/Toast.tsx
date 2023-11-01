@@ -110,7 +110,7 @@ const ToastClose = React.forwardRef<
     <svg
       aria-label="Close Icon"
       aria-hidden="true"
-      className="hawa-h-4 hawa-w-4"
+      className="hawa-icon"
       fill="currentColor"
       viewBox="0 0 20 20"
     >

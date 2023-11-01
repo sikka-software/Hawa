@@ -51,32 +51,32 @@ const Template = (args: any, globals: any) => {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
-            <Calendar className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <Calendar className="hawa-mr-2 hawa-icon" />
             <span>Calendar</span>
           </CommandItem>
           <CommandItem>
-            <Smile className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <Smile className="hawa-mr-2 hawa-icon" />
             <span>Search Emoji</span>
           </CommandItem>
           <CommandItem>
-            <Calculator className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <Calculator className="hawa-mr-2 hawa-icon" />
             <span>Calculator</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
           <CommandItem>
-            <User className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <User className="hawa-mr-2 hawa-icon" />
             <span>Profile</span>
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <CreditCard className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <CreditCard className="hawa-mr-2 hawa-icon" />
             <span>Billing</span>
             <CommandShortcut>⌘B</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <Settings className="hawa-mr-2 hawa-h-4 hawa-w-4" />
+            <Settings className="hawa-mr-2 hawa-icon" />
             <span>Settings</span>
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>

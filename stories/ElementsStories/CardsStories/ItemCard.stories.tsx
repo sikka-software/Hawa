@@ -83,17 +83,14 @@ const Template = (args: any) => (
           <Tooltip delayDuration={200} content={"Counts"}>
             <div>
               <Count
-                icon={<ArrowRightCircle className="hawa-w-4 hawa-h-4" />}
+                icon={<ArrowRightCircle className="hawa-icon" />}
                 count="30"
               />
             </div>
           </Tooltip>
           <Tooltip delayDuration={200} content={"Likes"}>
             <div>
-              <Count
-                icon={<Heart className="hawa-w-4 hawa-h-4" />}
-                count="20"
-              />
+              <Count icon={<Heart className="hawa-icon" />} count="20" />
             </div>
           </Tooltip>
         </div>

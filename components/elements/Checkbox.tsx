@@ -73,7 +73,7 @@ const CheckboxElement = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "hawa-peer hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-rounded-sm hawa-border hawa-border-primary hawa-ring-offset-background focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50 data-[state=checked]:hawa-bg-primary data-[state=checked]:hawa-text-primary-foreground",
+      "hawa-peer hawa-icon hawa-shrink-0 hawa-rounded-sm hawa-border hawa-border-primary hawa-ring-offset-background focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50 data-[state=checked]:hawa-bg-primary data-[state=checked]:hawa-text-primary-foreground",
       className
     )}
     {...props}

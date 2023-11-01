@@ -28,7 +28,7 @@ export const SortButton: React.FC<SortButtonProps> = (props) => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={props.condensed ? "hawa-h-3 hawa-w-3" : "hawa-h-4 hawa-w-4"}
+        className={props.condensed ? "hawa-h-3 hawa-w-3" : "hawa-icon"}
       >
         <path d="m21 16-4 4-4-4" />
         <path d="M17 20V4" />

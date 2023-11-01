@@ -104,9 +104,7 @@ export const Chip: FC<ChipTypes> = ({
           "hawa-w-2 hawa-h-2 hawa-rounded-full",
           color ? colorStyles[color] : "hawa-border hawa-bg-none"
         )}
-      >
-        {/* {label ? label : <div className="hawa-w-4 hawa-h-4 "></div>} */}
-      </span>
+      ></span>
     );
   }
 };

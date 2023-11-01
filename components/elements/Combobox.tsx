@@ -84,11 +84,12 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={cn(
-                    "hawa-w-4 hawa-h-4 hawa-transition-all",
+                    "hawa-icon hawa-transition-all",
                     !props.preview
                       ? "hawa-opacity-100 hawa-visible"
                       : "hawa-opacity-0 hawa-invisible"
                   )}
+                  aria-label="Chevron down icon"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -137,6 +138,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                   }}
                 >
                   <svg
+                    aria-label="Check Icon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -147,7 +149,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className={cn(
-                      "hawa-mr-2 hawa-h-4 hawa-w-4",
+                      "hawa-mr-2 hawa-icon",
                       value === getProperty(item, valueKey)
                         ? "hawa-opacity-100"
                         : "hawa-opacity-0"

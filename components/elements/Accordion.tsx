@@ -81,11 +81,10 @@ const AccordionTrigger = React.forwardRef<
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-transition-transform hawa-duration-200"
+        className="hawa-icon hawa-shrink-0 hawa-transition-transform hawa-duration-200"
       >
         <path d="m6 9 6 6 6-6" />
       </svg>
-      {/* <ChevronDown className="hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-transition-transform hawa-duration-200" /> */}
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));

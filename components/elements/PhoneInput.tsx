@@ -31,12 +31,13 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
   };
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
+    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2 hawa-h-fit">
       {props.label && <Label>{props.label}</Label>}
 
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
         <Select
           width="fit"
+          hideHelperText
           phoneCode
           hideIndicator
           placeholder="Code"
@@ -48,10 +49,11 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           value={countryCode?.label}
           onChange={setCountryCode}
         />
+
         {/* TODO: attempt to use this one */}
         {/* <Combobox data={Countries} valueKey={"label"} width="fit" /> */}
 
-        <div className="hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-w-full hawa-gap-0">
+        <div className="hawa-flex hawa-h-fit hawa-relative hawa-flex-col  hawa-justify-center hawa-w-full hawa-gap-0">
           <input
             ref={inputRef}
             id="phone-number"

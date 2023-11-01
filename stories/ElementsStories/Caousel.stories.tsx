@@ -112,19 +112,19 @@ const Template = () => {
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
           <Tooltip delayDuration={200} content={"Duplicate"}>
             <Button size="icon" variant="ghost">
-              <CopyIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Delete"}>
             <Button size="icon" variant="ghost">
-              <Trash2 className="hawa-w-5 hawa-h-5" />
+              <Trash2 className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Edit"}>
             <Button size="icon" variant="ghost">
-              <Edit2 className="hawa-w-5 hawa-h-5" />
+              <Edit2 className="hawa-icon" />
             </Button>
           </Tooltip>
         </div>
@@ -134,7 +134,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Counts"}>
             <div>
               <Count
-                icon={<ArrowRightCircle className="hawa-w-4 hawa-h-4" />}
+                icon={<ArrowRightCircle className="hawa-icon" />}
                 count="30"
               />
             </div>
@@ -142,7 +142,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Likes"}>
             <div>
               <Count
-                icon={<Heart className="hawa-w-4 hawa-h-4" />}
+                icon={<Heart className="hawa-icon" />}
                 count="20"
               />
             </div>
@@ -186,19 +186,19 @@ const Template = () => {
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
           <Tooltip delayDuration={200} content={"Duplicate"}>
             <Button size="icon" variant="ghost">
-              <CopyIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Delete"}>
             <Button size="icon" variant="ghost">
-              <Trash2 className="hawa-w-5 hawa-h-5" />
+              <Trash2 className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Edit"}>
             <Button size="icon" variant="ghost">
-              <Edit2 className="hawa-w-5 hawa-h-5" />
+              <Edit2 className="hawa-icon" />
             </Button>
           </Tooltip>
         </div>
@@ -208,7 +208,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Counts"}>
             <div>
               <Count
-                icon={<ArrowRightCircle className="hawa-w-4 hawa-h-4" />}
+                icon={<ArrowRightCircle className="hawa-icon" />}
                 count="30"
               />
             </div>
@@ -216,7 +216,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Likes"}>
             <div>
               <Count
-                icon={<Heart className="hawa-w-4 hawa-h-4" />}
+                icon={<Heart className="hawa-icon" />}
                 count="20"
               />
             </div>
@@ -260,19 +260,19 @@ const Template = () => {
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
           <Tooltip delayDuration={200} content={"Duplicate"}>
             <Button size="icon" variant="ghost">
-              <CopyIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Delete"}>
             <Button size="icon" variant="ghost">
-              <Trash2 className="hawa-w-5 hawa-h-5" />
+              <Trash2 className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Edit"}>
             <Button size="icon" variant="ghost">
-              <Edit2 className="hawa-w-5 hawa-h-5" />
+              <Edit2 className="hawa-icon" />
             </Button>
           </Tooltip>
         </div>
@@ -282,7 +282,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Counts"}>
             <div>
               <Count
-                icon={<ArrowRightCircle className="hawa-w-4 hawa-h-4" />}
+                icon={<ArrowRightCircle className="hawa-icon" />}
                 count="30"
               />
             </div>
@@ -290,7 +290,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Likes"}>
             <div>
               <Count
-                icon={<Heart className="hawa-w-4 hawa-h-4" />}
+                icon={<Heart className="hawa-icon" />}
                 count="20"
               />
             </div>
@@ -334,19 +334,19 @@ const Template = () => {
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
           <Tooltip delayDuration={200} content={"Duplicate"}>
             <Button size="icon" variant="ghost">
-              <CopyIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Delete"}>
             <Button size="icon" variant="ghost">
-              <Trash2 className="hawa-w-5 hawa-h-5" />
+              <Trash2 className="hawa-icon" />
             </Button>
           </Tooltip>
 
           <Tooltip delayDuration={200} content={"Edit"}>
             <Button size="icon" variant="ghost">
-              <Edit2 className="hawa-w-5 hawa-h-5" />
+              <Edit2 className="hawa-icon" />
             </Button>
           </Tooltip>
         </div>
@@ -356,7 +356,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Counts"}>
             <div>
               <Count
-                icon={<ArrowRightCircle className="hawa-w-4 hawa-h-4" />}
+                icon={<ArrowRightCircle className="hawa-icon" />}
                 count="30"
               />
             </div>
@@ -364,7 +364,7 @@ const Template = () => {
           <Tooltip delayDuration={200} content={"Likes"}>
             <div>
               <Count
-                icon={<Heart className="hawa-w-4 hawa-h-4" />}
+                icon={<Heart className="hawa-icon" />}
                 count="20"
               />
             </div>

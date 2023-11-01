@@ -45,6 +45,7 @@ const CommandInput = React.forwardRef<
     cmdk-input-wrapper=""
   >
     <svg
+      aria-label="Search Icon"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -54,7 +55,7 @@ const CommandInput = React.forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="hawa-mr-2 hawa-h-4 hawa-w-4 hawa-shrink-0 hawa-opacity-50"
+      className="hawa-mr-2 hawa-icon hawa-shrink-0 hawa-opacity-50"
     >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />

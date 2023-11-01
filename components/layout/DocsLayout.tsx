@@ -243,7 +243,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
           )}
         >
           <Button variant={"ghost"} size={"smallIcon"}>
-            <Logos.github className="hawa-w-4 hawa-h-4" />
+            <Logos.github className="hawa-icon" />
           </Button>
         </div>
       </div>

@@ -100,18 +100,18 @@ export const Default: Story = {
     ],
     DrawerFooterActions: (
       <Button size="smallIcon" variant={"light"}>
-        <Settings className="hawa-h-4 hawa-w-4" />
+        <Settings className="hawa-icon" />
       </Button>
     ),
     drawerItems: [
       {
         label: "لوحة القيادة",
         value: "/home",
-        icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
+        icon: <LayoutDashboard className="hawa-icon" />,
       },
       {
         label: t("items"),
-        icon: <FolderOpen className="hawa-w-4 hawa-h-4" />,
+        icon: <FolderOpen className="hawa-icon" />,
         value: "/items",
         subitems: [
           { label: "New Item", value: "/new-item" },
@@ -124,7 +124,7 @@ export const Default: Story = {
       {
         label: t("analytics"),
         value: "/analytics",
-        icon: <BarChart2 className="hawa-w-4 hawa-h-4" />,
+        icon: <BarChart2 className="hawa-icon" />,
         badge: { color: "hyper", label: t("new") },
       },
     ],
@@ -166,7 +166,7 @@ export const CustomHeader: Story = {
           <div className=" hawa-w-full hawa-h-full hawa-flex hawa-flex-col hawa-justify-center hawa-items-center">
             <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-justify-start hawa-items-center">
               <div className="hawa-h-8 hawa-w-8 hawa-rounded-full hawa-bg-gray-200 hawa-justify-center hawa-items-center hawa-flex">
-                <User2 className="hawa-h-4 hawa-w-4" />
+                <User2 className="hawa-icon" />
               </div>
               <div className="hawa-flex hawa-flex-col">
                 <span className="hawa-font-bold hawa-text-sm">
@@ -216,7 +216,7 @@ export const CustomHeader: Story = {
     ],
     DrawerFooterActions: (
       <Button size="smallIcon" variant={"light"}>
-        <Settings className="hawa-h-4 hawa-w-4" />
+        <Settings className="hawa-icon" />
       </Button>
     ),
     drawerItems: [

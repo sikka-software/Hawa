@@ -47,7 +47,7 @@ const Template = () => {
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <BadgedComponent>
           <Button variant={"outline"} size={"icon"}>
-            <Bell className="hawa-w-4 hawa-h-4" />
+            <Bell className="hawa-icon" />
           </Button>
         </BadgedComponent>
         <BadgedComponent position="right" hideBadge={hideBadge}>

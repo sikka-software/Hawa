@@ -40,7 +40,7 @@ const Template = (args: any, globals: any) => {
         number="+2350"
         label="Subscriptions"
         helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-w-4 hawa-h-4" />}
+        icon={<Users2 className="hawa-icon" />}
       />
       <Stats
         handleClick={() => console.log("clickable stats")}
@@ -49,7 +49,7 @@ const Template = (args: any, globals: any) => {
         number="+2350"
         label="Subscriptions"
         helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-w-4 hawa-h-4" />}
+        icon={<Users2 className="hawa-icon" />}
       />
       <Stats
         width="full"
@@ -57,7 +57,7 @@ const Template = (args: any, globals: any) => {
         number="+2350"
         label="Subscriptions"
         helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-w-4 hawa-h-4" />}
+        icon={<Users2 className="hawa-icon" />}
       />
       <Stats
         width="full"
@@ -65,7 +65,7 @@ const Template = (args: any, globals: any) => {
         number="+2350"
         label="Subscriptions"
         helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-w-4 hawa-h-4" />}
+        icon={<Users2 className="hawa-icon" />}
       />
     </div>
   );

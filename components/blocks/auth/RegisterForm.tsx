@@ -408,48 +408,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
               handleGithub={props.onGithubRegister}
               handleTwitter={props.onTwitterRegister}
             />
-            {/* {props.viaGoogle && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onGoogleRegister}
-              >
-                {props.isGoogleLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.google className="hawa-h-4 hawa-w-4" />
-                )}{" "}
-                {!props.logosOnly && texts?.registerViaGoogleLabel}
-              </Button>
-            )}
-            {props.viaGithub && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onGithubRegister}
-              >
-                {props.isGithubLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.github className="hawa-h-4 hawa-w-4" />
-                )}{" "}
-                {!props.logosOnly && texts?.registerViaGithubLabel}
-              </Button>
-            )}
-            {props.viaTwitter && (
-              <Button
-                className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
-                variant="outline"
-                onClick={props.onTwitterRegister}
-              >
-                {props.isTwitterLoading ? (
-                  <Loading size="button" />
-                ) : (
-                  <Logos.twitter className="hawa-h-4 hawa-w-4" />
-                )}{" "}
-                {!props.logosOnly && texts?.registerViaTwitterLabel}
-              </Button>
-            )} */}
           </CardFooter>
         ) : null}
       </Card>

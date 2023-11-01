@@ -34,7 +34,7 @@ const Template = (args: any, globals: any) => {
     const Component = getComponent(props.name?.toLowerCase());
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center">
-        <Component className="hawa-w-4 hawa-h-4" />
+        <Component className="hawa-icon" />
         <span className="hawa-text-sm">{props.name} Logo</span>
       </div>
     );

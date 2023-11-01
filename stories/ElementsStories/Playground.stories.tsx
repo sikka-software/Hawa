@@ -360,14 +360,14 @@ export const ToScreenshot: Story = {
                 size={"icon"}
                 className="hawa-bg-white"
               >
-                <Logos.github className="hawa-h-4 hawa-w-4 hawa-text-gray-500" />
+                <Logos.github className="hawa-icon hawa-text-gray-500" />
               </Button>
               <Button
                 variant={"outline"}
                 size={"icon"}
                 className="hawa-bg-white"
               >
-                <Logos.sikka className="hawa-h-4 hawa-w-4 hawa-text-gray-500" />
+                <Logos.sikka className="hawa-icon hawa-text-gray-500" />
               </Button>
               <SplitButton
                 className="hawa-bg-white"
