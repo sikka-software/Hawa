@@ -131,7 +131,6 @@ export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
       )}
     >
       {props.label && <Label>{props.label}</Label>}
-
       {props.isLoading ? (
         <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : !props.isCreatable ? (
@@ -217,7 +216,16 @@ export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
           }
         />
       )}
-      {props.helperText && <p className="hawa-text-xs hawa-text-helper-color">{props.helperText}</p>}
+      <p
+        className={cn(
+          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+          props.helperText
+            ? "hawa-opacity-100 hawa-h-4"
+            : "hawa-opacity-0 hawa-h-0"
+        )}
+      >
+        {props.helperText}
+      </p>
     </div>
   );
 };

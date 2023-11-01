@@ -155,7 +155,7 @@ export const Input: FC<TextFieldTypes> = ({
             {!forceHideHelperText && (
               <p
                 className={cn(
-                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
                   props.helperText
                     ? "hawa-opacity-100 hawa-h-4"
                     : "hawa-opacity-0 hawa-h-0"

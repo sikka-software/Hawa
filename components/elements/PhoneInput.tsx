@@ -68,7 +68,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
 
       <p
         className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
           props.helperText
             ? "hawa-opacity-100 hawa-h-4"
             : "hawa-opacity-0 hawa-h-0"
@@ -76,28 +76,6 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
       >
         {props.helperText}
       </p>
-      {/* {props.helperText && (
-        <p className="hawa-my-0 hawa-text-xs hawa-text-helper-color">
-          {props.helperText}
-        </p>
-      )} */}
     </div>
   );
 };
-
-{
-  /*
-<Input
-  onChange={handleInputChange}
-  value={phoneNumber}
-  type="tel"
-  placeholder="531045453"
-  width="auto"
-  inputProps={{
-    id: "phone-number",
-    className:
-      "hawa-w-full hawa-min-w-full hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none ",
-  }}
-/> 
-*/
-}

@@ -74,7 +74,7 @@ export const Default: Story = {
 
     setLocale(locale);
     return (
-      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
+      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-justify-center hawa-items-start hawa-gap-2 hawa-w-full">
         <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Role"

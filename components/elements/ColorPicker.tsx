@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { cn } from "../util";
 import { Label } from "./Label";
-import {  PositionType } from "../types/commonTypes";
+import { PositionType } from "../types/commonTypes";
 
 type ColorPickerTypes = {
   label?: string;
@@ -125,7 +125,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
 
       <p
         className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
           props.helperText
             ? "hawa-opacity-100 hawa-h-4"
             : "hawa-opacity-0 hawa-h-0"

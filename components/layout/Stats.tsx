@@ -52,11 +52,16 @@ export const Stats: FC<StatTypes> = ({ variant = "default", ...props }) => {
         {props.isLoading && props.helperText ? (
           <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
         ) : (
-          props.helperText && (
-            <p className="hawa-text-xs hawa-text-muted-foreground">
-              {props.helperText}
-            </p>
-          )
+          <p
+            className={cn(
+              "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+              props.helperText
+                ? "hawa-opacity-100 hawa-h-4"
+                : "hawa-opacity-0 hawa-h-0"
+            )}
+          >
+            {props.helperText}
+          </p>
         )}
         {props.isLoading && props.chart ? (
           <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />

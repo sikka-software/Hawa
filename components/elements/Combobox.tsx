@@ -52,13 +52,13 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
     >
       {props.label && <Label>{props.label}</Label>}
       <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-        <PopoverTrigger disabled={props.isLoading || props.preview}>
+        <PopoverTrigger asChild disabled={props.isLoading || props.preview}>
           {props.isLoading ? (
             <div className="hawa-pb-2">
               <Skeleton className="hawa-h-[40px] hawa-w-full" />
             </div>
           ) : (
-            <div className="hawa-flex hawa-flex-col hawa-gap-2 ">
+            <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-items-start ">
               <div
                 className={cn(
                   "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
@@ -101,18 +101,20 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
               </button>
               <p
                 className={cn(
-                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                  "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
                   props.helperText
                     ? "hawa-opacity-100 hawa-h-4"
                     : "hawa-opacity-0 hawa-h-0"
                 )}
               >
                 {props.helperText}
-              </p>{" "}
+              </p>
             </div>
           )}
         </PopoverTrigger>
-        <PopoverContent className={cn("popover-w-parent")}>
+        <PopoverContent
+          className={cn("popover-w-parent", props.helperText && "-hawa-mt-4")}
+        >
           <Command>
             {!props.hideInput && (
               <CommandInput placeholder={props.searchPlaceholder} />
