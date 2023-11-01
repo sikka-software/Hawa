@@ -44,7 +44,11 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
         </div>
       </div>
 
-      <Dots itemsLength={length} selectedIndex={selectedIndex} />
+      <Dots
+        itemsLength={length}
+        selectedIndex={selectedIndex}
+        onDotClick={(index) => emblaApi?.scrollTo(index)}
+      />
 
       {showArrows && (
         <CarouselControls
@@ -61,8 +65,9 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
 type DotsProps = {
   itemsLength: number;
   selectedIndex: number;
+  onDotClick: (index: number) => void; // New prop for handling dot click
 };
-const Dots = ({ itemsLength, selectedIndex }: DotsProps) => {
+const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
     <div className="hawa-flex hawa-gap-1 hawa-z-50 hawa-my-2 hawa-justify-center">
@@ -70,6 +75,7 @@ const Dots = ({ itemsLength, selectedIndex }: DotsProps) => {
         const selected = index === selectedIndex;
         return (
           <div
+            onClick={() => onDotClick(index)} // Handle click event
             className={cn(
               "hawa-h-2  hawa-rounded-full hawa-transition-all hawa-duration-300 hawa-bg-primary",
               !selected
