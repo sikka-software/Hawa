@@ -11,6 +11,8 @@
   "requestTypeRequired": "نوع التذكرة مطلوب",
   "yes": "نعم",
   "new": "جديد",
+  "columns": "الأعمدة",
+
   "analytics": "الإحصائيات",
   "items": "العناصر",
   "cancel": "إلغاء",
@@ -19,7 +21,7 @@
   "website": "الموقع الإلكتروني",
   "location": "المقر الرئيسي",
   "employees": "عدد الموظفين",
-  "share-price": "سعر السهم",
+  "share_price": "سعر السهم",
   "userReferenceLabel": "كيف عرفت عننا؟",
   "send-email-to-login": "أرسل رابط الدخول",
   "type-password": "أدخل كلمة المرور",

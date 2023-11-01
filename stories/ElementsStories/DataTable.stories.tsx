@@ -350,6 +350,8 @@ const Template = (args: any, globals: any) => {
   const companiesColumns: ColumnDef<Company>[] = [
     {
       accessorKey: "name",
+      enableHiding: false,
+
       // header: t("company"),
       meta: { sortable: true },
       header: ({ column }) => (
@@ -406,7 +408,7 @@ const Template = (args: any, globals: any) => {
         return (
           <SortButton
             condensed
-            label={t("share-price")}
+            label={t("share_price")}
             onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
           />
         );
@@ -425,11 +427,9 @@ const Template = (args: any, globals: any) => {
     {
       id: "actions",
       header: t("actions"),
+      enableHiding: false,
 
       cell: ({ row }) => {
-        const payment = row.original;
-        // console.log("pa, ", payment);
-
         return (
           <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
             <DropdownMenu
@@ -499,6 +499,7 @@ const Template = (args: any, globals: any) => {
       </Button>
       <DataTable<Company>
         {...args}
+        translateFn={t}
         isLoading={isLoading}
         defaultSort="share_price"
         columns={companiesColumns}
@@ -510,6 +511,7 @@ const Template = (args: any, globals: any) => {
         condensed
         direction={direction}
         texts={{
+          columns: t("columns"),
           of: t("of"),
           item: "عناصر",
           total: t("total"),

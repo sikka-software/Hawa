@@ -23,7 +23,13 @@ import {
   TableRow,
 } from "./Table";
 import { Input } from "./Input";
-import { DropdownMenu } from "./DropdownMenu";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+} from "./DropdownMenu";
 import { Skeleton } from "./Skeleton";
 import { Button } from "./Button";
 import { cn } from "../util";
@@ -40,7 +46,9 @@ type DataTableProps<DataProps = {}> = {
   isLoading?: boolean;
   enableGoTo?: boolean;
   defaultSort?: string;
+  translateFn?: any;
   texts?: {
+    columns?: string;
     searchPlaceholder?: string;
     item?: string;
     noData?: any;
@@ -62,6 +70,7 @@ export const DataTable = <DataProps extends {}>({
   columns,
   data,
   paginationPosition = "bottom",
+  translateFn,
   ...props
 }: DataTableProps<DataProps>) => {
   const [sorting, setSorting] = React.useState<SortingState>([
@@ -107,7 +116,7 @@ export const DataTable = <DataProps extends {}>({
 
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
-      <div className="hawa-flex hawa-items-center">
+      <div className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-4">
         <Input
           forceHideHelperText
           placeholder={props.texts?.searchPlaceholder}
@@ -116,6 +125,46 @@ export const DataTable = <DataProps extends {}>({
           margin="none"
           className="hawa-w-full md:hawa-max-w-sm"
         />
+
+        <DropdownMenuRoot>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="hawa-flex hawa-flex-row hawa-gap-2"
+            >
+              {props.texts?.columns || "Columns"}
+              <svg
+                aria-label="Chevron down Icon"
+                stroke="currentColor"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                className="hawa-h-3 hawa-w-3 hawa-rotate-90 hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
+              >
+                <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+              </svg>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {table
+              .getAllColumns()
+              .filter((column) => column.getCanHide())
+              .map((column) => {
+                // console.log("col is ", column.columnDef.header());
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    // className="hawa-capitalize"
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {translateFn ? translateFn(column.id) : column.id}
+                  </DropdownMenuCheckboxItem>
+                );
+              })}
+          </DropdownMenuContent>
+        </DropdownMenuRoot>
       </div>
       {props.isLoading ? (
         <Skeleton className="hawa-h-[130px] hawa-w-full" />
