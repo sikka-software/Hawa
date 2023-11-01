@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Navigation from "./Navigation";
-import { ScrollArea } from "@/components";
 
 export default function Layout(props: any) {
   const [mounted, setMounted] = useState(false);

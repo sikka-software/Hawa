@@ -246,11 +246,12 @@ export const LoginForm: FC<LoginFormTypes> = ({
                         className="hawa-cursor-pointer"
                         onClick={() => setPasswordVisible(!passwordVisible)}
                       >
- {passwordVisible ? (
+                        {passwordVisible ? (
                           <EyeIcon classNames="hawa-text-gray-500" />
                         ) : (
                           <HiddenEyeIcon classNames="hawa-text-gray-500" />
-                        )}                      </div>
+                        )}
+                      </div>
                     }
                     placeholder={
                       texts?.password?.placeholder || "Enter your password"

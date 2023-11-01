@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppLanding } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/App Landing",
   component: AppLanding,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>

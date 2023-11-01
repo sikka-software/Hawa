@@ -152,7 +152,7 @@ const SidebarItem: React.FC<{
 }) => {
   const getSelectedStyle = (value: string) => {
     return props.selectedItem === value
-      ? "hawa-bg-primary hawa-text-primary-foreground  hawa-cursor-default"
+      ? "hawa-bg-primary/90 hawa-text-primary-foreground  hawa-cursor-default"
       : "hover:hawa-bg-primary/10";
   };
   if (item.subitems) {
@@ -172,7 +172,7 @@ const SidebarItem: React.FC<{
               item.subitems.some(
                 (subitem) => props.selectedItem === subitem.value
               )
-              ? "hawa-bg-primary/90 hawa-text-primary-foreground hover:hawa-bg-primary/90"
+              ? "hawa-bg-primary/80 hawa-text-primary-foreground hover:hawa-bg-primary/80"
               : ""
           )}
           showArrow={isOpen}

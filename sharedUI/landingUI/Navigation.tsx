@@ -1,35 +1,10 @@
 import { Button, Logos } from "../../components";
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
   const { theme, setTheme } = useTheme();
-
-  // useEffect(() => {
-  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  //   const changeHandler = () => {
-  //     const currentTheme = mediaQuery.matches ? "dark" : "light";
-  //     setTheme(currentTheme);
-  //     localStorage.setItem("theme", currentTheme);
-  //   };
-
-  //   const savedTheme = localStorage.getItem("theme");
-  //   if (savedTheme) {
-  //     setTheme(savedTheme);
-  //   } else {
-  //     changeHandler();
-  //   }
-
-  //   mediaQuery.addEventListener("change", changeHandler);
-
-  //   return () => mediaQuery.removeEventListener("change", changeHandler);
-  // }, [setTheme]);
-
-  // const [mounted, setMounted] = useState(false);
-  // useEffect(() => setMounted(true), []);
-  // if (!mounted) return null;
 
   return (
     <div className="hawa-z-50  hawa-sticky hawa-top-0 hawa-items-center hawa-border-b  hawa-w-full hawa-flex hawa-flex-col hawa-justify-center hawa-h-fit hawa-bg-background">
