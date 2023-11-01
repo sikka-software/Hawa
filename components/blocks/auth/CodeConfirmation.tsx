@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
 
@@ -11,16 +11,20 @@ type TConfirmation = {
     weSentCode?: string;
     didntGetCode?: string;
     resendCode?: string;
+    resendCodeTimer?: string;
     codeRequiredText?: string;
     codeTooShort?: string;
     confirm?: string;
     cancel?: string;
+    seconds?: string;
   };
   showError?: any;
   errorTitle?: any;
   errorText?: any;
   phoneNumber?: string;
+  confirmLoading?: boolean;
   handleConfirm?: any;
+  handleResend?: any;
 };
 
 export const CodeConfirmation: FC<TConfirmation> = (props) => {
@@ -33,7 +37,50 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
   const { handleSubmit, control, formState, setValue } = useForm({
     resolver: zodResolver(formSchema),
   });
+  const [resendTimer, setResendTimer] = useState<number | null>(null);
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [showResendTimer, setShowResendTimer] = useState(false);
 
+  const startResendTimer = () => {
+    // Clear any existing timer
+    // Clear any existing timer
+    if (resendTimer !== null) {
+      clearInterval(resendTimer);
+      setResendTimer(null);
+    }
+    // Set the timer duration (e.g., 60 seconds)
+    const timerDuration = 60;
+    setRemainingTime(timerDuration);
+    setShowResendTimer(true);
+
+    const newTimer = window.setInterval(() => {
+      setRemainingTime((prevTime) => {
+        if (prevTime > 0) {
+          return prevTime - 1;
+        } else {
+          clearInterval(newTimer); // Stop the timer when it reaches zero
+          setShowResendTimer(false);
+          return 0;
+        }
+      });
+    }, 1000);
+
+    // Update the state with the new timer
+    setResendTimer(newTimer);
+
+    // Add logic to resend OTP here if needed
+  };
+
+  useEffect(() => {
+    // Start timer logic...
+
+    // Cleanup on component unmount
+    return () => {
+      if (resendTimer !== null) {
+        clearInterval(resendTimer);
+      }
+    };
+  }, []);
   return (
     <Card>
       <CardContent headless>
@@ -77,17 +124,33 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
               />
             )}
           />
-          <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
-            <span>{props.texts?.didntGetCode ?? "Didn't get the code?"}</span>{" "}
-            <span className="clickable-link">
-              {props.texts?.resendCode || "Click to resend"}
-            </span>
-          </div>
+          {showResendTimer ? (
+            <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
+              {props.texts?.resendCodeTimer} <strong>{remainingTime}</strong>{" "}
+              {props.texts?.seconds}
+            </div>
+          ) : (
+            <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
+              <span>{props.texts?.didntGetCode ?? "Didn't get the code?"}</span>{" "}
+              <span
+                className="clickable-link"
+                onClick={() => {
+                  startResendTimer();
+                  props.handleResend();
+                }}
+              >
+                {props.texts?.resendCode || "Click to resend"}
+              </span>
+            </div>
+          )}
+
           <div className="hawa-mt-4 hawa-grid hawa-grid-cols-2 hawa-gap-2">
             <Button variant="secondary">
               {props.texts?.cancel || "Cancel"}
             </Button>
-            <Button>{props.texts?.confirm || "Confirm"}</Button>
+            <Button isLoading={props.confirmLoading}>
+              {props.texts?.confirm || "Confirm"}
+            </Button>
           </div>
         </form>
       </CardContent>

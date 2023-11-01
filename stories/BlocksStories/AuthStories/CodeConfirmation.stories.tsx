@@ -37,11 +37,13 @@ const Template = (args: any, globals: any) => {
           weSentCode: t("weSentCode"),
           didntGetCode: t("didntGetCode"),
           resendCode: t("resendCode"),
+          resendCodeTimer: t("resendCodeTimer"),
           codeLabel: "Code",
-          codeRequiredText: t('codeRequiredText'),
-          codeTooShort: t('codeTooShort'),
+          codeRequiredText: t("codeRequiredText"),
+          codeTooShort: t("codeTooShort"),
           cancel: t("cancel"),
           confirm: t("confirm"),
+          seconds: t("seconds"),
         }}
       />
     </div>

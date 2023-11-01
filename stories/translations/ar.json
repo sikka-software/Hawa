@@ -77,6 +77,7 @@
   "registerViaGoogleLabel": "التسجيل بواسطة Google",
   "registerViaGithubLabel": "التسجيل بواسطة Github",
   "registerViaTwitterLabel": "التسجيل بواسطة Twitter",
+  "seconds": "ثانية",
 
   "fullNameRequiredText": "الإسم الكامل مطلوب",
   "passwordTooShortText": "كلمة المرور قصيرة",
@@ -87,6 +88,8 @@
   "confirm": "تأكيد",
   "didntGetCode": "لم تحصل على الرمز؟",
   "resendCode": "إعادة الإرسال",
+  "resendCodeTimer": "إعادة الإرسال خلال",
+
   "checkYourPhone": "الرجاء تأكيد رقم الجوال",
   "weSentCode": "قمنا بإرسال الرمز على الرقم المدخل في الخطوة السابقة",
   "codeRequiredText": "الرمز مطلوب",
