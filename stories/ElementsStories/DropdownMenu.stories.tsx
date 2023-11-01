@@ -5,6 +5,7 @@ import {
   Radio,
   Switch,
   MenuItemType,
+  Chip,
 } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
@@ -232,7 +233,7 @@ export const Direction: Story = {
             trigger={<Button>RTL Menu</Button>}
             items={items}
             onItemSelect={handleItemSelect}
-          />{" "}
+          />
         </div>
       </div>
     );
@@ -276,7 +277,7 @@ export const Sizes: Story = {
     );
   },
 };
-export const Custom: Story = {
+export const WithHeader: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
@@ -284,38 +285,25 @@ export const Custom: Story = {
     const handleItemSelect = (value: any) => {
       console.log("Selected item:", value);
     };
-    const [openMenu, setOpenMenu] = useState(false);
 
     return (
       <div className="hawa-flex  hawa-flex-1 hawa-flex-col ">
         <div className="hawa-flex-row hawa-flex hawa-w-full hawa-items-center hawa-justify-center hawa-gap-6 hawa-p-3">
           <DropdownMenu
-            open={openMenu}
-            trigger={
-              <Button
-                onMouseEnter={() => setOpenMenu(!openMenu)}
-                onMouseLeave={() => setOpenMenu(false)}
-                className="hawa-group hawa-flex hawa-flex-row hawa-gap-2"
-              >
-                Open Menu
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  className="hawa-h-4 hawa-w-4 hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </Button>
+            header={
+              <div className="hawa-p-2">
+                <div className="hawa-font-bold hawa-text-lg">
+                  Sikka Software
+                </div>
+                <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">
+                  <div className="hawa-text-sm">Est. 2015</div>
+                  <Chip size="small" label="Good" />
+                </div>
+              </div>
             }
-            items={items2}
+            open={true}
+            trigger={<Button>Open Menu</Button>}
+            items={items}
             onItemSelect={handleItemSelect}
           />
         </div>

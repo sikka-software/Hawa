@@ -282,7 +282,7 @@ interface DropdownMenuProps {
   size?: "default" | "sm";
   onItemSelect?: any;
   onOpenChange?: any;
-
+  header?: React.ReactNode;
   open?: any;
 }
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
@@ -298,6 +298,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   onItemSelect,
   size = "default",
   width = "default",
+  header,
   onOpenChange,
   open,
 }) => {
@@ -333,6 +334,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           align={align}
           alignOffset={alignOffset}
         >
+          {header && header}
           {items &&
             items.map((item, index) => {
               if (item.itemType === "separator") {
