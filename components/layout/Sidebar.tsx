@@ -68,7 +68,7 @@ const AccordionContent = React.forwardRef<
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-type Item = {
+export type AppLayoutSidebarItemProps = {
   value: string;
   label: string;
   badge?: { label: string; color: ChipColors };
@@ -84,7 +84,7 @@ type SubItem = {
 };
 interface SidebarGroupProps {
   title?: string;
-  items: Item[];
+  items: AppLayoutSidebarItemProps[];
   openedItem?: any;
   setOpenedItem?: any;
   selectedItem?: any;
@@ -136,7 +136,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   );
 };
 const SidebarItem: React.FC<{
-  item: Item;
+  item: AppLayoutSidebarItemProps;
   selectedItem?: any;
   direction?: DirectionType;
   onItemClick?: (value: string[]) => void;

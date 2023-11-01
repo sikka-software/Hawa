@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
-import { SidebarGroup } from "./Sidebar";
+import { AppLayoutSidebarItemProps, SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
+  header: React.ReactNode;
   design?: "default";
   /** The pages of the side drawer */
-  drawerItems: Item[];
+  drawerItems: AppLayoutSidebarItemProps[];
   /** The direction of the layout */
   direction?: DirectionType;
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
@@ -47,8 +48,6 @@ type AppLayoutTypes = {
    * - 'parent': Inherits width from parent element.
    */
   profileMenuWidth: "default" | "sm" | "lg" | "parent";
-  /** Event handler for settings button click. */
-  onSettingsClick?: () => void;
   /** Event handler for drawer expansion. */
   onDrawerExpand?: (e: any) => void;
   /** Specifies whether to keep the drawer open. */
@@ -69,24 +68,10 @@ type AppLayoutTypes = {
     collapseSidebar?: string;
   };
 };
-type Item = {
-  value: string;
-  label: string;
-  icon?: any;
-  subitems?: SubItem[];
-  onClick?: () => void;
-};
-type SubItem = {
-  value: string;
-  label: string;
-  icon?: any;
-  onClick?: () => void;
-};
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   direction = "ltr",
   drawerSize = "md",
-  onSettingsClick,
   DrawerFooterActions,
   currentPage,
   clickedItem,
@@ -340,15 +325,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            * Full Logo
            * ----------------------------------------------------------------------------------------------------
            */}
-          <img
-            className={cn(
-              "hawa-h-9  hawa-opacity-0 hawa-transition-all",
-              !openSideMenu
-                ? "hawa-invisible hawa-opacity-0"
-                : "hawa-visible hawa-opacity-100"
-            )}
-            src={props.logoLink}
-          />
+          {openSideMenu && props.header && props.header}
+          {!props.header && (
+            <img
+              className={cn(
+                "hawa-h-9  hawa-opacity-0 hawa-transition-all",
+                !openSideMenu
+                  ? "hawa-invisible hawa-opacity-0"
+                  : "hawa-visible hawa-opacity-100"
+              )}
+              src={props.logoLink}
+            />
+          )}
           {/*
            * ----------------------------------------------------------------------------------------------------
            * Logo Symbol

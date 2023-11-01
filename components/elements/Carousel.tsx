@@ -77,7 +77,7 @@ const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
           <div
             onClick={() => onDotClick(index)} // Handle click event
             className={cn(
-              "hawa-h-2  hawa-rounded-full hawa-transition-all hawa-duration-300 hawa-bg-primary",
+              "hawa-h-2 hover:hawa-cursor-pointer hawa-rounded-full hawa-transition-all hawa-duration-300 hawa-bg-primary",
               !selected
                 ? "hawa-opacity-50 hawa-w-2"
                 : "hawa-opacity-100 hawa-w-6"

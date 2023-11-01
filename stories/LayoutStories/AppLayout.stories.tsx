@@ -4,6 +4,15 @@ import { AppLayout, Button } from "../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useDarkMode } from "storybook-dark-mode";
+import {
+  BarChart,
+  BarChart2,
+  FolderOpen,
+  LayoutDashboard,
+  Settings,
+  Settings2,
+  User2,
+} from "lucide-react";
 
 const meta = {
   title: "Layout/App Layout",
@@ -63,61 +72,6 @@ export const Default: Story = {
           collapseSidebar: t("collapseSidebar"),
         }}
         currentPage={"/new-item"}
-        drawerItems={[
-          {
-            label: "لوحة القيادة",
-            value: "/home",
-            onClick: () => {
-              setSelectedPage("/home");
-              console.log("going to /home");
-            },
-          },
-          {
-            label: t("items"),
-            value: "/items",
-            onClick: () => console.log("going to /items"),
-            // icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
-            subitems: [
-              {
-                label: "New Item",
-                value: "/new-item",
-                onClick: () => setSelectedPage("/new-item"),
-                //   icon: <FaFolderOpen />,
-              },
-              {
-                label: "New Item",
-                value: "/new-item2",
-                onClick: () => setSelectedPage("/new-item2"),
-                //   icon: <FaFolderOpen />,
-              },
-              {
-                label: "New Item",
-                value: "/new-item3",
-                onClick: () => setSelectedPage("/new-item3"),
-                //   icon: <FaFolderOpen />,
-              },
-              {
-                label: "Files Items",
-                value: "/file-item",
-                onClick: () => setSelectedPage("/file-item"),
-              },
-            ],
-          },
-
-          {
-            label: t("analytics"),
-            value: "/analytics",
-            badge: {
-              color: "hyper",
-              label: t("new"),
-            },
-            onClick: () => {
-              setSelectedPage("/analytics");
-              console.log("going to /analytics");
-            },
-          },
-        ]}
-        // clickedItem={(e) => console.log("clicked item is ", e)}
         {...args}
       >
         <div className=" hawa-h-full  hawa-p-4">
@@ -131,135 +85,165 @@ export const Default: Story = {
     );
   },
   args: {
-    onSettingsClick: () => console.log("going to settings"),
-    // currentPage: "/new-item",
-    pageTitle: "Dashboard Page",
     topBar: true,
+    pageTitle: "Dashboard Page",
     username: "Zakher Masri",
     avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
     email: "zakher@sikka.io",
     logoSymbol:
       "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
-    // logoLink:
-    //   "https://sikka-images.s3.ap-southeast-1.amazonaws.com/seera/seera-horizontal-wordmark-purple.svg",
-    // drawerItems: [
-    //   {
-    //     label: "لوحة القيادة",
-    //     value: "/home",
-    //     onClick: () => console.log("going to /home"),
-    //     //   icon: <MdDashboard />,
-    //     icon: <LayoutDashboard className="hawa-w-4 hawa-h-4" />,
-    //   },
-    //   // {
-    //   //   label: "Items",
-    //   //   value: "/items",
-    //   //   onClick: () => console.log("going to /items"),
-    //   //   icon: <FolderArchive className="hawa-w-4 hawa-h-4" />,
-    //   //   subitems: [
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item",
-    //   //       onClick: () => console.log("going to /new-item"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item2",
-    //   //       onClick: () => console.log("going to /new-item2"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "New Item",
-    //   //       value: "/new-item3",
-    //   //       onClick: () => console.log("going to /new-item3"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //     {
-    //   //       label: "Files Items",
-    //   //       value: "/file-item",
-    //   //       onClick: () => console.log("going to /file-item"),
-    //   //       //   icon: <FaFolderOpen />,
-    //   //     },
-    //   //   ],
-    //   // },
-
-    //   {
-    //     label: "Analytics",
-    //     value: "/analytics",
-    //     onClick: () => console.log("going to /analytics"),
-    //     icon: <BarChart className="hawa-w-4 hawa-h-4" />,
-    //     //   icon: <FaPoll />,
-    //   },
-    //   // {
-    //   //   label: "Jobs",
-    //   //   value: "/jobs",
-    //   //   onClick: () => console.log("going to /jobs"),
-    //   //   icon: <Users2 className="hawa-w-4 hawa-h-4" />,
-    //   //   subitems: [
-    //   //     {
-    //   //       label: "New Job Item",
-    //   //       value: "/new-job",
-    //   //       onClick: () => console.log("going to /new-jobs"),
-    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-    //   //     },
-    //   //     {
-    //   //       label: "Files Items",
-    //   //       value: "/files",
-    //   //       onClick: () => console.log("going to /files"),
-    //   //       icon: <FolderClosed className="hawa-w-4 hawa-h-4" />,
-    //   //     },
-    //   //   ],
-    //   // },
-    //   // {
-    //   //   label: "Activity",
-    //   //   value: "/activity",
-    //   //   icon: <PhoneCall className="hawa-w-4 hawa-h-4" />,
-    //   //   onClick: () => console.log("going to /activity"),
-    //   // },
-    // ],
     profileMenuItems: [
-      {
-        label: "Profile",
-        value: "Dashboard",
-        // onClick: () => console.log("going to dashboard"),
-      },
-      {
-        value: "Billing",
-        label: "Billing",
-        // onClick: () => console.log("going to Billing"),
-      },
-      {
-        value: "عربي",
-        label: "عربي",
-        // onClick: () => console.log("going to عربي"),
-        // element: <div className="rounded-inner bg-red-300 p-2 px-4">عربي</div>
-      },
-      {
-        label: "Sign Out",
-        value: "Sign Out",
-        // onClick: () => console.log("going to Sign Out"),
-        highlighted: true,
-      },
+      { label: "Profile", value: "Dashboard" },
+      { value: "Billing", label: "Billing" },
+      { value: "عربي", label: "عربي" },
+      { label: "Sign Out", value: "Sign Out", highlighted: true },
     ],
     DrawerFooterActions: (
-      <>
-        <Button size="smallIcon" variant={"light"}>
-          <svg
-            stroke="currentColor"
-            fill="none"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            height="1em"
-            width="1em"
-          >
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-          </svg>{" "}
-        </Button>
-      </>
+      <Button size="smallIcon" variant={"light"}>
+        <Settings className="hawa-h-4 hawa-w-4" />
+      </Button>
     ),
+    drawerItems: [
+      {
+        label: "لوحة القيادة",
+        value: "/home",
+        icon: <LayoutDashboard className="hawa-w-5 hawa-h-5" />,
+      },
+      {
+        label: t("items"),
+        icon: <FolderOpen className="hawa-w-5 hawa-h-5" />,
+        value: "/items",
+        subitems: [
+          { label: "New Item", value: "/new-item" },
+          { label: "New Item", value: "/new-item2" },
+          { label: "New Item", value: "/new-item3" },
+          { label: "Files Items", value: "/file-item" },
+        ],
+      },
+
+      {
+        label: t("analytics"),
+        value: "/analytics",
+        icon: <BarChart2 className="hawa-w-5 hawa-h-5" />,
+        badge: { color: "hyper", label: t("new") },
+      },
+    ],
+  },
+  argTypes: {
+    onLogoClick: { action: "onLogoClick" },
+  },
+};
+export const CustomHeader: Story = {
+  render: (args: any, globals: any) => {
+    const dark = useDarkMode();
+
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const [selectedPage, setSelectedPage] = useState("/home");
+
+    const [keepOpen, setKeepOpen] = useState(() => {
+      const savedState = localStorage.getItem("keepOpen");
+      return savedState ? JSON.parse(savedState) : true;
+    });
+    const logoLink =
+      direction === "rtl"
+        ? dark
+          ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
+          : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
+        : dark
+        ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
+        : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
+
+    const handleDrawerExpand = (newKeepOpenState: any) => {
+      setKeepOpen(newKeepOpenState);
+      localStorage.setItem("keepOpen", JSON.stringify(newKeepOpenState));
+    };
+
+    return (
+      <AppLayout
+        header={
+          <div className=" hawa-w-full hawa-h-full hawa-flex hawa-flex-col hawa-justify-center hawa-items-center">
+            <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-justify-start hawa-items-center">
+              <div className="hawa-h-8 hawa-w-8 hawa-rounded-full hawa-bg-gray-200 hawa-justify-center hawa-items-center hawa-flex">
+                <User2 className="hawa-h-4 hawa-w-4" />
+              </div>
+              <div className="hawa-flex hawa-flex-col">
+                <span className="hawa-font-bold hawa-text-sm">
+                  Zakher Masri
+                </span>
+                <span className="hawa-text-sm">admin@sikka.io</span>
+              </div>
+            </div>
+          </div>
+        }
+        logoLink={logoLink}
+        keepOpen={keepOpen}
+        setKeepOpen={setKeepOpen}
+        onDrawerExpand={handleDrawerExpand}
+        direction={direction}
+        texts={{
+          expandSidebar: t("expandSidebar"),
+          collapseSidebar: t("collapseSidebar"),
+        }}
+        currentPage={"/new-item"}
+        {...args}
+      >
+        <div className=" hawa-h-full  hawa-p-4">
+          <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
+            <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
+              App Content
+            </span>
+          </div>
+        </div>
+      </AppLayout>
+    );
+  },
+  args: {
+    pageTitle: "Dashboard Page",
+    topBar: false,
+    username: "Zakher Masri",
+    avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
+    email: "zakher@sikka.io",
+    logoSymbol:
+      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
+
+    profileMenuItems: [
+      { label: "Profile", value: "Dashboard" },
+      { value: "Billing", label: "Billing" },
+      { value: "عربي", label: "عربي" },
+      { label: "Sign Out", value: "Sign Out", highlighted: true },
+    ],
+    DrawerFooterActions: (
+      <Button size="smallIcon" variant={"light"}>
+        <Settings className="hawa-h-4 hawa-w-4" />
+      </Button>
+    ),
+    drawerItems: [
+      {
+        label: "لوحة القيادة",
+        value: "/home",
+        icon: <LayoutDashboard className="hawa-w-5 hawa-h-5" />,
+      },
+      {
+        label: t("items"),
+        icon: <FolderOpen className="hawa-w-5 hawa-h-5" />,
+        value: "/items",
+        subitems: [
+          { label: "New Item", value: "/new-item" },
+          { label: "New Item", value: "/new-item2" },
+          { label: "New Item", value: "/new-item3" },
+          { label: "Files Items", value: "/file-item" },
+        ],
+      },
+
+      {
+        label: t("analytics"),
+        value: "/analytics",
+        icon: <BarChart2 className="hawa-w-5 hawa-h-5" />,
+        badge: { color: "hyper", label: t("new") },
+      },
+    ],
   },
   argTypes: {
     onLogoClick: { action: "onLogoClick" },
