@@ -69,6 +69,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
       };
     }
   }, [duration]);
+
   let closeButtonStyle = {
     none: "",
     info: "",
@@ -89,27 +90,12 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     oceanic:
       "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500",
   };
-  // let closeButtonStyle = {
-  //   none: "hover:hawa-bg-gray-300",
-  //   info: "hover:hawa-bg-blue-300",
-  //   warning: "hover:hawa-bg-yellow-300",
-  //   error: "hover:hawa-bg-red-300",
-  //   success: "hover:hawa-bg-green-300",
-  // };
-  // let styleVariant = {
-  //   // normal: {
-  //   none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-200 dark:hawa-text-gray-800",
-  //   info: "hawa-text-blue-700 hawa-bg-blue-100 dark:hawa-bg-blue-200 dark:hawa-text-blue-800",
-  //   warning:
-  //     "hawa-text-yellow-700 hawa-bg-yellow-100 dark:hawa-bg-yellow-200 dark:hawa-text-yellow-800",
-  //   error:
-  //     "hawa-text-red-700 hawa-bg-red-100 dark:hawa-bg-red-200 dark:hawa-text-red-800",
-  //   success:
-  //     "hawa-text-green-700 hawa-bg-green-100 dark:hawa-bg-green-200 dark:hawa-text-green-800",
-  // };
+
   return (
     <div ref={alertRef}>
       <div
+        data-testid="alert"
+        aria-label="Alert"
         role="alert"
         dir={direction}
         className={clsx(

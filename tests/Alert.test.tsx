@@ -25,25 +25,24 @@ test("handles close button click", async () => {
 describe("Alert Component Prop Testing", () => {
   // Testing severity prop
   it("renders with different severity levels", () => {
+    let commonClasses =
+      "hawa-opacity-100 hawa-text-sm hawa-transition-all hawa-relative hawa-mb-4 hawa-flex hawa-flex-col hawa-rounded hawa-p-4";
+
     const { rerender } = render(<Alert text="Info Alert" severity="info" />);
-    expect(screen.getByText("Info Alert")).toHaveClass(
-      //   "hawa-text-info-foreground hawa-bg-info/90"
-      "hawa-mr-8 hawa-w-[calc(100% - 40px)]" //TODO: make sure it checks the actual severity classNames
+    expect(screen.getByTestId("alert")).toHaveClass(
+      `${commonClasses} hawa-text-info-foreground hawa-bg-info/90`
     );
     rerender(<Alert text="Warning Alert" severity="warning" />);
-    expect(screen.getByText("Warning Alert")).toHaveClass(
-      //   "hawa-text-warning-foreground hawa-bg-warning/90"
-      "hawa-mr-8 hawa-w-[calc(100% - 40px)]" //TODO: make sure it checks the actual severity classNames
+    expect(screen.getByTestId("alert")).toHaveClass(
+      `${commonClasses} hawa-text-warning-foreground hawa-bg-warning/90`
     );
     rerender(<Alert text="Error Alert" severity="error" />);
-    expect(screen.getByText("Error Alert")).toHaveClass(
-      //   "hawa-text-destructive-foreground hawa-bg-destructive/90"
-      "hawa-mr-8 hawa-w-[calc(100% - 40px)]" //TODO: make sure it checks the actual severity classNames
+    expect(screen.getByTestId("alert")).toHaveClass(
+      `${commonClasses} hawa-text-destructive-foreground hawa-bg-destructive/90`
     );
     rerender(<Alert text="Success Alert" severity="success" />);
-    expect(screen.getByText("Success Alert")).toHaveClass(
-      //   "hawa-text-success-foreground hawa-bg-success/90"
-      "hawa-mr-8 hawa-w-[calc(100% - 40px)]" //TODO: make sure it checks the actual severity classNames
+    expect(screen.getByTestId("alert")).toHaveClass(
+      `${commonClasses} hawa-text-success-foreground hawa-bg-success/90`
     );
   });
 

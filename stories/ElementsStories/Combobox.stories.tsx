@@ -88,6 +88,7 @@ export const Default: Story = {
           <Combobox
             label="Role"
             placeholder="Select Role"
+            helperText="this is helpertext"
             data={roles}
             valueKey={"_id"}
           />
