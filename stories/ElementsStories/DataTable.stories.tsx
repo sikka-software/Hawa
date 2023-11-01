@@ -538,5 +538,6 @@ export const WithHideColumns: Story = {
   render: Template.bind({}),
   args: {
     enableHideColumns: true,
+    enableSearch: true,
   },
 };

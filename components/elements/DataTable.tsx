@@ -152,7 +152,9 @@ export const DataTable = <DataProps extends {}>({
                   </svg>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent
+                align={props.direction === "rtl" ? "start" : "end"}
+              >
                 {table
                   .getAllColumns()
                   .filter((column) => column.getCanHide())
