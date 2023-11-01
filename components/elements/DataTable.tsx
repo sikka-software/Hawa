@@ -121,61 +121,60 @@ export const DataTable = <DataProps extends {}>({
 
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
-      {enableSearch ||
-        (enableHideColumns && (
-          <div className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-4">
-            {enableSearch && (
-              <Input
-                forceHideHelperText
-                placeholder={props.texts?.searchPlaceholder}
-                value={globalFilter ?? ""}
-                onChange={(event: any) => setGlobalFilter(event.target.value)}
-                margin="none"
-                className="hawa-w-full md:hawa-max-w-sm"
-              />
-            )}
-            {enableHideColumns && (
-              <DropdownMenuRoot>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="hawa-flex hawa-flex-row hawa-gap-2"
+      {(enableSearch || enableHideColumns) && (
+        <div className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-4">
+          {enableSearch && (
+            <Input
+              forceHideHelperText
+              placeholder={props.texts?.searchPlaceholder}
+              value={globalFilter ?? ""}
+              onChange={(event: any) => setGlobalFilter(event.target.value)}
+              margin="none"
+              className="hawa-w-full md:hawa-max-w-sm"
+            />
+          )}
+          {enableHideColumns && (
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="hawa-flex hawa-flex-row hawa-gap-2"
+                >
+                  {props.texts?.columns || "Columns"}
+                  <svg
+                    aria-label="Chevron down Icon"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    className="hawa-h-3 hawa-w-3 hawa-rotate-90 hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
                   >
-                    {props.texts?.columns || "Columns"}
-                    <svg
-                      aria-label="Chevron down Icon"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      className="hawa-h-3 hawa-w-3 hawa-rotate-90 hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
-                    >
-                      <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
-                    </svg>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  {table
-                    .getAllColumns()
-                    .filter((column) => column.getCanHide())
-                    .map((column) => {
-                      return (
-                        <DropdownMenuCheckboxItem
-                          key={column.id}
-                          // className="hawa-capitalize"
-                          checked={column.getIsVisible()}
-                          onCheckedChange={(value) =>
-                            column.toggleVisibility(!!value)
-                          }
-                        >
-                          {translateFn ? translateFn(column.id) : column.id}
-                        </DropdownMenuCheckboxItem>
-                      );
-                    })}
-                </DropdownMenuContent>
-              </DropdownMenuRoot>
-            )}
-          </div>
-        ))}
+                    <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                  </svg>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {table
+                  .getAllColumns()
+                  .filter((column) => column.getCanHide())
+                  .map((column) => {
+                    return (
+                      <DropdownMenuCheckboxItem
+                        key={column.id}
+                        // className="hawa-capitalize"
+                        checked={column.getIsVisible()}
+                        onCheckedChange={(value) =>
+                          column.toggleVisibility(!!value)
+                        }
+                      >
+                        {translateFn ? translateFn(column.id) : column.id}
+                      </DropdownMenuCheckboxItem>
+                    );
+                  })}
+              </DropdownMenuContent>
+            </DropdownMenuRoot>
+          )}
+        </div>
+      )}
       {props.isLoading ? (
         <Skeleton className="hawa-h-[130px] hawa-w-full" />
       ) : (
