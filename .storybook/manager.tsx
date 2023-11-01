@@ -5,7 +5,6 @@ import { addons } from "@storybook/manager-api";
 addons.setConfig({
   sidebar: {
     renderLabel: (t) => {
-      // console.log("t is ", t);
       return <div style={{ fontSize: t.isRoot ? 18 : 14 }}>{t.name}</div>;
     },
     filters: {

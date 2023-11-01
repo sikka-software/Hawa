@@ -20,7 +20,6 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
   ];
 
   const onFeedbackSubmit = async () => {
-    console.log("submitting");
     if (feedbackText) {
       setLoadingSubmit(true);
       try {
@@ -114,7 +113,6 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                       setHelperText(false);
                     }
                     setFeedbackText(e.target.value);
-                    console.log("changing to", e.target.value);
                   }}
                 />
               }

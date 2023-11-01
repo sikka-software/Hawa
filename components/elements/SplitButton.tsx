@@ -24,7 +24,7 @@ const SplitButton: React.FC<SplitButtonProps> = ({
   >
     <Button
       variant={variant}
-      onClick={() => console.log("btn clicked")}
+      onClick={props.onClick}
       className={cn(
         direction === "rtl" ? "hawa-rounded-r-none" : "hawa-rounded-l-none",
         props.className

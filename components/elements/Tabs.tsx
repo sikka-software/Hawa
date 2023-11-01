@@ -37,7 +37,6 @@ const TabsList = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => {
   const { orientation } = React.useContext(TabsContext);
-  console.log("orient ", orientation);
   return (
     <TabsPrimitive.List
       ref={ref}
