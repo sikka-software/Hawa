@@ -105,7 +105,7 @@ export const Default: Story = {
     ),
     drawerItems: [
       {
-        label: "لوحة القيادة",
+        label: t("dashboard"),
         value: "/home",
         icon: <LayoutDashboard className="hawa-icon" />,
       },
@@ -221,7 +221,7 @@ export const CustomHeader: Story = {
     ),
     drawerItems: [
       {
-        label: "لوحة القيادة",
+        label: t("dashboard"),
         value: "/home",
         icon: <LayoutDashboard className="hawa-w-5 hawa-h-5" />,
       },
