@@ -5,14 +5,23 @@ import { cn } from "../util";
 interface CarouselProps {
   items: React.ReactNode[];
   showArrows?: boolean;
+  autoplay?: boolean;
+  autoplayInterval?: number;
 }
 type Props = CarouselProps & EmblaOptionsType;
 
 export const Carousel = (props: PropsWithChildren<Props>) => {
-  const { children, items, showArrows, ...options } = props;
+  const {
+    children,
+    items,
+    showArrows,
+    autoplay = true,
+    autoplayInterval = 3000,
+    ...options
+  } = props;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: options.loop || false,
+    loop: autoplay ? true : options.loop || false,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -27,6 +36,20 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
       emblaApi?.off("select", selectHandler);
     };
   }, [emblaApi]);
+
+  useEffect(() => {
+    let autoplayTimer: ReturnType<typeof setTimeout>;
+    if (autoplay && emblaApi) {
+      autoplayTimer = setInterval(() => {
+        emblaApi.scrollNext();
+      }, autoplayInterval);
+    }
+
+    return () => {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+    };
+  }, [emblaApi, autoplay, autoplayInterval]); // Add dependencies here
+
   const length = React.Children.count(items);
   const canScrollNext = !!emblaApi?.canScrollNext();
   const canScrollPrev = !!emblaApi?.canScrollPrev();
