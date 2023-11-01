@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { SplitButton } from "../../components/elements";
 import { ArgsTable, Title } from "@storybook/blocks";
-import { setLocale } from "../translations/i18n";
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Split Button",
@@ -44,7 +44,7 @@ const Template = (args: any, globals: any) => {
         ]}
         {...args}
       >
-        Submit
+        {t("submit")}
       </SplitButton>
     </div>
   );
