@@ -5,6 +5,7 @@ export * from "./Navbar";
 
 export * from "./AppLayout";
 export * from "./AppTopbar";
+export * from "./AppMenubar";
 
 export * from "./DocsLayout";
 export * from "./DocsSidebar";

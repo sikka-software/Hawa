@@ -142,13 +142,19 @@ export const DataTable = <DataProps extends {}>({
                 >
                   {props.texts?.columns || "Columns"}
                   <svg
-                    aria-label="Chevron down Icon"
+                    aria-label="Chevron Down Icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
                     stroke="currentColor"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    className="hawa-h-3 hawa-w-3 hawa-rotate-90 hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="hawa-icon hawa-rotate-90"
                   >
-                    <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                    <path d="m9 18 6-6-6-6" />
                   </svg>
                 </Button>
               </DropdownMenuTrigger>
