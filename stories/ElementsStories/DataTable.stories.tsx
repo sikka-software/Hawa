@@ -528,3 +528,15 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
 };
+export const WithSearch: Story = {
+  render: Template.bind({}),
+  args: {
+    enableSearch: true,
+  },
+};
+export const WithHideColumns: Story = {
+  render: Template.bind({}),
+  args: {
+    enableHideColumns: true,
+  },
+};
