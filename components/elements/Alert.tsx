@@ -3,8 +3,6 @@ import { DirectionType, SeverityType } from "../types/commonTypes";
 import { Button } from "./Button";
 import { cn } from "../util";
 
-// TODO: make handleClose to detect when the alert is closed from outside this component
-
 type AlertTypes = {
   severity?: SeverityType | "hyper" | "oceanic";
   /** The title of the alert placed above the text of the alert. Can be used alone */
@@ -37,6 +35,7 @@ type AlertTypes = {
   persistent?: boolean;
   icon?: any;
   className?: any;
+  onAlertClosed?: any;
 };
 
 export const Alert: React.FunctionComponent<AlertTypes> = ({
@@ -162,6 +161,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2"
             )}
             onClick={() => {
+              props.onAlertClosed();
               setClosed(true);
               setTimeout(() => {
                 if (alertRef?.current) {
