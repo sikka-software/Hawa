@@ -4,6 +4,13 @@ import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { parsePhoneNumber } from "libphonenumber-js";
 import * as z from "zod";
+import { AuthButtons } from "./AuthButtons";
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
+import { DirectionType } from "../../types/commonTypes";
+import {
+  LoginFormTextsTypes,
+  ThirdPartyAuthTextsTypes,
+} from "../../types/textTypes";
 import {
   InterfaceSettings,
   Card,
@@ -14,13 +21,6 @@ import {
   Input,
   Button,
 } from "../../elements";
-import { AuthButtons } from "./AuthButtons";
-import {
-  LoginFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "../../types/textTypes";
-import { DirectionType } from "@/components/types/commonTypes";
-import { EyeIcon, HiddenEyeIcon } from "../../icons";
 
 type LoginFormTypes = {
   texts?: LoginFormTextsTypes;
@@ -76,6 +76,7 @@ type LoginFormTypes = {
   onTwitterLogin?: () => void;
   /** Additional buttons to add under the login button */
   additionalButtons?: any;
+  /** The allowed length of the password input field */
   passwordLength?: number;
 };
 
@@ -361,7 +362,6 @@ export const LoginForm: FC<LoginFormTypes> = ({
           </form>
         </CardContent>
 
-        {/* 3rd Party Auth Buttons */}
         {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
           <CardFooter
             className={cn(

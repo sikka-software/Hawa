@@ -28,7 +28,7 @@ const Template = (args: any, globals: any) => {
   setLocale(locale);
 
   return (
-    <div className="hawa-max-w-md">
+    <div className="hawa-max-w-md hawa-drop-shadow-lg">
       <AppLanding
         direction={direction}
         {...args}
@@ -50,24 +50,23 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    viaGoogle: true,
-    viaTwitter: true,
-    viaGithub: true,
-    viaMicrosoft: true,
     viaEmail: true,
     viaPhone: true,
     viaApple: true,
+    viaGoogle: true,
+    viaGithub: true,
+    viaTwitter: true,
+    viaMicrosoft: true,
+    allowRegister: true,
   },
   argTypes: {
+    handlePhone: { action: "handlePhone" },
     handleApple: { action: "handleApple" },
-    handleColorMode: { action: "handleColorMode" },
     handleEmail: { action: "handleEmail" },
     handleGithub: { action: "handleGithub" },
     handleGoogle: { action: "handleGoogle" },
-    handleMicrosoft: { action: "handleMicrosoft" },
-    handleLanguage: { action: "handleLanguage" },
-    handlePhone: { action: "handlePhone" },
-    handleRouteToRegister: { action: "handleRouteToRegister" },
     handleTwitter: { action: "handleTwitter" },
+    handleMicrosoft: { action: "handleMicrosoft" },
+    handleRouteToRegister: { action: "handleRouteToRegister" },
   },
 };

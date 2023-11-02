@@ -1,6 +1,6 @@
 import React from "react";
+import { ThirdPartyAuthTextsTypes } from "../../types/textTypes";
 import { Button, Logos } from "../../elements";
-import { ThirdPartyAuthTextsTypes } from "@/components/types/textTypes";
 
 type AuthButtonsType = {
   texts?: ThirdPartyAuthTextsTypes;
@@ -11,7 +11,6 @@ type AuthButtonsType = {
   viaEmail?: boolean;
   viaPhone?: boolean;
   viaApple?: boolean;
-
   handleGoogle?: () => void;
   handleTwitter?: () => void;
   handleApple?: () => void;

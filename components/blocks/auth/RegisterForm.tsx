@@ -4,25 +4,25 @@ import { cn } from "../../util";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
+  RegisterFormTextsTypes,
+  ThirdPartyAuthTextsTypes,
+} from "../../types/textTypes";
+import { AuthButtons } from "./AuthButtons";
+import { DirectionType } from "../../types/commonTypes";
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
+import {
   Input,
-  InterfaceSettings,
   Alert,
   Select,
   Checkbox,
   Button,
   Card,
-  CardContent,
   CardFooter,
+  CardContent,
+  InterfaceSettings,
   SelectOptionProps,
   StopPropagationWrapper,
 } from "../../elements";
-import {
-  RegisterFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "../../types/textTypes";
-import { AuthButtons } from "./AuthButtons";
-import { DirectionType } from "@/components/types/commonTypes";
-import { EyeIcon, HiddenEyeIcon } from "../../icons";
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */

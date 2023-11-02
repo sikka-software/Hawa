@@ -4,7 +4,7 @@ import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { EyeIcon } from "../../components/icons";
+import { EyeIcon } from "../../components/icons/InputIcons";
 
 const meta = {
   title: "Elements/Inputs/Input",

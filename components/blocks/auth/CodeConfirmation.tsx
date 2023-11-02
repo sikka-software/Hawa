@@ -1,9 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
-import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
 import { Controller, useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
 
 type TConfirmation = {
   texts?: {
@@ -42,13 +41,10 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
   const [showResendTimer, setShowResendTimer] = useState(false);
 
   const startResendTimer = () => {
-    // Clear any existing timer
-    // Clear any existing timer
     if (resendTimer !== null) {
       clearInterval(resendTimer);
       setResendTimer(null);
     }
-    // Set the timer duration (e.g., 60 seconds)
     const timerDuration = 60;
     setRemainingTime(timerDuration);
     setShowResendTimer(true);
@@ -58,23 +54,16 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
         if (prevTime > 0) {
           return prevTime - 1;
         } else {
-          clearInterval(newTimer); // Stop the timer when it reaches zero
+          clearInterval(newTimer);
           setShowResendTimer(false);
           return 0;
         }
       });
     }, 1000);
-
-    // Update the state with the new timer
     setResendTimer(newTimer);
-
-    // Add logic to resend OTP here if needed
   };
 
   useEffect(() => {
-    // Start timer logic...
-
-    // Cleanup on component unmount
     return () => {
       if (resendTimer !== null) {
         clearInterval(resendTimer);
@@ -98,7 +87,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           <div className="hawa-text-muted-foreground">
             <span>{props.texts?.weSentCode || "We've sent a code to "}</span>
             <span>{props.phoneNumber}</span>
-          </div>{" "}
+          </div>
         </div>
         <form
           noValidate

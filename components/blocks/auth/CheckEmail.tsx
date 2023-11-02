@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { Card, CardContent, CardFooter } from "../../elements";
 
 type CheckEmailBlocks = {
+  handleResend?: () => void;
   texts?: {
     checkEmail: string;
     resendEmail: string;
     pleaseVerify: string;
   };
-  handleResend?: () => void;
 };
 
 export const CheckEmail: FC<CheckEmailBlocks> = ({ texts, handleResend }) => {
@@ -26,7 +26,6 @@ export const CheckEmail: FC<CheckEmailBlocks> = ({ texts, handleResend }) => {
               height="0.5em"
               width="0.5em"
               xmlns="http://www.w3.org/2000/svg"
-              // {...props}
             >
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>

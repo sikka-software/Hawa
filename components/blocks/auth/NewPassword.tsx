@@ -1,4 +1,9 @@
 import React, { useState, FC } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { NewPasswordTextsTypes } from "../../types/textTypes";
+import { DirectionType } from "../../types/commonTypes";
 import {
   Alert,
   Input,
@@ -10,12 +15,6 @@ import {
   CardTitle,
   Button,
 } from "../../elements";
-import { Controller, useForm } from "react-hook-form";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { NewPasswordTextsTypes } from "@/components/types/textTypes";
-import { DirectionType } from "@/components/types/commonTypes";
 
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
