@@ -1,3 +1,5 @@
+import React from "react";
+import { cn } from "../../util";
 import {
   ScrollArea,
   Tabs,
@@ -5,8 +7,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "../../elements";
-import { cn } from "../../util";
-import React from "react";
 
 type TabType = {
   title: string;

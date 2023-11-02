@@ -16,7 +16,7 @@ let thumbSize = {
 
 interface SwitchProps
   extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
-  size?: "default" | "sm" | "lg"; // Define the possible sizes here
+  size?: "default" | "sm" | "lg";
   label?: string;
   roundedness?: RadiusType;
 }
@@ -32,7 +32,6 @@ export const Switch = React.forwardRef<
     const [parentDirection, setParentDirection] = React.useState<string | null>(
       null
     );
-    //   const parentRef = React.useRef(null);
     const parentRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
@@ -41,12 +40,6 @@ export const Switch = React.forwardRef<
         const dir = window.getComputedStyle(parentNode).direction;
         setParentDirection(dir);
       }
-      // if (parentRef.current && parentRef.current?.parentNode) {
-      //   const dir = window.getComputedStyle(
-      //     parentRef.current?.parentNode
-      //   ).direction;
-      //   setParentDirection(dir);
-      // }
     });
 
     const rootRoundednessStyles = {

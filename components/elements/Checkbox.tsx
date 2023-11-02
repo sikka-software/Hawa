@@ -2,14 +2,14 @@ import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { cn } from "../util";
 
-type TCheckBoxTypes = {
+type CheckBoxTypes = {
   id: string;
   label?: any;
   sublabel?: any;
   helperText?: string;
 };
 
-type CheckboxProps = TCheckBoxTypes &
+type CheckboxProps = CheckBoxTypes &
   React.ComponentProps<typeof CheckboxElement>;
 
 export const Checkbox: React.FC<CheckboxProps> = ({

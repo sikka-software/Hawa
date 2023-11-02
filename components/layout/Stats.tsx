@@ -1,11 +1,5 @@
 import React, { FC } from "react";
-import {
-  Skeleton,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../elements";
+import { Skeleton, Card, CardContent, CardTitle } from "../elements";
 import { cn } from "../util";
 
 type StatTypes = {
@@ -34,15 +28,12 @@ export const Stats: FC<StatTypes> = ({ variant = "default", ...props }) => {
       clickable={Boolean(props.handleClick)}
       className={cn(props.className)}
     >
-      {/* className="hawa-flex hawa-bg-red-500 hawa-flex-row hawa-items-center hawa-justify-between hawa-space-y-0 hawa-pb-2" */}
-      {/* <CardHeader className="hawa-flex"> */}
       <div className="hawa-flex hawa-flex-row hawa-justify-between hawa-p-4 hawa-items-center">
         <CardTitle className="hawa-text-sm hawa-font-medium">
           {props.label}
         </CardTitle>
         {props.icon && <span>{props.icon}</span>}
       </div>
-      {/* </CardHeader> */}
       <CardContent>
         {props.isLoading ? (
           <Skeleton className="hawa-h-8 hawa-w-3/4" />

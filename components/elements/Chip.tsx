@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import clsx from "clsx";
 import { RadiusType } from "../types/commonTypes";
+import { cn } from "../util";
 
 export type ChipColors =
   | "green"
@@ -81,7 +81,7 @@ export const Chip: FC<ChipTypes> = ({
   if (label) {
     return (
       <span
-        className={clsx(
+        className={cn(
           defaultStyles,
           sizeStyles[size],
           radiusStyles[radius],
@@ -89,9 +89,7 @@ export const Chip: FC<ChipTypes> = ({
         )}
       >
         {dotType && (
-          <span
-            className={clsx(dotStyles[size], dotTypeStyles[dotType])}
-          ></span>
+          <span className={cn(dotStyles[size], dotTypeStyles[dotType])}></span>
         )}
         {icon && icon}
         {label}
@@ -100,7 +98,7 @@ export const Chip: FC<ChipTypes> = ({
   } else {
     return (
       <span
-        className={clsx(
+        className={cn(
           "hawa-w-2 hawa-h-2 hawa-rounded-full",
           color ? colorStyles[color] : "hawa-border hawa-bg-none"
         )}

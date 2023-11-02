@@ -1,8 +1,12 @@
 import React, { useEffect, useState, FC } from "react";
-import clsx from "clsx";
+import { OrientationType } from "../../types/commonTypes";
+import { cn } from "../../util";
 import { Button } from "../Button";
 import { DropdownMenu, MenuItemType } from "../DropdownMenu";
 import { StopPropagationWrapper } from "../StopPropagationWrapper";
+
+
+// TODO: bring back the image and its button like from hawa-archive
 
 interface ItemCardTypes {
   headerActions?: MenuItemType[];
@@ -18,7 +22,7 @@ interface ItemCardTypes {
   /** The action buttons on the bottom right of the card */
   actions?: JSX.Element;
   /** The orientation of the card */
-  orientation?: "horizontal" | "vertical";
+  orientation?: OrientationType;
   /** Enabling this blurs the image on hover and shows an action button */
   clickableImage?: boolean;
   /** The function of the action button on the image of the card */
@@ -36,6 +40,7 @@ type THeaderActions = {
   action?: (e: any) => void;
   isButton?: boolean;
 };
+
 export const ItemCard: FC<ItemCardTypes> = ({
   actions,
   counts,
@@ -86,7 +91,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
 
   return (
     <div
-      className={clsx(
+      className={cn(
         defaultStyle,
         props.onCardClick && " hover:hawa-shadow-lg hawa-cursor-pointer",
         orientationStyles[orientation]
@@ -103,7 +108,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
         <div className="hawa-group hawa-relative hawa-overflow-clip">
           <img
             src={cardImage}
-            className={clsx(
+            className={cn(
               imageStyles[orientation],
               clickableImage
                 ? "hawa-overflow-clip hawa-transition-all group-hover:hawa-blur-lg"
@@ -166,7 +171,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
         </div>
         {actions || counts ? (
           <div
-            className={clsx(
+            className={cn(
               "hawa-mt-3 hawa-flex hawa-flex-col xs:hawa-flex-row hawa-items-center hawa-rounded-b-lg dark:hawa-text-white ",
               actions && counts ? "hawa-justify-between" : "hawa-justify-end"
             )}

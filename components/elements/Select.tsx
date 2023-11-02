@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import ReactSelect, { MenuListProps, MenuProps } from "react-select";
+import ReactSelect, { MenuProps } from "react-select";
 import CreatableSelect from "react-select/creatable";
 import { Label } from "./Label";
 import { cn } from "../util";
@@ -38,6 +38,7 @@ export type SelectOptionProps = {
   value: any;
   label: any;
 };
+
 type SelectTypes = {
   label?: string;
   hideHelperText?: boolean;
@@ -69,6 +70,7 @@ type SelectTypes = {
     createLabel?: string;
   };
 };
+
 export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
   const NoOption = () => {
     return <div>{props.texts?.noOptions ?? "No Items Found"}</div>;

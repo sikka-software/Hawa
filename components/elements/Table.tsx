@@ -58,15 +58,7 @@ const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <tbody
-    ref={ref}
-    className={cn(
-      // "[&_tr:last-child]:border-0"
-      "hawa-border-none",
-      className
-    )}
-    {...props}
-  />
+  <tbody ref={ref} className={cn("hawa-border-none", className)} {...props} />
 ));
 TableBody.displayName = "TableBody";
 
@@ -92,9 +84,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      // "border-b",
-      "hawa-transition-colors  data-[state=selected]:hawa-bg-muted hawa-bg-background",
-      // hover:bg-muted/50
+      "hawa-transition-colors data-[state=selected]:hawa-bg-muted hawa-bg-background",
       "[&:not(:last-child)&:not(:first-child)]:hawa-border-y",
       "[&:not(:last-child)]:hawa-border-b",
 

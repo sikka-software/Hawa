@@ -28,7 +28,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
   const formSchema = z.object({
     requestType: z
       .string({ required_error: props.texts.requestTypeRequired })
-      .nonempty({ message: props.texts.requestTypeRequired }),
+      .min(1, { message: props.texts.requestTypeRequired }),
     description: z
       .string({ required_error: props.texts.descriptionRequired })
       .min(10, { message: props.texts.descriptionTooShort }),
@@ -38,7 +38,6 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
     resolver: zodResolver(formSchema),
   });
 
-  // TODO: translate this and have texts object
   return (
     <Card>
       <CardContent headless>

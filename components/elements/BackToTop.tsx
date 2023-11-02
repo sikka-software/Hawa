@@ -1,12 +1,14 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react";
-import { clsx } from "clsx";
-import { Button } from "./Button";
 import { cn } from "../util";
+import { Button } from "./Button";
 
 type BackToTopTypes = {
-  paddingX?: number; // Horizontal padding relative to the attached corner
-  paddingY?: number; // Vertical padding relative to the attached corner
-  paddingThreshold?: number; // Increase to the threshold of the scroll value that has to be passed for the button to appear
+  /** Horizontal padding relative to the attached corner */
+  paddingX?: number;
+  /** Vertical padding relative to the attached corner */
+  paddingY?: number;
+  /** Increase to the threshold of the scroll value that has to be passed for the button to appear */
+  paddingThreshold?: number;
   corner?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   anchor: RefObject<HTMLInputElement>;
 };
@@ -26,7 +28,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
     if (anchor) {
       return [anchor.scrollTop, anchor.scrollLeft];
     }
-    return [0, 0]; // or some other default values
+    return [0, 0];
   };
 
   const onScroll = () => {
@@ -117,7 +119,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
       size="icon"
     >
       <svg
-        className={clsx(
+        className={cn(
           "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-rotate-180 hawa-transition-all  disabled:hawa-bg-gray-200"
         )}
         aria-label="Arrow Icon"

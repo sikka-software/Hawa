@@ -11,10 +11,7 @@ type NotFoundTypes = {
   };
 };
 
-export const NotFound: FC<NotFoundTypes> = ({
-  variant = "contained",
-  texts,
-}) => {
+export const NotFound: FC<NotFoundTypes> = ({ texts }) => {
   return (
     <Card>
       <CardContent headless>
@@ -23,17 +20,17 @@ export const NotFound: FC<NotFoundTypes> = ({
             404
           </div>
           <div className="hawa-m-2 hawa-text-center hawa-text-xl hawa-font-bold ">
-            {texts?.pageNotFound ?? "Page Not Found"}
+            {texts?.pageNotFound || "Page Not Found"}
           </div>
           <div className="hawa-mb-4 hawa-text-center">
-            {texts?.ifLost ?? (
+            {texts?.ifLost || (
               <>
                 {"If you're lost please contact us "}
                 <span className="clickable-link">help@sikka.io</span>
               </>
             )}
           </div>
-          <Button className="hawa-w-full">{texts?.home ?? "Home"}</Button>
+          <Button className="hawa-w-full">{texts?.home || "Home"}</Button>
         </div>
       </CardContent>
     </Card>

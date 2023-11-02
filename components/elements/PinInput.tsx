@@ -1,5 +1,4 @@
 import React, { useEffect, useState, FC } from "react";
-import clsx from "clsx";
 import { cn } from "../util";
 
 type PinInputTypes = {
@@ -76,7 +75,7 @@ export const PinInput: FC<PinInputTypes> = ({
             value={value}
             id={`input-${index}`}
             pattern="[0-9]*"
-            className={clsx(
+            className={cn(
               "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center",
               width === "full" ? "hawa-w-full" : "hawa-w-10"
             )}

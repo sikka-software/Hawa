@@ -1,8 +1,9 @@
-import clsx from "clsx";
+import { OrientationType } from "../../types/commonTypes";
+import { cn } from "../../util";
 import React, { FC, useState, useEffect, useRef } from "react";
 
 type AdCardTypes = {
-  orientation: "vertical" | "horizontal";
+  orientation: OrientationType;
   title: string;
   description: string;
   imageURL: string;
@@ -53,7 +54,7 @@ export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
   return (
     <div ref={adRef}>
       <div
-        className={clsx(cardStyles[orientation], "")}
+        className={cn(cardStyles[orientation], "")}
         {...props}
         onClick={props.handleClick}
       >

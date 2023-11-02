@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { cn } from "../util";
-import { Logos } from "../elements";
 import {
   CollapsibleTrigger,
   CollapsibleContent,

@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 type StoreButtonsTypes = {
   store: "apple" | "google";
-  mode: "dark" | "light";
 };
+
 export const AppStores: FC<StoreButtonsTypes> = (props) => {
   return (
     <div className="hawa-flex hawa-justify-center">

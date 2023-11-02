@@ -4,36 +4,6 @@ import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
 import { PositionType } from "../types/commonTypes";
 
-// TODO: make icon based on direction
-
-// type TextFieldTypes = {
-//   isLoading?: boolean;
-//   containerClassName?: string;
-//   margin?: "none" | "normal" | "large";
-//   width?: "small" | "normal" | "full" | "auto";
-//   /** The label of the input field   */
-//   label?: any;
-//   /** Disable/Enable multiple line text input field   */
-//   multiline?: boolean;
-//   /** The small red text under the input field to show validation or a hint.   */
-//   helperText?: any;
-//   /** The value of the input field */
-//   value?: any;
-//   props?: PropsWithRef<"input">;
-//   /** The type of input field. Same as the types of the HTML input element */
-//   type?: any;
-//   /** The placeholder of the input field  */
-//   placeholder?: any;
-//   defaultValue?: any;
-//   name?: any;
-//   inputProps?: any;
-//   onChange?: any;
-//   ref?: any;
-//   /** Boolean to enable/disable editing the input field and using it as a text field   */
-//   preview?: boolean;
-//   iconInside?: React.ReactNode;
-// };
-
 type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
   containerClassName?: string;
@@ -48,9 +18,6 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   hint?: string;
   forceHideHelperText?: boolean;
   hintSide?: PositionType;
-  //   /** The value of the input field */
-  //   value?: any;
-  //   name?: any;
   inputProps?: any;
   /** The icon inside the input field */
   icon?: any;

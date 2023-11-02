@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
-import { Check } from "lucide-react"; //TODO: change this to actual svgs
 import { cn } from "../util";
 
 const MenubarMenu = MenubarPrimitive.Menu;

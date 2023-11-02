@@ -33,14 +33,6 @@ export const Usage: FC<UsageCardTypes> = (props) => {
         <div> ({props.percent}%)</div>
       </div>
       <Progress value={props.percent ?? 0} />
-      {/* <div className="hawa-mt-2 hawa-h-2.5 hawa-w-full hawa-rounded-full hawa-bg-gray-200 dark:hawa-bg-gray-700">
-        <div
-          className="hawa-h-2.5 hawa-rounded-full hawa-bg-primary"
-          style={{
-            width: `${props.percent ?? 0}%`,
-          }}
-        ></div>
-      </div> */}
     </div>
   );
 };

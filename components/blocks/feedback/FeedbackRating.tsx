@@ -1,21 +1,19 @@
 import React, { FC, useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 import { Button } from "../../elements";
+import { cn } from "../../util";
 
 type ComponentTypes = {
   title?: string;
   question: string;
   banner?: boolean;
   options?: any[];
+  position?: "bottom-right" | "bottom-left";
+  onOptionClicked?: (option: any) => void;
   texts?: {
     least: string;
     most: string;
   };
-  position?: "bottom-right" | "bottom-left";
-  onOptionClicked?: (option: any) => void;
 };
-
-// TODO: add option to turn it into a banner
 
 export const FeedbackRating: FC<ComponentTypes> = ({
   position = "bottom-right",
@@ -55,7 +53,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
   return (
     <div
       ref={popUpRef}
-      className={clsx(
+      className={cn(
         props.banner
           ? "hawa-w-full hawa-left-0 hawa-fixed hawa-bottom-0 hawa-px-0 md:hawa-px-4"
           : "hawa-fixed hawa-bottom-4 ",
@@ -63,11 +61,11 @@ export const FeedbackRating: FC<ComponentTypes> = ({
       )}
     >
       <div
-        className={clsx(
+        className={cn(
           "hawa-relative hawa-flex hawa-w-full   hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
           props.banner &&
-            "hawa-rounded-none md:hawa-rounded hawa-px-4 md:hawa-px-64"
+            "hawa-rounded-none md:hawa-rounded-t hawa-px-4 md:hawa-px-64"
         )}
       >
         <div className="hawa-absolute hawa-left-2 hawa-top-2 hawa-p-1.5 hawa-text-sm">
@@ -115,7 +113,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
                     clearTimeout(timeoutDestroy);
                   }, 5300);
                 }}
-                className={clsx(
+                className={cn(
                   "hawa-w-full hawa-cursor-pointer hawa-rounded hawa-border  hawa-p-4 hawa-text-center hawa-transition-all ",
                   clickedOption === op
                     ? "hawa-bg-gray-500 hawa-text-white"

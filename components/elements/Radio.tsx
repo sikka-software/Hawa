@@ -122,7 +122,6 @@ export const Radio: FC<RadioTypes> = ({
                     type="radio"
                     value={opt.value}
                     name="bordered-radio"
-                    // className="h-4 w-4 border-gray-300 "
                   />
                   <label
                     htmlFor={opt.value.toString()}

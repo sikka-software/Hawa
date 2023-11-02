@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import { Card, CardContent, CardFooter } from "../../elements/Card";
-import { Button } from "../../elements/Button";
+import { Card, CardContent, CardFooter, Button } from "../../elements";
 
-type TEmptyState = {
+type EmptyStateProps = {
   onActionClick: () => void;
   texts?: {
     youreCaughtUp?: string;
@@ -10,7 +9,7 @@ type TEmptyState = {
   };
 };
 
-export const EmptyState: FC<TEmptyState> = ({ texts, onActionClick }) => {
+export const EmptyState: FC<EmptyStateProps> = ({ texts, onActionClick }) => {
   return (
     <Card>
       <CardContent headless>
@@ -28,13 +27,13 @@ export const EmptyState: FC<TEmptyState> = ({ texts, onActionClick }) => {
             </svg>
           </div>
           <div className="hawa-m-2 hawa-text-xl hawa-font-bold">
-            {texts?.youreCaughtUp ?? "You're all caught up"}
+            {texts?.youreCaughtUp || "You're all caught up"}
           </div>
         </div>
       </CardContent>
       <CardFooter>
         <Button className="hawa-w-full" onClick={() => onActionClick()}>
-          {texts?.actionText ?? "Go Home"}
+          {texts?.actionText || "Go Home"}
         </Button>
       </CardFooter>
     </Card>

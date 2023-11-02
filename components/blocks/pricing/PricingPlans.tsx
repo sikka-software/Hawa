@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { PricingCard, Radio } from "../../elements";
-import { DirectionType } from "@/components/types/commonTypes";
+import { DirectionType } from "../../types/commonTypes";
 
 type PricingPlansTypes = {
   plans: {
@@ -38,6 +38,7 @@ type PricingPlansTypes = {
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
 };
+
 export const PricingPlans: FC<PricingPlansTypes> = (props) => {
   return (
     <div>

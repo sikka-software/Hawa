@@ -2,7 +2,6 @@ import * as React from "react";
 import { cn } from "../util";
 import { OrientationType } from "../types/commonTypes";
 
-// Define your own prop types
 type SeparatorProps = {
   className?: string;
   orientation?: OrientationType;

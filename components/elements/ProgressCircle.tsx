@@ -77,27 +77,20 @@ export const ProgressCircle = React.forwardRef<
   const strokeDashoffset = (value / 100) * circumference;
   const offset = circumference - strokeDashoffset;
 
-  // const { tooltipProps, getReferenceProps } = useTooltip();
-
   return (
     <>
-      {/* <Tooltip text={tooltip} {...tooltipProps} /> */}
       <div
         ref={ref}
         className={cn(
-          // makeProgressCircleClassName("root"),
           "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
           className
         )}
-        // {...other}
       >
         <svg
-          // ref={tooltipProps.refs.setReference}
           width={radius * 2}
           height={radius * 2}
           viewBox={`0 0 ${radius * 2} ${radius * 2}`}
           className="hawa-transform hawa-rotate-180"
-          // {...getReferenceProps}
         >
           <circle
             r={normalizedRadius}
@@ -140,6 +133,7 @@ export const ProgressCircle = React.forwardRef<
 });
 
 ProgressCircle.displayName = "ProgressCircle";
+
 // export const Gauge: React.FC<GaugeType> = ({
 //   value = 0,
 //   maxValue = 100,

@@ -1,11 +1,11 @@
-import React, { FC } from "react"
-import { Card, CardContent } from "../../elements/Card"
+import React, { FC } from "react";
+import { Card, CardContent } from "../../elements/Card";
 
-type TEmptyState = {
-  variant?: "outlined" | "contained" | "neobrutalism"
-}
+type TestimonialProps = {
+  variant?: "outlined" | "contained" | "neobrutalism";
+};
 
-export const Testimonial: FC<TEmptyState> = (props) => {
+export const Testimonial: FC<TestimonialProps> = () => {
   return (
     <Card>
       <CardContent headless>
@@ -33,15 +33,8 @@ export const Testimonial: FC<TEmptyState> = (props) => {
             <strong>Brent Lassi</strong>
             <div> Chief Information Security Officer</div>
           </div>
-          {/* <div>
-          <img
-            src="https://www.datocms-assets.com/55802/1636449069-bluecore-logo-dark.svg"
-            title="Logo of Brent Lassi"
-            alt="Logo of Brent Lassi"
-          />
-        </div> */}
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};

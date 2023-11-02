@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useForm, Controller } from "react-hook-form";
 import {
   Card,
   CardContent,
@@ -8,9 +9,8 @@ import {
   Button,
   Input,
 } from "../../elements";
-import { useForm, Controller } from "react-hook-form";
 
-type TLeadGenerator = {
+type LGProps = {
   texts?: {
     title?: string;
     subtitle?: string;
@@ -20,7 +20,7 @@ type TLeadGenerator = {
   submitHandler: (e: string) => void;
 };
 
-export const LeadGenerator: FC<TLeadGenerator> = ({ texts, submitHandler }) => {
+export const LeadGenerator: FC<LGProps> = ({ texts, submitHandler }) => {
   const { handleSubmit, control, formState } = useForm();
   const onSubmit = (data: any) => {
     if (submitHandler) {
@@ -52,7 +52,6 @@ export const LeadGenerator: FC<TLeadGenerator> = ({ texts, submitHandler }) => {
                 message: texts?.invalidEmail || "Invalid email address",
               },
             }}
-            // rules={{ required: true }}
             defaultValue=""
             render={({ field }) => (
               <Input {...field} type="email" placeholder="example@sikka.io" />

@@ -163,7 +163,6 @@ const DropdownMenuRadioItem = React.forwardRef<
   >
     <span className="hawa-absolute hawa-left-2 hawa-flex hawa-h-3.5 hawa-w-3.5 hawa-items-center hawa-justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        {/* <Circle className="h-2 w-2 fill-current" /> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

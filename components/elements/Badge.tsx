@@ -17,8 +17,6 @@ export const Badge: FC<BadgeTypes> = ({ anchor, position = "right" }) => {
         const parentRect = (
           indicatorRef.current as HTMLElement
         ).parentElement?.getBoundingClientRect();
-
-        // Get computed margin values
         const style = window.getComputedStyle(anchor.current);
         const marginTop = parseFloat(style.marginTop.replace("px", ""));
         const marginRight = parseFloat(style.marginRight.replace("px", ""));
@@ -39,12 +37,9 @@ export const Badge: FC<BadgeTypes> = ({ anchor, position = "right" }) => {
       }
     };
 
-    // Initial positioning
     handlePositioning();
-    // Re-position on window resize
     window.addEventListener("resize", handlePositioning);
     return () => {
-      // Clean up event listener on component unmount
       window.removeEventListener("resize", handlePositioning);
     };
   }, [anchor]);
@@ -61,8 +56,6 @@ export const Badge: FC<BadgeTypes> = ({ anchor, position = "right" }) => {
           className="hawa-bg-red-500 hawa-origin-center hawa-w-3 hawa-h-3 hawa-rounded-full "
         ></div>
       )}
-      {/* {"anchor " + anchor.current?.getBoundingClientRect()?.width} */}
-      {/* {"indicc " + indicatorRef.parentElement?.getBoundingClientRect()?.width} */}
     </div>
   );
 };

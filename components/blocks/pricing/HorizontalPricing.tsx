@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
+import { cn } from "../../util";
+import { DirectionType } from "../../types/commonTypes";
 import { Radio } from "../../elements";
-import clsx from "clsx";
-import { DirectionType } from "@/components/types/commonTypes";
 
 type HorizontalPricingTypes = {
   plans: {
@@ -71,7 +71,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
               className="hawa-peer hawa-appearance-none"
             />
             <div
-              className={clsx(
+              className={cn(
                 selectedCard === d.title
                   ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-primary/20 peer-checked:hawa-ring-4 "
                   : "",

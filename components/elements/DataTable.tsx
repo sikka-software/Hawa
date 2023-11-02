@@ -1,4 +1,9 @@
 import * as React from "react";
+import { cn } from "../util";
+import { Input } from "./Input";
+import { DirectionType } from "../types/commonTypes";
+import { Skeleton } from "./Skeleton";
+import { Button } from "./Button";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -22,7 +27,6 @@ import {
   TableHeader,
   TableRow,
 } from "./Table";
-import { Input } from "./Input";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -30,10 +34,6 @@ import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
 } from "./DropdownMenu";
-import { Skeleton } from "./Skeleton";
-import { Button } from "./Button";
-import { cn } from "../util";
-import { DirectionType } from "../types/commonTypes";
 
 type DataTableProps<DataProps = {}> = {
   direction?: DirectionType;

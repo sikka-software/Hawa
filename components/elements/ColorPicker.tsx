@@ -45,28 +45,21 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   const handleTextInputChange = (e: FormEvent<HTMLInputElement>) => {
     const inputElement = e.target as HTMLInputElement;
     let inputColor = inputElement.value;
-    // if (inputColor.length === 1 && inputColor[0] !== "#") {
-    //   inputElement.value = `#${inputColor}`;
-    // } else if (inputColor.length === 0) {
-    //   inputElement.value = `#`;
-    // }
 
     if (inputColor[0] !== "#") {
       // Prepend a hash (#) to the input value
       inputColor = `#${inputColor}`;
       inputElement.value = inputColor;
     }
-
     // Remove any non-alphanumeric characters except the hash (#)
     const sanitizedInput = inputColor.replace(/[^a-fA-F0-9#]/g, "");
-
     // If the sanitized input is different from the original input,
     // update the input element's value.
     if (sanitizedInput !== inputColor) {
       inputElement.value = sanitizedInput;
     }
 
-    setSelectedColor(sanitizedInput); // Updating selectedColor state here
+    setSelectedColor(sanitizedInput);
 
     if (props.handleChange) {
       const event = new Event("input", { bubbles: true });

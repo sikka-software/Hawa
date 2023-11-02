@@ -41,8 +41,8 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
   return (
     <div
       className={cn(
-        "hawa-flex  hawa-flex-col hawa-gap-2 hawa-rounded hawa-border  hawa-p-2 hawa-transition-all",
-        selectedEmoji ? "hawa-h-[195px]  hawa-min-w-fit" : "hawa-h-[44px] "
+        "hawa-flex  hawa-flex-col hawa-rounded hawa-border  hawa-p-2 hawa-transition-all",
+        selectedEmoji ? "hawa-h-[189px]  hawa-min-w-fit" : "hawa-h-[44px] "
       )}
     >
       <div className="hawa-flex hawa-flex-row   hawa-items-center hawa-justify-center hawa-gap-2 ">
@@ -98,13 +98,13 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
             </div>
           </div>
         ) : (
-          <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div className="hawa-flex hawa-flex-col hawa-gap-1 hawa-p-1">
             <Popover
               className="hawa-select-none hawa-p-1 hawa-text-xs "
               open={helperText}
               trigger={
                 <Textarea
-                  className={cn("hawa-mb-2 hawa-h-full hawa-resize-none")}
+                  className={cn("hawa-h-full hawa-resize-none hawa-mt-2")}
                   placeholder="Your feedback"
                   onChange={(e) => {
                     if (e.target.value) {
@@ -115,7 +115,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                 />
               }
             >
-              <span className="hawa-m-2">Please enter your feedback</span>{" "}
+              <span className="hawa-m-0">Please enter your feedback</span>
             </Popover>
             <Button
               isLoading={loadingSubmit}

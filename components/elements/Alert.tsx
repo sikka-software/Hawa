@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import clsx from "clsx";
-import { Button } from "./Button";
 import { DirectionType, SeverityType } from "../types/commonTypes";
+import { Button } from "./Button";
+import { cn } from "../util";
+
 // TODO: make handleClose to detect when the alert is closed from outside this component
 
 type AlertTypes = {
@@ -37,6 +38,7 @@ type AlertTypes = {
   icon?: any;
   className?: any;
 };
+
 export const Alert: React.FunctionComponent<AlertTypes> = ({
   variant = "normal",
   direction = "ltr",
@@ -98,7 +100,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
         aria-label="Alert"
         role="alert"
         dir={direction}
-        className={clsx(
+        className={cn(
           "hawa-relative hawa-mb-4 hawa-flex hawa-flex-col hawa-rounded hawa-p-4 hawa-text-sm hawa-transition-all",
           styleVariant[severity],
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
@@ -119,7 +121,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           )}
           <div className="hawa-flex hawa-flex-col">
             <span
-              className={clsx(
+              className={cn(
                 "hawa-font-bold",
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8"
               )}
@@ -127,7 +129,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               {props.title}
             </span>
             <span
-              className={clsx(
+              className={cn(
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
                 props.persistent ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]"
               )}
@@ -154,7 +156,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             type="button"
             data-dismiss-target="#alert-default"
             aria-label="Close"
-            className={clsx(
+            className={cn(
               "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all  hover:hawa-text-gray-900",
               closeButtonStyle[severity],
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2"

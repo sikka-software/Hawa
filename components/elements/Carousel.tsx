@@ -48,7 +48,7 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
     return () => {
       if (autoplayTimer) clearInterval(autoplayTimer);
     };
-  }, [emblaApi, autoplay, autoplayInterval]); // Add dependencies here
+  }, [emblaApi, autoplay, autoplayInterval]);
 
   const length = React.Children.count(items);
   const canScrollNext = !!emblaApi?.canScrollNext();
@@ -88,7 +88,7 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
 type DotsProps = {
   itemsLength: number;
   selectedIndex: number;
-  onDotClick: (index: number) => void; // New prop for handling dot click
+  onDotClick: (index: number) => void;
 };
 const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
@@ -98,7 +98,7 @@ const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
         const selected = index === selectedIndex;
         return (
           <div
-            onClick={() => onDotClick(index)} // Handle click event
+            onClick={() => onDotClick(index)}
             className={cn(
               "hawa-h-2 hover:hawa-cursor-pointer hawa-rounded-full hawa-transition-all hawa-duration-300 hawa-bg-primary",
               !selected

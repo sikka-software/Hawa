@@ -29,7 +29,6 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
     if (input === "" || validChars.test(input)) {
       setPhoneNumber(input);
     }
-    // setPhoneNumber(e.target.value);
     if (props.handleChange) {
       props.handleChange(`${countryCode?.label}-${e.target.value}`);
     } else {
@@ -56,9 +55,6 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
           value={countryCode?.label}
           onChange={setCountryCode}
         />
-
-        {/* TODO: attempt to use this one */}
-        {/* <Combobox data={Countries} valueKey={"label"} width="fit" /> */}
 
         <div className="hawa-flex hawa-h-fit hawa-relative hawa-flex-col  hawa-justify-center hawa-w-full hawa-gap-0">
           <input

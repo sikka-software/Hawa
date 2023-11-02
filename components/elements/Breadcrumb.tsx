@@ -1,13 +1,16 @@
 import React, { FC, ReactNode } from "react";
 
-interface TBreadcrumb {
+interface BCTypes {
   /** The array of crumbs, each one with a label and a href link */
   breadcrumbLinks: { label: string; href: string }[];
   /** The separator between each crumb, can be character or React Node. The default is ">" */
   separator?: string | ReactNode;
 }
 
-const Breadcrumb: FC<TBreadcrumb> = ({ breadcrumbLinks, separator = ">" }) => {
+export const Breadcrumb: FC<BCTypes> = ({
+  breadcrumbLinks,
+  separator = ">",
+}) => {
   return (
     <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm">
       {breadcrumbLinks.map((singleBreadcrumbLink, index) => (
@@ -37,5 +40,3 @@ const Breadcrumb: FC<TBreadcrumb> = ({ breadcrumbLinks, separator = ">" }) => {
     </div>
   );
 };
-
-export { Breadcrumb };

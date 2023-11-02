@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cn } from "../util";
 import {
   Command,
   CommandEmpty,
@@ -8,7 +9,6 @@ import {
   CommandItem,
 } from "./Command";
 import { PopoverContent, PopoverTrigger } from "./Popover";
-import { cn } from "../util";
 import { Label } from "./Label";
 import { Skeleton } from "./Skeleton";
 

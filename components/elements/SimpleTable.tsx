@@ -70,7 +70,6 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
                           <TableHead
                             condensed={props.condensed}
                             dir={props.direction}
-                            // clickable={isSortable}
                             key={header.id}
                           >
                             {header.isPlaceholder
@@ -120,12 +119,6 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
               </TableBody>
             </Table>
           </div>
-
-          {/* CAPTION FOR CURRENT SELECTED ROWS */}
-          {/* <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div> */}
         </>
       )}
     </div>
