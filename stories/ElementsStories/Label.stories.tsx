@@ -23,17 +23,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Label>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return (
-    <div>
-      <Label>This is a label</Label>
-      <Skeleton className="hawa-w-64 hawa-h-10" />
-    </div>
-  );
-};
 export const Default: Story = {
-  render: () => <Template />,
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <Label {...args}>This is a label</Label>
+        <Skeleton className="hawa-w-64 hawa-h-10" />
+      </div>
+    );
+  },
+  args: {
+    required: false,
+    hint: "This is a label hint",
+  },
 };
