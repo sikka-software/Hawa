@@ -51,7 +51,12 @@ export const Default: Story = {
               <Bell className="hawa-icon" />
             </Button>
           </BadgedComponent>
-          <BadgedComponent position="right" hideBadge={hideBadge}>
+          <BadgedComponent
+            text="20"
+            size="large"
+            position="right"
+            hideBadge={hideBadge}
+          >
             <Button
               onClick={() => setHideBadge(!hideBadge)}
               variant={"outline"}
