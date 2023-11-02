@@ -43,6 +43,11 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
   function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
     return obj[key];
   }
+  const handleOpenChange = (open: boolean) => {
+    if (!(props.isLoading || props.preview)) {
+      setOpen(open);
+    }
+  };
   return (
     <div
       className={cn(
@@ -51,8 +56,8 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
       )}
     >
       {props.label && <Label>{props.label}</Label>}
-      <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild disabled={props.isLoading || props.preview}>
+      <PopoverPrimitive.Root open={open} onOpenChange={handleOpenChange}>
+        <PopoverTrigger asChild>
           {props.isLoading ? (
             <div className="hawa-pb-2">
               <Skeleton className="hawa-h-[40px] hawa-w-full" />
