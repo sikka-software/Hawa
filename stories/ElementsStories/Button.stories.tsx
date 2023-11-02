@@ -30,11 +30,7 @@ const Template = () => {
       <h1>Variations</h1>
       <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
         <Button variant={"default"}>Default</Button>
-
-        <BadgedComponent position={"right"}>
-          <Button variant={"outline"}>Outline</Button>
-        </BadgedComponent>
-
+        <Button variant={"outline"}>Outline</Button>
         <Button variant={"destructive"}>Destructive</Button>
         <Button variant={"ghost"}>Ghost</Button>
         <Button variant={"light"}>Light</Button>
