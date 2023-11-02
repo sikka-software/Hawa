@@ -8,9 +8,8 @@ type AppTopbarType = {
   size?: number;
   username?: string;
   email?: string;
-
-  profileMenuItems: MenuItemType[];
-  avatarImage: string;
+  profileMenuItems?: MenuItemType[];
+  avatarImage?: string;
 };
 
 export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {

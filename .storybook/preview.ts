@@ -7,7 +7,7 @@ import "./stories.css";
 const preview: Preview = {
   parameters: {
     grid: {
-      cellSize: 15
+      cellSize: 15,
     },
     options: {
       storySort: {

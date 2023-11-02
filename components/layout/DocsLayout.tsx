@@ -1,43 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useBreakpoint } from "../hooks/useBreakpoint";
-import {
-  Button,
-  Logos,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetOverlay,
-  SheetPortal,
-  SheetTitle,
-  SheetTrigger,
-} from "../elements";
+import { Button, Logos, Sheet, SheetContent, SheetTrigger } from "../elements";
 import { cn } from "../util";
 import { DocsSidebar } from "./DocsSidebar";
 import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
+  pages?: any[];
   /** The direction of the layout */
   direction?: DirectionType;
-  /** The title of the current selected page, make sure it's the same as the drawerItem slug */
-  currentPage: string;
   /** Specifies the title of the page. */
   pageTitle?: string;
   /** Specifies the symbol for the logo. */
   logoSymbol?: any;
   /** Specifies the link for the logo. */
   logoLink?: string;
-  /** Specifies the text for the logo. */
-  logoText?: any;
   /** Specifies the content to be displayed in the layout. */
   children?: any;
-
-  /** Specifies the username to be displayed. */
-  username?: string;
-  /** Specifies the user email to be displayed. */
-  email?: string;
   /** Specifies the image for the avatar. */
   avatarImage?: any;
   /**
@@ -47,19 +26,7 @@ type AppLayoutTypes = {
    * - 'large': Large.
    */
   drawerSize?: "sm" | "md" | "large";
-  /** Specifies the menu items for the profile menu. */
-  /**
-   * Specifies the width of the profile menu.
-   * - 'default': Default width.
-   * - 'sm': Small width.
-   * - 'lg': Large width.
-   * - 'parent': Inherits width from parent element.
-   */
-  profileMenuWidth: "default" | "sm" | "lg" | "parent";
-  /** Event handler for settings button click. */
-  onSettingsClick?: () => void;
-  /** Event handler for drawer expansion. */
-  onDrawerExpand?: (e: any) => void;
+
   /** Specifies whether to keep the drawer open. */
   // keepDrawerOpen?: boolean;
   keepOpen: boolean;
@@ -70,36 +37,15 @@ type AppLayoutTypes = {
   clickedItem?: any;
   /** Event handler for logo button click. */
   onLogoClick?: () => void;
-  /** Text labels for various UI elements. */
-  texts?: {
-    /** Label for expand sidebar button. */
-    expandSidebar?: string;
-    /** Label for collapse sidebar button. */
-    collapseSidebar?: string;
-  };
-};
-type Item = {
-  value: string;
-  label: string;
-  icon?: any;
-  subitems?: SubItem[];
-  onClick?: () => void;
-};
-type SubItem = {
-  value: string;
-  label: string;
-  icon?: any;
-  onClick?: () => void;
 };
 
 export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
   direction = "ltr",
   drawerSize = "md",
-  onSettingsClick,
   DrawerFooterActions,
-  currentPage,
   clickedItem,
   keepOpen,
+  pages,
   setKeepOpen,
   ...props
 }) => {
@@ -125,6 +71,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
   if (typeof window == "undefined") {
     size = 1200;
   }
+  const [currentPage, setCurrentPage] = useState<string>("Introduction");
 
   const [openSideMenu, setOpenSideMenu] = useState(true);
 
@@ -156,6 +103,35 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [keepOpen]);
+
+  const observerRef = React.useRef<IntersectionObserver | null>(null);
+
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+    const entry = entries.find((entry) => entry.isIntersecting);
+    if (entry) {
+      setCurrentPage(entry.target.id);
+    }
+  };
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      threshold: 0.5, // Adjust threshold as needed to determine when a section is in view
+    });
+    // Assuming each child corresponds to a page and has an id attribute
+    React.Children.forEach(props.children, (child: React.ReactElement) => {
+      if (child && child.props.id) {
+        const element = document.getElementById(child.props.id);
+        if (element && observerRef.current) {
+          observerRef.current.observe(element);
+        }
+      }
+    });
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [props.children]);
 
   let drawerSizeCondition =
     drawerSizeStyle[openSideMenu ? "opened" : "closed"][drawerSize];
@@ -216,23 +192,9 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 side={isRTL ? "right" : "left"}
                 className="hawa-pt-10"
               >
-                {/* <SheetHeader>
-                  <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-                  <SheetDescription>
-                    This action cannot be undone. This will permanently delete
-                    your account and remove your data from our servers.
-                  </SheetDescription>
-                </SheetHeader> */}{" "}
-                <DocsSidebar />
+                <DocsSidebar direction={direction} pages={pages || []} />
               </SheetContent>
             </Sheet>
-
-            {/* Mobile Page Title */}
-            {/* {props.pageTitle ? (
-                <div className="hawa-text-sm">{props.pageTitle}</div>
-              ) : (
-                <div></div>
-              )} */}
           </div>
         )}
 
@@ -248,17 +210,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
         </div>
       </div>
 
-      {/*
-       * ----------------------------------------------------------------------------------------------------
-       * Drawer Container
-       * ----------------------------------------------------------------------------------------------------
-       */}
       <div
-        // style={{
-        //   height: "calc(100%)",
-        //   width: `${openSideMenu ? openDrawerWidth : 0}px`,
-        // }}
-
         className={cn(
           "hawa-fixed hawa-bg-primary-foreground hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
           isRTL
@@ -270,8 +222,6 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
           openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
         )}
         style={{
-          //   height: "calc(100%)",
-
           width:
             size > 600
               ? openSideMenu
@@ -291,21 +241,12 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
         }}
         ref={ref}
       >
-        {/*
-         * ----------------------------------------------------------------------------------------------------
-         * Docs Sidebar Pages
-         * ----------------------------------------------------------------------------------------------------
-         */}
-
-        <DocsSidebar />
+        <DocsSidebar
+          direction={direction}
+          pages={pages || []}
+          currentPage={currentPage}
+        />
       </div>
-      {/*
-       * ----------------------------------------------------------------------------------------------------
-       * Children Container
-       * ----------------------------------------------------------------------------------------------------
-       */}
-
-      <div>overlay sidebar</div>
       <div
         className="hawa-fixed hawa-overflow-y-auto hawa-transition-all "
         style={
@@ -319,7 +260,6 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
             : {
                 height: "calc(100% - 56px)",
                 width: `calc(100% - ${drawerSizeCondition}px)`,
-                // width: `calc(100% - ${0}px)`,
                 left: `${drawerSizeCondition}px`,
                 right: `${drawerSizeCondition}px`,
                 top: "56px",

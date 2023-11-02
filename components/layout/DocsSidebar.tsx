@@ -1,40 +1,76 @@
 import React from "react";
 import { cn } from "../util";
+import { DirectionType } from "../types/commonTypes";
 
 type DocsSidebarType = {
-  test?: any;
+  pages: any[];
+  currentPage?: string;
+  direction?: DirectionType;
 };
 
-export const DocsSidebar: React.FC<DocsSidebarType> = ({ test, ...props }) => {
-  const pages = [
-    "Introduction",
-    "Installation",
-    "Usage",
-    "API Reference",
-    "FAQ",
-  ];
-  const [currentPage, setCurrentPage] = React.useState(pages[0]);
+export const DocsSidebar: React.FC<DocsSidebarType> = ({
+  currentPage: propCurrentPage,
 
-  const handlePageClick = (page: any) => {
-    setCurrentPage(page);
+  pages,
+  direction,
+}) => {
+  const [activePage, setActivePage] = React.useState(pages[0]);
+
+  const handlePageClick = (page: any, event: React.MouseEvent) => {
+    event.preventDefault();
+    setTimeout(() => {
+      setActivePage(page);
+    }, 50);
+    const element = document.getElementById(page);
+    element?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const getCurrentSection = () => {
+    for (let i = pages.length - 1; i >= 0; i--) {
+      const page = pages[i];
+      const element = document.getElementById(page);
+      const rect = element?.getBoundingClientRect();
+      if (rect) {
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          return page;
+        }
+      }
+    }
+    return pages[0];
+  };
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setActivePage(getCurrentSection());
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  let selectedStyles = {
+    rtl: "hawa-border-r-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200",
+    ltr: "hawa-border-l-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200",
+  };
   return (
-    <div className="hawa-flex hawa-flex-col hawa-overflow-x-clip">
+    <div
+      className="hawa-flex hawa-flex-col hawa-overflow-x-clip"
+      dir={direction}
+    >
       {pages.map((page, index) => (
-        <a
-          // href={`#${page.replace(" ", "-").toLowerCase()}`}
+        <div
           key={index}
           className={cn(
             "hawa-py-1 hawa-text-xs hawa-cursor-pointer  hawa-whitespace-nowrap hawa-px-3 hover:hawa-bg-gray-100 hawa-transition-all",
-            currentPage === page
-              ? "hawa-border-l-4  hawa-border-primary hawa-border-collapse"
+            (propCurrentPage || activePage) === page
+              ? selectedStyles[direction || "rtl"]
               : ""
           )}
-          onClick={() => handlePageClick(page)}
+          onClick={(event) => handlePageClick(page, event)}
         >
           {page}
-        </a>
+        </div>
       ))}
     </div>
   );
