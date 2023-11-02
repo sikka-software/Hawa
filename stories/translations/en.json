@@ -14,7 +14,9 @@
   "new": "New",
   "items": "Items",
   "dashboard": "Dashboard",
-
+  "discard": "Discard Changes",
+  "save-draft": "Save as a draft",
+  "send-review": "Send for review",
   "users": "Users",
   "roles": "Roles",
   "customers": "Customers",

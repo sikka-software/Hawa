@@ -35,12 +35,12 @@ const Template = (args: any, globals: any) => {
         variant={"outline"}
         menuItems={[
           {
-            label: `Discard changes`,
+            label: t("discard"),
             value: 10,
             action: () => console.log("discarding changes"),
           },
-          { label: `Save as draft`, value: 10 },
-          { label: `Send for review`, value: 10 },
+          { label: t("save-draft"), value: 10 },
+          { label: t("send-review"), value: 10 },
         ]}
         {...args}
       >

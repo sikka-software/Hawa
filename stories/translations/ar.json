@@ -17,7 +17,9 @@
   "invoices": "الفواتير",
   "community": "المنتدى",
   "settings": "الإعدادات",
-
+  "discard": "إلغاء التغييرات",
+  "save-draft": "حفظ كمسودة",
+  "send-review": "أرسل للمعاينة",
   "yes": "نعم",
   "new": "جديد",
   "columns": "الأعمدة",
