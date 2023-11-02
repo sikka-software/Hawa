@@ -9,6 +9,15 @@
   "descriptionRequired": "الوصف مطلوب",
   "requestType": "نوع التذكرة",
   "requestTypeRequired": "نوع التذكرة مطلوب",
+
+  "users": "المستخدمين",
+  "roles": "الصلاحيات",
+  "customers": "الزبائن",
+  "clients": "العملاء",
+  "invoices": "الفواتير",
+  "community": "المنتدى",
+  "settings": "الإعدادات",
+
   "yes": "نعم",
   "new": "جديد",
   "columns": "الأعمدة",
@@ -101,7 +110,6 @@
   "refCode": "رمز الإحالة",
   "account": "الحساب",
   "password": "كلمة المرور",
-  "settings": "الإعدادات",
   "display": "المظهر",
   "option": "خيار",
   "checkEmail": "تحقق من بريدك الإلكتروني",

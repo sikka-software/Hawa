@@ -5,9 +5,6 @@ import { Button } from "../Button";
 import { DropdownMenu, MenuItemType } from "../DropdownMenu";
 import { StopPropagationWrapper } from "../StopPropagationWrapper";
 
-
-// TODO: bring back the image and its button like from hawa-archive
-
 interface ItemCardTypes {
   headerActions?: MenuItemType[];
   // headerActions?: THeaderActions[]
@@ -26,7 +23,7 @@ interface ItemCardTypes {
   /** Enabling this blurs the image on hover and shows an action button */
   clickableImage?: boolean;
   /** The function of the action button on the image of the card */
-  clickableImageAction?: () => void;
+  onImageClick?: () => void;
   /** The text of the action button on the image of the card */
   clickableImageActionText?: string;
   /** The icon of the action button on the image of the card */
@@ -47,7 +44,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
   content,
   headerActions,
   clickableImage,
-  clickableImageAction,
+  onImageClick,
   clickableImageActionText,
   clickableImageActionIcon,
   header,
@@ -116,17 +113,18 @@ export const ItemCard: FC<ItemCardTypes> = ({
             )}
           />
           {clickableImage && (
-            <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-flex hawa-h-full hawa-w-full hawa-items-center hawa-justify-center hawa-opacity-0 hawa-transition-all group-hover:hawa-opacity-100 ">
-              <Button
-                // startIcon={clickableImageActionIcon}
-                variant="secondary"
-                onClick={clickableImageAction}
-                className="hawa-flex hawa-flex-row hawa-gap-2"
-              >
-                {clickableImageActionIcon}
-                {clickableImageActionText}
-              </Button>
-            </div>
+            <StopPropagationWrapper>
+              <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-flex hawa-h-full hawa-w-full hawa-items-center hawa-justify-center hawa-opacity-0 hawa-transition-all group-hover:hawa-opacity-100 ">
+                <Button
+                  variant="secondary"
+                  onClick={onImageClick}
+                  className="hawa-flex hawa-flex-row hawa-gap-2"
+                >
+                  {clickableImageActionIcon}
+                  {clickableImageActionText || "Click"}
+                </Button>
+              </div>
+            </StopPropagationWrapper>
           )}
         </div>
       )}

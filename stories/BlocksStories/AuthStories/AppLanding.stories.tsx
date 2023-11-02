@@ -28,7 +28,7 @@ const Template = (args: any, globals: any) => {
   setLocale(locale);
 
   return (
-    <div className="hawa-max-w-md hawa-drop-shadow-lg">
+    <div className="hawa-max-w-md hawa-drop-shadow-xl">
       <AppLanding
         direction={direction}
         {...args}

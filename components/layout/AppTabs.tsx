@@ -27,7 +27,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, ...props }) => {
   );
 };
 
-const AppSingleTab = (props: any) => {
+const AppSingleTab = ({ tab, ...props }: any) => {
   return (
     <div
       onClick={props.onClick}
@@ -39,8 +39,8 @@ const AppSingleTab = (props: any) => {
           : "dark:hover:hawa-bg-gray-700 hover:hawa-bg-gray-200 hawa-cursor-pointer  hawa-border-transparent"
       )}
     >
-      {props.tab.icon && props.tab.icon}
-      {props.tab.label}
+      {tab.icon && tab.icon}
+      {tab.label}
     </div>
   );
 };

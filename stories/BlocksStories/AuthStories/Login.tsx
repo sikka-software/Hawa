@@ -161,7 +161,6 @@ const LoginDocs = (args: any, globals: any) => {
 
       <div>
         <h2 id="Usage">Usage</h2>
-        {/* TODO: use the codeblock component */}
         <CodeBlock
           code={`
 
