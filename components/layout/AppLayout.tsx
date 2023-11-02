@@ -146,7 +146,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       {props.topBar && (
         <div
           className={cn(
-            "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
+            "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-0 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
             isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
           )}
         >
@@ -267,7 +267,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          "hawa-fixed hawa-z-0 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
           isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-14"
             : "hawa-left-0 hawa-top-0 hawa-h-14",

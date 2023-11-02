@@ -1,6 +1,12 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { AppLayout, Button } from "../../components";
+import {
+  AppLayout,
+  Button,
+  ToastAction,
+  Toaster,
+  useToast,
+} from "../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useDarkMode } from "storybook-dark-mode";
@@ -60,6 +66,8 @@ export const Default: Story = {
       localStorage.setItem("keepOpen", JSON.stringify(newKeepOpenState));
     };
 
+    const { toast } = useToast();
+
     return (
       <AppLayout
         logoLink={logoLink}
@@ -78,6 +86,22 @@ export const Default: Story = {
           <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
             <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
               App Content
+              <Toaster direction={direction} />
+              <button
+                onClick={() => {
+                  toast({
+                    title:
+                      "Scheduled: Catch up " + Math.floor(Math.random() * 100),
+                    description: "Friday, February 10, 2023 at 5:57 PM",
+                    severity: "warning",
+                    action: (
+                      <ToastAction altText="Try again">Try again</ToastAction>
+                    ),
+                  });
+                }}
+              >
+                open toaster
+              </button>
             </span>
           </div>
         </div>
