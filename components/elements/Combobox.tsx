@@ -11,13 +11,13 @@ import {
 import { PopoverContent, PopoverTrigger } from "./Popover";
 import { Label } from "./Label";
 import { Skeleton } from "./Skeleton";
+import { PositionType } from "../types/commonTypes";
 
 type ComboboxTypes<T> = {
   labelKey?: keyof T;
   valueKey?: keyof T;
   data: T[];
   width?: string;
-  label?: string;
   texts: {
     noItems?: string;
     placeholder?: string;
@@ -30,6 +30,14 @@ type ComboboxTypes<T> = {
   defaultValue?: string;
   preview?: boolean;
   hideInput?: boolean;
+
+  id?: string;
+  /** The label of the input field   */
+  label?: any;
+  hint?: string;
+  hintSide?: PositionType;
+  /** If true, it will show a red asterisk next to the label*/
+  isRequired?: boolean;
   onChange?: (e: any) => void;
 };
 
@@ -58,7 +66,16 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
         props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
       )}
     >
-      {props.label && <Label>{props.label}</Label>}
+      {props.label && (
+        <Label
+          htmlFor={props.id}
+          hint={props.hint}
+          hintSide={props.hintSide}
+          required={props.isRequired}
+        >
+          {props.label}
+        </Label>
+      )}{" "}
       <PopoverPrimitive.Root open={open} onOpenChange={handleOpenChange}>
         <PopoverTrigger asChild>
           {props.isLoading ? (
@@ -131,7 +148,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
             <CommandEmpty>
               {props.texts?.noItems || "No items found."}
             </CommandEmpty>
-            <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
+            <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-auto">
               {data.map((item: any) => (
                 <CommandItem
                   key={getProperty(item, valueKey)}

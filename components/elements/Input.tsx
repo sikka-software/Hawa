@@ -11,13 +11,15 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   width?: "small" | "normal" | "full" | "auto";
   /** The label of the input field   */
   label?: any;
+  hint?: string;
+  hintSide?: PositionType;
+  /** If true, it will show a red asterisk next to the label*/
+  isRequired?: boolean;
   /** Disable/Enable multiple line text input field   */
   multiline?: boolean;
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
-  hint?: string;
   forceHideHelperText?: boolean;
-  hintSide?: PositionType;
   inputProps?: any;
   /** The icon inside the input field */
   icon?: any;
@@ -25,8 +27,6 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   preview?: boolean;
   //   maxLength?: any;
   iconInside?: React.ReactNode;
-  /** If true, it will show a red asterisk next to the label*/
-  isRequired?: boolean;
 };
 export const Input: FC<TextFieldTypes> = ({
   margin = "none",
