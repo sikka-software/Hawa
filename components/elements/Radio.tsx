@@ -74,7 +74,11 @@ export const Radio: FC<RadioTypes> = ({
               aria-current="page"
               onClick={() => {
                 setSelectedOption(opt.value);
-                props.onChangeTab(opt.value);
+                if (props.onChangeTab) {
+                  props.onChangeTab(opt.value);
+                } else {
+                  console.log("onChangeTab was not provided");
+                }
               }}
               className={cn(
                 "hawa-w-full hawa-cursor-pointer ",
@@ -198,7 +202,11 @@ export const Radio: FC<RadioTypes> = ({
                     name="default-radio"
                     onChange={() => {
                       setSelectedOption(opt.value);
-                      props.onChangeTab(opt.value);
+                      if (props.onChangeTab) {
+                        props.onChangeTab(opt.value);
+                      } else {
+                        console.log("onChangeTab was not provided");
+                      }
                     }}
                   />
                   <label
