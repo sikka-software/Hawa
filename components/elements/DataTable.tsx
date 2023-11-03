@@ -64,7 +64,7 @@ type DataTableProps<DataProps = {}> = {
 
 declare module "@tanstack/table-core" {
   interface ColumnMeta<TData extends RowData, TValue> {
-    sortable: any;
+    enablePadding?: boolean;
   }
 }
 
@@ -232,7 +232,11 @@ export const DataTable = <DataProps extends {}>({
                       {row.getVisibleCells().map((cell) => (
                         <TableCell
                           dir={props.direction}
-                          condensed={props.condensed}
+                          padding={
+                            props.condensed
+                              ? "condensed"
+                              : cell.column.columnDef.meta?.padding
+                          }
                           key={cell.id}
                         >
                           {flexRender(
@@ -275,7 +279,7 @@ export const DataTable = <DataProps extends {}>({
             )}
 
             {/* NEXT & PREV BUTTONS */}
-            {table.getPageCount() !== 0 && (
+            {table.getPageCount() > 1 && (
               <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
                 {enableGoTo && (
                   <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-items-center hawa-gap-2">

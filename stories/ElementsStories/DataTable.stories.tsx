@@ -491,6 +491,241 @@ export const WithHideColumns: Story = {
     enableSearch: true,
   },
 };
+export const Sizes: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const companiesColumns: ColumnDef<Company>[] = [
+      {
+        accessorKey: "name",
+        header: t("company"),
+      },
+      {
+        accessorKey: "location",
+        header: t("location"),
+      },
+      {
+        accessorKey: "website",
+        header: t("website"),
+        cell: ({ row }) => (
+          <a href={row.getValue("website")} className="clickable-link">
+            {row.getValue("website")}
+          </a>
+        ),
+      },
+
+      {
+        accessorKey: "employees",
+        header: t("employees"),
+        cell: (d) => (
+          <div className="hawa-font-medium">
+            {d.row.getValue("employees")?.toLocaleString()}
+          </div>
+        ),
+      },
+      {
+        accessorKey: "share_price",
+        header: t("share_price"),
+      },
+      {
+        id: "actions",
+        header: t("actions"),
+        enableHiding: false,
+
+        cell: ({ row }) => {
+          return (
+            <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
+              <DropdownMenu
+                trigger={
+                  <Button className="hawa-m-0 hawa-h-6" variant="ghost">
+                    <span className="hawa-sr-only">Open menu</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="19" cy="12" r="1" />
+                      <circle cx="5" cy="12" r="1" />
+                    </svg>
+                  </Button>
+                }
+                items={[
+                  {
+                    label: "copy",
+                    value: "copy",
+                    // action: () => navigator.clipboard.writeText(payment.id),
+                  },
+                ]}
+              />
+            </span>
+          );
+        },
+      },
+    ];
+    const noPaddingCompaniesColumns: ColumnDef<Company>[] = [
+      {
+        accessorKey: "name",
+        header: t("company"),
+        meta: { padding: "noPadding", sortable: false },
+      },
+
+      {
+        accessorKey: "location",
+        header: t("location"),
+        meta: { padding: "noPadding", sortable: false },
+      },
+      {
+        accessorKey: "website",
+        header: t("website"),
+        meta: { padding: "noPadding", sortable: false },
+        cell: ({ row }) => (
+          <a href={row.getValue("website")} className="clickable-link">
+            {row.getValue("website")}
+          </a>
+        ),
+      },
+
+      {
+        accessorKey: "employees",
+        header: t("employees"),
+        meta: { padding: "noPadding", sortable: false },
+        cell: (d) => (
+          <div className="hawa-font-medium">
+            {d.row.getValue("employees")?.toLocaleString()}
+          </div>
+        ),
+      },
+      {
+        accessorKey: "share_price",
+        header: t("share_price"),
+        meta: { padding: "noPadding", sortable: false },
+      },
+      {
+        id: "actions",
+        header: t("actions"),
+        enableHiding: false,
+        meta: { padding: "noPadding", sortable: false },
+        cell: ({ row }) => {
+          return (
+            <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-px-0">
+              <DropdownMenu
+                trigger={
+                  <Button className="hawa-m-0 hawa-h-6" variant="ghost">
+                    <span className="hawa-sr-only">Open menu</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="19" cy="12" r="1" />
+                      <circle cx="5" cy="12" r="1" />
+                    </svg>
+                  </Button>
+                }
+                items={[
+                  {
+                    label: "copy",
+                    value: "copy",
+                    // action: () => navigator.clipboard.writeText(payment.id),
+                  },
+                ]}
+              />
+            </span>
+          );
+        },
+      },
+    ];
+    const { toast } = useToast();
+
+    return (
+      <div
+        dir={direction}
+        className="hawa-w-full hawa-flex hawa-flex-col hawa-gap-4 "
+      >
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div className="hawa-font-bold hawa-text-2xl">Default Size</div>
+          <DataTable<Company>
+            {...args}
+            translateFn={t}
+            defaultSort="share_price"
+            columns={companiesColumns}
+            data={generatedData.slice(0, 4)}
+            // condensed
+            direction={direction}
+            texts={{
+              columns: t("columns"),
+              of: t("of"),
+              item: "عناصر",
+              total: t("total"),
+              page: t("page"),
+              noData: t("no-data"),
+              goTo: t("go-to"),
+              searchPlaceholder: t("search-items"),
+            }}
+          />
+        </div>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div className="hawa-font-bold hawa-text-2xl">Condensed Size</div>
+          <DataTable<Company>
+            {...args}
+            translateFn={t}
+            defaultSort="share_price"
+            columns={companiesColumns}
+            data={generatedData.slice(0, 4)}
+            condensed
+            direction={direction}
+            texts={{
+              columns: t("columns"),
+              of: t("of"),
+              item: "عناصر",
+              total: t("total"),
+              page: t("page"),
+              noData: t("no-data"),
+              goTo: t("go-to"),
+              searchPlaceholder: t("search-items"),
+            }}
+          />
+        </div>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div className="hawa-font-bold hawa-text-2xl">No Padding Size</div>
+          <DataTable<Company>
+            {...args}
+            translateFn={t}
+            defaultSort="share_price"
+            columns={noPaddingCompaniesColumns}
+            data={generatedData.slice(0, 4)}
+            direction={direction}
+            texts={{
+              columns: t("columns"),
+              of: t("of"),
+              item: "عناصر",
+              total: t("total"),
+              page: t("page"),
+              noData: t("no-data"),
+              goTo: t("go-to"),
+              searchPlaceholder: t("search-items"),
+            }}
+          />
+        </div>
+      </div>
+    );
+  },
+};
 export const InCard: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";

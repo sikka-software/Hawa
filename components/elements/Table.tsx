@@ -97,26 +97,39 @@ TableRow.displayName = "TableRow";
 
 interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   condensed?: boolean;
+  enablePadding?: boolean;
+  padding?: "condensed" | "default" | "noPadding";
 }
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
-  ({ className, ...props }, ref) => (
-    <td
-      ref={ref}
-      className={cn(
-        // "border-x",
-        props.condensed ? "hawa-p-0 hawa-px-4" : "hawa-p-4",
-        "hawa-align-middle [&:has([role=checkbox])]:hawa-pr-0 ",
-        "[&:not(:last-child)&:not(:first-child)]:hawa-border-x",
-        // "[&:not(:last-child)]:hawa-border-r",
-        props.dir === "rtl"
-          ? "[&:not(:last-child)]:hawa-border-l"
-          : "[&:not(:last-child)]:hawa-border-r",
-        className
-      )}
-      {...props}
-    />
-  )
+  ({ className, enablePadding = true, padding = "default", ...props }, ref) => {
+    let paddingStyles = {
+      condensed: "hawa-p-0 hawa-px-4",
+      default: "hawa-p-4",
+      noPadding: "hawa-p-0",
+    };
+
+    return (
+      <td
+        ref={ref}
+        className={cn(
+          paddingStyles[padding],
+          // "border-x",
+          // enablePadding ? "hawa-p-4" : "hawa-p-0",
+          // props.disablePadding ? "hawa-p-0" : "hawa-p-4",
+          // props.condensed ? "hawa-p-0 hawa-px-4" : "hawa-p-4",
+          "hawa-align-middle [&:has([role=checkbox])]:hawa-pr-0 ",
+          "[&:not(:last-child)&:not(:first-child)]:hawa-border-x",
+          // "[&:not(:last-child)]:hawa-border-r",
+          props.dir === "rtl"
+            ? "[&:not(:last-child)]:hawa-border-l"
+            : "[&:not(:last-child)]:hawa-border-r",
+          className
+        )}
+        {...props}
+      />
+    );
+  }
 );
 TableCell.displayName = "TableCell";
 

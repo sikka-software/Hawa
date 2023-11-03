@@ -41,7 +41,7 @@ type SimpleTableProps = {
 
 declare module "@tanstack/table-core" {
   interface ColumnMeta<TData extends RowData, TValue> {
-    sortable: any;
+    padding?: "condensed" | "default" | "noPadding";
   }
 }
 
@@ -102,7 +102,11 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
                         dir={props.direction}
-                        condensed={props.condensed}
+                        padding={
+                          props.condensed
+                            ? "condensed"
+                            : cell.column.columnDef.meta?.padding
+                        }
                         key={cell.id}
                       >
                         {flexRender(
