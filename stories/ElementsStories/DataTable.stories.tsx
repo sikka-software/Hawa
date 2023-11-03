@@ -5,18 +5,22 @@ import {
   DropdownMenu,
   SortButton,
   Toaster,
+  Card,
+  CardContent,
+  CardHeader,
 } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import { useToast } from "../../components/hooks";
+import { generateDummyCompanies } from "../storiesUtils";
+import { Pencil } from "lucide-react";
 
 const meta = {
   title: "Elements/Tables/Data Table",
   component: DataTable,
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -32,10 +36,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof DataTable>;
 
-// id: "m5gr84i9",
-// amount: 316,
-// status: "success",
-// email: "ken99@yahoo.com",
 let companiesData: Company[] = [
   {
     name: "Microsoft",
@@ -283,56 +283,6 @@ let companiesData: Company[] = [
     share_price: 245.6,
   },
 ];
-
-function getRandomElement(array: any) {
-  const index = Math.floor(Math.random() * array.length);
-  return array[index];
-}
-
-function getRandomNumber(min: any, max: any) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function generateDummyCompanies(numCompanies: any) {
-  const companyNames = [
-    "Tech Corp",
-    "Innovate LLC",
-    "BuildIt Inc.",
-    "CodeWare",
-    "NextGen Solutions",
-  ];
-  const locations = [
-    "New York, NY",
-    "San Francisco, CA",
-    "Los Angeles, CA",
-    "Seattle, WA",
-    "Austin, TX",
-  ];
-  const websites = [
-    "techcorp.com",
-    "innovatellc.com",
-    "builditinc.com",
-    "codeware.com",
-    "nextgensol.com",
-  ];
-
-  let generatedData = [];
-
-  for (let i = 0; i < numCompanies; i++) {
-    const company = {
-      name: i.toString(),
-      // name: getRandomElement(companyNames),
-      location: getRandomElement(locations),
-      website: getRandomElement(websites),
-      employees: getRandomNumber(50, 1000),
-      share_price: getRandomNumber(10, 200),
-    };
-    generatedData.push(company);
-  }
-
-  return generatedData;
-}
-
 let generatedData: Company[] = generateDummyCompanies(1000);
 
 type Company = {
@@ -539,5 +489,197 @@ export const WithHideColumns: Story = {
   args: {
     enableHideColumns: true,
     enableSearch: true,
+  },
+};
+export const InCard: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const companiesColumns: ColumnDef<Company>[] = [
+      {
+        accessorKey: "name",
+        enableHiding: false,
+
+        // header: t("company"),
+        meta: { sortable: true },
+        header: ({ column }) => (
+          <SortButton
+            condensed
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            label={t("company")}
+          />
+        ),
+      },
+      {
+        accessorKey: "location",
+        header: t("location"),
+      },
+      {
+        accessorKey: "website",
+        meta: { sortable: true },
+        header: ({ column }) => (
+          <SortButton
+            condensed
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            label={t("website")}
+          />
+        ),
+        cell: ({ row }) => (
+          <a href={row.getValue("website")} className="clickable-link">
+            {row.getValue("website")}
+          </a>
+        ),
+      },
+
+      {
+        accessorKey: "employees",
+        meta: { sortable: true },
+        header: ({ column }) => {
+          return (
+            <SortButton
+              condensed
+              label={t("employees")}
+              onSort={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            />
+          );
+        },
+        cell: (d) => (
+          <div className="hawa-font-medium">
+            {d.row.getValue("employees")?.toLocaleString()}
+          </div>
+        ),
+      },
+      {
+        accessorKey: "share_price",
+        meta: { sortable: true },
+        header: ({ column }) => {
+          return (
+            <SortButton
+              condensed
+              label={t("share_price")}
+              onSort={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            />
+          );
+        },
+        cell: ({ row }) => {
+          const amount = parseFloat(row.getValue("share_price"));
+          const formatted = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(amount);
+
+          return <div className="hawa-font-medium">{formatted}</div>;
+        },
+      },
+
+      {
+        id: "actions",
+        header: t("actions"),
+        enableHiding: false,
+
+        cell: ({ row }) => {
+          return (
+            <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
+              <DropdownMenu
+                // width="parent"
+                trigger={
+                  <Button className="hawa-m-0 hawa-h-6" variant="ghost">
+                    <span className="hawa-sr-only">Open menu</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="19" cy="12" r="1" />
+                      <circle cx="5" cy="12" r="1" />
+                    </svg>
+                  </Button>
+                }
+                items={[
+                  {
+                    label: "copy",
+                    value: "copy",
+                    // action: () => navigator.clipboard.writeText(payment.id),
+                  },
+                ]}
+              />
+            </span>
+          );
+        },
+      },
+    ];
+    const [isLoading, setIsLoading] = useState(true);
+    const { toast } = useToast();
+
+    useEffect(() => {
+      // Set a timeout to change isLoading to true after 2 seconds
+      const timeoutId = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      // Clear the timeout if the component unmounts before the timeout is reached
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []); // Empty dependency array ensures this effect runs only once
+
+    return (
+      <Card className="hawa-w-full hawa-max-h-[400px]">
+        <CardHeader>
+          <div
+            className={" hawa-flex hawa-w-full hawa-items-center hawa-gap-2"}
+          >
+            <div className="hawa-flex hawa-flex-row hawa-justify-between hawa-w-full">
+              <h1 className={"hawa-text-xl hawa-font-semibold"}>Title</h1>
+              <div className="hawa-flex hawa-flex-row hawa-gap-2">
+                <Button size="smallIcon">
+                  <Pencil className="hawa-h-4 hawa-w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div dir={direction} className="hawa-w-full ">
+            <DataTable<Company>
+              {...args}
+              translateFn={t}
+              isLoading={isLoading}
+              defaultSort="share_price"
+              columns={companiesColumns}
+              showCount
+              // data={[]}
+              // data={companiesData}
+              data={generatedData}
+              // itemsPerPage={[10, 50, 100, 150, 200, 500]}
+              condensed
+              direction={direction}
+              texts={{
+                columns: t("columns"),
+                of: t("of"),
+                item: "عناصر",
+                total: t("total"),
+                page: t("page"),
+                noData: t("no-data"),
+                goTo: t("go-to"),
+                searchPlaceholder: t("search-items"),
+              }}
+            />
+          </div>
+        </CardContent>
+      </Card>
+    );
   },
 };
