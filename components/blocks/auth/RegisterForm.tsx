@@ -215,6 +215,13 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                           name="email"
                           render={({ field }) => (
                             <Input
+                              dir={"ltr"}
+                              inputProps={{
+                                className:
+                                  props.direction === "rtl"
+                                    ? "hawa-text-right"
+                                    : "hawa-text-left",
+                              }}
                               width="full"
                               autoComplete="email"
                               label={texts?.email?.label}

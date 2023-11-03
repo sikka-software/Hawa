@@ -163,6 +163,13 @@ export const LoginForm: FC<LoginFormTypes> = ({
               name="email"
               render={({ field }) => (
                 <Input
+                  inputProps={{
+                    className:
+                      props.direction === "rtl"
+                        ? "hawa-text-right"
+                        : "hawa-text-left",
+                  }}
+                  dir={"ltr"}
                   width="full"
                   autoComplete="email"
                   label={texts?.email?.label}
@@ -322,6 +329,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
         <CardContent headless>
           {props.showError && (
             <Alert
+              direction={props.direction}
               title={props.errorTitle}
               text={props.errorText}
               severity="error"

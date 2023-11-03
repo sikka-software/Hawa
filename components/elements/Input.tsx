@@ -20,7 +20,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
   forceHideHelperText?: boolean;
-  inputProps?: any;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   /** The icon inside the input field */
   icon?: any;
   /** Boolean to enable/disable editing the input field and using it as a text field   */
