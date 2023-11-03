@@ -344,6 +344,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               className="hawa-mt-0 hawa-w-full"
               type="submit"
               isLoading={props.isLoading}
+              disabled={props.isLoading}
             >
               {texts?.loginText || "Login"}
             </Button>
@@ -375,6 +376,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
               viaGoogle={props.viaGoogle}
               viaGithub={props.viaGithub}
               viaTwitter={props.viaTwitter}
+              isGoogleLoading={props.isGoogleLoading}
+              isGithubLoading={props.isGithubLoading}
+              isTwitterLoading={props.isTwitterLoading}
               handleGoogle={props.onGoogleLogin}
               handleGithub={props.onGithubLogin}
               handleTwitter={props.onTwitterLogin}

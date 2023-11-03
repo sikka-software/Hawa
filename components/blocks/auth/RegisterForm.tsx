@@ -404,6 +404,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
               viaGoogle={props.viaGoogle}
               viaGithub={props.viaGithub}
               viaTwitter={props.viaTwitter}
+              isGoogleLoading={props.isGoogleLoading}
+              isGithubLoading={props.isGithubLoading}
+              isTwitterLoading={props.isTwitterLoading}
               handleGoogle={props.onGoogleRegister}
               handleGithub={props.onGithubRegister}
               handleTwitter={props.onTwitterRegister}
