@@ -79,7 +79,9 @@ export const Default: Story = {
           <Combobox
             label="Role"
             preview={true}
-            placeholder="Select Role"
+            texts={{
+              placeholder: "Select Role",
+            }}
             data={roles}
             valueKey={"_id"}
           />
@@ -87,7 +89,9 @@ export const Default: Story = {
         <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Role"
-            placeholder="Select Role"
+            texts={{
+              placeholder: "Select Role",
+            }}
             helperText="this is helpertext"
             data={roles}
             valueKey={"_id"}
@@ -97,7 +101,9 @@ export const Default: Story = {
           <Combobox
             label="Loading"
             isLoading
-            placeholder="Select Role"
+            texts={{
+              placeholder: "Select Role",
+            }}
             data={roles}
             valueKey={"_id"}
           />
@@ -106,7 +112,9 @@ export const Default: Story = {
           <Combobox
             label="No Search"
             hideInput
-            placeholder="Select Role"
+            texts={{
+              placeholder: "Select Role",
+            }}
             data={roles}
             valueKey={"_id"}
           />

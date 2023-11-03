@@ -161,7 +161,9 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2"
             )}
             onClick={() => {
-              props.onAlertClosed();
+              if (props.onAlertClosed) {
+                props.onAlertClosed();
+              }
               setClosed(true);
               setTimeout(() => {
                 if (alertRef?.current) {

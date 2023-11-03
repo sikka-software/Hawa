@@ -18,10 +18,13 @@ type ComboboxTypes<T> = {
   data: T[];
   width?: string;
   label?: string;
+  texts: {
+    noItems?: string;
+    placeholder?: string;
+    searchPlaceholder?: string;
+  };
   isLoading?: boolean;
   helperText?: string;
-  placeholder?: string;
-  searchPlaceholder?: string;
   popoverClassName?: string;
   /** This the same value as the one with the key valueKey */
   defaultValue?: string;
@@ -85,7 +88,7 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
                       data.find((item: any) => item[valueKey] === value) || {},
                       labelKey
                     )
-                  : props.placeholder || "..."}
+                  : props.texts?.placeholder || "..."}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={cn(
@@ -123,15 +126,16 @@ export const Combobox: React.FC<ComboboxTypes<any>> = ({
         >
           <Command>
             {!props.hideInput && (
-              <CommandInput placeholder={props.searchPlaceholder} />
+              <CommandInput placeholder={props.texts?.searchPlaceholder} />
             )}
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>
+              {props.texts?.noItems || "No items found."}
+            </CommandEmpty>
             <CommandGroup className="  hawa-max-h-[200px] hawa-overflow-y-auto">
               {data.map((item: any) => (
                 <CommandItem
-                  key={getProperty(item, valueKey)} // Updated line
+                  key={getProperty(item, valueKey)}
                   onSelect={() => {
-                    // Adjusted line
                     const newValue = getProperty(item, valueKey);
                     setValue(newValue === value ? "" : (newValue as string));
                     if (props.onChange) {
