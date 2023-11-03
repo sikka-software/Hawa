@@ -473,7 +473,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * ----------------------------------------------------------------------------------------------------
        */}
       <div
-        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all"
+        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all -hawa-z-10"
         style={
           isRTL
             ? {
