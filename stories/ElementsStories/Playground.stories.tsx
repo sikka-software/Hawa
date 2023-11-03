@@ -116,8 +116,8 @@ export const WifiIcon: Story = {
       fill="none"
       stroke="currentColor"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       // class="lucide lucide-wifi"
     >
       <path
@@ -193,8 +193,10 @@ export const SelectAndInput: Story = {
               data={roles}
               labelKey={"label"}
               valueKey={"_id"}
-              placeholder="Select something"
-              searchPlaceholder="Search ..."
+              texts={{
+                placeholder: "Select something",
+                searchPlaceholder: "Search ...",
+              }}
               // helperText={"Testing helperText"}
               popoverClassName="hawa-w-full"
               defaultValue="84040984098"

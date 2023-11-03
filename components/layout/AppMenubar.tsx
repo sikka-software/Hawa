@@ -64,8 +64,8 @@ const MenubarSubTrigger = React.forwardRef<
       fill="none"
       stroke="currentColor"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="hawa-ml-auto hawa-icon"
     >
       <path d="m9 18 6-6-6-6" />
@@ -147,8 +147,6 @@ const MenubarCheckboxItem = React.forwardRef<
   >
     <span className="hawa-absolute hawa-left-2 hawa-flex hawa-h-3.5 hawa-w-3.5 hawa-items-center hawa-justify-center">
       <MenubarPrimitive.ItemIndicator>
-        {/* <Check className="hawa-h-4 hawa-w-4" /> */}
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -157,8 +155,8 @@ const MenubarCheckboxItem = React.forwardRef<
           fill="none"
           stroke="currentColor"
           stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="hawa-icon"
         >
           <path d="M20 6 9 17l-5-5" />
@@ -192,8 +190,8 @@ const MenubarRadioItem = React.forwardRef<
           fill="none"
           stroke="currentColor"
           stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="hawa-h-2 hawa-w-2 hawa-fill-current"
         >
           <circle cx="12" cy="12" r="10" />

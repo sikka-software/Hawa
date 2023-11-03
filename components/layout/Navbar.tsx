@@ -71,8 +71,8 @@ export const Navbar: React.FC<NavbarType> = ({
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={cn(
                   "hawa-w-6 hawa-h-6 hawa-fixed",
                   isOpen ? "hawa-invisible" : "hawa-visible"
@@ -91,8 +91,8 @@ export const Navbar: React.FC<NavbarType> = ({
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={cn(
                   "hawa-w-6 hawa-h-6",
                   !isOpen ? "hawa-invisible" : "hawa-visible"

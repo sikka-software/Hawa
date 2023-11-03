@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  Button,
   Card,
-  CardHeader,
   CardContent,
   SimpleTable,
   Table,
@@ -46,10 +44,10 @@ const Template = (args: any, globals: any) => {
         direction={direction}
         columns={[
           { header: "Project", accessorKey: "project" },
-          { header: "Version", accessorKey: "version" },
-          { header: "Version", accessorKey: "version" },
-          { header: "Version", accessorKey: "version" },
-          { header: "Version", accessorKey: "version" },
+          { header: "version", accessorKey: "version" },
+          { header: "nickname", accessorKey: "nickname" },
+          { header: "date", accessorKey: "date" },
+          { header: "number", accessorKey: "number" },
         ]}
         data={[
           { project: "Hawa", version: "0.4.8" },
@@ -82,10 +80,10 @@ export const Sizes: Story = {
             direction={direction}
             columns={[
               { header: "Project", accessorKey: "project" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
+              { header: "version", accessorKey: "version" },
+              { header: "nickname", accessorKey: "nickname" },
+              { header: "date", accessorKey: "date" },
+              { header: "number", accessorKey: "number" },
             ]}
             data={[
               { project: "Hawa", version: "0.4.8" },
@@ -105,10 +103,10 @@ export const Sizes: Story = {
             condensed
             columns={[
               { header: "Project", accessorKey: "project" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
-              { header: "Version", accessorKey: "version" },
+              { header: "version", accessorKey: "version" },
+              { header: "nickname", accessorKey: "nickname" },
+              { header: "date", accessorKey: "date" },
+              { header: "number", accessorKey: "number" },
             ]}
             data={[
               { project: "Hawa", version: "0.4.8" },
@@ -145,20 +143,11 @@ export const Sizes: Story = {
                   </div>
                 ),
               },
+
               {
-                header: "Version",
+                header: "Test",
                 meta: { sortable: false, padding: "noPadding" },
-                accessorKey: "version",
-              },
-              {
-                header: "Version",
-                meta: { sortable: false, padding: "noPadding" },
-                accessorKey: "version",
-              },
-              {
-                header: "Version",
-                meta: { sortable: false, padding: "noPadding" },
-                accessorKey: "version",
+                accessorKey: "test",
               },
             ]}
             data={[
@@ -194,10 +183,10 @@ export const TableInCard: Story = {
                 direction={direction}
                 columns={[
                   { header: "Project", accessorKey: "project" },
-                  { header: "Version", accessorKey: "version" },
-                  { header: "Version", accessorKey: "version" },
-                  { header: "Version", accessorKey: "version" },
-                  { header: "Version", accessorKey: "version" },
+                  { header: "version", accessorKey: "version" },
+                  { header: "nickname", accessorKey: "nickname" },
+                  { header: "date", accessorKey: "date" },
+                  { header: "number", accessorKey: "number" },
                 ]}
                 data={[
                   { project: "Hawa", version: "0.4.8" },

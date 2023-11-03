@@ -70,8 +70,8 @@ const NavigationMenuTrigger = React.forwardRef<
       fill="none"
       stroke="currentColor"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
       className="hawa-relative hawa-top-[1px] hawa-icon hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
     >
