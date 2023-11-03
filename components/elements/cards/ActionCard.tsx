@@ -29,7 +29,7 @@ export const ActionCard: FC<ImageCardTypes> = (props) => {
               className="hawa-h-10 hawa-w-10 hawa-text-foreground"
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 24 24"
               height="1em"
               width="1em"
