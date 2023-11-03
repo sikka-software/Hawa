@@ -17,6 +17,7 @@ import {
 
 import { Skeleton } from "./Skeleton";
 import { DirectionType } from "../types/commonTypes";
+import { cn } from "../util";
 
 type DataProps = {};
 
@@ -27,6 +28,7 @@ type SimpleTableProps = {
   condensed?: boolean;
   isLoading?: boolean;
   defaultSort?: string;
+  classNames?: string;
   texts?: {
     searchPlaceholder?: string;
     noData?: any;
@@ -46,6 +48,7 @@ declare module "@tanstack/table-core" {
 export const SimpleTable: React.FC<SimpleTableProps> = ({
   columns,
   data,
+  classNames,
   ...props
 }) => {
   const table = useReactTable({
@@ -54,7 +57,12 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="hawa-flex  hawa-w-full hawa-flex-col hawa-gap-4">
+    <div
+      className={cn(
+        "hawa-flex  hawa-w-full hawa-flex-col hawa-gap-4",
+        classNames
+      )}
+    >
       {props.isLoading ? (
         <Skeleton className="h-[130px] w-full" />
       ) : (
