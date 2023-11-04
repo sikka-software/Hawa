@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 export const FileUploader = ({ handleFile, className }: any) => {
   const hiddenFileInput = useRef<HTMLInputElement>(null);
-  const handleClick = (event: any) => {
+  const handleClick = () => {
     hiddenFileInput.current?.click();
   };
   const handleChange = (event: any) => {

@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
