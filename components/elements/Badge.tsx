@@ -6,6 +6,7 @@ type BadgeTypes = {
   anchor: RefObject<HTMLElement>;
   size?: "small" | "default" | "large";
   text?: string | number;
+  className?: string;
 };
 
 export const Badge: FC<BadgeTypes> = ({
@@ -13,6 +14,7 @@ export const Badge: FC<BadgeTypes> = ({
   position = "right",
   size = "default",
   text,
+  className,
 }) => {
   const [badgePosition, setBadgePosition] = useState<any>(null);
   const indicatorRef = useRef(null);
@@ -56,7 +58,7 @@ export const Badge: FC<BadgeTypes> = ({
   }, [anchor]);
 
   return (
-    <div ref={indicatorRef} className="hawa-relative">
+    <div ref={indicatorRef} className={cn("hawa-relative", className)}>
       {badgePosition && (
         <div
           style={{
@@ -88,9 +90,15 @@ export const BadgedComponent = ({
   const ref = useRef(null);
 
   return (
-    <div className={cn("hawa-relative", className)} ref={ref}>
+    <div className={cn("hawa-relative hawa-w-fit", className)} ref={ref}>
       {!hideBadge && (
-        <Badge size={size} text={text} position={position} anchor={ref} />
+        <Badge
+          size={size}
+          text={text}
+          position={position}
+          anchor={ref}
+          className="hawa-z-10"
+        />
       )}
       {children}
     </div>

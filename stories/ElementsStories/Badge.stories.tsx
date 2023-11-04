@@ -78,6 +78,7 @@ export const Default: Story = {
   },
   args: {},
 };
+
 // export const WithText: Story = {
 //   render: () => {
 //     const [hideBadge, setHideBadge] = useState(false);

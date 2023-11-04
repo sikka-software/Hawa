@@ -15,6 +15,7 @@ export * from "./Combobox";
 export * from "./Select";
 
 // Remaining
+export * from "./Avatar";
 export * from "./Button";
 export * from "./SplitButton";
 export * from "./Dialog";
@@ -55,3 +56,4 @@ export * from "./Sheet";
 export * from "./ProgressCircle";
 export * from "./NavigationMenu";
 export * from "./StopPropagationWrapper";
+export * from "./FileUploader";
