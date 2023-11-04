@@ -5,6 +5,7 @@ import { DirectionType } from "../types/commonTypes";
 
 export const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 const DropdownMenuSub = DropdownMenuPrimitive.Sub;
@@ -87,6 +88,8 @@ export const DropdownMenuItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean;
     end?: any;
+    shortcut?: React.ReactNode;
+    badged?: boolean;
   }
 >(({ className, inset, ...props }, ref) => {
   return (
@@ -109,6 +112,12 @@ export const DropdownMenuItem = React.forwardRef<
       </div>
 
       {props.end && props.end}
+      {!props.end && props.shortcut && (
+        <DropdownMenuShortcut>{props.shortcut}</DropdownMenuShortcut>
+      )}
+      {!props.end && props.badged && (
+        <div className="hawa-h-3 hawa-w-3 hawa-bg-red-500 hawa-rounded-full" />
+      )}
     </DropdownMenuPrimitive.Item>
   );
 });
@@ -222,7 +231,7 @@ const DropdownMenuShortcut = ({
   return (
     <span
       className={cn(
-        "hawa-ml-auto hawa-text-xs hawa-tracking-widest hawa-opacity-60",
+        "hawa-text-xs hawa-tracking-widest hawa-opacity-60",
         className
       )}
       {...props}
@@ -253,8 +262,10 @@ export type SubItem = {
   disabled?: boolean;
 };
 export type MenuItemType = {
-  icon?: any;
+  icon?: React.ReactNode;
   label?: string;
+  shortcut?: React.ReactNode;
+  badged?: boolean;
   value?: any;
   content?: any;
   end?: any;
@@ -417,6 +428,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       }
                     }}
                     end={item.end}
+                    shortcut={item.shortcut}
+                    badged={item.badged}
                     className={cn(
                       sizeStyles[size],
                       !item.icon && !item.label

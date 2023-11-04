@@ -12,6 +12,7 @@ import { setLocale, t } from "../translations/i18n";
 import {
   AlignVerticalDistributeStart,
   AtSign,
+  Bell,
   FolderArchive,
   FolderOpen,
   Home,
@@ -41,11 +42,27 @@ type Story = StoryObj<typeof DropdownMenu>;
 
 const items = [
   {
-    label: "With Shortcut",
+    label: "Default Shortcut",
     value: "item1",
     onMiddleClick: (e: any) => console.log("middle clicked ", e),
     icon: <Home className="hawa-icon" />,
+    shortcut: <span>shift + E</span>,
+  },
+
+  {
+    label: "Custom Shortcut",
+    value: "item_badged",
+    onMiddleClick: (e: any) => console.log("middle clicked ", e),
+    icon: <Bell className="hawa-icon" />,
+    badged: true,
     end: <span>shift + E</span>,
+  },
+  {
+    label: "With Badge",
+    value: "item_badged",
+    onMiddleClick: (e: any) => console.log("middle clicked ", e),
+    icon: <Bell className="hawa-icon" />,
+    badged: true,
   },
   {
     label: "Disabled",
