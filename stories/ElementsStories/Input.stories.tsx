@@ -91,36 +91,20 @@ export const WithIcons: Story = {
           dir={direction}
           label={"With Start Icon"}
           placeholder={"Fulan"}
-          startIcon={
-            <div className="hawa-cursor-pointer">
-              <Search className="hawa-text-gray-500 hawa-icon" />
-            </div>
-          }
+          startIcon={<Search className="hawa-text-gray-500 hawa-icon" />}
         />
         <Input
           dir={direction}
           label={"With End Icon"}
           placeholder={"Fulan"}
-          endIcon={
-            <div className="hawa-cursor-pointer">
-              <EyeIcon className="hawa-text-gray-500" />
-            </div>
-          }
+          endIcon={<EyeIcon className="hawa-text-gray-500" />}
         />
         <Input
           dir={direction}
           label={"With End Icon & Start Icon"}
           placeholder={"Fulan"}
-          startIcon={
-            <div className="hawa-cursor-pointer">
-              <Lock className="hawa-text-gray-500 hawa-icon" />
-            </div>
-          }
-          endIcon={
-            <div className="hawa-cursor-pointer">
-              <Lock className="hawa-text-gray-500 hawa-icon" />
-            </div>
-          }
+          startIcon={<Lock className="hawa-text-gray-500 hawa-icon" />}
+          endIcon={<Lock className="hawa-text-gray-500 hawa-icon" />}
         />
         <Input
           dir={direction}
