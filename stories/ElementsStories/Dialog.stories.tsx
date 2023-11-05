@@ -8,12 +8,17 @@ import {
   DialogDescription,
   DialogFooter,
   DialogTitle,
+  DialogStep,
+  DialogBody,
+  DialogSteps,
+  Input,
 } from "../../components/elements";
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PropsTable } from "../../sharedUI/docsUI";
 import { MultiStepDialog } from "./MultiStepDialogStory";
+import useDialogSteps from "../../components/hooks/useDialogSteps";
 
 const meta = {
   title: "Elements/Dialog",
@@ -204,3 +209,126 @@ export const Multistep: Story = {
     </div>
   ),
 };
+
+export const Multistep2: Story = {
+  render: (args: any) => {
+    const stepIds = ["step-1", "step-2", "step-3"];
+    const { emblaApi, emblaRef, currentStep, nextStep, prevStep } =
+      useDialogSteps("step-1", stepIds);
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Dialog open={true}>
+          <DialogTrigger>Open Dialog</DialogTrigger>
+          <DialogContent>
+            {/* {currentStep} */}
+            <DialogSteps
+              stepsApi={emblaApi}
+              stepsRef={emblaRef}
+              activeStep={currentStep}
+            >
+              <DialogStep id={"step-1"}>
+                <DialogHeader>
+                  <DialogTitle>Select Payment Method</DialogTitle>
+                  <DialogDescription>
+                    Please select a method of payment to move to the next step
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogBody className="hawa-flex hawa-flex-col hawa-justify-start hawa-gap-4">
+                  <Button
+                    onClick={() => nextStep()}
+                    variant={"outline"}
+                    className="hawa-w-full"
+                  >
+                    Credit Card
+                  </Button>
+
+                  <Button
+                    onClick={() => nextStep()}
+                    variant={"outline"}
+                    className="hawa-w-full"
+                  >
+                    Paypal
+                  </Button>
+                  <Button
+                    onClick={() => nextStep()}
+                    variant={"outline"}
+                    className="hawa-w-full"
+                  >
+                    Apple Pay
+                  </Button>
+                  <Button
+                    onClick={() => nextStep()}
+                    variant={"outline"}
+                    className="hawa-w-full"
+                  >
+                    Crypto
+                  </Button>
+                </DialogBody>
+              </DialogStep>
+              <DialogStep id={"step-2"}>
+                <DialogHeader>
+                  <DialogTitle>Select Payment Method</DialogTitle>
+                  <DialogDescription>
+                    Please select a method of payment to move to the next step
+                  </DialogDescription>
+                </DialogHeader>
+
+                <FormFillStep />
+                <DialogFooter className="hawa-flex hawa-flex-row hawa-justify-between  hawa-w-full">
+                  <Button onClick={() => prevStep()}>Back</Button>
+                  <Button onClick={() => nextStep()}>Next</Button>
+                </DialogFooter>
+              </DialogStep>
+              <DialogStep id={"step-3"}>
+                <DialogHeader>
+                  <DialogTitle>Congratulations</DialogTitle>
+                  <DialogDescription>
+                    Your payment was successfully processed{" "}
+                  </DialogDescription>
+                </DialogHeader>
+                <ResultStep />
+                <DialogFooter>
+                  <Button onClick={() => nextStep()}>Next (Loop)</Button>
+                </DialogFooter>
+              </DialogStep>
+            </DialogSteps>
+          </DialogContent>
+        </Dialog>
+      </div>
+    );
+  },
+};
+
+const PaymentMethodStep = () => (
+  <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
+    <Button variant={"outline"} className="hawa-w-full">
+      Credit Card
+    </Button>
+    <Button variant={"outline"} className="hawa-w-full">
+      Paypal
+    </Button>
+    <Button variant={"outline"} className="hawa-w-full">
+      Apple Pay
+    </Button>
+    <Button variant={"outline"} className="hawa-w-full">
+      Crypto
+    </Button>
+  </DialogBody>
+);
+const FormFillStep = () => (
+  <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
+    <Input label="Card number" placeholder="422 422 422 422" />
+    <Input label="Card number" placeholder="422 422 422 422" />
+    <Input label="Card number" placeholder="422 422 422 422" />
+    <Input label="Card number" placeholder="422 422 422 422" />
+  </DialogBody>
+);
+
+const ResultStep = () => (
+  <div>
+    <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
+      You paid for pro plan for 22.50 SAR /month
+    </DialogBody>
+  </div>
+);

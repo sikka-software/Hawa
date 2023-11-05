@@ -9,7 +9,6 @@ const DialogTrigger = DialogPrimitive.Trigger;
 const DialogPortal = ({ ...props }: DialogPrimitive.DialogPortalProps) => (
   <DialogPrimitive.Portal {...props} />
 );
-DialogPortal.displayName = DialogPrimitive.Portal.displayName;
 
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
@@ -24,7 +23,6 @@ const DialogOverlay = React.forwardRef<
     {...props}
   />
 ));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -42,7 +40,7 @@ const DialogContent = React.forwardRef<
       }}
       ref={ref}
       className={cn(
-        "hawa-fixed hawa-left-[50%] hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-shadow-lg hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
+        "hawa-fixed hawa-left-[50%] hawa-transition-all hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-shadow-lg hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
         className
       )}
       {...props}
@@ -72,7 +70,6 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
-DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const DialogHeader = ({
   className,
@@ -86,7 +83,6 @@ const DialogHeader = ({
     {...props}
   />
 );
-DialogHeader.displayName = "DialogHeader";
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -101,7 +97,6 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ));
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
@@ -116,7 +111,6 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 const DialogFooter = ({
   className,
@@ -130,13 +124,113 @@ const DialogFooter = ({
     {...props}
   />
 );
+
+interface DialogStepsProps {
+  activeStep: string;
+  children: React.ReactNode;
+  stepsApi?: any;
+  stepsRef?: any;
+}
+
+const DialogSteps: React.FC<DialogStepsProps> = ({
+  stepsApi,
+  stepsRef,
+  activeStep,
+  children,
+}) => {
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const steps = React.Children.toArray(children);
+
+  React.useEffect(() => {
+    if (stepsApi) {
+      stepsApi.reInit();
+
+      const index = steps.findIndex(
+        (child) => React.isValidElement(child) && child.props.id === activeStep
+      );
+      if (index !== -1) {
+        stepsApi.scrollTo(index, false);
+        setSelectedIndex(index);
+      }
+    }
+  }, [activeStep, stepsApi, children]);
+
+  return (
+    <div className="hawa-overflow-hidden">
+      <div ref={stepsRef}>
+        <div
+          className="hawa-flex first-line:"
+          style={{
+            transition: "height 0.2s",
+          }}
+        >
+          {React.Children.map(children, (child, index) => (
+            <div
+              className={cn(
+                " hawa-justify-center hawa-h-fit hawa-flex hawa-items-center hawa-flex-[0_0_100%]"
+              )}
+              key={index}
+            >
+              {child}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+interface DialogStepProps {
+  id: string;
+  children: React.ReactNode;
+  className?: string;
+  stepRef?: any;
+}
+
+const DialogStep: React.FC<DialogStepProps> = ({
+  id,
+  children,
+  className,
+  stepRef,
+}) => {
+  return (
+    <div
+      id={id}
+      ref={stepRef}
+      className={cn("hawa-w-full  hawa-px-1", className)}
+    >
+      {children}
+    </div>
+  );
+};
+interface DialogBodyProps {
+  children: React.ReactNode;
+  className?: string;
+}
+const DialogBody: React.FC<DialogBodyProps> = ({ children, className }) => {
+  return <div className={cn("hawa-py-6", className)}>{children}</div>;
+};
+
+DialogStep.displayName = "DialogStep";
+DialogBody.displayName = "DialogBody";
+DialogSteps.displayName = "DialogSteps";
+DialogHeader.displayName = "DialogHeader";
 DialogFooter.displayName = "DialogFooter";
+DialogTitle.displayName = DialogPrimitive.Title.displayName;
+DialogPortal.displayName = DialogPrimitive.Portal.displayName;
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+DialogContent.displayName = DialogPrimitive.Content.displayName;
+DialogDescription.displayName = DialogPrimitive.Description.displayName;
+
 export {
   Dialog,
+  DialogPortal,
   DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogFooter,
   DialogTitle,
+  DialogSteps,
+  DialogStep,
+  DialogBody,
   DialogDescription,
 };
