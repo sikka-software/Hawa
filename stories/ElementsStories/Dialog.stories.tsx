@@ -13,6 +13,7 @@ import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 import { PropsTable } from "../../sharedUI/docsUI";
+import { MultiStepDialog } from "./MultiStepDialogStory";
 
 const meta = {
   title: "Elements/Dialog",
@@ -193,6 +194,13 @@ export const RTL: Story = {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+    </div>
+  ),
+};
+export const Multistep: Story = {
+  render: (args: any) => (
+    <div className="hawa-flex hawa-flex-row hawa-gap-2">
+      <MultiStepDialog />
     </div>
   ),
 };

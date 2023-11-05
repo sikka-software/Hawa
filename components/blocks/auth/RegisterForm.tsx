@@ -263,15 +263,15 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                     <Input
                       width="full"
                       type={passwordVisible ? "text" : "password"}
-                      iconInside={
+                      endIcon={
                         <div
                           className="hawa-cursor-pointer"
                           onClick={() => setPasswordVisible(!passwordVisible)}
                         >
                           {passwordVisible ? (
-                            <EyeIcon classNames="hawa-text-gray-500" />
+                            <EyeIcon className="hawa-text-gray-500" />
                           ) : (
-                            <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                            <HiddenEyeIcon className="hawa-text-gray-500" />
                           )}{" "}
                         </div>
                       }

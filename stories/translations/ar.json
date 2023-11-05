@@ -9,7 +9,7 @@
   "descriptionRequired": "الوصف مطلوب",
   "requestType": "نوع التذكرة",
   "requestTypeRequired": "نوع التذكرة مطلوب",
-
+  "sub-item": "عنصر فرعي",
   "users": "المستخدمين",
   "roles": "الصلاحيات",
   "customers": "الزبائن",

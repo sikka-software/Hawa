@@ -1,11 +1,10 @@
 import React from "react";
+import { cn } from "../util";
 
 export const EyeIcon = (props: any) => (
-  <div className={props.classNames}>
+  <div className={cn("hawa-h-5 hawa-w-5", props.className)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -19,11 +18,9 @@ export const EyeIcon = (props: any) => (
   </div>
 );
 export const HiddenEyeIcon = (props: any) => (
-  <div className={props.classNames}>
+  <div className={cn("hawa-h-5 hawa-w-5", props.className)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

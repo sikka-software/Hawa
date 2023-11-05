@@ -27,6 +27,8 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   preview?: boolean;
   //   maxLength?: any;
   iconInside?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  startIcon?: React.ReactNode;
 };
 export const Input: FC<TextFieldTypes> = ({
   margin = "none",
@@ -86,22 +88,18 @@ export const Input: FC<TextFieldTypes> = ({
           ></div>
           <>
             <div className={cn("hawa-relative")}>
-              {props.icon && (
-                <div className="hawa-absolute hawa-left-3 hawa-top-1/2 hawa--translate-y-1/2">
-                  {props.icon}
+              {props.startIcon && (
+                <div className="hawa-absolute hawa-start-3 hawa-top-1/2 hawa--translate-y-1/2">
+                  {props.startIcon}
+                </div>
+              )}
+              {props.endIcon && (
+                <div className="hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2">
+                  {props.endIcon}
                 </div>
               )}
               <input
                 required
-                className={cn(
-                  defaultInputStyle,
-                  " dark:hawa-text-white",
-                  props.icon && "hawa-pl-10",
-                  "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
-                  preview &&
-                    "hawa-border-transparent hawa-bg-transparent hawa-px-0",
-                  props.inputProps?.className
-                )}
                 dir={props.dir}
                 type={props.type}
                 value={props.value}
@@ -111,13 +109,17 @@ export const Input: FC<TextFieldTypes> = ({
                 placeholder={props.placeholder}
                 disabled={preview}
                 style={{ height: 40 }}
+                className={cn(
+                  defaultInputStyle,
+                  " dark:hawa-text-white focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
+                  props.endIcon && "hawa-pe-9",
+                  props.startIcon && "hawa-ps-9",
+                  preview &&
+                    "hawa-border-transparent hawa-bg-transparent hawa-px-0",
+                  props.inputProps?.className
+                )}
               />
             </div>
-            {props.iconInside && (
-              <div className="hawa-absolute hawa-end-2 hawa-top-[41px] hawa-mx-1  hawa--translate-y-1/2">
-                {props.iconInside}
-              </div>
-            )}
 
             {!forceHideHelperText && (
               <p

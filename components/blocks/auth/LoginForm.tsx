@@ -189,15 +189,15 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     autoComplete="current-password"
                     type={passwordVisible ? "text" : "password"}
                     label={texts?.password?.label || "Password"}
-                    iconInside={
+                    endIcon={
                       <div
                         className="hawa-cursor-pointer"
                         onClick={() => setPasswordVisible(!passwordVisible)}
                       >
                         {passwordVisible ? (
-                          <EyeIcon classNames="hawa-text-gray-500" />
+                          <EyeIcon className="hawa-text-gray-500" />
                         ) : (
-                          <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                          <HiddenEyeIcon className="hawa-text-gray-500" />
                         )}
                       </div>
                     }
@@ -249,15 +249,15 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     autoComplete="current-password"
                     type={passwordVisible ? "text" : "password"}
                     label={texts?.password?.label}
-                    iconInside={
+                    endIcon={
                       <div
                         className="hawa-cursor-pointer"
                         onClick={() => setPasswordVisible(!passwordVisible)}
                       >
                         {passwordVisible ? (
-                          <EyeIcon classNames="hawa-text-gray-500" />
+                          <EyeIcon className="hawa-text-gray-500" />
                         ) : (
-                          <HiddenEyeIcon classNames="hawa-text-gray-500" />
+                          <HiddenEyeIcon className="hawa-text-gray-500" />
                         )}
                       </div>
                     }

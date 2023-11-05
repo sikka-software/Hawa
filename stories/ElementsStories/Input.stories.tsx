@@ -1,20 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ColorPicker, Input } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { Button, Input, Loading } from "../../components/elements";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 import { EyeIcon } from "../../components/icons/InputIcons";
+import { Lock, Search } from "lucide-react";
 
 const meta = {
   title: "Elements/Inputs/Input",
   component: Input,
   parameters: {
-    // backgrounds: {
-    //   default: "offwhite",
-    //   values: [{ name: "offwhite", value: "#ededed" }],
-    // },
-    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -30,17 +25,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return <div>Input story</div>;
-};
 export const Default: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-max-w-md">
-      {/* <ColorPicker label="Random color" color={"#f39f39"} /> */}
-      <Input label="Input Field" />
+      <Input label="Input Field" placeholder={"Bismillah"} />
     </div>
   ),
 };
@@ -52,10 +40,14 @@ export const PreviewMode: Story = {
         <Button onClick={() => setPreview(!preview)}>
           {preview ? "Disable" : "Enable"} Preview
         </Button>
-        <Input label={"First Name"} preview={preview} value={"Fulan"} />
-        <Input label={"Middle Name"} preview={preview} value={"Fulani"} />
-        <Input label={"Last Name"} preview={preview} value={"Al-Fulani"} />
-        <Input label={"Username"} preview={preview} value={"fulan"} />
+        <Input label={"First Name"} preview={preview} placeholder={"Fulan"} />
+        <Input label={"Middle Name"} preview={preview} placeholder={"Fulani"} />
+        <Input
+          label={"Last Name"}
+          preview={preview}
+          placeholder={"Al-Fulani"}
+        />
+        <Input label={"Username"} preview={preview} placeholder={"fulan"} />
       </div>
     );
   },
@@ -68,17 +60,26 @@ export const LoadingMode: Story = {
         <Button onClick={() => setLoading(!loading)}>
           {loading ? "Disable" : "Enable"} Loading
         </Button>
-        <Input label={"First Name"} isLoading={loading} value={"Fulan"} />
-        <Input label={"Middle Name"} isLoading={loading} value={"Fulani"} />
-        <Input label={"Last Name"} isLoading={loading} value={"Al-Fulani"} />
-        <Input label={"Username"} isLoading={loading} value={"fulan"} />
+        <Input label={"First Name"} isLoading={loading} placeholder={"Fulan"} />
+        <Input
+          label={"Middle Name"}
+          isLoading={loading}
+          placeholder={"Fulani"}
+        />
+        <Input
+          label={"Last Name"}
+          isLoading={loading}
+          placeholder={"Al-Fulani"}
+        />
+        <Input label={"Username"} isLoading={loading} placeholder={"fulan"} />
       </div>
     );
   },
 };
-export const WithEndIcon: Story = {
+export const WithIcons: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
 
     return (
@@ -87,13 +88,45 @@ export const WithEndIcon: Story = {
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <Input
-          label={"First Name"}
-          value={"Fulan"}
-          iconInside={
+          dir={direction}
+          label={"With Start Icon"}
+          placeholder={"Fulan"}
+          startIcon={
             <div className="hawa-cursor-pointer">
-              <EyeIcon classNames="hawa-text-gray-500" />
+              <Search className="hawa-text-gray-500 hawa-icon" />
             </div>
           }
+        />
+        <Input
+          dir={direction}
+          label={"With End Icon"}
+          placeholder={"Fulan"}
+          endIcon={
+            <div className="hawa-cursor-pointer">
+              <EyeIcon className="hawa-text-gray-500" />
+            </div>
+          }
+        />
+        <Input
+          dir={direction}
+          label={"With End Icon & Start Icon"}
+          placeholder={"Fulan"}
+          startIcon={
+            <div className="hawa-cursor-pointer">
+              <Lock className="hawa-text-gray-500 hawa-icon" />
+            </div>
+          }
+          endIcon={
+            <div className="hawa-cursor-pointer">
+              <Lock className="hawa-text-gray-500 hawa-icon" />
+            </div>
+          }
+        />
+        <Input
+          dir={direction}
+          label={"Loading End Icon"}
+          placeholder={"Fulan"}
+          endIcon={<Loading size="button" />}
         />
       </div>
     );
@@ -104,52 +137,28 @@ export const Examples: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    const { control } = useForm({});
 
     return (
       <div
-        className="hawa-grid hawa-grid-cols-1 hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
+        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
         dir={direction}
       >
-        <Controller
-          control={control}
-          name="email"
-          render={({ field }) => (
-            <Input
-              dir={"ltr"}
-              inputProps={{ className: "hawa-text-right" }}
-              label={"Email"}
-              {...field}
-            />
-          )}
+        <Input
+          dir={"ltr"}
+          inputProps={{ className: "hawa-text-right" }}
+          label={"Email"}
         />
-        <Controller
-          control={control}
-          name="username"
-          render={({ field }) => (
-            <Input
-              hint="Only underscore and dash are acccepted"
-              type={"text"}
-              isRequired={true}
-              label={t("username")}
-              {...field}
-            />
-          )}
+
+        <Input
+          hint="Only underscore and dash are acccepted"
+          type={"text"}
+          isRequired={true}
+          label={t("username")}
         />
-        <Controller
-          control={control}
-          name="password"
-          render={({ field }) => (
-            <Input type={"password"} label={t("password")} {...field} />
-          )}
-        />
-        <Controller
-          control={control}
-          name="firstName"
-          render={({ field }) => (
-            <Input type={"text"} label={t("first-name")} {...field} />
-          )}
-        />
+
+        <Input type={"password"} label={t("password")} />
+
+        <Input type={"text"} label={t("first-name")} />
       </div>
     );
   },
