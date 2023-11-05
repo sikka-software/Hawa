@@ -127,7 +127,6 @@ const DialogFooter = ({
 );
 
 interface DialogCarouselProps {
-  activeStep: string;
   children: React.ReactNode;
   stepsApi?: any;
   stepsRef?: any;
@@ -136,7 +135,6 @@ interface DialogCarouselProps {
 const DialogCarousel: React.FC<DialogCarouselProps> = ({
   stepsApi,
   stepsRef,
-  activeStep,
   children,
 }) => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -145,16 +143,8 @@ const DialogCarousel: React.FC<DialogCarouselProps> = ({
   React.useEffect(() => {
     if (stepsApi) {
       stepsApi.reInit();
-
-      const index = steps.findIndex(
-        (child) => React.isValidElement(child) && child.props.id === activeStep
-      );
-      if (index !== -1) {
-        stepsApi.scrollTo(index, false);
-        setSelectedIndex(index);
-      }
     }
-  }, [activeStep, stepsApi, children]);
+  }, [stepsApi, children]);
 
   return (
     <div className="hawa-overflow-hidden">

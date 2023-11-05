@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoHeight from "embla-carousel-auto-height";
 
-export const useDialogCarousel = (initialStepId: any, stepIds: any) => {
+export const useDialogCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: false, watchDrag: false },
+    { loop: false, watchDrag: false, startIndex: 0 },
     [AutoHeight({ destroyHeight: "fit", active: true })]
   );
-  const [currentStep, setCurrentStep] = useState(initialStepId);
+  // const [currentStep, setCurrentStep] = useState(initialStepId);
 
   const nextStep = () => {
     if (emblaApi) {
+      console.log("going to NEXT 👉");
       emblaApi.scrollNext();
     }
   };
 
   const prevStep = () => {
     if (emblaApi) {
+      console.log("going to BACK 👈");
       emblaApi.scrollPrev();
     }
   };
@@ -33,7 +35,7 @@ export const useDialogCarousel = (initialStepId: any, stepIds: any) => {
   return {
     emblaRef,
     emblaApi,
-    currentStep,
+    // currentStep,
     nextStep,
     prevStep,
   };

@@ -15,7 +15,7 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
     children,
     items,
     showArrows,
-    autoplay = true,
+    autoplay,
     autoplayInterval = 3000,
     ...options
   } = props;

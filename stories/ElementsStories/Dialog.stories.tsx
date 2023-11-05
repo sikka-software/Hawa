@@ -251,24 +251,17 @@ export const Multistep: Story = {
   },
 };
 
-export const Multistep2: Story = {
+export const MultistepCarousel: Story = {
   name: "Multistep - Carousel",
   render: (args: any) => {
-    const stepIds = ["step-1", "step-2", "step-3"];
-    const { emblaApi, emblaRef, currentStep, nextStep, prevStep } =
-      useDialogCarousel("step-1", stepIds);
+    const { emblaApi, emblaRef, nextStep, prevStep } = useDialogCarousel();
 
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog>
           <DialogTrigger>Open Dialog</DialogTrigger>
-          <DialogContent>
-            {/* {currentStep} */}
-            <DialogCarousel
-              stepsApi={emblaApi}
-              stepsRef={emblaRef}
-              activeStep={currentStep}
-            >
+          <DialogContent persist>
+            <DialogCarousel stepsApi={emblaApi} stepsRef={emblaRef}>
               <DialogStep id={"step-1"}>
                 <DialogHeader>
                   <DialogTitle>Select Payment Method</DialogTitle>
