@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import AutoHeight from "embla-carousel-auto-height";
+import React, { useState, useEffect, useRef } from "react";
 
-const useDialogSteps = (initialStepId: any, stepIds: any) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: false, watchDrag: false },
-    [AutoHeight({ destroyHeight: "fit", active: true })]
-  );
-  const [currentStep, setCurrentStep] = useState(initialStepId);
+export const useMultiStepDialog = (
+  initialStep: any,
+  stepIds: any[],
+  setOpenDialog: any
+) => {
+  const [currentStep, setCurrentStep] = useState(initialStep);
+  const [dialogHeight, setDialogHeight] = useState(null);
+  const visibleStepRef = useRef<any>(null);
 
-  const nextStep = () => {
-    if (emblaApi) {
-      emblaApi.scrollNext();
+  useEffect(() => {
+    if (visibleStepRef.current) {
+      setDialogHeight(visibleStepRef.current.offsetHeight);
+    }
+  }, [currentStep, setOpenDialog]);
+
+  const handleNext = () => {
+    const currentIndex = stepIds.indexOf(currentStep);
+    if (currentIndex < stepIds.length - 1) {
+      setTimeout(() => {
+        setCurrentStep(stepIds[currentIndex + 1]);
+      }, 100);
     }
   };
-
-  const prevStep = () => {
-    if (emblaApi) {
-      emblaApi.scrollPrev();
+  const handleBack = () => {
+    const currentIndex = stepIds.indexOf(currentStep);
+    if (currentIndex > 0) {
+      setTimeout(() => {
+        setCurrentStep(stepIds[currentIndex - 1]);
+      }, 100);
     }
   };
-
-  //   useEffect(() => {
-  //     console.log("ref", emblaRef.current);
-  //     if (emblaRef.current) {
-  //       const tabIndex = emblaRef.current.id;
-  //       console.log(tabIndex); // This will log the tabIndex value to the console
-  //       setCurrentStep(tabIndex);
-  //     }
-  //   }, [emblaRef]);
 
   return {
-    emblaRef,
-    emblaApi,
     currentStep,
-    nextStep,
-    prevStep,
+    dialogHeight,
+    visibleStepRef,
+    handleNext,
+    handleBack,
   };
 };
-
-export default useDialogSteps;

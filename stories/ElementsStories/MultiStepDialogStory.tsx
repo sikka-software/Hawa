@@ -8,8 +8,8 @@ export const MultiStepDialog: React.FC = () => {
   // State to keep track of the current step
   const [currentStep, setCurrentStep] =
     React.useState<DialogStep>("paymentMethod");
-  const [dialogHeight, setDialogHeight] = React.useState(null);
-  const visibleStepRef = React.useRef(null);
+  const [dialogHeight, setDialogHeight] = React.useState<any>(null);
+  const visibleStepRef = React.useRef<HTMLDivElement>(null);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -92,7 +92,13 @@ const PaymentMethodStep: React.FC<{ onNext: () => void }> = ({ onNext }) => (
       quisquam sunt earum iusto, praesentium assumenda iure nulla cumque
       architecto molestias et!
     </div>
-    <button onClick={onNext}>Next</button>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+      aperiam expedita fugit corporis voluptates corrupti vero, illum officia
+      quisquam sunt earum iusto, praesentium assumenda iure nulla cumque
+      architecto molestias et!
+    </div>
+    <Button onClick={onNext}>Next</Button>
   </div>
 );
 
@@ -109,8 +115,8 @@ const FormFillStep: React.FC<{ onNext: () => void; onBack: () => void }> = ({
       quisquam sunt earum iusto, praesentium assumenda iure nulla cumque
       architecto molestias et!
     </div>
-    <button onClick={onBack}>Back</button>
-    <button onClick={onNext}>Next</button>
+    <Button onClick={onBack}>Back</Button>
+    <Button onClick={onNext}>Next</Button>
   </div>
 );
 
@@ -124,6 +130,6 @@ const ResultStep: React.FC<{ onBack: () => void }> = ({ onBack }) => (
       quisquam sunt earum iusto, praesentium assumenda iure nulla cumque
       architecto molestias et!
     </div>
-    <button onClick={onBack}>Back</button>
+    <Button onClick={onBack}>Back</Button>
   </div>
 );

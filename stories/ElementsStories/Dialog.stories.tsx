@@ -10,15 +10,17 @@ import {
   DialogTitle,
   DialogStep,
   DialogBody,
-  DialogSteps,
+  DialogCarousel,
   Input,
+  DialogSteps,
 } from "../../components/elements";
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useEffect, useState } from "react";
 import { PropsTable } from "../../sharedUI/docsUI";
 import { MultiStepDialog } from "./MultiStepDialogStory";
-import useDialogSteps from "../../components/hooks/useDialogSteps";
+import { useDialogCarousel, useMultiStepDialog } from "../../components/hooks";
+import { cn } from "../../components/util";
 
 const meta = {
   title: "Elements/Dialog",
@@ -203,26 +205,66 @@ export const RTL: Story = {
   ),
 };
 export const Multistep: Story = {
-  render: (args: any) => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <MultiStepDialog />
-    </div>
-  ),
+  name: "Multistep",
+  render: (args: any) => {
+    const [openDialog, setOpenDialog] = useState(false);
+    const stepIds = ["step-1", "step-2", "step-3"];
+    const { currentStep, visibleStepRef, handleNext, handleBack } =
+      useMultiStepDialog(stepIds[0], stepIds, setOpenDialog);
+
+    return (
+      <Dialog onOpenChange={setOpenDialog}>
+        <DialogTrigger>
+          <Button> Open Multistep Dialog</Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogSteps
+            currentStep={currentStep}
+            visibleStepRef={visibleStepRef}
+          >
+            <div>
+              step 1
+              <div>
+                <PaymentMethodStep />
+                <Button onClick={handleNext}>Next</Button>
+              </div>
+            </div>
+            <div>
+              step 2
+              <div>
+                <FormFillStep />
+                <Button onClick={handleBack}>Back</Button>
+                <Button onClick={handleNext}>Next</Button>
+              </div>
+            </div>
+            <div>
+              step 3
+              <div>
+                <ResultStep />
+                <Button onClick={handleBack}>Back</Button>
+              </div>
+            </div>
+          </DialogSteps>
+        </DialogContent>
+      </Dialog>
+    );
+  },
 };
 
 export const Multistep2: Story = {
+  name: "Multistep - Carousel",
   render: (args: any) => {
     const stepIds = ["step-1", "step-2", "step-3"];
     const { emblaApi, emblaRef, currentStep, nextStep, prevStep } =
-      useDialogSteps("step-1", stepIds);
+      useDialogCarousel("step-1", stepIds);
 
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
-        <Dialog open={true}>
+        <Dialog>
           <DialogTrigger>Open Dialog</DialogTrigger>
           <DialogContent>
             {/* {currentStep} */}
-            <DialogSteps
+            <DialogCarousel
               stepsApi={emblaApi}
               stepsRef={emblaRef}
               activeStep={currentStep}
@@ -292,7 +334,7 @@ export const Multistep2: Story = {
                   <Button onClick={() => nextStep()}>Next (Loop)</Button>
                 </DialogFooter>
               </DialogStep>
-            </DialogSteps>
+            </DialogCarousel>
           </DialogContent>
         </Dialog>
       </div>

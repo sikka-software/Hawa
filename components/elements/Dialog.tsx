@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "../util";
+import { Loading } from "./Loading";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -125,14 +126,14 @@ const DialogFooter = ({
   />
 );
 
-interface DialogStepsProps {
+interface DialogCarouselProps {
   activeStep: string;
   children: React.ReactNode;
   stepsApi?: any;
   stepsRef?: any;
 }
 
-const DialogSteps: React.FC<DialogStepsProps> = ({
+const DialogCarousel: React.FC<DialogCarouselProps> = ({
   stepsApi,
   stepsRef,
   activeStep,
@@ -179,6 +180,49 @@ const DialogSteps: React.FC<DialogStepsProps> = ({
     </div>
   );
 };
+// DialogStepsContainer Component
+interface DialogStepsProps {
+  currentStep: string;
+  // TODO: update this name
+  visibleStepRef: React.RefObject<HTMLDivElement>;
+  children: React.ReactNode;
+}
+const DialogSteps: React.FC<DialogStepsProps> = ({
+  currentStep,
+  visibleStepRef,
+  children,
+}) => {
+  const [dialogHeight, setDialogHeight] = React.useState<any>(null);
+  React.useEffect(() => {
+    if (visibleStepRef.current) {
+      setDialogHeight(visibleStepRef.current.offsetHeight);
+      console.log("height is ", visibleStepRef.current.offsetHeight);
+    }
+  }, [currentStep, visibleStepRef]);
+
+  return (
+    <div
+      className="hawa-relative hawa-overflow-clip"
+      style={{
+        height: dialogHeight || "fit-content",
+        transition: "height 0.2s",
+      }}
+    >
+      {React.Children.map(children, (child, index) => (
+        <div
+          ref={currentStep === `step-${index + 1}` ? visibleStepRef : null}
+          className={cn(
+            currentStep === `step-${index + 1}`
+              ? "hawa-visible hawa-block"
+              : "hawa-invisible hawa-hidden"
+          )}
+        >
+          {child}
+        </div>
+      ))}
+    </div>
+  );
+};
 interface DialogStepProps {
   id: string;
   children: React.ReactNode;
@@ -210,9 +254,10 @@ const DialogBody: React.FC<DialogBodyProps> = ({ children, className }) => {
   return <div className={cn("hawa-py-6", className)}>{children}</div>;
 };
 
-DialogStep.displayName = "DialogStep";
 DialogBody.displayName = "DialogBody";
+DialogStep.displayName = "DialogStep";
 DialogSteps.displayName = "DialogSteps";
+DialogCarousel.displayName = "DialogCarousel";
 DialogHeader.displayName = "DialogHeader";
 DialogFooter.displayName = "DialogFooter";
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
@@ -229,6 +274,7 @@ export {
   DialogHeader,
   DialogFooter,
   DialogTitle,
+  DialogCarousel,
   DialogSteps,
   DialogStep,
   DialogBody,

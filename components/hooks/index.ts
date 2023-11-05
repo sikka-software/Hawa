@@ -4,6 +4,7 @@ export * from "./useHover";
 export * from "./useHover";
 export * from "./useToast";
 export * from "./useCarousel";
+export * from "./useDialogCarousel";
 export * from "./useDialogSteps";
 export * from "./useClipboard";
 export * from "./useBreakpoint";
