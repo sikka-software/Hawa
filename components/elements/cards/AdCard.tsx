@@ -9,7 +9,7 @@ type AdCardTypes = {
   imageURL: string;
   handleHide?: any;
   handleCantHide?: () => void;
-  handleClick?: () => void;
+  handleClick?: (e: React.MouseEvent) => void;
   canHide: boolean;
 };
 export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {

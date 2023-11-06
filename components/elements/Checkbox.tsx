@@ -17,20 +17,22 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   label,
   sublabel,
   helperText,
-  ...checkboxProps
+  disabled,
+  ...props
 }) => {
   return (
     <div className="hawa-items-top  hawa-flex hawa-gap-2 ">
-      <CheckboxElement id={id} {...checkboxProps} />
+      <CheckboxElement {...props} disabled={disabled} id={id} />
       {(label || helperText) && (
         <div className={"hawa-grid hawa-gap-1.5 hawa-leading-none"}>
           {label && (
             <label
               htmlFor={id}
               className={cn(
-                "hawa-cursor-pointer hawa-select-none hawa-text-sm hawa-font-medium hawa-leading-none hawa-pt-0.5",
-                checkboxProps.disabled &&
-                  "hawa-cursor-not-allowed hawa-text-muted-foreground hawa-opacity-70 "
+                "hawa-w-fit hawa-select-none hawa-text-sm hawa-font-medium hawa-leading-none hawa-pt-0.5",
+                disabled
+                  ? "hawa-cursor-not-allowed  hawa-text-muted-foreground hawa-opacity-70 "
+                  : "hawa-cursor-pointer"
               )}
             >
               {label}
@@ -40,21 +42,21 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <label
               htmlFor={id}
               className={cn(
-                "hawa-cursor-pointer hawa-select-none hawa-text-sm hawa-text-muted-foreground",
-                checkboxProps.disabled &&
-                  "hawa-cursor-not-allowed hawa-text-muted-foreground hawa-opacity-70"
+                "hawa-w-fit hawa-select-none hawa-text-sm hawa-text-muted-foreground",
+                disabled
+                  ? "hawa-cursor-not-allowed hawa-text-muted-foreground hawa-opacity-70"
+                  : "hawa-cursor-pointer"
               )}
             >
               {sublabel}
             </label>
           )}
-          {helperText && !checkboxProps.disabled && (
+          {helperText && !disabled && (
             <label
               htmlFor={id}
               className={cn(
-                "hawa-select-none hawa-text-xs hawa-text-helper-color",
-                checkboxProps.disabled &&
-                  "hawa-cursor-not-allowed hawa-opacity-70"
+                "hawa-w-fit hawa-select-none hawa-text-xs hawa-text-helper-color",
+                disabled && "hawa-cursor-not-allowed hawa-opacity-70"
               )}
             >
               {helperText}

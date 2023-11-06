@@ -56,7 +56,10 @@ export const AppLayoutStory = (args: any) => {
           label: t("dashboard"),
           value: "/home",
           icon: <LayoutDashboard className="hawa-icon" />,
-          onClick: () => setSelectedPage("/home"),
+          onClick: (e) => {
+            console.log("e is ", e);
+            setSelectedPage("/home");
+          },
         },
         {
           label: t("items"),

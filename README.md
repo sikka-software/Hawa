@@ -39,10 +39,14 @@
 
 ### Tools used
 
-- [Tailwind](https://tailwindcss.com/)
-- [Radix-UI](https://www.radix-ui.com/)
-- [react-hook-form](https://react-hook-form.com/)
-- [@tanstack/react-table](https://tanstack.com/table/v8)
+- Styling: [Tailwind](https://tailwindcss.com/)
+- Headless UI: [Radix-UI](https://www.radix-ui.com/)
+- Forms: [react-hook-form](https://react-hook-form.com/)
+- Tables: [@tanstack/react-table](https://tanstack.com/table/v8)
+- Form Validation: [zod](https://zod.dev/)
+- Phone Validation: [libphonenumber-js](https://gitlab.com/catamphetamine/libphonenumber-js)
+- Carousel: [embla-carousel-react](https://www.embla-carousel.com/)
+- Combobox: [cmdk](https://github.com/pacocoursey/cmdk)
 
 ## Install
 
@@ -59,6 +63,7 @@ npm install @sikka/hawa
 ```
 
 </br>
+
 
 # Contributing
 

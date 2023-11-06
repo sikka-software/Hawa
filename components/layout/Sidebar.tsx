@@ -74,7 +74,7 @@ export type AppLayoutSidebarItemProps = {
   badge?: { label: string; color: ChipColors };
   icon?: any;
   subitems?: SubItem[];
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 };
 type SubItem = {
   value: string;
@@ -231,9 +231,9 @@ const SidebarItem: React.FC<{
     return (
       <div
         dir={direction}
-        onClick={() => {
+        onClick={(e) => {
           if (item.onClick) {
-            item.onClick();
+            item.onClick(e);
           }
           if (onItemClick) {
             onItemClick([item.value]);

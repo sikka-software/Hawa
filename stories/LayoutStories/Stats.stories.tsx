@@ -43,7 +43,7 @@ const Template = (args: any, globals: any) => {
         icon={<Users2 className="hawa-icon" />}
       />
       <Stats
-        handleClick={() => console.log("clickable stats")}
+        handleClick={(e) => console.log("Stats card clicked. e:", e)}
         width="full"
         variant="default"
         number="+2350"

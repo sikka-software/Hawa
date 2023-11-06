@@ -18,7 +18,7 @@ type StatTypes = {
     | "dropshadow";
   width?: "full" | "min" | "normal";
   isLoading?: boolean;
-  handleClick?: () => void;
+  handleClick?: (e: React.MouseEvent) => void;
   className?: string;
 };
 export const Stats: FC<StatTypes> = ({ variant = "default", ...props }) => {
