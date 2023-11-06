@@ -231,7 +231,7 @@ const SidebarItem: React.FC<{
     return (
       <div
         dir={direction}
-        onClick={(e) => {
+        onMouseDown={(e) => {
           if (item.onClick) {
             item.onClick(e);
           }

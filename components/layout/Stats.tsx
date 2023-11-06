@@ -24,7 +24,7 @@ type StatTypes = {
 export const Stats: FC<StatTypes> = ({ variant = "default", ...props }) => {
   return (
     <Card
-      onClick={props.handleClick}
+      onMouseDown={props.handleClick}
       clickable={Boolean(props.handleClick)}
       className={cn(props.className)}
     >
