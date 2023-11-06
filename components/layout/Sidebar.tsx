@@ -207,7 +207,7 @@ const SidebarItem: React.FC<{
                   key={idx}
                   onMouseDown={(e) => {
                     if (subitem.onMouseDown) {
-                      item.onMouseDown(e);
+                      subitem.onMouseDown(e);
                     }
                     // if (onItemClick) {
                     //   onItemClick([item.value]);
@@ -216,7 +216,7 @@ const SidebarItem: React.FC<{
                   onClick={(e) => {
                     e.stopPropagation();
                     if (subitem.onClick) {
-                      subitem.onClick();
+                      subitem.onClick(e);
                     }
                     if (onSubItemClick) {
                       onSubItemClick([item.value, subitem.value]);
