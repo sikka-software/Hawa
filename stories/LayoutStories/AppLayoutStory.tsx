@@ -74,7 +74,9 @@ export const AppLayoutStory = (args: any) => {
               label: t("sub-item") + " 1",
               icon: <FolderArchive className="hawa-icon" />,
               value: "/new-item",
-
+              onMouseDown: (e) => {
+                console.log("Mouse Down", e);
+              },
               onClick: () => setSelectedPage("/new-item"),
             },
             {

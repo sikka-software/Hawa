@@ -81,7 +81,8 @@ type SubItem = {
   value: string;
   label: string;
   icon?: any;
-  onClick?: () => void;
+  onMouseDown: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
 };
 interface SidebarGroupProps {
   title?: string;
@@ -204,6 +205,14 @@ const SidebarItem: React.FC<{
               {item.subitems.map((subitem, idx) => (
                 <li
                   key={idx}
+                  onMouseDown={(e) => {
+                    if (subitem.onMouseDown) {
+                      item.onMouseDown(e);
+                    }
+                    // if (onItemClick) {
+                    //   onItemClick([item.value]);
+                    // }
+                  }}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (subitem.onClick) {
