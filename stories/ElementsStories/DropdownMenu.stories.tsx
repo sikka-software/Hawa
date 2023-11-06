@@ -157,16 +157,19 @@ const items = [
   {
     label: "Item 3",
     value: "item3",
+    onMiddleClick: () => console.log("test"),
     icon: <AtSign className="hawa-icon" />,
     subitems: [
       {
         label: "subitem 1",
         value: "subitem 1",
+        onMiddleClick: (e) => console.log("test", e),
         icon: <MedalIcon className="hawa-icon" />,
       },
       {
         label: "subitem 2",
         value: "subitem 2",
+        onMiddleClick: () => console.log("test"),
         icon: <AlignVerticalDistributeStart className="hawa-icon" />,
       },
     ],

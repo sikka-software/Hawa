@@ -371,6 +371,14 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
+                            onMouseDown={(event: any) => {
+                              if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
+                                event.preventDefault(); // This line prevents the default behavior of the middle button
+                                if (item.onMiddleClick) {
+                                  item.onMiddleClick(item.value);
+                                }
+                              }
+                            }}
                             key={subIndex}
                             className={cn(
                               sizeStyles[size],
@@ -400,7 +408,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     key={index}
                     disabled={item.disabled}
                     onMouseDown={(event: any) => {
-                      if (event.button === 1) {
+                      if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
                         event.preventDefault(); // This line prevents the default behavior of the middle button
                         if (item.onMiddleClick) {
                           item.onMiddleClick(item.value);
