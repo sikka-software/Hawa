@@ -43,11 +43,15 @@ const Template = (args: any, globals: any) => {
         icon={<Users2 className="hawa-icon" />}
       />
       <Stats
-        handleClick={(e) => console.log("Stats card clicked. e:", e)}
+        onMouseDown={(e) =>
+          e.button === 1 && console.log("Middle Mouse Button Clicked. e:", e)
+        }
+        onClick={(e) => console.log("Stats card clicked. e:", e)}
         width="full"
         variant="default"
         number="+2350"
         label="Subscriptions"
+        helperTextColor="positive"
         helperText="+180.1% from last month"
         icon={<Users2 className="hawa-icon" />}
       />
@@ -56,7 +60,8 @@ const Template = (args: any, globals: any) => {
         variant="default"
         number="+2350"
         label="Subscriptions"
-        helperText="+180.1% from last month"
+        helperTextColor="negative"
+        helperText="-11.5% from last month"
         icon={<Users2 className="hawa-icon" />}
       />
       <Stats
@@ -64,7 +69,8 @@ const Template = (args: any, globals: any) => {
         variant="default"
         number="+2350"
         label="Subscriptions"
-        helperText="+180.1% from last month"
+        helperTextColor="muted"
+        helperText="Muted helperText"
         icon={<Users2 className="hawa-icon" />}
       />
     </div>
