@@ -56,6 +56,9 @@ export const AppLayoutStory = (args: any) => {
           label: t("dashboard"),
           value: "/home",
           icon: <LayoutDashboard className="hawa-icon" />,
+          onMouseDown: (e) => {
+            console.log("Mouse Down", e);
+          },
           onClick: (e) => {
             console.log("e is ", e);
             setSelectedPage("/home");

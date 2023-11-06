@@ -75,6 +75,7 @@ export type AppLayoutSidebarItemProps = {
   icon?: any;
   subitems?: SubItem[];
   onClick?: (e: React.MouseEvent) => void;
+  onMouseDown?: (e: React.MouseEvent) => void;
 };
 type SubItem = {
   value: string;
@@ -232,6 +233,14 @@ const SidebarItem: React.FC<{
       <div
         dir={direction}
         onMouseDown={(e) => {
+          if (item.onMouseDown) {
+            item.onMouseDown(e);
+          }
+          // if (onItemClick) {
+          //   onItemClick([item.value]);
+          // }
+        }}
+        onClick={(e) => {
           if (item.onClick) {
             item.onClick(e);
           }
