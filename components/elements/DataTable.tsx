@@ -79,9 +79,9 @@ export const DataTable = <DataProps extends {}>({
   enableGoTo,
   ...props
 }: DataTableProps<DataProps>) => {
-  const [sorting, setSorting] = React.useState<SortingState>([
-    { id: props.defaultSort || "", desc: false },
-  ]);
+  const [sorting, setSorting] = React.useState<SortingState>(
+    props.defaultSort ? [{ id: props.defaultSort, desc: false }] : []
+  );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );

@@ -33,17 +33,17 @@ interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
 }
 
 const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
-  ({ className, ...props }, ref) => (
+  ({ className, condensed, clickable, dir, ...props }, ref) => (
     <th
       ref={ref}
       className={cn(
         "hawa-bg-muted/60 dark:hawa-bg-muted/40 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
-        props.dir === "rtl"
+        dir === "rtl"
           ? "[&:not(:last-child)]:hawa-border-l"
           : "[&:not(:last-child)]:hawa-border-r",
-        props.condensed ? "hawa-h-8" : "hawa-h-12",
-        props.clickable ? "hawa-px-1" : "hawa-px-4", //First and last columns
-        props.clickable
+        condensed ? "hawa-h-8" : "hawa-h-12",
+        clickable ? "hawa-px-1" : "hawa-px-4", //First and last columns
+        clickable
           ? " [&:not(:last-child)&:not(:first-child)]:hawa-p-1"
           : "hawa-px-4", //Columns in between
         className

@@ -451,7 +451,7 @@ const Template = (args: any, globals: any) => {
         {...args}
         translateFn={t}
         isLoading={isLoading}
-        defaultSort="share_price"
+        // defaultSort="share_price"
         columns={companiesColumns}
         showCount
         // data={[]}
