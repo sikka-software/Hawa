@@ -163,7 +163,7 @@ const items = [
       {
         label: "subitem 1",
         value: "subitem 1",
-        onMiddleClick: (e) => console.log("test", e),
+        onMiddleClick: (e: any) => console.log("test", e),
         icon: <MedalIcon className="hawa-icon" />,
       },
       {

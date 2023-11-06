@@ -258,6 +258,7 @@ export type SubItem = {
   value?: any;
   icon?: any;
   action?: () => void;
+  onMiddleClick?: (e: any) => void;
   highlighted?: boolean;
   disabled?: boolean;
 };
@@ -275,7 +276,7 @@ export type MenuItemType = {
   highlighted?: boolean;
   subitems?: SubItem[];
   disabled?: boolean;
-  onMiddleClick?: any;
+  onMiddleClick?: (e: any) => void;
   onClick?: any;
 };
 interface DropdownMenuProps {
@@ -372,10 +373,13 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
                             onMouseDown={(event: any) => {
-                              if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
+                              if (
+                                event.button === 1 ||
+                                (event.button === 0 && event.ctrlKey)
+                              ) {
                                 event.preventDefault(); // This line prevents the default behavior of the middle button
-                                if (item.onMiddleClick) {
-                                  item.onMiddleClick(item.value);
+                                if (subitem.onMiddleClick) {
+                                  subitem.onMiddleClick(item.value);
                                 }
                               }
                             }}
@@ -408,7 +412,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     key={index}
                     disabled={item.disabled}
                     onMouseDown={(event: any) => {
-                      if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
+                      if (
+                        event.button === 1 ||
+                        (event.button === 0 && event.ctrlKey)
+                      ) {
                         event.preventDefault(); // This line prevents the default behavior of the middle button
                         if (item.onMiddleClick) {
                           item.onMiddleClick(item.value);
