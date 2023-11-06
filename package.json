@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.16.13",
+  "version": "0.16.14",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -20,7 +20,7 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-lib": "tsup components/index.tsx --format cjs,esm --dts",
+    "build-lib": "tsup --dts",
     "build-css": "postcss styles/globals.css -o dist/index.css",
     "prepub": "npm run build-lib && npm run build-css",
     "pub": "npm publish --tag next",
