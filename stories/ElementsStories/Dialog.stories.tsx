@@ -253,15 +253,24 @@ export const Multistep: Story = {
 
 export const MultistepCarousel: Story = {
   name: "Multistep - Carousel",
-  render: (args: any) => {
-    const { emblaApi, emblaRef, nextStep, prevStep } = useDialogCarousel();
-
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const { emblaApi, emblaRef, nextStep, prevStep } = useDialogCarousel({
+      direction: direction,
+    });
+    const [openDialog, setOpenDialog] = useState(false);
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
-        <Dialog>
+        <Dialog onOpenChange={setOpenDialog} open={openDialog}>
           <DialogTrigger>Open Dialog</DialogTrigger>
-          <DialogContent persist>
-            <DialogCarousel stepsApi={emblaApi} stepsRef={emblaRef}>
+          <DialogContent persist dir={direction}>
+            <DialogCarousel
+              direction={direction}
+              stepsApi={emblaApi}
+              stepsRef={emblaRef}
+            >
               <DialogStep id={"step-1"}>
                 <DialogHeader>
                   <DialogTitle>Select Payment Method</DialogTitle>
@@ -324,7 +333,7 @@ export const MultistepCarousel: Story = {
                 </DialogHeader>
                 <ResultStep />
                 <DialogFooter>
-                  <Button onClick={() => nextStep()}>Next (Loop)</Button>
+                  <Button onClick={() => setOpenDialog(false)}>Close</Button>
                 </DialogFooter>
               </DialogStep>
             </DialogCarousel>
@@ -354,16 +363,18 @@ const PaymentMethodStep = () => (
 const FormFillStep = () => (
   <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
     <Input label="Card number" placeholder="422 422 422 422" />
-    <Input label="Card number" placeholder="422 422 422 422" />
-    <Input label="Card number" placeholder="422 422 422 422" />
-    <Input label="Card number" placeholder="422 422 422 422" />
+    <Input label="Name on card" placeholder="Fulan AlFulani" />
+    <div className="hawa-flex hawa-flex-row hawa-gap-4">
+      <Input label="Expiry date" placeholder="10/25" />
+      <Input label="CVV" placeholder="123" />
+    </div>
   </DialogBody>
 );
 
 const ResultStep = () => (
   <div>
     <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
-      You paid for pro plan for 22.50 SAR /month
+      You paid for pro plan for 45 SAR /month
     </DialogBody>
   </div>
 );

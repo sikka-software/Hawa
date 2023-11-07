@@ -2,6 +2,7 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "../util";
 import { Loading } from "./Loading";
+import { DirectionType } from "../types/commonTypes";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -130,27 +131,25 @@ interface DialogCarouselProps {
   children: React.ReactNode;
   stepsApi?: any;
   stepsRef?: any;
+  direction?: DirectionType;
 }
 
 const DialogCarousel: React.FC<DialogCarouselProps> = ({
   stepsApi,
   stepsRef,
   children,
+  direction,
 }) => {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const steps = React.Children.toArray(children);
-
   React.useEffect(() => {
     if (stepsApi) {
       stepsApi.reInit();
     }
   }, [stepsApi, children]);
-
   return (
     <div className="hawa-overflow-hidden">
-      <div ref={stepsRef}>
+      <div ref={stepsRef} dir={direction}>
         <div
-          className="hawa-flex first-line:"
+          className="hawa-flex"
           style={{
             transition: "height 0.2s",
           }}
@@ -158,7 +157,7 @@ const DialogCarousel: React.FC<DialogCarouselProps> = ({
           {React.Children.map(children, (child, index) => (
             <div
               className={cn(
-                " hawa-justify-center hawa-h-fit hawa-flex hawa-items-center hawa-flex-[0_0_100%]"
+                "hawa-justify-center hawa-h-fit hawa-flex hawa-items-center hawa-flex-[0_0_100%]"
               )}
               key={index}
             >

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoHeight from "embla-carousel-auto-height";
 
-export const useDialogCarousel = () => {
+export const useDialogCarousel = (options?: any) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: false, watchDrag: false, startIndex: 0 },
+    { loop: false, watchDrag: false, startIndex: 0, ...options },
     [AutoHeight({ destroyHeight: "fit", active: true })]
   );
   // const [currentStep, setCurrentStep] = useState(initialStepId);
