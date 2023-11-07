@@ -13,8 +13,12 @@ import {
   CopyIcon,
   Edit2,
   Heart,
+  AppWindow,
   ScreenShare,
+  ScreenShareOff,
   Trash2,
+  Apple,
+  HardDrive,
 } from "lucide-react";
 
 const meta = {
@@ -62,13 +66,10 @@ export const Cards: Story = {
   },
 };
 export const Autoplay: Story = {
-  render: () => (
+  render: (args) => (
     <div className="hawa-flex hawa-flex-col hawa-gap-10">
       <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel items={cards} loop={false} />
-      </div>
-      <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel items={cards1} loop={false} />
+        <Carousel {...args} items={autoplayCards} loop={false} />
       </div>
     </div>
   ),
@@ -88,6 +89,38 @@ const images = [
   <img src="https://source.unsplash.com/featured/?nature,7" />,
   <img src="https://source.unsplash.com/featured/?nature,8" />,
   <img src="https://source.unsplash.com/featured/?nature,9" />,
+];
+const autoplayCards = [
+  <LandingCard
+    className={"hawa-h-full hawa-max-w-sm"}
+    title="These cards will autoplay"
+    subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
+    icon={<ScreenShare />}
+  />,
+  <LandingCard
+    className={"hawa-h-full hawa-max-w-sm"}
+    title="This is the second card"
+    subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
+    icon={<ScreenShareOff />}
+  />,
+  <LandingCard
+    className={"hawa-h-full hawa-max-w-sm"}
+    title="This is the 3rd card"
+    subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
+    icon={<AppWindow />}
+  />,
+  <LandingCard
+    className={"hawa-h-full hawa-max-w-sm"}
+    title="This is the 4th card"
+    subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
+    icon={<Apple />}
+  />,
+  <LandingCard
+    className={"hawa-h-full hawa-max-w-sm"}
+    title="This is the 5th card"
+    subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
+    icon={<HardDrive />}
+  />,
 ];
 const cards = [
   <LandingCard
