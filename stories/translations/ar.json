@@ -1,4 +1,8 @@
 {
+  "enable-preview": "تمكين المعاينة",
+  "disable-preview": "تعطيل المعاينة",
+  "first-name": "الإسم الأول",
+  "last-name": "إسم العائلة",
   "no-data": "لا توجد عناصر",
   "actions": "الإجرائات",
   "are-you-sure": "هل انت متأكد؟",

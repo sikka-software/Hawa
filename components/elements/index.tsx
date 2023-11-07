@@ -57,3 +57,4 @@ export * from "./ProgressCircle";
 export * from "./NavigationMenu";
 export * from "./StopPropagationWrapper";
 export * from "./FileUploader";
+export * from "./Pagination";

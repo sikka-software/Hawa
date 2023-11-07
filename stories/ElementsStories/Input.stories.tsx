@@ -33,19 +33,34 @@ export const Default: Story = {
   ),
 };
 export const PreviewMode: Story = {
-  render: () => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+
     const [preview, setPreview] = useState(false);
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+      <div
+        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
+        dir={locale === "ar" ? "rtl" : "ltr"}
+      >
         <Button onClick={() => setPreview(!preview)}>
-          {preview ? "Disable" : "Enable"} Preview
+          {/* {preview ? "Disable" : "Enable"} Preview */}
+          {preview ? t("enable-preview") : t("disable-preview")}
         </Button>
-        <Input label={"First Name"} preview={preview} placeholder={"Fulan"} />
-        <Input label={"Middle Name"} preview={preview} placeholder={"Fulani"} />
         <Input
-          label={"Last Name"}
+          label={t("first-name")}
+          preview={preview}
+          placeholder={"Fulan"}
+        />
+        <Input
+          label={t("last-name")}
           preview={preview}
           placeholder={"Al-Fulani"}
+        />
+        <Input
+          label={t("email")}
+          preview={preview}
+          placeholder={"contact@sikka.io"}
         />
         <Input label={"Username"} preview={preview} placeholder={"fulan"} />
       </div>

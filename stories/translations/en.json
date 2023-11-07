@@ -1,4 +1,8 @@
 {
+  "enable-preview": "Enable Preview",
+  "disable-preview": "Disable Preview",
+  "first-name": "First Name",
+  "last-name": "Last Name",
   "no-data": "No Data",
   "submit": "Submit",
   "description": "Description",
