@@ -31,12 +31,12 @@ const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
     persist?: boolean;
   }
->(({ className, children, ...props }, ref) => (
+>(({ className, children, persist, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content
       onPointerDownOutside={(e) => {
-        if (props.persist) {
+        if (persist) {
           e.preventDefault();
         }
       }}
