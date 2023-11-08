@@ -30,7 +30,7 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-w-full hawa-p-2" dir={direction}>
-      <Pagination direction={direction} />
+      <Pagination totalPages={120} direction={direction} />
     </div>
   );
 };
