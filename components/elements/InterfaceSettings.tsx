@@ -4,16 +4,22 @@ import { Radio } from "./Radio";
 import { OrientationType } from "../types/commonTypes";
 
 type TypographyTypes = {
-  handleLanguage: (e: any) => void;
-  currentLanguage: any;
-  handleColorMode: (e: any) => void;
-  currentColorMode: any;
+  /** Function to handle language change.   */
+  handleLanguage?: (e: any) => void;
+  /** Current selected language.   */
+  currentLanguage?: string;
+  /** Function to handle theme color mode change.   */
+  handleColorMode?: (e: any) => void;
+  /** Current selected theme color mode.   */
+  currentColorMode?: "light" | "dark";
   orientation?: OrientationType;
   width?: "default" | "full";
 };
 export const InterfaceSettings: FC<TypographyTypes> = ({
   orientation = "horizontal",
   width = "default",
+  handleColorMode,
+  handleLanguage,
   ...props
 }) => {
   const [color, setColor] = useState(props.currentColorMode);
@@ -28,7 +34,9 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         width={width}
         defaultValue={language}
         onChangeTab={(e: any) => {
-          props.handleLanguage(e);
+          if (handleLanguage) {
+            handleLanguage(e);
+          }
           setLanguage(e);
         }}
         design="tabs"
@@ -41,7 +49,9 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         width={width}
         defaultValue={color}
         onChangeTab={(e: any) => {
-          props.handleColorMode(e);
+          if (handleColorMode) {
+            handleColorMode(e);
+          }
           setColor(e);
         }}
         design="tabs"

@@ -12,7 +12,6 @@ import {
   ThirdPartyAuthTextsTypes,
 } from "../../types/textTypes";
 import {
-  InterfaceSettings,
   Card,
   CardContent,
   CardFooter,
@@ -23,15 +22,8 @@ import {
 } from "../../elements";
 
 type LoginFormTypes = {
+  /** Object containing text labels used throughout the form. */
   texts?: LoginFormTextsTypes;
-  /** Function to handle language change.   */
-  handleLanguage?: () => void;
-  /** Current selected language.   */
-  currentLanguage?: string;
-  /** Function to handle theme color mode change.   */
-  handleColorMode?: () => void;
-  /** Current selected theme color mode.   */
-  currentColorMode?: "light" | "dark";
   /** If true, only logos are displayed in third-party auth buttons.   */
   logosOnly?: boolean;
   /** Direction of text and UI elements, either left-to-right or right-to-left.   */
@@ -394,14 +386,8 @@ export const LoginForm: FC<LoginFormTypes> = ({
           </CardFooter>
         ) : null}
       </Card>
-      {props.handleColorMode && props.handleLanguage && (
-        <InterfaceSettings
-          currentColorMode={props.currentColorMode}
-          currentLanguage={props.currentLanguage}
-          handleColorMode={props.handleColorMode}
-          handleLanguage={props.handleLanguage}
-        />
-      )}
+      {/* {props.handleColorMode && props.handleLanguage && (
+       */}
     </div>
   );
 };

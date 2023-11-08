@@ -19,7 +19,6 @@ import {
   Card,
   CardFooter,
   CardContent,
-  InterfaceSettings,
   SelectOptionProps,
   StopPropagationWrapper,
 } from "../../elements";
@@ -27,14 +26,6 @@ import {
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
   texts: RegisterFormTextsTypes;
-  /** Callback function triggered to handle language changes.*/
-  handleLanguage?: () => void;
-  /** The current language being used in the application. */
-  currentLanguage?: any;
-  /** Callback function triggered to handle color mode changes. */
-  handleColorMode?: () => void;
-  /** The current color mode being used in the application. */
-  currentColorMode?: any;
   /** Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right). */
   direction?: DirectionType;
   /** Determines whether to display logos only or with text in the social media registration section. */
@@ -421,14 +412,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
           </CardFooter>
         ) : null}
       </Card>
-      {props.handleColorMode && props.handleLanguage && (
-        <InterfaceSettings
-          currentColorMode={props.currentColorMode}
-          currentLanguage={props.currentLanguage}
-          handleColorMode={props.handleColorMode}
-          handleLanguage={props.handleLanguage}
-        />
-      )}
+      {/* {props.handleColorMode && props.handleLanguage && (
+        
+      )} */}
     </div>
   );
 };
