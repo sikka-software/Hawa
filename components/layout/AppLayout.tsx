@@ -5,7 +5,8 @@ import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
-  header: React.ReactNode;
+  /** a custom header to replace the logoLink & logoSymbol */
+  header?: React.ReactNode;
   design?: "default";
   /** The pages of the side drawer */
   drawerItems: AppSidebarItemProps[];
@@ -47,12 +48,12 @@ type AppLayoutTypes = {
    * - 'lg': Large width.
    * - 'parent': Inherits width from parent element.
    */
-  profileMenuWidth: "default" | "sm" | "lg" | "parent";
+  profileMenuWidth?: "default" | "sm" | "lg" | "parent";
   /** Event handler for drawer expansion. */
   onDrawerExpand?: (e: any) => void;
   /** Specifies whether to keep the drawer open. */
-  // keepDrawerOpen?: boolean;
   keepOpen: boolean;
+  /** The method used to control whether the drawer is expanded or not. */
   setKeepOpen: (value: boolean) => void;
   /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
@@ -70,14 +71,15 @@ type AppLayoutTypes = {
 };
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
+  profileMenuWidth = "default",
+  DrawerFooterActions,
+  design = "default",
   direction = "ltr",
   drawerSize = "md",
-  DrawerFooterActions,
   currentPage,
   clickedItem,
-  keepOpen,
   setKeepOpen,
-  design = "default",
+  keepOpen,
   ...props
 }) => {
   let closeDrawerWidth = 56;
@@ -232,7 +234,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               alignOffset={8}
               side={"bottom"}
               sideOffset={5}
-              width={props.profileMenuWidth}
+              width={profileMenuWidth}
               direction={isRTL ? "rtl" : "ltr"}
               items={props.profileMenuItems}
               onItemSelect={(e: any) => console.log("selecting item ", e)}
