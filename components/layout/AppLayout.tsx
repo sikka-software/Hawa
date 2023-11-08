@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
-import { AppLayoutSidebarItemProps, SidebarGroup } from "./Sidebar";
+import { AppSidebarItemProps, SidebarGroup } from "./Sidebar";
 import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
 
@@ -8,7 +8,7 @@ type AppLayoutTypes = {
   header: React.ReactNode;
   design?: "default";
   /** The pages of the side drawer */
-  drawerItems: AppLayoutSidebarItemProps[];
+  drawerItems: AppSidebarItemProps[];
   /** The direction of the layout */
   direction?: DirectionType;
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
