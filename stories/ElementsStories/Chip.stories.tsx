@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Chip } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
-import { Flame, KeyIcon, KeyRound } from "lucide-react";
+import { Flame, HeartPulse, KeyRound } from "lucide-react";
 
 const meta = {
   title: "Elements/Chip",
@@ -25,60 +25,98 @@ export default meta;
 type Story = StoryObj<typeof Chip>;
 
 export const Colors: Story = {
-  render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Chip size="normal" label="Red" color={"red"} />
-      <Chip size="normal" label="Green" color={"green"} />
-      <Chip size="normal" label="Blue" color={"blue"} />
-      <Chip size="normal" label="Yellow" color={"yellow"} />
-      <Chip size="normal" label="Purple" color={"purple"} />
-      <Chip size="normal" label="Cyan" color={"cyan"} />
-      <Chip size="normal" label="Hyper" color={"hyper"} />
-      <Chip size="normal" label="Oceanic" color={"oceanic"} />
-      <Chip size="normal" label="No Color" />
-    </div>
-  ),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Chip size="normal" label={t("Red")} color={"red"} />
+        <Chip size="normal" label={t("Green")} color={"green"} />
+        <Chip size="normal" label={t("Blue")} color={"blue"} />
+        <Chip size="normal" label={t("Yellow")} color={"yellow"} />
+        <Chip size="normal" label={t("Purple")} color={"purple"} />
+        <Chip size="normal" label={t("Cyan")} color={"cyan"} />
+        <Chip size="normal" label={t("Hyper")} color={"hyper"} />
+        <Chip size="normal" label={t("Oceanic")} color={"oceanic"} />
+        <Chip size="normal" label={t("No Color")} />
+      </div>
+    );
+  },
 };
 export const Sizes: Story = {
-  render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Chip size="small" label="Small" color={"green"} />
-      <Chip size="normal" label="Normal" color={"green"} />
-      <Chip size="large" label="Large" color={"green"} />
-    </div>
-  ),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Chip size="small" label={t("small")} color={"green"} />
+        <Chip size="normal" label={t("normal")} color={"green"} />
+        <Chip size="large" label={t("large")} color={"green"} />
+      </div>
+    );
+  },
 };
 export const AsStatus: Story = {
-  render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Chip
-        size="normal"
-        label="Unavailable"
-        dotType="unavailable"
-        color="red"
-      />
-      <Chip size="normal" label="Available" dotType="available" color="green" />
-    </div>
-  ),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Chip
+          dir={direction}
+          size="normal"
+          label={t("unavailable")}
+          dotType="unavailable"
+          color="red"
+        />
+        <Chip
+          dir={direction}
+          size="normal"
+          label={t("available")}
+          dotType="available"
+          color="green"
+        />
+      </div>
+    );
+  },
 };
 export const WithIcons: Story = {
-  render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Chip
-        icon={<KeyRound className="hawa-icon" />}
-        size="normal"
-        label="Unavailable"
-        color="red"
-      />
-      <Chip size="normal" label="Available" dotType="available" color="green" />
-      <Chip
-        size="large"
-        label="Available"
-        icon={<Flame className="hawa-icon" />}
-        color="hyper"
-      />
-    </div>
-  ),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Chip
+          dir={direction}
+          icon={<KeyRound className="hawa-icon" />}
+          size="normal"
+          label={t("unavailable")}
+          color="red"
+        />
+        <Chip
+          dir={direction}
+          size="normal"
+          label={t("available")}
+          icon={<HeartPulse className="hawa-icon" />}
+          color="green"
+        />
+        <Chip
+          dir={direction}
+          size="large"
+          label={t("new")}
+          icon={<Flame className="hawa-icon" />}
+          color="hyper"
+        />
+      </div>
+    );
+  },
 };
 export const Radius: Story = {
   render: () => (

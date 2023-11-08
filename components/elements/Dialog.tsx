@@ -11,7 +11,6 @@ const DialogTrigger = DialogPrimitive.Trigger;
 const DialogPortal = ({ ...props }: DialogPrimitive.DialogPortalProps) => (
   <DialogPrimitive.Portal {...props} />
 );
-
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
@@ -25,7 +24,6 @@ const DialogOverlay = React.forwardRef<
     {...props}
   />
 ));
-
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
@@ -72,7 +70,6 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
-
 const DialogHeader = ({
   className,
   ...props
@@ -85,7 +82,6 @@ const DialogHeader = ({
     {...props}
   />
 );
-
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
@@ -99,7 +95,6 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ));
-
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
@@ -113,7 +108,6 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ));
-
 const DialogFooter = ({
   className,
   ...props
@@ -126,14 +120,12 @@ const DialogFooter = ({
     {...props}
   />
 );
-
 interface DialogCarouselProps {
   children: React.ReactNode;
   stepsApi?: any;
   stepsRef?: any;
   direction?: DirectionType;
 }
-
 const DialogCarousel: React.FC<DialogCarouselProps> = ({
   stepsApi,
   stepsRef,
@@ -169,7 +161,6 @@ const DialogCarousel: React.FC<DialogCarouselProps> = ({
     </div>
   );
 };
-// DialogStepsContainer Component
 interface DialogStepsProps {
   currentStep: string;
   // TODO: update this name
@@ -218,7 +209,6 @@ interface DialogStepProps {
   className?: string;
   stepRef?: any;
 }
-
 const DialogStep: React.FC<DialogStepProps> = ({
   id,
   children,

@@ -18,7 +18,6 @@ import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useEffect, useState } from "react";
 import { PropsTable } from "../../sharedUI/docsUI";
-import { MultiStepDialog } from "./MultiStepDialogStory";
 import { useDialogCarousel, useMultiStepDialog } from "../../components/hooks";
 import { cn } from "../../components/util";
 
@@ -111,28 +110,37 @@ export default meta;
 type Story = StoryObj<typeof DialogContent>;
 
 export const Default: Story = {
-  render: (args: any) => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Dialog>
-        <DialogTrigger>
-          <Button>Open Dialog</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("are-you-sure")}</DialogTitle>
-            <DialogDescription>
-              {t("are-you-sure-description")}
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant={"destructive"}>{t("yes")}</Button>
-            <Button variant={"outline"}>{t("cancel")}</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </div>
-  ),
-
+  render: (args: any) => {
+    const [openDialog, setOpenDialog] = useState(false);
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Dialog onOpenChange={setOpenDialog} open={openDialog}>
+          <DialogTrigger asChild>
+            <Button>Open Dialog</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>{t("are-you-sure")}</DialogTitle>
+              <DialogDescription>
+                {t("are-you-sure-description")}
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button
+                variant={"destructive"}
+                onClick={() => setOpenDialog(false)}
+              >
+                {t("yes")}
+              </Button>
+              <Button variant={"outline"} onClick={() => setOpenDialog(false)}>
+                {t("cancel")}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    );
+  },
   args: {
     persist: true,
   },
@@ -146,7 +154,7 @@ export const Persistent: Story = {
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog open={isDialogVisible} onOpenChange={setIsDialogVisible}>
-          <DialogTrigger>
+          <DialogTrigger asChild>
             <Button>Open Persistent Dialog</Button>
           </DialogTrigger>
           <DialogContent persist>
@@ -181,28 +189,39 @@ export const Persistent: Story = {
   },
 };
 export const RTL: Story = {
-  render: (args: any) => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-2">
-      <Dialog>
-        <DialogTrigger>
-          <Button>Open RTL Dialog</Button>
-        </DialogTrigger>
-        <DialogContent dir="rtl">
-          <DialogHeader dir="rtl">
-            <DialogTitle>هل انت متأكد؟</DialogTitle>
-            <DialogDescription>
-              لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك نهائيًا
-              وإزالة بياناتك من خوادمنا.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant={"destructive"}>نعم</Button>
-            <Button variant={"outline"}>إلغاء</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </div>
-  ),
+  render: (args: any) => {
+    const [openDialog, setOpenDialog] = useState(false);
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Dialog onOpenChange={setOpenDialog} open={openDialog}>
+          <DialogTrigger asChild>
+            <Button>Open RTL Dialog</Button>
+          </DialogTrigger>
+          <DialogContent dir="rtl">
+            <DialogHeader dir="rtl">
+              <DialogTitle>هل انت متأكد؟</DialogTitle>
+              <DialogDescription>
+                لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك نهائيًا
+                وإزالة بياناتك من خوادمنا.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button
+                onClick={() => setOpenDialog(false)}
+                variant={"destructive"}
+              >
+                نعم
+              </Button>
+              <Button onClick={() => setOpenDialog(false)} variant={"outline"}>
+                إلغاء
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    );
+  },
 };
 export const Multistep: Story = {
   name: "Multistep",
@@ -214,7 +233,7 @@ export const Multistep: Story = {
 
     return (
       <Dialog onOpenChange={setOpenDialog}>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button> Open Multistep Dialog</Button>
         </DialogTrigger>
         <DialogContent>
@@ -264,7 +283,9 @@ export const MultistepCarousel: Story = {
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog onOpenChange={setOpenDialog} open={openDialog}>
-          <DialogTrigger>Open Dialog</DialogTrigger>
+          <DialogTrigger asChild>
+            <Button>Open Dialog</Button>
+          </DialogTrigger>
           <DialogContent persist dir={direction}>
             <DialogCarousel
               direction={direction}
@@ -370,7 +391,6 @@ const FormFillStep = () => (
     </div>
   </DialogBody>
 );
-
 const ResultStep = () => (
   <div>
     <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">

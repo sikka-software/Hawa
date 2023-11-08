@@ -49,7 +49,7 @@ export const MultiStepDialog: React.FC = () => {
 
   return (
     <Dialog onOpenChange={setIsDialogOpen}>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button> Open Multistep Dialog</Button>
       </DialogTrigger>
       <DialogContent>
@@ -67,12 +67,12 @@ export const MultiStepDialog: React.FC = () => {
               )}
             >
               {step === "paymentMethod" && (
-                <PaymentMethodStep onNext={handleNext} />
+                <PaymentMethodDefaultStep onNext={handleNext} />
               )}
               {step === "formFill" && (
-                <FormFillStep onNext={handleNext} onBack={handleBack} />
+                <FormFillDefaultStep onNext={handleNext} onBack={handleBack} />
               )}
-              {step === "result" && <ResultStep onBack={handleBack} />}
+              {step === "result" && <ResultDefaultStep onBack={handleBack} />}
             </div>
           ))}
         </div>
@@ -82,7 +82,9 @@ export const MultiStepDialog: React.FC = () => {
 };
 
 // Components for each step
-const PaymentMethodStep: React.FC<{ onNext: () => void }> = ({ onNext }) => (
+const PaymentMethodDefaultStep: React.FC<{ onNext: () => void }> = ({
+  onNext,
+}) => (
   <div>
     {/* ... Payment Method Step Content ... */}
     <div>Select Payment Method</div>
@@ -102,10 +104,10 @@ const PaymentMethodStep: React.FC<{ onNext: () => void }> = ({ onNext }) => (
   </div>
 );
 
-const FormFillStep: React.FC<{ onNext: () => void; onBack: () => void }> = ({
-  onNext,
-  onBack,
-}) => (
+const FormFillDefaultStep: React.FC<{
+  onNext: () => void;
+  onBack: () => void;
+}> = ({ onNext, onBack }) => (
   <div>
     {/* ... Form Fill Step Content ... */}
     <div>Fill the form</div>
@@ -119,8 +121,7 @@ const FormFillStep: React.FC<{ onNext: () => void; onBack: () => void }> = ({
     <Button onClick={onNext}>Next</Button>
   </div>
 );
-
-const ResultStep: React.FC<{ onBack: () => void }> = ({ onBack }) => (
+const ResultDefaultStep: React.FC<{ onBack: () => void }> = ({ onBack }) => (
   <div>
     {/* ... Result Step Content ... */}
     <div>Results here</div>
