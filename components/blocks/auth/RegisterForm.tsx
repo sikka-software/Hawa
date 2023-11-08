@@ -25,45 +25,45 @@ import {
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
-  texts: RegisterFormTextsTypes;
+  texts?: RegisterFormTextsTypes;
   /** Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right). */
   direction?: DirectionType;
   /** Determines whether to display logos only or with text in the social media registration section. */
   logosOnly?: boolean;
   /** Enables registration via Google when set to true. */
-  viaGoogle: boolean;
+  viaGoogle?: boolean;
   /** Enables registration via Github when set to true. */
-  viaGithub: boolean;
+  viaGithub?: boolean;
   /** Enables registration via Twitter when set to true. */
-  viaTwitter: boolean;
+  viaTwitter?: boolean;
   /** Determines whether to show the referral code field. */
-  showRefCode: boolean;
+  showRefCode?: boolean;
   /** Determines whether to show the user source selection. */
-  showUserSource: boolean;
+  showUserSource?: boolean;
   /** Determines whether to show the terms acceptance checkbox. */
-  showTermsOption: boolean;
+  showTermsOption?: boolean;
   /** Determines whether to show the newsletter subscription checkbox. */
-  showNewsletterOption: boolean;
+  showNewsletterOption?: boolean;
   /** Callback function triggered on form submission. */
   onRegister: (e: any) => void;
   /** Callback function triggered to route to the login page. */
-  onRouteToLogin: () => void;
+  onRouteToLogin?: () => void;
   /** Callback function triggered to handle registration via Google. */
-  onGoogleRegister: () => void;
+  onGoogleRegister?: () => void;
   /** Callback function triggered to handle registration via Github. */
-  onGithubRegister: () => void;
+  onGithubRegister?: () => void;
   /** Callback function triggered to handle registration via Twitter. */
-  onTwitterRegister: () => void;
+  onTwitterRegister?: () => void;
   /** Callback function triggered to route to the Terms of Service page. */
-  onRouteToTOS: () => void;
+  onRouteToTOS?: () => void;
   /** Determines whether to show an error alert. */
-  showError: boolean;
+  showError?: boolean;
   /** Title for the error alert. */
-  errorTitle: any;
+  errorTitle?: any;
   /** Text for the error alert. */
-  errorText: any;
+  errorText?: any;
   /** Array containing the fields to be included in the form. */
-  registerFields: any[];
+  registerFields?: string[];
   /** Indicates whether the form submission is in progress. */
   isLoading?: boolean;
   /** If true, a loading spinner is displayed within the Google login button.   */
@@ -80,7 +80,11 @@ type RegisterFormTypes = {
   additionalInputs?: any;
 };
 
-export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
+export const RegisterForm: FC<RegisterFormTypes> = ({
+  texts,
+  registerFields = ["email"],
+  ...props
+}) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const thirdPartyAuthTexts: ThirdPartyAuthTextsTypes = {
@@ -96,7 +100,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
   const methods = useForm();
   let fieldSchemas: any = {};
 
-  props.registerFields.forEach((field) => {
+  registerFields.forEach((field) => {
     switch (field) {
       case "fullname":
         fieldSchemas["fullName"] = z.string().optional();
@@ -179,7 +183,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                 className="hawa-flex hawa-flex-col hawa-gap-4"
               >
                 <div className="hawa-flex hawa-flex-col hawa-gap-4">
-                  {props.registerFields.map((fld, i) => {
+                  {registerFields.map((fld, i) => {
                     if (fld === "fullname") {
                       return (
                         <Controller
@@ -314,10 +318,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({ texts, ...props }) => {
                     render={({ field }) => (
                       <Select
                         label={
-                          texts?.userReference.label ||
+                          texts?.userReference?.label ||
                           "How did you learn about us?"
                         }
-                        placeholder={texts?.userReference.placeholder}
+                        placeholder={texts?.userReference?.placeholder}
                         isCreatable={false}
                         isMulti={false ?? false}
                         isSearchable={false}

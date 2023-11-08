@@ -95,8 +95,6 @@ export const Default: Story = {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
     onForgotPassword: { action: "onForgotPassword" },
-    handleColorMode: { action: "handleColorMode" },
-    handleLanguage: { action: "handleLanguage" },
   },
 };
 export const viaPhone: Story = {
@@ -109,8 +107,6 @@ export const viaPhone: Story = {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
     onForgotPassword: { action: "onForgotPassword" },
-    handleColorMode: { action: "handleColorMode" },
-    handleLanguage: { action: "handleLanguage" },
   },
 };
 export const MagicLink: Story = {
@@ -168,7 +164,5 @@ export const MagicLink: Story = {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
     onForgotPassword: { action: "onForgotPassword" },
-    handleColorMode: { action: "handleColorMode" },
-    handleLanguage: { action: "handleLanguage" },
   },
 };

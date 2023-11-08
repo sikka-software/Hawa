@@ -124,7 +124,5 @@ export const Default: Story = {
     onTwitterRegister: { action: "onTwitterRegister" },
     onRouteToTOS: { action: "onRouteToTOS" },
     onRouteToLogin: { action: "onRouteToLogin" },
-    handleLanguage: { action: "handleLanguage" },
-    handleColorMode: { action: "handleColorMode" },
   },
 };
