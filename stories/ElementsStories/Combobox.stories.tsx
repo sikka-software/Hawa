@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Combobox, Input, Select } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import { Controller, useForm } from "react-hook-form";
 
 const meta = {
   title: "Elements/Combobox",
@@ -71,10 +72,11 @@ export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
+    const { handleSubmit, control, formState } = useForm({});
 
     setLocale(locale);
     return (
-      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-justify-center hawa-items-start hawa-gap-2 hawa-w-full">
+      <div className="hawa-p-2 hawa-flex hawa-flex-col hawa-justify-center hawa-items-start hawa-gap-2 hawa-w-full">
         <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Role"
@@ -87,16 +89,26 @@ export const Default: Story = {
           />
         </div>
         <div className="hawa-max-w-md hawa-w-full" dir={direction}>
-          <Combobox
-            label="Role"
-            texts={{
-              placeholder: "Select Role",
+          <Controller
+            control={control}
+            name="test"
+            render={({ field }) => {
+              return (
+                <Combobox
+                  label="Role"
+                  preview={true}
+                  texts={{
+                    placeholder: "Select Role",
+                  }}
+                  helperText="this is helpertext"
+                  data={roles}
+                  valueKey={"_id"}
+                />
+              );
             }}
-            helperText="this is helpertext"
-            data={roles}
-            valueKey={"_id"}
           />
         </div>
+
         <div className="hawa-max-w-md hawa-w-full" dir={direction}>
           <Combobox
             label="Loading"
@@ -118,6 +130,8 @@ export const Default: Story = {
             data={roles}
             valueKey={"_id"}
           />
+
+          <Combobox data={roles} valueKey={"_id"} />
         </div>
       </div>
     );
