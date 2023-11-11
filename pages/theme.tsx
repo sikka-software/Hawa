@@ -7,6 +7,8 @@ import {
   Label,
 } from "../components";
 import { useTheme } from "next-themes";
+
+// TODO: use the actual variable name as an ID
 type ColorSetting = {
   id: string;
   label: string;
@@ -52,7 +54,12 @@ const colorSettingsArray: ColorSetting[] = [
     label: "Accent Foreground Color",
     hsl: [240, 5.9, 10],
   },
-  { id: "destructive-color", label: "Destructive Color", hsl: [0, 84.2, 60.2] },
+  {
+    id: "destructive-color",
+    label: "Destructive Color",
+    hsl: [0, 72.22, 50.59],
+    // hsl: [0, 84.2, 60.2] OLD
+  },
   {
     id: "destructive-foreground-color",
     label: "Destructive Foreground Color",

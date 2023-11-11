@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.17.8",
+  "version": "0.17.9",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -116,6 +116,7 @@
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
+    "recharts": "^2.9.3",
     "storybook": "^7.5.3",
     "storybook-dark-mode": "^3.0.1",
     "tailwindcss": "^3.3.5",

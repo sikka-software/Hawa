@@ -20,6 +20,7 @@ type RadioTypes = {
   defaultValue?: any;
   direction?: DirectionType;
   helperText?: string;
+  // TODO: make this accept the usual label props + the HTML label
   labelProps?: LabelProps;
 };
 export const Radio: FC<RadioTypes> = ({
@@ -195,6 +196,8 @@ export const Radio: FC<RadioTypes> = ({
                   key={i + 1}
                 >
                   <input
+                    // TODO: spread the usual radio props
+
                     disabled={opt.disabled}
                     id={opt.value.toString()}
                     type="radio"

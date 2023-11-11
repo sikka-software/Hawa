@@ -9,7 +9,7 @@ interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   helperText?: string;
   helperTextColor?: "default" | "positive" | "negative" | "muted";
   chart?: any;
-  icon?: any;
+  icon?: React.ReactNode;
   variant?:
     | "default"
     | "plain"
@@ -45,15 +45,13 @@ export const Stats: FC<StatTypes> = ({
         <CardTitle className="hawa-text-sm hawa-font-medium">{label}</CardTitle>
         {icon && <span>{icon}</span>}
       </div>
-      <CardContent>
+      <CardContent className="hawa-transition-all">
         {isLoading ? (
           <Skeleton className="hawa-h-8 hawa-w-3/4" />
         ) : (
           <div className="hawa-text-2xl hawa-font-bold">{number}</div>
         )}
-        {isLoading && helperText ? (
-          <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
-        ) : (
+        {helperText && (
           <p
             className={cn(
               "hawa-my-0 hawa-text-xs  hawa-transition-all hawa-text-start",
@@ -63,14 +61,19 @@ export const Stats: FC<StatTypes> = ({
                 : "hawa-opacity-0 hawa-h-0"
             )}
           >
-            {helperText}
+            {isLoading ? (
+              <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
+            ) : (
+              helperText
+            )}
           </p>
         )}
-        {isLoading && chart ? (
-          <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
-        ) : (
-          chart
-        )}
+        {chart &&
+          (isLoading ? (
+            <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
+          ) : (
+            chart
+          ))}
       </CardContent>
     </Card>
   );

@@ -11,7 +11,7 @@ export type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   ({ className, hint, hintSide, required, children, ...props }, ref) => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-1 hawa-items-center">
+    <div className="hawa-transition-all hawa-flex hawa-flex-row hawa-gap-1 hawa-items-center">
       <label
         ref={ref}
         className={cn(
