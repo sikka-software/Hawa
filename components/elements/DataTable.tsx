@@ -280,117 +280,125 @@ export const DataTable = <DataProps extends {}>({
             )}
 
             {/* NEXT & PREV BUTTONS */}
-            {table.getPageCount() > 1 && (
-              <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
-                {enableGoTo && (
-                  <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-items-center hawa-gap-2">
-                    <span className="hawa-text-sm">{props.texts?.goTo}</span>
-                    <input
-                      max={table.getPageCount()}
-                      min={0}
-                      type="number"
-                      defaultValue={table.getState().pagination.pageIndex + 1}
-                      onChange={(e) => {
-                        let page = Number(e.target.value) - 1;
-                        const max = table.getPageCount();
-                        if (!isNaN(page) && Number(page) > max) {
-                          page = max - 1;
-                        }
-                        table.setPageIndex(page);
-                      }}
-                      className="hawa-w-16 hawa-text-sm hawa-border hawa-rounded hawa-p-1 hawa-px-2"
-                    />
-                  </div>
-                )}
-                <DropdownMenu
-                  size="sm"
-                  width="sm"
-                  direction={props.direction}
-                  items={
-                    itemsPerPageOptions || [
-                      { label: `10 / ${pageText}`, value: 10 },
-                      { label: `20 / ${pageText}`, value: 20 },
-                      { label: `30 / ${pageText}`, value: 30 },
-                      { label: `40 / ${pageText}`, value: 40 },
-                      { label: `50 / ${pageText}`, value: 50 },
-                    ]
-                  }
-                  trigger={
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="hawa-h-fit hawa-w-fit hawa-p-0 hawa-px-2 hawa-py-1 "
-                    >
-                      {`${table.getState().pagination.pageSize} / ${
-                        props.texts?.page
-                      }`}
-                    </Button>
-                  }
-                  onItemSelect={(e: any) => table.setPageSize(Number(e))}
-                />
-                <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm  ">
-                  <span className="hawa-flex hawa-items-center hawa-gap-1">
-                    <div>{props.texts?.page}</div>
-                    <div className="hawa-flex hawa-flex-row hawa-gap-1">
-                      <span className="hawa-font-bold">
-                        {table.getState().pagination.pageIndex + 1}
-                      </span>
-                      <span>{props.texts?.of}</span>
-                      <span className="hawa-font-bold">
-                        {table.getPageCount()}
-                      </span>
-                    </div>
-                  </span>
-                </div>
-                <Button
-                  aria-label="Previous Table Page"
-                  variant="outline"
-                  size="smallIcon"
-                  onClick={() => table.previousPage()}
-                  disabled={!table.getCanPreviousPage()}
-                  className={cn(props.direction === "ltr" && "hawa-rotate-180")}
-                >
-                  <svg
-                    aria-label="Chevron Right Icon"
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 16 16"
-                    height="1em"
-                    width="1em"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                    ></path>
-                  </svg>
-                </Button>
 
-                <Button
-                  aria-label="Next Table Page"
-                  variant="outline"
-                  size="smallIcon"
-                  onClick={() => table.nextPage()}
-                  disabled={!table.getCanNextPage()}
-                  className={cn(props.direction === "rtl" && "hawa-rotate-180")}
-                >
-                  <svg
-                    aria-label="Chevron Right Icon"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    width="1em"
-                    height="1em"
-                    strokeWidth="0"
-                    viewBox="0 0 16 16"
+            <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
+              {enableGoTo && (
+                <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-items-center hawa-gap-2">
+                  <span className="hawa-text-sm">{props.texts?.goTo}</span>
+                  <input
+                    max={table.getPageCount()}
+                    min={0}
+                    type="number"
+                    defaultValue={table.getState().pagination.pageIndex + 1}
+                    onChange={(e) => {
+                      let page = Number(e.target.value) - 1;
+                      const max = table.getPageCount();
+                      if (!isNaN(page) && Number(page) > max) {
+                        page = max - 1;
+                      }
+                      table.setPageIndex(page);
+                    }}
+                    className="hawa-w-16 hawa-text-sm hawa-border hawa-rounded hawa-p-1 hawa-px-2"
+                  />
+                </div>
+              )}
+              <DropdownMenu
+                size="sm"
+                width="sm"
+                direction={props.direction}
+                items={
+                  itemsPerPageOptions || [
+                    { label: `10 / ${pageText}`, value: 10 },
+                    { label: `20 / ${pageText}`, value: 20 },
+                    { label: `30 / ${pageText}`, value: 30 },
+                    { label: `40 / ${pageText}`, value: 40 },
+                    { label: `50 / ${pageText}`, value: 50 },
+                  ]
+                }
+                trigger={
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="hawa-h-fit hawa-w-fit hawa-p-0 hawa-px-2 hawa-py-1 "
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                    ></path>
-                  </svg>
-                </Button>
-              </div>
-            )}
+                    {`${table.getState().pagination.pageSize} / ${
+                      props.texts?.page
+                    }`}
+                  </Button>
+                }
+                onItemSelect={(e: any) => table.setPageSize(Number(e))}
+              />
+              {table.getPageCount() > 1 && (
+                <>
+                  <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm  ">
+                    <span className="hawa-flex hawa-items-center hawa-gap-1">
+                      <div>{props.texts?.page}</div>
+                      <div className="hawa-flex hawa-flex-row hawa-gap-1">
+                        <span className="hawa-font-bold">
+                          {table.getState().pagination.pageIndex + 1}
+                        </span>
+                        <span>{props.texts?.of}</span>
+                        <span className="hawa-font-bold">
+                          {table.getPageCount()}
+                        </span>
+                      </div>
+                    </span>
+                  </div>
+
+                  <Button
+                    aria-label="Previous Table Page"
+                    variant="outline"
+                    size="smallIcon"
+                    onClick={() => table.previousPage()}
+                    disabled={!table.getCanPreviousPage()}
+                    className={cn(
+                      props.direction === "ltr" && "hawa-rotate-180"
+                    )}
+                  >
+                    <svg
+                      aria-label="Chevron Right Icon"
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 16 16"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                      ></path>
+                    </svg>
+                  </Button>
+
+                  <Button
+                    aria-label="Next Table Page"
+                    variant="outline"
+                    size="smallIcon"
+                    onClick={() => table.nextPage()}
+                    disabled={!table.getCanNextPage()}
+                    className={cn(
+                      props.direction === "rtl" && "hawa-rotate-180"
+                    )}
+                  >
+                    <svg
+                      aria-label="Chevron Right Icon"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      width="1em"
+                      height="1em"
+                      strokeWidth="0"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                      ></path>
+                    </svg>
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
