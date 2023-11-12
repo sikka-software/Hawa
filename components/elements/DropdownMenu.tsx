@@ -90,8 +90,9 @@ export const DropdownMenuItem = React.forwardRef<
     end?: any;
     shortcut?: React.ReactNode;
     badged?: boolean;
+    slug?: string;
   }
->(({ className, inset, ...props }, ref) => {
+>(({ className, inset, slug, ...props }, ref) => {
   return (
     <DropdownMenuPrimitive.Item
       disabled={props.disabled}
@@ -107,9 +108,12 @@ export const DropdownMenuItem = React.forwardRef<
       )}
       {...props}
     >
-      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 ">
+      <a
+        href={slug}
+        className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 "
+      >
         {props.children}
-      </div>
+      </a>
 
       {props.end && props.end}
       {!props.end && props.shortcut && (
@@ -261,6 +265,7 @@ export type SubItem = {
   onMiddleClick?: (e: any) => void;
   highlighted?: boolean;
   disabled?: boolean;
+  slug?: string;
 };
 export type MenuItemType = {
   icon?: React.ReactNode;
@@ -269,6 +274,7 @@ export type MenuItemType = {
   badged?: boolean;
   value?: any;
   content?: any;
+  slug?: string;
   end?: any;
   presist?: boolean;
   itemType?: "separator" | "label" | string;
@@ -372,6 +378,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
+                            slug={subitem.slug}
                             onMouseDown={(event: any) => {
                               if (
                                 event.button === 1 ||
@@ -409,6 +416,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
+                    slug={item.slug}
                     key={index}
                     disabled={item.disabled}
                     onMouseDown={(event: any) => {
