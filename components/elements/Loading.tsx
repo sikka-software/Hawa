@@ -8,6 +8,7 @@ type LoadingTypes = {
   design?: "spinner" | "dots-bounce" | "dots-pulse" | "pulse" | "spinner-dots";
   /** Specifies the color of the loading component. By default it will inherit the value of <span className="inline-code">--primary</span> global CSS variable*/
   color?: string;
+  className?: string;
 };
 
 export const Loading: FC<LoadingTypes> = ({
@@ -32,7 +33,9 @@ export const Loading: FC<LoadingTypes> = ({
   switch (design.split("-")[0]) {
     case "dots":
       return (
-        <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <div
+          className={cn("hawa-flex hawa-flex-row hawa-gap-2", props.className)}
+        >
           <div
             className={cn(
               "hawa-animate-bounce hawa-rounded-full hawa-delay-100 hawa-repeat-infinite",
@@ -62,7 +65,12 @@ export const Loading: FC<LoadingTypes> = ({
 
     default:
       return (
-        <div className="hawa-flex hawa-flex-row hawa-gap-x-3">
+        <div
+          className={cn(
+            "hawa-flex hawa-flex-row hawa-gap-x-3",
+            props.className
+          )}
+        >
           <div aria-label="Loading..." role="status">
             <svg
               className={cn(sizeStyles[size], "hawa-animate-spin")}
