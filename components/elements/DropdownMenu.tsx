@@ -94,35 +94,34 @@ export const DropdownMenuItem = React.forwardRef<
   }
 >(({ className, inset, slug, ...props }, ref) => {
   return (
-    <DropdownMenuPrimitive.Item
-      disabled={props.disabled}
-      ref={ref}
-      className={cn(
-        "hawa-relative hawa-flex hawa-cursor-pointer hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-        inset && "hawa-pl-8",
-        props.end &&
-          Array.isArray(props.children) &&
-          props.children[1] &&
-          "hawa-gap-6",
-        className
-      )}
-      {...props}
-    >
-      <a
-        href={slug}
-        className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 "
+    <a href={slug}>
+      <DropdownMenuPrimitive.Item
+        disabled={props.disabled}
+        ref={ref}
+        className={cn(
+          "hawa-relative hawa-flex hawa-cursor-pointer hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
+          inset && "hawa-pl-8",
+          props.end &&
+            Array.isArray(props.children) &&
+            props.children[1] &&
+            "hawa-gap-6",
+          className
+        )}
+        {...props}
       >
-        {props.children}
-      </a>
+        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 ">
+          {props.children}
+        </div>
 
-      {props.end && props.end}
-      {!props.end && props.shortcut && (
-        <DropdownMenuShortcut>{props.shortcut}</DropdownMenuShortcut>
-      )}
-      {!props.end && props.badged && (
-        <div className="hawa-h-3 hawa-w-3 hawa-bg-red-500 hawa-rounded-full" />
-      )}
-    </DropdownMenuPrimitive.Item>
+        {props.end && props.end}
+        {!props.end && props.shortcut && (
+          <DropdownMenuShortcut>{props.shortcut}</DropdownMenuShortcut>
+        )}
+        {!props.end && props.badged && (
+          <div className="hawa-h-3 hawa-w-3 hawa-bg-red-500 hawa-rounded-full" />
+        )}
+      </DropdownMenuPrimitive.Item>
+    </a>
   );
 });
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
