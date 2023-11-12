@@ -110,67 +110,7 @@ const Template = (args: any, globals: any) => {
           trigger={<Button>Add Toaster</Button>}
         />
       </div>
-      <DropdownMenu
-        items={[
-          {
-            label: "Info",
-            value: "info",
-            action: () => {
-              toast({
-                title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                severity: "info",
-                action: (
-                  <ToastAction altText="Try again">Try again</ToastAction>
-                ),
-              });
-            },
-          },
-          {
-            label: "Warning",
-            value: "warning",
-            action: () => {
-              toast({
-                title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                severity: "warning",
-                action: (
-                  <ToastAction altText="Try again">Try again</ToastAction>
-                ),
-              });
-            },
-          },
-          {
-            label: "Success",
-            value: "success",
-            action: () => {
-              toast({
-                title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                severity: "success",
-                action: (
-                  <ToastAction altText="Try again">Try again</ToastAction>
-                ),
-              });
-            },
-          },
-          {
-            label: "Error",
-            value: "error",
-            action: () => {
-              toast({
-                title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                severity: "error",
-                action: (
-                  <ToastAction altText="Try again">Try again</ToastAction>
-                ),
-              });
-            },
-          },
-        ]}
-        trigger={<Button>another Toaster</Button>}
-      />
+    
     </div>
   );
 };

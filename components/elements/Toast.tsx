@@ -18,7 +18,7 @@ const toastVariants = cva(
         warning:
           "hawa-warning hawa-group hawa-text-warning-foreground hawa-bg-warning",
         error:
-          "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-error-foreground",
+          "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-white",
         success:
           "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
         none: "",
