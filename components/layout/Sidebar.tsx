@@ -70,6 +70,7 @@ AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 export type AppSidebarItemProps = {
   value: string;
+  slug?: string;
   label: string;
   badge?: { label: string; color: ChipColors };
   icon?: any;
@@ -80,6 +81,7 @@ export type AppSidebarItemProps = {
 type SubItem = {
   value: string;
   label: string;
+  slug?: string;
   icon?: any;
   onMouseDown?: (e: React.MouseEvent) => void;
   onClick?: (e: React.MouseEvent) => void;
@@ -203,7 +205,8 @@ const SidebarItem: React.FC<{
               )}
             >
               {item.subitems.map((subitem, idx) => (
-                <li
+                <a
+                  href={subitem.slug}
                   key={idx}
                   onMouseDown={(e) => {
                     if (subitem.onMouseDown) {
@@ -230,7 +233,7 @@ const SidebarItem: React.FC<{
                 >
                   {subitem.icon && subitem.icon}
                   {subitem.label}
-                </li>
+                </a>
               ))}
             </div>
           </AccordionContent>
@@ -239,15 +242,13 @@ const SidebarItem: React.FC<{
     );
   } else {
     return (
-      <div
+      <a
+        href={item.slug}
         dir={direction}
         onMouseDown={(e) => {
           if (item.onMouseDown) {
             item.onMouseDown(e);
           }
-          // if (onItemClick) {
-          //   onItemClick([item.value]);
-          // }
         }}
         onClick={(e) => {
           if (item.onClick) {
@@ -277,7 +278,7 @@ const SidebarItem: React.FC<{
             )}
           </span>
         </div>
-      </div>
+      </a>
     );
   }
 };

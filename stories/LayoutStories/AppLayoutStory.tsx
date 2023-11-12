@@ -57,7 +57,10 @@ export const AppLayoutStory = (args: any) => {
           value: "/home",
           icon: <LayoutDashboard className="hawa-icon" />,
           onMouseDown: (e) => {
-            console.log("Mouse Down", e);
+            if (e.button == 1) {
+              window.open("https://sikka.io", "_blank");
+            }
+            console.log("Mouse Down", e.button);
           },
           onClick: (e) => {
             console.log("e is ", e);
@@ -67,7 +70,6 @@ export const AppLayoutStory = (args: any) => {
         {
           label: t("items"),
           icon: <FolderOpen className="hawa-icon" />,
-
           value: "/items",
           subitems: [
             {
