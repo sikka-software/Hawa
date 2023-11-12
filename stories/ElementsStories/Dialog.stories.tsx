@@ -13,6 +13,7 @@ import {
   DialogCarousel,
   Input,
   DialogSteps,
+  DialogCarouselContent,
 } from "../../components/elements";
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
@@ -279,14 +280,14 @@ export const MultistepCarousel: Story = {
     const { emblaApi, emblaRef, nextStep, prevStep } = useDialogCarousel({
       direction: direction,
     });
-    const [openDialog, setOpenDialog] = useState(false);
+    const [openDialog, setOpenDialog] = useState(true);
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog onOpenChange={setOpenDialog} open={openDialog}>
           <DialogTrigger asChild>
             <Button>Open Dialog</Button>
           </DialogTrigger>
-          <DialogContent persist dir={direction}>
+          <DialogCarouselContent onPrev={prevStep} persist dir={direction}>
             <DialogCarousel
               direction={direction}
               stepsApi={emblaApi}
@@ -358,7 +359,7 @@ export const MultistepCarousel: Story = {
                 </DialogFooter>
               </DialogStep>
             </DialogCarousel>
-          </DialogContent>
+          </DialogCarouselContent>
         </Dialog>
       </div>
     );
