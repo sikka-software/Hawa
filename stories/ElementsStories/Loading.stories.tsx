@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArgsTable, Title } from "@storybook/blocks";
-// import { Button } from "../../components/elements";
-import { CodeBlock, Loading } from "../../components/elements";
+import { ArgsTable } from "@storybook/blocks";
+import { Loading, Tooltip } from "../../components/elements";
 
 const meta = {
   title: "Elements/Loading",
@@ -64,12 +63,50 @@ const Template = (args: any) => {
     </div>
   );
 };
+
+export const Designs: Story = {
+  render: (args: any) => {
+    let sizes = [{ prop: "xl", title: "Extra Large" }];
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
+          <Tooltip content={"default"}>
+            <div>
+              <Loading size={"lg"} />
+            </div>
+          </Tooltip>
+          <Tooltip content={"squircle"}>
+            <div>
+              <Loading design={"squircle"} size={"lg"} />
+            </div>
+          </Tooltip>
+          <Tooltip content={"square"}>
+            <div>
+              <Loading design={"square"} size={"lg"} />
+            </div>
+          </Tooltip>
+          <Tooltip content={"progress"}>
+            <div>
+              <Loading design={"progress"} size={"lg"} />
+            </div>
+          </Tooltip>
+          <Tooltip content={"orbit"}>
+            <div>
+              <Loading design={"orbit"} size={"lg"} />
+            </div>
+          </Tooltip>
+        </div>
+      </div>
+    );
+  },
+};
 export const Spinner: Story = {
   render: (args) => <Template {...args} />,
   args: {
     design: "spinner",
   },
 };
+
 export const Dots: Story = {
   render: (args) => <Template {...args} />,
   args: {
