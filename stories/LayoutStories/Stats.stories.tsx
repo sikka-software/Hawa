@@ -73,18 +73,6 @@ const Template = (args: any, globals: any) => {
       className="hawa-grid hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
       dir={direction}
     >
-      <a
-        href="https://sikka.io"
-        // onMouseDown={(e) => {
-        //   if (e.button == 1) {
-        //     window.open("https://sikka.io", "_target");
-        //   }
-        // }}
-      >
-        {" "}
-        testing
-      </a>
-
       <Stats
         width="full"
         variant="default"

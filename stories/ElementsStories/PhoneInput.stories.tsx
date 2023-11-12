@@ -29,7 +29,7 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-w-full hawa-max-w-sm hawa-p-2">
-      <PhoneInput />
+      <PhoneInput label="Testing" />
     </div>
   );
 };

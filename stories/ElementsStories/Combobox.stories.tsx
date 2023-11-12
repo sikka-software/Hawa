@@ -124,11 +124,11 @@ export const Default: Story = {
           <Combobox
             label="No Search"
             hideInput
+            data={roles}
+            valueKey={"_id"}
             texts={{
               placeholder: "Select Role",
             }}
-            data={roles}
-            valueKey={"_id"}
           />
 
           <Combobox data={roles} valueKey={"_id"} />

@@ -2,15 +2,16 @@ import React, { useState, FC, useRef, useEffect } from "react";
 import Countries from "../countries";
 import { Select } from "./Select";
 import { cn } from "../util";
-import { Label } from "./Label";
+import { Label, LabelProps } from "./Label";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };
   helperText?: any;
   label?: string;
+  labelProps?: LabelProps;
   handleChange?: (value: string) => void;
 };
-export const PhoneInput: FC<PhoneInputTypes> = (props) => {
+export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState(props.preferredCountry);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -38,8 +39,7 @@ export const PhoneInput: FC<PhoneInputTypes> = (props) => {
 
   return (
     <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2 hawa-h-fit">
-      {props.label && <Label>{props.label}</Label>}
-
+      {props.label && <Label {...labelProps}>{props.label}</Label>}
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
         <Select
           width="fit"

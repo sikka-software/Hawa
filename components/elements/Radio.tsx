@@ -20,8 +20,8 @@ type RadioTypes = {
   defaultValue?: any;
   direction?: DirectionType;
   helperText?: string;
-  // TODO: make this accept the usual label props + the HTML label
   labelProps?: LabelProps;
+  label?: string;
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
@@ -182,7 +182,7 @@ export const Radio: FC<RadioTypes> = ({
     default:
       return (
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          {labelProps && <Label {...labelProps}>{labelProps.children}</Label>}
+          {props.label && <Label {...labelProps}>{props.label}</Label>}
           <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
             {props.options &&
               props.options.map((opt, i) => (

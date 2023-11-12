@@ -7,15 +7,16 @@ import React, {
   FormEvent,
 } from "react";
 import { cn } from "../util";
-import { Label } from "./Label";
+import { Label, LabelProps } from "./Label";
 import { PositionType } from "../types/commonTypes";
 
 type ColorPickerTypes = {
   label?: string;
   id?: string;
-  hint?: string;
-  hintSide?: PositionType;
-  isRequired?: boolean;
+  // hint?: string;
+  // hintSide?: PositionType;
+  // isRequired?: boolean;
+  labelProps?: LabelProps;
   helperText?: string;
   /** The hex code for the color */
   color?: any;
@@ -32,6 +33,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   containerProps,
   colorPickerProps,
   textInputProps,
+  labelProps,
   ...props
 }) => {
   const [selectedColor, setSelectedColor] = useState(props.color);
@@ -69,16 +71,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
 
   return (
     <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
-      {props.label && (
-        <Label
-          htmlFor={props.id}
-          hint={props.hint}
-          hintSide={props.hintSide}
-          required={props.isRequired}
-        >
-          {props.label}
-        </Label>
-      )}
+      {props.label && <Label {...labelProps}>{props.label}</Label>}
 
       <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
         <div

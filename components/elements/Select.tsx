@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { FC } from "react";
 import ReactSelect, { MenuProps } from "react-select";
 import CreatableSelect from "react-select/creatable";
-import { Label } from "./Label";
+import { Label, LabelProps } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
 
@@ -65,13 +65,18 @@ type SelectTypes = {
   hideIndicator?: boolean;
   phoneCode?: boolean;
   isLoading?: any;
+  labelProps?: LabelProps;
   texts?: {
     noOptions?: string;
     createLabel?: string;
   };
 };
 
-export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
+export const Select: FC<SelectTypes> = ({
+  labelProps,
+  labelKey = "label",
+  ...props
+}) => {
   const NoOption = () => {
     return <div>{props.texts?.noOptions ?? "No Items Found"}</div>;
   };
@@ -133,7 +138,7 @@ export const Select: FC<SelectTypes> = ({ labelKey = "label", ...props }) => {
         props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
       )}
     >
-      {props.label && <Label>{props.label}</Label>}
+      {props.label && <Label {...labelProps}>{props.label}</Label>}
       {props.isLoading ? (
         <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : !props.isCreatable ? (

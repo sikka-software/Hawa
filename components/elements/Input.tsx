@@ -1,5 +1,5 @@
 import React, { FC, forwardRef } from "react";
-import { Label } from "./Label";
+import { Label, LabelProps } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
 import { PositionType } from "../types/commonTypes";
@@ -11,13 +11,11 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   width?: "small" | "normal" | "full" | "auto";
   /** The label of the input field   */
   label?: any;
-  hint?: string;
-  hintSide?: PositionType;
-  /** If true, it will show a red asterisk next to the label*/
-  isRequired?: boolean;
+  labelProps?: LabelProps;
+
   /** Disable/Enable multiple line text input field   */
   multiline?: boolean;
-  /** The small red text under the input field to show validation or a hint.   */
+  /** The small red text under the input field to show validation.   */
   helperText?: any;
   forceHideHelperText?: boolean;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
@@ -37,6 +35,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       width = "full",
       preview = false,
       forceHideHelperText = false,
+      labelProps,
       ...props
     },
     ref
@@ -68,16 +67,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
           "hawa-w-full hawa-gap-2"
         )}
       >
-        {props.label && (
-          <Label
-            htmlFor={props.id}
-            hint={props.hint}
-            hintSide={props.hintSide}
-            required={props.isRequired}
-          >
-            {props.label}
-          </Label>
-        )}
+        {props.label && <Label {...labelProps}>{props.label}</Label>}
         {props.isLoading ? (
           <div className="hawa-pb-2">
             <Skeleton className="hawa-h-[40px] hawa-w-full" />

@@ -39,10 +39,8 @@ export const Default: Story = {
             onChangeTab={() => console.log()}
             defaultValue={"option2"}
             design={"default"}
-            labelProps={{
-              htmlFor: "horizontal",
-              children: "Horizontal orientation",
-            }}
+            labelProps={{ htmlFor: "horizontal" }}
+            label="Horizontal orientation"
             helperText="Please pick an option"
             direction={direction}
             options={[
@@ -59,10 +57,8 @@ export const Default: Story = {
             defaultValue={"option6"}
             design={"default"}
             orientation="vertical"
-            labelProps={{
-              htmlFor: "horizontal",
-              children: "Vertical orientation",
-            }}
+            labelProps={{ htmlFor: "horizontal" }}
+            label="Vertical orientation"
             helperText="Please pick an option"
             options={[
               { label: `Option 4`, value: `option4` },

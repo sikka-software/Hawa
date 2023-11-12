@@ -9,7 +9,7 @@ import {
   CommandItem,
 } from "./Command";
 import { PopoverContent, PopoverTrigger } from "./Popover";
-import { Label } from "./Label";
+import { Label, LabelProps } from "./Label";
 import { Skeleton } from "./Skeleton";
 import { PositionType } from "../types/commonTypes";
 
@@ -34,8 +34,7 @@ type ComboboxTypes<T> = {
   id?: string;
   /** The label of the input field   */
   label?: any;
-  hint?: string;
-  hintSide?: PositionType;
+  labelProps?: LabelProps;
   /** If true, it will show a red asterisk next to the label*/
   isRequired?: boolean;
   onChange?: (e: any) => void;
@@ -48,6 +47,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       valueKey = "value",
       defaultValue = "",
       popoverClassName,
+      labelProps,
       data,
       ...props
     },
@@ -70,16 +70,8 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
           props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
         )}
       >
-        {props.label && (
-          <Label
-            htmlFor={props.id}
-            hint={props.hint}
-            hintSide={props.hintSide}
-            required={props.isRequired}
-          >
-            {props.label}
-          </Label>
-        )}{" "}
+        {props.label && <Label {...labelProps}>{props.label}</Label>}
+
         <PopoverPrimitive.Root open={open} onOpenChange={handleOpenChange}>
           <PopoverTrigger asChild>
             {props.isLoading ? (

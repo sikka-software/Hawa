@@ -149,10 +149,12 @@ export const Examples: Story = {
         />
 
         <Input
-          hint="Only underscore and dash are acccepted"
           type={"text"}
-          isRequired={true}
           label={t("username")}
+          labelProps={{
+            hint: "Only underscore and dash are acccepted",
+            required: true,
+          }}
         />
 
         <Input type={"password"} label={t("password")} />
