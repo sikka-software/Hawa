@@ -25,12 +25,15 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 interface PopoverProps {
   side?: PositionType;
   align?: "start" | "center" | "end";
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   sideOffset?: number;
   disableTrigger?: any;
+  width?: "trigger" | "default";
   open?: boolean;
+  contentProps?: any;
+  triggerProps?: any;
 }
 
 type HawaPopoverTypes = PopoverProps &
@@ -44,23 +47,41 @@ const Popover: React.FC<HawaPopoverTypes> = ({
   side,
   sideOffset = 4,
   open,
+  width = "default",
   disableTrigger,
+  contentProps,
+  triggerProps,
   ...props
-}) => (
-  <PopoverPrimitive.Root open={open} {...props}>
-    <PopoverPrimitive.Trigger disabled={disableTrigger}>
-      {trigger}
-    </PopoverPrimitive.Trigger>
-    <PopoverContent
-      side={side}
-      className={className}
-      align={align}
-      sideOffset={sideOffset}
-    >
-      {children}
-    </PopoverContent>
-  </PopoverPrimitive.Root>
-);
+}) => {
+  let widthStyles = {
+    trigger: "var(--radix-popover-trigger-width)",
+    default: "auto",
+  };
+
+  return (
+    <PopoverPrimitive.Root open={open} {...props}>
+      <PopoverPrimitive.Trigger
+        className="hawa-w-full"
+        disabled={disableTrigger}
+        {...triggerProps}
+      >
+        {trigger}
+      </PopoverPrimitive.Trigger>
+      <PopoverContent
+        side={side}
+        className={className}
+        align={align}
+        sideOffset={sideOffset}
+        style={{
+          width: widthStyles[width],
+        }}
+        {...contentProps}
+      >
+        {children}
+      </PopoverContent>
+    </PopoverPrimitive.Root>
+  );
+};
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 export { Popover, PopoverContent, PopoverTrigger };
