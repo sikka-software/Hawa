@@ -51,7 +51,7 @@ export const Switch = React.forwardRef<
       full: "hawa-rounded-full",
       inherit: "hawa-rounded-inner",
     };
-    
+
     return (
       <div
         className="hawa-flex hawa-flex-row hawa-items-center"
@@ -63,7 +63,7 @@ export const Switch = React.forwardRef<
             "data-[state=checked]:hawa-bg-primary",
             "hawa-relative hawa-cursor-pointer hawa-rounded hawa-outline-none",
             rootRoundednessStyles[roundedness],
-            // className,
+            className,
             rootSize[size]
           )}
           {...props}

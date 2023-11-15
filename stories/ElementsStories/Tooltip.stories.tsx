@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Tooltip } from "../../components/elements";
+import { Button, Switch, Tooltip } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 
 const meta = {

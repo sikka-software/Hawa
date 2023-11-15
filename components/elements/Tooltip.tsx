@@ -42,6 +42,7 @@ type TooltipTypes = {
   onOpenChange?: any;
   /** Duration of the delay before the tooltip appears. */
   delayDuration?: any;
+  triggerProps?: TooltipPrimitive.TooltipTriggerProps;
 };
 
 const Tooltip: React.FunctionComponent<TooltipTypes> = ({
@@ -51,6 +52,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
   children,
   defaultOpen,
   onOpenChange,
+  triggerProps,
   delayDuration = 300,
   ...props
 }) => {
@@ -61,7 +63,9 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
         defaultOpen={defaultOpen}
         onOpenChange={onOpenChange}
       >
-        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger {...triggerProps}>
+          {children}
+        </TooltipPrimitive.Trigger>
         <TooltipContent side={side} align="center" {...props}>
           {content}
         </TooltipContent>
