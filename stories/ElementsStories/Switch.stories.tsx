@@ -1,13 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, CodeBlock, Switch } from "../../components/elements";
-import {
-  ArgsTable,
-  CodeOrSourceMdx,
-  Story,
-  Title,
-  Markdown,
-} from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import { Switch } from "../../components/elements";
+import { ArgsTable, Story, Markdown } from "@storybook/blocks";
 
 const meta = {
   title: "Elements/Switch",
@@ -27,7 +20,7 @@ const meta = {
               ```jsx
               <div dir='rtl'>
                   <Switch/>
-</div>
+              </div>
               ```
               "
             />
@@ -43,7 +36,8 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
-  render: () => <Switch />,
+  render: (args: any) => <Switch {...args} />,
+  argTypes: { onCheckedChange: { action: "onCheckedChange" } },
 };
 export const withLabel: Story = {
   render: () => <Switch label="This is a switch component" />,

@@ -29,6 +29,7 @@ export const Default: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-max-w-md">
       <Input label="Input Field" placeholder={"Bismillah"} />
+      <Input label="Disabled" disabled placeholder={"Bismillah"} />
     </div>
   ),
 };

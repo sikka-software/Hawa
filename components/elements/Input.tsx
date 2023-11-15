@@ -111,7 +111,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   autoComplete={props.autoComplete}
                   defaultValue={props.defaultValue}
                   placeholder={placeholder}
-                  disabled={preview}
+                  disabled={props.disabled || preview}
                   style={{ height: 40 }}
                   className={cn(
                     defaultInputStyle,
