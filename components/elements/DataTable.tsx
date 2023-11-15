@@ -346,28 +346,54 @@ export const DataTable = <DataProps extends {}>({
                   </div>
 
                   <Button
+                    aria-label="Next Table Page"
+                    variant="outline"
+                    size="smallIcon"
+                    onClick={() => table.setPageIndex(0)}
+                    disabled={!table.getCanPreviousPage()}
+                    className={cn(
+                      props.direction === "rtl" && "hawa-rotate-180"
+                    )}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m11 17-5-5 5-5" />
+                      <path d="m18 17-5-5 5-5" />
+                    </svg>
+                  </Button>
+
+                  <Button
                     aria-label="Previous Table Page"
                     variant="outline"
                     size="smallIcon"
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
                     className={cn(
-                      props.direction === "ltr" && "hawa-rotate-180"
+                      props.direction === "rtl" && "hawa-rotate-180"
                     )}
                   >
                     <svg
-                      aria-label="Chevron Right Icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      aria-label="Single Chevron Icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
                       stroke="currentColor"
-                      fill="currentColor"
-                      strokeWidth="0"
-                      viewBox="0 0 16 16"
-                      height="1em"
-                      width="1em"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      ></path>
+                      <path d="m15 18-6-6 6-6" />
                     </svg>
                   </Button>
 
@@ -378,22 +404,47 @@ export const DataTable = <DataProps extends {}>({
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
                     className={cn(
-                      props.direction === "rtl" && "hawa-rotate-180"
+                      props.direction === "ltr" && "hawa-rotate-180"
                     )}
                   >
                     <svg
-                      aria-label="Chevron Right Icon"
-                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      aria-label="Single Chevron Icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
                       stroke="currentColor"
-                      width="1em"
-                      height="1em"
-                      strokeWidth="0"
-                      viewBox="0 0 16 16"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      ></path>
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                  </Button>
+                  <Button
+                    aria-label="Next Table Page"
+                    variant="outline"
+                    size="smallIcon"
+                    onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                    disabled={!table.getCanNextPage()}
+                    className={cn(
+                      props.direction === "ltr" && "hawa-rotate-180"
+                    )}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m11 17-5-5 5-5" />
+                      <path d="m18 17-5-5 5-5" />
                     </svg>
                   </Button>
                 </>

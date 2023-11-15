@@ -283,7 +283,7 @@ let companiesData: Company[] = [
     share_price: 245.6,
   },
 ];
-let generatedData: Company[] = generateDummyCompanies(15);
+let generatedData: Company[] = generateDummyCompanies(150);
 
 type Company = {
   name: string;
