@@ -59,7 +59,7 @@ export const Switch = React.forwardRef<
       >
         <SwitchPrimitives.Root
           className={cn(
-            "hawa-relative  hawa-cursor-pointer hawa-rounded hawa-bg-primary/20 hawa-outline-none data-[state=checked]:hawa-bg-primary",
+            "hawa-relative hawa-cursor-pointer hawa-rounded data-[state=unchecked]:hawa-bg-primary/20 hawa-outline-none data-[state=checked]:hawa-bg-primary",
             rootRoundednessStyles[roundedness],
             className,
             rootSize[size]
