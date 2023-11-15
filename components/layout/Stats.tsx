@@ -19,7 +19,6 @@ interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
     | "dropshadow";
   width?: "full" | "min" | "normal";
   isLoading?: boolean;
-  handleClick?: (e: React.MouseEvent) => void;
   className?: string;
 }
 export const Stats: FC<StatTypes> = ({

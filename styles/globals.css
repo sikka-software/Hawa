@@ -180,9 +180,12 @@ body {
   .radio-item-bordered.right-19px input[type="radio"]:checked + label:after {
     right: 19px;
   }
-  .dark-shadow {
-    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
-      0 4px 6px -2px rgba(255, 255, 255, 0.05);
+
+  /* .dark-shadow {
+    @apply shadow-[0_10px_15px_-3px_rgba(255,255,255,0.1),0_4px_6px_-2px_rgba(255,255,255,0.05)];
+  } */
+  .neo-brutalism {
+    @apply hawa-transition-all hawa-uppercase  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 shadow-color-primary active:shadow-color-primary-active;
   }
   .clickable-link {
     @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
@@ -440,6 +443,10 @@ body {
   }
 }
 @layer utilities {
+    .dark-shadow {
+    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
+      0 4px 6px -2px rgba(255, 255, 255, 0.05);
+  }
   .shadow-color-primary {
     --tw-shadow: 0.25rem 0.25rem hsl(var(--primary));
     box-shadow: var(--tw-shadow);

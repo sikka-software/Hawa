@@ -20,8 +20,8 @@ const buttonVariants = cva(
         ghost: "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         link: "hawa-text-primary hawa-underline-offset-4 hover:hawa-underline",
         combobox: "hawa-bg-background hawa-border",
-        neoBrutalism:
-          "hawa-cursor-pointer hawa-transition-all hawa-uppercase hawa-font-mono  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary hawa-shadow-color-primary hawa-transition-[hawa-transform_50ms, hawa-box-shadow_50ms] active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 active:hawa-shadow-color-primary-active shadow-color-primary active:shadow-color-primary-active ",
+        neoBrutalism: "neo-brutalism",
+        // "hawa-cursor-pointer hawa-transition-all hawa-uppercase hawa-font-mono  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary hawa-shadow-color-primary hawa-transition-[hawa-transform_50ms, hawa-box-shadow_50ms] active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 active:hawa-shadow-color-primary-active shadow-color-primary active:shadow-color-primary-active",
       },
       size: {
         default: "hawa-h-10 hawa-px-4 hawa-py-2",

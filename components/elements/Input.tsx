@@ -2,7 +2,6 @@ import React, { FC, forwardRef } from "react";
 import { Label, LabelProps } from "./Label";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
-import { PositionType } from "../types/commonTypes";
 
 type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
@@ -13,6 +12,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: any;
   labelProps?: LabelProps;
 
+  hideSeparator?: boolean;
   /** Disable/Enable multiple line text input field   */
   multiline?: boolean;
   /** The small red text under the input field to show validation.   */
@@ -74,12 +74,14 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
           </div>
         ) : (
           <>
-            <div
-              className={cn(
-                "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
-                preview ? "hawa-opacity-100" : "hawa-opacity-0"
-              )}
-            ></div>
+            {!props.hideSeparator && (
+              <div
+                className={cn(
+                  "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
+                  preview ? "hawa-opacity-100" : "hawa-opacity-0"
+                )}
+              ></div>
+            )}
             <>
               <div className={cn("hawa-relative")}>
                 {props.startIcon && (
@@ -88,6 +90,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   </div>
                 )}
                 {props.endIcon && (
+                  // TODO: make end-3 editable from outside
                   <div className="hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2">
                     {props.endIcon}
                   </div>
@@ -130,7 +133,6 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
             </>
           </>
         )}
-        
       </div>
     );
   }

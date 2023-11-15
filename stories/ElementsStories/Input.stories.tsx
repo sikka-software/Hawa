@@ -63,6 +63,12 @@ export const PreviewMode: Story = {
           placeholder={"contact@sikka.io"}
         />
         <Input label={"Username"} preview={preview} placeholder={"fulan"} />
+        <Input
+          label={"Hide Line"}
+          preview={preview}
+          placeholder={"fulan"}
+          hideSeparator
+        />
       </div>
     );
   },
