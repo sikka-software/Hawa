@@ -3,17 +3,6 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { cn } from "../util";
 import { RadiusType } from "../types/commonTypes";
 
-let rootSize = {
-  default: "hawa-h-[25px] hawa-w-[42px]",
-  sm: "hawa-h-[20px] hawa-w-[37px]",
-  lg: "hawa-h-[30px] hawa-w-[47px]",
-};
-let thumbSize = {
-  default: "hawa-h-[21px] hawa-w-[21px]",
-  sm: "hawa-h-[16px] hawa-w-[16px]",
-  lg: "hawa-h-[26px] hawa-w-[26px]",
-};
-
 interface SwitchProps
   extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
   size?: "default" | "sm" | "lg";
@@ -42,6 +31,16 @@ export const Switch = React.forwardRef<
       }
     });
 
+    const rootSize = {
+      default: "hawa-h-[25px] hawa-w-[42px]",
+      sm: "hawa-h-[20px] hawa-w-[37px]",
+      lg: "hawa-h-[30px] hawa-w-[47px]",
+    };
+    const thumbSize = {
+      default: "hawa-h-[21px] hawa-w-[21px]",
+      sm: "hawa-h-[16px] hawa-w-[16px]",
+      lg: "hawa-h-[26px] hawa-w-[26px]",
+    };
     const rootRoundednessStyles = {
       none: "hawa-rounded-none",
       full: "hawa-rounded-full",
@@ -52,6 +51,7 @@ export const Switch = React.forwardRef<
       full: "hawa-rounded-full",
       inherit: "hawa-rounded-inner",
     };
+    
     return (
       <div
         className="hawa-flex hawa-flex-row hawa-items-center"
@@ -59,12 +59,11 @@ export const Switch = React.forwardRef<
       >
         <SwitchPrimitives.Root
           className={cn(
-            "hawa-bg-primary/20",
-            // "data-[state=unchecked]:hawa-bg-primary/20",
+            "data-[state=unchecked]:hawa-bg-primary/20",
             "data-[state=checked]:hawa-bg-primary",
             "hawa-relative hawa-cursor-pointer hawa-rounded hawa-outline-none",
             rootRoundednessStyles[roundedness],
-            className,
+            // className,
             rootSize[size]
           )}
           {...props}
@@ -73,7 +72,9 @@ export const Switch = React.forwardRef<
           <SwitchPrimitives.Thumb
             className={cn(
               thumbSize[size],
-              "hawa-block hawa-rounded hawa-bg-white hawa-transition-transform  hawa-duration-100 hawa-will-change-transform data-[state=checked]:hawa-bg-primary-foreground  dark:hawa-bg-background",
+              "hawa-block hawa-rounded  hawa-transition-transform  hawa-duration-100 hawa-will-change-transform",
+              "data-[state=checked]:hawa-bg-primary-foreground",
+              "hawa-bg-white dark:hawa-bg-background",
               thumbRoundednessStyles[roundedness],
               parentDirection === "rtl"
                 ? "hawa--translate-x-0.5 data-[state=checked]:hawa--translate-x-[19px]"
