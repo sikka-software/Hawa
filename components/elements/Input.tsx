@@ -26,7 +26,9 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   //   maxLength?: any;
   iconInside?: React.ReactNode;
   endIcon?: React.ReactNode;
+  endIconProps?: { className?: string };
   startIcon?: React.ReactNode;
+  placeholder?: React.ReactNode;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -36,6 +38,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       preview = false,
       forceHideHelperText = false,
       labelProps,
+      placeholder,
       ...props
     },
     ref
@@ -90,8 +93,12 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   </div>
                 )}
                 {props.endIcon && (
-                  // TODO: make end-3 editable from outside
-                  <div className="hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2">
+                  <div
+                    className={cn(
+                      "hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2",
+                      props.endIconProps?.className
+                    )}
+                  >
                     {props.endIcon}
                   </div>
                 )}
@@ -103,7 +110,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   onChange={props.onChange}
                   autoComplete={props.autoComplete}
                   defaultValue={props.defaultValue}
-                  placeholder={props.placeholder}
+                  placeholder={placeholder}
                   disabled={preview}
                   style={{ height: 40 }}
                   className={cn(
