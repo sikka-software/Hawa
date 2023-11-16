@@ -168,6 +168,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 severity="error"
               />
             )}
+            {/* TODO: is formprovider needed? you got 2 useForm  */}
             <FormProvider {...methods}>
               <form
                 noValidate
