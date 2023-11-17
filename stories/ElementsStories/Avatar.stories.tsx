@@ -39,6 +39,13 @@ export const Default: Story = {
             />
           </div>
           <div>
+            <div className="hawa-font-bold hawa-text-lg">Without Image</div>
+            <Avatar
+              // src="https://source.unsplash.com/featured/?nature,1"
+              alt="User Avatar"
+            />
+          </div>
+          <div>
             <div className="hawa-font-bold hawa-text-lg">With Badge</div>
             <BadgedComponent>
               <Avatar
@@ -67,79 +74,44 @@ export const Sizes: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
+    let sizesArray: Array<
+      | "2xs"
+      | "xs"
+      | "sm"
+      | "default"
+      | "lg"
+      | "xl"
+      | "2xl"
+      | "3xl"
+      | "4xl"
+      | "5xl"
+      | "6xl"
+    > = [
+      "2xs",
+      "xs",
+      "sm",
+      "default",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl",
+      "4xl",
+      "5xl",
+      "6xl",
+    ];
     return (
-      <div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">x-Small Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="xs"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">Small Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="sm"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">Default Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">Large Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="lg"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">x-Large Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="xl"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">2x-Large Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="2xl"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">3x-Large Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="3xl"
-          />
-        </div>
-        <div>
-          <div className="hawa-font-bold hawa-text-lg">4x-Large Size</div>
-          <Avatar
-            isUploadable={true}
-            src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            size="4xl"
-          />
-        </div>
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        {sizesArray.map((avatarSize) => (
+          <div>
+            <div className="hawa-font-bold hawa-text-lg">{avatarSize}</div>
+            <Avatar
+              // isUploadable={true}
+              src="https://source.unsplash.com/featured/?nature,1"
+              alt="User Avatar"
+              size={avatarSize}
+            />
+          </div>
+        ))}
       </div>
     );
   },
