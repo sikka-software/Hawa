@@ -32,8 +32,8 @@ interface PopoverProps {
   disableTrigger?: any;
   width?: "trigger" | "default";
   open?: boolean;
-  contentProps?: any;
-  triggerProps?: any;
+  contentProps?: PopoverPrimitive.PopoverContentProps;
+  triggerProps?: PopoverPrimitive.PopoverTriggerProps;
 }
 
 type HawaPopoverTypes = PopoverProps &

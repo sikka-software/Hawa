@@ -1,7 +1,7 @@
-import React, { FC, forwardRef } from "react";
-import { Label, LabelProps } from "./Label";
+import React, { forwardRef } from "react";
 import { cn } from "../util";
 import { Skeleton } from "./Skeleton";
+import { Label, LabelProps } from "./Label";
 
 type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
@@ -136,6 +136,19 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                 >
                   {props.helperText}
                 </p>
+              )}
+
+              {!props.disabled && forceHideHelperText && (
+                <div
+                  className={cn(
+                    "hawa-absolute hawa-top-[47px] hawa-text-sm hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
+                    props.helperText
+                      ? "hawa-border hawa-p-1"
+                      : " hawa-border-none hawa-p-0"
+                  )}
+                >
+                  {props.helperText}
+                </div>
               )}
             </>
           </>
