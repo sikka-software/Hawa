@@ -29,6 +29,8 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   endIconProps?: { className?: string };
   startIcon?: React.ReactNode;
   placeholder?: React.ReactNode;
+  /** Show the count of characters left in the input field. Works along with maxLength prop.   */
+  showCount?: boolean;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -39,6 +41,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       forceHideHelperText = false,
       labelProps,
       placeholder,
+      showCount,
       ...props
     },
     ref
@@ -103,6 +106,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   </div>
                 )}
                 <input
+                  {...props}
                   required
                   dir={props.dir}
                   type={props.type}
@@ -148,6 +152,16 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   )}
                 >
                   {props.helperText}
+                </div>
+              )}
+              {showCount && (
+                <div
+                  className={cn(
+                    "hawa-absolute hawa-top-[60px] hawa-text-sm hawa-transition-all hawa-text-start hawa-end-0   hawa-translate-y-1/2"
+                  )}
+                >
+                  {props.value ? String(props.value).length : 0}/
+                  {props.maxLength}
                 </div>
               )}
             </>
