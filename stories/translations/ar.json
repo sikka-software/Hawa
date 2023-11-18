@@ -28,6 +28,7 @@
   "descriptionRequired": "الوصف مطلوب",
   "requestType": "نوع التذكرة",
   "requestTypeRequired": "نوع التذكرة مطلوب",
+  "requestTypePlaceholder": "إختر نوع التذكرة",
   "sub-item": "عنصر فرعي",
   "users": "المستخدمين",
   "roles": "الصلاحيات",

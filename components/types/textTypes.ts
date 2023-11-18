@@ -7,7 +7,7 @@ export type ThirdPartyAuthTextsTypes = {
   continueWithEmail?: string;
   continueWithPhone?: string;
 };
-type BaseInputType = {
+export type BaseInputType = {
   label?: string;
   placeholder?: string;
 };

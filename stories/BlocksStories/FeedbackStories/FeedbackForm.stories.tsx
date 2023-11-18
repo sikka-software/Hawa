@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FeedbackForm } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { TranslationTable } from "../../../sharedUI/docsUI";
 
@@ -68,11 +68,16 @@ const Template = (args: any, globals: any) => {
     <div dir={direction} className="hawa-max-w-sm">
       <FeedbackForm
         texts={{
-          description: t("description"),
-          descriptionTooShort: t("descriptionTooShort"),
-          descriptionRequired: t("descriptionRequired"),
-          requestType: t("requestType"),
-          requestTypeRequired: t("requestTypeRequired"),
+          description: {
+            label: t("description"),
+            tooShort: t("descriptionTooShort"),
+            required: t("descriptionRequired"),
+          },
+          requestType: {
+            label: t("requestType"),
+            required: t("requestTypeRequired"),
+            placeholder: t("requestTypePlaceholder"),
+          },
           submit: t("submit"),
         }}
         {...args}
@@ -86,6 +91,7 @@ export const Default: Story = {
     onSubmit: { action: "onSubmit" },
   },
   args: {
+    cardless: false,
     requestTypes: [
       {
         label: "Custom Type",

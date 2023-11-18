@@ -10,16 +10,25 @@ import {
   Card,
   CardContent,
 } from "../../elements";
+import { cn } from "../../util";
+import { BaseInputType } from "@/components/types/textTypes";
+
+type FeedbackFormRequestTypeInputProps = BaseInputType & {
+  required?: string;
+};
+type FeedbackFormDescriptionInputProps = BaseInputType & {
+  required?: string;
+  tooShort?: string;
+};
 
 type FeedbackFormType = {
   onSubmit: (e: any) => void;
   requestTypes?: { label: string; value: any }[];
+  selectProps?: any;
+  cardless?: boolean;
   texts: {
-    requestType?: string;
-    requestTypeRequired?: string;
-    description?: string;
-    descriptionRequired?: string;
-    descriptionTooShort?: string;
+    requestType: FeedbackFormRequestTypeInputProps;
+    description: FeedbackFormDescriptionInputProps;
     submit?: string;
   };
 };
@@ -27,11 +36,11 @@ type FeedbackFormType = {
 export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
   const formSchema = z.object({
     requestType: z
-      .string({ required_error: props.texts.requestTypeRequired })
-      .min(1, { message: props.texts.requestTypeRequired }),
+      .string({ required_error: props.texts.requestType.required })
+      .min(1, { message: props.texts.requestType.required }),
     description: z
-      .string({ required_error: props.texts.descriptionRequired })
-      .min(10, { message: props.texts.descriptionTooShort }),
+      .string({ required_error: props.texts.description.required })
+      .min(10, { message: props.texts.description.tooShort }),
   });
 
   const { handleSubmit, control, formState } = useForm({
@@ -39,7 +48,13 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
   });
 
   return (
-    <Card>
+    <Card
+      className={cn(
+        props.cardless
+          ? "hawa-bg-transparent hawa-border-none hawa-shadow-none"
+          : ""
+      )}
+    >
       <CardContent headless>
         <form
           noValidate
@@ -52,20 +67,22 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
           })}
           className="hawa-flex hawa-flex-col hawa-gap-4"
         >
-          <Label>{props.texts?.requestType}</Label>
+          <Label>{props.texts?.requestType.label}</Label>
           <Controller
             name="requestType"
             control={control}
             render={({ field }) => (
               <Select
                 {...field}
+                {...props.selectProps}
                 onChange={(option: any) => field.onChange(option.value)}
                 options={props.requestTypes}
                 helperText={formState.errors.requestType?.message?.toString()}
+                placeholder={props.texts?.requestType.placeholder}
               />
             )}
           />
-          <Label>{props.texts.description}</Label>
+          <Label>{props.texts.description.label}</Label>
           <Controller
             name="description"
             control={control}
