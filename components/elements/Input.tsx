@@ -31,6 +31,7 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   placeholder?: React.ReactNode;
   /** Show the count of characters left in the input field. Works along with maxLength prop.   */
   showCount?: boolean;
+  countPosition?: "top" | "bottom" | "center";
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -42,6 +43,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       labelProps,
       placeholder,
       showCount,
+      countPosition = "bottom",
       ...props
     },
     ref
@@ -120,8 +122,11 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   className={cn(
                     defaultInputStyle,
                     " dark:hawa-text-white focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
-                    props.endIcon && "hawa-pe-9",
-                    props.startIcon && "hawa-ps-9",
+                    {
+                      "hawa-pe-9": props.endIcon,
+                      "hawa-ps-9": props.startIcon,
+                      "hawa-pe-[60px]": countPosition === "center",
+                    },
                     preview &&
                       "hawa-border-transparent hawa-bg-transparent hawa-px-0",
                     props.inputProps?.className
@@ -148,7 +153,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     "hawa-absolute hawa-top-[47px] hawa-text-sm hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
                     props.helperText
                       ? "hawa-border hawa-p-1"
-                      : " hawa-border-none hawa-p-0"
+                      : "hawa-border-none hawa-p-0"
                   )}
                 >
                   {props.helperText}
@@ -157,7 +162,12 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
               {showCount && (
                 <div
                   className={cn(
-                    "hawa-absolute hawa-top-[60px] hawa-text-sm hawa-transition-all hawa-text-start hawa-end-0   hawa-translate-y-1/2"
+                    "hawa-absolute hawa-text-xs hawa-transition-all hawa-text-start hawa-translate-y-1/2",
+                    {
+                      "hawa-end-0 hawa-top-[60px]": countPosition === "bottom",
+                      "hawa-end-0 hawa-bottom-[60px]": countPosition === "top",
+                      "hawa-end-2": countPosition === "center",
+                    }
                   )}
                 >
                   {props.value ? String(props.value).length : 0}/

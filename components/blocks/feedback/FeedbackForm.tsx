@@ -15,6 +15,7 @@ import { BaseInputType } from "@/components/types/textTypes";
 
 type FeedbackFormRequestTypeInputProps = BaseInputType & {
   required?: string;
+  noOptions?: string;
 };
 type FeedbackFormDescriptionInputProps = BaseInputType & {
   required?: string;
@@ -36,11 +37,11 @@ type FeedbackFormType = {
 export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
   const formSchema = z.object({
     requestType: z
-      .string({ required_error: props.texts.requestType.required })
-      .min(1, { message: props.texts.requestType.required }),
+      .string({ required_error: props.texts?.requestType?.required })
+      .min(1, { message: props.texts?.requestType?.required }),
     description: z
-      .string({ required_error: props.texts.description.required })
-      .min(10, { message: props.texts.description.tooShort }),
+      .string({ required_error: props.texts?.description?.required })
+      .min(10, { message: props.texts?.description?.tooShort }),
   });
 
   const { handleSubmit, control, formState } = useForm({
@@ -67,7 +68,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
           })}
           className="hawa-flex hawa-flex-col hawa-gap-4"
         >
-          <Label>{props.texts?.requestType.label}</Label>
+          <Label>{props.texts?.requestType?.label}</Label>
           <Controller
             name="requestType"
             control={control}
@@ -78,11 +79,14 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                 onChange={(option: any) => field.onChange(option.value)}
                 options={props.requestTypes}
                 helperText={formState.errors.requestType?.message?.toString()}
-                placeholder={props.texts?.requestType.placeholder}
+                placeholder={props.texts?.requestType?.placeholder}
+                texts={{
+                  noOptions: props.texts?.requestType?.noOptions,
+                }}
               />
             )}
           />
-          <Label>{props.texts.description.label}</Label>
+          <Label>{props.texts?.description?.label}</Label>
           <Controller
             name="description"
             control={control}
@@ -93,6 +97,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                   formState.errors.description &&
                   formState.errors.description?.message?.toString()
                 }
+                placeholder={props.texts?.description?.placeholder}
               />
             )}
           />

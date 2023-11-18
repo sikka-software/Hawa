@@ -77,6 +77,7 @@ const Template = (args: any, globals: any) => {
             label: t("requestType"),
             required: t("requestTypeRequired"),
             placeholder: t("requestTypePlaceholder"),
+            noOptions: t("noOptions"),
           },
           submit: t("submit"),
         }}

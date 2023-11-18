@@ -26,6 +26,8 @@
   "requestType": "Request Type:",
   "requestTypeRequired": "Request type is required",
   "requestTypePlaceholder": "Select request type",
+  "noOptions": "No Options",
+
   "actions": "Actions",
   "search-items": "Search Items ...",
   "are-you-sure": "Are you sure absolutely sure?",

@@ -26,12 +26,45 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
-  render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-max-w-md">
-      <Input showCount maxLength={100} label="Input Field" placeholder={"Bismillah"} />
-      <Input label="Disabled" disabled placeholder={"Bismillah"} />
-    </div>
-  ),
+  render: () => {
+    const [text, setText] = useState("");
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
+          <Input label="Input Field" placeholder={"Bismillah"} />
+          <Input label="Disabled" disabled placeholder={"Bismillah"} />
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            maxLength={100}
+            label="With Count (bottom)"
+            placeholder={"Bismillah"}
+          />
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            countPosition="center"
+            maxLength={100}
+            label="With Count (center)"
+            placeholder={"Bismillah"}
+          />
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            countPosition="top"
+            maxLength={100}
+            label="With Count (top)"
+            placeholder={"Bismillah"}
+          />
+        </div>
+      </div>
+    );
+  },
 };
 export const PreviewMode: Story = {
   render: (args: any, globals: any) => {

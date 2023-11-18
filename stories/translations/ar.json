@@ -29,6 +29,7 @@
   "requestType": "نوع التذكرة",
   "requestTypeRequired": "نوع التذكرة مطلوب",
   "requestTypePlaceholder": "إختر نوع التذكرة",
+  "noOptions": "لا توجد خيارات",
   "sub-item": "عنصر فرعي",
   "users": "المستخدمين",
   "roles": "الصلاحيات",
