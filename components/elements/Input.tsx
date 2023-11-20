@@ -45,6 +45,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       labelProps,
       placeholder,
       showCount,
+      inputProps,
       countPosition = "bottom",
       ...props
     },
@@ -110,7 +111,6 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   </div>
                 )}
                 <input
-                  {...props}
                   required
                   dir={props.dir}
                   type={props.type}
@@ -121,6 +121,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   placeholder={placeholder}
                   disabled={props.disabled || preview}
                   style={{ height: 40 }}
+                  {...inputProps}
                   className={cn(
                     defaultInputStyle,
                     " dark:hawa-text-white focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
@@ -131,7 +132,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     },
                     preview &&
                       "hawa-border-transparent hawa-bg-transparent hawa-px-0",
-                    props.inputProps?.className
+                    inputProps?.className
                   )}
                 />
               </div>
