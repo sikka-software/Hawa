@@ -26,8 +26,8 @@ const buttonVariants = cva(
       size: {
         default: "hawa-h-10 hawa-px-4 hawa-py-2",
         heightless: "hawa-px-4 hawa-py-4",
-        xs: "hawa-h-fit hawa-py-1 hawa-text-[10px] hawa-px-2 ",
-        sm: "hawa-h-9 hawa-text-[11px] hawa-rounded-md hawa-px-3",
+        xs: "hawa-h-fit hawa-min-h-[25px] hawa-py-1 hawa-text-[10px] hawa-px-2 ",
+        sm: "hawa-h-9  hawa-text-[11px] hawa-rounded-md hawa-px-3",
         lg: "hawa-h-11 hawa-rounded-md hawa-px-8",
         xl: "hawa-h-14 hawa-rounded-md hawa-px-10",
         icon: "hawa-h-10 hawa-w-10",
@@ -87,7 +87,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             }
             themeMode={variant === "outline" ? "light" : "dark"}
             color={loadingColor}
-            size={size === "sm" ? "xs" : "button"}
+            size={size === "sm" || size === "xs" ? "xs" : "button"}
           />
         ) : (
           children

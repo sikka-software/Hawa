@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import { Button } from "../Button";
 import { Card } from "../Card";
 import { DirectionType } from "@/components/types/commonTypes";
-import { Chip } from "..";
+import { Chip } from "../Chip";
+import { Skeleton } from "../Skeleton";
 import { cn } from "../../util";
 
 type PricingCardTypes = {
@@ -10,6 +11,10 @@ type PricingCardTypes = {
   features: { included: boolean; soon?: boolean; text: string }[];
   price: number;
   discount?: string;
+  onPlanClicked?: () => void;
+  currentPlan?: boolean;
+  size: "small" | "medium" | "large";
+  isLoading?: boolean;
   texts: {
     title: string;
     subtitle: string;
@@ -17,9 +22,6 @@ type PricingCardTypes = {
     cycleText: string;
     currencyText: string;
   };
-  onPlanClicked?: () => void;
-  currentPlan?: boolean;
-  size: "small" | "medium" | "large";
 };
 
 export const PricingCard: FC<PricingCardTypes> = ({
@@ -54,17 +56,24 @@ export const PricingCard: FC<PricingCardTypes> = ({
         {props.texts.title}
       </h5>
       <div className=" hawa-text-primary hawa-flex  hawa-items-baseline">
-        <>
-          <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
-            {props.price}
-          </span>
-          <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
-            {props.texts.currencyText}
-          </span>
-        </>
-        <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-primary/70">
-          / {props.texts.cycleText}
-        </span>
+        {props.isLoading ? (
+          <Skeleton className="hawa-w-full hawa-max-w-[200px] hawa-h-[48px] hawa-p-0 " />
+        ) : (
+          <>
+            <>
+              <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
+                {props.price}
+              </span>
+
+              <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
+                {props.texts.currencyText}
+              </span>
+            </>
+            <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-primary/70">
+              / {props.texts.cycleText}
+            </span>
+          </>
+        )}
       </div>
       <h5 className="hawa-text-sm  hawa-font-normal hawa-text-primary/70">
         {props.texts.subtitle}
