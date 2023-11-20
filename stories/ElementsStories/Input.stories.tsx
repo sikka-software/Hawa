@@ -1,10 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Input, Loading } from "../../components/elements";
+import {
+  Button,
+  DropdownMenu,
+  Input,
+  Loading,
+} from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
 import { EyeIcon } from "../../components/icons/InputIcons";
 import { Lock, Search } from "lucide-react";
+import { SA, USA } from "@sikka/alam";
 
 const meta = {
   title: "Elements/Inputs/Input",
@@ -33,34 +39,6 @@ export const Default: Story = {
         <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
           <Input label="Input Field" placeholder={"Bismillah"} />
           <Input label="Disabled" disabled placeholder={"Bismillah"} />
-        </div>
-        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
-          <Input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            showCount
-            maxLength={100}
-            label="With Count (bottom)"
-            placeholder={"Bismillah"}
-          />
-          <Input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            showCount
-            countPosition="center"
-            maxLength={100}
-            label="With Count (center)"
-            placeholder={"Bismillah"}
-          />
-          <Input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            showCount
-            countPosition="top"
-            maxLength={100}
-            label="With Count (top)"
-            placeholder={"Bismillah"}
-          />
         </div>
       </div>
     );
@@ -131,6 +109,26 @@ export const LoadingMode: Story = {
     );
   },
 };
+export const HelperText: Story = {
+  render: () => {
+    const [loading, setLoading] = useState(true);
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+        <Input
+          label={"Default Helper Text"}
+          placeholder={"Al-Fulani"}
+          helperText={"This is the helper text for validation"}
+        />
+        <Input
+          label={"Popover Helper Text"}
+          placeholder={"fulan"}
+          forceHideHelperText
+          helperText={"This is the popover helper text for validation"}
+        />
+      </div>
+    );
+  },
+};
 export const WithIcons: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
@@ -171,12 +169,50 @@ export const WithIcons: Story = {
     );
   },
 };
+export const WithCount: Story = {
+  render: () => {
+    const [text, setText] = useState("");
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            maxLength={100}
+            label="With Count (bottom)"
+            placeholder={"Bismillah"}
+          />
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            countPosition="center"
+            maxLength={100}
+            label="With Count (center)"
+            placeholder={"Bismillah"}
+          />
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            showCount
+            countPosition="top"
+            maxLength={100}
+            label="With Count (top)"
+            placeholder={"Bismillah"}
+          />
+        </div>
+      </div>
+    );
+  },
+};
 export const Examples: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-
+    const [showPopup, setShowPopup] = useState(false);
+    const [inputLang, setInputLang] = useState("en");
     return (
       <div
         className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
@@ -198,8 +234,26 @@ export const Examples: Story = {
         />
 
         <Input type={"password"} label={t("password")} />
-
         <Input type={"text"} label={t("first-name")} />
+        <Input
+          endIcon={
+            <DropdownMenu
+              size="sm"
+              onItemSelect={(e: any) => setInputLang(e)}
+              items={[
+                { label: "ar", value: "ar" },
+                { label: "en", value: "en" },
+              ]}
+              trigger={
+                <div onClick={() => setShowPopup(!showPopup)}>
+                  {inputLang === "ar" ? <SA /> : <USA />}
+                </div>
+              }
+            />
+          }
+          type={"text"}
+          label={t("first-name")}
+        />
       </div>
     );
   },

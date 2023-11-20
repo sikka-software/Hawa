@@ -32,6 +32,8 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   /** Show the count of characters left in the input field. Works along with maxLength prop.   */
   showCount?: boolean;
   countPosition?: "top" | "bottom" | "center";
+  popup?: boolean;
+  popupContent?: React.ReactNode;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -134,6 +136,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                 />
               </div>
 
+              {/* Regular helper text */}
               {!forceHideHelperText && (
                 <p
                   className={cn(
@@ -146,11 +149,11 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   {props.helperText}
                 </p>
               )}
-
+              {/* Popover helper text */}
               {!props.disabled && forceHideHelperText && (
                 <div
                   className={cn(
-                    "hawa-absolute hawa-top-[47px] hawa-text-sm hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
+                    "hawa-absolute hawa-top-[47px] hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
                     props.helperText
                       ? "hawa-border hawa-p-1"
                       : "hawa-border-none hawa-p-0"
@@ -159,6 +162,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   {props.helperText}
                 </div>
               )}
+              {/* Character Counter */}
               {showCount && (
                 <div
                   className={cn(
@@ -174,6 +178,20 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   {props.maxLength}
                 </div>
               )}
+
+              {/* Popover helper text */}
+              {/* {props.popup && (
+                <div
+                  className={cn(
+                    "hawa-absolute hawa-top-[47px] hawa-min-h-fit hawa-w-full hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
+                    props.helperText
+                      ? "hawa-border hawa-p-1"
+                      : "hawa-border-none hawa-p-0"
+                  )}
+                >
+                  {props.popupContent}
+                </div>
+              )} */}
             </>
           </>
         )}

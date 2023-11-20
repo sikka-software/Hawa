@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.18.19",
+  "version": "0.18.20",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -96,6 +96,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
+    "@sikka/alam": "^0.0.2",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
