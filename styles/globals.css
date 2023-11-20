@@ -294,7 +294,7 @@ body {
   }
   .circle-car {
     fill: none;
-    stroke: hsl(var(--primary));
+    /* stroke: hsl(var(--primary)); */
     stroke-dasharray: 25, 75;
     stroke-dashoffset: 0;
     stroke-linecap: round;
@@ -302,7 +302,7 @@ body {
   }
   .circle-track {
     fill: none;
-    stroke: hsl(var(--primary));
+    /* stroke: hsl(var(--primary)); */
     opacity: 0.1;
     transition: stroke 0.5s ease;
   }

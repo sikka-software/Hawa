@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Badge, BadgedComponent, Button } from "../../components/elements";
+import {
+  Badge,
+  BadgedComponent,
+  Button,
+  Logos,
+  Tooltip,
+} from "../../components/elements";
 import { ArgsTable, Title } from "@storybook/blocks";
 import { useRef } from "react";
 
@@ -71,4 +77,73 @@ const Template = () => {
 
 export const Variations: Story = {
   render: Template.bind({}),
+};
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <h1>Sizes</h1>
+        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+          <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
+            <Button size={"smallIcon"}>
+              <Logos.sikka className="hawa-icon" />
+            </Button>
+          </Tooltip>
+          <Tooltip content={"Icon"} triggerProps={{ asChild: true }}>
+            <Button size={"icon"}>
+              <Logos.sikka className="hawa-icon" />
+            </Button>
+          </Tooltip>
+          <Button size={"xs"}>Extra Small</Button>
+          <Button size={"sm"}>Small</Button>
+          <Button size={"default"} variant={"default"}>
+            Default
+          </Button>
+          <Button size={"lg"}>Large</Button>
+          <Button size={"heightless"}>Auto Height</Button>
+          <Button size={"xl"}>Extra Large</Button>
+        </div>
+        <h1>Loading</h1>
+        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+          <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
+            <Button
+              variant={"outline"}
+              isLoading={true}
+              size={"smallIcon"}
+            >
+              <Logos.sikka className="hawa-icon" />
+            </Button>
+          </Tooltip>
+          <Tooltip content={"Icon"} triggerProps={{ asChild: true }}>
+            <Button
+              //  variant={"outline"}
+              isLoading={true}
+              size={"icon"}
+            >
+              <Logos.sikka className="hawa-icon" />
+            </Button>
+          </Tooltip>
+          <Button isLoading={true} size={"xs"}>
+            Extra Small
+          </Button>
+          <Button isLoading={true} size={"sm"}>
+            Small
+          </Button>
+          <Button isLoading={true} size={"default"} variant={"default"}>
+            Default
+          </Button>
+          <Button isLoading={true} size={"lg"}>
+            Large
+          </Button>
+          <Button isLoading={true} size={"heightless"}>
+            Auto Height
+          </Button>
+          <Button isLoading={true} size={"xl"}>
+            Extra Large
+          </Button>
+        </div>
+      </div>
+    );
+  },
 };

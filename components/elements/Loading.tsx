@@ -18,11 +18,13 @@ type LoadingTypes = {
   /** Specifies the color of the loading component. By default it will inherit the value of <span className="inline-code">--primary</span> global CSS variable*/
   color?: string;
   className?: string;
+  themeMode?: "dark" | "light";
 };
 
 export const Loading: FC<LoadingTypes> = ({
   design = "spinner",
   size = "sm",
+  themeMode = "light",
   color,
   ...props
 }) => {
@@ -141,7 +143,10 @@ export const Loading: FC<LoadingTypes> = ({
           width="40"
         >
           <circle
-            className="circle-track"
+            className={cn("circle-track", {
+              "hawa-stroke-primary-foreground": themeMode === "dark",
+              "hawa-stroke-primary": themeMode === "light",
+            })}
             cx="20"
             cy="20"
             r="17.5"
@@ -150,7 +155,10 @@ export const Loading: FC<LoadingTypes> = ({
             fill="none"
           />
           <circle
-            className="circle-car"
+            className={cn("circle-car", {
+              "hawa-stroke-primary-foreground": themeMode === "dark",
+              "hawa-stroke-primary": themeMode === "light",
+            })}
             cx="20"
             cy="20"
             r="17.5"

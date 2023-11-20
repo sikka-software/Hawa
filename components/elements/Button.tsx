@@ -82,8 +82,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading ? (
           <Loading
-            design="dots-pulse"
-            color={loadingColor} // Apply the computed color here
+            design={
+              size === "icon" || size === "smallIcon" ? "spinner" : "dots-pulse"
+            }
+            themeMode={variant === "outline" ? "light" : "dark"}
+            color={loadingColor}
             size={size === "sm" ? "xs" : "button"}
           />
         ) : (
