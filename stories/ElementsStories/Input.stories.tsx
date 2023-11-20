@@ -4,6 +4,14 @@ import {
   DropdownMenu,
   Input,
   Loading,
+  DropdownMenuRoot,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  DropdownMenuRadio,
 } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
@@ -237,12 +245,13 @@ export const Examples: Story = {
         <Input type={"text"} label={t("first-name")} />
         <Input
           endIcon={
-            <DropdownMenu
-              size="sm"
-              onItemSelect={(e: any) => setInputLang(e)}
-              items={[
-                { label: "ar", value: "ar" },
-                { label: "en", value: "en" },
+            <DropdownMenuRadio
+              label="Input Language"
+              value={inputLang}
+              onValueChange={setInputLang}
+              options={[
+                { label: "Arabic", value: "ar" },
+                { label: "English", value: "en" },
               ]}
               trigger={
                 <div onClick={() => setShowPopup(!showPopup)}>

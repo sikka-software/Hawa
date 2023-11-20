@@ -3,15 +3,14 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
 
-export const DropdownMenuRoot = DropdownMenuPrimitive.Root;
-export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
-
+const DropdownMenuRoot = DropdownMenuPrimitive.Root;
+const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
-export const DropdownMenuSubTrigger = React.forwardRef<
+const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
     inset?: boolean;
@@ -65,7 +64,7 @@ const DropdownMenuSubContent = React.forwardRef<
 DropdownMenuSubContent.displayName =
   DropdownMenuPrimitive.SubContent.displayName;
 
-export const DropdownMenuContent = React.forwardRef<
+const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
@@ -83,7 +82,7 @@ export const DropdownMenuContent = React.forwardRef<
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
-export const DropdownMenuItem = React.forwardRef<
+const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean;
@@ -126,7 +125,7 @@ export const DropdownMenuItem = React.forwardRef<
 });
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
-export const DropdownMenuCheckboxItem = React.forwardRef<
+const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
@@ -197,7 +196,7 @@ const DropdownMenuRadioItem = React.forwardRef<
 ));
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
-export const DropdownMenuLabel = React.forwardRef<
+const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
     inset?: boolean;
@@ -215,7 +214,7 @@ export const DropdownMenuLabel = React.forwardRef<
 ));
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
-export const DropdownMenuSeparator = React.forwardRef<
+const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
@@ -301,7 +300,7 @@ interface DropdownMenuProps {
   header?: React.ReactNode;
   open?: any;
 }
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
   items,
   direction,
@@ -470,4 +469,78 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
       </DropdownMenuPortal>
     </DropdownMenuRoot>
   );
+};
+interface DropdownMenuRadioProps {
+  trigger?: React.ReactNode;
+  // items?: MenuItemType[];
+  // direction?: DirectionType;
+  // className?: ExtendedDropdownMenuContentProps["className"];
+  // triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
+  // sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"];
+  side?: ExtendedDropdownMenuContentProps["side"];
+  align?: ExtendedDropdownMenuContentProps["align"];
+  // alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"];
+  // width?: "default" | "sm" | "lg" | "parent";
+  // size?: "default" | "sm";
+  // onItemSelect?: any;
+  // onOpenChange?: any;
+  // header?: React.ReactNode;
+  // open?: any;
+  options: { label?: any; value: string }[];
+  value: string;
+  onValueChange: any;
+  label?: string;
+}
+const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
+  return (
+    <DropdownMenuRoot>
+      <DropdownMenuTrigger asChild>
+        {/* <div onClick={() => setShowPopup(!showPopup)}>
+          {inputLang === "ar" ? <SA /> : <USA />}
+        </div> */}
+
+        {props.trigger}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align={props.align} side={props.side}>
+        {props.label && (
+          <>
+            <DropdownMenuLabel>{props.label}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+          </>
+        )}
+        <DropdownMenuRadioGroup
+          value={props.value}
+          onValueChange={props.onValueChange}
+        >
+          {props.options.map((opt) => (
+            <DropdownMenuRadioItem value={opt.value}>
+              {opt.label}
+            </DropdownMenuRadioItem>
+          ))}
+          {/* 
+          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem> */}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenuRoot>
+  );
+};
+
+export {
+  DropdownMenu,
+  DropdownMenuRoot,
+  DropdownMenuRadio,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
 };
