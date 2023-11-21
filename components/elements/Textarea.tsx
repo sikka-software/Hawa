@@ -9,10 +9,14 @@ export interface TextareaProps
   label?: any;
   labelProps?: LabelProps;
   forceHideHelperText?: boolean;
+  textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, labelProps, forceHideHelperText, ...props }, ref) => {
+  (
+    { className, labelProps, forceHideHelperText, textareaProps, ...props },
+    ref
+  ) => {
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-full">
         {props.label && <Label {...labelProps}>{props.label}</Label>}
@@ -22,7 +26,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             className
           )}
           ref={ref}
-          {...props}
+          {...textareaProps}
         />
         {/* Regular helper text */}
         {!forceHideHelperText && (

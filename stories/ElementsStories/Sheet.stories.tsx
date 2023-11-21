@@ -50,7 +50,7 @@ export const Default: Story = {
             </div>
             <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
           </SheetTrigger>
-          <SheetContent side={side}>
+          <SheetContent hideCloseButton side={side}>
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>
@@ -77,7 +77,10 @@ export const MaxWidth: Story = {
           <SheetTrigger className="hawa-flex hawa-flex-col hawa-items-center hawa-gap-4">
             <Button onClick={() => setSide("bottom")}>Open Sheet</Button>
           </SheetTrigger>
-          <SheetContent side={side} className="hawa-inset-x-[300px] hawa-rounded hawa-border">
+          <SheetContent
+            side={side}
+            className="hawa-inset-x-[300px] hawa-rounded hawa-border"
+          >
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>

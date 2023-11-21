@@ -28,8 +28,9 @@ const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
     persist?: boolean;
+    hideCloseButton?: boolean;
   }
->(({ className, children, persist, ...props }, ref) => (
+>(({ className, children, persist, hideCloseButton, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content
@@ -46,94 +47,17 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close
-        className={cn(
-          "hawa-absolute hawa-top-4 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
-          props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4"
-        )}
-      >
-        <svg
-          aria-label="Close Icon"
-          aria-hidden="true"
-          className="hawa-h-5 hawa-w-5"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          ></path>
-        </svg>
-        <span className="hawa-sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
-  </DialogPortal>
-));
-
-const DialogCarouselContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
-    persist?: boolean;
-    onPrev?: () => void;
-  }
->(({ className, children, onPrev, persist, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
-      onPointerDownOutside={(e) => {
-        if (persist) {
-          e.preventDefault();
-        }
-      }}
-      ref={ref}
-      className={cn(
-        "hawa-fixed hawa-pt-14 hawa-left-[50%] hawa-transition-all hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-shadow-lg hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <div
-        className={cn(
-          "hawa-w-full hawa-flex hawa-flex-row hawa-absolute hawa-top-0 hawa-p-4",
-          onPrev ? "hawa-justify-between" : "hawa-justify-end"
-        )}
-      >
-        {onPrev && (
-          <div
-            onClick={onPrev}
-            className={cn(
-              "hawa-rounded hawa-end-0 hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground hawa-cursor-pointer",
-              props.dir === "rtl" && "hawa-rotate-180"
-            )}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="hawa-h-6 hawa-w-6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </div>
-        )}
+      {!hideCloseButton && (
         <DialogPrimitive.Close
           className={cn(
-            "hawa-rounded hawa-end-0 hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground ",
+            "hawa-absolute hawa-top-4 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
             props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4"
           )}
         >
           <svg
             aria-label="Close Icon"
             aria-hidden="true"
-            className="hawa-h-6 hawa-w-6"
+            className="hawa-h-5 hawa-w-5"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -145,10 +69,97 @@ const DialogCarouselContent = React.forwardRef<
           </svg>
           <span className="hawa-sr-only">Close</span>
         </DialogPrimitive.Close>
-      </div>
+      )}
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
+
+const DialogCarouselContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
+    hideCloseButton?: boolean;
+    persist?: boolean;
+    onPrev?: () => void;
+  }
+>(
+  (
+    { className, children, onPrev, persist, hideCloseButton, ...props },
+    ref
+  ) => (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        onPointerDownOutside={(e) => {
+          if (persist) {
+            e.preventDefault();
+          }
+        }}
+        ref={ref}
+        className={cn(
+          "hawa-fixed hawa-pt-14 hawa-left-[50%] hawa-transition-all hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-shadow-lg hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <div
+          className={cn(
+            "hawa-w-full hawa-flex hawa-flex-row hawa-absolute hawa-top-0 hawa-p-4",
+            onPrev ? "hawa-justify-between" : "hawa-justify-end"
+          )}
+        >
+          {onPrev && (
+            <div
+              onClick={onPrev}
+              className={cn(
+                "hawa-rounded hawa-end-0 hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground hawa-cursor-pointer",
+                props.dir === "rtl" && "hawa-rotate-180"
+              )}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="hawa-h-6 hawa-w-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </div>
+          )}
+          {!hideCloseButton && (
+            <DialogPrimitive.Close
+              className={cn(
+                "hawa-rounded hawa-end-0 hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground ",
+                props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4"
+              )}
+            >
+              <svg
+                aria-label="Close Icon"
+                aria-hidden="true"
+                className="hawa-h-6 hawa-w-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <span className="hawa-sr-only">Close</span>
+            </DialogPrimitive.Close>
+          )}
+        </div>
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  )
+);
 
 const DialogHeader = ({
   className,

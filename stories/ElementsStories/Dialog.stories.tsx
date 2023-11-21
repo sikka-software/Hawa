@@ -17,34 +17,13 @@ import {
 } from "../../components/elements";
 import { Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PropsTable } from "../../sharedUI/docsUI";
 import { useDialogCarousel, useMultiStepDialog } from "../../components/hooks";
-import { cn } from "../../components/util";
 
 const meta = {
   title: "Elements/Dialog",
   component: DialogContent,
-  argTypes: {
-    "Dialog.persist": {
-      name: "persist",
-      description: "Description for persist prop",
-    },
-    "DialogContent.persist": {
-      name: "persist",
-      description: "Description for persist prop",
-    },
-    persist: {
-      name: "persist",
-      description: "Description for persist prop",
-      type: { name: "boolean", required: false },
-      defaultValue: false,
-      table: {
-        type: { summary: "boolean" },
-        defaultValue: { summary: "false" },
-      },
-    },
-  },
   parameters: {
     docs: {
       toc: { headingSelector: "h1" },
@@ -158,7 +137,7 @@ export const Persistent: Story = {
           <DialogTrigger asChild>
             <Button>Open Persistent Dialog</Button>
           </DialogTrigger>
-          <DialogContent persist>
+          <DialogContent {...args}>
             <DialogHeader>
               <DialogTitle>Clicking outside doesn't close this</DialogTitle>
               <DialogDescription>
@@ -187,6 +166,7 @@ export const Persistent: Story = {
   },
   args: {
     persist: true,
+    hideCloseButton: true,
   },
 };
 export const RTL: Story = {
@@ -270,7 +250,6 @@ export const Multistep: Story = {
     );
   },
 };
-
 export const MultistepCarousel: Story = {
   name: "Multistep - Carousel",
   render: (args: any, globals: any) => {
