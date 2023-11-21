@@ -20,7 +20,6 @@ const SheetOverlay = React.forwardRef<
     ref={ref}
   />
 ));
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
   "hawa-fixed hawa-z-50 hawa-gap-4 hawa-bg-background hawa-p-2 hawa-shadow-lg hawa-transition hawa-ease-in-out data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-duration-300 data-[state=open]:hawa-duration-300",
@@ -76,7 +75,6 @@ const SheetContent = React.forwardRef<
     </SheetPrimitive.Content>
   </SheetPortal>
 ));
-SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 const SheetHeader = ({
   className,
@@ -90,7 +88,6 @@ const SheetHeader = ({
     {...props}
   />
 );
-SheetHeader.displayName = "SheetHeader";
 
 const SheetFooter = ({
   className,
@@ -104,7 +101,6 @@ const SheetFooter = ({
     {...props}
   />
 );
-SheetFooter.displayName = "SheetFooter";
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
@@ -119,7 +115,6 @@ const SheetTitle = React.forwardRef<
     {...props}
   />
 ));
-SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
@@ -131,7 +126,13 @@ const SheetDescription = React.forwardRef<
     {...props}
   />
 ));
+
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
+SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
+SheetContent.displayName = SheetPrimitive.Content.displayName;
+SheetHeader.displayName = "SheetHeader";
+SheetFooter.displayName = "SheetFooter";
+SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
 export {
   Sheet,

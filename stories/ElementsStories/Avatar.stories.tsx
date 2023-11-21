@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Alert, Avatar, BadgedComponent } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
+import { Upload } from "lucide-react";
 
 const meta = {
   title: "Elements/Avatar",
@@ -42,6 +43,13 @@ export const Default: Story = {
             <div className="hawa-font-bold hawa-text-lg">Without Image</div>
             <Avatar
               // src="https://source.unsplash.com/featured/?nature,1"
+              alt="User Avatar"
+            />
+          </div>
+          <div>
+            <div className="hawa-font-bold hawa-text-lg">Custom Icon</div>
+            <Avatar
+              icon={<Upload className="hawa-w-4 hawa-h-4" />}
               alt="User Avatar"
             />
           </div>
