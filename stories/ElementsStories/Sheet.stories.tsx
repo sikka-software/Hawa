@@ -14,7 +14,7 @@ import { useState } from "react";
 
 const meta = {
   title: "Elements/Sheet",
-  component: Sheet,
+  component: SheetContent,
   parameters: {
     layout: "centered",
     docs: {
@@ -27,10 +27,10 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Sheet>;
+} satisfies Meta<typeof SheetContent>;
 
 export default meta;
-type Story = StoryObj<typeof Sheet>;
+type Story = StoryObj<typeof SheetContent>;
 
 export const Default: Story = {
   render: (args: any, globals: any) => {
@@ -50,7 +50,7 @@ export const Default: Story = {
             </div>
             <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
           </SheetTrigger>
-          <SheetContent hideCloseButton side={side}>
+          <SheetContent  {...args} side={side}>
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>
@@ -62,6 +62,10 @@ export const Default: Story = {
         </Sheet>
       </div>
     );
+  },
+  args: {
+    persist: false,
+    hideCloseButton: false,
   },
 };
 export const MaxWidth: Story = {
