@@ -92,7 +92,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
               ></div>
             )}
             <>
-              <div className={cn("hawa-relative")}>
+              <div className={"hawa-relative"}>
                 {props.startIcon && (
                   <div className="hawa-absolute hawa-start-3 hawa-top-1/2 hawa--translate-y-1/2">
                     {props.startIcon}
@@ -167,8 +167,8 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   className={cn(
                     "hawa-absolute hawa-text-xs hawa-transition-all hawa-text-start hawa-translate-y-1/2",
                     {
-                      "hawa-end-0 hawa-top-[60px]": countPosition === "bottom",
-                      "hawa-end-0 hawa-bottom-[60px]": countPosition === "top",
+                      "hawa-end-0 hawa-top-[62px]": countPosition === "bottom",
+                      "hawa-end-0 hawa-bottom-[62px]": countPosition === "top",
                       "hawa-end-2": countPosition === "center",
                     }
                   )}

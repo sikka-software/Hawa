@@ -8,12 +8,13 @@ import {
 } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale } from "../translations/i18n";
+import { useState } from "react";
 
 const meta = {
   title: "Elements/Inputs/Textarea",
   component: Textarea,
   parameters: {
-    layout: "centered",
+    // layout: "centered",
     docs: {
       page: () => (
         <>
@@ -35,12 +36,52 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-w-64 hawa-flex hawa-flex-col hawa-gap-4">
-      <Textarea label="Textarea component" helperText="Helper text here" />
+      <Textarea
+        textareaProps={{ placeholder: "Placeholder text here" }}
+        label="Textarea component"
+        helperText="Helper text here"
+      />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
+  parameters: {
+    layout: "centered",
+  },
+};
+export const WithCount: Story = {
+  render: () => {
+    const [text, setText] = useState("");
+
+    return (
+      <div className="hawa-w-full hawa-flex  hawa-flex-row hawa-gap-4">
+        <Textarea
+          showCount
+          textareaProps={{
+            placeholder: "Placeholder text here",
+            value: text,
+            onChange: (e) => setText(e.target.value),
+            maxLength: 100,
+          }}
+          label="With Count (Top)"
+          countPosition="top"
+        />
+
+        <Textarea
+          showCount
+          textareaProps={{
+            placeholder: "Placeholder text here",
+            value: text,
+            onChange: (e) => setText(e.target.value),
+            maxLength: 100,
+          }}
+          label="With Count (Bottom)"
+          helperText="This is the helperText"
+        />
+      </div>
+    );
+  },
 };
 export const Examples: Story = {
   render: () => {
@@ -55,9 +96,7 @@ export const Examples: Story = {
         </div>
         <div className="hawa-flex hawa-flex-col">
           <Input />
-          <Textarea forceHideHelperText 
-          className="hawa-h-full" 
-          />
+          <Textarea forceHideHelperText className="hawa-h-full" />
         </div>
       </div>
     );
