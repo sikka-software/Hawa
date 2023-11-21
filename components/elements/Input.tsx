@@ -13,8 +13,6 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   labelProps?: LabelProps;
 
   hideSeparator?: boolean;
-  /** Disable/Enable multiple line text input field   */
-  multiline?: boolean;
   /** The small red text under the input field to show validation.   */
   helperText?: any;
   forceHideHelperText?: boolean;

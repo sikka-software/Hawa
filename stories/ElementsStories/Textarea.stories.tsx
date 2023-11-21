@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Label, Textarea } from "../../components/elements";
+import {
+  Avatar,
+  Button,
+  Input,
+  Label,
+  Textarea,
+} from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale } from "../translations/i18n";
 
@@ -29,11 +35,31 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div className="hawa-w-64 hawa-flex hawa-flex-col hawa-gap-4">
-      <Label>Textarea Component</Label>
-      <Textarea helperText="Helper text here" />
+      <Textarea label="Textarea component" helperText="Helper text here" />
     </div>
   );
 };
 export const Default: Story = {
   render: Template.bind({}),
+};
+export const Examples: Story = {
+  render: () => {
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <Avatar size="6xl" />
+          <Button size="sm">Save</Button>
+          <Button variant="outline" size="sm">
+            Remove
+          </Button>
+        </div>
+        <div className="hawa-flex hawa-flex-col">
+          <Input />
+          <Textarea forceHideHelperText 
+          className="hawa-h-full" 
+          />
+        </div>
+      </div>
+    );
+  },
 };
