@@ -14,6 +14,7 @@ type PinInputTypes = {
   getPins?: (pins: string[]) => void;
   /** The small red text under the input field to show validation or a hint.   */
   helperText?: any;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 };
 
 export const PinInput: FC<PinInputTypes> = ({
@@ -22,6 +23,7 @@ export const PinInput: FC<PinInputTypes> = ({
   digits,
   width = "normal",
   getPins,
+  inputProps,
   ...props
 }) => {
   const [pin, setPin] = useState(Array.from(Array(digits)));
@@ -82,7 +84,7 @@ export const PinInput: FC<PinInputTypes> = ({
             onChange={(e) => handleChange(e, index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             onFocus={(e) => e.target.select()}
-            {...props}
+            {...inputProps}
           />
         ))}
       </div>

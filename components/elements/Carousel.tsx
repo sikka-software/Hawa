@@ -58,8 +58,11 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
       <div className="hawa-h-full hawa-overflow-hidden">
         <div className="hawa-h-full" ref={emblaRef}>
           <div className="hawa-h-full hawa-flex">
-            {items?.map((item) => (
-              <div className="hawa-h-full hawa-justify-center hawa-flex  hawa-items-center  hawa-min-w-0 hawa-flex-[0_0_100%]">
+            {items?.map((item, i) => (
+              <div
+                key={i}
+                className="hawa-h-full hawa-justify-center hawa-flex  hawa-items-center  hawa-min-w-0 hawa-flex-[0_0_100%]"
+              >
                 {item}
               </div>
             ))}

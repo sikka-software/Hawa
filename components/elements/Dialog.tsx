@@ -78,12 +78,21 @@ const DialogCarouselContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
     hideCloseButton?: boolean;
+    hidePrevButton?: boolean;
     persist?: boolean;
     onPrev?: () => void;
   }
 >(
   (
-    { className, children, onPrev, persist, hideCloseButton, ...props },
+    {
+      className,
+      children,
+      onPrev,
+      persist,
+      hideCloseButton,
+      hidePrevButton,
+      ...props
+    },
     ref
   ) => (
     <DialogPortal>
@@ -108,7 +117,9 @@ const DialogCarouselContent = React.forwardRef<
             onPrev ? "hawa-justify-between" : "hawa-justify-end"
           )}
         >
-          {onPrev && (
+          {hidePrevButton ? (
+            <div />
+          ) : (
             <div
               onClick={onPrev}
               className={cn(

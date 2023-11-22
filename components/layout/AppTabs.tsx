@@ -16,6 +16,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, ...props }) => {
 
           return (
             <AppSingleTab
+              key={index}
               tab={tab}
               onClick={() => setSelectedIndex(index)}
               isSelected={selected}
@@ -30,6 +31,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, ...props }) => {
 const AppSingleTab = ({ tab, ...props }: any) => {
   return (
     <div
+      key={props.key}
       onClick={props.onClick}
       className={cn(
         "hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-2 hawa-translate-y-[1.1px] hawa-text-sm hawa-rounded-t hawa-transition-all hawa-select-none hawa-z-10 ",

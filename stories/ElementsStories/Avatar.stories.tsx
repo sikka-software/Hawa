@@ -37,6 +37,7 @@ export const Default: Story = {
             <Avatar
               src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
+              {...args}
             />
           </div>
           <div>
@@ -44,6 +45,7 @@ export const Default: Story = {
             <Avatar
               // src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
+              {...args}
             />
           </div>
           <div>
@@ -51,6 +53,7 @@ export const Default: Story = {
             <Avatar
               icon={<Upload className="hawa-w-4 hawa-h-4" />}
               alt="User Avatar"
+              {...args}
             />
           </div>
           <div>
@@ -59,6 +62,7 @@ export const Default: Story = {
               <Avatar
                 src="https://source.unsplash.com/featured/?nature,1"
                 alt="User Avatar"
+                {...args}
               />
             </BadgedComponent>
           </div>
@@ -71,6 +75,7 @@ export const Default: Story = {
             isUploadable={true}
             // src="https://source.unsplash.com/featured/?nature,1"
             alt="User Avatar"
+            {...args}
           />
         </div>
       </div>
@@ -109,14 +114,15 @@ export const Sizes: Story = {
     ];
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
-        {sizesArray.map((avatarSize) => (
-          <div>
+        {sizesArray.map((avatarSize, i) => (
+          <div key={i}>
             <div className="hawa-font-bold hawa-text-lg">{avatarSize}</div>
             <Avatar
               // isUploadable={true}
               src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
               size={avatarSize}
+              {...args}
             />
           </div>
         ))}
@@ -162,5 +168,10 @@ export const Radius: Story = {
         </div>
       </div>
     );
+  },
+  parameters: {
+    controls: {
+      exclude: ["radius"],
+    },
   },
 };

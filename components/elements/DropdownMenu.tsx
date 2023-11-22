@@ -91,7 +91,7 @@ const DropdownMenuItem = React.forwardRef<
     badged?: boolean;
     slug?: string;
   }
->(({ className, inset, slug, ...props }, ref) => {
+>(({ className, inset, badged, slug, ...props }, ref) => {
   return (
     <a href={slug}>
       <DropdownMenuPrimitive.Item
@@ -116,7 +116,7 @@ const DropdownMenuItem = React.forwardRef<
         {!props.end && props.shortcut && (
           <DropdownMenuShortcut>{props.shortcut}</DropdownMenuShortcut>
         )}
-        {!props.end && props.badged && (
+        {!props.end && badged && (
           <div className="hawa-h-3 hawa-w-3 hawa-bg-red-500 hawa-rounded-full" />
         )}
       </DropdownMenuPrimitive.Item>
@@ -512,8 +512,8 @@ const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
           value={props.value}
           onValueChange={props.onValueChange}
         >
-          {props.options.map((opt) => (
-            <DropdownMenuRadioItem value={opt.value}>
+          {props.options.map((opt, i) => (
+            <DropdownMenuRadioItem key={i} value={opt.value}>
               {opt.label}
             </DropdownMenuRadioItem>
           ))}

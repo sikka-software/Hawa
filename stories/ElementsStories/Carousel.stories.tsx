@@ -57,7 +57,7 @@ export const Cards: Story = {
         <Carousel items={cards} loop={false} />
       </div>
       <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel items={cards1} loop={false} />
+        <Carousel items={itemCardsArray} loop={false} />
       </div>
     </div>
   ),
@@ -148,289 +148,107 @@ const cards = [
     icon={<ScreenShare />}
   />,
 ];
-let cards1 = [
-  <ItemCard
-    headerActions={[
-      { label: "QR Code", action: () => console.log("clicking on QR") },
-      {
-        label: "Menu Settings",
-        value: "Menu Settings",
-        action: () => console.log("clicking on Settings"),
-      },
-      {
-        label: "Menu Styles",
-        value: "Menu Styles",
-        action: () => console.log("clicking on Styles"),
-      },
-      {
-        label: "Analytics",
-        value: "Analytics",
-        action: () => console.log("clicking on Analytics"),
-      },
-    ]}
-    header={
-      <div>
-        <h1>Menu</h1>
-      </div>
-    }
-    content={
-      <div>
-        <p>
-          All the icons and buttons of this card are customizable, yet all the
-          props are optional.
-        </p>
-      </div>
-    }
-    actions={
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
-        <Tooltip delayDuration={200} content={"Duplicate"}>
-          <Button size="icon" variant="ghost">
-            <CopyIcon className="hawa-icon" />
-          </Button>
-        </Tooltip>
 
-        <Tooltip delayDuration={200} content={"Delete"}>
-          <Button size="icon" variant="ghost">
-            <Trash2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
+const createItemCard = (numCards: number) => {
+  const cards = [];
 
-        <Tooltip delayDuration={200} content={"Edit"}>
-          <Button size="icon" variant="ghost">
-            <Edit2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
-      </div>
-    }
-    counts={
-      <div className="hawa-flex hawa-flex-row ">
-        <Tooltip delayDuration={200} content={"Counts"}>
+  for (let i = 0; i < numCards; i++) {
+    cards.push(
+      <ItemCard
+        headerActions={[
+          { label: "QR Code", action: () => console.log("clicking on QR") },
+          {
+            label: "Menu Settings",
+            value: "Menu Settings",
+            action: () => console.log("clicking on Settings"),
+          },
+          {
+            label: "Menu Styles",
+            value: "Menu Styles",
+            action: () => console.log("clicking on Styles"),
+          },
+          {
+            label: "Analytics",
+            value: "Analytics",
+            action: () => console.log("clicking on Analytics"),
+          },
+        ]}
+        header={
           <div>
-            <Count
-              icon={<ArrowRightCircle className="hawa-icon" />}
-              count="30"
-            />
+            <h1>Menu</h1>
           </div>
-        </Tooltip>
-        <Tooltip delayDuration={200} content={"Likes"}>
+        }
+        content={
           <div>
-            <Count icon={<Heart className="hawa-icon" />} count="20" />
+            <p>
+              All the icons and buttons of this card are customizable, yet all
+              the props are optional.
+            </p>
           </div>
-        </Tooltip>
-      </div>
-    }
-  />,
-  <ItemCard
-    headerActions={[
-      { label: "QR Code", action: () => console.log("clicking on QR") },
-      {
-        label: "Menu Settings",
-        value: "Menu Settings",
-        action: () => console.log("clicking on Settings"),
-      },
-      {
-        label: "Menu Styles",
-        value: "Menu Styles",
-        action: () => console.log("clicking on Styles"),
-      },
-      {
-        label: "Analytics",
-        value: "Analytics",
-        action: () => console.log("clicking on Analytics"),
-      },
-    ]}
-    header={
-      <div>
-        <h1>Menu</h1>
-      </div>
-    }
-    content={
-      <div>
-        <p>
-          All the icons and buttons of this card are customizable, yet all the
-          props are optional.
-        </p>
-      </div>
-    }
-    actions={
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
-        <Tooltip delayDuration={200} content={"Duplicate"}>
-          <Button size="icon" variant="ghost">
-            <CopyIcon className="hawa-icon" />
-          </Button>
-        </Tooltip>
+        }
+        actions={
+          <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
+            <Tooltip
+              triggerProps={{ asChild: true }}
+              delayDuration={200}
+              content={"Duplicate"}
+            >
+              <Button size="icon" variant="ghost">
+                <CopyIcon className="hawa-icon" />
+              </Button>
+            </Tooltip>
 
-        <Tooltip delayDuration={200} content={"Delete"}>
-          <Button size="icon" variant="ghost">
-            <Trash2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
+            <Tooltip
+              triggerProps={{ asChild: true }}
+              delayDuration={200}
+              content={"Delete"}
+            >
+              <Button size="icon" variant="ghost">
+                <Trash2 className="hawa-icon" />
+              </Button>
+            </Tooltip>
 
-        <Tooltip delayDuration={200} content={"Edit"}>
-          <Button size="icon" variant="ghost">
-            <Edit2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
-      </div>
-    }
-    counts={
-      <div className="hawa-flex hawa-flex-row ">
-        <Tooltip delayDuration={200} content={"Counts"}>
-          <div>
-            <Count
-              icon={<ArrowRightCircle className="hawa-icon" />}
-              count="30"
-            />
+            <Tooltip
+              triggerProps={{ asChild: true }}
+              delayDuration={200}
+              content={"Edit"}
+            >
+              <Button size="icon" variant="ghost">
+                <Edit2 className="hawa-icon" />
+              </Button>
+            </Tooltip>
           </div>
-        </Tooltip>
-        <Tooltip delayDuration={200} content={"Likes"}>
-          <div>
-            <Count icon={<Heart className="hawa-icon" />} count="20" />
+        }
+        counts={
+          <div className="hawa-flex hawa-flex-row ">
+            <Tooltip
+              triggerProps={{ asChild: true }}
+              delayDuration={200}
+              content={"Counts"}
+            >
+              <div>
+                <Count
+                  icon={<ArrowRightCircle className="hawa-icon" />}
+                  count="30"
+                />
+              </div>
+            </Tooltip>
+            <Tooltip
+              triggerProps={{ asChild: true }}
+              delayDuration={200}
+              content={"Likes"}
+            >
+              <div>
+                <Count icon={<Heart className="hawa-icon" />} count="20" />
+              </div>
+            </Tooltip>
           </div>
-        </Tooltip>
-      </div>
-    }
-  />,
-  <ItemCard
-    headerActions={[
-      { label: "QR Code", action: () => console.log("clicking on QR") },
-      {
-        label: "Menu Settings",
-        value: "Menu Settings",
-        action: () => console.log("clicking on Settings"),
-      },
-      {
-        label: "Menu Styles",
-        value: "Menu Styles",
-        action: () => console.log("clicking on Styles"),
-      },
-      {
-        label: "Analytics",
-        value: "Analytics",
-        action: () => console.log("clicking on Analytics"),
-      },
-    ]}
-    header={
-      <div>
-        <h1>Menu</h1>
-      </div>
-    }
-    content={
-      <div>
-        <p>
-          All the icons and buttons of this card are customizable, yet all the
-          props are optional.
-        </p>
-      </div>
-    }
-    actions={
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
-        <Tooltip delayDuration={200} content={"Duplicate"}>
-          <Button size="icon" variant="ghost">
-            <CopyIcon className="hawa-icon" />
-          </Button>
-        </Tooltip>
+        }
+      />
+    );
+  }
 
-        <Tooltip delayDuration={200} content={"Delete"}>
-          <Button size="icon" variant="ghost">
-            <Trash2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
+  return cards;
+};
 
-        <Tooltip delayDuration={200} content={"Edit"}>
-          <Button size="icon" variant="ghost">
-            <Edit2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
-      </div>
-    }
-    counts={
-      <div className="hawa-flex hawa-flex-row ">
-        <Tooltip delayDuration={200} content={"Counts"}>
-          <div>
-            <Count
-              icon={<ArrowRightCircle className="hawa-icon" />}
-              count="30"
-            />
-          </div>
-        </Tooltip>
-        <Tooltip delayDuration={200} content={"Likes"}>
-          <div>
-            <Count icon={<Heart className="hawa-icon" />} count="20" />
-          </div>
-        </Tooltip>
-      </div>
-    }
-  />,
-  <ItemCard
-    headerActions={[
-      { label: "QR Code", action: () => console.log("clicking on QR") },
-      {
-        label: "Menu Settings",
-        value: "Menu Settings",
-        action: () => console.log("clicking on Settings"),
-      },
-      {
-        label: "Menu Styles",
-        value: "Menu Styles",
-        action: () => console.log("clicking on Styles"),
-      },
-      {
-        label: "Analytics",
-        value: "Analytics",
-        action: () => console.log("clicking on Analytics"),
-      },
-    ]}
-    header={
-      <div>
-        <h1>Menu</h1>
-      </div>
-    }
-    content={
-      <div>
-        <p>
-          All the icons and buttons of this card are customizable, yet all the
-          props are optional.
-        </p>
-      </div>
-    }
-    actions={
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
-        <Tooltip delayDuration={200} content={"Duplicate"}>
-          <Button size="icon" variant="ghost">
-            <CopyIcon className="hawa-icon" />
-          </Button>
-        </Tooltip>
-
-        <Tooltip delayDuration={200} content={"Delete"}>
-          <Button size="icon" variant="ghost">
-            <Trash2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
-
-        <Tooltip delayDuration={200} content={"Edit"}>
-          <Button size="icon" variant="ghost">
-            <Edit2 className="hawa-icon" />
-          </Button>
-        </Tooltip>
-      </div>
-    }
-    counts={
-      <div className="hawa-flex hawa-flex-row ">
-        <Tooltip delayDuration={200} content={"Counts"}>
-          <div>
-            <Count
-              icon={<ArrowRightCircle className="hawa-icon" />}
-              count="30"
-            />
-          </div>
-        </Tooltip>
-        <Tooltip delayDuration={200} content={"Likes"}>
-          <div>
-            <Count icon={<Heart className="hawa-icon" />} count="20" />
-          </div>
-        </Tooltip>
-      </div>
-    }
-  />,
-];
+const itemCardsArray = createItemCard(4); // Replace 4 with the desired number of cards

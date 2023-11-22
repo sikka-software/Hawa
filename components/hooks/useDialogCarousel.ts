@@ -8,7 +8,12 @@ export const useDialogCarousel = (options?: any) => {
     [AutoHeight({ destroyHeight: "fit", active: true })]
   );
   // const [currentStep, setCurrentStep] = useState(initialStepId);
-
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const checkCanScrollPrev = () => {
+    if (emblaApi) {
+      setCanScrollPrev(emblaApi.canScrollPrev());
+    }
+  };
   const nextStep = () => {
     if (emblaApi) {
       console.log("going to NEXT 👉");
@@ -22,21 +27,19 @@ export const useDialogCarousel = (options?: any) => {
       emblaApi.scrollPrev();
     }
   };
-
-  //   useEffect(() => {
-  //     console.log("ref", emblaRef.current);
-  //     if (emblaRef.current) {
-  //       const tabIndex = emblaRef.current.id;
-  //       console.log(tabIndex); // This will log the tabIndex value to the console
-  //       setCurrentStep(tabIndex);
-  //     }
-  //   }, [emblaRef]);
+  useEffect(() => {
+    checkCanScrollPrev(); // Initial check
+    emblaApi && emblaApi.on("select", checkCanScrollPrev); // Update on slide change
+    return () => {
+      emblaApi && emblaApi.off("select", checkCanScrollPrev);
+    };
+  }, [emblaApi]);
 
   return {
     emblaRef,
     emblaApi,
-    // currentStep,
     nextStep,
     prevStep,
+    canScrollPrev,
   };
 };

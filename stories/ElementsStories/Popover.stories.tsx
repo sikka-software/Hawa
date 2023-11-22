@@ -28,7 +28,11 @@ const Template = (args: any, globals: any) => {
   setLocale(locale);
 
   return (
-    <Popover side={args.side} trigger={<Button>Show Popover</Button>}>
+    <Popover
+      side={args.side}
+      triggerProps={{ asChild: true }}
+      trigger={<Button>Show Popover</Button>}
+    >
       <div className="hawa-m-4">This is the content of the popover</div>
     </Popover>
   );

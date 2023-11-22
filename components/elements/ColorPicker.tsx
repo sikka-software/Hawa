@@ -21,7 +21,9 @@ type ColorPickerTypes = {
   /** The hex code for the color */
   color?: any;
   /** Fires everytime the color changes */
-  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (
+    e: ChangeEvent<HTMLInputElement> | FormEvent<HTMLInputElement>
+  ) => void;
   colorPickerClassNames?: string;
   colorTextClassNames?: string;
   colorPickerProps?: InputHTMLAttributes<HTMLInputElement>;
@@ -51,21 +53,15 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
     if (inputColor[0] !== "#") {
       // Prepend a hash (#) to the input value
       inputColor = `#${inputColor}`;
-      inputElement.value = inputColor;
+      // inputElement.value = inputColor;
     }
     // Remove any non-alphanumeric characters except the hash (#)
     const sanitizedInput = inputColor.replace(/[^a-fA-F0-9#]/g, "");
-    // If the sanitized input is different from the original input,
-    // update the input element's value.
-    if (sanitizedInput !== inputColor) {
-      inputElement.value = sanitizedInput;
-    }
 
     setSelectedColor(sanitizedInput);
 
     if (props.handleChange) {
-      const event = new Event("input", { bubbles: true });
-      inputElement.dispatchEvent(event);
+      props.handleChange(e); // Pass the original event
     }
   };
 
@@ -98,7 +94,6 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
           <input
             maxLength={7}
             type="text"
-            defaultValue={selectedColor || "#"}
             onInput={handleTextInputChange}
             value={selectedColor}
             className={cn(

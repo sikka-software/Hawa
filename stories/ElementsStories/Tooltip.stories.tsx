@@ -27,6 +27,7 @@ const Template = (args: any) => (
   <div>
     <Tooltip
       side={args.side}
+      triggerProps={{ asChild: true }}
       delayDuration={200}
       content={
         <div className="hawa-max-w-xs">
@@ -56,6 +57,7 @@ export const Sides: Story = {
       <div>
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <Tooltip
+            triggerProps={{ asChild: true }}
             side={"top"}
             content={<div className="hawa-max-w-xs">Top</div>}
           >
@@ -63,12 +65,14 @@ export const Sides: Story = {
           </Tooltip>
           <div className="hawa-flex hawa-flex-row hawa-gap-2">
             <Tooltip
+              triggerProps={{ asChild: true }}
               side={"left"}
               content={<div className="hawa-max-w-xs">Left</div>}
             >
               <Button>👈</Button>
             </Tooltip>
             <Tooltip
+              triggerProps={{ asChild: true }}
               side={"right"}
               content={<div className="hawa-max-w-xs">Right</div>}
             >
@@ -76,6 +80,7 @@ export const Sides: Story = {
             </Tooltip>
           </div>
           <Tooltip
+            triggerProps={{ asChild: true }}
             side={"bottom"}
             content={<div className="hawa-max-w-xs">Bottom</div>}
           >

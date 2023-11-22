@@ -14,7 +14,7 @@ type NavigationMenuRootProps = React.ComponentPropsWithoutRef<
 const NavigationMenuRoot = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   NavigationMenuRootProps
->(({ className, children, ...props }, ref) => (
+>(({ className, children, viewportClassNames, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
@@ -25,7 +25,7 @@ const NavigationMenuRoot = React.forwardRef<
     {...props}
   >
     {children}
-    <NavigationMenuViewport className={props.viewportClassNames} />
+    <NavigationMenuViewport className={viewportClassNames} />
   </NavigationMenuPrimitive.Root>
 ));
 NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName;
@@ -168,13 +168,16 @@ type NavigationMenuTypes = {
   direction?: DirectionType;
 };
 
-export const NavigationMenu: React.FC<NavigationMenuTypes> = (props) => {
+export const NavigationMenu: React.FC<NavigationMenuTypes> = ({
+  viewportClassNames,
+  ...props
+}) => {
   return (
     <NavigationMenuRoot
       dir={props.direction}
       delayDuration={0}
       className={props.rootClassNames}
-      viewportClassNames={props.viewportClassNames}
+      viewportClassNames={viewportClassNames}
     >
       <NavigationMenuList>
         {props.items.map((item, i) => (

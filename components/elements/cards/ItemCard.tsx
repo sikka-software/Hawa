@@ -28,6 +28,7 @@ interface ItemCardTypes {
   clickableImageActionText?: string;
   /** The icon of the action button on the image of the card */
   clickableImageActionIcon?: any;
+  className?: string;
 }
 
 type THeaderActions = {
@@ -91,7 +92,8 @@ export const ItemCard: FC<ItemCardTypes> = ({
       className={cn(
         defaultStyle,
         props.onCardClick && " hover:hawa-shadow-lg hawa-cursor-pointer",
-        orientationStyles[orientation]
+        orientationStyles[orientation],
+        props.className
       )}
       onClick={(e) => {
         e.stopPropagation();
@@ -99,7 +101,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
           props.onCardClick(e);
         }
       }}
-      {...props}
+      // {...props}
     >
       {cardImage && (
         <div className="hawa-group hawa-relative hawa-overflow-clip">

@@ -42,15 +42,20 @@ export const Default: Story = {
     return (
       <div dir={direction}>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger className="hawa-flex hawa-flex-col hawa-items-center hawa-gap-4">
-            <Button onClick={() => setSide("top")}>Top Sheet</Button>
-            <div className="hawa-flex hawa-flex-row hawa-gap-4">
-              <Button onClick={() => setSide("left")}>Left Sheet</Button>
-              <Button onClick={() => setSide("right")}>Right Sheet</Button>
+          <SheetTrigger
+            asChild
+            className="hawa-flex hawa-flex-col hawa-items-center hawa-gap-4"
+          >
+            <div>
+              <Button onClick={() => setSide("top")}>Top Sheet</Button>
+              <div className="hawa-flex hawa-flex-row hawa-gap-4">
+                <Button onClick={() => setSide("left")}>Left Sheet</Button>
+                <Button onClick={() => setSide("right")}>Right Sheet</Button>
+              </div>
+              <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
             </div>
-            <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
           </SheetTrigger>
-          <SheetContent  {...args} side={side}>
+          <SheetContent {...args} side={side}>
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>
@@ -78,7 +83,10 @@ export const MaxWidth: Story = {
     return (
       <div dir={direction}>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger className="hawa-flex hawa-flex-col hawa-items-center hawa-gap-4">
+          <SheetTrigger
+            asChild
+            className="hawa-flex hawa-flex-col hawa-items-center hawa-gap-4"
+          >
             <Button onClick={() => setSide("bottom")}>Open Sheet</Button>
           </SheetTrigger>
           <SheetContent

@@ -432,6 +432,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   ? props.texts?.collapseSidebar || "Collapse Sidebar"
                   : props.texts?.expandSidebar || "Expand Sidebar"
               }
+              triggerProps={{ asChild: true }}
             >
               <Button
                 variant="outline"

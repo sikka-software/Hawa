@@ -225,7 +225,7 @@ export const Multistep: Story = {
             <div>
               step 1
               <div>
-                <PaymentMethodStep />
+                <PaymentMethodStep onMethodClicked={handleNext} />
                 <Button onClick={handleNext}>Next</Button>
               </div>
             </div>
@@ -233,8 +233,10 @@ export const Multistep: Story = {
               step 2
               <div>
                 <FormFillStep />
-                <Button onClick={handleBack}>Back</Button>
-                <Button onClick={handleNext}>Next</Button>
+                <div className="hawa-flex hawa-flex-row hawa-gap-2">
+                  <Button onClick={handleBack}>Back</Button>
+                  <Button onClick={handleNext}>Next</Button>
+                </div>
               </div>
             </div>
             <div>
@@ -256,17 +258,24 @@ export const MultistepCarousel: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    const { emblaApi, emblaRef, nextStep, prevStep } = useDialogCarousel({
-      direction: direction,
-    });
+    const { emblaApi, emblaRef, nextStep, prevStep, canScrollPrev } =
+      useDialogCarousel({
+        direction: direction,
+      });
     const [openDialog, setOpenDialog] = useState(true);
+
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Dialog onOpenChange={setOpenDialog} open={openDialog}>
           <DialogTrigger asChild>
             <Button>Open Dialog</Button>
           </DialogTrigger>
-          <DialogCarouselContent onPrev={prevStep} persist dir={direction}>
+          <DialogCarouselContent
+            hidePrevButton={!canScrollPrev} // Conditionally hide if cannot scroll to previous
+            onPrev={emblaApi?.canScrollPrev && prevStep}
+            persist
+            dir={direction}
+          >
             <DialogCarousel
               direction={direction}
               stepsApi={emblaApi}
@@ -345,18 +354,34 @@ export const MultistepCarousel: Story = {
   },
 };
 
-const PaymentMethodStep = () => (
+const PaymentMethodStep = (props: any) => (
   <DialogBody className="hawa-flex hawa-flex-col hawa-gap-4">
-    <Button variant={"outline"} className="hawa-w-full">
+    <Button
+      onClick={props.onMethodClicked}
+      variant={"outline"}
+      className="hawa-w-full"
+    >
       Credit Card
     </Button>
-    <Button variant={"outline"} className="hawa-w-full">
+    <Button
+      onClick={props.onMethodClicked}
+      variant={"outline"}
+      className="hawa-w-full"
+    >
       Paypal
     </Button>
-    <Button variant={"outline"} className="hawa-w-full">
+    <Button
+      onClick={props.onMethodClicked}
+      variant={"outline"}
+      className="hawa-w-full"
+    >
       Apple Pay
     </Button>
-    <Button variant={"outline"} className="hawa-w-full">
+    <Button
+      onClick={props.onMethodClicked}
+      variant={"outline"}
+      className="hawa-w-full"
+    >
       Crypto
     </Button>
   </DialogBody>

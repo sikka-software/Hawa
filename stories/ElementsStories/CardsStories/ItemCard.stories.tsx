@@ -59,19 +59,31 @@ const Template = (args: any) => (
       }
       actions={
         <div className="hawa-flex hawa-flex-row hawa-gap-2 ">
-          <Tooltip delayDuration={200} content={"Duplicate"}>
+          <Tooltip
+            triggerProps={{ asChild: true }}
+            delayDuration={200}
+            content={"Duplicate"}
+          >
             <Button size="icon" variant="ghost">
               <CopyIcon className="hawa-w-5 hawa-h-5" />
             </Button>
           </Tooltip>
 
-          <Tooltip delayDuration={200} content={"Delete"}>
+          <Tooltip
+            triggerProps={{ asChild: true }}
+            delayDuration={200}
+            content={"Delete"}
+          >
             <Button size="icon" variant="ghost">
               <Trash2 className="hawa-w-5 hawa-h-5" />
             </Button>
           </Tooltip>
 
-          <Tooltip delayDuration={200} content={"Edit"}>
+          <Tooltip
+            triggerProps={{ asChild: true }}
+            delayDuration={200}
+            content={"Edit"}
+          >
             <Button size="icon" variant="ghost">
               <Edit2 className="hawa-w-5 hawa-h-5" />
             </Button>

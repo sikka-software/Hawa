@@ -51,7 +51,7 @@ export const Stats: FC<StatTypes> = ({
           <div className="hawa-text-2xl hawa-font-bold">{number}</div>
         )}
         {helperText && (
-          <p
+          <div
             className={cn(
               "hawa-my-0 hawa-text-xs  hawa-transition-all hawa-text-start",
               helperTextColorStyles[helperTextColor],
@@ -65,7 +65,7 @@ export const Stats: FC<StatTypes> = ({
             ) : (
               helperText
             )}
-          </p>
+          </div>
         )}
         {chart &&
           (isLoading ? (

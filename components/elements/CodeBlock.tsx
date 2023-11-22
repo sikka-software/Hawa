@@ -141,6 +141,9 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             open={clipboard.copied}
             side="left"
             content={<div>Copied!</div>}
+            triggerProps={{
+              asChild: true,
+            }}
           >
             <Button
               size="icon"

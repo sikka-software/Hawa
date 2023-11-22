@@ -11,7 +11,7 @@ export const FileUploader = ({ handleFile, className }: any) => {
   };
   return (
     <div className={className}>
-      <button className="hawa-h-full hawa-w-full" onClick={handleClick} />
+      <div className="hawa-h-full hawa-w-full" onClick={handleClick} />
       <input
         type="file"
         onChange={handleChange}

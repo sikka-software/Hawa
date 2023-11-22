@@ -11,8 +11,12 @@ type AdCardTypes = {
   handleCantHide?: () => void;
   handleClick?: (e: React.MouseEvent) => void;
   canHide: boolean;
+  className?: string;
 };
-export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
+export const AdCard: FC<AdCardTypes> = ({
+  orientation = "vertical",
+  ...props
+}) => {
   const adRef = useRef<HTMLDivElement>(null);
   const [closed, setClosed] = useState(false);
 
@@ -54,8 +58,7 @@ export const AdCard: FC<AdCardTypes> = ({ orientation, ...props }) => {
   return (
     <div ref={adRef}>
       <div
-        className={cn(cardStyles[orientation], "")}
-        {...props}
+        className={cn(cardStyles[orientation], props.className)}
         onClick={props.handleClick}
       >
         <div className="hawa-flex hawa-aspect-square hawa-w-full  hawa-max-w-fit  hawa-items-start ">

@@ -48,8 +48,9 @@ export const Navbar: React.FC<NavbarType> = ({
           </div>
 
           <div className="hawa-hidden md:hawa-flex ">
-            {props.menuItems?.map((item) => (
+            {props.menuItems?.map((item, i) => (
               <div
+                key={i}
                 onClick={item.action}
                 className="hawa-p-1.5 hawa-px-2 hawa-text-sm hawa-text-center hawa-rounded hawa-text-white hover:hawa-text-black hover:hawa-bg-gray-300 hawa-transition-all hawa-cursor-pointer"
               >
@@ -118,8 +119,9 @@ export const Navbar: React.FC<NavbarType> = ({
             zIndex: -100,
           }}
         >
-          {props.menuItems?.map((item) => (
+          {props.menuItems?.map((item, i) => (
             <div
+              key={i}
               onClick={item.action}
               className="hawa-text-black hawa-p-2 hawa-px-10 hawa-text-center hawa-rounded hover:hawa-bg-gray-300 hawa-transition-all hawa-cursor-pointer"
             >
