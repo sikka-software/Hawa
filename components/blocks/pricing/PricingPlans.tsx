@@ -6,7 +6,7 @@ type PricingPlansTypes = {
   plans: {
     id: any;
     direction: DirectionType;
-    features: [{ included: boolean; text: string }];
+    features: { included: boolean; text: string }[];
     price: number;
     size: "small" | "medium" | "large";
     texts: {
@@ -25,7 +25,6 @@ type PricingPlansTypes = {
     label: string;
     value: string;
   }[];
-  onPlanClicked?: (e: any) => void;
   currentCycle: {
     label: string;
     value: string;
@@ -34,6 +33,7 @@ type PricingPlansTypes = {
     label: string;
     value: string;
   };
+  onPlanClicked?: (e: any) => void;
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
@@ -73,9 +73,10 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
               onPlanClicked={() => {
                 if (props.onPlanClicked) {
                   let clickedData = {
-                    plan: plan.id,
+                    // plan: plan.id,
                     currency: props.currentCurrency,
                     cycle: props.currentCycle,
+                    ...plan,
                   };
                   props.onPlanClicked(clickedData);
                 }
