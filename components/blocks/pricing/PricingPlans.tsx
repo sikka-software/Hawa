@@ -5,10 +5,10 @@ import { DirectionType } from "../../types/commonTypes";
 type PricingPlansTypes = {
   plans: {
     id: any;
-    direction: DirectionType;
+    direction?: DirectionType;
     features: { included: boolean; text: string }[];
     price: number;
-    size: "small" | "medium" | "large";
+    size?: "small" | "medium" | "large";
     texts: {
       title: string;
       subtitle: string;
@@ -74,8 +74,8 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
                 if (props.onPlanClicked) {
                   let clickedData = {
                     // plan: plan.id,
-                    currency: props.currentCurrency,
-                    cycle: props.currentCycle,
+                    currency: props.currentCurrency?.value,
+                    cycle: props.currentCycle?.value,
                     ...plan,
                   };
                   props.onPlanClicked(clickedData);
@@ -84,8 +84,8 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
               {...plan}
               texts={{
                 ...plan.texts,
-                currencyText: props.currentCurrency,
-                cycleText: props.currentCycle,
+                currencyText: props.currentCurrency?.label,
+                cycleText: props.currentCycle?.label,
               }}
             />
           );
