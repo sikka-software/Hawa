@@ -28,16 +28,18 @@ const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
-  const [curr, setCurr] = useState("sar");
+  const [curr, setCurr] = useState({ value: "sar", label: "SAR" });
   const [cycl, setCycl] = useState("month");
   return (
     <div dir={direction}>
-      {" "}
       <PricingPlans
         {...args}
-        currentCurrency={{ value: curr, label: curr }}
-        currentCycle={{ value: cycl, label: cycl }}
-        onCurrencyChange={(e) => setCurr(e)}
+        currentCurrency={curr}
+        currentCycle={cycl}
+        onCurrencyChange={(e) => {
+          console.log("on currency change ", e);
+          setCurr(e);
+        }}
         onCycleChange={(e) => setCycl(e)}
         // onPlanClicked={(e: any) => console.log("upgradign to ", e)}
         billingCycles={[
@@ -64,6 +66,12 @@ const Template = (args: any, globals: any) => {
               title: "Free Plan",
             },
             features: [
+              { included: true, text: "Unlimited Menus" },
+              { included: true, text: "Unlimited Items" },
+              { included: false, text: "Custom Menus" },
+              { included: true, text: "Unlimited Menus" },
+              { included: true, text: "Unlimited Items" },
+              { included: false, text: "Custom Menus" },
               { included: true, text: "Unlimited Menus" },
               { included: true, text: "Unlimited Items" },
               { included: false, text: "Custom Menus" },

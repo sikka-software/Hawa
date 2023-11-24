@@ -76,7 +76,7 @@ export const Radio: FC<RadioTypes> = ({
               onClick={() => {
                 setSelectedOption(opt.value);
                 if (props.onChangeTab) {
-                  props.onChangeTab(opt.value);
+                  props.onChangeTab(opt);
                 } else {
                   console.log("onChangeTab was not provided");
                 }
@@ -205,7 +205,7 @@ export const Radio: FC<RadioTypes> = ({
                     onChange={() => {
                       setSelectedOption(opt.value);
                       if (props.onChangeTab) {
-                        props.onChangeTab(opt.value);
+                        props.onChangeTab(opt);
                       } else {
                         console.log("onChangeTab was not provided");
                       }

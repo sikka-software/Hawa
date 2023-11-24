@@ -65,6 +65,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
           defaultValue={props.currentCurrency}
           options={props.currencies}
           onChangeTab={(e: any) => {
+            console.log("on change tab", e);
             if (props.onCurrencyChange) {
               props.onCurrencyChange(e);
             }

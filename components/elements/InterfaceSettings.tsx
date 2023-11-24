@@ -35,7 +35,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         defaultValue={language}
         onChangeTab={(e: any) => {
           if (handleLanguage) {
-            handleLanguage(e);
+            handleLanguage(e.value);
           }
           setLanguage(e);
         }}
@@ -50,7 +50,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         defaultValue={color}
         onChangeTab={(e: any) => {
           if (handleColorMode) {
-            handleColorMode(e);
+            handleColorMode(e.value);
           }
           setColor(e);
         }}

@@ -41,15 +41,22 @@ export const UserReferralSource: FC<ComponentTypes> = ({
     feedback: z.string().optional(),
   });
 
-  const { handleSubmit, control, formState } = useForm({
+  const { handleSubmit, control, formState, watch } = useForm({
     resolver: zodResolver(formSchema),
   });
+  const selectedSource = watch("source");
 
   const boxPosition = {
     "bottom-right": "hawa-right-4",
     "bottom-left": "hawa-left-4",
   };
-
+  const optionsWithOther = [
+    ...options,
+    {
+      value: "other",
+      label: "Other",
+    },
+  ];
   return (
     <div
       className={cn(
@@ -101,8 +108,9 @@ export const UserReferralSource: FC<ComponentTypes> = ({
             onSubmit={handleSubmit((e) => {
               if (props.onSubmitForm) {
                 props.onSubmitForm(e);
+              } else {
+                console.log("onSubmitForm was not provided");
               }
-              console.log("onSubmitForm was not provided");
             })}
           >
             <div
@@ -120,9 +128,9 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                     <Radio
                       direction={props.direction}
                       orientation="vertical"
-                      options={options}
+                      options={optionsWithOther}
                       defaultValue={field.value}
-                      onChangeTab={(e: any) => field.onChange(e)}
+                      onChangeTab={(e: any) => field.onChange(e.value)}
                       helperText={formState.errors.source?.message?.toString()}
                     ></Radio>
                   )}
@@ -135,6 +143,10 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                   render={({ field }) => (
                     <Textarea
                       {...field}
+                      textareaProps={{
+                        onChange: (e) => field.onChange(e.target.value),
+                        disabled: selectedSource !== "other",
+                      }}
                       helperText={formState.errors.feedback?.message?.toString()}
                     />
                   )}

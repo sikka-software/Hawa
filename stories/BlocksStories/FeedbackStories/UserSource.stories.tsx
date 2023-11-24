@@ -34,6 +34,7 @@ export const UserSource: Story = {
         { label: "Advertisement", value: "ad" },
         { label: "Twitter", value: "twitter" },
       ]}
+      onSubmitForm={args.onSubmitForm}
     />
   ),
   args: {
