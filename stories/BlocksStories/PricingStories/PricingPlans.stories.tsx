@@ -53,6 +53,7 @@ const Template = (args: any, globals: any) => {
         plans={[
           {
             currentPlan: false,
+            // recommended: true,
             price: {
               sar: {
                 monthly: 9.99,

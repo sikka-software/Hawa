@@ -25,6 +25,7 @@ export type PricingCardProps = {
   discount?: string;
   onPlanClicked?: () => void;
   currentPlan?: boolean;
+  recommended?: boolean;
   size?: "small" | "medium" | "large";
   isLoading?: boolean;
   texts: {
@@ -33,6 +34,7 @@ export type PricingCardProps = {
     buttonText: string;
     cycleText: string;
     currencyText: string;
+    recommended?: string;
   };
 };
 
@@ -40,6 +42,7 @@ export const PricingCard: FC<PricingCardProps> = ({
   size = "medium",
   direction = "ltr",
   endButton = true,
+  recommended,
   currentPlan = false,
   ...props
 }) => {
@@ -59,9 +62,19 @@ export const PricingCard: FC<PricingCardProps> = ({
           ? "hawa-border-primary dark:hawa-border-primary/70 hawa-border-2 "
           : "hawa-border",
         cardSizes[size],
-        "hawa-flex  hawa-gap-4 hawa-rounded hawa-p-4 hawa-justify-between hawa-flex-col"
+        "hawa-flex hawa-gap-4  hawa-p-4 hawa-justify-between hawa-flex-col hawa-relative",
+        recommended ? "hawa-rounded hawa-rounded-t-none" : "hawa-rounded"
       )}
     >
+      {recommended && (
+        <div
+          className="hawa-bg-primary hawa-text-center hawa-text-primary-foreground hawa-p-2 hawa-border hawa-rounded-t hawa-absolute hawa-top-0  -hawa-left-[1px] -hawa-translate-y-full"
+          style={{ width: "calc(100% + 2px)" }}
+        >
+          {props.texts.recommended || "RECOMMENDED"}
+        </div>
+      )}
+
       <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-h-full">
         <div className="hawa-text-md hawa-relative hawa-flex hawa-flex-col hawa-justify-between hawa-font-bold hawa-text-primary/70">
           <span>{props.texts.title}</span>
