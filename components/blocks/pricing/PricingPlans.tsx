@@ -65,7 +65,7 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
         />
       </div>
 
-      <div className="hawa-flex hawa-flex-row hawa-justify-between">
+      <div className="hawa-flex hawa-flex-col md:hawa-flex-row hawa-justify-between">
         {props.plans.map((plan: any, index) => {
           return (
             <PricingCard
