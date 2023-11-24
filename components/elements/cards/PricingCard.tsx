@@ -50,12 +50,14 @@ export const PricingCard: FC<PricingCardProps> = ({
         "hawa-flex hawa-flex-col hawa-gap-4 hawa-rounded hawa-p-4 "
       )}
     >
-      {props.discount && (
-        <Chip label={props.discount} size="large" color="hyper" />
-      )}{" "}
-      <h5 className="hawa-text-md 0 hawa-font-bold hawa-text-primary/70">
-        {props.texts.title}
-      </h5>
+      <div className="hawa-text-md hawa-relative hawa-flex hawa-flex-row hawa-justify-between hawa-font-bold hawa-text-primary/70">
+        <span>{props.texts.title}</span>
+        {props.discount && (
+          <span className="hawa-absolute hawa-end-0">
+            <Chip label={props.discount} size="large" color="hyper" />
+          </span>
+        )}
+      </div>
       <div className=" hawa-text-primary hawa-flex  hawa-items-baseline">
         {props.isLoading ? (
           <Skeleton className="hawa-w-full hawa-max-w-[200px] hawa-h-[48px] hawa-p-0 " />

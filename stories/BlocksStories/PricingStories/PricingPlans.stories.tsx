@@ -55,6 +55,7 @@ const Template = (args: any, globals: any) => {
             currency: "SAR",
             cycleText: "month",
             buttonText: "Select Plan",
+            discount: "test",
             texts: {
               buttonText: "Upgrade",
               currencyText: "sar",
