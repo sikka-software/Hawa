@@ -43,6 +43,71 @@ export const Default: Story = {
   render: (args) => <Template {...args} />,
   args: { label: "Accept terms and conditions" },
 };
+export const Sizes: Story = {
+  render: (args) => {
+    let sizes: any[] = ["xs", "default", "sm", "md", "lg", "xl"];
+
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        {sizes.map((size: any) => (
+          <Checkbox
+            label={size}
+            key={size}
+            {...args}
+            size={size}
+            id={`checkbox_${size}`}
+          />
+        ))}
+      </div>
+    );
+  },
+};
+export const Radius: Story = {
+  render: (args) => {
+    let sizes: any[] = ["xs", "default", "sm", "md", "lg", "xl"];
+
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          {sizes.map((size: any) => (
+            <Checkbox
+              label={"None"}
+              key={size}
+              {...args}
+              radius="none"
+              size={size}
+              id={`checkbox_${size}`}
+            />
+          ))}
+        </div>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          {sizes.map((size: any) => (
+            <Checkbox
+              label={"Inherit"}
+              key={size}
+              {...args}
+              radius="inherit"
+              size={size}
+              id={`checkbox_${size}`}
+            />
+          ))}
+        </div>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          {sizes.map((size: any) => (
+            <Checkbox
+              label={"Full"}
+              key={size}
+              {...args}
+              radius="full"
+              size={size}
+              id={`checkbox_${size}`}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  },
+};
 export const withSubtitle: Story = {
   render: (args) => <Template {...args} />,
   args: {

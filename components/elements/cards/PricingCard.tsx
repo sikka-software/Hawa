@@ -108,7 +108,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                   {props.texts.currencyText}
                 </span>
               </>
-              <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-primary/70">
+              <span className="hawa-ml-1 hawa-text-xl hawa-whitespace-nowrap hawa-font-normal hawa-text-primary/70">
                 / {props.texts.cycleText}
               </span>
             </>
