@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PricingCard } from "../../../components/elements";
+import {
+  Input,
+  Label,
+  PricingCard,
+  Radio,
+  Separator,
+} from "../../../components/elements";
+import { useState } from "react";
 
 const meta = {
   title: "Elements/Cards/Pricing Card",
@@ -11,7 +18,110 @@ export default meta;
 type Story = StoryObj<typeof PricingCard>;
 
 export const Default: Story = {
-  render: (args) => <PricingCard {...args} />,
+  render: (args) => {
+    const [curr, setCurr] = useState("sar");
+    const [cycle, setCycle] = useState("monthly");
+    const [priceObject, setPriceObject] = useState<any>({
+      sar: {
+        monthly: 300,
+        annually: 300 * 12,
+      },
+      usd: {
+        monthly: 300,
+        annually: 300 * 12,
+      },
+    });
+    return (
+      <div>
+        <PricingCard
+          {...args}
+          price={priceObject[curr][cycle]}
+          texts={{
+            ...args.texts,
+            currencyText: curr,
+            cycleText: cycle,
+          }}
+        />
+        <Separator className="hawa-my-4" />
+        <h1>Debug</h1>
+        <Radio
+          key={"currency"}
+          onChangeTab={(e: any) => setCurr(e.value)}
+          options={[
+            { label: "SAR", value: "sar" },
+            { label: "USD", value: "usd" },
+          ]}
+        />
+        <Radio
+        
+          key={"cycle"}
+          onChangeTab={(e: any) => setCycle(e.value)}
+          options={[
+            { label: "Monthly", value: "monthly" },
+            { label: "Annually", value: "annually" },
+          ]}
+        />
+        <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-w-1/2">
+          <div className="hawa-flex hawa-flex-row hawa-gap-2">
+            <Input
+              label={"SAR Monthly"}
+              value={priceObject.sar.monthly}
+              onChange={(e) => {
+                setPriceObject({
+                  ...priceObject,
+                  sar: {
+                    ...priceObject.sar,
+                    monthly: parseInt(e.target.value),
+                  },
+                });
+              }}
+            />
+            <Input
+              label={"SAR Annually"}
+              value={priceObject.sar.annually}
+              onChange={(e) => {
+                setPriceObject({
+                  ...priceObject,
+                  sar: {
+                    ...priceObject.sar,
+                    annually: parseInt(e.target.value),
+                  },
+                });
+              }}
+            />
+          </div>
+          <div className="hawa-flex hawa-flex-row hawa-gap-2">
+            <Input
+              label={"USD Monthly"}
+              value={priceObject.usd.monthly}
+              onChange={(e) => {
+                setPriceObject({
+                  ...priceObject,
+                  usd: {
+                    ...priceObject.usd,
+                    monthly: parseInt(e.target.value),
+                  },
+                });
+              }}
+            />
+            <Input
+              label={"USD Annually"}
+              value={priceObject.usd.annually}
+              onChange={(e) => {
+                setPriceObject({
+                  ...priceObject,
+                  usd: {
+                    ...priceObject.usd,
+                    annually: parseInt(e.target.value),
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  },
   args: {
     direction: "ltr",
     price: 300,

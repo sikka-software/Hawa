@@ -29,7 +29,7 @@ const Template = (args: any, globals: any) => {
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
   const [curr, setCurr] = useState({ value: "sar", label: "SAR" });
-  const [cycl, setCycl] = useState("month");
+  const [cycl, setCycl] = useState({ value: "monthly", label: "Monthly" });
   return (
     <div dir={direction}>
       <PricingPlans
@@ -43,7 +43,7 @@ const Template = (args: any, globals: any) => {
         onCycleChange={(e) => setCycl(e)}
         // onPlanClicked={(e: any) => console.log("upgradign to ", e)}
         billingCycles={[
-          { label: `Month`, value: `month` },
+          { label: `Month`, value: `monthly` },
           { label: `Year`, value: `annually` },
         ]}
         currencies={[
@@ -53,7 +53,16 @@ const Template = (args: any, globals: any) => {
         plans={[
           {
             currentPlan: false,
-            price: 0,
+            price: {
+              sar: {
+                monthly: 9.99,
+                annually: 9.99 * 12,
+              },
+              usd: {
+                monthly: 34.49,
+                annually: 34.49 * 12,
+              },
+            },
             currency: "SAR",
             cycleText: "month",
             buttonText: "Select Plan",
@@ -79,7 +88,16 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: true,
-            price: 10,
+            price: {
+              sar: {
+                monthly: 300,
+                annually: 300 * 12,
+              },
+              usd: {
+                monthly: 300,
+                annually: 300 * 12,
+              },
+            },
             currency: "SAR",
             cycleText: "month",
             buttonText: "Current Plan",
@@ -98,7 +116,16 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: false,
-            price: 30,
+            price: {
+              sar: {
+                monthly: 300,
+                annually: 300 * 12,
+              },
+              usd: {
+                monthly: 300,
+                annually: 300 * 12,
+              },
+            },
             texts: {
               buttonText: "Upgrade",
               currencyText: "sar",

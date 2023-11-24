@@ -4,20 +4,6 @@ import { DirectionType } from "../../types/commonTypes";
 
 type PricingPlansTypes = {
   plans: PricingCardProps[];
-  // plans: {
-  //   id: any;
-  //   direction?: DirectionType;
-  //   features: { included: boolean; text: string }[];
-  //   price: number;
-  //   size?: "small" | "medium" | "large";
-  //   texts: {
-  //     title: string;
-  //     subtitle: string;
-  //     buttonText: string;
-  //     cycleText: string;
-  //     currencyText: string;
-  //   };
-  // }[];
   currencies: {
     label: string;
     value: string;
@@ -65,7 +51,6 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
           defaultValue={props.currentCurrency}
           options={props.currencies}
           onChangeTab={(e: any) => {
-            console.log("on change tab", e);
             if (props.onCurrencyChange) {
               props.onCurrencyChange(e);
             }
@@ -93,6 +78,11 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
                 }
               }}
               {...plan}
+              price={
+                plan.price[props.currentCurrency?.value][
+                  props.currentCycle?.value
+                ]
+              }
               texts={{
                 ...plan.texts,
                 currencyText: props.currentCurrency?.label,
