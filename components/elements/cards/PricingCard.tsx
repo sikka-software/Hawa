@@ -6,25 +6,26 @@ import { Chip } from "../Chip";
 import { Skeleton } from "../Skeleton";
 import { cn } from "../../util";
 
-type PricingCardTypes = {
+export type PricingCardProps = {
   direction?: DirectionType;
   features: { included: boolean; soon?: boolean; text: string }[];
   price: number;
+  id?: string;
   discount?: string;
   onPlanClicked?: () => void;
   currentPlan?: boolean;
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   isLoading?: boolean;
   texts: {
     title: string;
-    subtitle: string;
+    subtitle?: string;
     buttonText: string;
     cycleText: string;
     currencyText: string;
   };
 };
 
-export const PricingCard: FC<PricingCardTypes> = ({
+export const PricingCard: FC<PricingCardProps> = ({
   size = "medium",
   direction = "ltr",
   currentPlan = false,

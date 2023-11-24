@@ -35,15 +35,13 @@ const Template = (args: any, globals: any) => {
       {" "}
       <PricingPlans
         {...args}
-        currentCurrency={curr}
-        currentCycle={cycl}
+        currentCurrency={{ value: curr, label: curr }}
+        currentCycle={{ value: cycl, label: cycl }}
         onCurrencyChange={(e) => setCurr(e)}
         onCycleChange={(e) => setCycl(e)}
         // onPlanClicked={(e: any) => console.log("upgradign to ", e)}
         billingCycles={[
           { label: `Month`, value: `month` },
-          // { label: `3 Months`, value: `3-months` },
-          // { label: `6 Months`, value: `6-months` },
           { label: `Year`, value: `annually` },
         ]}
         currencies={[
@@ -53,6 +51,7 @@ const Template = (args: any, globals: any) => {
         plans={[
           {
             currentPlan: false,
+
             price: 0,
             currency: "SAR",
             cycleText: "month",
@@ -91,7 +90,6 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: false,
-
             price: 30,
             texts: {
               buttonText: "Upgrade",

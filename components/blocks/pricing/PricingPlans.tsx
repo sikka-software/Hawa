@@ -1,22 +1,23 @@
 import React, { FC } from "react";
-import { PricingCard, Radio } from "../../elements";
+import { PricingCard, PricingCardProps, Radio } from "../../elements";
 import { DirectionType } from "../../types/commonTypes";
 
 type PricingPlansTypes = {
-  plans: {
-    id: any;
-    direction?: DirectionType;
-    features: { included: boolean; text: string }[];
-    price: number;
-    size?: "small" | "medium" | "large";
-    texts: {
-      title: string;
-      subtitle: string;
-      buttonText: string;
-      cycleText: string;
-      currencyText: string;
-    };
-  }[];
+  plans: PricingCardProps[];
+  // plans: {
+  //   id: any;
+  //   direction?: DirectionType;
+  //   features: { included: boolean; text: string }[];
+  //   price: number;
+  //   size?: "small" | "medium" | "large";
+  //   texts: {
+  //     title: string;
+  //     subtitle: string;
+  //     buttonText: string;
+  //     cycleText: string;
+  //     currencyText: string;
+  //   };
+  // }[];
   currencies: {
     label: string;
     value: string;
