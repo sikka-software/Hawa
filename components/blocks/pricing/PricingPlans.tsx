@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, InputHTMLAttributes } from "react";
 import { PricingCard, PricingCardProps, Radio } from "../../elements";
 import { DirectionType } from "../../types/commonTypes";
 
@@ -38,11 +38,17 @@ type PricingPlansTypes = {
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
+  mainContainerProps?: InputHTMLAttributes<HTMLDivElement>;
+  cardsContainerProps?: InputHTMLAttributes<HTMLDivElement>;
 };
 
-export const PricingPlans: FC<PricingPlansTypes> = (props) => {
+export const PricingPlans: FC<PricingPlansTypes> = ({
+  mainContainerProps,
+  cardsContainerProps,
+  ...props
+}) => {
   return (
-    <div>
+    <div {...mainContainerProps}>
       <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
         <Radio
           design="tabs"
@@ -66,7 +72,10 @@ export const PricingPlans: FC<PricingPlansTypes> = (props) => {
         />
       </div>
 
-      <div className="hawa-flex hawa-flex-col md:hawa-flex-row hawa-justify-between">
+      <div
+        className="hawa-flex hawa-flex-col hawa-gap-2 md:hawa-flex-row hawa-justify-between"
+        {...cardsContainerProps}
+      >
         {props.plans.map((plan: any, index) => {
           return (
             <PricingCard

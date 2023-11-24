@@ -51,7 +51,6 @@ const Template = (args: any, globals: any) => {
         plans={[
           {
             currentPlan: false,
-
             price: 0,
             currency: "SAR",
             cycleText: "month",
