@@ -124,6 +124,7 @@ export const Default: Story = {
   args: {
     direction: "ltr",
     price: 300,
+    oldPrice: 900,
     size: "small",
     discount: "Save 10%",
     texts: {
