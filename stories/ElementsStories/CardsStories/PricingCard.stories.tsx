@@ -53,7 +53,6 @@ export const Default: Story = {
           ]}
         />
         <Radio
-        
           key={"cycle"}
           onChangeTab={(e: any) => setCycle(e.value)}
           options={[
@@ -135,7 +134,12 @@ export const Default: Story = {
       subtitle: "Includes up to 4 users + 200 GB",
     },
     features: [
-      { included: true, text: "Unlimited Menus", soon: true },
+      {
+        included: true,
+        text: "Unlimited Menus",
+        hint: "Something something here",
+        soon: true,
+      },
       { included: true, text: "Unlimited Items" },
       { included: false, text: "Custom Menus" },
       { included: false, text: "Custom Domain", soon: true },
