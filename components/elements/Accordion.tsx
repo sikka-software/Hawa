@@ -9,9 +9,9 @@ type AccordionItem = {
 
 type AccordionProps = {
   items: AccordionItem[];
-  itemClassNames: string;
-  triggerclassNames: string;
-  contentclassNames: string;
+  itemClassNames?: string;
+  triggerclassNames?: string;
+  contentclassNames?: string;
 } & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
 const Accordion = React.forwardRef<
@@ -32,14 +32,33 @@ const Accordion = React.forwardRef<
     <AccordionPrimitive.Root type={props.type} collapsible>
       {items.map((item, index) => (
         <AccordionItem
-          className={itemClassNames}
+          className={cn(itemClassNames, 'hawa-rounded')}
           key={index}
           value={`item-${index}`}
         >
-          <AccordionTrigger className={triggerclassNames}>
+          <AccordionTrigger
+            className={cn(
+              "hawa-transition-all",
+              {
+                "hawa-rounded-t": index === 0,
+                "data-[state=closed]:hawa-rounded-b":
+                  index === items.length - 1,
+              },
+              triggerclassNames
+            )}
+          >
             {item.trigger}
           </AccordionTrigger>
-          <AccordionContent className={contentclassNames}>
+          <AccordionContent
+            className={cn(
+              "hawa-transition-all  hawa-border",
+              {
+                "data-[state=open]:hawa-rounded-b":
+                  index === items.length - 1,
+              },
+              contentclassNames
+            )}
+          >
             {item.content}
           </AccordionContent>
         </AccordionItem>
@@ -102,13 +121,12 @@ const AccordionContent = React.forwardRef<
     )}
     {...props}
   >
-    <div className="hawa-bg-background  hawa-border hawa-p-4">{children}</div>
+    <div className="hawa-bg-background hawa-p-4">{children}</div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-
-const AccordionRoot = AccordionPrimitive.Root
+const AccordionRoot = AccordionPrimitive.Root;
 
 export {
   Accordion,

@@ -5,8 +5,8 @@ import { RadiusType } from "../types/commonTypes";
 
 type CheckBoxTypes = {
   id: string;
-  label?: any;
-  sublabel?: any;
+  label?: React.ReactNode;
+  sublabel?: React.ReactNode;
   helperText?: string;
   size?: "xs" | "sm" | "default" | "md" | "lg" | "xl";
   radius?: RadiusType;
