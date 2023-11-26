@@ -79,9 +79,10 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
               }}
               {...plan}
               price={
-                plan.price[props.currentCurrency?.value][
-                  props.currentCycle?.value
-                ]
+                plan.price
+                // plan.price[props.currentCurrency?.value][
+                //   props.currentCycle?.value
+                // ]
               }
               texts={{
                 ...plan.texts,

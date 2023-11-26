@@ -25,7 +25,7 @@ type ComparingPlansTypes = {
 };
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
-  const [currentCycle, setCurrentCycle] = useState("month");
+  const [currentCycle, setCurrentCycle] = useState("monthly");
 
   return (
     <div id="detailed-pricing" className="hawa-w-full hawa-overflow-x-auto">

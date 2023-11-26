@@ -54,16 +54,17 @@ const Template = (args: any, globals: any) => {
           {
             currentPlan: false,
             // recommended: true,
-            price: {
-              sar: {
-                monthly: 9.99,
-                annually: 9.99 * 12,
-              },
-              usd: {
-                monthly: 34.49,
-                annually: 34.49 * 12,
-              },
-            },
+            price: 9.99,
+            // price: {
+            //   sar: {
+            //     monthly: 9.99,
+            //     annually: 9.99 * 12,
+            //   },
+            //   usd: {
+            //     monthly: 34.49,
+            //     annually: 34.49 * 12,
+            //   },
+            // },
             currency: "SAR",
             cycleText: "month",
             buttonText: "Select Plan",
@@ -89,16 +90,17 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: true,
-            price: {
-              sar: {
-                monthly: 300,
-                annually: 300 * 12,
-              },
-              usd: {
-                monthly: 300,
-                annually: 300 * 12,
-              },
-            },
+            price: 300,
+            // price: {
+            //   sar: {
+            //     monthly: 300,
+            //     annually: 300 * 12,
+            //   },
+            //   usd: {
+            //     monthly: 300,
+            //     annually: 300 * 12,
+            //   },
+            // },
             currency: "SAR",
             cycleText: "month",
             buttonText: "Current Plan",
@@ -117,16 +119,17 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: false,
-            price: {
-              sar: {
-                monthly: 300,
-                annually: 300 * 12,
-              },
-              usd: {
-                monthly: 300,
-                annually: 300 * 12,
-              },
-            },
+            price: 900,
+            // price: {
+            //   sar: {
+            //     monthly: 300,
+            //     annually: 300 * 12,
+            //   },
+            //   usd: {
+            //     monthly: 300,
+            //     annually: 300 * 12,
+            //   },
+            // },
             texts: {
               buttonText: "Upgrade",
               currencyText: "sar",
