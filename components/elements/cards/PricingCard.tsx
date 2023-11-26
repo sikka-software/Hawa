@@ -19,7 +19,7 @@ export type PricingCardProps = {
   }[];
   endButton?: boolean;
   price: number;
-  oldPrice: number;
+  oldPrice?: number;
 
   id?: string;
   discount?: string;
