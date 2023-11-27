@@ -88,7 +88,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "hawa-absolute  hawa-w-full  hawa-left-0 hawa-top-0 ",
+      "hawa-absolute  hawa-w-full hawa-rounded hawa-left-0 hawa-top-0 ",
       // "md:hawa-absolute md:hawa-w-auto  hawa-left-0 hawa-top-0 ",
       //   animation
       "data-[motion^=from-]:hawa-animate-in data-[motion^=to-]:hawa-animate-out data-[motion^=from-]:hawa-fade-in data-[motion^=to-]:hawa-fade-out data-[motion=from-end]:hawa-slide-in-from-right-52 data-[motion=from-start]:hawa-slide-in-from-left-52 data-[motion=to-end]:hawa-slide-out-to-right-52 data-[motion=to-start]:hawa-slide-out-to-left-52",
@@ -102,18 +102,20 @@ NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 export const NavigationMenuLink = NavigationMenuPrimitive.Link;
 
 type NavMenuItemTypes = {
-  icon?: any;
+  icon?: React.ReactNode;
   title: string;
   subtitle?: string;
 };
 
-export const NavMenuItem: React.FC<NavMenuItemTypes> = (props) => (
-  <NavigationMenuLink>
-    <div className="hawa-max-w-md hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
-      {props.icon && props.icon}
+export const NavMenuItem: React.FC<
+  NavMenuItemTypes & React.ComponentProps<typeof NavigationMenuPrimitive.Link>
+> = ({ icon, title, subtitle, ...linkProps }) => (
+  <NavigationMenuLink  {...linkProps}>
+    <div className="hawa-max-w-md hawa-rounded-inner hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+      {icon && icon}
       <div className="hawa-flex hawa-flex-col">
-        <h1 className="hawa-font-bold hawa-text-xl">{props.title}</h1>
-        <p className="hawa-text-sm">{props.subtitle}</p>
+        <h1 className="hawa-font-bold hawa-text-xl">{title}</h1>
+        <p className="hawa-text-sm">{subtitle}</p>
       </div>
     </div>
   </NavigationMenuLink>
@@ -130,18 +132,19 @@ const NavigationMenuViewport = React.forwardRef<
   >
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "hawa-origin-top-center hawa-relative hawa-mt-1.5 hawa-h-[var(--radix-navigation-menu-viewport-height)] hawa-w-full hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-90 ",
-
+        "hawa-origin-top-center hawa-relative hawa-mt-1.5  hawa-w-full hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-90 ",
+        // hawa-h-[var(--radix-navigation-menu-viewport-height)]
         // "md:hawa-w-[var(--radix-navigation-menu-viewport-width)]",
         className
       )}
+      style={{
+        height: "calc(var(--radix-navigation-menu-viewport-height) + 1px)",
+      }}
       ref={ref}
       {...props}
     />
   </div>
 ));
-NavigationMenuViewport.displayName =
-  NavigationMenuPrimitive.Viewport.displayName;
 
 const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -158,8 +161,6 @@ const NavigationMenuIndicator = React.forwardRef<
     <div className="hawa-relative hawa-top-[60%] hawa-h-2 hawa-w-2 hawa-rotate-45 hawa-rounded-tl-sm hawa-bg-border hawa-shadow-md" />
   </NavigationMenuPrimitive.Indicator>
 ));
-NavigationMenuIndicator.displayName =
-  NavigationMenuPrimitive.Indicator.displayName;
 
 type NavigationMenuTypes = {
   items: { trigger: any; content?: any; action?: any }[];
@@ -208,6 +209,11 @@ export const NavigationMenu: React.FC<NavigationMenuTypes> = ({
     </NavigationMenuRoot>
   );
 };
+
+NavigationMenuIndicator.displayName =
+  NavigationMenuPrimitive.Indicator.displayName;
+NavigationMenuViewport.displayName =
+  NavigationMenuPrimitive.Viewport.displayName;
 
 // export {
 //   navigationMenuTriggerStyle,
