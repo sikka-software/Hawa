@@ -34,7 +34,7 @@ export const Radio: FC<RadioTypes> = ({
   let activeTabStyle =
     "hawa-inline-block hawa-py-2 hawa-px-4  hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary ";
   let inactiveTabStyle =
-    "hawa-inline-block hawa-py-2 hawa-px-4 hawa-w-full hawa-transition-all hover:hawa-bg-primary/10 dark:hawa-bg-background hawa-bg-primary/5 dark:hover:hawa-text-white dark:hawa-bg-primary/5";
+    "hawa-inline-block hawa-py-2 hawa-px-4 hawa-w-full hawa-transition-all hover:hawa-bg-primary/10  hawa-bg-primary/5 dark:hover:hawa-text-white ";
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row",
     vertical: "hawa-flex hawa-flex-col",

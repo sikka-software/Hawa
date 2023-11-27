@@ -68,23 +68,26 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
         <div
           className={cn(
             "hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-p-4 hawa-text-sm hawa-font-medium",
-            "hawa-border-gray-200 hawa-bg-gray-100 hawa-text-gray-900",
-            "dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-white"
+            "hawa-bg-primary/5"
+            // "hawa-border-gray-200 hawa-bg-gray-100 hawa-text-gray-900",
+            // "dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-white"
           )}
         >
           <div className="hawa-flex hawa-items-center"></div>
           {props.plans.map((plan: any, i) => (
             <div key={i} className="hawa-flex hawa-flex-col hawa-gap-2">
               <div className="hawa-flex hawa-flex-col">
-                <span className="hawa-text-md hawa-font-bold hawa-text-gray-500 dark:hawa-text-gray-400">
+                {/* hawa-text-gray-500 dark:hawa-text-gray-400 */}
+                <span className="hawa-text-md hawa-font-bold ">
                   {plan.texts.title}
                 </span>
 
-                <span className="hawa-text-md  hawa-font-normal hawa-text-gray-500 dark:hawa-text-gray-400">
+                <span className="hawa-text-md  hawa-font-normal hawa-text-muted-foreground ">
                   {plan.texts.subtitle}
                 </span>
               </div>
-              <div className=" hawa-flex hawa-items-baseline  hawa-text-gray-900 dark:hawa-text-white">
+              {/* hawa-text-gray-900 dark:hawa-text-white */}
+              <div className=" hawa-flex hawa-items-baseline  ">
                 <>
                   <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
                     {plan.price}
@@ -93,7 +96,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                     {plan.texts.currencyText}
                   </span>
                 </>
-                <span className="hawa-ml-1 hawa-text-xl hawa-font-normal hawa-text-gray-500 dark:hawa-text-gray-400">
+                <span className="hawa-ml-1 hawa-text-xl hawa-font-normal ">
                   / {plan.texts.cycleText}
                 </span>
               </div>
