@@ -52,7 +52,7 @@ const Template = (args: any, globals: any) => {
               subtitle: "For Everyone",
               title: "Free Plan",
             },
-            features: generateFeaturesArray(19),
+            features: generateFeaturesArray(3),
             // features: [
             //   {
             //     hint: "Make as many menus as you want",
@@ -72,11 +72,13 @@ const Template = (args: any, globals: any) => {
               subtitle: "For Beginners",
               title: "Intro Plan",
             },
-            features: [
-              { included: true, text: "Unlimited Menus" },
-              { included: true, text: "Unlimited Items" },
-              { included: false, text: "Custom Menus" },
-            ],
+            features: generateFeaturesArray(3),
+
+            // features: [
+            //   { included: true, text: "Unlimited Menus" },
+            //   { included: true, text: "Unlimited Items" },
+            //   { included: false, text: "Custom Menus" },
+            // ],
           },
           {
             price: 30,
@@ -87,14 +89,17 @@ const Template = (args: any, globals: any) => {
               subtitle: "For businesses",
               title: "Professional Plan",
             },
-            features: [
-              { included: true, text: "Unlimited Menus" },
-              { included: true, text: "Unlimited Items" },
-              { included: true, text: "Custom Menus" },
-            ],
+            features: generateFeaturesArray(3),
+
+            // features: [
+            //   { included: true, text: "Unlimited Menus" },
+            //   { included: true, text: "Unlimited Items" },
+            //   { included: true, text: "Custom Menus" },
+            // ],
           },
         ]}
       />
+      <div className="hawa-h-screen"></div>
     </div>
   );
 };
