@@ -24,6 +24,7 @@ type ComparingPlansTypes = {
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
   showButtons?: boolean;
+  topPosition?: number;
 };
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
@@ -67,9 +68,12 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </div>
       <div
         className={cn(
-          "hawa-sticky hawa-top-0 hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
+          "hawa-sticky  hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
           "hawa-bg-primary-foreground"
         )}
+        style={{
+          top: props.topPosition || 0,
+        }}
       >
         <div className="hawa-flex hawa-items-center"></div>
         {props.plans.map((plan: any, i) => (
