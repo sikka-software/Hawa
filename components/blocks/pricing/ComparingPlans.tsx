@@ -1,13 +1,20 @@
 import React, { useState, FC } from "react";
-import { Radio, Tooltip, ScrollArea } from "../../elements";
+import { Radio, Tooltip, ScrollArea, Button, Chip } from "../../elements";
 import { DirectionType } from "../../types/commonTypes";
 import { CheckMark, UncheckMark } from "../../icons";
 import { cn } from "../../util";
 
+type PlanFeature = {
+  soon?: boolean;
+  included: boolean;
+  text: string;
+  hint?: string;
+};
+
 type ComparingPlansTypes = {
   plans: {
     direction?: DirectionType;
-    features: { included: boolean; text: string; hint?: string }[];
+    features: PlanFeature[];
     price?: number;
     texts?: {
       title?: string;
@@ -15,6 +22,7 @@ type ComparingPlansTypes = {
       buttonText?: string;
       cycleText?: string;
       currencyText?: string;
+      soon?: string;
     };
     size?: "small" | "medium" | "large";
   }[];
@@ -117,7 +125,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div
               key={featureIndex}
               className={cn(
-                "hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700",
+                "hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-border-foreground-muted hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white",
                 featureIndex === 0 ? "" : "hawa-border-t"
               )}
             >
@@ -155,6 +163,11 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                     </svg>
                   </Tooltip>
                 )}
+                {props.plans.some((plan) =>
+                  plan.features.some(
+                    (feature) => feature.text === featureText && feature.soon
+                  )
+                ) && <Chip label="Soon" />}
               </div>
               {props.plans.map((plan, planIndex) => {
                 const feature = plan.features.find(
@@ -188,9 +201,9 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
               className="hawa-flex hawa-justify-center hawa-items-center"
             >
               {/* Replace with actual button element or component */}
-              <button className="hawa-bg-primary hawa-text-white hawa-p-2 hawa-rounded hawa-w-full hawa-max-w-xs">
+              <Button className="hawa-max-w-xs hawa-w-full">
                 {plan.texts?.buttonText || "Get Started"}
-              </button>
+              </Button>
             </div>
           ))}
         </div>

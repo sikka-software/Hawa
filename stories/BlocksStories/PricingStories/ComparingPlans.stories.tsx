@@ -31,7 +31,9 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div dir={direction}>
+
       <ComparingPlans
+      showButtons
         billingCycles={[
           { label: `Month`, value: `month` },
           // { label: `3 Months`, value: `3-months` },
@@ -98,7 +100,6 @@ const Template = (args: any, globals: any) => {
             // ],
           },
         ]}
-        topPosition={29}
       />
       <div className="hawa-h-screen"></div>
     </div>

@@ -51,6 +51,7 @@ export function generateFeaturesArray(length: number) {
   const features = [];
   for (let i = 0; i < length; i++) {
     features.push({
+      soon: Math.random() > 0.5, // Randomly assign true or false
       included: Math.random() > 0.5, // Randomly assign true or false
       text: `Feature ${i + 1}`, // Unique text for each feature
     });
