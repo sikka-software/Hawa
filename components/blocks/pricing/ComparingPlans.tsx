@@ -151,9 +151,9 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 return (
                   <div key={planIndex} className="hawa-text-center">
                     {feature?.included ? (
-                      <CheckMark className="dark:hawa-text-white hawa-text-black" />
+                      <CheckMark className="dark:hawa-text-[#ffffff] hawa-text-[#000000]" />
                     ) : (
-                      <UncheckMark className="dark:hawa-text-white hawa-text-black" />
+                      <UncheckMark className="dark:hawa-text-[#ffffff] hawa-text-[#000000]" />
                     )}
                   </div>
                 );

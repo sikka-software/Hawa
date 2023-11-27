@@ -3,7 +3,9 @@
   "css.customData": [".vscode/tailwind.json"],
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#007fff",
-    "titleBar.activeForeground": "#ffffff"
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#007fff",
+    "titleBar.inactiveForeground": "#ffffff"
   },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
