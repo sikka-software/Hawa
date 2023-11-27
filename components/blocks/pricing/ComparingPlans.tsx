@@ -23,6 +23,7 @@ type ComparingPlansTypes = {
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
+  showButtons?: boolean;
 };
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const [currentCurrency, setCurrentCurrency] = useState("sar");
@@ -38,42 +39,45 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
 
   return (
     <div id="detailed-pricing" className="hawa-w-full ">
-      <div className="hawa-sticky hawa-top-4 hawa-z-20">
-        <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
-          <Radio
-            design="tabs"
-            defaultValue={currentCycle}
-            options={props.billingCycles}
-            onChangeTab={(e: any) => {
-              if (props.onCycleChange) {
-                props.onCycleChange(e);
-              } else {
-                console.log("onCycleChange was not provided");
-              }
-            }}
-          />
-          <Radio
-            design="tabs"
-            defaultValue={currentCurrency}
-            options={props.currencies}
-            onChangeTab={(e: any) => {
-              if (props.onCurrencyChange) {
-                props.onCurrencyChange(e);
-              } else {
-                console.log("onCurrencyChange was not provided");
-              }
-            }}
-          />
-        </div>
-        <div
-          className={cn(
-            "hawa-sticky hawa-top-0 hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
-            "hawa-bg-primary-foreground"
-          )}
-        >
-          <div className="hawa-flex hawa-items-center"></div>
-          {props.plans.map((plan: any, i) => (
-            <div key={i} className="hawa-flex hawa-flex-col hawa-gap-2">
+      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
+        <Radio
+          design="tabs"
+          defaultValue={currentCycle}
+          options={props.billingCycles}
+          onChangeTab={(e: any) => {
+            if (props.onCycleChange) {
+              props.onCycleChange(e);
+            } else {
+              console.log("onCycleChange was not provided");
+            }
+          }}
+        />
+        <Radio
+          design="tabs"
+          defaultValue={currentCurrency}
+          options={props.currencies}
+          onChangeTab={(e: any) => {
+            if (props.onCurrencyChange) {
+              props.onCurrencyChange(e);
+            } else {
+              console.log("onCurrencyChange was not provided");
+            }
+          }}
+        />
+      </div>
+      <div
+        className={cn(
+          "hawa-sticky hawa-top-0 hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
+          "hawa-bg-primary-foreground"
+        )}
+      >
+        <div className="hawa-flex hawa-items-center"></div>
+        {props.plans.map((plan: any, i) => (
+          <div
+            key={i}
+            className="hawa-flex hawa-flex-col hawa-gap-2 hawa-justify-center hawa-items-center"
+          >
+            <div className="hawa-flex hawa-flex-col hawa-gap-2">
               <div className="hawa-flex hawa-flex-col">
                 {/* hawa-text-gray-500 dark:hawa-text-gray-400 */}
                 <span className="hawa-text-md hawa-font-bold ">
@@ -99,16 +103,19 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 </span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
-      <ScrollArea className="hawa-h-[70dvh] hawa-rounded">
+      <ScrollArea className="hawa-h-[70dvh] hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border">
         {uniqueFeatures.map((featureText, featureIndex) => {
           return (
             <div
               key={featureIndex}
-              className="hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700"
+              className={cn(
+                "hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700",
+                featureIndex === 0 ? "" : "hawa-border-t"
+              )}
             >
               <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-foreground">
                 {featureText}
@@ -150,7 +157,10 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                   (f) => f.text === featureText
                 );
                 return (
-                  <div key={planIndex} className="hawa-text-center">
+                  <div
+                    key={planIndex}
+                    className="hawa-text-center hawa-flex hawa-flex-col hawa-items-center"
+                  >
                     {feature?.included ? (
                       <CheckMark className="hawa-text-foreground" />
                     ) : (
@@ -163,6 +173,24 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           );
         })}
       </ScrollArea>
+      {/* Footer with Buttons */}
+      {props.showButtons && (
+        <div className="hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-px-4 hawa-py-5">
+          <div className="hawa-flex hawa-items-center"></div>
+
+          {props.plans.map((plan, i) => (
+            <div
+              key={i}
+              className="hawa-flex hawa-justify-center hawa-items-center"
+            >
+              {/* Replace with actual button element or component */}
+              <button className="hawa-bg-primary hawa-text-white hawa-p-2 hawa-rounded hawa-w-full hawa-max-w-xs">
+                {plan.texts?.buttonText || "Get Started"}
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
