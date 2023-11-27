@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ComparingPlans } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
+import { generateFeaturesArray } from "../../storiesUtils";
 
 const meta = {
   title: "Blocks/Pricing/Comparing Plans",
@@ -51,15 +52,16 @@ const Template = (args: any, globals: any) => {
               subtitle: "For Everyone",
               title: "Free Plan",
             },
-            features: [
-              {
-                hint: "Make as many menus as you want",
-                included: false,
-                text: "Unlimited Menus",
-              },
-              { included: false, text: "Unlimited Items" },
-              { included: false, text: "Custom Menus" },
-            ],
+            features: generateFeaturesArray(19),
+            // features: [
+            //   {
+            //     hint: "Make as many menus as you want",
+            //     included: false,
+            //     text: "Unlimited Menus",
+            //   },
+            //   { included: false, text: "Unlimited Items" },
+            //   { included: false, text: "Custom Menus" },
+            // ],
           },
           {
             price: 10,

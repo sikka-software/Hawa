@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import { Radio, Tooltip } from "../../elements";
+import { Radio, Tooltip, ScrollArea } from "../../elements";
 import { DirectionType } from "../../types/commonTypes";
 import { CheckMark, UncheckMark } from "../../icons";
 import { cn } from "../../util";
@@ -37,40 +37,38 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   );
 
   return (
-    <div id="detailed-pricing" className="hawa-w-full hawa-overflow-x-auto">
-      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
-        <Radio
-          design="tabs"
-          defaultValue={currentCycle}
-          options={props.billingCycles}
-          onChangeTab={(e: any) => {
-            if (props.onCycleChange) {
-              props.onCycleChange(e);
-            } else {
-              console.log("onCycleChange was not provided");
-            }
-          }}
-        />
-        <Radio
-          design="tabs"
-          defaultValue={currentCurrency}
-          options={props.currencies}
-          onChangeTab={(e: any) => {
-            if (props.onCurrencyChange) {
-              props.onCurrencyChange(e);
-            } else {
-              console.log("onCurrencyChange was not provided");
-            }
-          }}
-        />
-      </div>
-      <div className=" hawa-overflow-hidden hawa-rounded">
+    <div id="detailed-pricing" className="hawa-w-full ">
+      <div className="hawa-sticky hawa-top-4 hawa-z-20">
+        <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
+          <Radio
+            design="tabs"
+            defaultValue={currentCycle}
+            options={props.billingCycles}
+            onChangeTab={(e: any) => {
+              if (props.onCycleChange) {
+                props.onCycleChange(e);
+              } else {
+                console.log("onCycleChange was not provided");
+              }
+            }}
+          />
+          <Radio
+            design="tabs"
+            defaultValue={currentCurrency}
+            options={props.currencies}
+            onChangeTab={(e: any) => {
+              if (props.onCurrencyChange) {
+                props.onCurrencyChange(e);
+              } else {
+                console.log("onCurrencyChange was not provided");
+              }
+            }}
+          />
+        </div>
         <div
           className={cn(
-            "hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-p-4 hawa-text-sm hawa-font-medium",
-            "hawa-bg-primary/5"
-            // "hawa-border-gray-200 hawa-bg-gray-100 hawa-text-gray-900",
-            // "dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-white"
+            "hawa-sticky hawa-top-0 hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border-b hawa-border-t hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
+            "hawa-bg-primary-foreground"
           )}
         >
           <div className="hawa-flex hawa-items-center"></div>
@@ -103,11 +101,14 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             </div>
           ))}
         </div>
+      </div>
+
+      <ScrollArea className="hawa-h-[70dvh] hawa-rounded">
         {uniqueFeatures.map((featureText, featureIndex) => {
           return (
             <div
               key={featureIndex}
-              className="hawa-grid hawa-grid-cols-1 md:hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700"
+              className="hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700"
             >
               <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-foreground">
                 {featureText}
@@ -161,7 +162,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             </div>
           );
         })}
-      </div>
+      </ScrollArea>
     </div>
   );
 };
