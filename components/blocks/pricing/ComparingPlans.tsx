@@ -109,7 +109,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
               key={featureIndex}
               className="hawa-grid hawa-grid-cols-1 md:hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-border-b hawa-border-gray-200 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white dark:hawa-border-gray-700"
             >
-              <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-gray-500 dark:hawa-text-white">
+              <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-foreground">
                 {featureText}
                 {props.plans.some((plan) =>
                   plan.features.some(
@@ -151,9 +151,9 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 return (
                   <div key={planIndex} className="hawa-text-center">
                     {feature?.included ? (
-                      <CheckMark className="dark:hawa-text-[#ffffff] hawa-text-[#000000]" />
+                      <CheckMark className="hawa-text-foreground" />
                     ) : (
-                      <UncheckMark className="dark:hawa-text-[#ffffff] hawa-text-[#000000]" />
+                      <UncheckMark className="hawa-text-foreground" />
                     )}
                   </div>
                 );
