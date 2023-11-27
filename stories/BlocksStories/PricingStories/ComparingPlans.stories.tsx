@@ -53,12 +53,12 @@ const Template = (args: any, globals: any) => {
             },
             features: [
               {
-                description: "Make as many menus as you want",
-                included: true,
+                hint: "Make as many menus as you want",
+                included: false,
                 text: "Unlimited Menus",
               },
-              { description: "", included: true, text: "Unlimited Items" },
-              { description: "", included: false, text: "Custom Menus" },
+              { included: false, text: "Unlimited Items" },
+              { included: false, text: "Custom Menus" },
             ],
           },
           {
@@ -88,7 +88,7 @@ const Template = (args: any, globals: any) => {
             features: [
               { included: true, text: "Unlimited Menus" },
               { included: true, text: "Unlimited Items" },
-              { included: false, text: "Custom Menus" },
+              { included: true, text: "Custom Menus" },
             ],
           },
         ]}
