@@ -3,6 +3,7 @@ import { ComparingPlans } from "../../../components";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 import { generateFeaturesArray } from "../../storiesUtils";
+import { useState } from "react";
 
 const meta = {
   title: "Blocks/Pricing/Comparing Plans",
@@ -28,16 +29,22 @@ const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
-
+  const [curr, setCurr] = useState({ value: "sar", label: "SAR" });
+  const [cycl, setCycl] = useState({ value: "monthly", label: "Monthly" });
+  
   return (
     <div dir={direction}>
-
       <ComparingPlans
-      showButtons
+        showButtons
+        currentCurrency={curr}
+        currentCycle={cycl}
+        onCurrencyChange={(e) => {
+          console.log("on currency change ", e);
+          setCurr(e);
+        }}
+        onCycleChange={(e) => setCycl(e)}
         billingCycles={[
-          { label: `Month`, value: `month` },
-          // { label: `3 Months`, value: `3-months` },
-          // { label: `6 Months`, value: `6-months` },
+          { label: `Month`, value: `monthly` },
           { label: `Year`, value: `annually` },
         ]}
         currencies={[
@@ -55,15 +62,6 @@ const Template = (args: any, globals: any) => {
               title: "Free Plan",
             },
             features: generateFeaturesArray(3),
-            // features: [
-            //   {
-            //     hint: "Make as many menus as you want",
-            //     included: false,
-            //     text: "Unlimited Menus",
-            //   },
-            //   { included: false, text: "Unlimited Items" },
-            //   { included: false, text: "Custom Menus" },
-            // ],
           },
           {
             price: 10,
@@ -75,12 +73,6 @@ const Template = (args: any, globals: any) => {
               title: "Intro Plan",
             },
             features: generateFeaturesArray(3),
-
-            // features: [
-            //   { included: true, text: "Unlimited Menus" },
-            //   { included: true, text: "Unlimited Items" },
-            //   { included: false, text: "Custom Menus" },
-            // ],
           },
           {
             price: 30,
@@ -92,12 +84,6 @@ const Template = (args: any, globals: any) => {
               title: "Professional Plan",
             },
             features: generateFeaturesArray(3),
-
-            // features: [
-            //   { included: true, text: "Unlimited Menus" },
-            //   { included: true, text: "Unlimited Items" },
-            //   { included: true, text: "Custom Menus" },
-            // ],
           },
         ]}
       />
@@ -108,3 +94,12 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
 };
+// features: [
+//   {
+//     hint: "Make as many menus as you want",
+//     included: false,
+//     text: "Unlimited Menus",
+//   },
+//   { included: false, text: "Unlimited Items" },
+//   { included: false, text: "Custom Menus" },
+// ],

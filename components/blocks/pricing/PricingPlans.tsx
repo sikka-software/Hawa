@@ -1,25 +1,13 @@
 import React, { FC, InputHTMLAttributes } from "react";
 import { PricingCard, PricingCardProps, Radio } from "../../elements";
-import { DirectionType } from "../../types/commonTypes";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 
 type PricingPlansTypes = {
   plans: PricingCardProps[];
-  currencies: {
-    label: string;
-    value: string;
-  }[];
-  billingCycles: {
-    label: string;
-    value: string;
-  }[];
-  currentCycle: {
-    label: string;
-    value: string;
-  };
-  currentCurrency: {
-    label: string;
-    value: string;
-  };
+  currencies: RadioOptionType[];
+  billingCycles: RadioOptionType[];
+  currentCycle: RadioOptionType;
+  currentCurrency: RadioOptionType;
   onPlanClicked?: (e: any) => void;
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;

@@ -1,3 +1,12 @@
+export type PricingPlanTexts = {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  cycleText?: string;
+  currencyText?: string;
+  soon?: string;
+  recommended?: string;
+};
 export type ThirdPartyAuthTextsTypes = {
   continueWithGoogle?: string;
   continueWithTwitter?: string;

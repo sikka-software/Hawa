@@ -7,20 +7,15 @@ import { Chip } from "../Chip";
 import { Skeleton } from "../Skeleton";
 import { Tooltip } from "../Tooltip";
 import { Separator } from "../Separator";
+import { PlanFeature } from "@/components/types/pricingTypes";
+import { PricingPlanTexts } from "@/components/types/textTypes";
 
 export type PricingCardProps = {
   direction?: DirectionType;
-  features: {
-    included: boolean;
-    soon?: boolean;
-    text: string;
-    hint?: string;
-    hintSide?: any;
-  }[];
+  features: PlanFeature[];
   endButton?: boolean;
   price: number;
   oldPrice?: number;
-
   id?: string;
   discount?: string;
   onPlanClicked?: () => void;
@@ -28,14 +23,7 @@ export type PricingCardProps = {
   recommended?: boolean;
   size?: "small" | "medium" | "large";
   isLoading?: boolean;
-  texts: {
-    title: string;
-    subtitle?: string;
-    buttonText: string;
-    cycleText: string;
-    currencyText: string;
-    recommended?: string;
-  };
+  texts: PricingPlanTexts;
 };
 
 export const PricingCard: FC<PricingCardProps> = ({

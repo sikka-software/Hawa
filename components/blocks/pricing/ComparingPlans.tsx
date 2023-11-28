@@ -1,42 +1,32 @@
 import React, { useState, FC } from "react";
 import { Radio, Tooltip, ScrollArea, Button, Chip } from "../../elements";
-import { DirectionType } from "../../types/commonTypes";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 import { CheckMark, UncheckMark } from "../../icons";
 import { cn } from "../../util";
-
-type PlanFeature = {
-  soon?: boolean;
-  included: boolean;
-  text: string;
-  hint?: string;
-};
+import { PlanFeature } from "@/components/types/pricingTypes";
+import { PricingPlanTexts } from "@/components/types/textTypes";
 
 type ComparingPlansTypes = {
   plans: {
     direction?: DirectionType;
     features: PlanFeature[];
     price?: number;
-    texts?: {
-      title?: string;
-      subtitle?: string;
-      buttonText?: string;
-      cycleText?: string;
-      currencyText?: string;
-      soon?: string;
-    };
+    texts?: PricingPlanTexts;
     size?: "small" | "medium" | "large";
   }[];
-  currencies: { label: string; value: string }[];
-  billingCycles: { label: string; value: string }[];
+  currencies: RadioOptionType[];
+  billingCycles: RadioOptionType[];
+  currentCycle: RadioOptionType;
+  currentCurrency: RadioOptionType;
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
+  onPlanClicked?: (e: any) => void;
   direction?: DirectionType;
   showButtons?: boolean;
   topPosition?: number;
 };
+
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
-  const [currentCurrency, setCurrentCurrency] = useState("sar");
-  const [currentCycle, setCurrentCycle] = useState("monthly");
   // Extracting unique features from all plans
   const uniqueFeatures = Array.from(
     new Set(
@@ -51,25 +41,21 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
         <Radio
           design="tabs"
-          defaultValue={currentCycle}
+          defaultValue={props.currentCycle.value}
           options={props.billingCycles}
           onChangeTab={(e: any) => {
             if (props.onCycleChange) {
               props.onCycleChange(e);
-            } else {
-              console.log("onCycleChange was not provided");
             }
           }}
         />
         <Radio
           design="tabs"
-          defaultValue={currentCurrency}
+          defaultValue={props.currentCurrency.value}
           options={props.currencies}
           onChangeTab={(e: any) => {
             if (props.onCurrencyChange) {
               props.onCurrencyChange(e);
-            } else {
-              console.log("onCurrencyChange was not provided");
             }
           }}
         />
@@ -201,7 +187,20 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
               className="hawa-flex hawa-justify-center hawa-items-center"
             >
               {/* Replace with actual button element or component */}
-              <Button className="hawa-max-w-xs hawa-w-full">
+              <Button
+                className="hawa-max-w-xs hawa-w-full"
+                onClick={() => {
+                  if (props.onPlanClicked) {
+                    let clickedData = {
+                      // plan: plan.id,
+                      currency: props.currentCurrency?.value,
+                      cycle: props.currentCycle?.value,
+                      ...plan,
+                    };
+                    props.onPlanClicked(clickedData);
+                  }
+                }}
+              >
                 {plan.texts?.buttonText || "Get Started"}
               </Button>
             </div>

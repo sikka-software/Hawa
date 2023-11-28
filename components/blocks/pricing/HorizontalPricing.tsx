@@ -1,7 +1,9 @@
 import React, { FC, useState } from "react";
 import { cn } from "../../util";
-import { DirectionType } from "../../types/commonTypes";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 import { Radio } from "../../elements";
+import { PlanFeature } from "@/components/types/pricingTypes";
+import { PricingPlanTexts } from "@/components/types/textTypes";
 
 type HorizontalPricingTypes = {
   plans: {
@@ -9,28 +11,16 @@ type HorizontalPricingTypes = {
     direction?: DirectionType;
     currency?: string;
     cycleText?: string;
-    features?: { included: boolean; text: string; description?: string }[];
+    features?: PlanFeature[];
     price?: number;
-    texts?: {
-      title: string;
-      subtitle: string;
-      buttonText?: string;
-      cycleText?: string;
-      currencyText?: string;
-    };
+    texts?: PricingPlanTexts;
     size?: "small" | "medium" | "large";
   }[];
   currencies: { label: string; value: string }[];
   billingCycles: { label: string; value: string }[];
+  currentCycle?: RadioOptionType;
+  currentCurrency?: RadioOptionType;
   onPlanClicked?: (e: any) => void;
-  currentCycle?: {
-    label: string;
-    value: string;
-  };
-  currentCurrency?: {
-    label: string;
-    value: string;
-  };
   onCycleChange?: (e: any) => void;
   onCurrencyChange?: (e: any) => void;
   direction?: DirectionType;
