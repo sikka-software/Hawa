@@ -37,9 +37,11 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   );
 
   return (
-    <div id="detailed-pricing" className="hawa-w-full ">
-      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
+    <div id="detailed-pricing" className="hawa-w-full">
+      <div className="hawa-mb-2 hawa-flex hawa-flex-col hawa-gap-2 sm:hawa-flex-row hawa-w-full hawa-justify-between">
         <Radio
+          tabsContainerClassName="hawa-w-full sm:hawa-max-w-fit"
+          width="none"
           design="tabs"
           defaultValue={props.currentCycle.value}
           options={props.billingCycles}
@@ -50,6 +52,8 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           }}
         />
         <Radio
+          tabsContainerClassName="hawa-w-full sm:hawa-max-w-fit"
+          width="none"
           design="tabs"
           defaultValue={props.currentCurrency.value}
           options={props.currencies}
@@ -62,7 +66,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </div>
       <div
         className={cn(
-          "hawa-sticky  hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
+          "hawa-sticky hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
           "hawa-bg-primary-foreground"
         )}
         style={{

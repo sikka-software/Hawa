@@ -15,19 +15,21 @@ type RadioTypes = {
   orientation?: OrientationType;
   design?: "default" | "tabs" | "cards" | "bordered";
   options: RadioOptionsTypes[];
-  width?: "default" | "full";
+  width?: "default" | "full" | "none";
   onChangeTab?: any;
   defaultValue?: any;
   direction?: DirectionType;
   helperText?: string;
   labelProps?: LabelProps;
   label?: string;
+  tabsContainerClassName?: string;
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
   width = "default",
   orientation = "horizontal",
   labelProps,
+  tabsContainerClassName,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue);
@@ -40,6 +42,7 @@ export const Radio: FC<RadioTypes> = ({
     vertical: "hawa-flex hawa-flex-col",
   };
   let widthStyle = {
+    none: "",
     default: "hawa-max-w-fit",
     full: "hawa-w-full",
   };
@@ -66,8 +69,9 @@ export const Radio: FC<RadioTypes> = ({
               ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
               : "",
             "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-text-sm hawa-font-medium",
+            orientationStyle[orientation],
             widthStyle[width],
-            orientationStyle[orientation]
+            tabsContainerClassName
           )}
         >
           {props.options?.map((opt: any, o) => (
