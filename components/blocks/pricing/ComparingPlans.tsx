@@ -109,7 +109,10 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
         ))}
       </div>
 
-      <ScrollArea className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border">
+      <ScrollArea
+        className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border"
+        dir={props.direction}
+      >
         {uniqueFeatures.map((featureText, featureIndex) => {
           return (
             <div
@@ -157,7 +160,18 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                   plan.features.some(
                     (feature) => feature.text === featureText && feature.soon
                   )
-                ) && <Chip label="Soon" />}
+                ) && (
+                  <Chip
+                    label={
+                      props.plans.find((plan) =>
+                        plan.features.some(
+                          (feature) =>
+                            feature.text === featureText && feature.soon
+                        )
+                      )?.texts?.soon || "Soon"
+                    }
+                  />
+                )}
               </div>
               {props.plans.map((plan, planIndex) => {
                 const feature = plan.features.find(

@@ -90,6 +90,7 @@ const Template = (args: any, globals: any) => {
           },
           {
             currentPlan: true,
+            oldPrice: cycl.value === "annually" ? 10 : null,
             price: 300,
             // price: {
             //   sar: {

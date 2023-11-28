@@ -82,7 +82,7 @@ export const PricingCard: FC<PricingCardProps> = ({
             <>
               <>
                 <div className="hawa-flex hawa-flex-row hawa-gap-2   hawa-items-end">
-                  {props.oldPrice && (
+                  {props.oldPrice && props.oldPrice > 0 && (
                     <span className="hawa-line-through hawa-opacity-70">
                       {props.oldPrice + " " + props.texts.currencyText}
                     </span>

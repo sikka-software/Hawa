@@ -31,10 +31,11 @@ const Template = (args: any, globals: any) => {
   setLocale(locale);
   const [curr, setCurr] = useState({ value: "sar", label: "SAR" });
   const [cycl, setCycl] = useState({ value: "monthly", label: "Monthly" });
-  
+
   return (
     <div dir={direction}>
       <ComparingPlans
+        direction={direction}
         showButtons
         currentCurrency={curr}
         currentCycle={cycl}
@@ -60,6 +61,7 @@ const Template = (args: any, globals: any) => {
               cycleText: "Month",
               subtitle: "For Everyone",
               title: "Free Plan",
+              soon: t("soon"),
             },
             features: generateFeaturesArray(3),
           },
@@ -71,6 +73,7 @@ const Template = (args: any, globals: any) => {
               cycleText: "month",
               subtitle: "For Beginners",
               title: "Intro Plan",
+              soon: t("soon"),
             },
             features: generateFeaturesArray(3),
           },
@@ -82,6 +85,7 @@ const Template = (args: any, globals: any) => {
               cycleText: "Month",
               subtitle: "For businesses",
               title: "Professional Plan",
+              soon: t("soon"),
             },
             features: generateFeaturesArray(3),
           },
