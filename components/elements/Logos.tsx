@@ -52,8 +52,6 @@ export const Logos = {
       viewBox="0 0 24 24"
       strokeLinecap="round"
       strokeLinejoin="round"
-      height="1em"
-      width="1em"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -68,8 +66,6 @@ export const Logos = {
       strokeWidth="2"
       viewBox="0 0 24 24"
       aria-hidden="true"
-      height="1em"
-      width="1em"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -219,8 +215,6 @@ export const Logos = {
   whatsapp: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="currentColor"
       {...props}
