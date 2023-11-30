@@ -89,6 +89,18 @@ const Template = (args: any, globals: any) => {
             },
             features: generateFeaturesArray(3),
           },
+          // {
+          //   price: 30,
+          //   texts: {
+          //     buttonText: "Upgrade",
+          //     currencyText: "sar",
+          //     cycleText: "Month",
+          //     subtitle: "For businesses",
+          //     title: "Professional Plan",
+          //     soon: t("soon"),
+          //   },
+          //   features: generateFeaturesArray(3),
+          // },
         ]}
       />
       <div className="hawa-h-screen"></div>

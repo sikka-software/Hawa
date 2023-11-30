@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.19.40",
+  "version": "0.19.41",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -114,7 +114,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "lucide-react": "^0.292.0",
+    "lucide-react": "^0.294.0",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",

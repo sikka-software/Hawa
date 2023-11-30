@@ -5,10 +5,27 @@ import { cva } from "class-variance-authority";
 import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
 
+const navigationMenuTriggerStyle = cva(
+  "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-gap-1 hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 "
+);
+
 type NavigationMenuRootProps = React.ComponentPropsWithoutRef<
   typeof NavigationMenuPrimitive.Root
 > & {
   viewportClassNames?: string;
+};
+
+type NavMenuItemTypes = {
+  icon?: React.ReactNode;
+  title: string;
+  subtitle?: string;
+};
+
+type NavigationMenuTypes = {
+  items: { trigger: any; content?: any; action?: any }[];
+  rootClassNames?: string;
+  viewportClassNames?: string;
+  direction?: DirectionType;
 };
 
 const NavigationMenuRoot = React.forwardRef<
@@ -28,8 +45,6 @@ const NavigationMenuRoot = React.forwardRef<
     <NavigationMenuViewport className={viewportClassNames} />
   </NavigationMenuPrimitive.Root>
 ));
-NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName;
-
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
@@ -43,14 +58,6 @@ const NavigationMenuList = React.forwardRef<
     {...props}
   />
 ));
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
-
-const NavigationMenuItem = NavigationMenuPrimitive.Item;
-
-const navigationMenuTriggerStyle = cva(
-  "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-gap-1 hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 "
-);
-
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
@@ -79,8 +86,6 @@ const NavigationMenuTrigger = React.forwardRef<
     </svg>
   </NavigationMenuPrimitive.Trigger>
 ));
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
-
 const NavigationMenuContent = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
@@ -97,20 +102,10 @@ const NavigationMenuContent = React.forwardRef<
     {...props}
   />
 ));
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
-
-export const NavigationMenuLink = NavigationMenuPrimitive.Link;
-
-type NavMenuItemTypes = {
-  icon?: React.ReactNode;
-  title: string;
-  subtitle?: string;
-};
-
-export const NavMenuItem: React.FC<
+const NavMenuItem: React.FC<
   NavMenuItemTypes & React.ComponentProps<typeof NavigationMenuPrimitive.Link>
 > = ({ icon, title, subtitle, ...linkProps }) => (
-  <NavigationMenuLink  {...linkProps}>
+  <NavigationMenuLink {...linkProps}>
     <div className="hawa-max-w-md hawa-rounded-inner hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
       {icon && icon}
       <div className="hawa-flex hawa-flex-col">
@@ -120,7 +115,6 @@ export const NavMenuItem: React.FC<
     </div>
   </NavigationMenuLink>
 );
-
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
@@ -145,7 +139,6 @@ const NavigationMenuViewport = React.forwardRef<
     />
   </div>
 ));
-
 const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
@@ -162,14 +155,7 @@ const NavigationMenuIndicator = React.forwardRef<
   </NavigationMenuPrimitive.Indicator>
 ));
 
-type NavigationMenuTypes = {
-  items: { trigger: any; content?: any; action?: any }[];
-  rootClassNames?: string;
-  viewportClassNames?: string;
-  direction?: DirectionType;
-};
-
-export const NavigationMenu: React.FC<NavigationMenuTypes> = ({
+const NavigationMenu: React.FC<NavigationMenuTypes> = ({
   viewportClassNames,
   ...props
 }) => {
@@ -210,20 +196,28 @@ export const NavigationMenu: React.FC<NavigationMenuTypes> = ({
   );
 };
 
+const NavigationMenuItem = NavigationMenuPrimitive.Item;
+const NavigationMenuLink = NavigationMenuPrimitive.Link;
+
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName;
 NavigationMenuIndicator.displayName =
   NavigationMenuPrimitive.Indicator.displayName;
 NavigationMenuViewport.displayName =
   NavigationMenuPrimitive.Viewport.displayName;
 
-// export {
-//   navigationMenuTriggerStyle,
-//   NavigationMenu,
-//   NavigationMenuRoot,
-//   NavigationMenuList,
-//   NavigationMenuItem,
-//   NavigationMenuContent,
-//   NavigationMenuTrigger,
-//   NavigationMenuLink,
-//   NavigationMenuIndicator,
-//   NavigationMenuViewport,
-// };
+export {
+  NavigationMenuLink,
+  NavigationMenuItem,
+  NavigationMenu,
+  NavigationMenuIndicator,
+  NavMenuItem,
+  NavigationMenuContent,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+  NavigationMenuRoot,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+};

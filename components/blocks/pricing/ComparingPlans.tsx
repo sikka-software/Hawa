@@ -91,7 +91,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 </span>
               </div>
               {/* hawa-text-gray-900 dark:hawa-text-white */}
-              <div className="hawa-flex hawa-items-baseline  ">
+              <div className=" hawa-flex hawa-items-baseline  ">
                 <>
                   <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
                     {plan.price}

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.19.41
+
+### Patch Changes
+
+- Minor cleanup
+
 ## 0.19.40
 
 ### Patch Changes
