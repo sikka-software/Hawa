@@ -91,7 +91,7 @@ const Template = (args: any, globals: any) => {
           {
             currentPlan: true,
             oldPrice: cycl.value === "annually" ? 10 : null,
-            price: 300,
+            price: 3000,
             // price: {
             //   sar: {
             //     monthly: 300,
@@ -121,22 +121,29 @@ const Template = (args: any, globals: any) => {
           {
             currentPlan: false,
             price: 900,
-            // price: {
-            //   sar: {
-            //     monthly: 300,
-            //     annually: 300 * 12,
-            //   },
-            //   usd: {
-            //     monthly: 300,
-            //     annually: 300 * 12,
-            //   },
-            // },
             texts: {
               buttonText: "Upgrade",
               currencyText: "sar",
               cycleText: "Month",
-              subtitle: "For businesses",
+              subtitle: "For small businesses",
               title: "Professional Plan",
+            },
+            features: [
+              { included: true, text: "Unlimited Menus" },
+              { included: true, text: "Unlimited Items" },
+              { included: false, text: "Custom Menus" },
+            ],
+          },
+          {
+            currentPlan: false,
+            price: 900,
+            noPrice: true,
+            texts: {
+              buttonText: "Upgrade",
+              currencyText: "sar",
+              cycleText: "Month",
+              subtitle: "For large businesses",
+              title: "Enterprise Plan",
             },
             features: [
               { included: true, text: "Unlimited Menus" },

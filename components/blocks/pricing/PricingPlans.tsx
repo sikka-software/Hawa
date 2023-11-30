@@ -47,7 +47,8 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
       </div>
 
       <div
-        className="hawa-flex hawa-flex-col hawa-gap-2 md:hawa-flex-row hawa-justify-between"
+        // className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2 md:hawa-flex-row hawa-justify-between"
+        className="hawa-inline-grid hawa-w-full hawa-grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] hawa-gap-4"
         {...cardsContainerProps}
       >
         {props.plans.map((plan: any, index) => {

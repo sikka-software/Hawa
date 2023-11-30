@@ -16,6 +16,7 @@ export type PricingCardProps = {
   endButton?: boolean;
   price: number;
   oldPrice?: number;
+  noPrice?: boolean;
   id?: string;
   discount?: string;
   onPlanClicked?: () => void;
@@ -59,15 +60,15 @@ export const PricingCard: FC<PricingCardProps> = ({
           className="hawa-bg-primary hawa-text-center hawa-text-primary-foreground hawa-p-2 hawa-border hawa-rounded-t hawa-absolute hawa-top-0  -hawa-left-[1px] -hawa-translate-y-full"
           style={{ width: "calc(100% + 2px)" }}
         >
-          {props.texts.recommended || "RECOMMENDED"}
+          {props.texts?.recommended || "RECOMMENDED"}
         </div>
       )}
 
       <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-h-full">
         <div className="hawa-text-md hawa-relative hawa-flex hawa-flex-col hawa-justify-between hawa-font-bold hawa-text-primary/70">
-          <span>{props.texts.title}</span>
+          <span>{props.texts?.title}</span>
           <h5 className="hawa-text-sm  hawa-font-normal hawa-text-primary/70">
-            {props.texts.subtitle}
+            {props.texts?.subtitle}
           </h5>
           {props.discount && (
             <span className="hawa-absolute hawa-end-0">
@@ -80,25 +81,33 @@ export const PricingCard: FC<PricingCardProps> = ({
             <Skeleton className="hawa-w-full hawa-max-w-[200px] hawa-h-[48px] hawa-p-0 " />
           ) : (
             <>
-              <>
-                <div className="hawa-flex hawa-flex-row hawa-gap-2   hawa-items-end">
-                  {props.oldPrice && props.oldPrice > 0 && (
-                    <span className="hawa-line-through hawa-opacity-70">
-                      {props.oldPrice + " " + props.texts.currencyText}
-                    </span>
-                  )}
-                  <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
-                    {props.price}
-                  </span>
+              {props.noPrice ? (
+                <div className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
+                  {props.texts?.priceless || "Contact Us"}
                 </div>
+              ) : (
+                <>
+                  <>
+                    <div className="hawa-flex hawa-flex-row hawa-gap-2   hawa-items-end">
+                      {props.oldPrice && props.oldPrice > 0 && (
+                        <span className="hawa-line-through hawa-opacity-70">
+                          {props.oldPrice + " " + props.texts?.currencyText}
+                        </span>
+                      )}
+                      <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
+                        {props.price}
+                      </span>
+                    </div>
 
-                <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
-                  {props.texts.currencyText}
-                </span>
-              </>
-              <span className="hawa-ml-1 hawa-text-xl hawa-whitespace-nowrap hawa-font-normal hawa-text-primary/70">
-                / {props.texts.cycleText}
-              </span>
+                    <span className="hawa-mx-1 hawa-text-sm hawa-font-semibold">
+                      {props.texts?.currencyText}
+                    </span>
+                  </>
+                  <span className="hawa-ml-1 hawa-text-xl hawa-whitespace-nowrap hawa-font-normal hawa-text-primary/70">
+                    / {props.texts?.cycleText}
+                  </span>
+                </>
+              )}
             </>
           )}
         </div>
@@ -174,7 +183,7 @@ export const PricingCard: FC<PricingCardProps> = ({
             disabled={currentPlan}
             className="hawa-w-full"
           >
-            {props.texts.buttonText}
+            {props.texts?.buttonText}
           </Button>
         </div>
       </div>

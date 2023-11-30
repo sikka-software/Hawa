@@ -34,9 +34,10 @@ export const Radio: FC<RadioTypes> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue);
   let activeTabStyle =
-    "hawa-inline-block hawa-py-2 hawa-px-4  hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary ";
+    "hawa-inline-block hawa-py-2 hawa-px-4  hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
   let inactiveTabStyle =
-    "hawa-inline-block hawa-py-2 hawa-px-4 hawa-w-full hawa-transition-all hover:hawa-bg-primary/10  hawa-bg-primary/5 dark:hover:hawa-text-white ";
+    "hawa-inline-block hawa-py-2 hawa-px-4 hawa-w-full hawa-transition-all hover:hawa-bg-muted hawa-bg-primary-foreground dark:hover:hawa-text-white";
+  // hawa-bg-primary/5
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row",
     vertical: "hawa-flex hawa-flex-col",

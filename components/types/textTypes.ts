@@ -6,6 +6,7 @@ export type PricingPlanTexts = {
   currencyText?: string;
   soon?: string;
   recommended?: string;
+  priceless?: string;
 };
 export type ThirdPartyAuthTextsTypes = {
   continueWithGoogle?: string;
