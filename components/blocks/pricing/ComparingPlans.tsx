@@ -110,7 +110,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </div>
 
       <ScrollArea
-        className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border"
+        className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border hawa-bg-background"
         dir={props.direction}
       >
         {uniqueFeatures.map((featureText, featureIndex) => {
