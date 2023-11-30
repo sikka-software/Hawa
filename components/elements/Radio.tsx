@@ -14,8 +14,9 @@ export type RadioOptionsTypes = {
 type RadioTypes = {
   orientation?: OrientationType;
   design?: "default" | "tabs" | "cards" | "bordered";
-  options: RadioOptionsTypes[];
   width?: "default" | "full" | "none";
+  size?: "default" | "lg" | "sm" | "xs";
+  options: RadioOptionsTypes[];
   onChangeTab?: any;
   defaultValue?: any;
   direction?: DirectionType;
@@ -27,6 +28,7 @@ type RadioTypes = {
 export const Radio: FC<RadioTypes> = ({
   design = "default",
   width = "default",
+  size = "default",
   orientation = "horizontal",
   labelProps,
   tabsContainerClassName,
@@ -34,13 +36,20 @@ export const Radio: FC<RadioTypes> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue);
   let activeTabStyle =
-    "hawa-inline-block hawa-py-2 hawa-px-4  hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
+    "hawa-inline-block hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
   let inactiveTabStyle =
-    "hawa-inline-block hawa-py-2 hawa-px-4 hawa-w-full hawa-transition-all hover:hawa-bg-muted hawa-bg-primary-foreground dark:hover:hawa-text-white";
+    "hawa-inline-block hawa-w-full hawa-transition-all hover:hawa-bg-muted hawa-bg-primary-foreground dark:hover:hawa-text-white";
   // hawa-bg-primary/5
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row",
     vertical: "hawa-flex hawa-flex-col",
+  };
+
+  let tabSizeStyle = {
+    default: "hawa-py-2 hawa-px-4 hawa-text-sm",
+    lg: "hawa-py-2 hawa-px-4",
+    sm: "hawa-p-1.5 hawa-text-xs",
+    xs: "hawa-p-1 hawa-text-[10px]",
   };
   let widthStyle = {
     none: "",
@@ -69,7 +78,7 @@ export const Radio: FC<RadioTypes> = ({
             props.options && props.options?.length > 2
               ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
               : "",
-            "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-text-sm hawa-font-medium",
+            "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium",
             orientationStyle[orientation],
             widthStyle[width],
             tabsContainerClassName
@@ -96,7 +105,7 @@ export const Radio: FC<RadioTypes> = ({
                   "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
                 orientation === "vertical" &&
                   "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
-
+                tabSizeStyle[size],
                 "hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
                 selectedOption === opt.value ? activeTabStyle : inactiveTabStyle
               )}
@@ -166,7 +175,7 @@ export const Radio: FC<RadioTypes> = ({
               <label
                 htmlFor={opt.value.toString()}
                 className={cn(
-                  "hawa-inline-flex hawa-h-full hawa-w-full  hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-gray-200 hawa-bg-white hawa-p-5 hawa-text-gray-500  peer-checked:hawa-border-blue-600 peer-checked:hawa-text-blue-600 dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-gray-400  dark:peer-checked:hawa-text-primary",
+                  "hawa-inline-flex hawa-h-full hawa-w-full  hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-gray-200 hawa-bg-white hawa-p-5 hawa-text-gray-500  peer-checked:hawa-border-primary peer-checked:hawa-text-primary dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-gray-400  dark:peer-checked:hawa-text-primary",
                   opt.disabled
                     ? "hawa-opacity-50"
                     : "hawa-cursor-pointer hover:hawa-bg-gray-100 hover:hawa-text-gray-600 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-gray-300"

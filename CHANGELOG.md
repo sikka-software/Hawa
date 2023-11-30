@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.19.40
+
+### Patch Changes
+
+- Added sizes to `Radio` tabs
+
 ## 0.19.39
 
 ### Patch Changes
