@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.20.2
+
+### Patch Changes
+
+- 0012941: Added `Separated` variant to `Accordion`
+
 ## 0.20.1
 
 ### Patch Changes
