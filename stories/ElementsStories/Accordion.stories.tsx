@@ -81,6 +81,33 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
 };
+export const SeparatedVariant: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    const accordionData = [
+      { trigger: "Another Question", content: "Here's another answer." },
+      { trigger: "Another Question", content: "Here's another answer." },
+      { trigger: "Another Question", content: "Here's another answer." },
+      { trigger: "Another Question", content: "Here's another answer." },
+      { trigger: "Another Question", content: "Here's another answer." },
+      { trigger: "Another Question", content: "Here's another answer." },
+    ];
+
+    return (
+      <div className="hawa-w-full hawa-max-w-md" dir={direction}>
+        <Accordion
+          design="separated"
+          items={accordionData}
+          type="single"
+          {...args}
+        />
+      </div>
+    );
+  },
+};
 export const CustomMade: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
@@ -90,7 +117,7 @@ export const CustomMade: Story = {
     return (
       <AccordionRoot type="single" collapsible className="w-full">
         <AccordionItem value={`item-99`}>
-          <AccordionTrigger>trigger </AccordionTrigger>
+          <AccordionTrigger>trigger</AccordionTrigger>
           <AccordionContent>content</AccordionContent>
         </AccordionItem>
         <AccordionItem value={`item-11`}>

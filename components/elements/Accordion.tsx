@@ -12,6 +12,7 @@ type AccordionProps = {
   itemClassNames?: string;
   triggerclassNames?: string;
   contentclassNames?: string;
+  design?: "default" | "separated";
 } & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
 const Accordion = React.forwardRef<
@@ -21,6 +22,7 @@ const Accordion = React.forwardRef<
   (
     {
       items,
+      design = "default",
       itemClassNames,
       triggerclassNames,
       contentclassNames,
@@ -30,43 +32,48 @@ const Accordion = React.forwardRef<
     ref
   ) => (
     <AccordionPrimitive.Root type={props.type} collapsible>
-      {items.map((item, index) => (
-        <AccordionItem
-          className={cn(itemClassNames, 'hawa-rounded')}
-          key={index}
-          value={`item-${index}`}
-        >
-          <AccordionTrigger
-            className={cn(
-              "hawa-transition-all",
-              {
-                "hawa-rounded-t": index === 0,
-                "data-[state=closed]:hawa-rounded-b":
-                  index === items.length - 1,
-              },
-              triggerclassNames
-            )}
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        {items.map((item, index) => (
+          <AccordionItem
+            className={cn(itemClassNames, "hawa-rounded")}
+            key={index}
+            value={`item-${index}`}
           >
-            {item.trigger}
-          </AccordionTrigger>
-          <AccordionContent
-            className={cn(
-              "hawa-transition-all  hawa-border",
-              {
-                "data-[state=open]:hawa-rounded-b":
-                  index === items.length - 1,
-              },
-              contentclassNames
-            )}
-          >
-            {item.content}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
+            <AccordionTrigger
+              className={cn(
+                "hawa-transition-all",
+                design === "separated"
+                  ? "hawa-rounded data-[state=open]:hawa-rounded-b-none"
+                  : {
+                      "hawa-rounded-t": index === 0,
+                      "data-[state=closed]:hawa-rounded-b":
+                        index === items.length - 1,
+                    },
+                triggerclassNames
+              )}
+            >
+              {item.trigger}
+            </AccordionTrigger>
+            <AccordionContent
+              className={cn(
+                "hawa-transition-all  hawa-border",
+                design === "separated"
+                  ? "hawa-rounded data-[state=open]:hawa-rounded-t-none"
+                  : {
+                      "data-[state=open]:hawa-rounded-b":
+                        index === items.length - 1,
+                    },
+                contentclassNames
+              )}
+            >
+              {item.content}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </div>
     </AccordionPrimitive.Root>
   )
 );
-Accordion.displayName = "Accordion";
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
@@ -74,7 +81,6 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item ref={ref} className={cn(className)} {...props} />
 ));
-AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
@@ -107,7 +113,6 @@ const AccordionTrigger = React.forwardRef<
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
@@ -124,9 +129,13 @@ const AccordionContent = React.forwardRef<
     <div className="hawa-bg-background hawa-p-4">{children}</div>
   </AccordionPrimitive.Content>
 ));
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 const AccordionRoot = AccordionPrimitive.Root;
+
+Accordion.displayName = "Accordion";
+AccordionItem.displayName = "AccordionItem";
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 export {
   Accordion,
