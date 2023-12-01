@@ -40,7 +40,7 @@ export const Default: Story = {
     const [isOpen, setIsOpen] = useState(false);
     const [side, setSide] = useState<any>("right");
     return (
-      <div dir={direction}>
+      <div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger
             asChild
@@ -55,14 +55,32 @@ export const Default: Story = {
               <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
             </div>
           </SheetTrigger>
-          <SheetContent {...args} side={side}>
+          <SheetContent {...args} side={side} >
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
               </SheetDescription>
+              <div>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+                ipsum saepe quaerat, voluptatem molestias hic porro sit fuga
+                beatae tempora est dolore quod alias cum debitis animi maxime
+                provident laboriosam!
+              </div>
+
             </SheetHeader>
+              {/* <div className="hawa-flex hawa-flex-col hawa-overflow-y-auto hawa-h-96 hawa-bg-red-300 hawa-h-">
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+                <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
+              </div> */}
           </SheetContent>
         </Sheet>
       </div>

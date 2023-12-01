@@ -69,7 +69,16 @@ const SheetContent = React.forwardRef<
       >
         {children}
         {!hideCloseButton && (
-          <SheetPrimitive.Close className="hawa-absolute hawa-right-4 hawa-top-4 hawa-rounded-sm hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-secondary">
+          <SheetPrimitive.Close
+            className={cn(
+              "hawa-absolute hawa-rounded-sm hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-secondary",
+              {
+                "hawa-right-4 hawa-top-4": side === "left" || side === "bottom",
+                "hawa-left-4 hawa-top-4": side === "right",
+                "hawa-right-4 hawa-bottom-4": side === "top",
+              }
+            )}
+          >
             <svg
               aria-label="Close Icon"
               aria-hidden="true"

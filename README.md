@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://hawa.style/docs">Documentation</a>
-  <!-- <a href="https://hawa.style/changelog">Changelog</a> | -->
+  <a href="https://hawa.style/docs">Documentation</a> - 
+  <a href="https://github.com/sikka-software/Hawa/blob/main/CHANGELOG.md">Changelog</a>
   <!-- <a href="https://hawa.style/roadmap">Roadmap</a> -->
 </p>
 
@@ -64,7 +64,6 @@ npm install @sikka/hawa
 
 </br>
 
-
 # Contributing
 
 To contribute, clone this github repository and run the development server
@@ -75,11 +74,15 @@ npm run storybook
 // To run the landing pages
 npm run dev
 ```
+
 To build the library to /dist
+
 ```
 npm run build-lib
 ```
+
 To generate /dist/index.css
+
 ```
 npm run build-css
 ```

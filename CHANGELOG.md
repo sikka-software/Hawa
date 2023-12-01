@@ -1,14 +1,20 @@
 # @sikka/hawa
 
+## 0.20.1
+
+### Patch Changes
+
+- Fixed close button in `Sheet`
+
 ## 0.20.0
 
 ### Minor Changes
 
-- - Added `ContactForm`
-  - Fixed `Textarea` placeholder text color
-  - Removed all shadows of `FeedbackForm` and `ContactForm` when `cardless` prop is true
-  - exporting `TextInputType`
-  - General cleanup
+- Added `ContactForm`
+- Fixed `Textarea` placeholder text color
+- Removed all shadows of `FeedbackForm` and `ContactForm` when `cardless` prop is true
+- exporting `TextInputType`
+- General cleanup
 
 ## 0.19.41
 
@@ -26,9 +32,9 @@
 
 ### Patch Changes
 
-- - Added background to `Radio`
-  - Fixed responsiveness of `PricingPlans`
-  - Added priceless option to `PricingCard`
+- Added background to `Radio`
+- Fixed responsiveness of `PricingPlans`
+- Added priceless option to `PricingCard`
 
 ## 0.19.38
 
