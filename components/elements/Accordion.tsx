@@ -32,7 +32,12 @@ const Accordion = React.forwardRef<
     ref
   ) => (
     <AccordionPrimitive.Root type={props.type} collapsible>
-      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      <div
+        className={cn("hawa-flex hawa-flex-col", {
+          "hawa-gap-4": design === "separated",
+          "hawa-gap-0": design === "default",
+        })}
+      >
         {items.map((item, index) => (
           <AccordionItem
             className={cn(itemClassNames, "hawa-rounded")}

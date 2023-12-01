@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.20.3
+
+### Patch Changes
+
+- - Updated storybook
+  - Fixed default design of `Accordion`
+
 ## 0.20.2
 
 ### Patch Changes
