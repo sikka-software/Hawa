@@ -6,6 +6,11 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "neoBrutalism";
 }
 
+type CardContentProps = {
+  headless?: boolean;
+  noPadding?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>;
+
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", clickable = false, ...props }, ref) => {
     let variantStyles = {
@@ -30,8 +35,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     );
   }
 );
-Card.displayName = "Card";
-
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -45,8 +48,6 @@ const CardHeader = React.forwardRef<
     {...props}
   />
 ));
-CardHeader.displayName = "CardHeader";
-
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
@@ -57,8 +58,6 @@ const CardTitle = React.forwardRef<
     {...props}
   />
 ));
-CardTitle.displayName = "CardTitle";
-
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
@@ -69,13 +68,6 @@ const CardDescription = React.forwardRef<
     {...props}
   />
 ));
-CardDescription.displayName = "CardDescription";
-
-type CardContentProps = {
-  headless?: boolean;
-  noPadding?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>;
-
 const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ headless, noPadding, className, ...props }, ref) => (
     <div
@@ -89,8 +81,6 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
     />
   )
 );
-CardContent.displayName = "CardContent";
-
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -101,13 +91,19 @@ const CardFooter = React.forwardRef<
     {...props}
   />
 ));
+
+CardDescription.displayName = "CardDescription";
+CardContent.displayName = "CardContent";
+CardHeader.displayName = "CardHeader";
 CardFooter.displayName = "CardFooter";
+CardTitle.displayName = "CardTitle";
+Card.displayName = "Card";
 
 export {
-  Card,
+  CardDescription,
+  CardContent,
   CardHeader,
   CardFooter,
   CardTitle,
-  CardDescription,
-  CardContent,
+  Card,
 };

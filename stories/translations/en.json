@@ -78,6 +78,8 @@
   "fullNameLabel": "Full Name",
   "fullNamePlaceholder": "Fulan AlFulani",
   "fullNameRequired": "Full Name is required",
+  "fullNameRequiredText": "Full name is required",
+
   "usernameLabel": "Username",
   "usernamePlaceholder": "Enter your username",
   "usernameRequired": "Username is required",
@@ -87,11 +89,13 @@
   "phoneRequiredText": "Phone is required",
   "phoneInvalid": "Phone is invalid",
   "phoneLabel": "Phone number",
+
   "passwordLabel": "Password",
   "passwordPlaceholder": "Enter password",
   "passwordRequiredText": "Password is required",
   "passwordTooShort": "Password is too short",
   "passwordsDontMatch": "Passwords don't match",
+
   "forgotPasswordText": "Forgot password?",
   "newUserText": "New user?",
   "registerText": "Register",
@@ -109,12 +113,23 @@
   "loginViaGoogleLabel": "Login with Google",
   "loginViaGithubLabel": "Login with Github",
   "loginViaTwitterLabel": "Login with Twitter",
+
   "registerViaGoogleLabel": "Continue with Google",
   "registerViaGithubLabel": "Continue with Github",
   "registerViaTwitterLabel": "Continue with Twitter",
+
   "expandSidebar": "Expand Sidebar",
   "collapseSidebar": "Collapse Sidebar",
-  "fullNameRequiredText": "Full name is required",
+
+  "namePlaceholder": "Fulan AlFulani",
+  "nameRequiredText": "Name is required",
+  "nameLabel": "Name",
+  
+  "messageInvalidText": "Message invalid",
+  "messageLabel": "Message",
+  "messagePlaceholder": "Enter your message here",
+  "messageRequiredText": "Message required",
+
   "passwordTooShortText": "Password too short",
   "subscribeToNewsletter": "Subscribe to newsletter?",
   "confirmPasswordLabel": "Confirm Password",

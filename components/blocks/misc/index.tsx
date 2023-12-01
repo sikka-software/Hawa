@@ -5,3 +5,4 @@ export * from "./LeadGenerator";
 export * from "./Announcement";
 export * from "./NotFound";
 export * from "./NoPermission";
+export * from "./ContactForm";

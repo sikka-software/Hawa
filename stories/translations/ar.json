@@ -110,13 +110,21 @@
   "registerViaGithubLabel": "التسجيل بواسطة Github",
   "registerViaTwitterLabel": "التسجيل بواسطة Twitter",
   "seconds": "ثانية",
-
+  "nameLabel": "الإسم",
+  "namePlaceholder": "فلان الفلاني",
+  "nameRequiredText": "الإسم مطلوب",
   "fullNameRequiredText": "الإسم الكامل مطلوب",
   "passwordTooShortText": "كلمة المرور قصيرة",
   "subscribeToNewsletter": "إشترك في النشرة الإخبارية",
   "confirmPasswordLabel": "تأكيد كلمة المرور",
   "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
   "confirmPasswordRequired": "تأكيد كلمة المرور مطلوب",
+
+  "messageInvalidText": "محتوى الرسالة قصير",
+  "messageLabel": "الرسالة",
+  "messagePlaceholder": "أكتب محتوى الرسالة هنا...",
+  "messageRequiredText": "محتوى الرسالة مطلوب",
+
   "confirm": "تأكيد",
   "didntGetCode": "لم تحصل على الرمز؟",
   "resendCode": "إعادة الإرسال",

@@ -55,6 +55,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
           ? "hawa-bg-transparent hawa-border-none hawa-shadow-none"
           : ""
       )}
+      style={props.cardless ? { boxShadow: "none" } : undefined}
     >
       <CardContent headless>
         <form

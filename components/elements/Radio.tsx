@@ -215,6 +215,7 @@ export const Radio: FC<RadioTypes> = ({
                     id={opt.value.toString()}
                     type="radio"
                     value={opt.value}
+                    // TODO: make this passable prop
                     name="default-radio"
                     onChange={() => {
                       setSelectedOption(opt.value);

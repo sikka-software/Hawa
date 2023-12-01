@@ -25,7 +25,7 @@ type ValidationTexts = {
   required?: string;
   invalid?: string;
 };
-type TextInputType = ValidationTexts & {
+export type TextInputType = ValidationTexts & {
   label?: string;
   placeholder?: string;
 };
