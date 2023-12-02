@@ -2,13 +2,14 @@ import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { cn } from "../util";
 
-type AccordionItem = {
+export type AccordionItemProps = {
   trigger: string;
   content: string;
+  disabled?: boolean;
 };
 
 type AccordionProps = {
-  items: AccordionItem[];
+  items: AccordionItemProps[];
   itemClassNames?: string;
   triggerclassNames?: string;
   contentclassNames?: string;
@@ -40,11 +41,13 @@ const Accordion = React.forwardRef<
       >
         {items.map((item, index) => (
           <AccordionItem
+            disabled={item.disabled || false}
             className={cn(itemClassNames, "hawa-rounded")}
             key={index}
             value={`item-${index}`}
           >
             <AccordionTrigger
+              disabled={item.disabled || false}
               className={cn(
                 "hawa-transition-all",
                 design === "separated"
@@ -60,6 +63,7 @@ const Accordion = React.forwardRef<
               {item.trigger}
             </AccordionTrigger>
             <AccordionContent
+              aria-disabled={item.disabled || false}
               className={cn(
                 "hawa-transition-all  hawa-border",
                 design === "separated"
@@ -95,7 +99,8 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "hawa-flex hawa-bg-muted/50  hawa-flex-1 hover:hawa-bg-muted  hawa-items-center hawa-justify-between hawa-p-4 hawa-font-medium hawa-transition-all  [&[data-state=open]>svg]:hawa-rotate-180",
+        "hawa-flex hawa-bg-muted/50  hawa-flex-1 hawa-items-center hawa-justify-between hawa-p-4 hawa-font-medium hawa-transition-all [&[data-state=open]>svg]:hawa-rotate-180",
+        props.disabled ? "hawa-bg-muted/30 hawa-text-muted-foreground/50" : "hover:hawa-bg-muted",
         className
       )}
       {...props}

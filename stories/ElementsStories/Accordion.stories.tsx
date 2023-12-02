@@ -5,6 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  AccordionItemProps,
 } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
@@ -27,54 +28,26 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof Accordion>;
-
+const accordionData: AccordionItemProps[] = [
+  { trigger: "Another Question", content: "Here's another answer." },
+  {
+    trigger: "Another Question",
+    content: "Here's another answer.",
+    disabled: true,
+  },
+  { trigger: "Another Question", content: "Here's another answer." },
+  { trigger: "Another Question", content: "Here's another answer." },
+  { trigger: "Another Question", content: "Here's another answer." },
+  { trigger: "Another Question", content: "Here's another answer." },
+];
 const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
 
-  // Usage
-  const accordionData = [
-    {
-      trigger: "Is it accessible?",
-      content: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      trigger: "Another Question?",
-      content: "Here's another answer.",
-    },
-    {
-      trigger: "Is it accessible?",
-      content: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      trigger: "Another Question?",
-      content: "Here's another answer.",
-    },
-  ];
-
   return (
     <div className="hawa-w-full hawa-max-w-md" dir={direction}>
       <Accordion items={accordionData} type="single" {...args} />
-      {/* 
-      <AccordionRoot type="single" collapsible className="w-full">
-        <AccordionItem
-          // className={itemClassNames}
-          key={99}
-          value={`item-99`}
-        >
-          <AccordionTrigger>trigger</AccordionTrigger>
-          <AccordionContent>content</AccordionContent>
-        </AccordionItem>
-        <AccordionItem
-          // className={itemClassNames}
-          key={99}
-          value={`item-99`}
-        >
-          <AccordionTrigger>trigger</AccordionTrigger>
-          <AccordionContent>content</AccordionContent>
-        </AccordionItem>
-      </AccordionRoot> */}
     </div>
   );
 };
@@ -86,15 +59,6 @@ export const SeparatedVariant: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-
-    const accordionData = [
-      { trigger: "Another Question", content: "Here's another answer." },
-      { trigger: "Another Question", content: "Here's another answer." },
-      { trigger: "Another Question", content: "Here's another answer." },
-      { trigger: "Another Question", content: "Here's another answer." },
-      { trigger: "Another Question", content: "Here's another answer." },
-      { trigger: "Another Question", content: "Here's another answer." },
-    ];
 
     return (
       <div className="hawa-w-full hawa-max-w-md" dir={direction}>

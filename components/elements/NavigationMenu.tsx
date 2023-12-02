@@ -9,20 +9,24 @@ const navigationMenuTriggerStyle = cva(
   "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-gap-1 hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 "
 );
 
+type StandardNavigationMenuItemProps = {
+  icon?: React.ReactNode;
+  title: string;
+  subtitle?: string;
+};
 type NavigationMenuRootProps = React.ComponentPropsWithoutRef<
   typeof NavigationMenuPrimitive.Root
 > & {
   viewportClassNames?: string;
 };
-
-type NavMenuItemTypes = {
-  icon?: React.ReactNode;
-  title: string;
-  subtitle?: string;
+type NavigationMenuItemProps = {
+  trigger: any;
+  content?: any;
+  action?: any;
+  path?: string;
 };
-
 type NavigationMenuTypes = {
-  items: { trigger: any; content?: any; action?: any }[];
+  items: NavigationMenuItemProps[];
   rootClassNames?: string;
   viewportClassNames?: string;
   triggerClassNames?: string;
@@ -68,7 +72,7 @@ const NavigationMenuTrigger = React.forwardRef<
     className={cn(navigationMenuTriggerStyle(), "hawa-group", className)}
     {...props}
   >
-    {children}{" "}
+    {children}
     <svg
       aria-label="Chevron Icon"
       xmlns="http://www.w3.org/2000/svg"
@@ -103,8 +107,9 @@ const NavigationMenuContent = React.forwardRef<
     {...props}
   />
 ));
-const NavMenuItem: React.FC<
-  NavMenuItemTypes & React.ComponentProps<typeof NavigationMenuPrimitive.Link>
+const StandardNavigationMenuItem: React.FC<
+  StandardNavigationMenuItemProps &
+    React.ComponentProps<typeof NavigationMenuPrimitive.Link>
 > = ({ icon, title, subtitle, ...linkProps }) => (
   <NavigationMenuLink {...linkProps}>
     <div className="hawa-max-w-md hawa-rounded-inner hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
@@ -181,6 +186,7 @@ const NavigationMenu: React.FC<NavigationMenuTypes> = ({
               </>
             ) : (
               <NavigationMenuLink
+                href={item.path}
                 onClick={() => {
                   if (item.action) {
                     item.action();
@@ -219,11 +225,11 @@ export {
   NavigationMenuItem,
   NavigationMenu,
   NavigationMenuIndicator,
-  NavMenuItem,
   NavigationMenuContent,
   NavigationMenuList,
   navigationMenuTriggerStyle,
   NavigationMenuRoot,
   NavigationMenuTrigger,
   NavigationMenuViewport,
+  StandardNavigationMenuItem,
 };

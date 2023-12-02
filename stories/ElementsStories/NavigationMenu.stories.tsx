@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  NavMenuItem,
+  StandardNavigationMenuItem,
   NavigationMenu,
   NavigationMenuLink,
 } from "../../components/elements";
@@ -37,19 +37,20 @@ export const Default: Story = {
         items={[
           {
             trigger: "item 1",
+            path: "https://xakher.com",
             content: (
               <div className="hawa-w-full hawa-p-2">
-                <NavMenuItem
+                <StandardNavigationMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
                 />
-                <NavMenuItem
+                <StandardNavigationMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
                 />
-                <NavMenuItem
+                <StandardNavigationMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
@@ -71,7 +72,9 @@ export const Default: Story = {
           },
           {
             trigger: "item 2",
-            action: () => console.log("clicked on item"),
+            path: "https://xakher.com",
+
+            // action: () => console.log("clicked on item"),
           },
           {
             trigger: "item 3",
@@ -170,7 +173,7 @@ export const RTL: Story = {
             trigger: "item 1",
             content: (
               <div className=" hawa-p-2  hawa-w-full">
-                <NavMenuItem
+                <StandardNavigationMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"

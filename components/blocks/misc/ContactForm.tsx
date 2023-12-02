@@ -14,6 +14,8 @@ type ContactFormData = {
 
 type ContactFormProps = {
   cardless?: boolean;
+  formId?: string;
+  formAutoComplete?: "on" | "off";
   size?: "sm" | "default";
   onSubmit?: (e: ContactFormData) => void;
   texts?: {
@@ -27,6 +29,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   cardless,
   size = "default",
   texts,
+  formId,
+  formAutoComplete,
   onSubmit,
 }) => {
   const contactFormSchema = z.object({
@@ -74,6 +78,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             }
           })}
           className="hawa-space-y-2"
+          id={formId}
+          autoComplete={formAutoComplete}
         >
           <div
             className={cn(

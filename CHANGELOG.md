@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.20.5
+
+### Patch Changes
+
+- Added `formId` to `ContactForm`
+- Added `formAutoComplete` to `ContactForm`
+- Added `disabled` to `AccordionTrigger`
+- Exported `AccordionItemProps` type
+
 ## 0.20.4
 
 ### Patch Changes
