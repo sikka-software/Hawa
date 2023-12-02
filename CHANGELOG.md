@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.20.4
+
+### Patch Changes
+
+- Exposed `triggerClassNames` in `NavigationMenu`
+
 ## 0.20.3
 
 ### Patch Changes

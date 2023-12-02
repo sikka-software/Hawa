@@ -25,6 +25,7 @@ type NavigationMenuTypes = {
   items: { trigger: any; content?: any; action?: any }[];
   rootClassNames?: string;
   viewportClassNames?: string;
+  triggerClassNames?: string;
   direction?: DirectionType;
 };
 
@@ -157,13 +158,15 @@ const NavigationMenuIndicator = React.forwardRef<
 
 const NavigationMenu: React.FC<NavigationMenuTypes> = ({
   viewportClassNames,
+  rootClassNames,
+  triggerClassNames,
   ...props
 }) => {
   return (
     <NavigationMenuRoot
       dir={props.direction}
       delayDuration={0}
-      className={props.rootClassNames}
+      className={rootClassNames}
       viewportClassNames={viewportClassNames}
     >
       <NavigationMenuList>
@@ -171,7 +174,9 @@ const NavigationMenu: React.FC<NavigationMenuTypes> = ({
           <NavigationMenuItem key={i}>
             {item.content ? (
               <>
-                <NavigationMenuTrigger>{item.trigger}</NavigationMenuTrigger>
+                <NavigationMenuTrigger className={cn(triggerClassNames)}>
+                  {item.trigger}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>{item.content}</NavigationMenuContent>
               </>
             ) : (
@@ -183,7 +188,8 @@ const NavigationMenu: React.FC<NavigationMenuTypes> = ({
                 }}
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "hawa-cursor-pointer hawa-select-none"
+                  "hawa-cursor-pointer hawa-select-none",
+                  triggerClassNames
                 )}
               >
                 {item.trigger}
