@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   font-family: "IBM Plex Sans Arabic", sans-serif;
-}
+} */
 
 @layer base {
   :root {

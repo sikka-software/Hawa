@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.20.6
+
+### Patch Changes
+
+- Removing IBM font references
+
 ## 0.20.5
 
 ### Patch Changes
