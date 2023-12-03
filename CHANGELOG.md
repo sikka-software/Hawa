@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.20.10
+
+### Patch Changes
+
+- Added `actionFirst` prop to `NavigationMenu` for router usage in next.js apps
+
 ## 0.20.8
 
 ### Patch Changes

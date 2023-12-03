@@ -30,6 +30,7 @@ type NavigationMenuTypes = {
   rootClassNames?: string;
   viewportClassNames?: string;
   triggerClassNames?: string;
+  actionFirst?: boolean;
   direction?: DirectionType;
 };
 
@@ -165,6 +166,7 @@ const NavigationMenu: React.FC<NavigationMenuTypes> = ({
   viewportClassNames,
   rootClassNames,
   triggerClassNames,
+  actionFirst,
   ...props
 }) => {
   return (
@@ -186,7 +188,7 @@ const NavigationMenu: React.FC<NavigationMenuTypes> = ({
               </>
             ) : (
               <NavigationMenuLink
-                href={item.path}
+                href={actionFirst ? undefined : item.path}
                 onClick={() => {
                   if (item.action) {
                     item.action();
