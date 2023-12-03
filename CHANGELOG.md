@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.20.7
+
+### Patch Changes
+
+- Updated dependencies
+- Fixed the way IBM Plex Sans Arabic is applied
+
 ## 0.20.6
 
 ### Patch Changes
@@ -25,8 +32,8 @@
 
 ### Patch Changes
 
-- - Updated storybook
-  - Fixed default design of `Accordion`
+- Updated storybook
+- Fixed default design of `Accordion`
 
 ## 0.20.2
 

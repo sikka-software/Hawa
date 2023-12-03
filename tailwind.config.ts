@@ -12,7 +12,6 @@ const config: Config = {
   prefix: "hawa-",
   darkMode: "class",
   theme: {
-    // fontFamily: { plex: ["IBM Plex Sans Arabic"] },
     container: {
       center: true,
       padding: "2rem",
