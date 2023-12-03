@@ -50,9 +50,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
+
+  const handleFormSubmit = (data: ContactFormData) => {
+    if (onSubmit) {
+      onSubmit(data);
+      reset(); // Reset the form fields after submission
+    } else {
+      console.log("Form is submitted but onSubmit prop is missing");
+    }
+  };
 
   let sizeStyle = {
     sm: "hawa-max-w-sm",
@@ -70,13 +80,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       <CardContent headless>
         <form
           noValidate
-          onSubmit={handleSubmit((e) => {
-            if (onSubmit) {
-              return onSubmit(e);
-            } else {
-              console.log("Form is submitted but onSubmit prop is missing");
-            }
-          })}
+          onSubmit={handleSubmit(handleFormSubmit)}
           className="hawa-space-y-2"
           id={formId}
           autoComplete={formAutoComplete}
