@@ -36,15 +36,18 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const contactFormSchema = z.object({
     name: z
       .string({ required_error: texts?.name.required })
-      .min(1, texts?.name.required),
+      .min(1, texts?.name.required)
+      .default(""),
     email: z
       .string({ required_error: texts?.email?.required })
       .min(1, { message: texts?.email?.required })
-      .email({ message: texts?.email?.invalid }),
+      .email({ message: texts?.email?.invalid })
+      .default(""),
 
     message: z
       .string({ required_error: texts?.message.required })
-      .min(10, texts?.message.invalid),
+      .min(10, texts?.message.invalid)
+      .default(""),
   });
   const {
     control,
@@ -53,6 +56,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
   });
 
   const handleFormSubmit = (data: ContactFormData) => {
@@ -101,9 +109,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 <Input
                   label={texts?.name.label}
                   id={texts?.name.label}
-                  placeholder={texts?.name.placeholder}
-                  type="text"
                   {...field}
+                  placeholder={texts?.name.placeholder}
                   helperText={errors.name?.message}
                 />
               )}
@@ -113,7 +120,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               name="email"
               render={({ field }) => (
                 <Input
-                  type="text"
                   label={texts?.email.label}
                   id={texts?.email.label}
                   {...field}
