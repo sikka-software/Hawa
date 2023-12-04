@@ -169,7 +169,7 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
+      "hawa-relative hawa-flex hawa-cursor-pointer hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
       className
     )}
     {...props}
@@ -496,13 +496,7 @@ interface DropdownMenuRadioProps {
 const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
   return (
     <DropdownMenuRoot>
-      <DropdownMenuTrigger asChild>
-        {/* <div onClick={() => setShowPopup(!showPopup)}>
-          {inputLang === "ar" ? <SA /> : <USA />}
-        </div> */}
-
-        {props.trigger}
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{props.trigger}</DropdownMenuTrigger>
       <DropdownMenuContent align={props.align} side={props.side}>
         {props.label && (
           <>
