@@ -88,8 +88,10 @@ export const CustomMade: Story = {
     return (
       <AccordionRoot type="single" collapsible className="w-full">
         <AccordionItem value={`item-99`}>
-          <AccordionTrigger>trigger</AccordionTrigger>
-          <AccordionContent>content</AccordionContent>
+          <AccordionTrigger unstyled hideArrow>
+            Unstyled Accordion (Click me)
+          </AccordionTrigger>
+          <AccordionContent unstyled>content</AccordionContent>
         </AccordionItem>
         <AccordionItem value={`item-11`}>
           <AccordionTrigger>trigger</AccordionTrigger>
