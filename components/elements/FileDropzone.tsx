@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { Alert } from "./Alert";
+
 import clsx from "clsx";
+
+import { Alert } from "./Alert";
 import { Button } from "./Button";
 
 type FileDropzoneTypes = {
@@ -53,7 +55,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
   maxSize,
   label,
   termsLink,
-  privacyLink,
+  privacyLink
 }) => {
   const [cmp, setCmp] = useState(0);
   const [max, setMax] = useState<any>(0);
@@ -63,7 +65,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
     getInputProps,
     fileRejections,
     acceptedFiles,
-    isDragActive,
+    isDragActive
   } = useDropzone({
     multiple: true,
     accept: accept,
@@ -73,11 +75,11 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       setFiles(
         acceptedFiles.map((file: any, index: any) =>
           Object.assign(file, {
-            preview: URL.createObjectURL(file),
+            preview: URL.createObjectURL(file)
           })
         )
       );
-    },
+    }
   });
   useEffect(
     () => () => {
@@ -192,7 +194,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
           backgroundImage: `url(${file.preview})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          border: "1px solid black",
+          border: "1px solid black"
         }}
         className="hawa-rounded"
         key={file.name}
@@ -243,10 +245,10 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
               ? texts.clickHereToUpload()
               : texts.clickHereToUpload}
           </div>
-          <div className="hawa-pt-2 hawa-text-center hawa-text-xs hawa-select-none">
+          <div className="hawa-select-none hawa-pt-2 hawa-text-center hawa-text-xs">
             {texts.acceptedFileTypes} {accept.split(",")}
           </div>
-          <div className="hawa-pb-2 hawa-pt-1 hawa-text-center hawa-text-xs hawa-select-none">
+          <div className="hawa-select-none hawa-pb-2 hawa-pt-1 hawa-text-center hawa-text-xs">
             {texts.maxFileSize} {max}
           </div>
         </div>

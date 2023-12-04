@@ -1,8 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Button, Card, CardContent, Alert, PinInput } from "../../elements";
+
+import { Button, Card, CardContent, Alert, PinInput } from "@elements/index";
 
 type TConfirmation = {
   texts?: {
@@ -30,11 +32,11 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
   const formSchema = z.object({
     otp_code: z
       .string({ required_error: props.texts?.codeRequiredText })
-      .min(6, { message: props.texts?.codeTooShort }),
+      .min(6, { message: props.texts?.codeTooShort })
   });
 
   const { handleSubmit, control, formState, setValue } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
   const [resendTimer, setResendTimer] = useState<number | null>(null);
   const [remainingTime, setRemainingTime] = useState(0);

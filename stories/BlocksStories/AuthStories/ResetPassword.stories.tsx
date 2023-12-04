@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ResetPasswordForm } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { ResetPasswordForm } from "@blocks/auth";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -13,10 +15,10 @@ const meta = {
           <h1>{"<ResetPasswordForm/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof ResetPasswordForm>;
 
 export default meta;
@@ -38,12 +40,12 @@ const Template = (args: any, globals: any) => {
             label: t("emailLabel"),
             placeholder: t("emailPlaceholder"),
             required: t("emailRequiredText"),
-            invalid: t("emailInvalidText"),
+            invalid: t("emailInvalidText")
           },
           emailSentText: "The reset password link was sent to your email",
           resetPassword: "Reset Password",
           registerText: "Register",
-          dontHaveAccount: "Don't have an account? ",
+          dontHaveAccount: "Don't have an account? "
         }}
       />
     </div>
@@ -52,10 +54,10 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    sent: false,
+    sent: false
   },
   argTypes: {
     handleResetPassword: { action: "handleResetPassword" },
-    handleRouteToRegister: { action: "handleRouteToRegister" },
-  },
+    handleRouteToRegister: { action: "handleRouteToRegister" }
+  }
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+
+import { CheckMark, EyeIcon, HiddenEyeIcon, UncheckMark } from "../icons";
 import { Input } from "./Input";
 import { Popover } from "./Popover";
-import { CheckMark, EyeIcon, HiddenEyeIcon, UncheckMark } from "../icons";
 
 type PasswordInputIndicatorProps = {
   strength?: any;
@@ -15,7 +16,7 @@ export const PasswordStrengthIndicator: React.FC<
     "weak",
     "medium",
     "strong",
-    "very-strong",
+    "very-strong"
   ];
   const strengthColors: any = {
     none: "hawa-bg-red-700",
@@ -23,7 +24,7 @@ export const PasswordStrengthIndicator: React.FC<
     weak: "hawa-bg-red-500",
     medium: "hawa-bg-yellow-500",
     strong: "hawa-bg-green-400",
-    "very-strong": "hawa-bg-green-600",
+    "very-strong": "hawa-bg-green-600"
   };
   const currentStrengthLevel = strengthLevels[strength];
   const width = {
@@ -32,11 +33,11 @@ export const PasswordStrengthIndicator: React.FC<
     weak: "40%",
     medium: "60%",
     strong: "80%",
-    "very-strong": "100%",
+    "very-strong": "100%"
   }[currentStrengthLevel];
 
   return (
-    <div className="hawa-w-full hawa-h-2 hawa-mt-0.5 hawa-rounded hawa-bg-gray-200">
+    <div className="hawa-mt-0.5 hawa-h-2 hawa-w-full hawa-rounded hawa-bg-gray-200">
       <div
         className={`${strengthColors[currentStrengthLevel]} hawa-h-full hawa-rounded hawa-transition-all hawa-duration-300`}
         style={{ width }}

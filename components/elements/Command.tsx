@@ -1,8 +1,10 @@
 import * as React from "react";
+
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
-import { Dialog, DialogContent } from "./Dialog";
+
 import { cn } from "../util";
+import { Dialog, DialogContent } from "./Dialog";
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -52,7 +54,7 @@ const CommandInput = React.forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="hawa-mr-2 hawa-icon hawa-shrink-0 hawa-opacity-50"
+      className="hawa-icon hawa-mr-2 hawa-shrink-0 hawa-opacity-50"
     >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />
@@ -168,5 +170,5 @@ export {
   CommandGroup,
   CommandItem,
   CommandShortcut,
-  CommandSeparator,
+  CommandSeparator
 };

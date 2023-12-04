@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../../translations/i18n";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { NewPasswordForm } from "../../../components";
+import { NewPasswordForm } from "@blocks/auth";
+
+import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/New Password Form",
@@ -14,10 +15,10 @@ const meta = {
           <h1>{"<NewPasswordForm/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof NewPasswordForm>;
 
 export default meta;
@@ -38,16 +39,16 @@ const Template = (args: any, globals: any) => {
             label: t("passwordLabel"),
             placeholder: t("passwordPlaceholder"),
             required: t("passwordRequiredText"),
-            tooShort: t("passwordTooShortText"),
+            tooShort: t("passwordTooShortText")
           },
           confirm: {
             label: t("confirmPasswordLabel"),
             placeholder: t("confirmPasswordPlaceholder"),
             required: t("confirmPasswordRequired"),
-            dontMatch: t("passwordsDontMatch"),
+            dontMatch: t("passwordsDontMatch")
           },
           passwordChanged:
-            "Your password has been changed, you'll be redirected to sign in page",
+            "Your password has been changed, you'll be redirected to sign in page"
         }}
       />
     </div>
@@ -56,9 +57,9 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    passwordChanged: false,
+    passwordChanged: false
   },
   argTypes: {
-    handleNewPassword: { action: "handleNewPassword" },
-  },
+    handleNewPassword: { action: "handleNewPassword" }
+  }
 };

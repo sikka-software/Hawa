@@ -1,9 +1,10 @@
 import * as React from "react";
+
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 
-import { cn } from "../util";
 import { DirectionType } from "../types/commonTypes";
+import { cn } from "../util";
 
 const navigationMenuTriggerStyle = cva(
   "hawa-group hawa-inline-flex hawa-h-10 hawa-w-max hawa-items-center hawa-gap-1 hawa-justify-center hawa-rounded-md hawa-bg-background hawa-px-4 hawa-py-2 hawa-text-sm hawa-font-medium hawa-transition-colors hover:hawa-bg-accent hover:hawa-text-accent-foreground focus:hawa-bg-accent focus:hawa-text-accent-foreground focus:hawa-outline-none disabled:hawa-pointer-events-none disabled:hawa-opacity-50 data-[active]:hawa-bg-accent/50 "
@@ -86,7 +87,7 @@ const NavigationMenuTrigger = React.forwardRef<
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="hawa-relative hawa-top-[1px] hawa-icon hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
+      className="hawa-icon hawa-relative hawa-top-[1px] hawa-transition hawa-duration-200 group-data-[state=open]:hawa-rotate-180"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
@@ -99,7 +100,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "hawa-absolute  hawa-w-full hawa-rounded hawa-left-0 hawa-top-0 ",
+      "hawa-absolute  hawa-left-0 hawa-top-0 hawa-w-full hawa-rounded ",
       // "md:hawa-absolute md:hawa-w-auto  hawa-left-0 hawa-top-0 ",
       //   animation
       "data-[motion^=from-]:hawa-animate-in data-[motion^=to-]:hawa-animate-out data-[motion^=from-]:hawa-fade-in data-[motion^=to-]:hawa-fade-out data-[motion=from-end]:hawa-slide-in-from-right-52 data-[motion=from-start]:hawa-slide-in-from-left-52 data-[motion=to-end]:hawa-slide-out-to-right-52 data-[motion=to-start]:hawa-slide-out-to-left-52",
@@ -113,10 +114,10 @@ const StandardNavigationMenuItem: React.FC<
     React.ComponentProps<typeof NavigationMenuPrimitive.Link>
 > = ({ icon, title, subtitle, ...linkProps }) => (
   <NavigationMenuLink {...linkProps}>
-    <div className="hawa-max-w-md hawa-rounded-inner hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+    <div className="hawa-flex hawa-max-w-md hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-rounded-inner hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
       {icon && icon}
       <div className="hawa-flex hawa-flex-col">
-        <h1 className="hawa-font-bold hawa-text-xl">{title}</h1>
+        <h1 className="hawa-text-xl hawa-font-bold">{title}</h1>
         <p className="hawa-text-sm">{subtitle}</p>
       </div>
     </div>
@@ -128,7 +129,7 @@ const NavigationMenuViewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     className={cn(
-      "hawa-absolute hawa-w-full hawa-top-full hawa-flex hawa-justify-center"
+      "hawa-absolute hawa-top-full hawa-flex hawa-w-full hawa-justify-center"
     )}
   >
     <NavigationMenuPrimitive.Viewport
@@ -139,7 +140,7 @@ const NavigationMenuViewport = React.forwardRef<
         className
       )}
       style={{
-        height: "calc(var(--radix-navigation-menu-viewport-height) + 1px)",
+        height: "calc(var(--radix-navigation-menu-viewport-height) + 1px)"
       }}
       ref={ref}
       {...props}
@@ -233,5 +234,5 @@ export {
   NavigationMenuRoot,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-  StandardNavigationMenuItem,
+  StandardNavigationMenuItem
 };

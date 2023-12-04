@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+
 import { useIsomorphicEffect } from "../hooks";
+
 // import { useIsomorphicEffect } from '@mantine/hooks';
 export type Direction = "ltr" | "rtl";
 
@@ -12,7 +14,7 @@ export interface DirectionContextValue {
 export const DirectionContext = createContext<DirectionContextValue>({
   dir: "ltr",
   toggleDirection: () => {},
-  setDirection: () => {},
+  setDirection: () => {}
 });
 
 export function useDirection() {
@@ -33,7 +35,7 @@ export interface DirectionProviderProps {
 export function DirectionProvider({
   children,
   initialDirection = "ltr",
-  detectDirection = true,
+  detectDirection = true
 }: DirectionProviderProps) {
   const [dir, setDir] = useState<Direction>(initialDirection);
 

@@ -1,9 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
+
+import { Highlight, themes } from "prism-react-renderer";
+
+import { useClipboard } from "../hooks/useClipboard";
+import { cn } from "../util";
 import { Button } from "./Button";
 import { Tooltip } from "./Tooltip";
-import { cn } from "../util";
-import { useClipboard } from "../hooks/useClipboard";
-import { Highlight, themes } from "prism-react-renderer";
 
 type CodeBlockTypes = {
   /** Specifies the programming language for syntax highlighting.*/
@@ -40,7 +42,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     full: "hawa-w-full",
     md: "hawa-w-full hawa-max-w-md",
     sm: "hawa-w-full hawa-max-w-sm",
-    xs: "hawa-w-full hawa-max-w-xs",
+    xs: "hawa-w-full hawa-max-w-xs"
   };
 
   return (
@@ -54,7 +56,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {fileName && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  dark:hawa-bg-muted hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-text-foreground hawa-font-mono",
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground dark:hawa-bg-muted",
             fileName && tabs
               ? "hawa-bg-gray-300 dark:hawa-bg-muted/50"
               : "hawa-bg-gray-200"
@@ -72,7 +74,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {tabs && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 dark:hawa-bg-muted  hawa-p-2 hawa-pb-0 hawa-text-foreground hawa-font-mono",
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 hawa-p-2  hawa-pb-0 hawa-font-mono hawa-text-foreground dark:hawa-bg-muted",
             tabs && fileName && "hawa-rounded-t-none"
           )}
         >
@@ -88,7 +90,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               <div
                 onClick={() => setSelectedTab(i)}
                 className={cn(
-                  "hawa-mb-1 hawa-transition-all hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center  hawa-text-[1rem] hover:hawa-bg-muted-foreground/20"
+                  "hawa-mb-1 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center hawa-text-[1rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20"
                 )}
               >
                 {tab.title}
@@ -100,7 +102,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 
       <div
         className={cn(
-          "hawa-flex hawa-w-full hawa-flex-row hawa-border hawa-items-start hawa-justify-between hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
+          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
           tabs || fileName
             ? "hawa-rounded-b hawa-rounded-t-none"
             : "hawa-rounded"
@@ -112,7 +114,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           language={language}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-font-mono">
+            <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-font-mono hawa-text-foreground">
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   {props.lineNumbers && (
@@ -142,7 +144,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             side="left"
             content={<div>Copied!</div>}
             triggerProps={{
-              asChild: true,
+              asChild: true
             }}
           >
             <Button
@@ -151,7 +153,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
                 clipboard.copy(tabs ? tabs[selectedTab].code : code)
               }
               variant="outline"
-              className="hawa-opacity-50 sm:hawa-opacity-100 hawa-text-foreground"
+              className="hawa-text-foreground hawa-opacity-50 sm:hawa-opacity-100"
             >
               <svg
                 aria-label="Copy Icon"

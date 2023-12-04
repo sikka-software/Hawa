@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { FeedbackForm } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../../translations/i18n";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { FeedbackForm } from "@blocks/feedback";
+
 import { TranslationTable } from "../../../sharedUI/docsUI";
+import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Form",
@@ -20,40 +22,40 @@ const meta = {
               {
                 key: "requestType",
                 description: "Label for the request type select input",
-                default: "Request Type",
+                default: "Request Type"
               },
               {
                 key: "requestTypeRequired",
                 description: "Error text if request type is not selected",
-                default: "Request type is required",
+                default: "Request type is required"
               },
               {
                 key: "description",
                 description: "Label for the description textarea input",
-                default: "Description",
+                default: "Description"
               },
               {
                 key: "descriptionRequired",
                 description: "Error text if description is not provided",
-                default: "Description is required",
+                default: "Description is required"
               },
               {
                 key: "descriptionTooShort",
                 description: "Error text if description text is too short",
-                default: "Description is too short",
+                default: "Description is too short"
               },
               {
                 key: "submit",
                 description: "Text for the submit button",
-                default: "Submit",
-              },
+                default: "Submit"
+              }
             ]}
           />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof FeedbackForm>;
 
 export default meta;
@@ -71,15 +73,15 @@ const Template = (args: any, globals: any) => {
           description: {
             label: t("description"),
             tooShort: t("descriptionTooShort"),
-            required: t("descriptionRequired"),
+            required: t("descriptionRequired")
           },
           requestType: {
             label: t("requestType"),
             required: t("requestTypeRequired"),
             placeholder: t("requestTypePlaceholder"),
-            noOptions: t("noOptions"),
+            noOptions: t("noOptions")
           },
-          submit: t("submit"),
+          submit: t("submit")
         }}
         {...args}
       />
@@ -89,31 +91,31 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   argTypes: {
-    onSubmit: { action: "onSubmit" },
+    onSubmit: { action: "onSubmit" }
   },
   args: {
     cardless: false,
     requestTypes: [
       {
         label: "Custom Type",
-        value: "custom-type",
+        value: "custom-type"
       },
       {
         label: "Bug",
-        value: "bug",
+        value: "bug"
       },
       {
         label: "Feature",
-        value: "feature",
+        value: "feature"
       },
       {
         label: "Complain",
-        value: "complain",
+        value: "complain"
       },
       {
         label: "Support",
-        value: "support",
-      },
-    ],
-  },
+        value: "support"
+      }
+    ]
+  }
 };

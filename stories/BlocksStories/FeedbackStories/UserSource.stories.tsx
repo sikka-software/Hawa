@@ -1,6 +1,8 @@
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserReferralSource, FeedbackRating } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { UserReferralSource } from "@blocks/feedback";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -14,10 +16,10 @@ const meta = {
           <h1>{"<UserReferralSource/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof UserReferralSource>;
 
 export default meta;
@@ -32,7 +34,7 @@ export const UserSource: Story = {
         { label: "Research", value: "research" },
         { label: "TikTok", value: "tiktok" },
         { label: "Advertisement", value: "ad" },
-        { label: "Twitter", value: "twitter" },
+        { label: "Twitter", value: "twitter" }
       ]}
       onSubmitForm={args.onSubmitForm}
     />
@@ -41,12 +43,12 @@ export const UserSource: Story = {
     question: "How did you hear about us?",
     texts: {
       pleaseSelectOption: "Please select an option",
-      textTooShort: "Please add more details",
-    },
+      textTooShort: "Please add more details"
+    }
   },
   argTypes: {
     onSubmitForm: {
-      action: "onSubmitForm",
-    },
-  },
+      action: "onSubmitForm"
+    }
+  }
 };

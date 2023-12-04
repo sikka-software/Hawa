@@ -1,14 +1,16 @@
 import React, { FC } from "react";
+
 import { DirectionType } from "@/components/types/commonTypes";
+import { PlanFeature } from "@/components/types/pricingTypes";
+import { PricingPlanTexts } from "@/components/types/textTypes";
+
 import { cn } from "../../util";
 import { Button } from "../Button";
 import { Card } from "../Card";
 import { Chip } from "../Chip";
+import { Separator } from "../Separator";
 import { Skeleton } from "../Skeleton";
 import { Tooltip } from "../Tooltip";
-import { Separator } from "../Separator";
-import { PlanFeature } from "@/components/types/pricingTypes";
-import { PricingPlanTexts } from "@/components/types/textTypes";
 
 export type PricingCardProps = {
   direction?: DirectionType;
@@ -41,30 +43,30 @@ export const PricingCard: FC<PricingCardProps> = ({
     medium:
       "hawa-w-full hawa-rounded hawa-min-w-fit hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
     large:
-      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
+      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background "
   };
   return (
     <Card
       dir={direction}
       className={cn(
         currentPlan
-          ? "hawa-border-primary dark:hawa-border-primary/70 hawa-border-2 "
+          ? "hawa-border-2 hawa-border-primary dark:hawa-border-primary/70 "
           : "hawa-border",
         cardSizes[size],
-        "hawa-flex hawa-gap-4  hawa-p-4 hawa-justify-between hawa-flex-col hawa-relative",
+        "hawa-relative hawa-flex  hawa-flex-col hawa-justify-between hawa-gap-4 hawa-p-4",
         recommended ? "hawa-rounded hawa-rounded-t-none" : "hawa-rounded"
       )}
     >
       {recommended && (
         <div
-          className="hawa-bg-primary hawa-text-center hawa-text-primary-foreground hawa-p-2 hawa-border hawa-rounded-t hawa-absolute hawa-top-0  -hawa-left-[1px] -hawa-translate-y-full"
+          className="hawa-absolute -hawa-left-[1px] hawa-top-0 -hawa-translate-y-full hawa-rounded-t hawa-border hawa-bg-primary hawa-p-2  hawa-text-center hawa-text-primary-foreground"
           style={{ width: "calc(100% + 2px)" }}
         >
           {props.texts?.recommended || "RECOMMENDED"}
         </div>
       )}
 
-      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-h-full">
+      <div className="hawa-flex hawa-h-full hawa-flex-col hawa-gap-4">
         <div className="hawa-text-md hawa-relative hawa-flex hawa-flex-col hawa-justify-between hawa-font-bold hawa-text-primary/70">
           <span>{props.texts?.title}</span>
           <h5 className="hawa-text-sm  hawa-font-normal hawa-text-primary/70">
@@ -76,9 +78,9 @@ export const PricingCard: FC<PricingCardProps> = ({
             </span>
           )}
         </div>
-        <div className=" hawa-text-primary hawa-flex  hawa-items-baseline">
+        <div className=" hawa-flex hawa-items-baseline  hawa-text-primary">
           {props.isLoading ? (
-            <Skeleton className="hawa-w-full hawa-max-w-[200px] hawa-h-[48px] hawa-p-0 " />
+            <Skeleton className="hawa-h-[48px] hawa-w-full hawa-max-w-[200px] hawa-p-0 " />
           ) : (
             <>
               {props.noPrice ? (
@@ -88,7 +90,7 @@ export const PricingCard: FC<PricingCardProps> = ({
               ) : (
                 <>
                   <>
-                    <div className="hawa-flex hawa-flex-row hawa-gap-2   hawa-items-end">
+                    <div className="hawa-flex hawa-flex-row hawa-items-end   hawa-gap-2">
                       {props.oldPrice && props.oldPrice > 0 && (
                         <span className="hawa-line-through hawa-opacity-70">
                           {props.oldPrice + " " + props.texts?.currencyText}
@@ -103,7 +105,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                       {props.texts?.currencyText}
                     </span>
                   </>
-                  <span className="hawa-ml-1 hawa-text-xl hawa-whitespace-nowrap hawa-font-normal hawa-text-primary/70">
+                  <span className="hawa-ml-1 hawa-whitespace-nowrap hawa-text-xl hawa-font-normal hawa-text-primary/70">
                     / {props.texts?.cycleText}
                   </span>
                 </>
@@ -114,7 +116,7 @@ export const PricingCard: FC<PricingCardProps> = ({
         {endButton && <Separator />}
         <div
           className={cn(
-            "hawa-flex hawa-gap-4 hawa-justify-between hawa-h-full",
+            "hawa-flex hawa-h-full hawa-justify-between hawa-gap-4",
             endButton ? "hawa-flex-col" : "hawa-flex-col-reverse"
           )}
         >
@@ -145,10 +147,10 @@ export const PricingCard: FC<PricingCardProps> = ({
                           ></path>
                         </svg>
                       ) : (
-                        <div className="hawa-w-4 hawa-h-4 hawa-rounded-full hawa-bg-primary/10 hawa-m-2 hawa-mx-2.5"></div>
+                        <div className="hawa-m-2 hawa-mx-2.5 hawa-h-4 hawa-w-4 hawa-rounded-full hawa-bg-primary/10"></div>
                       )}
 
-                      <span className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-2 hawa-text-start hawa-whitespace-nowrap hawa-font-normal hawa-leading-tight hawa-text-primary/70 ">
+                      <span className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-text-start hawa-font-normal hawa-leading-tight hawa-text-primary/70 ">
                         {feature.text}{" "}
                         {feature.soon && feature.included && (
                           <Chip label="soon" color="oceanic" size="small" />
@@ -159,7 +161,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                       <Tooltip content={feature.hint} side={feature.hintSide}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="hawa-w-[14px] hawa-h-[14px] hawa-cursor-help"
+                          className="hawa-h-[14px] hawa-w-[14px] hawa-cursor-help"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"

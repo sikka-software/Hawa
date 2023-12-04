@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { cn } from "../util";
+
 import { DirectionType } from "../types/commonTypes";
+import { cn } from "../util";
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -117,7 +119,7 @@ const DropdownMenuItem = React.forwardRef<
           <DropdownMenuShortcut>{props.shortcut}</DropdownMenuShortcut>
         )}
         {!props.end && badged && (
-          <div className="hawa-h-3 hawa-w-3 hawa-bg-red-500 hawa-rounded-full" />
+          <div className="hawa-h-3 hawa-w-3 hawa-rounded-full hawa-bg-red-500" />
         )}
       </DropdownMenuPrimitive.Item>
     </a>
@@ -315,17 +317,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   width = "default",
   header,
   onOpenChange,
-  open,
+  open
 }) => {
   const widthStyles = {
     default: "hawa-min-w-[8rem]",
     sm: "hawa-w-fit",
     lg: "hawa-w-[200px]",
-    parent: "ddm-w-parent",
+    parent: "ddm-w-parent"
   };
   const sizeStyles = {
     default: "hawa-px-2 hawa-py-3 ",
-    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
+    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 "
   };
   return (
     <DropdownMenuRoot
@@ -542,5 +544,5 @@ export {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuRadioGroup,
+  DropdownMenuRadioGroup
 };

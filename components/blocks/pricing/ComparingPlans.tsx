@@ -1,10 +1,12 @@
 import React, { useState, FC } from "react";
-import { Radio, Tooltip, ScrollArea, Button, Chip } from "../../elements";
-import { DirectionType, RadioOptionType } from "../../types/commonTypes";
-import { CheckMark, UncheckMark } from "../../icons";
-import { cn } from "../../util";
+
 import { PlanFeature } from "@/components/types/pricingTypes";
 import { PricingPlanTexts } from "@/components/types/textTypes";
+
+import { Radio, Tooltip, ScrollArea, Button, Chip } from "../../elements";
+import { CheckMark, UncheckMark } from "../../icons";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
+import { cn } from "../../util";
 
 type ComparingPlansTypes = {
   plans: {
@@ -38,7 +40,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
 
   return (
     <div id="detailed-pricing" className="hawa-w-full">
-      <div className="hawa-mb-2 hawa-flex hawa-flex-col hawa-gap-2 sm:hawa-flex-row hawa-w-full hawa-justify-between">
+      <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-flex-col hawa-justify-between hawa-gap-2 sm:hawa-flex-row">
         <Radio
           tabsContainerClassName="hawa-w-full sm:hawa-max-w-fit"
           width="none"
@@ -66,18 +68,18 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </div>
       <div
         className={cn(
-          "hawa-sticky hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-border hawa-p-4 hawa-text-sm hawa-font-medium hawa-rounded-t",
+          "hawa-sticky hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-rounded-t hawa-border hawa-p-4 hawa-text-sm hawa-font-medium",
           "hawa-bg-primary-foreground"
         )}
         style={{
-          top: props.topPosition || 0,
+          top: props.topPosition || 0
         }}
       >
         <div className="hawa-flex hawa-items-center"></div>
         {props.plans.map((plan: any, i) => (
           <div
             key={i}
-            className="hawa-flex hawa-flex-col hawa-gap-2 hawa-justify-center hawa-items-center"
+            className="hawa-flex hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-2"
           >
             <div className="hawa-flex hawa-flex-col hawa-gap-2">
               <div className="hawa-flex hawa-flex-col">
@@ -110,7 +112,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </div>
 
       <ScrollArea
-        className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border-t-0 hawa-border hawa-bg-background"
+        className="hawa-h-fit hawa-rounded hawa-rounded-t-none hawa-border hawa-border-t-0 hawa-bg-background"
         dir={props.direction}
       >
         {uniqueFeatures.map((featureText, featureIndex) => {
@@ -118,7 +120,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div
               key={featureIndex}
               className={cn(
-                "hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-border-foreground-muted hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white",
+                "hawa-border-foreground-muted  dark:text-white hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700",
                 featureIndex === 0 ? "" : "hawa-border-t"
               )}
             >
@@ -180,7 +182,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 return (
                   <div
                     key={planIndex}
-                    className="hawa-text-center hawa-flex hawa-flex-col hawa-items-center"
+                    className="hawa-flex hawa-flex-col hawa-items-center hawa-text-center"
                   >
                     {feature?.included ? (
                       <CheckMark className="hawa-text-foreground" />
@@ -202,18 +204,18 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           {props.plans.map((plan, i) => (
             <div
               key={i}
-              className="hawa-flex hawa-justify-center hawa-items-center"
+              className="hawa-flex hawa-items-center hawa-justify-center"
             >
               {/* Replace with actual button element or component */}
               <Button
-                className="hawa-max-w-xs hawa-w-full"
+                className="hawa-w-full hawa-max-w-xs"
                 onClick={() => {
                   if (props.onPlanClicked) {
                     let clickedData = {
                       // plan: plan.id,
                       currency: props.currentCurrency?.value,
                       cycle: props.currentCycle?.value,
-                      ...plan,
+                      ...plan
                     };
                     props.onPlanClicked(clickedData);
                   }

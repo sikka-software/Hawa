@@ -1,5 +1,7 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
+
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+
 import { cn } from "../util";
 
 interface CarouselProps {
@@ -21,7 +23,7 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
   } = props;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: autoplay ? true : options.loop || false,
+    loop: autoplay ? true : options.loop || false
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -57,11 +59,11 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
     <div className=" hawa-relative hawa-h-full">
       <div className="hawa-h-full hawa-overflow-hidden">
         <div className="hawa-h-full" ref={emblaRef}>
-          <div className="hawa-h-full hawa-flex">
+          <div className="hawa-flex hawa-h-full">
             {items?.map((item: any, i: any) => (
               <div
                 key={i}
-                className="hawa-h-full hawa-justify-center hawa-flex  hawa-items-center  hawa-min-w-0 hawa-flex-[0_0_100%]"
+                className="hawa-flex hawa-h-full hawa-min-w-0  hawa-flex-[0_0_100%]  hawa-items-center hawa-justify-center"
               >
                 {item}
               </div>
@@ -96,17 +98,17 @@ type DotsProps = {
 const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
-    <div className="hawa-flex hawa-gap-1 hawa-z-50 hawa-my-2 hawa-justify-center">
+    <div className="hawa-z-50 hawa-my-2 hawa-flex hawa-justify-center hawa-gap-1">
       {arr.map((_, index) => {
         const selected = index === selectedIndex;
         return (
           <div
             onClick={() => onDotClick(index)}
             className={cn(
-              "hawa-h-2 hover:hawa-cursor-pointer hawa-rounded-full hawa-transition-all hawa-duration-300 hawa-bg-primary",
+              "hawa-h-2 hawa-rounded-full hawa-bg-primary hawa-transition-all hawa-duration-300 hover:hawa-cursor-pointer",
               !selected
-                ? "hawa-opacity-50 hawa-w-2"
-                : "hawa-opacity-100 hawa-w-6"
+                ? "hawa-w-2 hawa-opacity-50"
+                : "hawa-w-6 hawa-opacity-100"
             )}
             key={index}
           ></div>
@@ -133,7 +135,7 @@ const CarouselControls = (props: ControlsProps) => {
         }}
         disabled={!props.canScrollPrev}
         className={cn(
-          "hawa-p-2 hawa-rounded-full hawa-absolute -hawa-translate-y-2 hawa-top-1/2 hawa-start-0 hawa-text-white ",
+          "hawa-absolute hawa-start-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",
           !props.canScrollPrev && "hawa-bg-primary/50",
           props.canScrollPrev && "hawa-bg-primary"
         )}
@@ -143,7 +145,7 @@ const CarouselControls = (props: ControlsProps) => {
           stroke="currentColor"
           fill="currentColor"
           viewBox="0 0 16 16"
-          className="hawa-h-2 hawa-w-2 hawa-rotate-180 hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
+          className="hawa-h-2 hawa-w-2 hawa-shrink-0 hawa-rotate-180 hawa-transition-transform hawa-duration-200 "
         >
           <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
         </svg>
@@ -156,7 +158,7 @@ const CarouselControls = (props: ControlsProps) => {
         }}
         disabled={!props.canScrollNext}
         className={cn(
-          "hawa-p-2 hawa-rounded-full hawa-absolute -hawa-translate-y-2 hawa-top-1/2 hawa-end-0 hawa-text-white ",
+          "hawa-absolute hawa-end-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",
           !props.canScrollNext && "hawa-bg-primary/50",
           props.canScrollNext && "hawa-bg-primary"
         )}

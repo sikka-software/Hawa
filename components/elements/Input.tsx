@@ -1,7 +1,8 @@
 import React, { forwardRef } from "react";
+
 import { cn } from "../util";
-import { Skeleton } from "./Skeleton";
 import { Label, LabelProps } from "./Label";
+import { Skeleton } from "./Skeleton";
 
 type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
@@ -52,13 +53,13 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
     let marginStyles = {
       none: "hawa-mb-0",
       normal: "hawa-mb-3",
-      large: "hawa-mb-5",
+      large: "hawa-mb-5"
     };
     let widthStyles = {
       small: "hawa-w-full hawa-max-w-2xs",
       normal: "hawa-w-1/2",
       full: "hawa-w-full",
-      auto: "",
+      auto: ""
     };
 
     let defaultStyle =
@@ -122,11 +123,11 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   {...inputProps}
                   className={cn(
                     defaultInputStyle,
-                    " dark:hawa-text-white focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0",
+                    " focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
                     {
                       "hawa-pe-9": props.endIcon,
                       "hawa-ps-9": props.startIcon,
-                      "hawa-pe-[60px]": countPosition === "center",
+                      "hawa-pe-[60px]": countPosition === "center"
                     },
                     preview &&
                       "hawa-border-transparent hawa-bg-transparent hawa-px-0",
@@ -139,10 +140,10 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
               {!forceHideHelperText && (
                 <p
                   className={cn(
-                    "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+                    "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
                     props.helperText
-                      ? "hawa-opacity-100 hawa-h-4"
-                      : "hawa-opacity-0 hawa-h-0"
+                      ? "hawa-h-4 hawa-opacity-100"
+                      : "hawa-h-0 hawa-opacity-0"
                   )}
                 >
                   {props.helperText}
@@ -152,7 +153,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
               {!props.disabled && forceHideHelperText && (
                 <div
                   className={cn(
-                    "hawa-absolute hawa-top-[47px] hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
+                    "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start  hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
                     props.helperText
                       ? "hawa-border hawa-p-1"
                       : "hawa-border-none hawa-p-0"
@@ -165,11 +166,11 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
               {showCount && (
                 <div
                   className={cn(
-                    "hawa-absolute hawa-text-xs hawa-transition-all hawa-text-start hawa-translate-y-1/2",
+                    "hawa-absolute hawa-translate-y-1/2 hawa-text-start hawa-text-xs hawa-transition-all",
                     {
                       "hawa-end-0 hawa-top-[62px]": countPosition === "bottom",
-                      "hawa-end-0 hawa-bottom-[62px]": countPosition === "top",
-                      "hawa-end-2": countPosition === "center",
+                      "hawa-bottom-[62px] hawa-end-0": countPosition === "top",
+                      "hawa-end-2": countPosition === "center"
                     }
                   )}
                 >

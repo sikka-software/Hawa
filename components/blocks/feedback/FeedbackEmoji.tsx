@@ -1,7 +1,8 @@
 import React, { FC, useState } from "react";
-import { cn } from "../../util";
-import { BadEmoji, GoodEmoji, VeryBadEmoji, VeryGoodEmoji } from "../../icons";
+
 import { Popover, Button, Textarea } from "../../elements";
+import { BadEmoji, GoodEmoji, VeryBadEmoji, VeryGoodEmoji } from "../../icons";
+import { cn } from "../../util";
 
 type ComponentTypes = {
   handleSubmit: ({}) => void;
@@ -17,7 +18,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
     { icon: <VeryGoodEmoji />, value: "very-good" },
     { icon: <GoodEmoji />, value: "good" },
     { icon: <BadEmoji />, value: "bad" },
-    { icon: <VeryBadEmoji />, value: "very-bad" },
+    { icon: <VeryBadEmoji />, value: "very-bad" }
   ];
 
   const onFeedbackSubmit = async () => {
@@ -26,7 +27,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
       try {
         await props.handleSubmit({
           choice: selectedEmoji,
-          feedback: feedbackText,
+          feedback: feedbackText
         });
       } catch (error) {
         console.error("Error during submission:", error);
@@ -92,7 +93,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                 <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
               </svg>
             </div>
-            <div className="hawa-text-sm hawa-flex hawa-flex-col hawa-text-center">
+            <div className="hawa-flex hawa-flex-col hawa-text-center hawa-text-sm">
               <span>Your feedback has been received!</span>
               <span>Thank you for your help</span>
             </div>
@@ -104,7 +105,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
               open={helperText}
               trigger={
                 <Textarea
-                  className={cn("hawa-h-full hawa-resize-none hawa-mt-2")}
+                  className={cn("hawa-mt-2 hawa-h-full hawa-resize-none")}
                   placeholder="Your feedback"
                   onChange={(e) => {
                     if (e.target.value) {

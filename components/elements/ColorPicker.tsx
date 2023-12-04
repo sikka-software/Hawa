@@ -4,11 +4,11 @@ import React, {
   ChangeEvent,
   InputHTMLAttributes,
   useEffect,
-  FormEvent,
+  FormEvent
 } from "react";
+
 import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
-import { PositionType } from "../types/commonTypes";
 
 type ColorPickerTypes = {
   label?: string;
@@ -66,10 +66,10 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   };
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
+    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2">
       {props.label && <Label {...labelProps}>{props.label}</Label>}
 
-      <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
+      <div dir="ltr" className="hawa-flex hawa-w-full hawa-flex-row">
         <div
           style={{ height: 40, backgroundColor: selectedColor }}
           className="hawa-rounded-bl-lg hawa-rounded-tl-lg hawa-border"
@@ -84,20 +84,20 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
               }
             }}
             className={cn(
-              "hawa-opacity-0 hawa-h-[38px] hawa-mt-0",
+              "hawa-mt-0 hawa-h-[38px] hawa-opacity-0",
               props.colorPickerClassNames
             )}
             {...colorPickerProps}
           />
         </div>
-        <div className="hawa-flex hawa-max-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-w-full hawa-gap-0">
+        <div className="hawa-relative hawa-flex hawa-max-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">
           <input
             maxLength={7}
             type="text"
             onInput={handleTextInputChange}
             value={selectedColor}
             className={cn(
-              "hawa-block hawa-h-[40px] hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm  hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none hawa-w-24"
+              "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all"
             )}
             {...textInputProps}
           />
@@ -106,10 +106,10 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
 
       <p
         className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
           props.helperText
-            ? "hawa-opacity-100 hawa-h-4"
-            : "hawa-opacity-0 hawa-h-0"
+            ? "hawa-h-4 hawa-opacity-100"
+            : "hawa-h-0 hawa-opacity-0"
         )}
       >
         {props.helperText}

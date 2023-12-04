@@ -1,7 +1,8 @@
 import React, { FC, useState } from "react";
+
+import { OrientationType } from "../types/commonTypes";
 import { cn } from "../util";
 import { Radio } from "./Radio";
-import { OrientationType } from "../types/commonTypes";
 
 type TypographyTypes = {
   /** Function to handle language change.   */
@@ -26,7 +27,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
   const [language, setLanguage] = useState(props.currentLanguage);
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row hawa-justify-between",
-    vertical: "hawa-flex hawa-flex-col hawa-items-center hawa-gap-2",
+    vertical: "hawa-flex hawa-flex-col hawa-items-center hawa-gap-2"
   };
   return (
     <div className={cn(orientationStyle[orientation])}>
@@ -42,7 +43,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         design="tabs"
         options={[
           { value: "ar", label: "عربي" },
-          { value: "en", label: "English" },
+          { value: "en", label: "English" }
         ]}
       />
       <Radio
@@ -72,7 +73,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
                   fill="currentColor"
                 ></path>
               </svg>
-            ),
+            )
           },
           {
             value: "dark",
@@ -88,8 +89,8 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
               >
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
-            ),
-          },
+            )
+          }
         ]}
       />
     </div>

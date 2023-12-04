@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { cn } from "../util";
+
 import { PositionType } from "../types/commonTypes";
+import { cn } from "../util";
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -13,7 +15,7 @@ const PopoverContent = React.forwardRef<
       align={align}
       sideOffset={sideOffset}
       className={cn(
-        "hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2 dark:dark-shadow",
+        "dark:dark-shadow hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
         className
       )}
       {...props}
@@ -55,7 +57,7 @@ const Popover: React.FC<HawaPopoverTypes> = ({
 }) => {
   let widthStyles = {
     trigger: "var(--radix-popover-trigger-width)",
-    default: "auto",
+    default: "auto"
   };
 
   return (
@@ -73,7 +75,7 @@ const Popover: React.FC<HawaPopoverTypes> = ({
         align={align}
         sideOffset={sideOffset}
         style={{
-          width: widthStyles[width],
+          width: widthStyles[width]
         }}
         {...contentProps}
       >

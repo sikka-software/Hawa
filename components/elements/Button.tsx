@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "../util";
 import { Loading } from "./Loading";
 
@@ -14,13 +16,13 @@ const buttonVariants = cva(
         destructive:
           "hawa-bg-destructive hawa-text-destructive-foreground hover:hawa-bg-destructive/90",
         outline:
-          "hawa-border  hawa-border-input hawa-bg-transparent hover:hawa-bg-accent hover:hawa-text-accent-foreground",
+          "hawa-border hawa-border-input hawa-bg-transparent hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         secondary:
           "hawa-bg-secondary hawa-text-secondary-foreground hover:hawa-bg-secondary/80",
         ghost: "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         link: "hawa-text-primary hawa-underline-offset-4 hover:hawa-underline",
         combobox: "hawa-bg-background hawa-border",
-        neoBrutalism: "neo-brutalism",
+        neoBrutalism: "neo-brutalism"
         // "hawa-cursor-pointer hawa-transition-all hawa-uppercase hawa-font-mono  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary hawa-shadow-color-primary hawa-transition-[hawa-transform_50ms, hawa-box-shadow_50ms] active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 active:hawa-shadow-color-primary-active shadow-color-primary active:shadow-color-primary-active",
       },
       size: {
@@ -31,13 +33,13 @@ const buttonVariants = cva(
         lg: "hawa-h-11 hawa-rounded-md hawa-px-8",
         xl: "hawa-h-14 hawa-rounded-md hawa-px-10",
         icon: "hawa-h-10 hawa-w-10",
-        smallIcon: "hawa-h-7 hawa-w-7",
-      },
+        smallIcon: "hawa-h-7 hawa-w-7"
+      }
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
-    },
+      size: "default"
+    }
   }
 );
 

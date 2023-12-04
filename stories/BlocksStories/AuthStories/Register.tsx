@@ -1,7 +1,8 @@
-import { CodeBlock, RegisterForm } from "../../../components";
-import { ArgsTable, Markdown, Title } from "@storybook/blocks";
-import { TranslationTable } from "../../../sharedUI/docsUI";
+import { ArgsTable, Title } from "@storybook/blocks";
 import { useDarkMode } from "storybook-dark-mode";
+
+import { CodeBlock, RegisterForm } from "../../../components";
+import { TranslationTable } from "../../../sharedUI/docsUI";
 
 const RegisterDocs = (args: any, globals: any) => {
   const isDark = useDarkMode();
@@ -28,7 +29,7 @@ const RegisterDocs = (args: any, globals: any) => {
             "viaTwitter",
             "onGoogleRegister",
             "onTwitterRegister",
-            "onGithubRegister",
+            "onGithubRegister"
           ]}
         />
       </div>
@@ -42,7 +43,7 @@ const RegisterDocs = (args: any, globals: any) => {
             "viaTwitter",
             "onGoogleRegister",
             "onTwitterRegister",
-            "onGithubRegister",
+            "onGithubRegister"
           ]}
         />
       </div>
@@ -55,168 +56,168 @@ const RegisterDocs = (args: any, globals: any) => {
             {
               key: "fullNameLabel",
               description: "Label for the full name input",
-              default: "Full Name",
+              default: "Full Name"
             },
             {
               key: "fullNamePlaceholder",
               description: "Placeholder for the full name input",
-              default: "John Doe",
+              default: "John Doe"
             },
             {
               key: "fullNameRequiredText",
               description: "Error text if full name is not provided",
-              default: "Full Name is required",
+              default: "Full Name is required"
             },
             {
               key: "emailLabel",
               description: "Label for the email input",
-              default: "Email",
+              default: "Email"
             },
             {
               key: "emailPlaceholder",
               description: "Placeholder for the email input",
-              default: "example@example.com",
+              default: "example@example.com"
             },
             {
               key: "emailRequiredText",
               description: "Error text if email is not provided",
-              default: "Email is required",
+              default: "Email is required"
             },
             {
               key: "emailInvalidText",
               description: "Error text if email format is invalid",
-              default: "Invalid email format",
+              default: "Invalid email format"
             },
             {
               key: "usernameLabel",
               description: "Label for the username input",
-              default: "Username",
+              default: "Username"
             },
             {
               key: "usernamePlaceholder",
               description: "Placeholder for the username input",
-              default: "username123",
+              default: "username123"
             },
             {
               key: "usernameRequired",
               description: "Error text if username is not provided",
-              default: "Username is required",
+              default: "Username is required"
             },
             {
               key: "passwordLabel",
               description: "Label for the password input",
-              default: "Password",
+              default: "Password"
             },
             {
               key: "passwordPlaceholder",
               description: "Placeholder for the password input",
-              default: "Enter your password",
+              default: "Enter your password"
             },
             {
               key: "passwordRequiredText",
               description: "Error text if password is not provided",
-              default: "Password is required",
+              default: "Password is required"
             },
             {
               key: "passwordTooShortText",
               description: "Error text if password is too short",
-              default: "Password is too short",
+              default: "Password is too short"
             },
             {
               key: "passwordsDontMatch",
               description: "Error text if passwords don't match",
-              default: "Passwords don't match",
+              default: "Passwords don't match"
             },
             {
               key: "confirmPasswordLabel",
               description: "Label for the confirm password input",
-              default: "Confirm Password",
+              default: "Confirm Password"
             },
             {
               key: "confirmPasswordPlaceholder",
               description: "Placeholder for the confirm password input",
-              default: "Re-enter your password",
+              default: "Re-enter your password"
             },
             {
               key: "confirmPasswordRequired",
               description: "Error text if confirm password is not provided",
-              default: "Confirm Password is required",
+              default: "Confirm Password is required"
             },
             {
               key: "refCodePlaceholder",
               description: "Placeholder for the referral code input",
-              default: "Enter referral code (if any)",
+              default: "Enter referral code (if any)"
             },
             {
               key: "subscribeToNewsletter",
               description: "Label for subscribe to newsletter checkbox",
-              default: "Subscribe to newsletter",
+              default: "Subscribe to newsletter"
             },
             {
               key: "forgotPasswordText",
               description: "Text for the forgot password link",
-              default: "Forgot Password?",
+              default: "Forgot Password?"
             },
             {
               key: "termsText",
               description: "Text for terms and conditions",
-              default: "Terms and Conditions",
+              default: "Terms and Conditions"
             },
             {
               key: "iAcceptText",
               description: "Text for acceptance of terms",
-              default: "I accept the",
+              default: "I accept the"
             },
             {
               key: "termsRequiredText",
               description: "Error text if terms are not accepted",
-              default: "Acceptance of terms is required",
+              default: "Acceptance of terms is required"
             },
             {
               key: "newUserText",
               description: "Text for new user prompt",
-              default: "New user?",
+              default: "New user?"
             },
             {
               key: "registerText",
               description: "Text for the register button",
-              default: "Register",
+              default: "Register"
             },
             {
               key: "loginText",
               description: "Text for the login prompt",
-              default: "Login",
+              default: "Login"
             },
             {
               key: "existingUserText",
               description: "Text for existing user prompt",
-              default: "Existing user?",
+              default: "Existing user?"
             },
             {
               key: "registerViaGoogleLabel",
               description: "Label to continue via Google button",
-              default: "Continue with Google",
+              default: "Continue with Google"
             },
             {
               key: "registerViaGithubLabel",
               description: "Label to continue via Github button",
-              default: "Continue with Github",
+              default: "Continue with Github"
             },
             {
               key: "registerViaTwitterLabel",
               description: "Label to continue via Twitter button",
-              default: "Continue with Twitter",
+              default: "Continue with Twitter"
             },
             {
               key: "refCode",
               description: "Label for the referral code input",
-              default: "Referral Code",
+              default: "Referral Code"
             },
             {
               key: "userReferenceLabel",
               description: "Label for the user reference input",
-              default: "How did you hear about us?",
-            },
+              default: "How did you hear about us?"
+            }
           ]}
         />
       </div>

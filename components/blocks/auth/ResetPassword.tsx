@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { ResetPasswordTextsTypes } from "../../types/textTypes";
-import { DirectionType } from "../../types/commonTypes";
+
 import {
   Input,
   Card,
@@ -12,8 +12,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Button,
+  Button
 } from "../../elements";
+import { DirectionType } from "../../types/commonTypes";
+import { ResetPasswordTextsTypes } from "../../types/textTypes";
 
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
@@ -30,11 +32,11 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
     email: z
       .string({ required_error: props.texts?.email?.required })
       .email({ message: props.texts?.email?.invalid })
-      .min(1, { message: props.texts?.email?.required }),
+      .min(1, { message: props.texts?.email?.required })
   });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
 
   return (

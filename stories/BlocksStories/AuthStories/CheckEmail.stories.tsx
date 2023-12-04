@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { CheckEmail } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { CheckEmail } from "@blocks/auth";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -13,10 +15,10 @@ const meta = {
           <h1>{"<CheckEmail/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof CheckEmail>;
 
 export default meta;
@@ -35,7 +37,7 @@ const Template = (args: any, globals: any) => {
         texts={{
           checkEmail: t("checkEmail"),
           pleaseVerify: t("pleaseVerify"),
-          resendEmail: t("resendEmail"),
+          resendEmail: t("resendEmail")
         }}
       />
     </div>
@@ -45,7 +47,7 @@ export const Default: Story = {
   render: Template.bind({}),
   argTypes: {
     handleResend: {
-      action: "handleResend",
-    },
-  },
+      action: "handleResend"
+    }
+  }
 };

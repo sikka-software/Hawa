@@ -1,7 +1,9 @@
 import * as React from "react";
+
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { cn } from "../util";
+
 import { RadiusType } from "../types/commonTypes";
+import { cn } from "../util";
 
 type CheckBoxTypes = {
   id: string;
@@ -31,7 +33,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     default: 0.7,
     md: 0.8,
     lg: 0.9,
-    xl: 1,
+    xl: 1
   };
   return (
     <div
@@ -54,13 +56,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <label
               htmlFor={id}
               className={cn(
-                "hawa-w-fit hawa-select-none hawa-text-sm hawa-font-medium hawa-leading-none hawa-pt-0.5",
+                "hawa-w-fit hawa-select-none hawa-pt-0.5 hawa-text-sm hawa-font-medium hawa-leading-none",
                 disabled
                   ? "hawa-cursor-not-allowed  hawa-text-muted-foreground hawa-opacity-70 "
                   : "hawa-cursor-pointer"
               )}
               style={{
-                lineHeight: labelLineHeightStyles[size],
+                lineHeight: labelLineHeightStyles[size]
               }}
             >
               {label}
@@ -106,7 +108,7 @@ const CheckboxElement = React.forwardRef<
   let checkboxRadius = {
     none: "hawa-rounded-none",
     inherit: "hawa-rounded-sm",
-    full: "hawa-rounded-full",
+    full: "hawa-rounded-full"
   };
   let checkboxSizes = {
     xs: "hawa-w-3 hawa-h-3",
@@ -114,7 +116,7 @@ const CheckboxElement = React.forwardRef<
     default: "hawa-icon",
     md: "hawa-w-8 hawa-h-8",
     lg: "hawa-w-10 hawa-h-10",
-    xl: "hawa-w-12 hawa-h-12",
+    xl: "hawa-w-12 hawa-h-12"
   };
   let checkboxIndicatorSizes = {
     xs: "0.5em",
@@ -122,7 +124,7 @@ const CheckboxElement = React.forwardRef<
     sm: "0.75em",
     md: "0.875em",
     lg: "1em",
-    xl: "1.25em",
+    xl: "1.25em"
   };
   return (
     <CheckboxPrimitive.Root

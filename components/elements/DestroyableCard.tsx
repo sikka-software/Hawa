@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState } from "react";
-import { DirectionType } from "../types/commonTypes";
+
 import { Card, CardContent } from "../elements";
+import { DirectionType } from "../types/commonTypes";
 import { cn } from "../util";
 
 type DestroyableCard = {
@@ -20,7 +21,7 @@ export const DestroyableCard: FC<DestroyableCard> = ({
 
   const boxPosition = {
     "bottom-right": "hawa-right-4 hawa-bottom-4",
-    "bottom-left": "hawa-left-4 hawa-bottom-4",
+    "bottom-left": "hawa-left-4 hawa-bottom-4"
   };
 
   return (

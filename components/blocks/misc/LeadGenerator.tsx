@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
+
 import {
   Card,
   CardContent,
@@ -7,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
   Button,
-  Input,
+  Input
 } from "../../elements";
 
 type LGProps = {
@@ -49,8 +50,8 @@ export const LeadGenerator: FC<LGProps> = ({ texts, submitHandler }) => {
               required: true,
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: texts?.invalidEmail || "Invalid email address",
-              },
+                message: texts?.invalidEmail || "Invalid email address"
+              }
             }}
             defaultValue=""
             render={({ field }) => (

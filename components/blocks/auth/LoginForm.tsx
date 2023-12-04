@@ -1,16 +1,15 @@
 import React, { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { cn } from "../../util";
+
+import {
+  DirectionType,
+  LoginFormTextsTypes,
+  ThirdPartyAuthTextsTypes
+} from "@_types/index";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { parsePhoneNumber } from "libphonenumber-js";
 import * as z from "zod";
-import { AuthButtons } from "./AuthButtons";
-import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { DirectionType } from "../../types/commonTypes";
-import {
-  LoginFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "../../types/textTypes";
+
 import {
   Card,
   CardContent,
@@ -18,8 +17,12 @@ import {
   Alert,
   PhoneInput,
   Input,
-  Button,
-} from "../../elements";
+  Button
+} from "@elements/index";
+
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
+import { cn } from "../../util";
+import { AuthButtons } from "./AuthButtons";
 
 type LoginFormTypes = {
   /** Object containing text labels used throughout the form. */
@@ -87,7 +90,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone,
+    continueWithPhone: texts?.continueWithPhone
   };
 
   let formSchema;
@@ -101,7 +104,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
       password: z
         .string({ required_error: texts?.password?.required })
         .min(1, { message: texts?.password?.required })
-        .min(passwordLength, { message: texts?.password?.tooShort }),
+        .min(passwordLength, { message: texts?.password?.tooShort })
     });
   } else if (loginType === "username") {
     formSchema = z.object({
@@ -118,7 +121,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
       password: z
         .string({ required_error: texts?.password?.required })
         .min(1, { message: texts?.password?.required })
-        .min(passwordLength, { message: texts?.password?.tooShort }),
+        .min(passwordLength, { message: texts?.password?.tooShort })
     });
   } else if (loginType === "phone") {
     formSchema = z.object({
@@ -128,21 +131,21 @@ export const LoginForm: FC<LoginFormTypes> = ({
           return phoneNumber.isValid();
         },
         { message: texts?.phone?.invalid }
-      ),
+      )
     });
   } else if (loginType === "link") {
     formSchema = z.object({
       email: z
         .string({ required_error: texts?.email?.required })
         .min(1, { message: texts?.email?.required })
-        .email({ message: texts?.email?.invalid }),
+        .email({ message: texts?.email?.invalid })
     });
   } else {
     formSchema = z.object({});
   }
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
 
   const renderFields = () => {
@@ -159,7 +162,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     className:
                       props.direction === "rtl"
                         ? "hawa-text-right"
-                        : "hawa-text-left",
+                        : "hawa-text-left"
                   }}
                   dir={"ltr"}
                   width="full"
@@ -204,7 +207,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {!props.withoutResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
-                  className="hawa-mb-3  hawa-select-none hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                  className="hawa-mb-3  hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {texts?.forgotPassword || "Forgot Password?"}
                 </div>
@@ -264,7 +267,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {!props.withoutResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
-                  className="hawa-mb-3 hawa-select-none hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-text-xs dark:hawa-text-gray-300"
+                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {texts?.forgotPassword || "Forgot Password?"}
                 </div>
@@ -350,7 +353,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             </Button>
             {props.additionalButtons}
             {props.allowRegister && (
-              <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal hawa-select-none dark:hawa-text-gray-300">
+              <div className="hawa-select-none hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
                 {texts?.newUserText || "New user?"}{" "}
                 <span
                   onClick={props.onRouteToRegister}

@@ -1,10 +1,12 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
+
+import { TextInputType } from "@/components/types/textTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+
 import { Button, Card, CardContent, Input, Textarea } from "../../elements";
 import { cn } from "../../util";
-import { TextInputType } from "@/components/types/textTypes";
 
 type ContactFormData = {
   name: string;
@@ -31,7 +33,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   texts,
   formId,
   formAutoComplete,
-  onSubmit,
+  onSubmit
 }) => {
   const contactFormSchema = z.object({
     name: z
@@ -47,20 +49,20 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     message: z
       .string({ required_error: texts?.message.required })
       .min(10, texts?.message.invalid)
-      .default(""),
+      .default("")
   });
   const {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
+    reset
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      message: "",
-    },
+      message: ""
+    }
   });
 
   const handleFormSubmit = (data: ContactFormData) => {
@@ -74,14 +76,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   let sizeStyle = {
     sm: "hawa-max-w-sm",
-    default: "hawa-w-full",
+    default: "hawa-w-full"
   };
   return (
     <Card
       className={cn(
         sizeStyle[size],
         cardless &&
-          "hawa-bg-transparent hawa-border-none hawa-shadow-none hawa-drop-shadow-none"
+          "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
       )}
       style={cardless ? { boxShadow: "none" } : undefined}
     >
@@ -95,10 +97,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         >
           <div
             className={cn(
-              "hawa-justify-start hawa-gap-2 hawa-items-start hawa-flex",
+              "hawa-flex hawa-items-start hawa-justify-start hawa-gap-2",
               {
                 "hawa-flex-row": size === "default",
-                "hawa-flex-col": size === "sm",
+                "hawa-flex-col": size === "sm"
               }
             )}
           >
@@ -138,7 +140,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id={texts?.message.label}
                 textareaProps={{
                   placeholder: texts?.message.placeholder,
-                  ...field,
+                  ...field
                 }}
                 helperText={errors.message?.message}
               />

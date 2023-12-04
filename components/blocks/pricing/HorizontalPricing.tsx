@@ -1,9 +1,11 @@
 import React, { FC, useState } from "react";
-import { cn } from "../../util";
-import { DirectionType, RadioOptionType } from "../../types/commonTypes";
-import { Radio } from "../../elements";
+
 import { PlanFeature } from "@/components/types/pricingTypes";
 import { PricingPlanTexts } from "@/components/types/textTypes";
+
+import { Radio } from "../../elements";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
+import { cn } from "../../util";
 
 type HorizontalPricingTypes = {
   plans: {
@@ -30,7 +32,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
   let data = [
     { title: "basic", price: "$49", cycle: "/mo" },
     { title: "business", price: "$99", cycle: "/mo" },
-    { title: "enterprise", price: "$149", cycle: "/mo" },
+    { title: "enterprise", price: "$149", cycle: "/mo" }
   ];
   return (
     <div className="hawa-z-10 hawa-w-full hawa-max-w-screen-sm">
@@ -63,7 +65,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             <div
               className={cn(
                 selectedCard === d.title
-                  ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-primary/20 peer-checked:hawa-ring-4 "
+                  ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-4 peer-checked:hawa-ring-primary/20 "
                   : "",
                 "hawa-peer hawa-flex hawa-cursor-pointer hawa-items-center hawa-justify-between  hawa-rounded-xl hawa-border hawa-bg-background hawa-px-5   hawa-py-4 hawa-shadow dark:hawa-text-white  peer-checked:[&_.active]:hawa-block peer-checked:[&_.default]:hawa-hidden"
               )}

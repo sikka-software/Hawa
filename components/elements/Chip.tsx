@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React from "react";
+
 import { RadiusType } from "../types/commonTypes";
 import { cn } from "../util";
 
@@ -47,22 +48,22 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
     let radiusStyles = {
       inherit: " hawa-rounded",
       full: "hawa-rounded-full",
-      none: "hawa-rounded-none",
+      none: "hawa-rounded-none"
     };
     let sizeStyles = {
       small:
         "hawa-h-[15px] hawa-leading-4 hawa-px-0 hawa-py-0 hawa-text-[9px] hawa-gap-0.5 ",
       normal: "hawa-h-fit hawa-text-xs",
-      large: "hawa-text-base",
+      large: "hawa-text-base"
     };
     let dotStyles = {
       small: "hawa-flex hawa-h-1 hawa-w-1 hawa-rounded-full",
       normal: "hawa-flex hawa-h-2 hawa-w-2 hawa-rounded-full",
-      large: "hawa-flex hawa-h-3 hawa-w-3 hawa-rounded-full",
+      large: "hawa-flex hawa-h-3 hawa-w-3 hawa-rounded-full"
     };
     let dotTypeStyles = {
       available: "hawa-bg-green-500",
-      unavailable: "hawa-bg-red-500",
+      unavailable: "hawa-bg-red-500"
     };
     let colorStyles: any = {
       green:
@@ -79,7 +80,7 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
       hyper:
         "hawa-text-white hawa-bg-gradient-to-tl hawa-from-pink-500 hawa-via-red-500 hawa-to-yellow-500 ",
       oceanic:
-        "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-300 hawa-via-blue-500 hawa-to-purple-600",
+        "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-300 hawa-via-blue-500 hawa-to-purple-600"
     };
     if (label) {
       return (
@@ -108,7 +109,7 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
           {...rest}
           ref={ref}
           className={cn(
-            "hawa-w-2 hawa-h-2 hawa-rounded-full",
+            "hawa-h-2 hawa-w-2 hawa-rounded-full",
             color ? colorStyles[color] : "hawa-border hawa-bg-none"
           )}
         ></span>

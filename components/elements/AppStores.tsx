@@ -9,7 +9,7 @@ export const AppStores: FC<StoreButtonsTypes> = (props) => {
     <div className="hawa-flex hawa-justify-center">
       <div>
         {props.store === "apple" ? (
-          <div className="hawa-mt-3 hawa-flex hawa-h-14 hawa-w-48 hawa-items-center hawa-justify-center hawa-rounded-lg hawa-bg-black dark:hawa-bg-white hawa-text-white dark:hawa-text-black">
+          <div className="hawa-mt-3 hawa-flex hawa-h-14 hawa-w-48 hawa-items-center hawa-justify-center hawa-rounded-lg hawa-bg-black hawa-text-white dark:hawa-bg-white dark:hawa-text-black">
             <div className="hawa-mr-3">
               <svg viewBox="0 0 384 512" width="30">
                 <path
@@ -20,13 +20,13 @@ export const AppStores: FC<StoreButtonsTypes> = (props) => {
             </div>
             <div>
               <div className="hawa-text-xs">Download on the</div>
-              <div className="hawa-font-sans hawa--mt-1 hawa-text-2xl hawa-font-semibold">
+              <div className="hawa--mt-1 hawa-font-sans hawa-text-2xl hawa-font-semibold">
                 App Store
               </div>
             </div>
           </div>
         ) : (
-          <div className="hawa-mt-3 hawa-flex hawa-h-14 hawa-w-48 hawa-items-center hawa-justify-center hawa-rounded-lg hawa-border hawa-border-black dark:hawa-bg-white hawa-bg-black dark:hawa-text-black hawa-text-white">
+          <div className="hawa-mt-3 hawa-flex hawa-h-14 hawa-w-48 hawa-items-center hawa-justify-center hawa-rounded-lg hawa-border hawa-border-black hawa-bg-black hawa-text-white dark:hawa-bg-white dark:hawa-text-black">
             <div className="hawa-mr-3">
               <svg viewBox="30 336.7 120.9 129.2" width="30">
                 <path
@@ -49,7 +49,7 @@ export const AppStores: FC<StoreButtonsTypes> = (props) => {
             </div>
             <div>
               <div className="hawa-text-xs">GET IT ON</div>
-              <div className="hawa-font-sans hawa--mt-1 hawa-text-xl hawa-font-semibold">
+              <div className="hawa--mt-1 hawa-font-sans hawa-text-xl hawa-font-semibold">
                 Google Play
               </div>
             </div>

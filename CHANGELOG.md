@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.21.0
+
+### Minor Changes
+
+- Added `prettier-plugin-tailwindcss`
+- Added `@trivago/prettier-plugin-sort-imports`
+- Cleaned up
+
 ## 0.20.10
 
 ### Patch Changes

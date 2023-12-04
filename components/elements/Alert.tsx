@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
+
 import { DirectionType, SeverityType } from "../types/commonTypes";
-import { Button } from "./Button";
 import { cn } from "../util";
+import { Button } from "./Button";
 
 type AlertTypes = {
   severity?: SeverityType | "hyper" | "oceanic";
@@ -78,7 +79,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     error: "",
     success: "",
     hyper: "",
-    oceanic: "",
+    oceanic: ""
   };
   let styleVariant = {
     none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-900 ",
@@ -89,7 +90,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     hyper:
       "hawa-text-white hawa-bg-gradient-to-tl hawa-from-pink-700 hawa-via-red-500 hawa-to-yellow-600 ",
     oceanic:
-      "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500",
+      "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500"
   };
 
   return (

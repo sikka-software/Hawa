@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import { cn } from "../util";
 
 type LoadingTypes = {
@@ -34,12 +35,12 @@ export const Loading: FC<LoadingTypes> = ({
     sm: "hawa-h-6 hawa-w-6",
     normal: "hawa-h-8 hawa-w-8",
     lg: "hawa-h-14 hawa-w-14",
-    xl: "hawa-h-24 hawa-w-24",
+    xl: "hawa-h-24 hawa-w-24"
   };
 
   let animationStyles: any = {
     pulse: "hawa-animate-in hawa-fade-in hawa-duration-1000",
-    bounce: "hawa-animate-bounce",
+    bounce: "hawa-animate-bounce"
   };
   switch (design.split("-")[0]) {
     case "dots":
@@ -145,7 +146,7 @@ export const Loading: FC<LoadingTypes> = ({
           <circle
             className={cn("circle-track", {
               "hawa-stroke-primary-foreground": themeMode === "dark",
-              "hawa-stroke-primary": themeMode === "light",
+              "hawa-stroke-primary": themeMode === "light"
             })}
             cx="20"
             cy="20"
@@ -157,7 +158,7 @@ export const Loading: FC<LoadingTypes> = ({
           <circle
             className={cn("circle-car", {
               "hawa-stroke-primary-foreground": themeMode === "dark",
-              "hawa-stroke-primary": themeMode === "light",
+              "hawa-stroke-primary": themeMode === "light"
             })}
             cx="20"
             cy="20"

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, FC } from "react";
+
 import { OrientationType } from "../../types/commonTypes";
 import { cn } from "../../util";
 import { Button } from "../Button";
@@ -58,7 +59,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
 
   let orientationStyles = {
     vertical: "hawa-max-w-sm",
-    horizontal: "hawa-flex hawa-flex-row hawa-w-full",
+    horizontal: "hawa-flex hawa-flex-row hawa-w-full"
   };
   let imageStyles = {
     vertical:
@@ -66,7 +67,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
     horizontal:
       // "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
       // "h-full w-full rounded-l-lg object-cover md:w-48 md:rounded-none md:rounded-l-lg",
-      "hawa-h-full hawa-w-48 hawa-rounded-l hawa-object-cover",
+      "hawa-h-full hawa-w-48 hawa-rounded-l hawa-object-cover"
   };
   let headerActionsButtonStyle =
     "hawa-inline-block hawa-rounded hawa-p-1 hawa-text-sm hawa-text-gray-500 hover:hawa-bg-gray-100 focus:hawa-outline-none focus:hawa-ring-4 focus:hawa-ring-gray-200 dark:hawa-text-gray-400 dark:hover:hawa-bg-gray-700 dark:focus:hawa-ring-gray-700";
@@ -91,7 +92,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
     <div
       className={cn(
         defaultStyle,
-        props.onCardClick && " hover:hawa-shadow-lg hawa-cursor-pointer",
+        props.onCardClick && " hawa-cursor-pointer hover:hawa-shadow-lg",
         orientationStyles[orientation],
         props.className
       )}
@@ -130,7 +131,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
           )}
         </div>
       )}
-      <div className="hawa-relative hawa-w-full hawa-p-4 xs:hawa-p-6 xs:hawa-pb-2 xs:hawa-px-2">
+      <div className="hawa-relative hawa-w-full hawa-p-4 xs:hawa-p-6 xs:hawa-px-2 xs:hawa-pb-2">
         {headerActions && (
           <div className="hawa-absolute hawa-right-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pr-3 hawa-pt-3">
             <StopPropagationWrapper>
@@ -172,7 +173,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
         {actions || counts ? (
           <div
             className={cn(
-              "hawa-mt-3 hawa-flex hawa-flex-col xs:hawa-flex-row hawa-items-center hawa-rounded-b-lg dark:hawa-text-white ",
+              "hawa-mt-3 hawa-flex hawa-flex-col hawa-items-center hawa-rounded-b-lg dark:hawa-text-white xs:hawa-flex-row ",
               actions && counts ? "hawa-justify-between" : "hawa-justify-end"
             )}
           >

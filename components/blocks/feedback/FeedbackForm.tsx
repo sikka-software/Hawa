@@ -1,17 +1,19 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+
 import {
   Label,
   Select,
   Textarea,
   Button,
   Card,
-  CardContent,
+  CardContent
 } from "../../elements";
+import { BaseInputType } from "../../types/textTypes";
 import { cn } from "../../util";
-import { BaseInputType } from "@/components/types/textTypes";
 
 type FeedbackFormRequestTypeInputProps = BaseInputType & {
   required?: string;
@@ -41,18 +43,18 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
       .min(1, { message: props.texts?.requestType?.required }),
     description: z
       .string({ required_error: props.texts?.description?.required })
-      .min(10, { message: props.texts?.description?.tooShort }),
+      .min(10, { message: props.texts?.description?.tooShort })
   });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
 
   return (
     <Card
       className={cn(
         props.cardless
-          ? "hawa-bg-transparent hawa-border-none hawa-shadow-none"
+          ? "hawa-border-none hawa-bg-transparent hawa-shadow-none"
           : ""
       )}
       style={props.cardless ? { boxShadow: "none" } : undefined}
@@ -82,7 +84,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                 helperText={formState.errors.requestType?.message?.toString()}
                 placeholder={props.texts?.requestType?.placeholder}
                 texts={{
-                  noOptions: props.texts?.requestType?.noOptions,
+                  noOptions: props.texts?.requestType?.noOptions
                 }}
               />
             )}

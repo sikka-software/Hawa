@@ -9,7 +9,7 @@ interface BCTypes {
 
 export const Breadcrumb: FC<BCTypes> = ({
   breadcrumbLinks,
-  separator = ">",
+  separator = ">"
 }) => {
   return (
     <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm">

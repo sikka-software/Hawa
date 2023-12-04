@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { CodeConfirmation } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { CodeConfirmation } from "@blocks/auth";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -13,10 +15,10 @@ const meta = {
           <h1>{"<CodeConfirmation/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof CodeConfirmation>;
 
 export default meta;
@@ -43,7 +45,7 @@ const Template = (args: any, globals: any) => {
           codeTooShort: t("codeTooShort"),
           cancel: t("cancel"),
           confirm: t("confirm"),
-          seconds: t("seconds"),
+          seconds: t("seconds")
         }}
       />
     </div>
@@ -53,6 +55,6 @@ export const Default: Story = {
   render: Template.bind({}),
   args: {},
   argTypes: {
-    handleConfirm: { action: "handleConfirm" },
-  },
+    handleConfirm: { action: "handleConfirm" }
+  }
 };

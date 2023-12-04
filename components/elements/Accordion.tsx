@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+
 import { cn } from "../util";
 
 export type AccordionItemProps = {
@@ -36,7 +38,7 @@ const Accordion = React.forwardRef<
       <div
         className={cn("hawa-flex hawa-flex-col", {
           "hawa-gap-4": design === "separated",
-          "hawa-gap-0": design === "default",
+          "hawa-gap-0": design === "default"
         })}
       >
         {items.map((item, index) => (
@@ -55,7 +57,7 @@ const Accordion = React.forwardRef<
                   : {
                       "hawa-rounded-t": index === 0,
                       "data-[state=closed]:hawa-rounded-b":
-                        index === items.length - 1,
+                        index === items.length - 1
                     },
                 triggerclassNames
               )}
@@ -65,12 +67,12 @@ const Accordion = React.forwardRef<
             <AccordionContent
               aria-disabled={item.disabled || false}
               className={cn(
-                "hawa-transition-all  hawa-border",
+                "hawa-border  hawa-transition-all",
                 design === "separated"
                   ? "hawa-rounded data-[state=open]:hawa-rounded-t-none"
                   : {
                       "data-[state=open]:hawa-rounded-b":
-                        index === items.length - 1,
+                        index === items.length - 1
                     },
                 contentclassNames
               )}
@@ -99,8 +101,10 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "hawa-flex hawa-bg-muted/50  hawa-flex-1 hawa-items-center hawa-justify-between hawa-p-4 hawa-font-medium hawa-transition-all [&[data-state=open]>svg]:hawa-rotate-180",
-        props.disabled ? "hawa-bg-muted/30 hawa-text-muted-foreground/50" : "hover:hawa-bg-muted",
+        "hawa-flex hawa-flex-1  hawa-items-center hawa-justify-between hawa-bg-muted/50 hawa-p-4 hawa-font-medium hawa-transition-all [&[data-state=open]>svg]:hawa-rotate-180",
+        props.disabled
+          ? "hawa-bg-muted/30 hawa-text-muted-foreground/50"
+          : "hover:hawa-bg-muted",
         className
       )}
       {...props}
@@ -152,5 +156,5 @@ export {
   AccordionItem,
   AccordionRoot,
   AccordionTrigger,
-  AccordionContent,
+  AccordionContent
 };

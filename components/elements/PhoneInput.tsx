@@ -1,8 +1,9 @@
 import React, { useState, FC, useRef, useEffect } from "react";
+
 import Countries from "../countries";
-import { Select } from "./Select";
 import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
+import { Select } from "./Select";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };
@@ -38,9 +39,9 @@ export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
   };
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2 hawa-h-fit">
+    <div className="hawa-flex hawa-h-fit hawa-w-full hawa-flex-col hawa-gap-2">
       {props.label && <Label {...labelProps}>{props.label}</Label>}
-      <div dir="ltr" className="hawa-flex hawa-flex-row hawa-w-full">
+      <div dir="ltr" className="hawa-flex hawa-w-full hawa-flex-row">
         <Select
           width="fit"
           hideHelperText
@@ -56,12 +57,12 @@ export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
           onChange={setCountryCode}
         />
 
-        <div className="hawa-flex hawa-h-fit hawa-relative hawa-flex-col  hawa-justify-center hawa-w-full hawa-gap-0">
+        <div className="hawa-relative hawa-flex hawa-h-fit hawa-w-full  hawa-flex-col hawa-justify-center hawa-gap-0">
           <input
             ref={inputRef}
             id="phone-number"
             className={cn(
-              "hawa-block hawa-h-[40px] hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-2 hawa-text-sm  hawa-border-l-0 hawa-border-l-transparent hawa-rounded-l-none hawa-w-full"
+              "hawa-block hawa-h-[40px] hawa-w-full hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all"
             )}
             onChange={handleInputChange}
             value={phoneNumber}
@@ -73,10 +74,10 @@ export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
 
       <p
         className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
           props.helperText
-            ? "hawa-opacity-100 hawa-h-4"
-            : "hawa-opacity-0 hawa-h-0"
+            ? "hawa-h-4 hawa-opacity-100"
+            : "hawa-h-0 hawa-opacity-0"
         )}
       >
         {props.helperText}

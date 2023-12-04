@@ -1,11 +1,8 @@
 import React from "react";
-import {
-  Pagination as PaginationPrimitive,
-  IPaginationProps,
-} from "react-headless-pagination";
-import { cn } from "../util";
-import { Button } from "./Button";
+import { Pagination as PaginationPrimitive } from "react-headless-pagination";
+
 import { DirectionType } from "../types/commonTypes";
+import { cn } from "../util";
 
 type PaginationProps = {
   direction?: DirectionType;
@@ -16,7 +13,7 @@ type PaginationProps = {
 export const Pagination: React.FC<PaginationProps> = ({
   direction,
   totalPages,
-  currentPage,
+  currentPage
 }) => {
   const [page, setPage] = React.useState<number>(currentPage || 0);
   const handlePageChange = (page: number) => {
@@ -32,7 +29,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
       currentPage={page}
       setCurrentPage={handlePageChange}
-      className="hawa-flex hawa-items-center hawa-w-full hawa-h-9 hawa-text-sm hawa-select-none hawa-transition-all"
+      className="hawa-flex hawa-h-9 hawa-w-full hawa-select-none hawa-items-center hawa-text-sm hawa-transition-all"
       truncableText="..."
       truncableClassName="hawa-w-10 hawa-px-0.5 hawa-text-center"
     >
@@ -41,7 +38,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           <button
             aria-label="Previous Table Page"
             className={cn(
-              "hawa-bg-card hawa-border hawa-min-w-9 hawa-flex hawa-w-9 hawa-h-9 hawa-rounded hawa-justify-center hawa-items-center",
+              "hawa-min-w-9 hawa-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded hawa-border hawa-bg-card",
               direction === "rtl" && "hawa-rotate-180"
             )}
             style={{ minWidth: 36 }}
@@ -62,21 +59,21 @@ export const Pagination: React.FC<PaginationProps> = ({
           </button>
         }
         className={cn(
-          "hawa-flex hawa-items-center hawa-mr-2 hawa-text-gray-500 hover:hawa-text-gray-600 dark:hover:hawa-text-gray-200",
+          "hawa-mr-2 hawa-flex hawa-items-center hawa-text-gray-500 hover:hawa-text-gray-600 dark:hover:hawa-text-gray-200",
           {
             "hawa-cursor-pointer": page !== 0,
-            "hawa-opacity-50": page === 0,
+            "hawa-opacity-50": page === 0
           }
         )}
       >
         Previous
       </PaginationPrimitive.PrevButton>
 
-      <nav className="hawa-flex hawa-justify-center hawa-flex-grow">
+      <nav className="hawa-flex hawa-flex-grow hawa-justify-center">
         <ul className="hawa-flex hawa-items-center hawa-gap-1">
           <PaginationPrimitive.PageButton
             className={
-              "hawa-tap-highlight-transparent hawa-select-none hawa-touch-none data-[pressed=true]:hawa-scale-[0.97] hawa-transition-all hawa-flex hawa-flex-wrap hawa-truncate hawa-box-border hawa-items-center hawa-justify-center hawa-text-default-foreground hawa-outline-none data-[focus-visible=true]:hawa-z-10 data-[focus-visible=true]:hawa-outline-2 data-[focus-visible=true]:hawa-outline-focus data-[focus-visible=true]:hawa-outline-offset-2 data-[disabled=true]:hawa-text-default-300 data-[disabled=true]:hawa-pointer-events-none hawa-bg-card hover:hawa-scale-[1.1] hawa-min-w-9 hawa-w-9 hawa-h-9 hawa-text-small hawa-rounded hawa-border hawa-cursor-pointer"
+              "hawa-tap-highlight-transparent hawa-text-default-foreground data-[focus-visible=true]:hawa-outline-focus data-[disabled=true]:hawa-text-default-300 hawa-min-w-9 hawa-text-small hawa-box-border hawa-flex hawa-h-9 hawa-w-9 hawa-cursor-pointer hawa-touch-none hawa-select-none hawa-flex-wrap hawa-items-center hawa-justify-center hawa-truncate hawa-rounded hawa-border hawa-bg-card hawa-outline-none hawa-transition-all hover:hawa-scale-[1.1] data-[disabled=true]:hawa-pointer-events-none data-[focus-visible=true]:hawa-z-10 data-[pressed=true]:hawa-scale-[0.97] data-[focus-visible=true]:hawa-outline-2 data-[focus-visible=true]:hawa-outline-offset-2"
             }
             activeClassName="hawa-bg-primary hawa-text-primary-foreground hawa-transition-all"
             // activeClassName="hawa-bg-primary/80  hawa-text-primary-foreground hawa-font-extrabold"
@@ -93,7 +90,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           <button
             aria-label="Previous Table Page"
             className={cn(
-              "hawa-bg-card hawa-border hawa-min-w-9 hawa-w-9 hawa-h-9 hawa-flex hawa-rounded hawa-justify-center hawa-items-center",
+              "hawa-min-w-9 hawa-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded hawa-border hawa-bg-card",
               direction === "ltr" && "hawa-rotate-180"
             )}
             style={{ minWidth: 36 }}
@@ -114,10 +111,10 @@ export const Pagination: React.FC<PaginationProps> = ({
           </button>
         }
         className={cn(
-          "hawa-flex hawa-items-center hawa-mr-2 hawa-text-gray-500 hover:hawa-text-gray-600 dark:hover:hawa-text-gray-200",
+          "hawa-mr-2 hawa-flex hawa-items-center hawa-text-gray-500 hover:hawa-text-gray-600 dark:hover:hawa-text-gray-200",
           {
             "hawa-cursor-pointer": page !== totalPages - 1,
-            "hawa-opacity-50": page === totalPages - 1,
+            "hawa-opacity-50": page === totalPages - 1
           }
         )}
       >

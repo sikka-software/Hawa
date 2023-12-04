@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import { Card, CardContent, CardFooter, Button } from "../../elements";
 
 type EmptyStateProps = {

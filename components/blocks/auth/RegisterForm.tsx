@@ -1,15 +1,9 @@
 import React, { FC, useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import { cn } from "../../util";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  RegisterFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "../../types/textTypes";
-import { AuthButtons } from "./AuthButtons";
-import { DirectionType } from "../../types/commonTypes";
-import { EyeIcon, HiddenEyeIcon } from "../../icons";
+
 import {
   Input,
   Alert,
@@ -20,8 +14,16 @@ import {
   CardFooter,
   CardContent,
   SelectOptionProps,
-  StopPropagationWrapper,
+  StopPropagationWrapper
 } from "../../elements";
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
+import { DirectionType } from "../../types/commonTypes";
+import {
+  RegisterFormTextsTypes,
+  ThirdPartyAuthTextsTypes
+} from "../../types/textTypes";
+import { cn } from "../../util";
+import { AuthButtons } from "./AuthButtons";
 
 type RegisterFormTypes = {
   /** Object containing text labels used throughout the form. */
@@ -94,7 +96,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone,
+    continueWithPhone: texts?.continueWithPhone
   };
 
   const methods = useForm();
@@ -133,27 +135,27 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         .string({ required_error: texts?.password?.required })
         .min(5, { message: texts?.password?.tooShort })
         .refine((value) => value !== "", {
-          message: texts?.password?.required,
+          message: texts?.password?.required
         }),
       confirm_password: z
         .string({ required_error: texts?.confirm?.required })
         .refine((value) => value !== "", {
-          message: texts?.password?.required,
+          message: texts?.password?.required
         }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
       terms_accepted: z
         .boolean({ required_error: texts?.termsRequired })
         .refine((value) => value, { message: texts?.termsRequired }),
-      newsletter_accepted: z.boolean().optional(),
+      newsletter_accepted: z.boolean().optional()
     })
     .refine((data) => data.password === data.confirm_password, {
       message: texts?.confirm?.dontMatch,
-      path: ["confirm_password"],
+      path: ["confirm_password"]
     });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
 
   return (
@@ -216,7 +218,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                 className:
                                   props.direction === "rtl"
                                     ? "hawa-text-right"
-                                    : "hawa-text-left",
+                                    : "hawa-text-left"
                               }}
                               width="full"
                               autoComplete="email"
@@ -378,7 +380,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 </div>
                 <Button
                   isLoading={props.isLoading}
-                  className="hawa-w-full hawa-mt-4"
+                  className="hawa-mt-4 hawa-w-full"
                 >
                   {texts?.registerText}
                 </Button>

@@ -1,8 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { FeedbackEmoji } from "../../../components";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../../translations/i18n";
 import { useState } from "react";
+
+import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { FeedbackEmoji } from "@blocks/feedback";
+
+import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Emotion",
@@ -15,10 +18,10 @@ const meta = {
           <h1>{"<FeedbackEmoji/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof FeedbackEmoji>;
 
 export default meta;
@@ -46,5 +49,5 @@ export const FeedbackEmotion: Story = {
         showSuccess={isSuccess}
       />
     );
-  },
+  }
 };

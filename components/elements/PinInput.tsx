@@ -1,4 +1,5 @@
 import React, { useEffect, useState, FC } from "react";
+
 import { cn } from "../util";
 
 type PinInputTypes = {
@@ -91,10 +92,10 @@ export const PinInput: FC<PinInputTypes> = ({
 
       <p
         className={cn(
-          "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
           props.helperText
-            ? "hawa-opacity-100 hawa-h-4"
-            : "hawa-opacity-0 hawa-h-0"
+            ? "hawa-h-4 hawa-opacity-100"
+            : "hawa-h-0 hawa-opacity-0"
         )}
       >
         {props.helperText}

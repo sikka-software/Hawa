@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { AppLanding } from "../../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { AppLanding } from "@blocks/auth";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -13,10 +15,10 @@ const meta = {
           <h1>{"<AppLanding/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof AppLanding>;
 
 export default meta;
@@ -41,7 +43,7 @@ const Template = (args: any, globals: any) => {
           continueWithMicrosoft: t("continueWithMicrosoft"),
           continueWithEmail: t("continueWithEmail"),
           continueWithPhone: t("continueWithPhone"),
-          continueWithGithub: t("continueWithGithub"),
+          continueWithGithub: t("continueWithGithub")
         }}
       />
     </div>
@@ -57,7 +59,7 @@ export const Default: Story = {
     viaGithub: true,
     viaTwitter: true,
     viaMicrosoft: true,
-    allowRegister: true,
+    allowRegister: true
   },
   argTypes: {
     handlePhone: { action: "handlePhone" },
@@ -67,6 +69,6 @@ export const Default: Story = {
     handleGoogle: { action: "handleGoogle" },
     handleTwitter: { action: "handleTwitter" },
     handleMicrosoft: { action: "handleMicrosoft" },
-    handleRouteToRegister: { action: "handleRouteToRegister" },
-  },
+    handleRouteToRegister: { action: "handleRouteToRegister" }
+  }
 };

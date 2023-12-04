@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from "react";
+
 import { Button } from "../../elements";
 import { cn } from "../../util";
 
@@ -27,7 +28,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
 
   const boxPosition = {
     "bottom-right": "hawa-right-4",
-    "bottom-left": "hawa-left-4",
+    "bottom-left": "hawa-left-4"
   };
   useEffect(() => {
     //To change opacity and hide the component
@@ -55,7 +56,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
       ref={popUpRef}
       className={cn(
         props.banner
-          ? "hawa-w-full hawa-left-0 hawa-fixed hawa-bottom-0 hawa-px-0 md:hawa-px-4"
+          ? "hawa-fixed hawa-bottom-0 hawa-left-0 hawa-w-full hawa-px-0 md:hawa-px-4"
           : "hawa-fixed hawa-bottom-4 ",
         boxPosition[position]
       )}
@@ -65,7 +66,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
           "hawa-relative hawa-flex hawa-w-full   hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
           props.banner &&
-            "hawa-rounded-none md:hawa-rounded-t hawa-px-4 md:hawa-px-64"
+            "hawa-rounded-none hawa-px-4 md:hawa-rounded-t md:hawa-px-64"
         )}
       >
         <div className="hawa-absolute hawa-left-2 hawa-top-2 hawa-p-1.5 hawa-text-sm">
@@ -131,7 +132,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
           </div>
         )}
         {answered && (
-          <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-gap-2 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-rounded hawa-bg-black hawa-bg-opacity-80 hawa-p-4 hawa-text-center hawa-transition-all">
+          <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-2 hawa-rounded hawa-bg-black hawa-bg-opacity-80 hawa-p-4 hawa-text-center hawa-transition-all">
             <span className="hawa-font-bold hawa-text-white">
               Thank you for your answer. This box will disappear in
               {" " + closingTimer} seconds

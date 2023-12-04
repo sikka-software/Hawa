@@ -1,6 +1,8 @@
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserReferralSource, FeedbackRating } from "../../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { FeedbackRating } from "@blocks/feedback";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -14,10 +16,10 @@ const meta = {
           <h1>{"<FeedbackRating/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof FeedbackRating>;
 
 export default meta;
@@ -31,11 +33,11 @@ export const Popup: Story = {
     question: "How satisfied are you with the invoicing system?",
     texts: {
       least: "Not at all satisfied",
-      most: "Extremely satisfied",
+      most: "Extremely satisfied"
     },
     options: [1, 2, 3, 4, 5],
-    onOptionClicked: (e) => console.log("clicking option ", e),
-  },
+    onOptionClicked: (e) => console.log("clicking option ", e)
+  }
 };
 export const Banner: Story = {
   render: (args) => <FeedbackRating {...args} />,
@@ -45,9 +47,9 @@ export const Banner: Story = {
     question: "How satisfied are you with the invoicing system?",
     texts: {
       least: "Not at all satisfied",
-      most: "Extremely satisfied",
+      most: "Extremely satisfied"
     },
     options: [1, 2, 3, 4, 5],
-    onOptionClicked: (e) => console.log("clicking option ", e),
-  },
+    onOptionClicked: (e) => console.log("clicking option ", e)
+  }
 };

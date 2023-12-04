@@ -1,8 +1,10 @@
 import React, { FC } from "react";
-import { Card, CardContent } from "../../elements";
+
+import { DirectionType, ThirdPartyAuthTextsTypes } from "@_types/index";
+
+import { Card, CardContent } from "@elements/index";
+
 import { AuthButtons } from "./AuthButtons";
-import { ThirdPartyAuthTextsTypes } from "../../types/textTypes";
-import { DirectionType } from "@/components/types/commonTypes";
 
 type AppLandingTextsTypes = ThirdPartyAuthTextsTypes & {
   newUserText?: string;
@@ -39,7 +41,7 @@ export const AppLanding: FC<AppLandingTypes> = ({ texts, ...props }) => {
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone,
+    continueWithPhone: texts?.continueWithPhone
   };
 
   return (

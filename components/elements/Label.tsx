@@ -1,7 +1,8 @@
 import * as React from "react";
+
+import { PositionType } from "../types/commonTypes";
 import { cn } from "../util";
 import { Tooltip } from "./Tooltip";
-import { PositionType } from "../types/commonTypes";
 
 export type LabelProps = {
   hint?: React.ReactNode;
@@ -14,7 +15,7 @@ const Label = React.forwardRef<
   HTMLLabelElement,
   React.LabelHTMLAttributes<HTMLLabelElement> & LabelProps
 >(({ className, hint, hintSide, required, children, ...props }, ref) => (
-  <div className="hawa-transition-all hawa-flex hawa-flex-row hawa-gap-1 hawa-items-center">
+  <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-1 hawa-transition-all">
     <label
       ref={ref}
       className={cn(
@@ -24,13 +25,13 @@ const Label = React.forwardRef<
       {...props}
     >
       {children}
-      {required && <span className="hawa-text-red-500 hawa-mx-0.5">*</span>}
+      {required && <span className="hawa-mx-0.5 hawa-text-red-500">*</span>}
     </label>
     {hint && (
       <Tooltip content={hint} side={hintSide}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="hawa-w-[14px] hawa-h-[14px] hawa-cursor-help"
+          className="hawa-h-[14px] hawa-w-[14px] hawa-cursor-help"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

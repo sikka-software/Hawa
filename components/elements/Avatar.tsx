@@ -1,6 +1,7 @@
 import React from "react";
-import { cn } from "../util";
+
 import { RadiusType } from "../types/commonTypes";
+import { cn } from "../util";
 import { FileUploader } from "./FileUploader";
 
 interface AvatarProps {
@@ -44,12 +45,12 @@ export const Avatar: React.FC<AvatarProps> = ({
     "3xl": "hawa-h-[72px] hawa-w-[72px]",
     "4xl": "hawa-h-20 hawa-w-20",
     "5xl": "hawa-h-[88px] hawa-w-[88px]",
-    "6xl": "hawa-h-24 hawa-w-24",
+    "6xl": "hawa-h-24 hawa-w-24"
   };
   let radiusStyles = {
     full: "hawa-rounded-full",
     inherit: "hawa-rounded",
-    none: "hawa-rounded-none",
+    none: "hawa-rounded-none"
   };
   return (
     <div
@@ -62,7 +63,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     >
       <FileUploader
         className={cn(
-          "hawa-bg-red-400 hawa-absolute hawa-w- hawa-top-0 hawa-left-0 hawa-opacity-0",
+          "hawa-w- hawa-absolute hawa-left-0 hawa-top-0 hawa-bg-red-400 hawa-opacity-0",
           sizeStyles[size],
           radiusStyles[radius],
           (!isUploadable || !!src) && "hawa-hidden"
@@ -84,7 +85,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         <div
           className={cn(
             sizeStyles[size],
-            "hawa-justify-center hawa-items-center hawa-flex hawa-flex-col"
+            "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center"
           )}
         >
           {icon ? (

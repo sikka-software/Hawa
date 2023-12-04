@@ -1,9 +1,9 @@
 import React, { useState, FC } from "react";
 import { Controller, useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { NewPasswordTextsTypes } from "../../types/textTypes";
-import { DirectionType } from "../../types/commonTypes";
+
 import {
   Alert,
   Input,
@@ -13,8 +13,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Button,
+  Button
 } from "../../elements";
+import { DirectionType } from "../../types/commonTypes";
+import { NewPasswordTextsTypes } from "../../types/textTypes";
 
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
@@ -36,16 +38,16 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
       confirm_password: z
         .string({ required_error: texts?.confirm?.required })
         .refine((value) => value !== "", {
-          message: texts?.password?.required,
-        }),
+          message: texts?.password?.required
+        })
     })
     .refine((data) => data.password === data.confirm_password, {
       message: texts?.confirm?.dontMatch,
-      path: ["confirm_password"],
+      path: ["confirm_password"]
     });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
 
   const [matchError, setMatchError] = useState(false);

@@ -1,4 +1,5 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react";
+
 import { cn } from "../util";
 import { Button } from "./Button";
 
@@ -96,7 +97,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
       left:
         anchorRect.x +
         width +
-        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25),
+        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25)
     };
 
     return style;
@@ -113,7 +114,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
       onClick={backToTop}
       style={{
         ...getStyles(),
-        transitionProperty: "opacity, background-color",
+        transitionProperty: "opacity, background-color"
       }}
       ref={self}
       size="icon"

@@ -1,9 +1,5 @@
 import * as React from "react";
-import { cn } from "../util";
-import { Input } from "./Input";
-import { DirectionType } from "../types/commonTypes";
-import { Skeleton } from "./Skeleton";
-import { Button } from "./Button";
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -17,23 +13,29 @@ import {
   getSortedRowModel,
   useReactTable,
   RowData,
-  ExpandedState,
+  ExpandedState
 } from "@tanstack/react-table";
+
+import { DirectionType } from "../types/commonTypes";
+import { cn } from "../util";
+import { Button } from "./Button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuRoot,
+  DropdownMenuTrigger
+} from "./DropdownMenu";
+import { Input } from "./Input";
+import { Skeleton } from "./Skeleton";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "./Table";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuRoot,
-  DropdownMenuTrigger,
-} from "./DropdownMenu";
 
 type DataTableProps<DataProps = {}> = {
   direction?: DirectionType;
@@ -111,19 +113,19 @@ export const DataTable = <DataProps extends {}>({
       columnVisibility,
       globalFilter,
       rowSelection,
-      expanded,
-    },
+      expanded
+    }
   });
   const pageText = props.texts?.page || "page";
   const itemsPerPageOptions = props.itemsPerPage?.map((item) => ({
     label: `${item} / ${pageText}`,
-    value: item,
+    value: item
   }));
 
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
       {(enableSearch || enableHideColumns) && (
-        <div className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-4">
+        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-4">
           {enableSearch && (
             <Input
               forceHideHelperText
@@ -283,7 +285,7 @@ export const DataTable = <DataProps extends {}>({
 
             <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 ">
               {enableGoTo && (
-                <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-items-center hawa-gap-2">
+                <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2">
                   <span className="hawa-text-sm">{props.texts?.goTo}</span>
                   <input
                     max={table.getPageCount()}
@@ -298,7 +300,7 @@ export const DataTable = <DataProps extends {}>({
                       }
                       table.setPageIndex(page);
                     }}
-                    className="hawa-w-16 hawa-text-sm hawa-border hawa-rounded hawa-p-1 hawa-px-2"
+                    className="hawa-w-16 hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-text-sm"
                   />
                 </div>
               )}
@@ -312,7 +314,7 @@ export const DataTable = <DataProps extends {}>({
                     { label: `20 / ${pageText}`, value: 20 },
                     { label: `30 / ${pageText}`, value: 30 },
                     { label: `40 / ${pageText}`, value: 40 },
-                    { label: `50 / ${pageText}`, value: 50 },
+                    { label: `50 / ${pageText}`, value: 50 }
                   ]
                 }
                 trigger={
@@ -321,9 +323,8 @@ export const DataTable = <DataProps extends {}>({
                     size="icon"
                     className="hawa-h-fit hawa-w-fit hawa-p-0 hawa-px-2 hawa-py-1 "
                   >
-                    {`${table.getState().pagination.pageSize} / ${
-                      props.texts?.page
-                    }`}
+                    {`${table.getState().pagination.pageSize} / ${props.texts
+                      ?.page}`}
                   </Button>
                 }
                 onItemSelect={(e: any) => table.setPageSize(Number(e))}

@@ -1,17 +1,19 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { cn } from "../../util";
-import { DirectionType } from "../../types/commonTypes";
+
 import {
   Button,
   Radio,
   Textarea,
   Card,
   CardContent,
-  RadioOptionsTypes,
+  RadioOptionsTypes
 } from "../../elements";
+import { DirectionType } from "../../types/commonTypes";
+import { cn } from "../../util";
 
 type ComponentTypes = {
   title?: string;
@@ -38,24 +40,24 @@ export const UserReferralSource: FC<ComponentTypes> = ({
 
   const formSchema = z.object({
     source: z.string({ required_error: props.texts?.pleaseSelectOption }),
-    feedback: z.string().optional(),
+    feedback: z.string().optional()
   });
 
   const { handleSubmit, control, formState, watch } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema)
   });
   const selectedSource = watch("source");
 
   const boxPosition = {
     "bottom-right": "hawa-right-4",
-    "bottom-left": "hawa-left-4",
+    "bottom-left": "hawa-left-4"
   };
   const optionsWithOther = [
     ...options,
     {
       value: "other",
-      label: "Other",
-    },
+      label: "Other"
+    }
   ];
   return (
     <div
@@ -145,7 +147,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                       {...field}
                       textareaProps={{
                         onChange: (e) => field.onChange(e.target.value),
-                        disabled: selectedSource !== "other",
+                        disabled: selectedSource !== "other"
                       }}
                       helperText={formState.errors.feedback?.message?.toString()}
                     />
