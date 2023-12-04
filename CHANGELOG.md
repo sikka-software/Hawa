@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.21.4
+
+### Patch Changes
+
+- Added `unstyled` to `AccordionTrigger` and `AccordionContent`
+- Added `hideArrow` to `AccordionTrigger` to hide arrow
+
 ## 0.21.3
 
 ### Patch Changes
