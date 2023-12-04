@@ -16,7 +16,8 @@ import {
   ExpandedState
 } from "@tanstack/react-table";
 
-import { DirectionType } from "../types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
 import { Button } from "./Button";
 import {

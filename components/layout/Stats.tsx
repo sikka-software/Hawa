@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-import { Skeleton, Card, CardContent, CardTitle } from "../elements";
+
+import { Skeleton, Card, CardContent, CardTitle } from "@elements/index";
+
 import { cn } from "../util";
 
 interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
@@ -36,11 +38,11 @@ export const Stats: FC<StatTypes> = ({
     default: "",
     positive: "hawa-text-green-600 dark:hawa-text-green-500",
     negative: "hawa-text-red-600 dark:hawa-text-red-500",
-    muted: "hawa-text-muted-foreground",
+    muted: "hawa-text-muted-foreground"
   };
   return (
     <Card {...props} clickable={Boolean(props.onClick)}>
-      <div className="hawa-flex hawa-flex-row hawa-justify-between hawa-p-4 hawa-items-center">
+      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-between hawa-p-4">
         <CardTitle className="hawa-text-sm hawa-font-medium">{label}</CardTitle>
         {icon && <span>{icon}</span>}
       </div>
@@ -53,11 +55,11 @@ export const Stats: FC<StatTypes> = ({
         {helperText && (
           <div
             className={cn(
-              "hawa-my-0 hawa-text-xs  hawa-transition-all hawa-text-start",
+              "hawa-my-0 hawa-text-start  hawa-text-xs hawa-transition-all",
               helperTextColorStyles[helperTextColor],
               helperText
-                ? "hawa-opacity-100 hawa-h-4"
-                : "hawa-opacity-0 hawa-h-0"
+                ? "hawa-h-4 hawa-opacity-100"
+                : "hawa-h-0 hawa-opacity-0"
             )}
           >
             {isLoading ? (

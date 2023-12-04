@@ -6,7 +6,8 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger
-} from "../../elements";
+} from "@elements/index";
+
 import { cn } from "../../util";
 
 type TabType = {

@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, DropdownMenu, MenuItemType, Tooltip } from "../elements";
-import { AppSidebarItemProps, SidebarGroup } from "./Sidebar";
+
+import { Button, DropdownMenu, MenuItemType, Tooltip } from "@elements/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { DirectionType } from "../types/commonTypes";
+import { AppSidebarItemProps, SidebarGroup } from "./Sidebar";
 
 type AppLayoutTypes = {
   /** a custom header to replace the logoLink & logoSymbol */
@@ -88,13 +91,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     opened: {
       sm: "100",
       md: openDrawerWidth,
-      lg: "250",
+      lg: "250"
     },
     closed: {
       sm: closeDrawerWidth,
       md: closeDrawerWidth,
-      lg: closeDrawerWidth,
-    },
+      lg: closeDrawerWidth
+    }
   };
 
   const ref = useRef<HTMLDivElement>(null);
@@ -160,11 +163,11 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 isRTL
                   ? [
                       size > 600 ? "hawa-mr-14" : "hawa-mr-2",
-                      keepOpen ? "hawa-mr-40" : "",
+                      keepOpen ? "hawa-mr-40" : ""
                     ]
                   : [
                       size > 600 ? "hawa-ml-14" : "hawa-ml-2",
-                      keepOpen ? "hawa-ml-40" : "",
+                      keepOpen ? "hawa-ml-40" : ""
                     ]
               )}
               style={
@@ -174,14 +177,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                         drawerSizeStyle[keepOpen ? "opened" : "closed"][
                           drawerSize
                         ]
-                      }px`,
+                      }px`
                     }
                   : {
                       marginLeft: `${
                         drawerSizeStyle[keepOpen ? "opened" : "closed"][
                           drawerSize
                         ]
-                      }px`,
+                      }px`
                     }
               }
             >
@@ -282,8 +285,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 ? `${drawerSizeStyle["opened"][drawerSize]}px`
                 : `${drawerSizeStyle["closed"][drawerSize]}px`
               : openSideMenu
-              ? `${drawerSizeStyle["opened"][drawerSize]}px`
-              : "0px",
+                ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                : "0px"
         }}
         onMouseEnter={() => {
           setOpenSideMenu(true);
@@ -319,7 +322,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             width:
               size > 600
                 ? `${openSideMenu ? openDrawerWidth : 56}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
+                : `${openSideMenu ? openDrawerWidth : 0}px`
           }}
         >
           {/*
@@ -366,14 +369,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            "hawa-fixed hawa-bottom-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all hawa-top-14",
+            "hawa-fixed hawa-bottom-14 hawa-top-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
           )}
           style={{
             width:
               size > 600
                 ? `${openSideMenu ? openDrawerWidth : drawerSizeCondition}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
+                : `${openSideMenu ? openDrawerWidth : 0}px`
           }}
         >
           {/*
@@ -415,7 +418,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             width:
               size > 600
                 ? `${openSideMenu ? openDrawerWidth : 56}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
+                : `${openSideMenu ? openDrawerWidth : 0}px`
           }}
         >
           {DrawerFooterActions && openSideMenu ? (
@@ -453,8 +456,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                         ? "hawa--rotate-90"
                         : "hawa-rotate-90"
                       : isRTL
-                      ? "hawa-rotate-90"
-                      : "hawa--rotate-90"
+                        ? "hawa-rotate-90"
+                        : "hawa--rotate-90"
                   )}
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -476,20 +479,20 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * ----------------------------------------------------------------------------------------------------
        */}
       <div
-        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all -hawa-z-10"
+        className="hawa-fixed -hawa-z-10 hawa-overflow-y-auto hawa-transition-all"
         style={
           isRTL
             ? {
                 height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: "0px",
-                top: props.topBar ? "56px" : "0px",
+                top: props.topBar ? "56px" : "0px"
               }
             : {
                 height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: `${drawerSizeCondition}px`,
-                top: props.topBar ? "56px" : "0px",
+                top: props.topBar ? "56px" : "0px"
               }
         }
       >

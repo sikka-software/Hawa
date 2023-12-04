@@ -2,7 +2,8 @@ import * as React from "react";
 
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import { PositionType } from "../types/commonTypes";
+import { PositionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
 
 const PopoverContent = React.forwardRef<

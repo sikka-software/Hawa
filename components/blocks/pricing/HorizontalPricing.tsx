@@ -1,10 +1,14 @@
 import React, { FC, useState } from "react";
 
-import { PlanFeature } from "@/components/types/pricingTypes";
-import { PricingPlanTexts } from "@/components/types/textTypes";
+import { Radio } from "@elements/index";
 
-import { Radio } from "../../elements";
-import { DirectionType, RadioOptionType } from "../../types/commonTypes";
+import {
+  PlanFeature,
+  PricingPlanTexts,
+  DirectionType,
+  RadioOptionType
+} from "@_types/index";
+
 import { cn } from "../../util";
 
 type HorizontalPricingTypes = {

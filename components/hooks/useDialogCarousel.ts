@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+
 import AutoHeight from "embla-carousel-auto-height";
+import useEmblaCarousel from "embla-carousel-react";
 
 export const useDialogCarousel = (options?: any) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -40,6 +41,6 @@ export const useDialogCarousel = (options?: any) => {
     emblaApi,
     nextStep,
     prevStep,
-    canScrollPrev,
+    canScrollPrev
   };
 };

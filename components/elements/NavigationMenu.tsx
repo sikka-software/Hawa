@@ -3,7 +3,8 @@ import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 
-import { DirectionType } from "../types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
 
 const navigationMenuTriggerStyle = cva(

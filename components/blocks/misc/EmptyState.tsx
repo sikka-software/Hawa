@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardContent, CardFooter, Button } from "../../elements";
+import { Card, CardContent, CardFooter, Button } from "@elements/index";
 
 type EmptyStateProps = {
   onActionClick: () => void;

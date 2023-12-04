@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 
-import { Button } from "../../elements";
+import { Button } from "@elements/index";
+
 import { cn } from "../../util";
 
 type ComponentTypes = {

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
 
@@ -28,11 +29,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     return (
-      <div className="hawa-relative hawa-flex hawa-w-full hawa-flex-col hawa-gap-2 hawa-h-full">
+      <div className="hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-gap-2">
         {props.label && <Label {...labelProps}>{props.label}</Label>}
         <textarea
           className={cn(
-            "hawa-min-h-[40px] placeholder:hawa-text-gray-400 hawa-flex hawa-w-full hawa-rounded-md hawa-border hawa-border-input hawa-bg-background hawa-px-3 hawa-py-2 hawa-text-sm hawa-ring-offset-background placeholder:hawa-text-muted-foreground focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
+            "hawa-flex hawa-min-h-[40px] hawa-w-full hawa-rounded-md hawa-border hawa-border-input hawa-bg-background hawa-px-3 hawa-py-2 hawa-text-sm hawa-ring-offset-background placeholder:hawa-text-gray-400 placeholder:hawa-text-muted-foreground focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
             className
           )}
           ref={ref}
@@ -43,10 +44,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {!forceHideHelperText && (
             <p
               className={cn(
-                "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+                "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
                 props.helperText
-                  ? "hawa-opacity-100 hawa-h-4"
-                  : "hawa-opacity-0 hawa-h-0"
+                  ? "hawa-h-4 hawa-opacity-100"
+                  : "hawa-h-0 hawa-opacity-0"
               )}
             >
               {props.helperText}
@@ -57,10 +58,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {showCount && (
             <div
               className={cn(
-                " hawa-text-xs hawa-transition-all hawa-text-start ",
+                " hawa-text-start hawa-text-xs hawa-transition-all ",
                 {
-                  "hawa-end-0 hawa-bottom-[80px] hawa-absolute hawa-translate-y-1/2":
-                    countPosition === "top",
+                  "hawa-absolute hawa-bottom-[80px] hawa-end-0 hawa-translate-y-1/2":
+                    countPosition === "top"
                 }
               )}
             >

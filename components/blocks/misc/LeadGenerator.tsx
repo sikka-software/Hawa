@@ -9,7 +9,7 @@ import {
   CardTitle,
   Button,
   Input
-} from "../../elements";
+} from "@elements/index";
 
 type LGProps = {
   texts?: {

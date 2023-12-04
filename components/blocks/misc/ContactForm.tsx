@@ -5,7 +5,8 @@ import { TextInputType } from "@/components/types/textTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button, Card, CardContent, Input, Textarea } from "../../elements";
+import { Button, Card, CardContent, Input, Textarea } from "@elements/index";
+
 import { cn } from "../../util";
 
 type ContactFormData = {

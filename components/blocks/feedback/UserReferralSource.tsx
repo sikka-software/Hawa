@@ -11,8 +11,10 @@ import {
   Card,
   CardContent,
   RadioOptionsTypes
-} from "../../elements";
-import { DirectionType } from "../../types/commonTypes";
+} from "@elements/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../../util";
 
 type ComponentTypes = {

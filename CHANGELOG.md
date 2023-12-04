@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.21.1
+
+### Patch Changes
+
+- Updated imports to use aliases
+- General cleanup
+
 ## 0.21.0
 
 ### Minor Changes

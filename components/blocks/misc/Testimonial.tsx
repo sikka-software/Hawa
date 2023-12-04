@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardContent } from "../../elements/Card";
+import { Card, CardContent } from "@elements/Card";
 
 type TestimonialProps = {
   variant?: "outlined" | "contained" | "neobrutalism";

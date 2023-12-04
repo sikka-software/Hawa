@@ -39,7 +39,7 @@ export function useMediaQuery(
   query: string,
   initialValue?: boolean,
   { getInitialValueInEffect }: UseMediaQueryOptions = {
-    getInitialValueInEffect: true,
+    getInitialValueInEffect: true
   }
 ) {
   const [matches, setMatches] = useState(

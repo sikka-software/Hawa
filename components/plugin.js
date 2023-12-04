@@ -12,7 +12,7 @@ module.exports = plugin(function ({ addUtilities, addBase }) {
       "text-underline-offset": "4px",
       "transition-property": "all",
       "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
-      "transition-duration": "150ms",
+      "transition-duration": "150ms"
 
       //   "text-primary/80": "var(--text-primary/80)",
       //   underline: "underline",
@@ -22,17 +22,17 @@ module.exports = plugin(function ({ addUtilities, addBase }) {
       //     "text-primary": "var(--text-primary)"
       //   }
     },
-    ".ddm-w-parent": { width: "var(--radix-dropdown-menu-trigger-width)" },
+    ".ddm-w-parent": { width: "var(--radix-dropdown-menu-trigger-width)" }
   };
   const baseStyles = {
     "*": {
-      "@apply": "hawa-border-border",
+      "@apply": "hawa-border-border"
     },
 
     body: {
       "@apply": "hawa-bg-background hawa-text-foreground",
-      "font-feature-settings": '"rlig" 1, "calt" 1',
-    },
+      "font-feature-settings": '"rlig" 1, "calt" 1'
+    }
   };
 
   addBase(baseStyles);

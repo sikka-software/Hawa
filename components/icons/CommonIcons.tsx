@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
+
 import { cn } from "../util";
 
 export const CheckMark = ({ size = "default", className }: any) => {
   let sizeStyles: any = {
     default: "hawa-h-5 hawa-w-5",
-    sm: "hawa-h-3 hawa-w-3",
+    sm: "hawa-h-3 hawa-w-3"
   };
   return (
     <svg
@@ -25,7 +26,7 @@ export const CheckMark = ({ size = "default", className }: any) => {
 export const UncheckMark = ({ size = "default", className }: any) => {
   let sizeStyles: any = {
     default: "hawa-h-5 hawa-w-5",
-    sm: "hawa-h-3 hawa-w-3",
+    sm: "hawa-h-3 hawa-w-3"
   };
 
   return (

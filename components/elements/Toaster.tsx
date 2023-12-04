@@ -1,15 +1,17 @@
 import React from "react";
+
+import { DirectionType } from "@_types/commonTypes";
+
+import { useToast } from "../hooks/useToast";
+import { cn } from "../util";
 import {
   Toast,
   ToastClose,
   ToastDescription,
   ToastProvider,
   ToastTitle,
-  ToastViewport,
+  ToastViewport
 } from "./Toast";
-import { useToast } from "../hooks/useToast";
-import { cn } from "../util";
-import { DirectionType } from "../types/commonTypes";
 
 type ToasterProps = {
   direction?: DirectionType;

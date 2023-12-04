@@ -1,23 +1,25 @@
 import * as React from "react";
+
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
-  RowData,
+  RowData
 } from "@tanstack/react-table";
+
+import { DirectionType } from "@_types/commonTypes";
+
+import { cn } from "../util";
+import { Skeleton } from "./Skeleton";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "./Table";
-
-import { Skeleton } from "./Skeleton";
-import { DirectionType } from "../types/commonTypes";
-import { cn } from "../util";
 
 type DataProps = {};
 
@@ -54,7 +56,7 @@ export const SimpleTable: React.FC<SimpleTableProps> = ({
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    getCoreRowModel: getCoreRowModel()
   });
   return (
     <div

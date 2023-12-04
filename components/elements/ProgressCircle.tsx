@@ -1,4 +1,5 @@
 import React from "react";
+
 import { cn } from "../util";
 
 type GaugeType = {
@@ -23,24 +24,24 @@ interface ProgressCircleProps extends React.HTMLAttributes<HTMLDivElement> {
 const size2config: Record<Size, { strokeWidth: number; radius: number }> = {
   xs: {
     radius: 15,
-    strokeWidth: 3,
+    strokeWidth: 3
   },
   sm: {
     radius: 19,
-    strokeWidth: 4,
+    strokeWidth: 4
   },
   md: {
     radius: 32,
-    strokeWidth: 6,
+    strokeWidth: 6
   },
   lg: {
     radius: 52,
-    strokeWidth: 8,
+    strokeWidth: 8
   },
   xl: {
     radius: 80,
-    strokeWidth: 10,
-  },
+    strokeWidth: 10
+  }
 };
 
 function getLimitedValue(input: number | undefined) {
@@ -90,7 +91,7 @@ export const ProgressCircle = React.forwardRef<
           width={radius * 2}
           height={radius * 2}
           viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-          className="hawa-transform hawa-rotate-180"
+          className="hawa-rotate-180 hawa-transform"
         >
           <circle
             r={normalizedRadius}

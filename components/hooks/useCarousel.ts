@@ -36,7 +36,7 @@ const useCarousel = (imageWidth: number) => {
     );
     containerRef.current!.scrollTo({
       left: closestSnapPoint,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
 
@@ -53,7 +53,7 @@ const useCarousel = (imageWidth: number) => {
     handleMouseDown,
     handleMouseLeave,
     handleMouseUp,
-    handleMouseMove,
+    handleMouseMove
   };
 };
 

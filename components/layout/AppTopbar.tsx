@@ -1,7 +1,10 @@
 import React from "react";
+
+import { DropdownMenu, MenuItemType } from "@elements/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { DropdownMenu, MenuItemType } from "../elements";
-import { DirectionType } from "../types/commonTypes";
 
 type AppTopbarType = {
   direction?: DirectionType;
@@ -18,7 +21,7 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
   return (
     <div
       className={cn(
-        "hawa-border-b hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
+        "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-border-b hawa-bg-primary-foreground hawa-p-2",
         isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
       )}
     >

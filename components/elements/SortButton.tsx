@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "./Button";
+
 import { cn } from "../util";
+import { Button } from "./Button";
 
 type SortButtonProps = {
   onSort: () => void;
@@ -14,7 +15,7 @@ export const SortButton: React.FC<SortButtonProps> = (props) => {
       variant="ghost"
       centered={false}
       className={cn(
-        "hawa-flex hawa-w-full hawa-flex-row hawa-justify-start hawa-gap-2 hawa-text-start hawa-items-start",
+        "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-start hawa-gap-2 hawa-text-start",
         props.condensed && "hawa-h-6"
       )}
       onClick={props.onSort}

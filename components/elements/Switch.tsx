@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import * as SwitchPrimitives from "@radix-ui/react-switch";
+
+import { RadiusType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { RadiusType } from "../types/commonTypes";
 
 interface SwitchProps
   extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
@@ -34,22 +37,22 @@ export const Switch = React.forwardRef<
     const rootSize = {
       default: "hawa-h-[25px] hawa-w-[42px]",
       sm: "hawa-h-[20px] hawa-w-[37px]",
-      lg: "hawa-h-[30px] hawa-w-[47px]",
+      lg: "hawa-h-[30px] hawa-w-[47px]"
     };
     const thumbSize = {
       default: "hawa-h-[21px] hawa-w-[21px]",
       sm: "hawa-h-[16px] hawa-w-[16px]",
-      lg: "hawa-h-[26px] hawa-w-[26px]",
+      lg: "hawa-h-[26px] hawa-w-[26px]"
     };
     const rootRoundednessStyles = {
       none: "hawa-rounded-none",
       full: "hawa-rounded-full",
-      inherit: "hawa-rounded",
+      inherit: "hawa-rounded"
     };
     const thumbRoundednessStyles = {
       none: "hawa-rounded-none",
       full: "hawa-rounded-full",
-      inherit: "hawa-rounded-inner",
+      inherit: "hawa-rounded-inner"
     };
 
     return (

@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
+
 import { cn } from "../util";
 
 const MenubarMenu = MenubarPrimitive.Menu;
@@ -66,7 +68,7 @@ const MenubarSubTrigger = React.forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="hawa-ml-auto hawa-icon"
+      className="hawa-icon hawa-ml-auto"
     >
       <path d="m9 18 6-6-6-6" />
     </svg>
@@ -265,5 +267,5 @@ export {
   MenubarSubTrigger,
   MenubarGroup,
   MenubarSub,
-  MenubarShortcut,
+  MenubarShortcut
 };

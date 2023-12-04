@@ -1,6 +1,8 @@
 import * as React from "react";
+
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "../util";
 
 const Sheet = SheetPrimitive.Root;
@@ -31,12 +33,12 @@ const sheetVariants = cva(
           "hawa-inset-x-0 hawa-bottom-0 hawa-border-t data-[state=closed]:hawa-slide-out-to-bottom data-[state=open]:hawa-slide-in-from-bottom",
         left: "hawa-inset-y-0 hawa-left-0 hawa-h-full hawa-w-3/4 hawa-border-r data-[state=closed]:hawa-slide-out-to-left data-[state=open]:hawa-slide-in-from-left sm:hawa-max-w-sm",
         right:
-          "hawa-inset-y-0 hawa-right-0 hawa-h-full hawa-w-3/4  hawa-border-l data-[state=closed]:hawa-slide-out-to-right data-[state=open]:hawa-slide-in-from-right sm:hawa-max-w-sm",
-      },
+          "hawa-inset-y-0 hawa-right-0 hawa-h-full hawa-w-3/4  hawa-border-l data-[state=closed]:hawa-slide-out-to-right data-[state=open]:hawa-slide-in-from-right sm:hawa-max-w-sm"
+      }
     },
     defaultVariants: {
-      side: "right",
-    },
+      side: "right"
+    }
   }
 );
 
@@ -75,7 +77,7 @@ const SheetContent = React.forwardRef<
               {
                 "hawa-right-4 hawa-top-4": side === "left" || side === "bottom",
                 "hawa-left-4 hawa-top-4": side === "right",
-                "hawa-right-4 hawa-bottom-4": side === "top",
+                "hawa-bottom-4 hawa-right-4": side === "top"
               }
             )}
           >
@@ -168,5 +170,5 @@ export {
   SheetHeader,
   SheetFooter,
   SheetTitle,
-  SheetDescription,
+  SheetDescription
 };

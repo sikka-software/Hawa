@@ -1,5 +1,4 @@
 // useFocusWithin hook detects if any element within has focus, it works the same way as :focus-within CSS selector:
-
 import { useRef, useState, useEffect } from "react";
 
 // Define options for the useFocusWithin hook, which includes onFocus and onBlur callbacks.
@@ -23,7 +22,7 @@ function containsRelatedTarget(event: FocusEvent) {
 // Custom React hook for handling focus events within an element.
 export function useFocusWithin<T extends HTMLElement = any>({
   onBlur,
-  onFocus,
+  onFocus
 }: UseFocusWithinOptions = {}): {
   ref: React.MutableRefObject<T>;
   focused: boolean;

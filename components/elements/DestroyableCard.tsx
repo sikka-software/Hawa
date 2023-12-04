@@ -1,7 +1,9 @@
 import React, { FC, useRef, useState } from "react";
 
-import { Card, CardContent } from "../elements";
-import { DirectionType } from "../types/commonTypes";
+import { Card, CardContent } from "@elements/Card";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
 
 type DestroyableCard = {

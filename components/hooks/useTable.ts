@@ -1,4 +1,3 @@
-// useTable.js
 import React, { useState, useEffect } from "react";
 
 const calculateRange = (data: any, rowsPerPage: any) => {

@@ -1,10 +1,15 @@
 import React, { useEffect, useState, FC } from "react";
 
-import { OrientationType } from "../../types/commonTypes";
+import {
+  Button,
+  DropdownMenu,
+  MenuItemType,
+  StopPropagationWrapper
+} from "@elements/index";
+
+import { OrientationType } from "@_types/commonTypes";
+
 import { cn } from "../../util";
-import { Button } from "../Button";
-import { DropdownMenu, MenuItemType } from "../DropdownMenu";
-import { StopPropagationWrapper } from "../StopPropagationWrapper";
 
 interface ItemCardTypes {
   headerActions?: MenuItemType[];

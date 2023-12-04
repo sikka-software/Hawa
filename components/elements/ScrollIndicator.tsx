@@ -7,7 +7,7 @@ type ScrollIndicatorProps = {
 
 export const ScrollIndicator: FC<ScrollIndicatorProps> = ({
   anchor,
-  inContainer = false,
+  inContainer = false
 }) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -40,7 +40,7 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({
         left: 0,
         height: "5px",
         width: `${scrollPercentage}%`,
-        backgroundColor: "hsl(var(--primary))",
+        backgroundColor: "hsl(var(--primary))"
       }}
     ></div>
   );

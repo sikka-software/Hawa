@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 
-import { Popover, Button, Textarea } from "../../elements";
+import { Popover, Button, Textarea } from "@elements/index";
+
 import { BadEmoji, GoodEmoji, VeryBadEmoji, VeryGoodEmoji } from "../../icons";
 import { cn } from "../../util";
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { PositionType } from "../types/commonTypes";
+import { PositionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
 import { Tooltip } from "./Tooltip";
 

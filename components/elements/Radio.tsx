@@ -1,6 +1,7 @@
 import React, { useState, FC, useRef, useEffect } from "react";
-import { cn } from "../util";
+
 import { DirectionType, OrientationType } from "../types/commonTypes";
+import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
 
 export type RadioOptionsTypes = {
@@ -42,19 +43,19 @@ export const Radio: FC<RadioTypes> = ({
   // hawa-bg-primary/5
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row",
-    vertical: "hawa-flex hawa-flex-col",
+    vertical: "hawa-flex hawa-flex-col"
   };
 
   let tabSizeStyle = {
     default: "hawa-py-2 hawa-px-4 hawa-text-sm",
     lg: "hawa-py-2 hawa-px-4",
     sm: "hawa-p-1.5 hawa-text-xs",
-    xs: "hawa-p-1 hawa-text-[10px]",
+    xs: "hawa-p-1 hawa-text-[10px]"
   };
   let widthStyle = {
     none: "",
     default: "hawa-max-w-fit",
-    full: "hawa-w-full",
+    full: "hawa-w-full"
   };
   const [parentDirection, setParentDirection] = React.useState<string | null>(
     null
@@ -242,10 +243,10 @@ export const Radio: FC<RadioTypes> = ({
           </div>
           <p
             className={cn(
-              "hawa-my-0 hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start",
+              "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
               props.helperText
-                ? "hawa-opacity-100 hawa-h-4"
-                : "hawa-opacity-0 hawa-h-0"
+                ? "hawa-h-4 hawa-opacity-100"
+                : "hawa-h-0 hawa-opacity-0"
             )}
           >
             {props.helperText}

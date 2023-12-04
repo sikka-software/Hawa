@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 
-import { DirectionType } from "@/components/types/commonTypes";
-import { PlanFeature } from "@/components/types/pricingTypes";
-import { PricingPlanTexts } from "@/components/types/textTypes";
+import {
+  Button,
+  Card,
+  Chip,
+  Separator,
+  Skeleton,
+  Tooltip
+} from "@elements/index";
+
+import { DirectionType, PlanFeature, PricingPlanTexts } from "@_types/index";
 
 import { cn } from "../../util";
-import { Button } from "../Button";
-import { Card } from "../Card";
-import { Chip } from "../Chip";
-import { Separator } from "../Separator";
-import { Skeleton } from "../Skeleton";
-import { Tooltip } from "../Tooltip";
 
 export type PricingCardProps = {
   direction?: DirectionType;

@@ -37,6 +37,6 @@ export const useMultiStepDialog = (
     dialogHeight,
     visibleStepRef,
     handleNext,
-    handleBack,
+    handleBack
   };
 };

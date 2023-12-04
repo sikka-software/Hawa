@@ -1,8 +1,12 @@
 import * as React from "react";
+
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+
+import { Chip, ChipColors } from "@elements/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { DirectionType } from "../types/commonTypes";
-import { Chip, ChipColors } from "../elements";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -107,7 +111,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   onItemClick,
   onSubItemClick,
   direction,
-  isOpen,
+  isOpen
 }) => {
   // console.log("selected item is ", selectedItem)
   return (
@@ -168,10 +172,10 @@ const SidebarItem: React.FC<{
       >
         <AccordionTrigger
           className={cn(
-            "hawa-overflow-x-clip hawa-w-full",
+            "hawa-w-full hawa-overflow-x-clip",
             props.selectedItem === item.value
               ? "hawa-cursor-default hawa-bg-primary  hawa-text-primary-foreground"
-              : "hover:hawa-bg-primary/10 hawa-h-10",
+              : "hawa-h-10 hover:hawa-bg-primary/10",
             item.subitems &&
               item.subitems.some(
                 (subitem) => props.selectedItem === subitem.value
@@ -183,7 +187,7 @@ const SidebarItem: React.FC<{
         >
           <div
             className={cn(
-              "hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-h-fit"
+              "hawa-flex hawa-h-fit hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2"
             )}
           >
             {item.icon && item.icon}
@@ -226,7 +230,7 @@ const SidebarItem: React.FC<{
                     }
                   }}
                   className={cn(
-                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-rounded  hawa-p-2 hawa-transition-all hawa-overflow-x-clip hawa-whitespace-nowrap",
+                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-overflow-x-clip  hawa-whitespace-nowrap hawa-rounded hawa-p-2 hawa-transition-all",
                     // bg-foreground/10
                     getSelectedStyle(subitem.value)
                   )}
@@ -268,7 +272,7 @@ const SidebarItem: React.FC<{
           {item.icon && item.icon}
           <span
             className={cn(
-              "hawa-whitespace-nowrap hawa-transition-all hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center",
+              "hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-transition-all",
               isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
             )}
           >

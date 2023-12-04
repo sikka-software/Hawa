@@ -45,7 +45,7 @@ function addEvents(
   element: HTMLElement,
   {
     onFullScreen,
-    onError,
+    onError
   }: { onFullScreen: (event: Event) => void; onError: (event: Event) => void }
 ) {
   prefixes.forEach((prefix) => {
@@ -105,14 +105,14 @@ export function useFullscreen<T extends HTMLElement = any>() {
       _ref.current = window.document.documentElement as T;
       return addEvents(_ref.current, {
         onFullScreen: handleFullscreenChange,
-        onError: handleFullscreenError,
+        onError: handleFullscreenError
       });
     }
 
     if (_ref.current) {
       return addEvents(_ref.current, {
         onFullScreen: handleFullscreenChange,
-        onError: handleFullscreenError,
+        onError: handleFullscreenError
       });
     }
 

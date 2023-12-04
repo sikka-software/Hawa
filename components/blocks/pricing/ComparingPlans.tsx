@@ -1,11 +1,15 @@
 import React, { useState, FC } from "react";
 
-import { PlanFeature } from "@/components/types/pricingTypes";
-import { PricingPlanTexts } from "@/components/types/textTypes";
+import { Radio, Tooltip, ScrollArea, Button, Chip } from "@elements/index";
 
-import { Radio, Tooltip, ScrollArea, Button, Chip } from "../../elements";
+import {
+  PlanFeature,
+  PricingPlanTexts,
+  DirectionType,
+  RadioOptionType
+} from "@_types/index";
+
 import { CheckMark, UncheckMark } from "../../icons";
-import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 import { cn } from "../../util";
 
 type ComparingPlansTypes = {

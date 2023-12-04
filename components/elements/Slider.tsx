@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import * as SliderPrimitive from "@radix-ui/react-slider";
+
 import { cn } from "../util";
 
 const Slider = React.forwardRef<
@@ -14,7 +16,7 @@ const Slider = React.forwardRef<
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="hawa-relative hawa-h-2 hawa-w-full hawa-grow hawa-overflow-hidden hawa-rounded-full hawa-bg-background hawa-border">
+    <SliderPrimitive.Track className="hawa-relative hawa-h-2 hawa-w-full hawa-grow hawa-overflow-hidden hawa-rounded-full hawa-border hawa-bg-background">
       <SliderPrimitive.Range className="hawa-absolute hawa-h-full hawa-bg-primary" />
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb className="hawa-block hawa-h-5 hawa-w-5 hawa-rounded-full hawa-border-2 hawa-border-primary hawa-bg-background hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50" />

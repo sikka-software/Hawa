@@ -11,8 +11,10 @@ import {
   Button,
   Card,
   CardContent
-} from "../../elements";
-import { BaseInputType } from "../../types/textTypes";
+} from "@elements/index";
+
+import { BaseInputType } from "@_types/textTypes";
+
 import { cn } from "../../util";
 
 type FeedbackFormRequestTypeInputProps = BaseInputType & {

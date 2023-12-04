@@ -1,8 +1,11 @@
 import * as React from "react";
+
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
+
+import { DirectionType, SeverityType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { DirectionType, SeverityType } from "../types/commonTypes";
 
 const toastVariants = cva(
   "hawa-group hawa-z-[900] hawa-pointer-events-auto hawa-relative hawa-flex hawa-w-full hawa-items-center hawa-justify-between hawa-space-x-4 hawa-overflow-hidden hawa-rounded-md hawa-border  hawa-shadow-lg hawa-transition-all data-[swipe=cancel]:hawa-translate-x-0 data-[swipe=end]:hawa-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:hawa-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:hawa-transition-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[swipe=end]:hawa-animate-out data-[state=closed]:hawa-fade-out-80  data-[state=open]:hawa-slide-in-from-top-full data-[state=open]:sm:hawa-slide-in-from-bottom-full",
@@ -11,7 +14,7 @@ const toastVariants = cva(
       variant: {
         default: "hawa-border hawa-bg-background hawa-text-foreground",
         destructive:
-          "hawa-destructive hawa-group hawa-border-destructive hawa-bg-destructive hawa-text-destructive-foreground",
+          "hawa-destructive hawa-group hawa-border-destructive hawa-bg-destructive hawa-text-destructive-foreground"
       },
       severity: {
         info: "hawa-info hawa-group hawa-text-info-foreground hawa-bg-info",
@@ -21,13 +24,13 @@ const toastVariants = cva(
           "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-white",
         success:
           "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
-        none: "",
-      },
+        none: ""
+      }
     },
 
     defaultVariants: {
-      variant: "default",
-    },
+      variant: "default"
+    }
   }
 );
 
@@ -131,7 +134,7 @@ const ToastTitle = React.forwardRef<
   <ToastPrimitives.Title
     ref={ref}
     className={cn(
-      "hawa-text-sm hawa-font-semibold hawa-select-text",
+      "hawa-select-text hawa-text-sm hawa-font-semibold",
       className
     )}
     {...props}
@@ -145,7 +148,7 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("hawa-text-sm hawa-opacity-90 hawa-select-text", className)}
+    className={cn("hawa-select-text hawa-text-sm hawa-opacity-90", className)}
     {...props}
   />
 ));
@@ -163,5 +166,5 @@ export {
   ToastTitle,
   ToastDescription,
   ToastClose,
-  ToastAction,
+  ToastAction
 };

@@ -1,6 +1,8 @@
 import * as React from "react";
+
+import { OrientationType } from "@_types/commonTypes";
+
 import { cn } from "../util";
-import { OrientationType } from "../types/commonTypes";
 
 type SeparatorProps = {
   className?: string;

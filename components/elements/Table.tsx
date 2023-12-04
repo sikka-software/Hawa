@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { cn } from "../util";
 
 const Table = React.forwardRef<
@@ -37,7 +38,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     <th
       ref={ref}
       className={cn(
-        "hawa-bg-muted/60 dark:hawa-bg-muted/40 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
+        "hawa-bg-muted/60 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground dark:hawa-bg-muted/40 [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
         dir === "rtl"
           ? "[&:not(:last-child)]:hawa-border-l"
           : "[&:not(:last-child)]:hawa-border-r",
@@ -84,7 +85,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "hawa-transition-colors data-[state=selected]:hawa-bg-muted hawa-bg-background",
+      "hawa-bg-background hawa-transition-colors data-[state=selected]:hawa-bg-muted",
       "[&:not(:last-child)&:not(:first-child)]:hawa-border-y",
       "[&:not(:last-child)]:hawa-border-b",
 
@@ -106,7 +107,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
     let paddingStyles = {
       condensed: "hawa-p-0 hawa-px-4",
       default: "hawa-p-4",
-      noPadding: "hawa-p-0",
+      noPadding: "hawa-p-0"
     };
 
     return (
@@ -156,5 +157,5 @@ export {
   TableFooter,
   TableRow,
   TableCell,
-  TableCaption,
+  TableCaption
 };

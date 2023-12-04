@@ -30,7 +30,7 @@ function useTabs(initialTab = "") {
 
   return {
     activeTab,
-    handleTabChange,
+    handleTabChange
   };
 }
 

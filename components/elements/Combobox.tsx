@@ -2,18 +2,20 @@ import * as React from "react";
 
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import { PositionType } from "../types/commonTypes";
-import { cn } from "../util";
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem
-} from "./Command";
-import { Label, LabelProps } from "./Label";
-import { PopoverContent, PopoverTrigger } from "./Popover";
-import { Skeleton } from "./Skeleton";
+  CommandItem,
+  Label,
+  LabelProps,
+  PopoverContent,
+  PopoverTrigger,
+  Skeleton
+} from "@elements/index";
+
+import { cn } from "../util";
 
 type ComboboxTypes<T> = {
   labelKey?: keyof T;

@@ -1,9 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import {
+  Button,
+  Logos,
+  Sheet,
+  SheetContent,
+  SheetTrigger
+} from "@elements/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { useBreakpoint } from "../hooks/useBreakpoint";
-import { Button, Logos, Sheet, SheetContent, SheetTrigger } from "../elements";
 import { cn } from "../util";
 import { DocsSidebar } from "./DocsSidebar";
-import { DirectionType } from "../types/commonTypes";
 
 type AppLayoutTypes = {
   pages?: any[];
@@ -55,13 +64,13 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
     opened: {
       sm: "100",
       md: openDrawerWidth,
-      lg: "250",
+      lg: "250"
     },
     closed: {
       sm: closeDrawerWidth,
       md: closeDrawerWidth,
-      lg: closeDrawerWidth,
-    },
+      lg: closeDrawerWidth
+    }
   };
 
   const ref = useRef<HTMLDivElement>(null);
@@ -115,7 +124,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5, // Adjust threshold as needed to determine when a section is in view
+      threshold: 0.5 // Adjust threshold as needed to determine when a section is in view
     });
     // Assuming each child corresponds to a page and has an id attribute
     React.Children.forEach(props.children, (child: React.ReactElement) => {
@@ -212,12 +221,12 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
       <div
         className={cn(
-          "hawa-fixed hawa-bg-primary-foreground hawa-z-40 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          "hawa-fixed hawa-z-40 hawa-flex hawa-flex-col  hawa-justify-between hawa-overflow-x-clip hawa-bg-primary-foreground hawa-transition-all",
           isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-full"
             : "hawa-left-0 hawa-top-0 hawa-h-full",
 
-          "hawa-fixed  hawa-p-0 hawa-py-2 hawa-overflow-x-clip hawa-transition-all",
+          "hawa-fixed  hawa-overflow-x-clip hawa-p-0 hawa-py-2 hawa-transition-all",
           "hawa-top-14",
           openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden"
         )}
@@ -228,8 +237,8 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 ? `${drawerSizeStyle["opened"][drawerSize]}px`
                 : `${drawerSizeStyle["closed"][drawerSize]}px`
               : openSideMenu
-              ? `${drawerSizeStyle["opened"][drawerSize]}px`
-              : "0px",
+                ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                : "0px"
         }}
         onMouseEnter={() => {
           setOpenSideMenu(true);
@@ -255,14 +264,14 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 height: "calc(100% - 56px)",
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: "0px",
-                top: "56px",
+                top: "56px"
               }
             : {
                 height: "calc(100% - 56px)",
                 width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: `${drawerSizeCondition}px`,
                 right: `${drawerSizeCondition}px`,
-                top: "56px",
+                top: "56px"
               }
         }
       >

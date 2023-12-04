@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { DirectionType, ThirdPartyAuthTextsTypes } from "@_types/index";
-
 import { Card, CardContent } from "@elements/index";
+
+import { DirectionType, ThirdPartyAuthTextsTypes } from "@_types/index";
 
 import { AuthButtons } from "./AuthButtons";
 
@@ -21,9 +21,9 @@ type AppLandingTypes = {
   viaPhone?: boolean;
   viaApple?: boolean;
   allowRegister?: boolean;
-  size: "small" | "normal" | "full";
-  direction: DirectionType;
-  handleRouteToRegister: () => void;
+  size?: "small" | "normal" | "full";
+  direction?: DirectionType;
+  handleRouteToRegister?: () => void;
   handleGoogle?: () => void;
   handleTwitter?: () => void;
   handleApple?: () => void;
