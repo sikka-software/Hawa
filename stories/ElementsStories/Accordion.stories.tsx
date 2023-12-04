@@ -1,13 +1,14 @@
+import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Accordion,
   AccordionRoot,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionItemProps,
+  AccordionItemProps
 } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
@@ -20,10 +21,10 @@ const meta = {
           <h1>{"<Accordion/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Accordion>;
 
 export default meta;
@@ -33,12 +34,18 @@ const accordionData: AccordionItemProps[] = [
   {
     trigger: "Another Question",
     content: "Here's another answer.",
-    disabled: true,
+    disabled: true
+  },
+  {
+    trigger: "Another Question",
+    content: "Here's another answer.",
+    chip: {
+      label: "soon"
+    }
   },
   { trigger: "Another Question", content: "Here's another answer." },
   { trigger: "Another Question", content: "Here's another answer." },
-  { trigger: "Another Question", content: "Here's another answer." },
-  { trigger: "Another Question", content: "Here's another answer." },
+  { trigger: "Another Question", content: "Here's another answer." }
 ];
 const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
@@ -52,7 +59,7 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };
 export const SeparatedVariant: Story = {
   render: (args: any, globals: any) => {
@@ -70,7 +77,7 @@ export const SeparatedVariant: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const CustomMade: Story = {
   render: (args: any, globals: any) => {
@@ -90,5 +97,5 @@ export const CustomMade: Story = {
         </AccordionItem>
       </AccordionRoot>
     );
-  },
+  }
 };

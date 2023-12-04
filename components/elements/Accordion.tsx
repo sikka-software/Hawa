@@ -2,12 +2,15 @@ import * as React from "react";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
+import { Chip, ChipTypes } from "@elements/index";
+
 import { cn } from "../util";
 
 export type AccordionItemProps = {
   trigger: string;
   content: string;
   disabled?: boolean;
+  chip?: ChipTypes;
 };
 
 type AccordionProps = {
@@ -62,7 +65,14 @@ const Accordion = React.forwardRef<
                 triggerclassNames
               )}
             >
-              {item.trigger}
+              <span
+                className={cn(
+                  "hawa-flex hawa-flex-row",
+                  item.chip && "hawa-gap-2"
+                )}
+              >
+                {item.trigger} {item.chip && <Chip {...item.chip} />}
+              </span>
             </AccordionTrigger>
             <AccordionContent
               aria-disabled={item.disabled || false}

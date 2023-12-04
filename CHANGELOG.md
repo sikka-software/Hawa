@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.2
+
+### Patch Changes
+
+- Added `chip` prop to `Accordion` item [#SIKKA-5849](https://app.clickup.com/t/613523/SIKKA-5849)
+
 ## 0.21.1
 
 ### Patch Changes
