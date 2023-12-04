@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.3
+
+### Patch Changes
+
+- Fixed `ContactForm` width on mobile
+
 ## 0.21.2
 
 ### Patch Changes
@@ -72,7 +78,7 @@
 
 ### Patch Changes
 
-- 0012941: Added `Separated` variant to `Accordion`
+- Added `Separated` variant to `Accordion`
 
 ## 0.20.1
 

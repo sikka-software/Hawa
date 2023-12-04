@@ -69,7 +69,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const handleFormSubmit = (data: ContactFormData) => {
     if (onSubmit) {
       onSubmit(data);
-      reset(); // Reset the form fields after submission
+      reset();
     } else {
       console.log("Form is submitted but onSubmit prop is missing");
     }
@@ -82,7 +82,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <Card
       className={cn(
-        sizeStyle[size],
+        // sizeStyle[size],
+        "hawa-w-full",
         cardless &&
           "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
       )}
