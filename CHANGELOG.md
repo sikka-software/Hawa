@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.6
+
+### Patch Changes
+
+- Moved `Button` and `SplitButton` and `SortButton` to `/elements/Button` folder
+
 ## 0.21.5
 
 ### Patch Changes

@@ -1,13 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Badge,
-  BadgedComponent,
-  Button,
-  Logos,
-  Tooltip,
-} from "../../components/elements";
-import { ArgsTable, Title } from "@storybook/blocks";
 import { useRef } from "react";
+
+import { ArgsTable, Title } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Logos, Tooltip } from "../../components/elements";
+import { Button } from "../../components/elements/button/Button";
 
 const meta = {
   title: "Elements/Button",
@@ -20,10 +17,10 @@ const meta = {
           <Title />
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -34,7 +31,7 @@ const Template = () => {
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-2">
       <h1>Variations</h1>
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+      <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
         <Button variant={"default"}>Default</Button>
         <Button variant={"outline"}>Outline</Button>
         <Button variant={"destructive"}>Destructive</Button>
@@ -45,7 +42,7 @@ const Template = () => {
         <Button variant={"neoBrutalism"}>NeoBrutalism</Button>
       </div>
       <h1>Loading</h1>
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+      <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
         <Button isLoading variant={"default"}>
           Default
         </Button>
@@ -76,7 +73,7 @@ const Template = () => {
 };
 
 export const Variations: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };
 
 export const Sizes: Story = {
@@ -84,7 +81,7 @@ export const Sizes: Story = {
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         <h1>Sizes</h1>
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+        <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
           <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
             <Button size={"smallIcon"}>
               <Logos.sikka className="hawa-icon" />
@@ -105,13 +102,9 @@ export const Sizes: Story = {
           <Button size={"xl"}>Extra Large</Button>
         </div>
         <h1>Loading</h1>
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-flex-wrap">
+        <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
           <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
-            <Button
-              variant={"outline"}
-              isLoading={true}
-              size={"smallIcon"}
-            >
+            <Button variant={"outline"} isLoading={true} size={"smallIcon"}>
               <Logos.sikka className="hawa-icon" />
             </Button>
           </Tooltip>
@@ -145,5 +138,5 @@ export const Sizes: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
