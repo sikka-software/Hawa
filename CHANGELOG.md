@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.8
+
+### Patch Changes
+
+- Added `/Button` export to `package.json`
+
 ## 0.21.7
 
 ### Patch Changes
