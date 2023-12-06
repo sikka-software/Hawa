@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger
 } from "./DropdownMenu";
 import { Input } from "./Input";
-import { Skeleton } from "./Skeleton";
+import { Skeleton } from "./skeleton/Skeleton";
 import {
   Table,
   TableBody,

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.9
+
+### Patch Changes
+
+- Moved `Skeleton` to a separate directory
+
 ## 0.21.8
 
 ### Patch Changes

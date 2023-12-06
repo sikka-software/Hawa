@@ -5,7 +5,9 @@ export default defineConfig({
   target: "es2019",
   entry: {
     index: "components/index.ts",
-    "Button/index": "components/elements/button/index.ts"
+    "button/index": "components/elements/button/index.ts",
+    "accordion/index": "components/elements/accordion/index.ts",
+    "skeleton/index": "components/elements/skeleton/index.ts"
   },
   format: ["cjs", "esm"]
 });

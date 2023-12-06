@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.21.8",
+  "version": "0.21.9",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -33,8 +33,14 @@
     ".": {
       "import": "./dist/index.js"
     },
-    "./Button": {
-      "import": "./dist/Button/index.js"
+    "./button": {
+      "import": "./dist/button/index.js"
+    },
+    "./skeleton": {
+      "import": "./dist/skeleton/index.js"
+    },
+    "./accordion": {
+      "import": "./dist/accordion/index.js"
     },
     "./dist/style.css": "./dist/index.css"
   },

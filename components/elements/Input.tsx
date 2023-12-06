@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
-import { Skeleton } from "./Skeleton";
+import { Skeleton } from "./skeleton/Skeleton";
 
 type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;

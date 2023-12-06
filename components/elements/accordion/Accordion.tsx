@@ -4,7 +4,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Chip, ChipTypes } from "@elements/index";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 export type AccordionItemProps = {
   trigger: string;

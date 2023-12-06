@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import { cn } from "../util";
 import { Label, LabelProps } from "./Label";
-import { Skeleton } from "./Skeleton";
+import { Skeleton } from "./skeleton/Skeleton";
 
 type ControlTypes = {
   cx: any;

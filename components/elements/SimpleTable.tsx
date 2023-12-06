@@ -11,7 +11,7 @@ import {
 import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../util";
-import { Skeleton } from "./Skeleton";
+import { Skeleton } from "./skeleton/Skeleton";
 import {
   Table,
   TableBody,
