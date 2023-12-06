@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.7
+
+### Patch Changes
+
+- Fixing build issue
+
 ## 0.21.6
 
 ### Patch Changes
