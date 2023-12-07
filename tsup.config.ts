@@ -7,7 +7,8 @@ export default defineConfig({
     index: "components/index.ts",
     "button/index": "components/elements/button/index.ts",
     "accordion/index": "components/elements/accordion/index.ts",
-    "skeleton/index": "components/elements/skeleton/index.ts"
+    "skeleton/index": "components/elements/skeleton/index.ts",
+    "splitButton/index": "components/elements/splitButton/index.ts"
   },
   format: ["cjs", "esm"]
 });

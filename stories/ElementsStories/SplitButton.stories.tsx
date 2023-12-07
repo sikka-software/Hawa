@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { SplitButton } from "../../components/elements";
 import { ArgsTable, Title } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { SplitButton } from "../../components/elements/splitButton";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
@@ -14,10 +15,10 @@ const meta = {
           <Title />
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof SplitButton>;
 
 export default meta;
@@ -29,7 +30,7 @@ const Template = (args: any, globals: any) => {
   const direction = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md">
+    <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
       <SplitButton
         direction={direction}
         variant={"outline"}
@@ -37,10 +38,10 @@ const Template = (args: any, globals: any) => {
           {
             label: t("discard"),
             value: 10,
-            action: () => console.log("discarding changes"),
+            action: () => console.log("discarding changes")
           },
           { label: t("save-draft"), value: 10 },
-          { label: t("send-review"), value: 10 },
+          { label: t("send-review"), value: 10 }
         ]}
         {...args}
       >
@@ -50,5 +51,5 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };

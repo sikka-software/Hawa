@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.21.10
+
+### Patch Changes
+
+- Moved `SplitButton` to its own directory
+- Updated exports in `package.json`
+
 ## 0.21.9
 
 ### Patch Changes

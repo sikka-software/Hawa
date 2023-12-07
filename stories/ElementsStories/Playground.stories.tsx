@@ -1,4 +1,8 @@
+import { useState } from "react";
+
+import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Alert,
   Button,
@@ -14,13 +18,11 @@ import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger,
-  SplitButton,
-  Slider,
+  TabsTrigger, // SplitButton,
+  Slider
 } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { SplitButton } from "../../components/elements/splitButton";
 import { setLocale, t } from "../translations/i18n";
-import { useState } from "react";
 
 const meta = {
   title: "Elements/Playground",
@@ -33,24 +35,24 @@ const meta = {
           <h1>{"<Alert/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Alert>;
 
 const ProgressBar = (props: any) => {
   const percentage = (props.currentMetric / props.maxMetric) * 100;
 
   return (
-    <div className="hawa-p-4 hawa-bg-gray-100 hawa-rounded-md">
+    <div className="hawa-rounded-md hawa-bg-gray-100 hawa-p-4">
       {/* Numeric display of the current metric value */}
-      <div className="hawa-text-center hawa-mb-4 hawa-text-xl hawa-font-bold">
+      <div className="hawa-mb-4 hawa-text-center hawa-text-xl hawa-font-bold">
         {props.currentMetric}/{props.maxMetric}
       </div>
 
       {/* Horizontal progress bar */}
-      <div className="hawa-relative hawa-h-6 hawa-rounded-md hawa-overflow-hidden hawa-bg-gray-300">
+      <div className="hawa-relative hawa-h-6 hawa-overflow-hidden hawa-rounded-md hawa-bg-gray-300">
         <div
           style={{ width: `${percentage}%` }}
           className="hawa-absolute hawa-h-full hawa-bg-gradient-to-r hawa-from-green-400 hawa-to-red-500"
@@ -58,12 +60,12 @@ const ProgressBar = (props: any) => {
       </div>
 
       {/* Timeline of past usage with small circular indicators (sample) */}
-      <div className="hawa-flex hawa-justify-between hawa-mt-4">
-        <span className="hawa-w-2 hawa-h-2 hawa-bg-green-400 hawa-rounded-full"></span>
-        <span className="hawa-w-2 hawa-h-2 hawa-bg-yellow-400 hawa-rounded-full"></span>
-        <span className="hawa-w-2 hawa-h-2 hawa-bg-red-500 hawa-rounded-full"></span>
-        <span className="hawa-w-2 hawa-h-2 hawa-bg-green-400 hawa-rounded-full"></span>
-        <span className="hawa-w-2 hawa-h-2 hawa-bg-yellow-400 hawa-rounded-full"></span>
+      <div className="hawa-mt-4 hawa-flex hawa-justify-between">
+        <span className="hawa-h-2 hawa-w-2 hawa-rounded-full hawa-bg-green-400"></span>
+        <span className="hawa-h-2 hawa-w-2 hawa-rounded-full hawa-bg-yellow-400"></span>
+        <span className="hawa-h-2 hawa-w-2 hawa-rounded-full hawa-bg-red-500"></span>
+        <span className="hawa-h-2 hawa-w-2 hawa-rounded-full hawa-bg-green-400"></span>
+        <span className="hawa-h-2 hawa-w-2 hawa-rounded-full hawa-bg-yellow-400"></span>
       </div>
     </div>
   );
@@ -77,7 +79,7 @@ export const Default: Story = {
     <div className="min-h-screen flex items-center justify-center">
       <ProgressBar currentMetric={70} maxMetric={100} />
     </div>
-  ),
+  )
 };
 export const Carousel: Story = {
   name: "Carousel (AI)",
@@ -86,24 +88,24 @@ export const Carousel: Story = {
     <div className="min-h-screen flex items-center justify-center">
       <WidgetContainer />
     </div>
-  ),
+  )
 };
 export const GaugeStory: Story = {
   name: "Gauge (AI)",
   render: () => (
-    <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
+    <div className="hawa-flex hawa-min-h-screen hawa-items-center hawa-justify-center">
       <Gauge value={23} />
     </div>
-  ),
+  )
 };
 export const NavBar: Story = {
   name: "Navbar (AI)",
 
   render: () => (
-    <div className="hawa-flex hawa-items-center hawa-justify-center hawa-min-h-screen">
+    <div className="hawa-flex hawa-min-h-screen hawa-items-center hawa-justify-center">
       <ShopNavBar />
     </div>
-  ),
+  )
 };
 export const WifiIcon: Story = {
   name: "Wifi Icon",
@@ -121,49 +123,49 @@ export const WifiIcon: Story = {
       // class="lucide lucide-wifi"
     >
       <path
-        className=" hawa-delay-500 hawa-duration-1000 hawa-animate-pulse"
+        className=" hawa-animate-pulse hawa-delay-500 hawa-duration-1000"
         d="M5 13a10 10 0 0 1 14 0"
       />
       <path
-        className="hawa-delay-300 hawa-duration-1000 hawa-animate-pulse"
+        className="hawa-animate-pulse hawa-delay-300 hawa-duration-1000"
         d="M8.5 16.5a5 5 0 0 1 7 0"
       />
       <path
-        className="hawa-delay-100 hawa-duration-1000 hawa-animate-pulse"
+        className="hawa-animate-pulse hawa-delay-100 hawa-duration-1000"
         d="M2 8.82a15 15 0 0 1 20 0"
       />
       <line
-        className="hawa-delay-75 hawa-duration-1000 hawa-animate-pulse"
+        className="hawa-animate-pulse hawa-delay-75 hawa-duration-1000"
         x1="12"
         x2="12.01"
         y1="20"
         y2="20"
       />
     </svg>
-  ),
+  )
 };
 
 let roles = [
   {
     _id: "09849846540345",
-    label: "Superadmin",
+    label: "Superadmin"
   },
   {
     _id: "013216506546584098",
-    label: "Admin",
+    label: "Admin"
   },
   {
     _id: "84940984065496",
-    label: "Viewer",
+    label: "Viewer"
   },
   {
     _id: "6401651321",
-    label: "User",
+    label: "User"
   },
   {
     _id: "84040984098",
-    label: "Editor",
-  },
+    label: "Editor"
+  }
 ];
 export const SelectAndInput: Story = {
   name: "Select & Input",
@@ -177,7 +179,7 @@ export const SelectAndInput: Story = {
           <Button onClick={() => setLoading(!loading)}>Loading</Button>
         </div>{" "}
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <div className="hawa-flex hawa-gap-2 hawa-flex-col hawa-items-start  hawa-mb-4 hawa-py-2">
+          <div className="hawa-mb-4 hawa-flex hawa-flex-col hawa-items-start  hawa-gap-2 hawa-py-2">
             <Input
               isLoading={loading}
               preview={preview}
@@ -195,7 +197,7 @@ export const SelectAndInput: Story = {
               valueKey={"_id"}
               texts={{
                 placeholder: "Select something",
-                searchPlaceholder: "Search ...",
+                searchPlaceholder: "Search ..."
               }}
               // helperText={"Testing helperText"}
               popoverClassName="hawa-w-full"
@@ -214,7 +216,7 @@ export const SelectAndInput: Story = {
               <option></option>
             </Select>
           </div>
-          <div className="hawa-flex hawa-flex-row hawa-gap-2  hawa-mb-4 hawa-py-2">
+          <div className="hawa-mb-4 hawa-flex hawa-flex-row  hawa-gap-2 hawa-py-2">
             <Input
               isLoading={loading}
               type={"password"}
@@ -230,32 +232,32 @@ export const SelectAndInput: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 const WidgetCard = (props: any) => (
-  <div className="hawa-relative  hawa-bg-white hawa-rounded-xl hawa-shadow-md hawa-mx-4 hawa-p-6 hawa-flex hawa-flex-col hawa-space-y-4 hawa-w-64">
+  <div className="hawa-relative  hawa-mx-4 hawa-flex hawa-w-64 hawa-flex-col hawa-space-y-4 hawa-rounded-xl hawa-bg-white hawa-p-6 hawa-shadow-md">
     {props.isNew && (
-      <span className="hawa-absolute hawa-top-4 hawa-right-4 hawa-bg-green-500 hawa-text-white hawa-text-xs hawa-px-2 hawa-py-1 hawa-rounded-full">
+      <span className="hawa-absolute hawa-right-4 hawa-top-4 hawa-rounded-full hawa-bg-green-500 hawa-px-2 hawa-py-1 hawa-text-xs hawa-text-white">
         New
       </span>
     )}
     <img
       src={props.imageSrc}
       alt={props.title}
-      className="hawa-w-full hawa-h-40 hawa-object-cover hawa-rounded-md"
+      className="hawa-h-40 hawa-w-full hawa-rounded-md hawa-object-cover"
     />
     <h3 className="hawa-text-xl hawa-font-bold">{props.title}</h3>
-    <p className="hawa-text-gray-600 hawa-flex-grow">{props.description}</p>
+    <p className="hawa-flex-grow hawa-text-gray-600">{props.description}</p>
   </div>
 );
 const WidgetContainer = () => (
-  <div className="hawa-relative hawa-p-10 hawa-bg-gray-100">
-    <button className="hawa-absolute hawa-top-1/2 hawa-left-4 hawa-transform hawa--translate-y-1/2 hawa-text-3xl hawa-text-gray-400">
+  <div className="hawa-relative hawa-bg-gray-100 hawa-p-10">
+    <button className="hawa-absolute hawa-left-4 hawa-top-1/2 hawa--translate-y-1/2 hawa-transform hawa-text-3xl hawa-text-gray-400">
       &lt;
     </button>
 
-    <div className="hawa-flex hawa-justify-center hawa-items-center hawa-space-x-4 hawa-overflow-x-auto">
+    <div className="hawa-flex hawa-items-center hawa-justify-center hawa-space-x-4 hawa-overflow-x-auto">
       <WidgetCard
         imageSrc="https://source.unsplash.com/tVqQSfXQ_SI"
         title="Quiz"
@@ -278,7 +280,7 @@ const WidgetContainer = () => (
       />
     </div>
 
-    <button className="hawa-absolute hawa-top-1/2 hawa-right-4 hawa-transform hawa--translate-y-1/2 hawa-text-3xl hawa-text-gray-400">
+    <button className="hawa-absolute hawa-right-4 hawa-top-1/2 hawa--translate-y-1/2 hawa-transform hawa-text-3xl hawa-text-gray-400">
       &gt;
     </button>
   </div>
@@ -287,16 +289,16 @@ const Gauge = (props: any) => {
   const angle = (props.value / 100) * 180; // Assuming the gauge spans 180 degrees
 
   return (
-    <div className="hawa-relative hawa-w-32 hawa-h-16">
-      <div className="hawa-absolute hawa-w-32 hawa-h-32 hawa-rounded-full hawa-border hawa-border-gray-300 hawa-bottom-0"></div>
-      <div className="hawa-absolute hawa-w-32 hawa-h-16 hawa-bg-white hawa-bottom-0"></div>
-      <div className="hawa-absolute hawa-w-32 hawa-h-16 hawa-overflow-hidden hawa-bottom-0">
+    <div className="hawa-relative hawa-h-16 hawa-w-32">
+      <div className="hawa-absolute hawa-bottom-0 hawa-h-32 hawa-w-32 hawa-rounded-full hawa-border hawa-border-gray-300"></div>
+      <div className="hawa-absolute hawa-bottom-0 hawa-h-16 hawa-w-32 hawa-bg-white"></div>
+      <div className="hawa-absolute hawa-bottom-0 hawa-h-16 hawa-w-32 hawa-overflow-hidden">
         <div
-          className="hawa-w-32 hawa-h-32 hawa-bg-green-400 hawa-rounded-full hawa-transform hawa-origin-bottom"
+          className="hawa-h-32 hawa-w-32 hawa-origin-bottom hawa-transform hawa-rounded-full hawa-bg-green-400"
           style={{ transform: `rotate(${angle}deg)` }}
         ></div>
       </div>
-      <div className="hawa-absolute hawa-w-full hawa-h-16 hawa-flex hawa-items-center hawa-justify-center hawa-bottom-0">
+      <div className="hawa-absolute hawa-bottom-0 hawa-flex hawa-h-16 hawa-w-full hawa-items-center hawa-justify-center">
         <span className="hawa-text-2xl hawa-font-bold">{props.value}/100</span>
       </div>
     </div>
@@ -304,20 +306,20 @@ const Gauge = (props: any) => {
 };
 const ShopNavBar = () => {
   return (
-    <div className="hawa-bg-white hawa-shadow-md hawa-rounded-lg hawa-flex hawa-justify-between hawa-items-center hawa-p-2">
-      <button className="hawa-px-3 hawa-py-2 hawa-bg-transparent hawa-text-blue-600 hawa-border hawa-border-blue-600 hawa-rounded hawa-flex hawa-items-center">
+    <div className="hawa-flex hawa-items-center hawa-justify-between hawa-rounded-lg hawa-bg-white hawa-p-2 hawa-shadow-md">
+      <button className="hawa-flex hawa-items-center hawa-rounded hawa-border hawa-border-blue-600 hawa-bg-transparent hawa-px-3 hawa-py-2 hawa-text-blue-600">
         <i className="icon-home"></i>{" "}
         {/* Replace 'icon-home' with your home icon's class */}
         <span className="hawa-ml-2">Shop</span>
       </button>
 
-      <button className="hawa-px-3 hawa-py-2 hawa-bg-transparent hawa-text-blue-600 hawa-border hawa-border-transparent hawa-rounded hawa-flex hawa-items-center">
+      <button className="hawa-flex hawa-items-center hawa-rounded hawa-border hawa-border-transparent hawa-bg-transparent hawa-px-3 hawa-py-2 hawa-text-blue-600">
         <i className="icon-cart"></i>{" "}
         {/* Replace 'icon-cart' with your cart icon's class */}
         <span className="hawa-ml-2">Cart</span>
       </button>
 
-      <button className="hawa-px-4 hawa-py-2 hawa-bg-blue-600 hawa-text-white hawa-border hawa-border-blue-600 hawa-rounded hawa-flex hawa-items-center">
+      <button className="hawa-flex hawa-items-center hawa-rounded hawa-border hawa-border-blue-600 hawa-bg-blue-600 hawa-px-4 hawa-py-2 hawa-text-white">
         <i className="icon-checkout"></i>{" "}
         {/* Replace 'icon-checkout' with your checkout icon's class */}
         <span className="hawa-ml-2">Checkout</span>
@@ -332,8 +334,8 @@ export const ToScreenshot: Story = {
     const [loading, setLoading] = useState(false);
     const [preview, setPreview] = useState(true);
     return (
-      <div className="hawa-h-[calc(60vh)] hawa-flex hawa-flex-col hawa-justify-center ">
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-drop-shadow-xl hawa-justify-center">
+      <div className="hawa-flex hawa-h-[calc(60vh)] hawa-flex-col hawa-justify-center ">
+        <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2 hawa-drop-shadow-xl">
           <div
             className="hawa-flex hawa-flex-col hawa-flex-wrap hawa-gap-2"
             dir="rtl"
@@ -356,7 +358,7 @@ export const ToScreenshot: Story = {
               <Button variant={"outline"} className="hawa-bg-white ">
                 إلغاء
               </Button>
-              <Button>حفظ</Button>
+              <Button className="hawa-w-full hawa-max-w-[90px]">حفظ</Button>
               <Button
                 variant={"outline"}
                 size={"icon"}
@@ -378,10 +380,10 @@ export const ToScreenshot: Story = {
                   {
                     label: `Discard changes`,
                     value: 10,
-                    action: () => console.log("discarding changes"),
+                    action: () => console.log("discarding changes")
                   },
                   { label: `Save as draft`, value: 10 },
-                  { label: `Send for review`, value: 10 },
+                  { label: `Send for review`, value: 10 }
                 ]}
               >
                 نشر
@@ -395,5 +397,5 @@ export const ToScreenshot: Story = {
         </div>
       </div>
     );
-  },
+  }
 };

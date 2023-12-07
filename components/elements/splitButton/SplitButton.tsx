@@ -4,7 +4,7 @@ import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
 import { DropdownMenu, MenuItemType } from "../DropdownMenu";
-import { Button, ButtonProps } from "./Button";
+import { Button, ButtonProps } from "../button/index";
 
 interface SplitButtonProps extends ButtonProps {
   direction?: DirectionType;
@@ -33,6 +33,7 @@ const SplitButton: React.FC<SplitButtonProps> = ({
       size="sm"
       width="sm"
       direction={direction}
+      align={direction === "rtl" ? "start" : "end"}
       items={menuItems}
       trigger={
         <Button
