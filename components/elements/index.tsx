@@ -53,7 +53,7 @@ export * from "./Count";
 export * from "./InterfaceSettings";
 export * from "./sheet/Sheet";
 export * from "./ProgressCircle";
-export * from "./NavigationMenu";
+export * from "./navigationMenu/NavigationMenu";
 export * from "./StopPropagationWrapper";
 export * from "./FileUploader";
 export * from "./Pagination";

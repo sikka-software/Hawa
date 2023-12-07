@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.12
+
+### Patch Changes
+
+- Moved `NavigationMenu` to it's own folder
+
 ## 0.21.11
 
 ### Patch Changes

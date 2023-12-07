@@ -12,7 +12,8 @@ export default defineConfig({
     "splitButton/index": "components/elements/splitButton/index.ts",
     "loading/index": "components/elements/loading/index.ts",
     "sheet/index": "components/elements/sheet/index.ts",
-    "dropdownMenu/index": "components/elements/dropdownMenu/index.ts"
+    "dropdownMenu/index": "components/elements/dropdownMenu/index.ts",
+    "navigationMenu/index": "components/elements/navigationMenu/index.ts"
   },
   format: ["cjs", "esm"]
 });
