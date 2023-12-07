@@ -1,6 +1,8 @@
 import React, { FC, InputHTMLAttributes } from "react";
 
-import { PricingCard, PricingCardProps, Radio } from "@elements/index";
+import { PricingCardProps } from "@/components/types";
+
+import { PricingCard, Radio } from "@elements/index";
 
 import { DirectionType, RadioOptionType } from "@_types/commonTypes";
 

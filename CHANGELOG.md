@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.22.2
+
+### Patch Changes
+
+- Fixed types in `PricingPlans` block
+- Exporting `Alert` individually
+
 ## 0.22.1
 
 ### Patch Changes

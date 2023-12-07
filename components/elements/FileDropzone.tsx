@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 
 import clsx from "clsx";
 
-import { Alert } from "./Alert";
+import { Alert } from "./alert/Alert";
 import { Button } from "./Button";
 
 type FileDropzoneTypes = {

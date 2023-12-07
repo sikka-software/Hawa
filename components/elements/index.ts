@@ -8,6 +8,7 @@ export * from "./logos";
 export * from "./navigationMenu";
 export * from "./sheet";
 export * from "./dialog";
+export * from "./alert";
 
 // Groups
 export * from "./cards";
@@ -31,7 +32,6 @@ export * from "./Toast";
 export * from "./Toaster";
 export * from "./Chip";
 export * from "./Label";
-export * from "./Alert";
 export * from "./Popover";
 export * from "./DestroyableCard";
 export * from "./FileDropzone";
