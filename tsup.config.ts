@@ -8,6 +8,7 @@ export default defineConfig({
     index: "components/index.ts",
     "hooks/index": "components/hooks/index.ts",
     "button/index": "components/elements/button/index.ts",
+    "card/index": "components/elements/card/index.ts",
     "accordion/index": "components/elements/accordion/index.ts",
     "skeleton/index": "components/elements/skeleton/index.ts",
     "splitButton/index": "components/elements/splitButton/index.ts",

@@ -18,7 +18,7 @@ export * from "./Select";
 export * from "./Avatar";
 export * from "./Button";
 export * from "./Dialog";
-export * from "./Card";
+export * from "./card/Card";
 export * from "./loading/Loading";
 export * from "./Breadcrumb";
 export * from "./tooltip/Tooltip";

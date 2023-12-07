@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from "react";
 
-import { Card, CardContent } from "@elements/Card";
+import { Card, CardContent } from "@/components/elements/card/Card";
 
 import { DirectionType } from "@_types/commonTypes";
 

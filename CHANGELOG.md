@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.14
+
+### Patch Changes
+
+- Moved `Card` to it's own folder
+
 ## 0.21.13
 
 ### Patch Changes
