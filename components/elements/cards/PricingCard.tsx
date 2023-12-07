@@ -9,26 +9,9 @@ import {
   Tooltip
 } from "@elements/index";
 
-import { DirectionType, PlanFeature, PricingPlanTexts } from "@_types/index";
+import { PricingCardProps } from "@_types/index";
 
 import { cn } from "../../util";
-
-export type PricingCardProps = {
-  direction?: DirectionType;
-  features: PlanFeature[];
-  endButton?: boolean;
-  price: number;
-  oldPrice?: number;
-  noPrice?: boolean;
-  id?: string;
-  discount?: string;
-  onPlanClicked?: () => void;
-  currentPlan?: boolean;
-  recommended?: boolean;
-  size?: "small" | "medium" | "large";
-  isLoading?: boolean;
-  texts: PricingPlanTexts;
-};
 
 export const PricingCard: FC<PricingCardProps> = ({
   size = "medium",

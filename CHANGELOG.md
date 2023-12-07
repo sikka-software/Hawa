@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.22.1
+
+### Patch Changes
+
+- Exported `/types` to be imported by consumer via `@sikka/hawa/types`
+- Organized types within `/blocks/pricing`
+
 ## 0.22.0
 
 ### Minor Changes

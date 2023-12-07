@@ -4,6 +4,7 @@ export default defineConfig({
   clean: true,
   target: "es2019",
   entry: {
+    "types/index": "components/types/index.ts",
     // ALL
     index: "components/index.ts",
     // CORE
