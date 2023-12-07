@@ -21,7 +21,7 @@ export * from "./Dialog";
 export * from "./Card";
 export * from "./loading/Loading";
 export * from "./Breadcrumb";
-export * from "./Tooltip";
+export * from "./tooltip/Tooltip";
 export * from "./CodeBlock";
 export * from "./Toast";
 export * from "./Toaster";

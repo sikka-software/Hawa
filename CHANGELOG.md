@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.21.13
+
+### Patch Changes
+
+- Moved `Tooltip` to it's own folder
+- Moved `hooks` to `/hooks` folder
+
 ## 0.21.12
 
 ### Patch Changes

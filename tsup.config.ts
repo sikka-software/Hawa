@@ -6,6 +6,7 @@ export default defineConfig({
   treeshake: true,
   entry: {
     index: "components/index.ts",
+    "hooks/index": "components/hooks/index.ts",
     "button/index": "components/elements/button/index.ts",
     "accordion/index": "components/elements/accordion/index.ts",
     "skeleton/index": "components/elements/skeleton/index.ts",
@@ -13,7 +14,8 @@ export default defineConfig({
     "loading/index": "components/elements/loading/index.ts",
     "sheet/index": "components/elements/sheet/index.ts",
     "dropdownMenu/index": "components/elements/dropdownMenu/index.ts",
-    "navigationMenu/index": "components/elements/navigationMenu/index.ts"
+    "navigationMenu/index": "components/elements/navigationMenu/index.ts",
+    "tooltip/index": "components/elements/tooltip/index.ts"
   },
   format: ["cjs", "esm"]
 });
