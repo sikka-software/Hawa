@@ -3,7 +3,7 @@ import * as React from "react";
 import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
-import { DropdownMenu, MenuItemType } from "../DropdownMenu";
+import { DropdownMenu, MenuItemType } from "../dropdownMenu/DropdownMenu";
 import { Button, ButtonProps } from "../button/index";
 
 interface SplitButtonProps extends ButtonProps {

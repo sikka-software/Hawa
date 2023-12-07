@@ -1,14 +1,13 @@
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Accordion, AccordionItemProps } from "../../components/elements";
 import {
-  Accordion,
-  AccordionRoot,
-  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionItemProps
-} from "../../components/elements";
+  AccordionRoot,
+  AccordionContent
+} from "../../components/elements/accordion";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {

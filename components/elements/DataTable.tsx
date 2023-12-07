@@ -26,7 +26,7 @@ import {
   DropdownMenuContent,
   DropdownMenuRoot,
   DropdownMenuTrigger
-} from "./DropdownMenu";
+} from "./dropdownMenu/DropdownMenu";
 import { Input } from "./Input";
 import { Skeleton } from "./skeleton/Skeleton";
 import {

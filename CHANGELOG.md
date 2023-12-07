@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.21.11
+
+### Patch Changes
+
+- Split all `Accordion` subcomponents to seperate files
+- Moved `DropdownMenu` to it's own folder
+- Moved `Sheet` to it's own folder
+
 ## 0.21.10
 
 ### Patch Changes
