@@ -1,5 +1,17 @@
 # @sikka/hawa
 
+## 0.22.0
+
+### Minor Changes
+
+- `blocks` can now be imported via `@sikka/hawa/blocks`
+- auth blocks can now be imported via `@sikka/hawa/blocks/auth`
+- feedback blocks can now be imported via `@sikka/hawa/blocks/feedback`
+- pricing blocks can now be imported via `@sikka/hawa/blocks/pricing`
+- misc blocks can now be imported via `@sikka/hawa/blocks/misc`
+- `elements` can now be imported via `@sikka/hawa/elements`
+- `layout` can now be imported via `@sikka/hawa/layout`
+
 ## 0.21.15
 
 ### Patch Changes

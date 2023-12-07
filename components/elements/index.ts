@@ -7,11 +7,11 @@ export * from "./accordion";
 export * from "./logos";
 export * from "./navigationMenu";
 export * from "./sheet";
+export * from "./dialog";
 
 // Groups
 export * from "./cards";
 
-//Can be grouped inside Input folder
 export * from "./PinInput";
 export * from "./PhoneInput";
 export * from "./Checkbox";
@@ -25,7 +25,6 @@ export * from "./Combobox";
 export * from "./Select";
 export * from "./Avatar";
 export * from "./Button";
-export * from "./Dialog";
 export * from "./Breadcrumb";
 export * from "./CodeBlock";
 export * from "./Toast";

@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.21.15",
+  "version": "0.22.0",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -35,6 +35,9 @@
     },
     "./*": {
       "import": "./dist/*/index.js"
+    },
+    "./blocks/*": {
+      "import": "./dist/blocks/*/index.js"
     },
     "./dist/style.css": "./dist/index.css"
   },
