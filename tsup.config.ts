@@ -5,6 +5,7 @@ export default defineConfig({
   target: "es2019",
   entry: {
     "types/index": "components/types/index.ts",
+    "hooks/index": "components/hooks/index.ts",
     // ALL
     index: "components/index.ts",
     // CORE
@@ -16,9 +17,7 @@ export default defineConfig({
     "blocks/feedback/index": "components/blocks/feedback/index.ts",
     "blocks/misc/index": "components/blocks/misc/index.ts",
     "blocks/pricing/index": "components/blocks/pricing/index.ts",
-
     // ELEMENTS
-    "hooks/index": "components/hooks/index.ts",
     "button/index": "components/elements/button/index.ts",
     "card/index": "components/elements/card/index.ts",
     "accordion/index": "components/elements/accordion/index.ts",
@@ -30,7 +29,8 @@ export default defineConfig({
     "dialog/index": "components/elements/dialog/index.ts",
     "navigationMenu/index": "components/elements/navigationMenu/index.ts",
     "logos/index": "components/elements/logos/index.ts",
-    "tooltip/index": "components/elements/tooltip/index.ts"
+    "tooltip/index": "components/elements/tooltip/index.ts",
+    "radio/index": "components/elements/radio/index.ts"
   },
   format: ["cjs", "esm"]
 });

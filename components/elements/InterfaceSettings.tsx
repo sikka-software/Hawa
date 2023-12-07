@@ -3,7 +3,7 @@ import React, { FC, useState } from "react";
 import { OrientationType } from "@_types/commonTypes";
 
 import { cn } from "../util";
-import { Radio } from "./Radio";
+import { Radio } from "./radio/Radio";
 
 type TypographyTypes = {
   /** Function to handle language change.   */

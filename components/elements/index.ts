@@ -16,7 +16,7 @@ export * from "./cards";
 export * from "./PinInput";
 export * from "./PhoneInput";
 export * from "./Checkbox";
-export * from "./Radio";
+export * from "./radio/Radio";
 export * from "./Switch";
 export * from "./Textarea";
 export * from "./Slider";
