@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.21.15
+
+### Patch Changes
+
+- Moved `Logos` to it's own folder
+
 ## 0.21.14
 
 ### Patch Changes

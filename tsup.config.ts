@@ -3,7 +3,6 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   clean: true,
   target: "es2019",
-  treeshake: true,
   entry: {
     index: "components/index.ts",
     "hooks/index": "components/hooks/index.ts",
