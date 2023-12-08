@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.22.4
+
+### Patch Changes
+
+- Updated packages
+
 ## 0.22.3
 
 ### Patch Changes
