@@ -2,8 +2,8 @@ import React from "react";
 
 import { RadiusType } from "@_types/commonTypes";
 
-import { cn } from "../util";
-import { FileUploader } from "./FileUploader";
+import { cn } from "../../util";
+import { FileUploader } from "../FileUploader";
 
 interface AvatarProps {
   isUploadable?: boolean;
@@ -64,7 +64,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     >
       <FileUploader
         className={cn(
-          "hawa-w- hawa-absolute hawa-left-0 hawa-top-0 hawa-bg-red-400 hawa-opacity-0",
+          "hawa-absolute hawa-left-0 hawa-top-0 hawa-w-full hawa-cursor-pointer hawa-bg-red-400 hawa-opacity-0",
           sizeStyles[size],
           radiusStyles[radius],
           (!isUploadable || !!src) && "hawa-hidden"
@@ -81,7 +81,6 @@ export const Avatar: React.FC<AvatarProps> = ({
         src={src}
         alt={alt}
       />
-      {/* I want to have a user icon when no src is not provided and isUploadable is false */}
       {!src && !isUploadable && (
         <div
           className={cn(

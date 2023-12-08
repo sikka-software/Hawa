@@ -8,7 +8,7 @@ import React, {
 } from "react";
 
 import { cn } from "../util";
-import { Label, LabelProps } from "./Label";
+import { Label, LabelProps } from "./label/Label";
 
 type ColorPickerTypes = {
   label?: string;

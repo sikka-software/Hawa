@@ -1,7 +1,7 @@
 import React from "react";
 
-import { cn } from "../util";
-import { Button } from "./Button";
+import { cn } from "../../util";
+import { Button } from "../button";
 
 type SortButtonProps = {
   onSort: () => void;

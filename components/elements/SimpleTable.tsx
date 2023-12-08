@@ -11,7 +11,7 @@ import {
 import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../util";
-import { Skeleton } from "./skeleton/Skeleton";
+import { Skeleton } from "./skeleton";
 import {
   Table,
   TableBody,
@@ -19,7 +19,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "./Table";
+} from "./table";
 
 type DataProps = {};
 

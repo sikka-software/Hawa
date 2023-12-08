@@ -30,7 +30,16 @@ export default defineConfig({
     "navigationMenu/index": "components/elements/navigationMenu/index.ts",
     "logos/index": "components/elements/logos/index.ts",
     "tooltip/index": "components/elements/tooltip/index.ts",
-    "radio/index": "components/elements/radio/index.ts"
+    "avatar/index": "components/elements/avatar/index.ts",
+    "radio/index": "components/elements/radio/index.ts",
+    "textarea/index": "components/elements/textarea/index.ts",
+    "alert/index": "components/elements/alert/index.ts",
+    "backToTop/index": "components/elements/backToTop/index.ts",
+    "dataTable/index": "components/elements/dataTable/index.ts",
+    "label/index": "components/elements/label/index.ts",
+    "sortButton/index": "components/elements/sortButton/index.ts",
+    "table/index": "components/elements/table/index.ts",
+    "fileDropzone/index": "components/elements/fileDropzone/index.ts"
   },
   format: ["cjs", "esm"]
 });

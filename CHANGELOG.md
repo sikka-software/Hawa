@@ -1,5 +1,18 @@
 # @sikka/hawa
 
+## 0.22.5
+
+### Patch Changes
+
+- moved `Alert` to it's own folder
+- moved `FileDropzone` to it's own folder
+- moved `Table` to it's own folder
+- moved `DataTable` to it's own folder
+- moved `Label` to it's own folder
+- moved `BackToTop` to it's own folder
+- moved `Avatar` to it's own folder
+- moved `Textarea` to it's own folder
+
 ## 0.22.4
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react";
 
-import { cn } from "../util";
-import { Button } from "./Button";
+import { cn } from "../../util";
+import { Button } from "../button";
 
 type BackToTopTypes = {
   /** Horizontal padding relative to the attached corner */

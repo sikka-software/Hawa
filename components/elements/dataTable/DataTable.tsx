@@ -18,17 +18,17 @@ import {
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
-import { Button } from "./Button";
+import { cn } from "../../util";
+import { Input } from "../Input";
+import { Button } from "../button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuRoot,
   DropdownMenuTrigger
-} from "./dropdownMenu/DropdownMenu";
-import { Input } from "./Input";
-import { Skeleton } from "./skeleton/Skeleton";
+} from "../dropdownMenu";
+import { Skeleton } from "../skeleton";
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "./Table";
+} from "../table";
 
 type DataTableProps<DataProps = {}> = {
   direction?: DirectionType;

@@ -2,8 +2,8 @@ import * as React from "react";
 
 import { PositionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
-import { Tooltip } from "./tooltip/Tooltip";
+import { cn } from "../../util";
+import { Tooltip } from "../tooltip";
 
 export type LabelProps = {
   hint?: React.ReactNode;

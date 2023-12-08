@@ -3,8 +3,8 @@ import { useDropzone } from "react-dropzone";
 
 import clsx from "clsx";
 
-import { Alert } from "./alert/Alert";
-import { Button } from "./Button";
+import { Alert } from "../alert/Alert";
+import { Button } from "../button";
 
 type FileDropzoneTypes = {
   /**  The text label above the component. Consistant with the other form input fields   */

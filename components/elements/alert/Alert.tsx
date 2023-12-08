@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { DirectionType, SeverityType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
-import { Button } from "../Button";
+import { Button } from "../button";
 
 type AlertTypes = {
   severity?: SeverityType | "hyper" | "oceanic";
