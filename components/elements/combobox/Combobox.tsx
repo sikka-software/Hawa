@@ -7,13 +7,11 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem,
-  Label,
-  LabelProps,
-  PopoverContent,
-  PopoverTrigger,
-  Skeleton
-} from "@elements/index";
+  CommandItem
+} from "@elements/command";
+import { Label, LabelProps } from "@elements/label";
+import { PopoverContent, PopoverTrigger } from "@elements/popover";
+import { Skeleton } from "@elements/skeleton";
 
 import { cn } from "../../util";
 

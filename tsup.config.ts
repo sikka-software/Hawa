@@ -64,6 +64,8 @@ export default defineConfig([
       "alert/index": "components/elements/alert/index.ts",
       "label/index": "components/elements/label/index.ts",
       "sortButton/index": "components/elements/sortButton/index.ts",
+      "command/index": "components/elements/command/index.ts",
+      "popover/index": "components/elements/popover/index.ts",
       "input/index": "components/elements/input/index.ts",
       "fileDropzone/index": "components/elements/fileDropzone/index.ts"
     },

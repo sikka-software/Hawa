@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.23.1
+
+### Patch Changes
+
+- Moved `Popover` to it's own folder
+- Improved the imports within `Comobobox`
+
 ## 0.23.0
 
 ### Minor Changes

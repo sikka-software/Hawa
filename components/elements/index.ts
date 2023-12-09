@@ -22,6 +22,8 @@ export * from "./fileDropzone";
 export * from "./sortButton";
 export * from "./tabs";
 export * from "./input";
+export * from "./command";
+export * from "./popover";
 
 // Groups
 export * from "./cards";
@@ -36,14 +38,12 @@ export * from "./Select";
 export * from "./Breadcrumb";
 export * from "./CodeBlock";
 export * from "./Chip";
-export * from "./Popover";
 export * from "./DestroyableCard";
 export * from "./Carousel";
 export * from "./AppStores";
 export * from "./SimpleTable";
 export * from "./Toast";
 export * from "./Toaster";
-export * from "./Command";
 export * from "./Separator";
 export * from "./Progress";
 export * from "./ScrollIndicator";
