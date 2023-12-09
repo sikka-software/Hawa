@@ -27,13 +27,17 @@ export * from "./popover";
 export * from "./select";
 export * from "./switch";
 export * from "./checkbox";
+export * from "./progress";
+export * from "./chip";
+export * from "./breadcrumb";
+export * from "./appStores";
+export * from "./badge";
 
 // Groups
 export * from "./cards";
 
 export * from "./PinInput";
 export * from "./PhoneInput";
-export * from "./Progress";
 export * from "./ProgressCircle";
 export * from "./Pagination";
 export * from "./PasswordInput";
@@ -47,17 +51,12 @@ export * from "./StopPropagationWrapper";
 
 export * from "./ColorPicker";
 export * from "./CodeBlock";
-export * from "./Chip";
 export * from "./Carousel";
 export * from "./Count";
 
 export * from "./Toast";
 export * from "./Toaster";
 
-export * from "./Breadcrumb";
-export * from "./Badge";
-
-export * from "./AppStores";
 export * from "./DestroyableCard";
 export * from "./InterfaceSettings";
 export * from "./FileUploader";

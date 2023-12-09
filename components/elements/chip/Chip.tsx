@@ -2,7 +2,7 @@ import React from "react";
 
 import { RadiusType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 export type ChipColors =
   | "green"

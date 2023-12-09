@@ -35,6 +35,19 @@ export default defineConfig([
     },
     format: ["cjs", "esm"]
   },
+  // {
+  //   name: "Build Auth Blocks",
+  //   clean: true,
+  //   target: "es2019",
+  //   entry: {
+  //     // BLOCKS
+  //     "blocks/auth/index": "components/blocks/auth/index.ts",
+  //     "blocks/feedback/index": "components/blocks/feedback/index.ts",
+  //     "blocks/misc/index": "components/blocks/misc/index.ts",
+  //     "blocks/pricing/index": "components/blocks/pricing/index.ts"
+  //   },
+  //   format: ["cjs", "esm"]
+  // },
   {
     name: "Build Elements",
     clean: true,
@@ -69,6 +82,11 @@ export default defineConfig([
       "checkbox/index": "components/elements/checkbox/index.ts",
       "switch/index": "components/elements/switch/index.ts",
       "input/index": "components/elements/input/index.ts",
+      "progress/index": "components/elements/progress/index.ts",
+      "chip/index": "components/elements/chip/index.ts",
+      "appStores/index": "components/elements/appStores/index.ts",
+      "badge/index": "components/elements/badge/index.ts",
+      "breadcrumb/index": "components/elements/breadcrumb/index.ts",
       "select/index": "components/elements/select/index.ts",
       "fileDropzone/index": "components/elements/fileDropzone/index.ts"
     },
