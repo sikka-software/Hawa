@@ -4,14 +4,11 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import {
-  Label,
-  Select,
-  Textarea,
-  Button,
-  Card,
-  CardContent
-} from "@elements/index";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { Label } from "@elements/label";
+import { Select } from "@elements/select";
+import { Textarea } from "@elements/textarea";
 
 import { BaseInputType } from "@_types/textTypes";
 

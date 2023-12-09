@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import { Card, CardContent, Button } from "@elements/index";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
 
 type AnnouncementTypes = {
   onActionClick: () => void;

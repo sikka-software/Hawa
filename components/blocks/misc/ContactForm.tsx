@@ -1,11 +1,15 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 
-import { TextInputType } from "@/components/types/textTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button, Card, CardContent, Input, Textarea } from "@elements/index";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { Input } from "@elements/input";
+import { Textarea } from "@elements/textarea";
+
+import { TextInputType } from "@_types/textTypes";
 
 import { cn } from "../../util";
 

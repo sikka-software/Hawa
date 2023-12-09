@@ -1,6 +1,10 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 
-import { Radio, Tooltip, ScrollArea, Button, Chip } from "@elements/index";
+import { Button } from "@elements/button";
+import { Chip } from "@elements/chip";
+import { Radio } from "@elements/radio";
+import { ScrollArea } from "@elements/scrollArea";
+import { Tooltip } from "@elements/tooltip";
 
 import {
   PlanFeature,

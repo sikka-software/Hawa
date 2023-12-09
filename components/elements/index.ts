@@ -35,6 +35,7 @@ export * from "./badge";
 export * from "./phoneInput";
 export * from "./pinInput";
 export * from "./stopPropagationWrapper";
+export * from "./scrollArea";
 
 export * from "./ProgressCircle";
 export * from "./Pagination";
@@ -43,7 +44,6 @@ export * from "./PasswordInput";
 export * from "./Slider";
 export * from "./SimpleTable";
 export * from "./Separator";
-export * from "./ScrollArea";
 export * from "./ScrollIndicator";
 
 export * from "./ColorPicker";

@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.23.6
+
+### Patch Changes
+
+- Code splitting `ScrollArea`
+- General cleanup
+
 ## 0.23.5
 
 ### Patch Changes

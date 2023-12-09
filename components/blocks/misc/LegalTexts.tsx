@@ -1,12 +1,7 @@
 import React from "react";
 
-import {
-  ScrollArea,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger
-} from "@elements/index";
+import { ScrollArea } from "@elements/scrollArea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
 
 import { cn } from "../../util";
 

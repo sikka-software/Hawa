@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import { Button, Card, CardContent } from "@elements/index";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
 
 type NotFoundTypes = {
   variant?: "outlined" | "contained" | "neobrutalism";

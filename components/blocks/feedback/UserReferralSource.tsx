@@ -4,14 +4,10 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import {
-  Button,
-  Radio,
-  Textarea,
-  Card,
-  CardContent,
-  RadioOptionsTypes
-} from "@elements/index";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { Radio, RadioOptionsTypes } from "@elements/radio";
+import { Textarea } from "@elements/textarea";
 
 import { DirectionType } from "@_types/commonTypes";
 

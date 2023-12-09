@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardContent } from "@/components/elements/card";
+import { Card, CardContent } from "@elements/card";
 
 type NoPermissionProps = {
   texts?: {
