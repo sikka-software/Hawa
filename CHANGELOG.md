@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.23.0
+
+### Minor Changes
+
+- Updated `tsup.config.ts`
+- Splitting the bundling process by `tsup` to prevent no-memory breaking error
+
 ## 0.22.8
 
 ### Patch Changes

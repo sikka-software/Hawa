@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.22.8",
+  "version": "0.23.0",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -54,6 +54,11 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-lib": "tsup --dts",
+    "build:all": "tsup --name 'Build All'",
+    "build:core": "tsup --name 'Build Core'",
+    "build:blocks": "tsup --name 'Build Blocks'",
+    "build:elements": "tsup --name 'Build Elements'",
+    "build-lib-new": "npm run build:all && npm run build:core && npm run build:blocks && npm run build:elements",
     "build-css": "postcss styles/globals.css -o dist/index.css",
     "prepub": "npm run build-lib && npm run build-css",
     "pub": "npm publish --tag next",
