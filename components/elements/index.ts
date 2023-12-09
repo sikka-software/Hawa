@@ -21,6 +21,7 @@ export * from "./label";
 export * from "./fileDropzone";
 export * from "./sortButton";
 export * from "./tabs";
+export * from "./input";
 
 // Groups
 export * from "./cards";
@@ -31,7 +32,6 @@ export * from "./Checkbox";
 export * from "./Switch";
 export * from "./Slider";
 export * from "./ColorPicker";
-export * from "./Input";
 export * from "./Select";
 export * from "./Breadcrumb";
 export * from "./CodeBlock";

@@ -19,7 +19,7 @@ import {
 import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
-import { Input } from "../Input";
+import { Input } from "../input/Input";
 import { Button } from "../button";
 import {
   DropdownMenu,

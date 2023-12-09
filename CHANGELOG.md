@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.22.8
+
+### Patch Changes
+
+- Moved `Input` to it's own exported folder
+
 ## 0.22.7
 
 ### Patch Changes

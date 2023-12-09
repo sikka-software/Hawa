@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { CheckMark, EyeIcon, HiddenEyeIcon, UncheckMark } from "../icons";
-import { Input } from "./Input";
+import { Input } from "./input/Input";
 import { Popover } from "./Popover";
 
 type PasswordInputIndicatorProps = {
