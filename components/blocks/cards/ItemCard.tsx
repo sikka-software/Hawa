@@ -1,11 +1,8 @@
 import React, { useEffect, useState, FC } from "react";
 
-import {
-  Button,
-  DropdownMenu,
-  MenuItemType,
-  StopPropagationWrapper
-} from "@elements/index";
+import { Button } from "@elements/button";
+import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
+import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
 import { OrientationType } from "@_types/commonTypes";
 

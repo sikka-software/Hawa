@@ -87,6 +87,10 @@ export default defineConfig([
       "appStores/index": "components/elements/appStores/index.ts",
       "badge/index": "components/elements/badge/index.ts",
       "breadcrumb/index": "components/elements/breadcrumb/index.ts",
+      "phoneInput/index": "components/elements/phoneInput/index.ts",
+      "pinInput/index": "components/elements/pinInput/index.ts",
+      "stopPropagationWrapper/index":
+        "components/elements/stopPropagationWrapper/index.ts",
       "select/index": "components/elements/select/index.ts",
       "fileDropzone/index": "components/elements/fileDropzone/index.ts"
     },

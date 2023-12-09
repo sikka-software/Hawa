@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FC } from "react";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type PinInputTypes = {
   /** Label text to display for the Pin Input */

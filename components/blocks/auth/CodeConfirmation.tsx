@@ -4,7 +4,10 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button, Card, CardContent, Alert, PinInput } from "@elements/index";
+import { Alert } from "@elements/alert";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { PinInput } from "@elements/pinInput";
 
 type TConfirmation = {
   texts?: {

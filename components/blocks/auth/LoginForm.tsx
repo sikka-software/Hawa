@@ -1,24 +1,21 @@
 import React, { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { parsePhoneNumber } from "libphonenumber-js";
+import * as z from "zod";
+
+import { Alert } from "@elements/alert";
+import { Button } from "@elements/button";
+import { Card, CardContent, CardFooter } from "@elements/card";
+import { Input } from "@elements/input";
+import { PhoneInput } from "@elements/phoneInput";
+
 import {
   DirectionType,
   LoginFormTextsTypes,
   ThirdPartyAuthTextsTypes
 } from "@_types/index";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { parsePhoneNumber } from "libphonenumber-js";
-import * as z from "zod";
-
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  Alert,
-  PhoneInput,
-  Input,
-  Button
-} from "@elements/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { cn } from "../../util";

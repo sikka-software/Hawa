@@ -1,8 +1,10 @@
 import React from "react";
 
-import { ThirdPartyAuthTextsTypes } from "@_types/textTypes";
+import { Button } from "@elements/button";
+import { Loading } from "@elements/loading";
+import { Logos } from "@elements/logos";
 
-import { Button, Loading, Logos } from "@elements/index";
+import { ThirdPartyAuthTextsTypes } from "@_types/textTypes";
 
 type AuthButtonsType = {
   texts?: ThirdPartyAuthTextsTypes;

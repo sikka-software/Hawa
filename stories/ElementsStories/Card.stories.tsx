@@ -9,7 +9,7 @@ import {
 } from "../../components/elements";
 
 const meta = {
-  title: "Elements/Cards/Container",
+  title: "Elements/Card",
   component: Card,
   tags: ["autodocs"],
 } satisfies Meta<typeof Card>;

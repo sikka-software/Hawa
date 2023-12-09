@@ -32,9 +32,10 @@ export * from "./chip";
 export * from "./breadcrumb";
 export * from "./appStores";
 export * from "./badge";
+export * from "./phoneInput";
+export * from "./pinInput";
+export * from "./stopPropagationWrapper";
 
-export * from "./PinInput";
-export * from "./PhoneInput";
 export * from "./ProgressCircle";
 export * from "./Pagination";
 export * from "./PasswordInput";
@@ -44,7 +45,6 @@ export * from "./SimpleTable";
 export * from "./Separator";
 export * from "./ScrollArea";
 export * from "./ScrollIndicator";
-export * from "./StopPropagationWrapper";
 
 export * from "./ColorPicker";
 export * from "./CodeBlock";

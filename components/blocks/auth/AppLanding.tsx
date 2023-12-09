@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardContent } from "@elements/index";
+import { Card, CardContent } from "@elements/card";
 
 import { DirectionType, ThirdPartyAuthTextsTypes } from "@_types/index";
 

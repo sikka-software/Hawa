@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.23.5
+
+### Patch Changes
+
+- Code splitting `PinInput`, `PhoneInput`, and `StopPropagationWrapper`
+
 ## 0.23.4
 
 ### Patch Changes

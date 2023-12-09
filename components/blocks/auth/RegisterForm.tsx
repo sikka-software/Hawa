@@ -4,24 +4,21 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import {
-  Input,
-  Alert,
-  Select,
-  Checkbox,
-  Button,
-  Card,
-  CardFooter,
-  CardContent,
-  SelectOptionProps,
-  StopPropagationWrapper
-} from "../../elements";
-import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { DirectionType } from "../../types/commonTypes";
+import { Alert } from "@elements/alert";
+import { Button } from "@elements/button";
+import { Card, CardContent, CardFooter } from "@elements/card";
+import { Checkbox } from "@elements/checkbox";
+import { Input } from "@elements/input";
+import { Select, SelectOptionProps } from "@elements/select";
+import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
+
+import { DirectionType } from "@_types/commonTypes";
 import {
   RegisterFormTextsTypes,
   ThirdPartyAuthTextsTypes
-} from "../../types/textTypes";
+} from "@_types/textTypes";
+
+import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { cn } from "../../util";
 import { AuthButtons } from "./AuthButtons";
 

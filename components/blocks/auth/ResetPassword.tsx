@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button } from "../../elements/button";
+import { Button } from "@elements/button";
 import {
   Card,
   CardContent,
@@ -12,10 +12,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from "../../elements/card";
-import { Input } from "../../elements/input";
-import { DirectionType } from "../../types/commonTypes";
-import { ResetPasswordTextsTypes } from "../../types/textTypes";
+} from "@elements/card";
+import { Input } from "@elements/input";
+
+import { DirectionType } from "@_types/commonTypes";
+import { ResetPasswordTextsTypes } from "@_types/textTypes";
 
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
