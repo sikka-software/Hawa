@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.23.3
+
+### Patch Changes
+
+- Improved size of `NoPermission` and `ResetPassword` blocks
+
 ## 0.23.2
 
 ### Patch Changes

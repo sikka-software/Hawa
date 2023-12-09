@@ -4,16 +4,16 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
+import { Button } from "../../elements/button";
 import {
-  Input,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-  Button
-} from "../../elements";
+  CardTitle
+} from "../../elements/card";
+import { Input } from "../../elements/input";
 import { DirectionType } from "../../types/commonTypes";
 import { ResetPasswordTextsTypes } from "../../types/textTypes";
 
