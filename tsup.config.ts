@@ -66,7 +66,10 @@ export default defineConfig([
       "sortButton/index": "components/elements/sortButton/index.ts",
       "command/index": "components/elements/command/index.ts",
       "popover/index": "components/elements/popover/index.ts",
+      "checkbox/index": "components/elements/checkbox/index.ts",
+      "switch/index": "components/elements/switch/index.ts",
       "input/index": "components/elements/input/index.ts",
+      "select/index": "components/elements/select/index.ts",
       "fileDropzone/index": "components/elements/fileDropzone/index.ts"
     },
     format: ["cjs", "esm"]

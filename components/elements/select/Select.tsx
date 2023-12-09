@@ -4,9 +4,9 @@ import CreatableSelect from "react-select/creatable";
 
 import clsx from "clsx";
 
-import { cn } from "../util";
-import { Label, LabelProps } from "./label";
-import { Skeleton } from "./skeleton";
+import { cn } from "../../util";
+import { Label, LabelProps } from "../label";
+import { Skeleton } from "../skeleton";
 
 type ControlTypes = {
   cx: any;

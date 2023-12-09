@@ -3,7 +3,7 @@ import React, { useState, FC, useRef, useEffect } from "react";
 import Countries from "../countries";
 import { cn } from "../util";
 import { Label, LabelProps } from "./label/Label";
-import { Select } from "./Select";
+import { Select } from "./select/Select";
 
 type PhoneInputTypes = {
   preferredCountry?: { label: string };

@@ -4,7 +4,7 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 
 import { RadiusType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type CheckBoxTypes = {
   id: string;

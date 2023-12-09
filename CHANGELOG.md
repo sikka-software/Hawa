@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.23.2
+
+### Patch Changes
+
+- Moved `Checkbox` to it's own folder
+- Moved `Switch` to it's own folder
+
 ## 0.23.1
 
 ### Patch Changes

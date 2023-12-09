@@ -19,7 +19,6 @@ import {
 import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
-import { Input } from "../input/Input";
 import { Button } from "../button";
 import {
   DropdownMenu,
@@ -28,6 +27,7 @@ import {
   DropdownMenuRoot,
   DropdownMenuTrigger
 } from "../dropdownMenu";
+import { Input } from "../input";
 import { Skeleton } from "../skeleton";
 import {
   Table,

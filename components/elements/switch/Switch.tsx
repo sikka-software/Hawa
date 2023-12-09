@@ -4,7 +4,7 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 
 import { RadiusType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 interface SwitchProps
   extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
