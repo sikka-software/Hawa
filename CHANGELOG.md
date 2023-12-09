@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.22.6
+
+### Patch Changes
+
+- Moved `Combobox` to it's own folder
+- Updated `hawa-beta.yml` github action file
+
 ## 0.22.5
 
 ### Patch Changes

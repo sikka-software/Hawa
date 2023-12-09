@@ -15,6 +15,7 @@ export * from "./dataTable";
 export * from "./backToTop";
 export * from "./radio";
 export * from "./table";
+export * from "./combobox";
 
 // Groups
 export * from "./cards";
@@ -27,7 +28,6 @@ export * from "./textarea/Textarea";
 export * from "./Slider";
 export * from "./ColorPicker";
 export * from "./Input";
-export * from "./Combobox";
 export * from "./Select";
 export * from "./Breadcrumb";
 export * from "./CodeBlock";

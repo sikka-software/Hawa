@@ -15,7 +15,7 @@ import {
   Skeleton
 } from "@elements/index";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type ComboboxTypes<T> = {
   labelKey?: keyof T;

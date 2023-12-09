@@ -33,7 +33,7 @@ jobs:
         run: npm run build-lib
       - name: Generate Tailwind Styles
         run: npm run build-css
-      - name: Publish to NPM @beta tag
+      - name: Publish to NPM @next tag
         run: npm publish --tag $NPM_PUBLISH_TAG # Specify the tag here
 
   deploy-landing:
