@@ -1,54 +1,59 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ActionCard, Button } from "../../../components/elements";
+import { AdCard } from "../../../components/blocks";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Elements/Cards/Action Card",
-  component: ActionCard,
+  title: "Blocks/Cards/Ad Card",
+  component: AdCard,
   parameters: {
-    layout: "centered",
+    layout: "centered"
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     // backgroundColor: { control: "color" },
-  },
-} satisfies Meta<typeof ActionCard>;
+  }
+} satisfies Meta<typeof AdCard>;
 
 export default meta;
-type Story = StoryObj<typeof ActionCard>;
+type Story = StoryObj<typeof AdCard>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 
 const Template = (args: any) => (
-  <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64">
-    {" "}
-    <ActionCard {...args}>tet</ActionCard>
-  </div>
+  <>
+    <div>
+      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
+        Horizontal
+      </div>
+      <AdCard orientation="horizontal" {...args} />
+    </div>
+    <div>
+      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
+        Vertical
+      </div>
+      <AdCard orientation="vertical" {...args} />
+    </div>
+  </>
 );
 
 export const Default: Story = {
+  //   name: "Action Card",
   render: (args) => <Template {...args} />,
   args: {
-    title: "Bismillah",
-    subtitle: "By the name of Allah",
-    cardImage: "https://source.unsplash.com/tVqQSfXQ_SI",
-    bottomElement: (
-      <>
-        <div>Thikr</div>
-        <div>100 Times</div>
-      </>
-    ),
-    inCardActions: (
-      <>
-        <Button variant="secondary" size="xs">
-          + Use Template
-        </Button>
-      </>
-    ),
+    handleCantHide: () => console.log("cant hide the ad, please sub to pro"),
+    canHide: false,
+    title: "Seera App",
+    description:
+      "Increase your hiring chances by turning your CV into a digital one with a link"
   },
+  argTypes: {
+    handleClick: {
+      action: "clicking ad"
+    }
+  }
 };
 
 // export const Large: Story = {

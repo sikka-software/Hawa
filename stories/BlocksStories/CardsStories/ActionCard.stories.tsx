@@ -1,59 +1,55 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AdCard, Button } from "../../../components/elements";
+import { ActionCard } from "../../../components/blocks";
+import { Button } from "../../../components/elements";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Elements/Cards/Ad Card",
-  component: AdCard,
+  title: "Blocks/Cards/Action Card",
+  component: ActionCard,
   parameters: {
-    layout: "centered",
+    layout: "centered"
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     // backgroundColor: { control: "color" },
-  },
-} satisfies Meta<typeof AdCard>;
+  }
+} satisfies Meta<typeof ActionCard>;
 
 export default meta;
-type Story = StoryObj<typeof AdCard>;
+type Story = StoryObj<typeof ActionCard>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 
 const Template = (args: any) => (
-  <>
-    <div>
-      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
-        Horizontal
-      </div>
-      <AdCard orientation="horizontal" {...args} />
-    </div>
-    <div>
-      <div className="hawa-m-2 hawa-ml-0 hawa-text-lg hawa-font-bold">
-        Vertical
-      </div>
-      <AdCard orientation="vertical" {...args} />
-    </div>
-  </>
+  <div className="hawa-flex hawa-h-64 hawa-flex-col hawa-gap-2">
+    {" "}
+    <ActionCard {...args}>tet</ActionCard>
+  </div>
 );
 
 export const Default: Story = {
-  //   name: "Action Card",
   render: (args) => <Template {...args} />,
   args: {
-    handleCantHide: () => console.log("cant hide the ad, please sub to pro"),
-    canHide: false,
-    title: "Seera App",
-    description:
-      "Increase your hiring chances by turning your CV into a digital one with a link",
-  },
-  argTypes: {
-    handleClick: {
-      action: "clicking ad",
-    },
-  },
+    title: "Bismillah",
+    subtitle: "By the name of Allah",
+    cardImage: "https://source.unsplash.com/tVqQSfXQ_SI",
+    bottomElement: (
+      <>
+        <div>Thikr</div>
+        <div>100 Times</div>
+      </>
+    ),
+    inCardActions: (
+      <>
+        <Button variant="secondary" size="xs">
+          + Use Template
+        </Button>
+      </>
+    )
+  }
 };
 
 // export const Large: Story = {

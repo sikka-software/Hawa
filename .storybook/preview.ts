@@ -1,13 +1,14 @@
-import "../styles/globals.css";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
+
+import "../styles/globals.css";
 import { DocsContainer } from "./DocsContainer";
 import "./stories.css";
 
 const preview: Preview = {
   parameters: {
     grid: {
-      cellSize: 15,
+      cellSize: 15
     },
     options: {
       storySort: {
@@ -20,19 +21,18 @@ const preview: Preview = {
           "Elements",
           [
             "Introduction",
-            "Cards",
             ["Container"],
             "Inputs",
             "Tables",
             "Loading",
             "Button",
-            "Cards",
-          ],
-        ],
-      },
+            "Cards"
+          ]
+        ]
+      }
     },
     docs: {
-      container: DocsContainer,
+      container: DocsContainer
     },
     darkMode: {
       current: "light",
@@ -41,28 +41,28 @@ const preview: Preview = {
         brandTitle: "Hawa UI",
         brandUrl: "https://sikka.io",
         brandImage:
-          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png",
+          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png"
       },
       dark: {
         ...themes.dark,
         brandTitle: "Hawa UI",
         brandUrl: "https://sikka.io",
         brandImage:
-          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png",
+          "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
       },
       darkClass: ["hawa-dark", "dark"],
       lightClass: ["hawa-light", "light"],
-      stylePreview: true,
+      stylePreview: true
       // classTarget: "body",
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-  },
+        date: /Date$/
+      }
+    }
+  }
 };
 export const globalTypes = {
   locale: {
@@ -73,9 +73,9 @@ export const globalTypes = {
       icon: "globe",
       items: [
         { value: "en", right: "EN", title: "English" },
-        { value: "ar", right: "AR", title: "عربي" },
-      ],
-    },
-  },
+        { value: "ar", right: "AR", title: "عربي" }
+      ]
+    }
+  }
 };
 export default preview;

@@ -33,9 +33,6 @@ export * from "./breadcrumb";
 export * from "./appStores";
 export * from "./badge";
 
-// Groups
-export * from "./cards";
-
 export * from "./PinInput";
 export * from "./PhoneInput";
 export * from "./ProgressCircle";

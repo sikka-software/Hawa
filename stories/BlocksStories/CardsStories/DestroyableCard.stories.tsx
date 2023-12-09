@@ -4,7 +4,7 @@ import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
-  title: "Elements/Cards/Destroyable Card",
+  title: "Blocks/Cards/Destroyable Card",
   component: DestroyableCard,
   parameters: {
     layout: "centered",

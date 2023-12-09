@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LandingCard } from "../../../components/elements";
 import { ScreenShare } from "lucide-react";
 
+import { LandingCard } from "../../../components/blocks";
+
 const meta = {
-  title: "Elements/Cards/Landing Card",
+  title: "Blocks/Cards/Landing Card",
   component: LandingCard,
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof LandingCard>;
 
 export default meta;
@@ -19,5 +20,5 @@ export const Default: Story = {
       subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
       icon={<ScreenShare />}
     />
-  ),
+  )
 };

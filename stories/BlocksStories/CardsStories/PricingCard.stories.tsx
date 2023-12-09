@@ -1,17 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Input,
-  Label,
-  PricingCard,
-  Radio,
-  Separator,
-} from "../../../components/elements";
 import { useState } from "react";
 
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { PricingCard } from "../../../components/blocks";
+import { Input, Radio, Separator } from "../../../components/elements";
+
 const meta = {
-  title: "Elements/Cards/Pricing Card",
+  title: "Blocks/Cards/Pricing Card",
   component: PricingCard,
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof PricingCard>;
 
 export default meta;
@@ -24,12 +21,12 @@ export const Default: Story = {
     const [priceObject, setPriceObject] = useState<any>({
       sar: {
         monthly: 300,
-        annually: 300 * 12,
+        annually: 300 * 12
       },
       usd: {
         monthly: 300,
-        annually: 300 * 12,
-      },
+        annually: 300 * 12
+      }
     });
     return (
       <div>
@@ -39,7 +36,7 @@ export const Default: Story = {
           texts={{
             ...args.texts,
             currencyText: curr,
-            cycleText: cycle,
+            cycleText: cycle
           }}
         />
         <Separator className="hawa-my-4" />
@@ -49,7 +46,7 @@ export const Default: Story = {
           onChangeTab={(e: any) => setCurr(e.value)}
           options={[
             { label: "SAR", value: "sar" },
-            { label: "USD", value: "usd" },
+            { label: "USD", value: "usd" }
           ]}
         />
         <Radio
@@ -57,10 +54,10 @@ export const Default: Story = {
           onChangeTab={(e: any) => setCycle(e.value)}
           options={[
             { label: "Monthly", value: "monthly" },
-            { label: "Annually", value: "annually" },
+            { label: "Annually", value: "annually" }
           ]}
         />
-        <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-w-1/2">
+        <div className="hawa-flex hawa-w-1/2 hawa-flex-col hawa-gap-2">
           <div className="hawa-flex hawa-flex-row hawa-gap-2">
             <Input
               label={"SAR Monthly"}
@@ -70,8 +67,8 @@ export const Default: Story = {
                   ...priceObject,
                   sar: {
                     ...priceObject.sar,
-                    monthly: parseInt(e.target.value),
-                  },
+                    monthly: parseInt(e.target.value)
+                  }
                 });
               }}
             />
@@ -83,8 +80,8 @@ export const Default: Story = {
                   ...priceObject,
                   sar: {
                     ...priceObject.sar,
-                    annually: parseInt(e.target.value),
-                  },
+                    annually: parseInt(e.target.value)
+                  }
                 });
               }}
             />
@@ -98,8 +95,8 @@ export const Default: Story = {
                   ...priceObject,
                   usd: {
                     ...priceObject.usd,
-                    monthly: parseInt(e.target.value),
-                  },
+                    monthly: parseInt(e.target.value)
+                  }
                 });
               }}
             />
@@ -111,8 +108,8 @@ export const Default: Story = {
                   ...priceObject,
                   usd: {
                     ...priceObject.usd,
-                    annually: parseInt(e.target.value),
-                  },
+                    annually: parseInt(e.target.value)
+                  }
                 });
               }}
             />
@@ -132,18 +129,18 @@ export const Default: Story = {
       buttonText: "Upgrade",
       currencyText: "SAR",
       cycleText: "month",
-      subtitle: "Includes up to 4 users + 200 GB",
+      subtitle: "Includes up to 4 users + 200 GB"
     },
     features: [
       {
         included: true,
         text: "Unlimited Menus",
         hint: "Something something here",
-        soon: true,
+        soon: true
       },
       { included: true, text: "Unlimited Items" },
       { included: false, text: "Custom Menus" },
-      { included: false, text: "Custom Domain", soon: true },
-    ],
-  },
+      { included: false, text: "Custom Domain", soon: true }
+    ]
+  }
 };

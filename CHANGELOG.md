@@ -1,5 +1,15 @@
 # @sikka/hawa
 
+## 0.23.4
+
+### Patch Changes
+
+8ba2587: - Moved `Chip` to it's own folder
+
+- Moved `Breadcrumb` to it's own folder
+- Moved `AppStores` to it's own folder
+- Moved `Badge` to it's own folder
+
 ## 0.23.3
 
 ### Patch Changes

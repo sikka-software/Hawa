@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { ItemCard, Button, Tooltip, Count } from "../../../components/elements";
 import { ArrowRightCircle, CopyIcon, Edit2, Heart, Trash2 } from "lucide-react";
+
+import { ItemCard } from "../../../components/blocks";
+import { Button, Tooltip, Count } from "../../../components/elements";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Elements/Cards/Item Card",
+  title: "Blocks/Cards/Item Card",
   component: ItemCard,
   //   parameters: {
   //     layout: "centered",
@@ -15,7 +16,7 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     // backgroundColor: { control: "color" },
-  },
+  }
 } satisfies Meta<typeof ItemCard>;
 
 export default meta;
@@ -24,25 +25,25 @@ type Story = StoryObj<typeof ItemCard>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 
 const Template = (args: any) => (
-  <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64">
+  <div className="hawa-flex hawa-h-64 hawa-flex-col hawa-gap-2">
     <ItemCard
       headerActions={[
         { label: "QR Code", action: () => console.log("clicking on QR") },
         {
           label: "Menu Settings",
           value: "Menu Settings",
-          action: () => console.log("clicking on Settings"),
+          action: () => console.log("clicking on Settings")
         },
         {
           label: "Menu Styles",
           value: "Menu Styles",
-          action: () => console.log("clicking on Styles"),
+          action: () => console.log("clicking on Styles")
         },
         {
           label: "Analytics",
           value: "Analytics",
-          action: () => console.log("clicking on Analytics"),
-        },
+          action: () => console.log("clicking on Analytics")
+        }
       ]}
       header={
         <div>
@@ -65,7 +66,7 @@ const Template = (args: any) => (
             content={"Duplicate"}
           >
             <Button size="icon" variant="ghost">
-              <CopyIcon className="hawa-w-5 hawa-h-5" />
+              <CopyIcon className="hawa-h-5 hawa-w-5" />
             </Button>
           </Tooltip>
 
@@ -75,7 +76,7 @@ const Template = (args: any) => (
             content={"Delete"}
           >
             <Button size="icon" variant="ghost">
-              <Trash2 className="hawa-w-5 hawa-h-5" />
+              <Trash2 className="hawa-h-5 hawa-w-5" />
             </Button>
           </Tooltip>
 
@@ -85,7 +86,7 @@ const Template = (args: any) => (
             content={"Edit"}
           >
             <Button size="icon" variant="ghost">
-              <Edit2 className="hawa-w-5 hawa-h-5" />
+              <Edit2 className="hawa-h-5 hawa-w-5" />
             </Button>
           </Tooltip>
         </div>
@@ -116,6 +117,6 @@ export const Default: Story = {
   render: (args) => <Template {...args} />,
   args: {},
   argTypes: {
-    onCardClick: { action: "onCardClick" },
-  },
+    onCardClick: { action: "onCardClick" }
+  }
 };
