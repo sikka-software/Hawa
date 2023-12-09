@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.22.7
+
+### Patch Changes
+
+- Moved `Tabs` to it's own folder
+- Updated `tsup` configuration
+
 ## 0.22.6
 
 ### Patch Changes
