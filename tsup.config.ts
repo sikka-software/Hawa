@@ -259,3 +259,41 @@ function createConfigForGroup(entries: any) {
 export const groupedConfigs = groupedEntries.map((group: any) =>
   createConfigForGroup(group)
 );
+
+export const buildAllConfig = defineConfig({
+  name: "Build All",
+  clean: true,
+  dts: true,
+  target: "es2019",
+  entry: { index: "components/index.ts" },
+  format: ["cjs", "esm"]
+});
+export const buildCoreConfig = defineConfig({
+  name: "Build Core",
+  clean: true,
+  dts: true,
+  target: "es2019",
+  format: ["cjs", "esm"],
+  entry: {
+    // CORE
+    "types/index": "components/types/index.ts",
+    "hooks/index": "components/hooks/index.ts",
+    "blocks/index": "components/blocks/index.ts",
+    "layout/index": "components/layout/index.ts",
+    "elements/index": "components/elements/index.ts"
+  }
+});
+export const buildBlocksConfig = defineConfig({
+  name: "Build Blocks",
+  clean: true,
+  dts: true,
+  target: "es2019",
+  format: ["cjs", "esm"],
+  entry: {
+    // BLOCKS
+    "blocks/misc/index": "components/blocks/misc/index.ts",
+    "blocks/auth/index": "components/blocks/auth/index.ts",
+    "blocks/pricing/index": "components/blocks/pricing/index.ts",
+    "blocks/feedback/index": "components/blocks/feedback/index.ts"
+  }
+});

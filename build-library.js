@@ -21,13 +21,21 @@ const { build } = require("tsup");
 
 // APPROACH 03
 // **********************************
-const { groupedConfigs } = require("./tsup.config");
+const {
+  groupedConfigs,
+  buildAllConfig,
+  buildBlocksConfig,
+  buildCoreConfig
+} = require("./tsup.config");
 
 async function buildGroup(config) {
   await build(config);
 }
 
 async function sequentialBuild() {
+  await build(buildAllConfig);
+  await build(buildCoreConfig);
+  await build(buildBlocksConfig);
   for (const config of groupedConfigs) {
     await buildGroup(config);
   }

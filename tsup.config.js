@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.groupedConfigs = void 0;
+exports.buildBlocksConfig = exports.buildCoreConfig = exports.buildAllConfig = exports.groupedConfigs = void 0;
 var tsup_1 = require("tsup");
 // BUILD APPROACH 01
 // ********************************************************************************************************************************
@@ -246,4 +246,41 @@ function createConfigForGroup(entries) {
 }
 exports.groupedConfigs = groupedEntries.map(function (group) {
     return createConfigForGroup(group);
+});
+exports.buildAllConfig = (0, tsup_1.defineConfig)({
+    name: "Build All",
+    clean: true,
+    dts: true,
+    target: "es2019",
+    entry: { index: "components/index.ts" },
+    format: ["cjs", "esm"]
+});
+exports.buildCoreConfig = (0, tsup_1.defineConfig)({
+    name: "Build Core",
+    clean: true,
+    dts: true,
+    target: "es2019",
+    format: ["cjs", "esm"],
+    entry: {
+        // CORE
+        "types/index": "components/types/index.ts",
+        "hooks/index": "components/hooks/index.ts",
+        "blocks/index": "components/blocks/index.ts",
+        "layout/index": "components/layout/index.ts",
+        "elements/index": "components/elements/index.ts"
+    }
+});
+exports.buildBlocksConfig = (0, tsup_1.defineConfig)({
+    name: "Build Blocks",
+    clean: true,
+    dts: true,
+    target: "es2019",
+    format: ["cjs", "esm"],
+    entry: {
+        // BLOCKS
+        "blocks/misc/index": "components/blocks/misc/index.ts",
+        "blocks/auth/index": "components/blocks/auth/index.ts",
+        "blocks/pricing/index": "components/blocks/pricing/index.ts",
+        "blocks/feedback/index": "components/blocks/feedback/index.ts"
+    }
 });

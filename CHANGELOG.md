@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.23.9
+
+### Patch Changes
+
+- Included `blocks` and `layout` to the build process
+
 ## 0.23.7
 
 ### Patch Changes
