@@ -10,8 +10,8 @@ import {
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
-import { Skeleton } from "./skeleton";
+import { cn } from "../../util";
+import { Skeleton } from "../skeleton";
 import {
   Table,
   TableBody,
@@ -19,7 +19,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "./table";
+} from "../table";
 
 type DataProps = {};
 

@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/elements/card/Card";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type DestroyableCard = {
   position?: "bottom-right" | "bottom-left";

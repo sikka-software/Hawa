@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useEffect, useState } from "react";
 
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 interface CarouselProps {
   items: React.ReactNode[];

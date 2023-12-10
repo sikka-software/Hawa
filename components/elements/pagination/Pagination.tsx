@@ -1,8 +1,8 @@
 import React from "react";
 import { Pagination as PaginationPrimitive } from "react-headless-pagination";
 
-import { DirectionType } from "../types/commonTypes";
-import { cn } from "../util";
+import { DirectionType } from "../../types/commonTypes";
+import { cn } from "../../util";
 
 type PaginationProps = {
   direction?: DirectionType;

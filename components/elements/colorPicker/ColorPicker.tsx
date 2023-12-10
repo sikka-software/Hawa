@@ -7,8 +7,8 @@ import React, {
   FormEvent
 } from "react";
 
-import { cn } from "../util";
-import { Label, LabelProps } from "./label/Label";
+import { cn } from "../../util";
+import { Label, LabelProps } from "../label";
 
 type ColorPickerTypes = {
   label?: string;

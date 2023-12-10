@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.23.11
+
+### Patch Changes
+
+- Code splitting the following components: `Carousel`, `CodeBlock`,`Collapsible`,`ColorPicker`,`DestroyableCard`,`FileUploader`,`InterfaceSettings`,`Pagination`,`PasswordInput`,`ProgressCircle`,`ScrollIndicator`,`Separator`,`SimpleTable`,`Slider`,`Toast`, `Toaster`
+
 ## 0.23.10
 
 ### Patch Changes

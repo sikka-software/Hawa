@@ -4,8 +4,8 @@ import { Highlight, themes } from "prism-react-renderer";
 
 import { Button, Tooltip } from "@elements/index";
 
-import { useClipboard } from "../hooks/useClipboard";
-import { cn } from "../util";
+import { useClipboard } from "../../hooks/useClipboard";
+import { cn } from "../../util";
 
 type CodeBlockTypes = {
   /** Specifies the programming language for syntax highlighting.*/
