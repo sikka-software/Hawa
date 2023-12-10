@@ -70,7 +70,7 @@ export const Badge: FC<BadgeTypes> = ({
           className={cn(
             "hawa-origin-center hawa-rounded-full  hawa-bg-red-500 ",
             sizeStyles[size].classes,
-            "hawa-flex  hawa-flex-row hawa-items-center hawa-justify-center hawa-text-[9px] hawa-text-white"
+            "hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-text-[9px] hawa-text-white"
           )}
         >
           {size === "large" && text && text}

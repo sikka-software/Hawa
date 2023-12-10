@@ -12,6 +12,7 @@ export default defineConfig([
     name: "Build Core",
     clean: true,
     target: "es2019",
+    format: ["cjs", "esm"],
     entry: {
       // CORE
       "types/index": "components/types/index.ts",
@@ -19,39 +20,27 @@ export default defineConfig([
       "blocks/index": "components/blocks/index.ts",
       "layout/index": "components/layout/index.ts",
       "elements/index": "components/elements/index.ts"
-    },
-    format: ["cjs", "esm"]
+    }
   },
   {
     name: "Build Blocks",
     clean: true,
     target: "es2019",
+    format: ["cjs", "esm"],
     entry: {
       // BLOCKS
       "blocks/auth/index": "components/blocks/auth/index.ts",
       "blocks/feedback/index": "components/blocks/feedback/index.ts",
       "blocks/misc/index": "components/blocks/misc/index.ts",
       "blocks/pricing/index": "components/blocks/pricing/index.ts"
-    },
-    format: ["cjs", "esm"]
+    }
   },
-  // {
-  //   name: "Build Auth Blocks",
-  //   clean: true,
-  //   target: "es2019",
-  //   entry: {
-  //     // BLOCKS
-  //     "blocks/auth/index": "components/blocks/auth/index.ts",
-  //     "blocks/feedback/index": "components/blocks/feedback/index.ts",
-  //     "blocks/misc/index": "components/blocks/misc/index.ts",
-  //     "blocks/pricing/index": "components/blocks/pricing/index.ts"
-  //   },
-  //   format: ["cjs", "esm"]
-  // },
+
   {
     name: "Build Elements",
     clean: true,
     target: "es2019",
+    format: ["cjs", "esm"],
     entry: {
       // ELEMENTS
       "accordion/index": "components/elements/accordion/index.ts",
@@ -85,6 +74,7 @@ export default defineConfig([
       "progress/index": "components/elements/progress/index.ts",
       "chip/index": "components/elements/chip/index.ts",
       "appStores/index": "components/elements/appStores/index.ts",
+      "scrollArea/index": "components/elements/scrollArea/index.ts",
       "badge/index": "components/elements/badge/index.ts",
       "breadcrumb/index": "components/elements/breadcrumb/index.ts",
       "phoneInput/index": "components/elements/phoneInput/index.ts",
@@ -93,7 +83,6 @@ export default defineConfig([
         "components/elements/stopPropagationWrapper/index.ts",
       "select/index": "components/elements/select/index.ts",
       "fileDropzone/index": "components/elements/fileDropzone/index.ts"
-    },
-    format: ["cjs", "esm"]
+    }
   }
 ]);

@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.23.7
+
+### Patch Changes
+
+- Removed `--dts` flag from `build-lib` script
+- Attempting to fix out-of-memory build issue
+
 ## 0.23.6
 
 ### Patch Changes
