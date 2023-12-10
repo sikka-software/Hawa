@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Switch } from "../../components/elements";
 import { ArgsTable, Story, Markdown } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Switch } from "@elements/switch";
 
 const meta = {
   title: "Elements/Switch",
@@ -26,10 +27,10 @@ const meta = {
             />
           </p>
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Switch>;
 
 export default meta;
@@ -37,10 +38,10 @@ type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
   render: (args: any) => <Switch {...args} />,
-  argTypes: { onCheckedChange: { action: "onCheckedChange" } },
+  argTypes: { onCheckedChange: { action: "onCheckedChange" } }
 };
 export const withLabel: Story = {
-  render: () => <Switch label="This is a switch component" />,
+  render: () => <Switch label="This is a switch component" />
 };
 export const Sizes: Story = {
   render: () => (
@@ -49,7 +50,7 @@ export const Sizes: Story = {
       <Switch size="default" label="Default" />
       <Switch size="lg" label="Large" />
     </div>
-  ),
+  )
 };
 export const Direction: Story = {
   render: () => (
@@ -59,7 +60,7 @@ export const Direction: Story = {
         <Switch label="RTL" />
       </div>
     </div>
-  ),
+  )
 };
 export const Roundedness: Story = {
   render: () => (
@@ -68,5 +69,5 @@ export const Roundedness: Story = {
       <Switch roundedness="full" label="Full" />
       <Switch roundedness="inherit" label="Inherit" />
     </div>
-  ),
+  )
 };

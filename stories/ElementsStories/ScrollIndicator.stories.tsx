@@ -1,24 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { BackToTop, ScrollIndicator } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { useRef } from "react";
+
+import { Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { BackToTop } from "@elements/backToTop";
+import { ScrollIndicator } from "@elements/scrollIndicator";
 
 const meta = {
   title: "Elements/Scroll Indicator",
-  component: BackToTop,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<BackToTop/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: BackToTop
 } satisfies Meta<typeof BackToTop>;
 
 export default meta;
@@ -54,7 +44,7 @@ export const FullPage: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const InContainer: Story = {
   render: (args) => {
@@ -67,7 +57,7 @@ export const InContainer: Story = {
           style={{
             position: "relative",
             height: 400,
-            width: 200,
+            width: 200
           }}
         >
           <div
@@ -77,7 +67,7 @@ export const InContainer: Story = {
               width: 200,
               overflowY: "scroll",
               backgroundColor: "#b9cbff",
-              padding: 10,
+              padding: 10
             }}
           >
             {new Array(300).fill(0).map((e, k) => {
@@ -96,7 +86,7 @@ export const InContainer: Story = {
           style={{
             position: "relative",
             height: 400,
-            width: 800,
+            width: 800
           }}
         >
           <div
@@ -106,7 +96,7 @@ export const InContainer: Story = {
               width: 800,
               overflowY: "scroll",
               backgroundColor: "#b9cbff",
-              padding: 10,
+              padding: 10
             }}
           >
             {new Array(300).fill(0).map((e, k) => {
@@ -122,5 +112,5 @@ export const InContainer: Story = {
         </div>
       </div>
     );
-  },
+  }
 };

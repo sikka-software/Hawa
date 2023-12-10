@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardFooter,
-  CardContent,
-} from "../../components/elements";
+  CardContent
+} from "@elements/card";
 
 const meta = {
   title: "Elements/Card",
-  component: Card,
-  tags: ["autodocs"],
+  component: Card
 } satisfies Meta<typeof Card>;
 
 export default meta;
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   render: (args: any) => (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64 hawa-max-w-md">
+    <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
       <Card {...args}>
         <CardHeader>
           Header
@@ -30,11 +30,11 @@ export const Default: Story = {
         <CardFooter>Footer here</CardFooter>
       </Card>
     </div>
-  ),
+  )
 };
 export const Variants: Story = {
   render: (args: any) => (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2 hawa-h-64 hawa-max-w-md">
+    <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
       <Card {...args}>
         <CardHeader>
           Header
@@ -54,5 +54,5 @@ export const Variants: Story = {
         <CardFooter>Footer here</CardFooter>
       </Card>
     </div>
-  ),
+  )
 };

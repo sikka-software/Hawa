@@ -1,23 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Label, Skeleton } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Label } from "@elements/label";
+import { Skeleton } from "@elements/skeleton";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Label",
   component: Label,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Label/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof Label>;
 
 export default meta;
@@ -31,12 +23,12 @@ export const Default: Story = {
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         <Label {...args}>This is a label</Label>
-        <Skeleton className="hawa-w-64 hawa-h-10" />
+        <Skeleton className="hawa-h-10 hawa-w-64" />
       </div>
     );
   },
   args: {
     required: false,
-    hint: "This is a label hint",
-  },
+    hint: "This is a label hint"
+  }
 };

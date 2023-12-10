@@ -1,24 +1,12 @@
-import { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { AppLayout, AppTopbar, Button } from "../../components";
 import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
+
+import { AppLayout, AppTopbar } from "@layout/index";
 
 const meta = {
   title: "Layout/App Topbar",
-  tags: ["autodocs"],
-  component: AppLayout,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<AppLayout/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
+  component: AppLayout
 } satisfies Meta<typeof AppLayout>;
 
 export default meta;
@@ -36,11 +24,11 @@ export const Default: Story = {
           { label: "Profile", value: "Dashboard" },
           { value: "Billing", label: "Billing" },
           { value: "عربي", label: "عربي" },
-          { label: "Sign Out", value: "Sign Out", highlighted: true },
+          { label: "Sign Out", value: "Sign Out", highlighted: true }
         ]}
       />
     );
   },
   args: {},
-  argTypes: {},
+  argTypes: {}
 };

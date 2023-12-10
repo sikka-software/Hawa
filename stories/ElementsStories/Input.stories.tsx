@@ -1,31 +1,21 @@
 import { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
-import { EyeIcon } from "../../components/icons/InputIcons";
-import { Lock, Search } from "lucide-react";
+
 import { SA, USA } from "@sikka/alam";
-import {
-  Button,
-  Input,
-  Loading,
-  DropdownMenuRadio,
-} from "../../components/elements";
+import { Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Lock, Search } from "lucide-react";
+
+import { Button } from "@elements/button";
+import { DropdownMenuRadio } from "@elements/dropdownMenu";
+import { Input } from "@elements/input";
+import { Loading } from "@elements/loading";
+
+import { EyeIcon } from "../../components/icons/InputIcons";
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Inputs/Input",
-  component: Input,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Input/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Input
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -42,7 +32,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const PreviewMode: Story = {
   render: (args: any, globals: any) => {
@@ -52,7 +42,7 @@ export const PreviewMode: Story = {
     const [preview, setPreview] = useState(false);
     return (
       <div
-        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
+        className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4"
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <Button onClick={() => setPreview(!preview)}>
@@ -83,13 +73,13 @@ export const PreviewMode: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const LoadingMode: Story = {
   render: () => {
     const [loading, setLoading] = useState(true);
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+      <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4">
         <Button onClick={() => setLoading(!loading)}>
           {loading ? "Disable" : "Enable"} Loading
         </Button>
@@ -107,13 +97,13 @@ export const LoadingMode: Story = {
         <Input label={"Username"} isLoading={loading} placeholder={"fulan"} />
       </div>
     );
-  },
+  }
 };
 export const HelperText: Story = {
   render: () => {
     const [loading, setLoading] = useState(true);
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md">
+      <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4">
         <Input
           label={"Default Helper Text"}
           placeholder={"Al-Fulani"}
@@ -127,7 +117,7 @@ export const HelperText: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const WithIcons: Story = {
   render: (args: any, globals: any) => {
@@ -137,14 +127,14 @@ export const WithIcons: Story = {
 
     return (
       <div
-        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
+        className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4"
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <Input
           dir={direction}
           label={"With Start Icon"}
           placeholder={"Fulan"}
-          startIcon={<Search className="hawa-text-gray-500 hawa-icon" />}
+          startIcon={<Search className="hawa-icon hawa-text-gray-500" />}
         />
         <Input
           dir={direction}
@@ -156,8 +146,8 @@ export const WithIcons: Story = {
           dir={direction}
           label={"With End Icon & Start Icon"}
           placeholder={"Fulan"}
-          startIcon={<Lock className="hawa-text-gray-500 hawa-icon" />}
-          endIcon={<Lock className="hawa-text-gray-500 hawa-icon" />}
+          startIcon={<Lock className="hawa-icon hawa-text-gray-500" />}
+          endIcon={<Lock className="hawa-icon hawa-text-gray-500" />}
         />
         <Input
           dir={direction}
@@ -167,7 +157,7 @@ export const WithIcons: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const WithCount: Story = {
   render: () => {
@@ -204,7 +194,7 @@ export const WithCount: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const Examples: Story = {
   render: (args: any, globals: any) => {
@@ -215,7 +205,7 @@ export const Examples: Story = {
     const [inputLang, setInputLang] = useState("en");
     return (
       <div
-        className="hawa-flex hawa-flex-col hawa-gap-4 hawa-max-w-md"
+        className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4"
         dir={direction}
       >
         <Input
@@ -229,7 +219,7 @@ export const Examples: Story = {
           label={t("username")}
           labelProps={{
             hint: "Only underscore and dash are acccepted",
-            required: true,
+            required: true
           }}
         />
 
@@ -243,7 +233,7 @@ export const Examples: Story = {
               onValueChange={setInputLang}
               options={[
                 { label: "Arabic", value: "ar" },
-                { label: "English", value: "en" },
+                { label: "English", value: "en" }
               ]}
               trigger={
                 <div onClick={() => setShowPopup(!showPopup)}>
@@ -257,5 +247,5 @@ export const Examples: Story = {
         />
       </div>
     );
-  },
+  }
 };

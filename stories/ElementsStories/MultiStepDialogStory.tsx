@@ -1,5 +1,8 @@
 import React from "react";
-import { Button, Dialog, DialogContent, DialogTrigger } from "../../components";
+
+import { Button } from "@elements/button";
+import { Dialog, DialogContent, DialogTrigger } from "@elements/dialog";
+
 import { cn } from "../../components/util";
 
 type DialogStep = "paymentMethod" | "formFill" | "result";
@@ -59,7 +62,7 @@ export const MultiStepDialog: React.FC = () => {
               ref={currentStep === step ? visibleStepRef : null}
               key={step}
               className={cn(
-                "hawa-absolute hawa-top-0 hawa-left-0 hawa-transition-opacity hawa-duration-300",
+                "hawa-absolute hawa-left-0 hawa-top-0 hawa-transition-opacity hawa-duration-300",
 
                 // "hawa-transition-opacity hawa-duration-300",
                 currentStep === step ? "hawa-opacity-100" : "hawa-opacity-0",
@@ -83,7 +86,7 @@ export const MultiStepDialog: React.FC = () => {
 
 // Components for each step
 const PaymentMethodDefaultStep: React.FC<{ onNext: () => void }> = ({
-  onNext,
+  onNext
 }) => (
   <div>
     {/* ... Payment Method Step Content ... */}

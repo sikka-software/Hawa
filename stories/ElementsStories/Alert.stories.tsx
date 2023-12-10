@@ -1,23 +1,14 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Alert } from "../../components/elements";
-import { ArgsTable, Story } from "@storybook/blocks";
+
+import { Alert } from "@elements/alert";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Alert",
   component: Alert,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Alert/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof Alert>;
 
 export default meta;
@@ -83,8 +74,8 @@ export const Default: Story = {
     );
   },
   args: {
-    persistent: false,
-  },
+    persistent: false
+  }
 };
 export const Persistent: Story = {
   render: (args) => (
@@ -99,6 +90,6 @@ export const Persistent: Story = {
     </div>
   ),
   args: {
-    persistent: false,
-  },
+    persistent: false
+  }
 };

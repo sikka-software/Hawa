@@ -1,22 +1,13 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ContactForm } from "../../../components/blocks";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { ContactForm } from "@blocks/index";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Blocks/Misc/Contact Form",
-  component: ContactForm,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<ContactForm/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: ContactForm
 } satisfies Meta<typeof ContactForm>;
 
 export default meta;
@@ -37,29 +28,29 @@ export const Default: Story = {
               invalid: t("emailInvalidText"),
               label: t("emailLabel"),
               placeholder: t("emailPlaceholder"),
-              required: t("emailRequiredText"),
+              required: t("emailRequiredText")
             },
             name: {
               invalid: t("nameInvalidText"),
               label: t("nameLabel"),
               placeholder: t("namePlaceholder"),
-              required: t("nameRequiredText"),
+              required: t("nameRequiredText")
             },
             message: {
               invalid: t("messageInvalidText"),
               label: t("messageLabel"),
               placeholder: t("messagePlaceholder"),
-              required: t("messageRequiredText"),
-            },
+              required: t("messageRequiredText")
+            }
           }}
         />
       </div>
     );
   },
   args: {
-    cardless: false,
+    cardless: false
   },
   argTypes: {
-    onSubmit: { action: "onSubmit" },
-  },
+    onSubmit: { action: "onSubmit" }
+  }
 };

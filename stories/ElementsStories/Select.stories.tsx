@@ -1,23 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Input, Select } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Select } from "@elements/select";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Select",
   component: Select,
-  parameters: {
-    layout: "fullscreen",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Select/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "fullscreen" }
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -30,8 +21,8 @@ export const Default: Story = {
 
     setLocale(locale);
     return (
-      <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-        <div className="hawa-max-w-md hawa-w-full" dir={direction}>
+      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+        <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Select
             label={"Select Input"}
             placeholder={"Choose something"}
@@ -42,7 +33,7 @@ export const Default: Story = {
             options={[
               { value: "chocolate", label: "Chocolate" },
               { value: "strawberry", label: "Strawberry" },
-              { value: "vanilla", label: "Vanilla" },
+              { value: "vanilla", label: "Vanilla" }
             ]}
             defaultValue={{ label: "Chocolate" }}
             helperText="Helper text here"
@@ -55,13 +46,13 @@ export const Default: Story = {
   args: {},
   argTypes: {
     onChange: { action: "onChange" },
-    onInputChange: { action: "onInputChange" },
-  },
+    onInputChange: { action: "onInputChange" }
+  }
 };
 export const Creatable: Story = {
   render: (args) => (
-    <div className="hawa-p-2 hawa-flex hawa-flex-row hawa-h-screen  hawa-justify-center hawa-items-center hawa-gap-2 hawa-w-full">
-      <div className="hawa-max-w-md hawa-w-full ">
+    <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+      <div className="hawa-w-full hawa-max-w-md ">
         <Select {...args} />
       </div>
     </div>
@@ -76,12 +67,12 @@ export const Creatable: Story = {
     options: [
       { value: "chocolate", label: "Chocolate" },
       { value: "strawberry", label: "Strawberry" },
-      { value: "vanilla", label: "Vanilla" },
-    ],
+      { value: "vanilla", label: "Vanilla" }
+    ]
   },
   argTypes: {
     handleCreateOption: { actions: "handleCreateOption" },
     onChange: { action: "onChange" },
-    onInputChange: { action: "onInputChange" },
-  },
+    onInputChange: { action: "onInputChange" }
+  }
 };

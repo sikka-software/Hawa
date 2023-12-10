@@ -1,32 +1,17 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Logos, Navbar } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { Navbar } from "@layout/Navbar";
+
+import { Button } from "@elements/button";
+import { Logos } from "@elements/logos";
+
 import { setLocale, t } from "../translations/i18n";
-import {
-  BarChart,
-  FolderArchive,
-  FolderClosed,
-  LayoutDashboard,
-  PhoneCall,
-  Users2,
-} from "lucide-react";
-import { useState } from "react";
 
 const meta = {
   title: "Layout/Navbar",
   component: Navbar,
-  parameters: {
-    layout: "fullscreen",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Navbar/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "fullscreen" }
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
@@ -44,18 +29,18 @@ export const Default: Story = {
             {
               label: "item 1",
               trigger: "item 1",
-              action: () => console.log("clicked on item 1"),
+              action: () => console.log("clicked on item 1")
             },
             {
               label: "item 2",
               trigger: "item 2",
-              action: () => console.log("clicked on item 2"),
+              action: () => console.log("clicked on item 2")
             },
             {
               label: "item 3",
               trigger: "item 3",
-              action: () => console.log("clicked on item 3"),
-            },
+              action: () => console.log("clicked on item 3")
+            }
           ]}
           logo={<Logos.sikka className="hawa-h-6 hawa-w-6" />}
           buttons={
@@ -66,10 +51,10 @@ export const Default: Story = {
             </>
           }
         />
-        <div className="hawa-bg-card hawa-text-center hawa-flex hawa-flex-col hawa-items-center hawa-justify-start hawa-h-[calc(200dvh)] hawa-p-10 hawa-m-2 hawa-rounded hawa-border-spacing-3 hawa-border-dashed hawa-border-2 hawa-border-gray-500">
+        <div className="hawa-m-2 hawa-flex hawa-h-[calc(200dvh)] hawa-border-spacing-3 hawa-flex-col hawa-items-center hawa-justify-start hawa-rounded hawa-border-2 hawa-border-dashed hawa-border-gray-500 hawa-bg-card hawa-p-10 hawa-text-center">
           Content Area
         </div>
       </div>
     );
-  },
+  }
 };

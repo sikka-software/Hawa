@@ -1,29 +1,14 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Card,
-  CardContent,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { Card, CardContent } from "@elements/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Tabs",
-  component: Tabs,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Tabs/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Tabs
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -81,7 +66,7 @@ export const Default: Story = {
         </TabsContent>
       </Tabs>
     );
-  },
+  }
 };
 export const Vertical: Story = {
   render: (args: any, globals: any) => {
@@ -125,5 +110,5 @@ export const Vertical: Story = {
         </TabsContent>
       </Tabs>
     );
-  },
+  }
 };

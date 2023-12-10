@@ -4,7 +4,7 @@ import {
   CollapsibleTrigger,
   CollapsibleContent,
   Collapsible
-} from "@/components/elements/collapsible";
+} from "@elements/collapsible";
 
 import { cn } from "../util";
 

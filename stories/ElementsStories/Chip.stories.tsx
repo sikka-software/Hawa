@@ -1,24 +1,14 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Chip } from "../../components/elements";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { Flame, HeartPulse, KeyRound } from "lucide-react";
+
+import { Chip } from "@elements/chip";
+
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Chip",
-  component: Chip,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Chip/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Chip
 } satisfies Meta<typeof Chip>;
 
 export default meta;
@@ -42,7 +32,7 @@ export const Colors: Story = {
         <Chip size="normal" label={t("No Color")} />
       </div>
     );
-  },
+  }
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -57,7 +47,7 @@ export const Sizes: Story = {
         <Chip size="large" label={t("large")} color={"green"} />
       </div>
     );
-  },
+  }
 };
 export const AsStatus: Story = {
   render: (args: any, globals: any) => {
@@ -83,7 +73,7 @@ export const AsStatus: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const WithIcons: Story = {
   render: (args: any, globals: any) => {
@@ -116,7 +106,7 @@ export const WithIcons: Story = {
         />
       </div>
     );
-  },
+  }
 };
 export const Radius: Story = {
   render: () => (
@@ -125,5 +115,5 @@ export const Radius: Story = {
       <Chip radius="inherit" size="large" label="Inherit" color="green" />
       <Chip radius="full" size="large" label="Full" color="green" />
     </div>
-  ),
+  )
 };

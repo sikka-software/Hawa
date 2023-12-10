@@ -1,26 +1,15 @@
 import { useRef } from "react";
 
-import { ArgsTable, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Logos, Tooltip } from "../../components/elements";
-import { Button } from "../../components/elements/button/Button";
+import { Button } from "@elements/button";
+import { Logos } from "@elements/logos";
+import { Tooltip } from "@elements/tooltip";
 
 const meta = {
   title: "Elements/Button",
   component: Button,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -73,7 +62,51 @@ const Template = () => {
 };
 
 export const Variations: Story = {
-  render: Template.bind({})
+  render: () => {
+    const badgeRef = useRef(null);
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <h1>Variations</h1>
+        <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
+          <Button variant={"default"}>Default</Button>
+          <Button variant={"outline"}>Outline</Button>
+          <Button variant={"destructive"}>Destructive</Button>
+          <Button variant={"ghost"}>Ghost</Button>
+          <Button variant={"light"}>Light</Button>
+          <Button variant={"secondary"}>Secondary</Button>
+          <Button variant={"link"}>Link</Button>
+          <Button variant={"neoBrutalism"}>NeoBrutalism</Button>
+        </div>
+        <h1>Loading</h1>
+        <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
+          <Button isLoading variant={"default"}>
+            Default
+          </Button>
+          <Button isLoading variant={"outline"}>
+            Outline
+          </Button>
+          <Button isLoading variant={"destructive"}>
+            Destructive
+          </Button>
+          <Button isLoading variant={"ghost"}>
+            Ghost
+          </Button>
+          <Button isLoading variant={"light"}>
+            Light
+          </Button>
+          <Button isLoading variant={"secondary"}>
+            Secondary
+          </Button>
+          <Button isLoading variant={"link"}>
+            Link
+          </Button>
+          <Button isLoading variant={"neoBrutalism"}>
+            NeoBrutalism
+          </Button>
+        </div>
+      </div>
+    );
+  }
 };
 
 export const Sizes: Story = {

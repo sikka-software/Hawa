@@ -1,33 +1,25 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Accordion, AccordionItemProps } from "../../components/elements";
 import {
   AccordionItem,
   AccordionTrigger,
   AccordionRoot,
-  AccordionContent
-} from "../../components/elements/accordion";
+  AccordionContent,
+  Accordion,
+  AccordionItemProps
+} from "@elements/accordion";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Accordion",
-  component: Accordion,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Accordion/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  component: Accordion
 } satisfies Meta<typeof Accordion>;
 
 export default meta;
 type Story = StoryObj<typeof Accordion>;
+
 const accordionData: AccordionItemProps[] = [
   { trigger: "Another Question", content: "Here's another answer." },
   {
@@ -46,19 +38,19 @@ const accordionData: AccordionItemProps[] = [
   { trigger: "Another Question", content: "Here's another answer." },
   { trigger: "Another Question", content: "Here's another answer." }
 ];
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  const direction = locale === "ar" ? "rtl" : "ltr";
-  setLocale(locale);
 
-  return (
-    <div className="hawa-w-full hawa-max-w-md" dir={direction}>
-      <Accordion items={accordionData} type="single" {...args} />
-    </div>
-  );
-};
 export const Default: Story = {
-  render: Template.bind({})
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    return (
+      <div className="hawa-w-full hawa-max-w-md" dir={direction}>
+        <Accordion items={accordionData} type="single" {...args} />
+      </div>
+    );
+  }
 };
 export const SeparatedVariant: Story = {
   render: (args: any, globals: any) => {

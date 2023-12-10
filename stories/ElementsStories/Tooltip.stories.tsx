@@ -1,55 +1,41 @@
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Switch, Tooltip } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { Button } from "@elements/button";
+import { Tooltip } from "@elements/tooltip";
 
 const meta = {
   title: "Elements/Tooltip",
   component: Tooltip,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Tooltip/>"}</h1>
-
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
-const Template = (args: any) => (
-  <div>
-    <Tooltip
-      side={args.side}
-      triggerProps={{ asChild: true }}
-      delayDuration={200}
-      content={
-        <div className="hawa-max-w-xs">
-          A tooltip is a brief, informative message that appears when a user
-          interacts with an element in a graphical interface. Tooltips are
-          usually displayed on hover or on focus. They provide extra information
-          about the function of the element, often displaying text explaining
-          the element's purpose, which helps to improve the user experience and
-          guide users through the interface efficiently.
-        </div>
-      }
-    >
-      <Button>Show Tooltip</Button>
-    </Tooltip>{" "}
-  </div>
-);
-
 export const Default: Story = {
-  render: () => <Template />,
-  args: {
-    side: "right",
-  },
+  render: (args) => (
+    <div>
+      <Tooltip
+        side={args.side}
+        triggerProps={{ asChild: true }}
+        delayDuration={200}
+        content={
+          <div className="hawa-max-w-xs">
+            A tooltip is a brief, informative message that appears when a user
+            interacts with an element in a graphical interface. Tooltips are
+            usually displayed on hover or on focus. They provide extra
+            information about the function of the element, often displaying text
+            explaining the element's purpose, which helps to improve the user
+            experience and guide users through the interface efficiently.
+          </div>
+        }
+      >
+        <Button>Hover to show tooltip</Button>
+      </Tooltip>
+    </div>
+  ),
+  args: { side: "top" }
 };
 export const Sides: Story = {
   render: () => (
@@ -89,8 +75,5 @@ export const Sides: Story = {
         </div>
       </div>
     </>
-  ),
-  args: {
-    side: "right",
-  },
+  )
 };

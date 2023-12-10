@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import { Skeleton, Card, CardContent, CardTitle } from "@elements/index";
+import { Card, CardContent, CardTitle } from "@elements/card";
+import { Skeleton } from "@elements/skeleton";
 
 import { cn } from "../util";
 

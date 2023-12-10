@@ -1,25 +1,15 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Stats } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { Users2 } from "lucide-react";
-import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts";
+import { Line, LineChart, ResponsiveContainer } from "recharts";
+
+import { Stats } from "@layout/Stats";
+
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Layout/Stats",
-  component: Stats,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Stats/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Stats
 } satisfies Meta<typeof Stats>;
 
 export default meta;
@@ -32,7 +22,7 @@ let dummyChartData = [
   { count: 48, period: "2023-11-14" },
   { count: 5, period: "2023-11-15" },
   { count: 11, period: "2023-11-16" },
-  { count: 31, period: "2023-11-17" },
+  { count: 31, period: "2023-11-17" }
 ];
 const DummyChart = () => (
   <div className="h-[80px]" style={{ height: 80 }}>
@@ -43,7 +33,7 @@ const DummyChart = () => (
           top: 5,
           right: 10,
           left: 10,
-          bottom: 0,
+          bottom: 0
         }}
       >
         <Line
@@ -52,10 +42,10 @@ const DummyChart = () => (
           dataKey="count"
           activeDot={{
             r: 6,
-            style: { fill: "#f69f69", opacity: 0.25 },
+            style: { fill: "#f69f69", opacity: 0.25 }
           }}
           style={{
-            stroke: "#f69f69",
+            stroke: "#f69f69"
           }}
         />
       </LineChart>
@@ -126,5 +116,5 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };

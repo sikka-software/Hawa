@@ -1,24 +1,12 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CodeBlock } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { useDarkMode } from "storybook-dark-mode";
+
+import { CodeBlock } from "@elements/codeBlock";
 
 const meta = {
   title: "Elements/CodeBlock",
-  component: CodeBlock,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<CodeBlock/>"}</h1>
-
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: CodeBlock
 } satisfies Meta<typeof CodeBlock>;
 
 export default meta;
@@ -29,7 +17,7 @@ export const Default: Story = {
     const isDark = useDarkMode();
 
     return (
-      <div className="hawa-max-w-lg hawa-flex hawa-flex-col hawa-gap-6">
+      <div className="hawa-flex hawa-max-w-lg hawa-flex-col hawa-gap-6">
         <CodeBlock {...args} tabs={args.tabs} />
         <CodeBlock
           language="jsx"
@@ -41,8 +29,8 @@ export const Default: Story = {
     );
   },
   args: {
-    code: "npm install @sikka/hawa",
-  },
+    code: "npm install @sikka/hawa"
+  }
 };
 
 export const withTabs: Story = {
@@ -59,18 +47,18 @@ export const withTabs: Story = {
     tabs: [
       {
         title: "npm",
-        code: "npm install @sikka/hawa",
+        code: "npm install @sikka/hawa"
       },
       {
         title: "yarn",
-        code: "yarn add @sikka/hawa",
+        code: "yarn add @sikka/hawa"
       },
       {
         title: "pnpm",
-        code: "pnpm add @sikka/hawa",
-      },
-    ],
-  },
+        code: "pnpm add @sikka/hawa"
+      }
+    ]
+  }
 };
 export const withFileName: Story = {
   render: (args) => {
@@ -87,8 +75,8 @@ export const withFileName: Story = {
     language: "jsx",
     code: `<CodeBlock fileName='hawa.js'>
    Testing again
-</CodeBlock>`,
-  },
+</CodeBlock>`
+  }
 };
 export const withBoth: Story = {
   render: (args) => {
@@ -106,16 +94,16 @@ export const withBoth: Story = {
     tabs: [
       {
         title: "npm",
-        code: "npm install @sikka/hawa",
+        code: "npm install @sikka/hawa"
       },
       {
         title: "yarn",
-        code: "yarn add @sikka/hawa",
+        code: "yarn add @sikka/hawa"
       },
       {
         title: "pnpm",
-        code: "pnpm add @sikka/hawa",
-      },
-    ],
-  },
+        code: "pnpm add @sikka/hawa"
+      }
+    ]
+  }
 };

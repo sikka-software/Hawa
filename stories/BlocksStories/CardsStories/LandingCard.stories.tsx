@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ScreenShare } from "lucide-react";
 
-import { LandingCard } from "../../../components/blocks";
+import { LandingCard } from "@blocks/cards";
 
 const meta = {
   title: "Blocks/Cards/Landing Card",
   component: LandingCard,
-  tags: ["autodocs"]
 } satisfies Meta<typeof LandingCard>;
 
 export default meta;

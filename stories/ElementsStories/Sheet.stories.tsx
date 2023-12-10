@@ -1,32 +1,24 @@
+import { useState } from "react";
+
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@elements/button";
 import {
-  Button,
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
-} from "../../components";
-import { ArgsTable, Story } from "@storybook/blocks";
+  SheetTrigger
+} from "@elements/sheet";
+
 import { setLocale, t } from "../translations/i18n";
-import { useState } from "react";
 
 const meta = {
   title: "Elements/Sheet",
   component: SheetContent,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Sheet/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof SheetContent>;
 
 export default meta;
@@ -55,7 +47,7 @@ export const Default: Story = {
               <Button onClick={() => setSide("bottom")}>Bottom Sheet</Button>
             </div>
           </SheetTrigger>
-          <SheetContent {...args} side={side} >
+          <SheetContent {...args} side={side}>
             <SheetHeader className="hawa-p-10">
               <SheetTitle>Are you sure absolutely sure?</SheetTitle>
               <SheetDescription>
@@ -68,9 +60,8 @@ export const Default: Story = {
                 beatae tempora est dolore quod alias cum debitis animi maxime
                 provident laboriosam!
               </div>
-
             </SheetHeader>
-              {/* <div className="hawa-flex hawa-flex-col hawa-overflow-y-auto hawa-h-96 hawa-bg-red-300 hawa-h-">
+            {/* <div className="hawa-flex hawa-flex-col hawa-overflow-y-auto hawa-h-96 hawa-bg-red-300 hawa-h-">
                 <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
                 <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
                 <div className="hawa-bg-gray-200 hawa-p-10">Item</div>
@@ -88,8 +79,8 @@ export const Default: Story = {
   },
   args: {
     persist: false,
-    hideCloseButton: false,
-  },
+    hideCloseButton: false
+  }
 };
 export const MaxWidth: Story = {
   render: (args: any, globals: any) => {
@@ -122,5 +113,5 @@ export const MaxWidth: Story = {
         </Sheet>
       </div>
     );
-  },
+  }
 };

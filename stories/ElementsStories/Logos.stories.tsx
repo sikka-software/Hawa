@@ -1,23 +1,13 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Logos } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+
+import { Logos } from "@elements/logos";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
-  title: "Elements/Logos",
-  //   component: Logos,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Logos/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  title: "Elements/Logos"
+  // component: Logos
 } satisfies Meta<typeof Logos>;
 
 export default meta;
@@ -33,7 +23,7 @@ const Template = (args: any, globals: any) => {
   const Logo = (props: any) => {
     const Component = getComponent(props.name?.toLowerCase());
     return (
-      <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-items-center">
+      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">
         <Component className="hawa-icon" />
         <span className="hawa-text-sm">{props.name} Logo</span>
       </div>
@@ -63,5 +53,5 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };

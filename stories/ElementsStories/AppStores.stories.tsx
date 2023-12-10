@@ -1,23 +1,14 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { AppStores } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+
+import { AppStores } from "@elements/appStores";
+
+import { setLocale } from "../translations/i18n";
 
 const meta = {
   title: "Elements/AppStores",
   component: AppStores,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<AppStores/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof AppStores>;
 
 export default meta;
@@ -33,7 +24,7 @@ export const AppleBadge: Story = {
         <AppStores store="apple" {...args} />
       </div>
     );
-  },
+  }
 };
 export const GoogleBadge: Story = {
   render: (args: any, globals: any) => {
@@ -45,5 +36,5 @@ export const GoogleBadge: Story = {
         <AppStores store="google" {...args} />
       </div>
     );
-  },
+  }
 };

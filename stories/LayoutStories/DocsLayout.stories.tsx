@@ -1,24 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { DocsLayout, DocsSidebar, Button, AppTopbar } from "../../components";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
+
+import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
+
+import { DocsSidebar, AppTopbar } from "@layout/index";
+
+import { setLocale } from "../translations/i18n";
 
 const meta = {
   title: "Layout/Docs Layout",
-  component: DocsSidebar,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<DocsSidebar/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: DocsSidebar
 } satisfies Meta<typeof DocsSidebar>;
 
 export default meta;
@@ -48,8 +40,8 @@ export const Default: Story = {
           ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
           : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
         : dark
-        ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
-        : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
+          ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
+          : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
 
     let dummyText = ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
         eligendi obcaecati voluptatibus deleniti ex exercitationem dolor
@@ -267,27 +259,27 @@ export const Default: Story = {
         <AppTopbar />
 
         {/* Sidebar */}
-        <div className="hawa-w-1/6 hawa-top-14 hawa-h-[calc(100dvh)] hawa-pt-10 hawa-bg-gray-100 hawa-fixed hawa-left-0">
+        <div className="hawa-fixed hawa-left-0 hawa-top-14 hawa-h-[calc(100dvh)] hawa-w-1/6 hawa-bg-gray-100 hawa-pt-10">
           <DocsSidebar
             direction={direction}
             pages={["Introduction", "Installation", "Usage"]}
           />
         </div>
-        <div className="hawa-w-3/4 hawa-ml-auto hawa-p-4">
+        <div className="hawa-ml-auto hawa-w-3/4 hawa-p-4">
           <div id="Introduction">
-            <h1 className="hawa-text-2xl hawa-font-bold hawa-my-10">
+            <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold">
               Introduction
             </h1>
             <p>{dummyText}</p>
           </div>
           <div id="Installation">
-            <h1 className="hawa-text-2xl hawa-font-bold hawa-my-10">
+            <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold">
               Installation
             </h1>
             <p>{dummyText}</p>{" "}
           </div>
           <div id="Usage">
-            <h1 className="hawa-text-2xl hawa-font-bold hawa-my-10"> Usage</h1>
+            <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold"> Usage</h1>
             <p>{dummyText}</p>{" "}
           </div>
         </div>
@@ -295,5 +287,5 @@ export const Default: Story = {
     );
   },
   args: {},
-  argTypes: {},
+  argTypes: {}
 };

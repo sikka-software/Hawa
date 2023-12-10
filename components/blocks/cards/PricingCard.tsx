@@ -1,15 +1,13 @@
 import React, { FC } from "react";
 
-import {
-  Button,
-  Card,
-  Chip,
-  Separator,
-  Skeleton,
-  Tooltip
-} from "@elements/index";
+import { Button } from "@elements/button";
+import { Card } from "@elements/card";
+import { Chip } from "@elements/chip";
+import { Separator } from "@elements/separator";
+import { Skeleton } from "@elements/skeleton";
+import { Tooltip } from "@elements/tooltip";
 
-import { PricingCardProps } from "@_types/index";
+import { PricingCardProps } from "@_types/pricingTypes";
 
 import { cn } from "../../util";
 

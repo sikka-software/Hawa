@@ -1,24 +1,15 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Alert, Avatar, BadgedComponent } from "../../components/elements";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { Upload } from "lucide-react";
+
+import { Avatar } from "@elements/avatar";
+import { BadgedComponent } from "@elements/badge";
+
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Avatar",
-  component: Avatar,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Avatar/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Avatar
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
@@ -33,7 +24,7 @@ export const Default: Story = {
       <div className="hawa-flex hawa-flex-col hawa-gap-6">
         <div className="hawa-flex hawa-flex-row hawa-gap-6">
           <div>
-            <div className="hawa-font-bold hawa-text-lg">Regular</div>
+            <div className="hawa-text-lg hawa-font-bold">Regular</div>
             <Avatar
               src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
@@ -41,7 +32,7 @@ export const Default: Story = {
             />
           </div>
           <div>
-            <div className="hawa-font-bold hawa-text-lg">Without Image</div>
+            <div className="hawa-text-lg hawa-font-bold">Without Image</div>
             <Avatar
               // src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
@@ -49,15 +40,15 @@ export const Default: Story = {
             />
           </div>
           <div>
-            <div className="hawa-font-bold hawa-text-lg">Custom Icon</div>
+            <div className="hawa-text-lg hawa-font-bold">Custom Icon</div>
             <Avatar
-              icon={<Upload className="hawa-w-4 hawa-h-4" />}
+              icon={<Upload className="hawa-h-4 hawa-w-4" />}
               alt="User Avatar"
               {...args}
             />
           </div>
           <div>
-            <div className="hawa-font-bold hawa-text-lg">With Badge</div>
+            <div className="hawa-text-lg hawa-font-bold">With Badge</div>
             <BadgedComponent>
               <Avatar
                 src="https://source.unsplash.com/featured/?nature,1"
@@ -68,7 +59,7 @@ export const Default: Story = {
           </div>
         </div>
         <div>
-          <div className="hawa-font-bold hawa-text-lg">
+          <div className="hawa-text-lg hawa-font-bold">
             Uploadable (click to upload)
           </div>
           <Avatar
@@ -80,7 +71,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -110,13 +101,13 @@ export const Sizes: Story = {
       "3xl",
       "4xl",
       "5xl",
-      "6xl",
+      "6xl"
     ];
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         {sizesArray.map((avatarSize, i) => (
           <div key={i}>
-            <div className="hawa-font-bold hawa-text-lg">{avatarSize}</div>
+            <div className="hawa-text-lg hawa-font-bold">{avatarSize}</div>
             <Avatar
               // isUploadable={true}
               src="https://source.unsplash.com/featured/?nature,1"
@@ -128,7 +119,7 @@ export const Sizes: Story = {
         ))}
       </div>
     );
-  },
+  }
 };
 export const Radius: Story = {
   render: (args: any, globals: any) => {
@@ -138,7 +129,7 @@ export const Radius: Story = {
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
         <div>
-          <div className="hawa-font-bold hawa-text-lg">Full Radius</div>
+          <div className="hawa-text-lg hawa-font-bold">Full Radius</div>
           <Avatar
             isUploadable={true}
             src="https://source.unsplash.com/featured/?nature,1"
@@ -147,7 +138,7 @@ export const Radius: Story = {
           />
         </div>
         <div>
-          <div className="hawa-font-bold hawa-text-lg">
+          <div className="hawa-text-lg hawa-font-bold">
             Inherit Global Radius
           </div>
           <Avatar
@@ -158,7 +149,7 @@ export const Radius: Story = {
           />
         </div>
         <div>
-          <div className="hawa-font-bold hawa-text-lg">No Radius</div>
+          <div className="hawa-text-lg hawa-font-bold">No Radius</div>
           <Avatar
             isUploadable={true}
             src="https://source.unsplash.com/featured/?nature,1"
@@ -171,7 +162,7 @@ export const Radius: Story = {
   },
   parameters: {
     controls: {
-      exclude: ["radius"],
-    },
-  },
+      exclude: ["radius"]
+    }
+  }
 };

@@ -1,12 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import {
-  Button,
-  Logos,
-  Sheet,
-  SheetContent,
-  SheetTrigger
-} from "@elements/index";
+import { Button } from "@elements/button";
+import { Logos } from "@elements/logos";
+import { Sheet, SheetContent, SheetTrigger } from "@elements/sheet";
 
 import { DirectionType } from "@_types/commonTypes";
 

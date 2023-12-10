@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { Button, DropdownMenu, MenuItemType, Tooltip } from "@elements/index";
+import { Button } from "@elements/button";
+import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
+import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 

@@ -1,27 +1,14 @@
 import { useState } from "react";
 
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { FeedbackEmoji } from "@blocks/feedback";
 
-import { setLocale, t } from "../../translations/i18n";
-
 const meta = {
   title: "Blocks/User Feedback/Feedback Emotion",
   component: FeedbackEmoji,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<FeedbackEmoji/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof FeedbackEmoji>;
 
 export default meta;

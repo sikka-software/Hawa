@@ -1,30 +1,16 @@
+import { useState } from "react";
+
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Badge,
-  BadgedComponent,
-  Button,
-  Card,
-  CardContent,
-} from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
-import { useRef, useState } from "react";
 import { Bell } from "lucide-react";
+
+import { Badge, BadgedComponent } from "@elements/badge";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
 
 const meta = {
   title: "Elements/Badge",
-  component: Badge,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Badge/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Badge
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -76,7 +62,7 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {},
+  args: {}
 };
 
 // export const WithText: Story = {

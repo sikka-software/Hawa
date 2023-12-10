@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Skeleton } from "../../components/elements";
 import { ArgsTable, Markdown, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Image } from "lucide-react";
+
+import { Skeleton } from "@elements/skeleton";
 
 const meta = {
   title: "Elements/Skeleton",
@@ -24,40 +25,40 @@ const meta = {
           </p>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
-const Template = (args: any) => {
-  return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-4">
-      <div className="hawa-flex hawa-flex-row hawa-gap-4">
-        <Skeleton className="hawa-h-10 hawa-w-10" />
-        <Skeleton className="hawa-h-10 hawa-w-64" content="Text here" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4">
-        <Skeleton className="hawa-h-10 hawa-w-10" />
-        <Skeleton className="hawa-h-10 hawa-w-64" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4">
-        <Skeleton className="hawa-h-10 hawa-w-10" />
-        <Skeleton className="hawa-h-10 hawa-w-64" />
-      </div>
-      <div className="hawa-flex hawa-flex-row hawa-gap-4">
-        <Skeleton className="hawa-h-10 hawa-w-10" />
-        <Skeleton className="hawa-h-10 hawa-w-64" />
-      </div>
-    </div>
-  );
-};
 export const Default: Story = {
-  render: () => <Template />,
+  render: (args: any) => {
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Skeleton className="hawa-h-10 hawa-w-10" />
+          <Skeleton className="hawa-h-10 hawa-w-64" content="Text here" />
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Skeleton className="hawa-h-10 hawa-w-10" />
+          <Skeleton className="hawa-h-10 hawa-w-64" />
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Skeleton className="hawa-h-10 hawa-w-10" />
+          <Skeleton className="hawa-h-10 hawa-w-64" />
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Skeleton className="hawa-h-10 hawa-w-10" />
+          <Skeleton className="hawa-h-10 hawa-w-64" />
+        </div>
+      </div>
+    );
+  }
 };
+
 export const Sizes: Story = {
   name: "Shapes & Sizes",
   render: () => (
@@ -79,8 +80,9 @@ export const Sizes: Story = {
         <Skeleton className="hawa-h-10 hawa-w-32" />
       </div>
     </div>
-  ),
+  )
 };
+
 export const Animations: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
@@ -100,7 +102,7 @@ export const Animations: Story = {
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-64" />
       </div>
     </div>
-  ),
+  )
 };
 
 export const withContent: Story = {
@@ -114,5 +116,5 @@ export const withContent: Story = {
         <Skeleton className="hawa-h-20 hawa-w-40" content="Text here" />
       </div>
     </div>
-  ),
+  )
 };

@@ -1,23 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Radio } from "../../components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Radio } from "@elements/radio";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Radio",
   component: Radio,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Radio/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof Radio>;
 
 export default meta;
@@ -31,7 +22,7 @@ export const Default: Story = {
     setLocale(locale);
     return (
       <div
-        className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10"
+        className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -46,7 +37,7 @@ export const Default: Story = {
             options={[
               { label: `Option 1`, value: `option1` },
               { label: `Option 2`, value: `option2`, disabled: true },
-              { label: `Option 3`, value: `option3` },
+              { label: `Option 3`, value: `option3` }
             ]}
           />
         </div>
@@ -63,27 +54,27 @@ export const Default: Story = {
             options={[
               { label: `Option 4`, value: `option4` },
               { label: `Option 5`, value: `option5`, disabled: true },
-              { label: `Option 6`, value: `option6` },
+              { label: `Option 6`, value: `option6` }
             ]}
           />
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const Tabs: Story = {
   parameters: {
-    layout: "padded",
+    layout: "padded"
   },
   render: () => (
-    <div className="hawa-flex hawa-flex-row hawa-gap-4 hawa-space-x-4 hawa-relative">
+    <div className="hawa-relative hawa-flex hawa-flex-row hawa-gap-4 hawa-space-x-4">
       <div className="hawa-max-w-xs">
-        <div className="hawa-text-center hawa-text-2xl hawa-pb-4 hawa-font-bold">
+        <div className="hawa-pb-4 hawa-text-center hawa-text-2xl hawa-font-bold">
           Extra Small
         </div>
 
-        <div className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10">
+        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -97,7 +88,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 1`, value: `option1` },
                 { label: `Option 2`, value: `option2`, disabled: true },
-                { label: `Option 3`, value: `option3` },
+                { label: `Option 3`, value: `option3` }
               ]}
             />
           </div>
@@ -114,20 +105,20 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 4`, value: `option4` },
                 { label: `Option 5`, value: `option5`, disabled: true },
-                { label: `Option 6`, value: `option6` },
+                { label: `Option 6`, value: `option6` }
               ]}
             />
           </div>
         </div>
       </div>
-      <div className="hawa-w-px hawa-bg-gray-300 hawa-mx-2"></div>
+      <div className="hawa-mx-2 hawa-w-px hawa-bg-gray-300"></div>
 
       <div className="hawa-max-w-xs">
-        <div className="hawa-text-center hawa-text-2xl hawa-pb-4 hawa-font-bold">
+        <div className="hawa-pb-4 hawa-text-center hawa-text-2xl hawa-font-bold">
           Small
         </div>
 
-        <div className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10">
+        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -141,7 +132,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 1`, value: `option1` },
                 { label: `Option 2`, value: `option2`, disabled: true },
-                { label: `Option 3`, value: `option3` },
+                { label: `Option 3`, value: `option3` }
               ]}
             />
           </div>
@@ -158,20 +149,20 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 4`, value: `option4` },
                 { label: `Option 5`, value: `option5`, disabled: true },
-                { label: `Option 6`, value: `option6` },
+                { label: `Option 6`, value: `option6` }
               ]}
             />
           </div>
         </div>
       </div>
-      <div className="hawa-w-px hawa-bg-gray-300 hawa-mx-2"></div>
+      <div className="hawa-mx-2 hawa-w-px hawa-bg-gray-300"></div>
 
       <div className="hawa-max-w-xs">
-        <div className="hawa-text-center hawa-text-2xl hawa-pb-4 hawa-font-bold">
+        <div className="hawa-pb-4 hawa-text-center hawa-text-2xl hawa-font-bold">
           Default
         </div>
 
-        <div className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10">
+        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -184,7 +175,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 1`, value: `option1` },
                 { label: `Option 2`, value: `option2`, disabled: true },
-                { label: `Option 3`, value: `option3` },
+                { label: `Option 3`, value: `option3` }
               ]}
             />
           </div>
@@ -200,20 +191,20 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 4`, value: `option4` },
                 { label: `Option 5`, value: `option5`, disabled: true },
-                { label: `Option 6`, value: `option6` },
+                { label: `Option 6`, value: `option6` }
               ]}
             />
           </div>
         </div>
       </div>
-      <div className="hawa-w-px hawa-bg-gray-300 hawa-mx-2"></div>
+      <div className="hawa-mx-2 hawa-w-px hawa-bg-gray-300"></div>
 
       <div className="hawa-max-w-xs">
-        <div className="hawa-text-center hawa-text-2xl hawa-pb-4 hawa-font-bold">
+        <div className="hawa-pb-4 hawa-text-center hawa-text-2xl hawa-font-bold">
           Large
         </div>
 
-        <div className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10">
+        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -227,7 +218,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 1`, value: `option1` },
                 { label: `Option 2`, value: `option2`, disabled: true },
-                { label: `Option 3`, value: `option3` },
+                { label: `Option 3`, value: `option3` }
               ]}
             />
           </div>
@@ -244,14 +235,14 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 4`, value: `option4` },
                 { label: `Option 5`, value: `option5`, disabled: true },
-                { label: `Option 6`, value: `option6` },
+                { label: `Option 6`, value: `option6` }
               ]}
             />
           </div>
         </div>
       </div>
     </div>
-  ),
+  )
 };
 export const Cards: Story = {
   render: (args: any, globals: any) => {
@@ -261,7 +252,7 @@ export const Cards: Story = {
 
     return (
       <div
-        className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10 hawa-max-w-sm"
+        className="w-1/2 hawa-flex hawa-max-w-sm hawa-flex-col hawa-gap-10"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -276,19 +267,19 @@ export const Cards: Story = {
               {
                 label: `Option 1`,
                 sublabel: "This is a sublabel under the label",
-                value: `option1`,
+                value: `option1`
               },
               {
                 label: `Option 2`,
                 sublabel: "This is a sublabel under the label",
                 value: `option2`,
-                disabled: true,
+                disabled: true
               },
               {
                 label: `Option 3`,
                 sublabel: "This is a sublabel under the label",
-                value: `option3`,
-              },
+                value: `option3`
+              }
             ]}
           />
         </div>
@@ -305,25 +296,25 @@ export const Cards: Story = {
               {
                 label: `Option 4`,
                 sublabel: "This is a sublabel under the label",
-                value: `option4`,
+                value: `option4`
               },
               {
                 label: `Option 5`,
                 sublabel: "This is a sublabel under the label",
                 value: `option5`,
-                disabled: true,
+                disabled: true
               },
               {
                 label: `Option 6`,
                 sublabel: "This is a sublabel under the label",
-                value: `option6`,
-              },
+                value: `option6`
+              }
             ]}
           />
         </div>
       </div>
     );
-  },
+  }
 };
 export const Bordered: Story = {
   render: (args: any, globals: any) => {
@@ -333,7 +324,7 @@ export const Bordered: Story = {
 
     return (
       <div
-        className="hawa-flex w-1/2 hawa-flex-col hawa-gap-10"
+        className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -349,19 +340,19 @@ export const Bordered: Story = {
               {
                 label: `Option 1`,
                 sublabel: "This is a sublabel under the label",
-                value: `option1`,
+                value: `option1`
               },
               {
                 label: `Option 2`,
                 sublabel: "This is a sublabel under the label",
                 value: `option2`,
-                disabled: true,
+                disabled: true
               },
               {
                 label: `Option 3`,
                 sublabel: "This is a sublabel under the label",
-                value: `option3`,
-              },
+                value: `option3`
+              }
             ]}
           />
         </div>
@@ -379,23 +370,23 @@ export const Bordered: Story = {
               {
                 label: `Option 4`,
                 sublabel: "This is a sublabel under the label",
-                value: `option4`,
+                value: `option4`
               },
               {
                 label: `Option 5`,
                 sublabel: "This is a sublabel under the label",
                 value: `option5`,
-                disabled: true,
+                disabled: true
               },
               {
                 label: `Option 6`,
                 sublabel: "This is a sublabel under the label",
-                value: `option6`,
-              },
+                value: `option6`
+              }
             ]}
           />
         </div>
       </div>
     );
-  },
+  }
 };

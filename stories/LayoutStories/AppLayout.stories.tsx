@@ -1,40 +1,18 @@
-import { useState } from "react";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  AppLayout,
-  Button,
-  ToastAction,
-  Toaster,
-  useToast,
-} from "../../components";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+import { Settings, User2 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
-import {
-  BarChart,
-  BarChart2,
-  FolderOpen,
-  LayoutDashboard,
-  Settings,
-  Settings2,
-  User2,
-} from "lucide-react";
+
+import { AppLayout } from "@layout/AppLayout";
+
+import { Button } from "@elements/button";
+
+import { setLocale } from "../translations/i18n";
 import { AppLayoutStory } from "./AppLayoutStory";
 
 const meta = {
   title: "Layout/App Layout",
-  tags: ["autodocs"],
-  component: AppLayout,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<AppLayout/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
+  component: AppLayout
 } satisfies Meta<typeof AppLayout>;
 
 export default meta;
@@ -60,11 +38,11 @@ export const Default: Story = {
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />
       </Button>
-    ),
+    )
   },
   argTypes: {
-    onLogoClick: { action: "onLogoClick" },
-  },
+    onLogoClick: { action: "onLogoClick" }
+  }
 };
 export const CustomHeader: Story = {
   render: (args: any, globals: any) => {
@@ -76,13 +54,13 @@ export const CustomHeader: Story = {
   },
   args: {
     header: (
-      <div className=" hawa-w-full hawa-h-full hawa-flex hawa-flex-col hawa-justify-center hawa-items-center">
-        <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-justify-start hawa-items-center">
-          <div className="hawa-h-8 hawa-w-8 hawa-rounded-full hawa-bg-gray-200 hawa-justify-center hawa-items-center hawa-flex">
+      <div className=" hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center">
+        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-start hawa-gap-2">
+          <div className="hawa-flex hawa-h-8 hawa-w-8 hawa-items-center hawa-justify-center hawa-rounded-full hawa-bg-gray-200">
             <User2 className="hawa-icon" />
           </div>
           <div className="hawa-flex hawa-flex-col">
-            <span className="hawa-font-bold hawa-text-sm">Zakher Masri</span>
+            <span className="hawa-text-sm hawa-font-bold">Zakher Masri</span>
             <span className="hawa-text-sm">admin@sikka.io</span>
           </div>
         </div>
@@ -99,11 +77,11 @@ export const CustomHeader: Story = {
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />
       </Button>
-    ),
+    )
   },
   argTypes: {
-    onLogoClick: { action: "onLogoClick" },
-  },
+    onLogoClick: { action: "onLogoClick" }
+  }
 };
 // export const CustomHeader: Story = {
 //   render: (args: any, globals: any) => {

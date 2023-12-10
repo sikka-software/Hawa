@@ -1,24 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { BackToTop } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { useRef } from "react";
+
+import { Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { BackToTop } from "@elements/backToTop";
 
 const meta = {
   title: "Elements/BackToTop",
-  component: BackToTop,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<BackToTop/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: BackToTop
 } satisfies Meta<typeof BackToTop>;
 
 export default meta;
@@ -53,7 +42,7 @@ export const FullPage: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const InContainer: Story = {
   render: (args) => {
@@ -62,7 +51,7 @@ export const InContainer: Story = {
     return (
       <div
         // dir={args.direction}
-        className="hawa-flex hawa-flex-row hawa-gap-4 hawa-w-full"
+        className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-4"
       >
         <div
           className="hawa-h-64 hawa-w-1/2 hawa-overflow-y-scroll hawa-rounded hawa-bg-card hawa-p-4"
@@ -94,5 +83,5 @@ export const InContainer: Story = {
         </div>
       </div>
     );
-  },
+  }
 };

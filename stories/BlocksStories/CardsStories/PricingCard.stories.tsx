@@ -2,13 +2,15 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PricingCard } from "../../../components/blocks";
-import { Input, Radio, Separator } from "../../../components/elements";
+import { PricingCard } from "@blocks/cards";
+
+import { Input } from "@elements/input";
+import { Radio } from "@elements/radio";
+import { Separator } from "@elements/separator";
 
 const meta = {
   title: "Blocks/Cards/Pricing Card",
-  component: PricingCard,
-  tags: ["autodocs"]
+  component: PricingCard
 } satisfies Meta<typeof PricingCard>;
 
 export default meta;

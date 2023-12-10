@@ -1,22 +1,14 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArgsTable, Story } from "@storybook/blocks";
-import { Input, PasswordInput } from "../../../components/elements";
+
+import { Input } from "@elements/input";
+import { PasswordInput } from "@elements/passwordInput";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Inputs/Password",
-  component: Input,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Input/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Input
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -36,5 +28,5 @@ export const Default: Story = {
         />
       </div>
     );
-  },
+  }
 };

@@ -1,23 +1,17 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { AppSidebarItemProps, Button, SidebarGroup } from "../../components";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
 import { useState } from "react";
+
+import { Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { AppSidebarItemProps, SidebarGroup } from "@layout/index";
+
+import { Button } from "@elements/button";
+
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Layout/Sidebar",
-  component: SidebarGroup,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<SidebarGroup/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: SidebarGroup
 } satisfies Meta<typeof SidebarGroup>;
 
 export default meta;
@@ -30,13 +24,13 @@ let items: AppSidebarItemProps[] = [
     label: "item 2 (With subitems)",
     subitems: [
       { value: "subitem-1", label: "subitem 1" },
-      { value: "subitem-2", label: "subitem 2" },
-    ],
+      { value: "subitem-2", label: "subitem 2" }
+    ]
   },
   {
     value: "item-3",
     label: "item 3",
-    badge: { label: "with badge", color: "oceanic" },
+    badge: { label: "with badge", color: "oceanic" }
   },
   { value: "item-4", label: "item 4" },
   {
@@ -44,9 +38,9 @@ let items: AppSidebarItemProps[] = [
     label: "item 5 (With subitems)",
     subitems: [
       { value: "subitem-1", label: "subitem 1" },
-      { value: "subitem-2", label: "subitem 2" },
-    ],
-  },
+      { value: "subitem-2", label: "subitem 2" }
+    ]
+  }
 ];
 
 const Template = (args: any, globals: any) => {
@@ -58,12 +52,12 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div
-      className="hawa-max-w-xs hawa-flex hawa-flex-col hawa-gap-4"
+      className="hawa-flex hawa-max-w-xs hawa-flex-col hawa-gap-4"
       dir={direction}
     >
       <Button onClick={() => setVal(null)}>Collapse All</Button>
       <div
-        className="hawa-max-w-xs hawa-bg-card hawa-rounded hawa-border"
+        className="hawa-max-w-xs hawa-rounded hawa-border hawa-bg-card"
         dir={direction}
       >
         <SidebarGroup
@@ -87,5 +81,5 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({}),
+  render: Template.bind({})
 };

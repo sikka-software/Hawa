@@ -1,48 +1,23 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Label, ScrollArea } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
+
+import { Label } from "@elements/label";
+import { ScrollArea } from "@elements/scrollArea";
 
 const meta = {
   title: "Elements/ScrollArea",
   component: ScrollArea,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<ScrollArea/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof ScrollArea>;
 
 export default meta;
 type Story = StoryObj<typeof ScrollArea>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-
-  return (
-    <ScrollArea className="hawa-h-[200px] hawa-w-[350px] hawa-rounded-md bg-red-500 hawa-border hawa-p-4">
-      Jokester began sneaking into the castle in the middle of the night and
-      leaving jokes all over the place: under the king's pillow, in his soup,
-      even in the royal toilet. The king was furious, but he couldn't seem to
-      stop Jokester. And then, one day, the people of the kingdom discovered
-      that the jokes left by Jokester were so funny that they couldn't help but
-      laugh. And once they started laughing, they couldn't stop.
-    </ScrollArea>
-  );
-};
 export const Default: Story = {
   render: () => (
     <div>
       <Label>Vertical Scroll Area</Label>
-      <ScrollArea className="hawa-h-[200px] hawa-w-[350px] hawa-rounded-md bg-red-500 hawa-border hawa-p-4">
+      <ScrollArea className="bg-red-500 hawa-h-[200px] hawa-w-[350px] hawa-rounded-md hawa-border hawa-p-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut
         justo et rhoncus. Ut vehicula sem a pretium feugiat. Praesent at nisi ac
         lacus sodales rhoncus. Aenean lectus ex, hendrerit ac felis vel,
@@ -52,7 +27,7 @@ export const Default: Story = {
         ante. Maecenas eu felis dui. Duis ornare blandit ligula vel rutrum.
       </ScrollArea>
     </div>
-  ),
+  )
 };
 export const Horizontal: Story = {
   render: () => (
@@ -60,7 +35,7 @@ export const Horizontal: Story = {
       <Label>Horizontal Scroll Area</Label>
       <ScrollArea
         orientation="horizontal"
-        className="hawa-h-fit hawa-w-[350px] hawa-max-w-xs hawa-rounded-md hawa-whitespace-nowrap bg-red-500 hawa-border hawa-p-4"
+        className="bg-red-500 hawa-h-fit hawa-w-[350px] hawa-max-w-xs hawa-whitespace-nowrap hawa-rounded-md hawa-border hawa-p-4"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut
         justo et rhoncus. Ut vehicula sem a pretium feugiat. Praesent at nisi ac
@@ -71,12 +46,12 @@ export const Horizontal: Story = {
         ante. Maecenas eu felis dui. Duis ornare blandit ligula vel rutrum.
       </ScrollArea>
     </div>
-  ),
+  )
 };
 export const FullPage: Story = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <ScrollArea className="hawa-h-screen hawa-w-full hawa-rounded-md bg-red-500 hawa-border hawa-p-4">
+    <ScrollArea className="bg-red-500 hawa-h-screen hawa-w-full hawa-rounded-md hawa-border hawa-p-4">
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut
@@ -308,5 +283,5 @@ export const FullPage: Story = {
         </p>
       </div>
     </ScrollArea>
-  ),
+  )
 };

@@ -1,27 +1,18 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+import { ArrowUpRightSquare, FilePlus2 } from "lucide-react";
+
 import {
   StandardNavigationMenuItem,
   NavigationMenu,
-  NavigationMenuLink,
-} from "../../components/elements";
-import { ArgsTable, Story } from "@storybook/blocks";
+  NavigationMenuLink
+} from "@elements/navigationMenu";
+
 import { t } from "../translations/i18n";
-import { ArrowUpRightSquare, FilePlus2 } from "lucide-react";
 
 const meta = {
   title: "Elements/Navigation Menu",
-  component: NavigationMenu,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<NavigationMenu/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: NavigationMenu
 } satisfies Meta<typeof NavigationMenu>;
 
 export default meta;
@@ -68,19 +59,19 @@ export const Default: Story = {
                   </div>
                 </div> */}
               </div>
-            ),
+            )
           },
           {
             trigger: "item 2",
-            path: "https://xakher.com",
+            path: "https://xakher.com"
 
             // action: () => console.log("clicked on item"),
           },
           {
             trigger: "item 3",
             content: (
-              <div className="hawa-p-4 hawa-bg-blue-500">something here</div>
-            ),
+              <div className="hawa-bg-blue-500 hawa-p-4">something here</div>
+            )
           },
           {
             trigger: "item 4",
@@ -88,10 +79,10 @@ export const Default: Story = {
               <>
                 <NavigationMenuLink asChild className="hawa-rounded-inner">
                   <a href="">
-                    <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                    <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                       <FilePlus2 />
                       <div className="hawa-flex hawa-flex-col">
-                        <h1 className="hawa-font-bold hawa-text-xl ">
+                        <h1 className="hawa-text-xl hawa-font-bold ">
                           {t("create")}
                         </h1>
                         <p className="hawa-text-sm">
@@ -102,10 +93,10 @@ export const Default: Story = {
                   </a>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild className="hawa-rounded-inner">
-                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
-                      <h1 className="hawa-font-bold hawa-text-xl ">
+                      <h1 className="hawa-text-xl hawa-font-bold ">
                         {t("create")}
                       </h1>
                       <p className="hawa-text-sm">
@@ -115,10 +106,10 @@ export const Default: Story = {
                   </div>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild className="hawa-rounded-inner">
-                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
-                      <h1 className="hawa-font-bold hawa-text-xl ">
+                      <h1 className="hawa-text-xl hawa-font-bold ">
                         {t("create")}
                       </h1>
                       <p className="hawa-text-sm">
@@ -128,10 +119,10 @@ export const Default: Story = {
                   </div>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild className="hawa-rounded-inner">
-                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
-                      <h1 className="hawa-font-bold hawa-text-xl ">
+                      <h1 className="hawa-text-xl hawa-font-bold ">
                         {t("create")}
                       </h1>
                       <p className="hawa-text-sm">
@@ -141,10 +132,10 @@ export const Default: Story = {
                   </div>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild className="hawa-rounded-inner">
-                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
-                      <h1 className="hawa-font-bold hawa-text-xl ">
+                      <h1 className="hawa-text-xl hawa-font-bold ">
                         {t("create")}
                       </h1>
                       <p className="hawa-text-sm">
@@ -154,12 +145,12 @@ export const Default: Story = {
                   </div>
                 </NavigationMenuLink>
               </>
-            ),
-          },
+            )
+          }
         ]}
       />
     );
-  },
+  }
 };
 export const RTL: Story = {
   render: () => {
@@ -172,14 +163,14 @@ export const RTL: Story = {
           {
             trigger: "item 1",
             content: (
-              <div className=" hawa-p-2  hawa-w-full">
+              <div className=" hawa-w-full  hawa-p-2">
                 <StandardNavigationMenuItem
                   icon={<FilePlus2 />}
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
                 />
                 <NavigationMenuLink asChild>
-                  <div className="hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all  hover:hawa-bg-muted">
+                  <div className="hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-rounded hawa-p-4 hawa-py-2 hawa-transition-all  hover:hawa-bg-muted">
                     <FilePlus2 />
                     <div className="hawa-flex hawa-flex-col">
                       <h1 className="hawa-font-bold ">{t("create")}</h1>
@@ -190,7 +181,7 @@ export const RTL: Story = {
                   </div>
                 </NavigationMenuLink>
 
-                <div className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted">
+                <div className=" hawa-flex hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-rounded hawa-p-4 hawa-py-2 hawa-transition-all hover:hawa-bg-muted">
                   <ArrowUpRightSquare />
                   <div className="hawa-flex hawa-flex-col">
                     <h1 className="hawa-font-bold ">{t("share")}</h1>
@@ -200,19 +191,19 @@ export const RTL: Story = {
                   </div>
                 </div>
               </div>
-            ),
+            )
           },
           {
-            trigger: "item 2",
+            trigger: "item 2"
           },
           {
             trigger: "item 3",
-            content: <div className="hawa-p-4">something here</div>,
-          },
+            content: <div className="hawa-p-4">something here</div>
+          }
         ]}
       />
     );
-  },
+  }
 };
 
 // [

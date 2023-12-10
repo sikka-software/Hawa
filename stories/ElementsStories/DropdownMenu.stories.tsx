@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   AlignVerticalDistributeStart,
@@ -12,32 +12,17 @@ import {
   MedalIcon
 } from "lucide-react";
 
-import {
-  Button,
-  DropdownMenu,
-  Radio,
-  Switch,
-  MenuItemType,
-  Chip,
-  DropdownMenuRadio
-} from "../../components/elements";
+import { Button } from "@elements/button";
+import { Chip } from "@elements/chip";
+import { DropdownMenu, DropdownMenuRadio } from "@elements/dropdownMenu";
+import { Radio } from "@elements/radio";
+import { Switch } from "@elements/switch";
+
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/DropdownMenu",
-  component: DropdownMenu,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<DropdownMenu/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  component: DropdownMenu
 } satisfies Meta<typeof DropdownMenu>;
 
 export default meta;

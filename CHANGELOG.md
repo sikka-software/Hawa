@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.24.0
+
+### Minor Changes
+
+- Improved imports in all stories
+- Removed unused story docs
+- `Elements` bundling code is now more readable
+- Optimized imports within `Navbar`, `Sidebar`, `Stats`, `AppLayout`, `LandingCard`, `PricingCard`, `DestroyableCard`, and `AppTopbar`
+
 ## 0.23.11
 
 ### Patch Changes

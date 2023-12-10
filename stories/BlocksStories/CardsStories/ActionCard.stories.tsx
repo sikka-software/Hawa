@@ -1,37 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ActionCard } from "../../../components/blocks";
-import { Button } from "../../../components/elements";
+import { ActionCard } from "@blocks/cards";
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { Button } from "@elements/button";
+
 const meta = {
   title: "Blocks/Cards/Action Card",
   component: ActionCard,
-  parameters: {
-    layout: "centered"
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    // backgroundColor: { control: "color" },
-  }
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof ActionCard>;
 
 export default meta;
 type Story = StoryObj<typeof ActionCard>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-
-const Template = (args: any) => (
-  <div className="hawa-flex hawa-h-64 hawa-flex-col hawa-gap-2">
-    {" "}
-    <ActionCard {...args}>tet</ActionCard>
-  </div>
-);
-
 export const Default: Story = {
-  render: (args) => <Template {...args} />,
+  render: (args: any) => (
+    <div className="hawa-flex hawa-h-64 hawa-flex-col hawa-gap-2">
+      <ActionCard {...args}>tet</ActionCard>
+    </div>
+  ),
   args: {
     title: "Bismillah",
     subtitle: "By the name of Allah",
@@ -51,16 +38,3 @@ export const Default: Story = {
     )
   }
 };
-
-// export const Large: Story = {
-//   args: {
-//     size: "large",
-//     label: "Button",
-//   },
-// };
-
-// export const Small: Story = {
-//   args: {
-//     label: "Button",
-//   },
-// };

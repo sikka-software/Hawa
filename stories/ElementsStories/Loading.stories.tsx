@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { ArgsTable } from "@storybook/blocks";
-import { Loading, Tooltip } from "../../components/elements";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Loading } from "@elements/loading";
+import { Tooltip } from "@elements/tooltip";
 
 const meta = {
   title: "Elements/Loading",
@@ -20,49 +22,20 @@ const meta = {
           </span>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
   tags: ["autodocs"],
   argTypes: {
     design: {
       options: ["spinner", "dots"],
-      control: { type: "radio" },
-    },
-  },
+      control: { type: "radio" }
+    }
+  }
 } satisfies Meta<typeof Loading>;
 
 export default meta;
 type Story = StoryObj<typeof Loading>;
-
-const Template = (args: any) => {
-  let sizes = [
-    { prop: "xl", title: "Extra Large" },
-    { prop: "lg", title: "Large" },
-    { prop: "normal", title: "Normal" },
-    { prop: "sm", title: "Small" },
-    { prop: "button", title: "Button Size" },
-    { prop: "xs", title: "Extra Small" },
-  ];
-  return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2">
-      <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
-        {sizes.map((s, i) => (
-          <div
-            key={i}
-            className=" hawa-p-4 hawa-border hawa-flex hawa-flex-col hawa-gap-4 hawa-justify-between hawa-items-center hawa-w-full  "
-          >
-            <h3>{s.title}</h3>
-            <Loading
-              design={args.design}
-              size={s.prop as "xs" | "button" | "sm" | "normal" | "lg" | "xl"}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export const Designs: Story = {
   render: (args: any) => {
@@ -98,18 +71,71 @@ export const Designs: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 export const Spinner: Story = {
-  render: (args) => <Template {...args} />,
-  args: {
-    design: "spinner",
+  render: (args: any) => {
+    let sizes = [
+      { prop: "xl", title: "Extra Large" },
+      { prop: "lg", title: "Large" },
+      { prop: "normal", title: "Normal" },
+      { prop: "sm", title: "Small" },
+      { prop: "button", title: "Button Size" },
+      { prop: "xs", title: "Extra Small" }
+    ];
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
+          {sizes.map((s, i) => (
+            <div
+              key={i}
+              className=" hawa-flex hawa-w-full hawa-flex-col hawa-items-center hawa-justify-between hawa-gap-4 hawa-border hawa-p-4  "
+            >
+              <h3>{s.title}</h3>
+              <Loading
+                design={args.design}
+                size={s.prop as "xs" | "button" | "sm" | "normal" | "lg" | "xl"}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   },
+  args: {
+    design: "spinner"
+  }
 };
-
 export const Dots: Story = {
-  render: (args) => <Template {...args} />,
-  args: {
-    design: "dots-pulse",
+  render: (args: any) => {
+    let sizes = [
+      { prop: "xl", title: "Extra Large" },
+      { prop: "lg", title: "Large" },
+      { prop: "normal", title: "Normal" },
+      { prop: "sm", title: "Small" },
+      { prop: "button", title: "Button Size" },
+      { prop: "xs", title: "Extra Small" }
+    ];
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
+          {sizes.map((s, i) => (
+            <div
+              key={i}
+              className=" hawa-flex hawa-w-full hawa-flex-col hawa-items-center hawa-justify-between hawa-gap-4 hawa-border hawa-p-4  "
+            >
+              <h3>{s.title}</h3>
+              <Loading
+                design={args.design}
+                size={s.prop as "xs" | "button" | "sm" | "normal" | "lg" | "xl"}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   },
+  args: {
+    design: "dots-pulse"
+  }
 };

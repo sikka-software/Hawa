@@ -1,50 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Breadcrumb } from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import type { Meta } from "@storybook/react";
+
+import { Breadcrumb } from "@elements/breadcrumb";
 
 const meta = {
   title: "Elements/Breadcrumb",
-  component: Breadcrumb,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          {/* <Title /> */}
-          {/* <Story of={Docs} /> */}
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Breadcrumb
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
-// type Story = StoryObj<typeof Breadcrumb>;
-
-// const Template = () => (
-//   <Breadcrumb
-//     breadcrumbLinks={[
-//       { label: "test", href: "/test" },
-//       { label: "test1", href: "/test1" },
-//       { label: "test2", href: "/test2" },
-//     ]}
-//     separator={"-"}
-//   />
-// );
-
-// export const Default: Story = {
-//   render: () => <Template />,
-// };
 
 export const Default = () => (
   <div>
-    {" "}
     <Breadcrumb
       breadcrumbLinks={[
         { label: "Home", href: "/test" },
         { label: "User", href: "/test1" },
-        { label: "New User", href: "/test2" },
+        { label: "New User", href: "/test2" }
       ]}
       separator={">"}
     />

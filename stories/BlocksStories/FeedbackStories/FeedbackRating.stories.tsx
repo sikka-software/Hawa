@@ -1,25 +1,12 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { FeedbackRating } from "@blocks/feedback";
 
-import { setLocale, t } from "../../translations/i18n";
-
 const meta = {
   title: "Blocks/User Feedback/Feedback Rating",
   component: FeedbackRating,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<FeedbackRating/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof FeedbackRating>;
 
 export default meta;

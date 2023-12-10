@@ -1,6 +1,11 @@
+import { useState } from "react";
+
+import { useDialogCarousel, useMultiStepDialog } from "@hooks/index";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@elements/button";
 import {
-  Button,
   DialogHeader,
   Dialog,
   DialogContent,
@@ -11,15 +16,13 @@ import {
   DialogStep,
   DialogBody,
   DialogCarousel,
-  Input,
   DialogSteps,
-  DialogCarouselContent,
-} from "../../components/elements";
-import { Story } from "@storybook/blocks";
-import { setLocale, t } from "../translations/i18n";
-import { useState } from "react";
+  DialogCarouselContent
+} from "@elements/dialog";
+import { Input } from "@elements/input";
+
 import { PropsTable } from "../../sharedUI/docsUI";
-import { useDialogCarousel, useMultiStepDialog } from "../../components/hooks";
+import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Dialog",
@@ -41,49 +44,49 @@ const meta = {
                 default: "",
                 required: true,
                 description:
-                  "The id of the checkbox. Must be unique if there are more than one checkbox inside the elements.",
+                  "The id of the checkbox. Must be unique if there are more than one checkbox inside the elements."
               },
               {
                 name: "label",
                 type: "React.ReactNode",
                 default: "",
-                description: "The primary text next to the checkbox",
+                description: "The primary text next to the checkbox"
               },
               {
                 name: "sublabel",
                 type: "string",
                 default: "",
-                description: "The gray text underneath the label",
+                description: "The gray text underneath the label"
               },
               {
                 name: "helperText",
                 type: "string",
                 default: "",
                 description:
-                  "The red warning text underneath the label. Use it conditionally if there's a warning or an error. ",
+                  "The red warning text underneath the label. Use it conditionally if there's a warning or an error. "
               },
               {
                 name: "onCheckedChange",
                 type: "function",
                 default: "",
                 description:
-                  "A callback function to handle checking and unchecking the checkbox.",
+                  "A callback function to handle checking and unchecking the checkbox."
               },
               {
                 name: "disabled",
                 type: "boolean",
                 default: "false",
-                description: "",
-              },
+                description: ""
+              }
             ]}
           />
 
           <h1>Dialog Content</h1>
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } as Meta;
 
 export default meta;
@@ -122,8 +125,8 @@ export const Default: Story = {
     );
   },
   args: {
-    persist: true,
-  },
+    persist: true
+  }
 };
 export const Persistent: Story = {
   render: (args: any, globals: any) => {
@@ -166,8 +169,8 @@ export const Persistent: Story = {
   },
   args: {
     persist: true,
-    hideCloseButton: true,
-  },
+    hideCloseButton: true
+  }
 };
 export const RTL: Story = {
   render: (args: any) => {
@@ -202,7 +205,7 @@ export const RTL: Story = {
         </Dialog>
       </div>
     );
-  },
+  }
 };
 export const Multistep: Story = {
   name: "Multistep",
@@ -250,7 +253,7 @@ export const Multistep: Story = {
         </DialogContent>
       </Dialog>
     );
-  },
+  }
 };
 export const MultistepCarousel: Story = {
   name: "Multistep - Carousel",
@@ -260,7 +263,7 @@ export const MultistepCarousel: Story = {
     setLocale(locale);
     const { emblaApi, emblaRef, nextStep, prevStep, canScrollPrev } =
       useDialogCarousel({
-        direction: direction,
+        direction: direction
       });
     const [openDialog, setOpenDialog] = useState(true);
 
@@ -329,7 +332,7 @@ export const MultistepCarousel: Story = {
                 </DialogHeader>
 
                 <FormFillStep />
-                <DialogFooter className="hawa-flex hawa-flex-row hawa-justify-between  hawa-w-full">
+                <DialogFooter className="hawa-flex hawa-w-full hawa-flex-row  hawa-justify-between">
                   <Button onClick={() => prevStep()}>Back</Button>
                   <Button onClick={() => nextStep()}>Next</Button>
                 </DialogFooter>
@@ -351,7 +354,7 @@ export const MultistepCarousel: Story = {
         </Dialog>
       </div>
     );
-  },
+  }
 };
 
 const PaymentMethodStep = (props: any) => (

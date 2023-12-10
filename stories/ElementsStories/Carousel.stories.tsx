@@ -1,13 +1,5 @@
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Button,
-  Carousel,
-  Count,
-  ItemCard,
-  LandingCard,
-  Tooltip,
-} from "../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
 import {
   ArrowRightCircle,
   CopyIcon,
@@ -18,8 +10,15 @@ import {
   ScreenShareOff,
   Trash2,
   Apple,
-  HardDrive,
+  HardDrive
 } from "lucide-react";
+
+import { ItemCard, LandingCard } from "@blocks/cards";
+
+import { Button } from "@elements/button";
+import { Carousel } from "@elements/carousel";
+import { Count } from "@elements/count";
+import { Tooltip } from "@elements/tooltip";
 
 const meta = {
   title: "Elements/Carousel",
@@ -31,10 +30,10 @@ const meta = {
           <h1>{"<Carousel/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -48,7 +47,7 @@ export const Default: Story = {
       </div>
     </div>
   ),
-  args: {},
+  args: {}
 };
 export const Cards: Story = {
   render: () => (
@@ -62,8 +61,8 @@ export const Cards: Story = {
     </div>
   ),
   args: {
-    autoplay: false,
-  },
+    autoplay: false
+  }
 };
 export const Autoplay: Story = {
   render: (args) => (
@@ -74,9 +73,9 @@ export const Autoplay: Story = {
     </div>
   ),
   args: {
-    autoplay: true,
+    autoplay: true
     // autoplayInterval: 100,
-  },
+  }
 };
 
 const images = [
@@ -88,7 +87,7 @@ const images = [
   <img src="https://source.unsplash.com/featured/?nature,6" />,
   <img src="https://source.unsplash.com/featured/?nature,7" />,
   <img src="https://source.unsplash.com/featured/?nature,8" />,
-  <img src="https://source.unsplash.com/featured/?nature,9" />,
+  <img src="https://source.unsplash.com/featured/?nature,9" />
 ];
 const autoplayCards = [
   <LandingCard
@@ -120,7 +119,7 @@ const autoplayCards = [
     title="This is the 5th card"
     subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
     icon={<HardDrive />}
-  />,
+  />
 ];
 const cards = [
   <LandingCard
@@ -146,7 +145,7 @@ const cards = [
     title="Title of landing card"
     subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
     icon={<ScreenShare />}
-  />,
+  />
 ];
 
 const createItemCard = (numCards: number) => {
@@ -160,18 +159,18 @@ const createItemCard = (numCards: number) => {
           {
             label: "Menu Settings",
             value: "Menu Settings",
-            action: () => console.log("clicking on Settings"),
+            action: () => console.log("clicking on Settings")
           },
           {
             label: "Menu Styles",
             value: "Menu Styles",
-            action: () => console.log("clicking on Styles"),
+            action: () => console.log("clicking on Styles")
           },
           {
             label: "Analytics",
             value: "Analytics",
-            action: () => console.log("clicking on Analytics"),
-          },
+            action: () => console.log("clicking on Analytics")
+          }
         ]}
         header={
           <div>

@@ -1,6 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Popover } from "../../components/elements";
 import { ArgsTable, Story } from "@storybook/blocks";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@elements/button";
+import { Popover } from "@elements/popover";
+
 import { setLocale } from "../translations/i18n";
 
 const meta = {
@@ -14,10 +17,10 @@ const meta = {
           <h1>{"<Popover/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Popover>;
 
 export default meta;
@@ -38,5 +41,5 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: () => <Template />,
+  render: () => <Template />
 };
