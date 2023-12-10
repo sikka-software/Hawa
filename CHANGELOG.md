@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.23.10
+
+### Patch Changes
+
+- Fixed clearing `dist` folder on each build
+
 ## 0.23.9
 
 ### Patch Changes

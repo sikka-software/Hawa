@@ -262,7 +262,7 @@ export const groupedConfigs = groupedEntries.map((group: any) =>
 
 export const buildAllConfig = defineConfig({
   name: "Build All",
-  clean: true,
+  clean: false,
   dts: true,
   target: "es2019",
   entry: { index: "components/index.ts" },
@@ -270,7 +270,7 @@ export const buildAllConfig = defineConfig({
 });
 export const buildCoreConfig = defineConfig({
   name: "Build Core",
-  clean: true,
+  clean: false,
   dts: true,
   target: "es2019",
   format: ["cjs", "esm"],
@@ -285,7 +285,7 @@ export const buildCoreConfig = defineConfig({
 });
 export const buildBlocksConfig = defineConfig({
   name: "Build Blocks",
-  clean: true,
+  clean: false,
   dts: true,
   target: "es2019",
   format: ["cjs", "esm"],
