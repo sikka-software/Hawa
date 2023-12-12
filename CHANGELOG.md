@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.24.4
+
+### Patch Changes
+
+- Added click handling to `AppTabs`
+
 ## 0.24.3
 
 ### Patch Changes

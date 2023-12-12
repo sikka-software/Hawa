@@ -78,7 +78,12 @@ export const WithHeader: Story = {
   },
   args: {
     tabs: [
-      { icon: <User2 className="hawa-icon" />, label: t("users") },
+      {
+        icon: <User2 className="hawa-icon" />,
+        path: "https://sikka.io",
+        action: () => console.log("clicked on user"),
+        label: t("users")
+      },
       { icon: <KeyRound className="hawa-icon" />, label: t("roles") },
       { icon: <Smile className="hawa-icon" />, label: t("customers") },
       { icon: <UserSquare className="hawa-icon" />, label: t("clients") },
