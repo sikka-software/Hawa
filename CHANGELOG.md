@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.24.2
+
+### Patch Changes
+
+- Added `sm` and `default` sizes to `Toaster`
+- Updated the way `Toast`, `ToastTitle`, `ToastDescription`, and `ToastClose` are styled and moved the conditional styling to `Toaster`
+
 ## 0.24.1
 
 ### Patch Changes

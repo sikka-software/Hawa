@@ -51,9 +51,10 @@ export const Default: Story = {
                 action: () => {
                   toast({
                     title:
-                      "Scheduled: Catch up " + Math.floor(Math.random() * 100),
+                      "Small Toast " + Math.floor(Math.random() * 100),
                     description: "Friday, February 10, 2023 at 5:57 PM",
                     severity: "info",
+                    size: "sm",
                     action: (
                       <ToastAction altText="Try again">Try again</ToastAction>
                     )
@@ -83,10 +84,10 @@ export const Default: Story = {
                     title:
                       "Scheduled: Catch up " + Math.floor(Math.random() * 100),
                     description: "Friday, February 10, 2023 at 5:57 PM",
-                    severity: "success",
-                    action: (
-                      <ToastAction altText="Try again">Try again</ToastAction>
-                    )
+                    severity: "success"
+                    // action: (
+                    //   <ToastAction altText="Try again">Try again</ToastAction>
+                    // )
                   });
                 }
               },

@@ -1,7 +1,7 @@
 // Inspired by react-hot-toast library
 import * as React from "react";
 
-import type { ToastActionElement, ToastProps } from "../elements/toast/Toast";
+import type { ToastActionElement, ToastProps } from "../elements/toast";
 
 const TOAST_LIMIT = 5;
 const TOAST_REMOVE_DELAY = 100000;
@@ -12,6 +12,7 @@ type ToasterToast = ToastProps & {
   description?: React.ReactNode;
   severity?: "info" | "warning" | "error" | "success" | "none";
   action?: ToastActionElement;
+  size?: "default" | "sm";
 };
 
 const actionTypes = {

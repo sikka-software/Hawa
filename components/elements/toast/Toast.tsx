@@ -3,12 +3,12 @@ import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { DirectionType, SeverityType } from "@_types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "../../util";
 
 const toastVariants = cva(
-  "hawa-group hawa-z-[900] hawa-pointer-events-auto hawa-relative hawa-flex hawa-w-full hawa-items-center hawa-justify-between hawa-space-x-4 hawa-overflow-hidden hawa-rounded-md hawa-border  hawa-shadow-lg hawa-transition-all data-[swipe=cancel]:hawa-translate-x-0 data-[swipe=end]:hawa-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:hawa-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:hawa-transition-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[swipe=end]:hawa-animate-out data-[state=closed]:hawa-fade-out-80  data-[state=open]:hawa-slide-in-from-top-full data-[state=open]:sm:hawa-slide-in-from-bottom-full",
+  "hawa-group hawa-z-[900] hawa-pointer-events-auto hawa-relative hawa-flex hawa-w-full hawa-items-center hawa-justify-between hawa-overflow-hidden hawa-rounded-md hawa-border hawa-shadow-lg hawa-transition-all data-[swipe=cancel]:hawa-translate-x-0 data-[swipe=end]:hawa-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:hawa-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:hawa-transition-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[swipe=end]:hawa-animate-out data-[state=closed]:hawa-fade-out-80  data-[state=open]:hawa-slide-in-from-top-full data-[state=open]:sm:hawa-slide-in-from-bottom-full",
   {
     variants: {
       variant: {
@@ -28,12 +28,14 @@ const toastVariants = cva(
       }
     },
 
-    defaultVariants: {
-      variant: "default"
-    }
+    defaultVariants: { variant: "default" }
   }
 );
 
+let sizeStyles = {
+  default: "hawa-text-sm", // Update this based on the desired padding for rtl
+  sm: "hawa-text-xs"
+};
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
@@ -55,7 +57,6 @@ const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants> & {
-      severity?: SeverityType;
       direction?: DirectionType;
     }
 >(({ className, variant, severity = "none", direction, ...props }, ref) => {
@@ -66,8 +67,8 @@ const Toast = React.forwardRef<
         toastVariants({ variant, severity }),
         className,
         direction === "rtl"
-          ? "hawa-p-6 hawa-pl-0 hawa-pr-10 data-[state=closed]:hawa-slide-out-to-left-full"
-          : "hawa-p-6 hawa-pr-8 data-[state=closed]:hawa-slide-out-to-right-full"
+          ? "data-[state=closed]:hawa-slide-out-to-left-full"
+          : "data-[state=closed]:hawa-slide-out-to-right-full"
       )}
       dir={direction}
       {...props}
@@ -89,6 +90,7 @@ const ToastAction = React.forwardRef<
         "group-[.error]:hawa-border-muted/40 group-[.error]:hover:hawa-border-error/30 group-[.error]:hover:hawa-bg-error group-[.error]:hover:hawa-text-error-foreground group-[.error]:focus:hawa-ring-error",
         "group-[.success]:hawa-border-muted/40 group-[.success]:hover:hawa-border-success/30 group-[.success]:hover:hawa-bg-success group-[.success]:hover:hawa-text-success-foreground group-[.success]:focus:hawa-ring-success",
         "group-[.warning]:hawa-border-muted/40 group-[.warning]:hover:hawa-border-warning/30 group-[.warning]:hover:hawa-bg-warning group-[.warning]:hover:hawa-text-warning-foreground group-[.warning]:focus:hawa-ring-warning",
+        "hawa-whitespace-nowrap",
         className
       )}
       {...props}
@@ -104,7 +106,10 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      "hawa-absolute hawa-right-2 hawa-top-2 hawa-rounded-md hawa-p-1 hawa-text-foreground/50 hawa-opacity-0 hawa-transition-opacity hover:hawa-text-foreground focus:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 group-hover:hawa-opacity-100 group-[.destructive]:hawa-text-red-300 group-[.destructive]:hover:hawa-text-red-50 group-[.destructive]:focus:hawa-ring-red-400 group-[.destructive]:focus:hawa-ring-offset-red-600",
+      // "hawa-absolute hawa-start-2 hawa-top-2",
+      // "group-hover:hawa-opacity-100",
+      "hawa-opacity-100",
+      "hawa-rounded-md hawa-p-1 hawa-text-foreground/50 hawa-transition-opacity hover:hawa-text-foreground focus:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2  group-[.destructive]:hawa-text-red-300 group-[.destructive]:hover:hawa-text-red-50 group-[.destructive]:focus:hawa-ring-red-400 group-[.destructive]:focus:hawa-ring-offset-red-600",
       className
     )}
     toast-close=""
@@ -129,12 +134,15 @@ ToastClose.displayName = ToastPrimitives.Close.displayName;
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title> & {
+    size: "default" | "sm";
+  }
+>(({ className, size = "default", ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
     className={cn(
       "hawa-select-text hawa-text-sm hawa-font-semibold",
+      sizeStyles[size],
       className
     )}
     {...props}
@@ -144,11 +152,17 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> & {
+    size: "default" | "sm";
+  }
+>(({ className, size = "default", ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("hawa-select-text hawa-text-sm hawa-opacity-90", className)}
+    className={cn(
+      "hawa-select-text hawa-opacity-90",
+      sizeStyles[size],
+      className
+    )}
     {...props}
   />
 ));
