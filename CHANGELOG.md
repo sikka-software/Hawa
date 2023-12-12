@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.24.3
+
+### Patch Changes
+
+- Changed `content` type to `React.ReactNode`
+- Tested nesting an `Accordion` inside an `Accordion` content field.
+
 ## 0.24.2
 
 ### Patch Changes

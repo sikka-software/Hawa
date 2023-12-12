@@ -35,7 +35,28 @@ const accordionData: AccordionItemProps[] = [
     }
   },
   { trigger: "Another Question", content: "Here's another answer." },
-  { trigger: "Another Question", content: "Here's another answer." },
+  {
+    trigger: "Nested Question",
+    content: (
+      <Accordion
+        items={[
+          {
+            trigger: "Another Question",
+            content: "Here's another answer.",
+            disabled: true
+          },
+          {
+            trigger: "Another Question",
+            content: "Here's another answer.",
+            chip: {
+              label: "soon"
+            }
+          }
+        ]}
+        type="single"
+      />
+    )
+  },
   { trigger: "Another Question", content: "Here's another answer." }
 ];
 

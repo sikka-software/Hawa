@@ -10,7 +10,7 @@ import { AccordionTrigger } from "./AccordionTrigger";
 
 export type AccordionItemProps = {
   trigger: string;
-  content: string;
+  content: React.ReactNode;
   disabled?: boolean;
   chip?: ChipTypes;
 };
@@ -79,7 +79,7 @@ const Accordion = React.forwardRef<
             <AccordionContent
               aria-disabled={item.disabled || false}
               className={cn(
-                "hawa-border  hawa-transition-all",
+                "hawa-border hawa-transition-all",
                 design === "separated"
                   ? "hawa-rounded data-[state=open]:hawa-rounded-t-none"
                   : {
