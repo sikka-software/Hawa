@@ -23,6 +23,7 @@ interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   width?: "full" | "min" | "normal";
   isLoading?: boolean;
   className?: string;
+  clickable?: boolean;
 }
 export const Stats: FC<StatTypes> = ({
   label,
@@ -32,6 +33,7 @@ export const Stats: FC<StatTypes> = ({
   helperText,
   helperTextColor = "default",
   chart,
+  clickable,
   variant = "default",
   ...props
 }) => {
@@ -42,7 +44,7 @@ export const Stats: FC<StatTypes> = ({
     muted: "hawa-text-muted-foreground"
   };
   return (
-    <Card {...props} clickable={Boolean(props.onClick)}>
+    <Card {...props} clickable={clickable}>
       <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-between hawa-p-4">
         <CardTitle className="hawa-text-sm hawa-font-medium">{label}</CardTitle>
         {icon && <span>{icon}</span>}

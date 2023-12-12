@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.24.1
+
+### Patch Changes
+
+- Organized tsup configuration
+- Added `clickable` prop to `Stats`
+- Added `type='button'` to `Combobox` to fix submit behavior while in form
+- Updated dependencies
+
 ## 0.24.0
 
 ### Minor Changes
