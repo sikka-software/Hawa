@@ -50,7 +50,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, className }) => {
                 "hawa-border", // Always have a border but make it transparent
                 selected
                   ? "hawa-border hawa-border-b-transparent hawa-bg-background" // Use a background color for the bottom border
-                  : "hawa-cursor-pointer hawa-border-transparent hover:hawa-bg-gray-200  dark:hover:hawa-bg-gray-700"
+                  : "hawa-cursor-pointer hawa-border-transparent hover:hawa-bg-card-foreground/5"
               )}
             >
               {tab.icon && tab.icon}

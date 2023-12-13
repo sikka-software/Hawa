@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.24.6
+
+### Patch Changes
+
+- `AppTabs`: fixed inactive tab hover color
+- `ItemCard`: fixed spaceing when height is larger
+- `ItemCard`: fixed UI when in RTL direction
+
 ## 0.24.5
 
 ### Patch Changes

@@ -133,9 +133,9 @@ export const ItemCard: FC<ItemCardTypes> = ({
           )}
         </div>
       )}
-      <div className="hawa-relative hawa-w-full hawa-p-4 xs:hawa-p-6 xs:hawa-px-2 xs:hawa-pb-2">
+      <div className="hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-justify-between hawa-p-4 xs:hawa-p-6 xs:hawa-px-2 xs:hawa-pb-2">
         {headerActions && (
-          <div className="hawa-absolute hawa-right-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pr-3 hawa-pt-3">
+          <div className="hawa-absolute hawa-end-0 hawa-top-0 hawa-flex hawa-justify-end hawa-pe-3 hawa-pt-3">
             <StopPropagationWrapper>
               <DropdownMenu
                 items={headerActions}
@@ -143,7 +143,6 @@ export const ItemCard: FC<ItemCardTypes> = ({
                   <Button
                     variant={"ghost"}
                     size={"smallIcon"}
-                    // className={clsx(headerActionsButtonStyle)}
                     onClick={handleOpenActionHeader}
                   >
                     <span className="hawa-sr-only">Open dropdown</span>
@@ -175,8 +174,9 @@ export const ItemCard: FC<ItemCardTypes> = ({
         {actions || counts ? (
           <div
             className={cn(
-              "hawa-mt-3 hawa-flex hawa-flex-col hawa-items-center hawa-rounded-b-lg dark:hawa-text-white xs:hawa-flex-row ",
-              actions && counts ? "hawa-justify-between" : "hawa-justify-end"
+              "hawa-mt-3 hawa-flex hawa-flex-col hawa-items-center hawa-rounded-b-lg dark:hawa-text-white xs:hawa-flex-row",
+              actions || counts ? "hawa-justify-between" : "hawa-justify-end",
+              !actions && counts ? "hawa-py-3" : ""
             )}
           >
             {counts}
