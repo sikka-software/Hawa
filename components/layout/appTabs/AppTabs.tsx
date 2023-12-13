@@ -46,7 +46,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, className }) => {
                 setSelectedIndex(index);
               }}
               className={cn(
-                "hawa-z-10 hawa-flex hawa-translate-y-[1.1px] hawa-select-none hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-4 hawa-py-2 hawa-text-sm hawa-transition-all ",
+                "hawa-z-10 hawa-flex hawa-items-center hawa-translate-y-[1.1px] hawa-select-none hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-4 hawa-py-2 hawa-text-sm hawa-transition-all ",
                 "hawa-border", // Always have a border but make it transparent
                 selected
                   ? "hawa-border hawa-border-b-transparent hawa-bg-background" // Use a background color for the bottom border

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.24.7
+
+### Patch Changes
+
+- `AppTabs`: fixed horizontal align of icon and label in a single tab
+
 ## 0.24.6
 
 ### Patch Changes
