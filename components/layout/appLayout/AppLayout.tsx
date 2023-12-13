@@ -6,8 +6,8 @@ import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
-import { AppSidebarItemProps, SidebarGroup } from "./Sidebar";
+import { cn } from "../../util";
+import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {
   /** a custom header to replace the logoLink & logoSymbol */

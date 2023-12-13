@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 const MenubarMenu = MenubarPrimitive.Menu;
 const MenubarGroup = MenubarPrimitive.Group;

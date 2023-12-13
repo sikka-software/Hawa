@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AppSidebarItemProps, SidebarGroup } from "@layout/index";
+import { AppSidebarItemProps, SidebarGroup } from "@layout/sidebar";
 
 import { Button } from "@elements/button";
 

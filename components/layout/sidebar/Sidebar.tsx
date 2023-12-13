@@ -6,7 +6,7 @@ import { Chip, ChipColors } from "@elements/chip";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 const Accordion = AccordionPrimitive.Root;
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Users2 } from "lucide-react";
 import { Line, LineChart, ResponsiveContainer } from "recharts";
 
-import { Stats } from "@layout/Stats";
+import { Stats } from "@layout/stats";
 
 import { setLocale, t } from "../translations/i18n";
 

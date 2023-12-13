@@ -17,7 +17,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger
-} from "@layout/AppMenubar";
+} from "@layout/appMenubar";
 
 import { setLocale, t } from "../translations/i18n";
 

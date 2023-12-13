@@ -1,28 +1,8 @@
 const { build } = require("tsup");
 
-// const {
-//   buildAllConfig,
-//   buildBlocksConfig,
-//   buildCoreConfig,
-//   buildElementsConfig
-// } = require("./tsup.config");
-
-// async function sequentialBuild() {
-//   await build(buildAllConfig);
-//   await build(buildCoreConfig);
-//   await build(buildBlocksConfig);
-//   await build(buildElementsConfig);
-// }
-
-// sequentialBuild().catch((err) => {
-//   console.error(err);
-//   process.exit(1);
-// });
-
-// APPROACH 03
-// **********************************
 const {
-  groupedConfigs,
+  groupedLayout,
+  groupedElements,
   buildAllConfig,
   buildBlocksConfig,
   buildCoreConfig
@@ -36,7 +16,10 @@ async function sequentialBuild() {
   await build(buildAllConfig);
   await build(buildCoreConfig);
   await build(buildBlocksConfig);
-  for (const config of groupedConfigs) {
+  for (const config of groupedLayout) {
+    await buildGroup(config);
+  }
+  for (const config of groupedElements) {
     await buildGroup(config);
   }
 }

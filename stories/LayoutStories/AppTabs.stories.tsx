@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppTabs } from "@layout/AppTabs";
+import { AppTabs } from "@layout/appTabs";
 
 import { setLocale, t } from "../translations/i18n";
 
@@ -65,7 +65,7 @@ export const WithHeader: Story = {
     setLocale(locale);
 
     return (
-      <div dir={direction} className="hawa-bg-gray-100">
+      <div dir={direction} className="hawa-bg-card">
         <div className="hawa-p-4 hawa-pb-0 hawa-text-4xl hawa-font-extrabold">
           Title here
         </div>

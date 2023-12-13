@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Navbar } from "@layout/Navbar";
+import { Navbar } from "@layout/navbar";
 
 import { Button } from "@elements/button";
 import { Logos } from "@elements/logos";

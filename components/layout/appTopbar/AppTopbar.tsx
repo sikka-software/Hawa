@@ -4,7 +4,7 @@ import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type AppTopbarType = {
   direction?: DirectionType;

@@ -6,7 +6,7 @@ import {
   Collapsible
 } from "@elements/collapsible";
 
-import { cn } from "../util";
+import { cn } from "../../util";
 
 type NavigationMenuItem = {
   label: string;

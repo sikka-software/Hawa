@@ -59,9 +59,25 @@ const elements = [
   "tooltip"
 ];
 
+const layouts = [
+  "appLayout",
+  "appMenubar",
+  "appTabs",
+  "appTopbar",
+  "copyrights",
+  "docsLayout",
+  "docsSidebar",
+  "navbar",
+  "sidebar",
+  "stats"
+];
 const elementEntries = elements.reduce((entries: any, elementName) => {
   entries[`${elementName}/index`] =
     `components/elements/${elementName}/index.ts`;
+  return entries;
+}, {});
+const layoutEntries = layouts.reduce((entries: any, layoutName) => {
+  entries[`${layoutName}/index`] = `components/layout/${layoutName}/index.ts`;
   return entries;
 }, {});
 
@@ -82,11 +98,9 @@ function chunkEntries(entries: any, chunkSize: any) {
   );
 }
 
-const groupedEntries = chunkEntries(elementEntries, 3);
-
-function createConfigForGroup(entries: any) {
+function createConfigForGroup(entries: any, name?: string) {
   return defineConfig({
-    name: "Build Elements Group",
+    name: name || "Grouped Entries",
     clean: false,
     dts: true,
     target: "es2019",
@@ -94,9 +108,14 @@ function createConfigForGroup(entries: any) {
     entry: entries
   });
 }
+const groupedElementEntries = chunkEntries(elementEntries, 3);
+const groupedLayoutEntries = chunkEntries(layoutEntries, 3);
 
-export const groupedConfigs = groupedEntries.map((group: any) =>
-  createConfigForGroup(group)
+export const groupedElements = groupedElementEntries.map((group: any, i: any) =>
+  createConfigForGroup(group, `Build Elements Group - ${i}`)
+);
+export const groupedLayout = groupedLayoutEntries.map((group: any, i: any) =>
+  createConfigForGroup(group, `Build Layout Group - ${i}`)
 );
 
 export const buildAllConfig = defineConfig({

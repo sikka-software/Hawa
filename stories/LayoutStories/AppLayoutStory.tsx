@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppLayout } from "@layout/AppLayout";
+import { AppLayout } from "@layout/appLayout";
 
 import { ToastAction } from "@elements/toast";
 import { Toaster } from "@elements/toaster";

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Settings, User2 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppLayout } from "@layout/AppLayout";
+import { AppLayout } from "@layout/appLayout";
 
 import { Button } from "@elements/button";
 
