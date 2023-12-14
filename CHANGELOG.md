@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.24.8
+
+### Patch Changes
+
+- Fixed missing translation of soon `Chip` in `PricingCard`
+
 ## 0.24.7
 
 ### Patch Changes
@@ -18,8 +24,7 @@
 
 ### Patch Changes
 
-3f40562: - Fixed background color of `AppTabs`
-
+- Fixed background color of `AppTabs`
 - Codesplitting `Layout` components each component in it's own folder
 - Updated the build process for `Layout` components to be grouped 3 at a time during build
 - Updated story imports

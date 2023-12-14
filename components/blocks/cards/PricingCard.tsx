@@ -135,7 +135,11 @@ export const PricingCard: FC<PricingCardProps> = ({
                       <span className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-text-start hawa-font-normal hawa-leading-tight hawa-text-primary/70 ">
                         {feature.text}{" "}
                         {feature.soon && feature.included && (
-                          <Chip label="soon" color="oceanic" size="small" />
+                          <Chip
+                            label={props.texts?.soon || ""}
+                            color="oceanic"
+                            size="small"
+                          />
                         )}
                       </span>
                     </div>
