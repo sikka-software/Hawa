@@ -133,7 +133,7 @@ const items = [
     end: (
       <Radio
         width="full"
-        // onChangeTab={() => switchLanguage()}
+        // onChange={() => switchLanguage()}
         design="tabs"
         options={[
           { value: "ar", label: "عربي" },

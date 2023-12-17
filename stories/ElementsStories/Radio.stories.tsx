@@ -27,7 +27,6 @@ export const Default: Story = {
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <Radio
-            onChangeTab={() => console.log()}
             name="default"
             design="default"
             defaultValue="option2"
@@ -46,7 +45,6 @@ export const Default: Story = {
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <Radio
             direction={direction}
-            onChangeTab={() => console.log()}
             name="default"
             design="default"
             defaultValue="option6"

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.24.10
+
+### Patch Changes
+
+- Replaced all references of `onChangeTab` to `onChange`
+
 ## 0.24.9
 
 ### Patch Changes

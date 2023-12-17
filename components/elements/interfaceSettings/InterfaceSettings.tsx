@@ -35,7 +35,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
       <Radio
         width={width}
         defaultValue={language}
-        onChangeTab={(e: any) => {
+        onChange={(e: any) => {
           if (handleLanguage) {
             handleLanguage(e.value);
           }
@@ -50,7 +50,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
       <Radio
         width={width}
         defaultValue={color}
-        onChangeTab={(e: any) => {
+        onChange={(e: any) => {
           if (handleColorMode) {
             handleColorMode(e.value);
           }

@@ -55,7 +55,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           design="tabs"
           defaultValue={props.currentCycle.value}
           options={props.billingCycles}
-          onChangeTab={(e: any) => {
+          onChange={(e: any) => {
             if (props.onCycleChange) {
               props.onCycleChange(e);
             }
@@ -67,7 +67,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           design="tabs"
           defaultValue={props.currentCurrency.value}
           options={props.currencies}
-          onChangeTab={(e: any) => {
+          onChange={(e: any) => {
             if (props.onCurrencyChange) {
               props.onCurrencyChange(e);
             }
