@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.24.12
+
+### Patch Changes
+
+- `Combobox`: added `RTL` support
+- Fixed icon spacing in `CommandInput`
+
 ## 0.24.11
 
 ### Patch Changes

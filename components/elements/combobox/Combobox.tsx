@@ -13,6 +13,8 @@ import { Label, LabelProps } from "@elements/label";
 import { PopoverContent, PopoverTrigger } from "@elements/popover";
 import { Skeleton } from "@elements/skeleton";
 
+import { DirectionType } from "@_types/commonTypes";
+
 import { cn } from "../../util";
 
 type ComboboxTypes<T> = {
@@ -32,7 +34,7 @@ type ComboboxTypes<T> = {
   defaultValue?: string;
   preview?: boolean;
   hideInput?: boolean;
-
+  direction?: DirectionType;
   id?: string;
   /** The label of the input field   */
   label?: any;
@@ -49,6 +51,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       valueKey = "value",
       defaultValue = "",
       popoverClassName,
+      direction,
       labelProps,
       data,
       ...props
@@ -141,6 +144,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
           <PopoverContent
             sideOffset={0}
             className={cn("popover-w-parent", props.helperText && "-hawa-mt-4")}
+            dir={direction}
           >
             <Command>
               {!props.hideInput && (
@@ -178,7 +182,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className={cn(
-                        "hawa-icon hawa-mr-2",
+                        "hawa-icon hawa-me-2",
                         value === getProperty(item, valueKey)
                           ? "hawa-opacity-100"
                           : "hawa-opacity-0"

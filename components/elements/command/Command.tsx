@@ -54,7 +54,7 @@ const CommandInput = React.forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="hawa-icon hawa-mr-2 hawa-shrink-0 hawa-opacity-50"
+      className="hawa-icon hawa-me-2 hawa-shrink-0 hawa-opacity-50"
     >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />

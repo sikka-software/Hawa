@@ -114,6 +114,7 @@ export const Default: Story = {
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
             label="No Search"
+            direction={direction}
             hideInput
             data={roles}
             valueKey={"_id"}
@@ -122,7 +123,8 @@ export const Default: Story = {
             }}
           />
 
-          <Combobox data={roles} valueKey={"_id"} />
+          <Combobox data={roles} valueKey={"_id"}             direction={direction}
+/>
         </div>
       </div>
     );
