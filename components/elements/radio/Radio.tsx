@@ -130,7 +130,7 @@ export const Radio: FC<RadioTypes> = ({
             props.options.map((opt, i) => (
               <div
                 key={i}
-                className="hawa-rounded hawa-border hawa-border-gray-200 "
+                className="hawa-w-full hawa-rounded hawa-border hawa-border-gray-200"
               >
                 <div
                   className={cn(
@@ -152,7 +152,7 @@ export const Radio: FC<RadioTypes> = ({
                   <label
                     htmlFor={opt.value.toString()}
                     className={cn(
-                      "hawa-ml-2 hawa-w-full  hawa-p-4 hawa-pl-3  hawa-text-sm hawa-font-medium dark:hawa-text-white",
+                      "hawa-ml-2 hawa-w-full  hawa-select-none hawa-p-4 hawa-pl-3 hawa-text-sm hawa-font-medium dark:hawa-text-white",
                       opt.disabled
                         ? "hawa-opacity-50"
                         : "hawa-cursor-pointer hawa-text-gray-900"

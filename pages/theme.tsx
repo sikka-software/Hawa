@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  CodeBlock,
-  ColorPicker,
-  Label,
-} from "../components";
+
 import { useTheme } from "next-themes";
+
+import { Card, CardContent } from "@elements/card";
+import { CodeBlock } from "@elements/codeBlock";
+import { ColorPicker } from "@elements/colorPicker";
 
 // TODO: use the actual variable name as an ID
 type ColorSetting = {
@@ -21,77 +19,77 @@ const colorSettingsArray: ColorSetting[] = [
   {
     id: "card-foreground-color",
     label: "Card Foreground Color",
-    hsl: [240, 10, 3.9],
+    hsl: [240, 10, 3.9]
   },
   { id: "popover-color", label: "Popover Color", hsl: [0, 0, 100] },
   {
     id: "popover-foreground-color",
     label: "Popover Foreground Color",
-    hsl: [240, 10, 3.9],
+    hsl: [240, 10, 3.9]
   },
   { id: "helper-text", label: "Helper Text Color", hsl: [0, 72, 51] },
   { id: "primary-color", label: "Primary Color", hsl: [240, 5.9, 10] },
   {
     id: "primary-foreground-color",
     label: "Primary Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "secondary-color", label: "Secondary Color", hsl: [240, 4.8, 95.9] },
   {
     id: "secondary-foreground-color",
     label: "Secondary Foreground Color",
-    hsl: [240, 5.9, 10],
+    hsl: [240, 5.9, 10]
   },
   { id: "muted-color", label: "Muted Color", hsl: [240, 4.8, 95.9] },
   {
     id: "muted-foreground-color",
     label: "Muted Foreground Color",
-    hsl: [240, 3.8, 46.1],
+    hsl: [240, 3.8, 46.1]
   },
   { id: "accent-color", label: "Accent Color", hsl: [240, 4.8, 95.9] },
   {
     id: "accent-foreground-color",
     label: "Accent Foreground Color",
-    hsl: [240, 5.9, 10],
+    hsl: [240, 5.9, 10]
   },
   {
     id: "destructive-color",
     label: "Destructive Color",
-    hsl: [0, 72.22, 50.59],
+    hsl: [0, 72.22, 50.59]
     // hsl: [0, 84.2, 60.2] OLD
   },
   {
     id: "destructive-foreground-color",
     label: "Destructive Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "info-color", label: "Info Color", hsl: [209, 62, 50] },
   {
     id: "info-foreground-color",
     label: "Info Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "success-color", label: "Success Color", hsl: [148, 48, 43] },
   {
     id: "success-foreground-color",
     label: "Success Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "warning-color", label: "Warning Color", hsl: [24, 75, 50] },
   {
     id: "warning-foreground-color",
     label: "Warning Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "error-color", label: "Error Color", hsl: [0, 84.2, 60.2] },
   {
     id: "error-foreground-color",
     label: "Error Foreground Color",
-    hsl: [0, 0, 98],
+    hsl: [0, 0, 98]
   },
   { id: "border-color", label: "Border Color", hsl: [240, 5.9, 90] },
   { id: "input-color", label: "Input Color", hsl: [240, 5.9, 90] },
-  { id: "ring-color", label: "Ring Color", hsl: [240, 5, 64.9] },
+  { id: "ring-color", label: "Ring Color", hsl: [240, 5, 64.9] }
 ];
 
 function hslToHex(h: any, s: any, l: any) {
@@ -185,11 +183,11 @@ ${cssVariables}    --radius: 0.5rem;
     setGeneratedCSS(generateCSS());
   }, [generateCSS]);
   return (
-    <div className="hawa-w-full hawa-flex hawa-flex-col lg:hawa-flex-row hawa-gap-10 ">
+    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-10 lg:hawa-flex-row ">
       <Card className="hawa-w-full">
         <CardContent
           headless
-          className="hawa-grid hawa-grid-cols-2  hawa-gap-4 hawa-gap-x-10 hawa-items-end"
+          className="hawa-grid hawa-grid-cols-2  hawa-items-end hawa-gap-4 hawa-gap-x-10"
         >
           {/* <Accordion
             className="hawa-w-full"
@@ -211,7 +209,7 @@ ${cssVariables}    --radius: 0.5rem;
                 colorTextClassNames="hawa-w-full"
                 containerProps={{ id: colorSetting.id }}
                 color={hslToHex(...colorSetting.hsl)}
-                handleChange={(e) =>
+                handleChange={(e: any) =>
                   handleColorChange(colorSetting.id, e.target.value)
                 }
               />
@@ -264,11 +262,11 @@ export default function Home() {
   if (!mounted) return null;
   return (
     <main className="hawa-m-0 hawa-flex hawa-flex-col hawa-gap-2 hawa-p-10 ">
-      <div className="hawa-flex hawa-flex-col hawa-gap-1 hawa-mb-4">
-        <div className="hawa-font-bold hawa-text-4xl hawa-leading-none">
+      <div className="hawa-mb-4 hawa-flex hawa-flex-col hawa-gap-1">
+        <div className="hawa-text-4xl hawa-font-bold hawa-leading-none">
           Customize Hawa
         </div>
-        <div className="hawa-text-lg hawa-max-w-lg hawa-leading-6">
+        <div className="hawa-max-w-lg hawa-text-lg hawa-leading-6">
           Adjust the colors to generate the global CSS variables that you can
           copy and paste into your primary CSS file
         </div>

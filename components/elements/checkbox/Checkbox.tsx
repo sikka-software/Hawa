@@ -31,7 +31,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   let labelLineHeightStyles = {
     xs: sublabel || helperText ? 0.5 : 0.1,
     sm: 0.6,
-    default: 0.7,
+    default: 1,
     md: 0.8,
     lg: 0.9,
     xl: 1
@@ -40,8 +40,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <div
       className={cn(
         "hawa-flex hawa-gap-2",
-        "hawa-items-top",
-        sublabel || helperText ? "hawa-items-top" : "hawa-items-center"
+        size === "default" ? "hawa-items-top" : "hawa-items-center"
       )}
     >
       <CheckboxElement
@@ -52,18 +51,20 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         id={id}
       />
       {(label || helperText) && (
-        <div className={"hawa-grid hawa-gap-1.5 hawa-leading-none"}>
+        <div className={"hawa-grid hawa-gap-1.5"}>
           {label && (
             <label
               htmlFor={id}
               className={cn(
-                "hawa-w-fit hawa-select-none hawa-pt-0.5 hawa-text-sm hawa-font-medium hawa-leading-none",
+                "hawa-w-fit hawa-select-none hawa-pt-0.5 hawa-text-sm hawa-font-medium",
                 disabled
                   ? "hawa-cursor-not-allowed  hawa-text-muted-foreground hawa-opacity-70 "
                   : "hawa-cursor-pointer"
               )}
               style={{
-                lineHeight: labelLineHeightStyles[size]
+                // lineHeight: labelLineHeightStyles[size]
+
+                lineHeight: 1
               }}
             >
               {label}

@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.24.11
+
+### Patch Changes
+
+- `Radio`: fixed full width when `bordered` design
+- `Radio`: disabled selecting text when design is `bordered`
+- `Checkbox`: fixed line height of `label`
+- General cleanup
+
 ## 0.24.10
 
 ### Patch Changes

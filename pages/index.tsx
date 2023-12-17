@@ -1,8 +1,11 @@
-import { Button, CodeBlock } from "../components";
 import { useEffect, useState } from "react";
+
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Button } from "@elements/button";
+import { CodeBlock } from "@elements/codeBlock";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -81,7 +84,7 @@ export default function Home() {
               // forcedDarkMode
               tabs={[
                 { title: "npm", code: "npm install @sikka/hawa" },
-                { title: "yarn", code: "yarn add @sikka/hawa" },
+                { title: "yarn", code: "yarn add @sikka/hawa" }
               ]}
             />
 

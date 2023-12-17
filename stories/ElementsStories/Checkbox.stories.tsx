@@ -15,21 +15,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  setLocale(locale);
-  const direction = locale === "ar" ? "rtl" : "ltr";
-
-  return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2" dir={direction}>
-      <div className="hawa-flex hawa-flex-col hawa-gap-6">
-        <Checkbox {...args} id="checkbox_id" />
-        <Checkbox {...args} disabled id="dis" />
-      </div>
-    </div>
-  );
-};
-
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
@@ -41,6 +26,14 @@ export const Default: Story = {
         <div className="hawa-flex hawa-flex-col hawa-gap-6">
           <Checkbox {...args} id="checkbox_id" />
           <Checkbox {...args} disabled id="dis" />
+          <div className="hawa-max-w-md">
+            <Checkbox
+              label="I believe in good faith that the usage of the copyrighted material I have reported is not permitted by the copyright holder, their representative, or the law."
+              id="diks"
+              // sublabel='fefefeef'
+              // helperText="dsdsdd"
+            />
+          </div>
         </div>
       </div>
     );
