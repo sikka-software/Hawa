@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.24.14
+
+### Patch Changes
+
+- Fixed `CommandInput` direction
+- Fixed margins of check mark of `CommandItem` in `Combobox`
+
 ## 0.24.13
 
 ### Patch Changes

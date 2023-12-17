@@ -149,6 +149,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
             <Command>
               {!props.hideInput && (
                 <CommandInput
+                  dir={direction}
                   placeholder={props.texts?.searchPlaceholder || "Search"}
                 />
               )}
@@ -182,11 +183,12 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className={cn(
-                        "hawa-icon hawa-me-2",
+                        "hawa-icon",
                         value === getProperty(item, valueKey)
                           ? "hawa-opacity-100"
                           : "hawa-opacity-0"
                       )}
+                      style={{ marginInlineEnd: "0.5rem" }}
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
