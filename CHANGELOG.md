@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.24.9
+
+### Patch Changes
+
+- Added `name` prop to `Radio` component
+- Change `onChangeTab` to `onChange`
+- Added handling change to all types of `Radio`
+
 ## 0.24.8
 
 ### Patch Changes

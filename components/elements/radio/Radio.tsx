@@ -17,8 +17,9 @@ type RadioTypes = {
   design?: "default" | "tabs" | "cards" | "bordered";
   width?: "default" | "full" | "none";
   size?: "default" | "lg" | "sm" | "xs";
+  name?: string;
   options: RadioOptionsTypes[];
-  onChangeTab?: any;
+  onChange?: any;
   defaultValue?: any;
   direction?: DirectionType;
   helperText?: string;
@@ -31,8 +32,10 @@ export const Radio: FC<RadioTypes> = ({
   width = "default",
   size = "default",
   orientation = "horizontal",
+  name,
   labelProps,
   tabsContainerClassName,
+  onChange,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState(props.defaultValue);
@@ -70,6 +73,15 @@ export const Radio: FC<RadioTypes> = ({
     }
   });
 
+  const handleChange = (opt: RadioOptionsTypes) => {
+    setSelectedOption(opt.value);
+    if (onChange) {
+      // use the more generic onChange prop
+      onChange(opt.value); // You can pass the entire option or just the value
+    } else {
+      console.log("onChange was not provided");
+    }
+  };
   switch (design) {
     case "tabs":
       return (
@@ -88,14 +100,7 @@ export const Radio: FC<RadioTypes> = ({
           {props.options?.map((opt: any, o) => (
             <li
               aria-current="page"
-              onClick={() => {
-                setSelectedOption(opt.value);
-                if (props.onChangeTab) {
-                  props.onChangeTab(opt);
-                } else {
-                  console.log("onChangeTab was not provided");
-                }
-              }}
+              onClick={() => handleChange(opt)}
               className={cn(
                 "hawa-w-full hawa-cursor-pointer ",
                 orientation === "horizontal" &&
@@ -141,7 +146,8 @@ export const Radio: FC<RadioTypes> = ({
                     id={opt.value.toString()}
                     type="radio"
                     value={opt.value}
-                    name="bordered-radio"
+                    name={name}
+                    onChange={() => handleChange(opt)}
                   />
                   <label
                     htmlFor={opt.value.toString()}
@@ -163,11 +169,11 @@ export const Radio: FC<RadioTypes> = ({
       return (
         <ul className={cn(orientationStyle[orientation], "hawa-gap-4")}>
           {props.options?.map((opt: any, o) => (
-            <li key={o}>
+            <li key={o} onClick={() => handleChange(opt)}>
               <input
                 type="radio"
                 id={opt.value.toString()}
-                name="cards-radio"
+                name={name}
                 value={opt.value.toString()}
                 className="hawa-peer hawa-hidden"
                 required
@@ -216,16 +222,8 @@ export const Radio: FC<RadioTypes> = ({
                     id={opt.value.toString()}
                     type="radio"
                     value={opt.value}
-                    // TODO: make this passable prop
-                    name="default-radio"
-                    onChange={() => {
-                      setSelectedOption(opt.value);
-                      if (props.onChangeTab) {
-                        props.onChangeTab(opt);
-                      } else {
-                        console.log("onChangeTab was not provided");
-                      }
-                    }}
+                    name={name}
+                    onChange={() => handleChange(opt)}
                   />
                   <label
                     htmlFor={opt.value.toString()}
