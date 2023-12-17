@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.24.13
+
+### Patch Changes
+
+- `Combobox`: fixed text color from primary to pure white/black
+
 ## 0.24.12
 
 ### Patch Changes

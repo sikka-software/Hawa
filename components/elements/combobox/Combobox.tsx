@@ -96,7 +96,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                   type="button"
                   aria-expanded={open}
                   className={cn(
-                    "hawa-inline-flex hawa-h-10 hawa-w-full hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-md hawa-border hawa-py-2 hawa-text-sm hawa-font-normal hawa-text-primary hawa-ring-offset-background  hawa-transition-all  focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
+                    "hawa-inline-flex hawa-h-10 hawa-w-full hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-md hawa-border hawa-py-2 hawa-text-sm hawa-font-normal  hawa-ring-offset-background  hawa-transition-all  focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
                     props.preview
                       ? "hawa-cursor-default hawa-rounded-none hawa-border-transparent hawa-px-0"
                       : "hawa-bg-background hawa-px-3 "
