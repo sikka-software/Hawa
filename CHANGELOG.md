@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.25.1
+
+### Patch Changes
+
+- `PinInput`: now shows numeric keyboard on phone
+- Exported `Glow` to be built via `tsup`
+- Replaced `tsup.config.ts` with `tsup.config.js`
+
 ## 0.25.0
 
 ### Minor Changes

@@ -76,6 +76,7 @@ export const PinInput: FC<PinInputTypes> = ({
             type="text"
             maxLength={1}
             value={value}
+            inputMode="numeric"
             id={`input-${index}`}
             pattern="[0-9]*"
             className={cn(
