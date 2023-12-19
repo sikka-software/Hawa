@@ -1,6 +1,6 @@
 ---
-name: Documentation Issue
-about: Something is missing in the documentation? 
+name: Custom issue template
+about: Describe this issue template's purpose here.
 title: ''
 labels: ''
 assignees: ''
