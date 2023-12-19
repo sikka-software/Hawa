@@ -1,5 +1,5 @@
 ---
-name: Bug Report
+name: Bug Report2
 description: Create a bug report to help us improve the Hawa UI Kit
 labels: ['template: bug']
 body:
