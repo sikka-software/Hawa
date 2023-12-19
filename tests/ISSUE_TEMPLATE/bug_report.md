@@ -1,6 +1,7 @@
+---
 name: Bug Report
 description: Create a bug report to help us improve the Hawa UI Kit
-labels: ["template: bug"]
+labels: ['template: bug']
 body:
   - type: markdown
     attributes:
@@ -11,7 +12,7 @@ body:
 
         For general help and support, you can:
         - Start a discussion in the ["Help" section](https://github.com/sikka-software/Hawa/discussions/categories/help)
-        - Join our community [Discord server](https://discord.com/invite/your-discord-link-here) (replace with your actual Discord link)
+
   - type: input
     attributes:
       label: Link to the code that reproduces this issue or a replay of the bug
@@ -20,8 +21,8 @@ body:
 
         If a minimal reproduction can't be created, please share a [replay](https://www.replay.io/) of the bug which doesn't require sharing a private repo.
 
-        **Skipping this/providing an invalid link will result in the issue being closed**
-      placeholder: "https://github.com/user/my-minimal-hawa-ui-kit-issue-reproduction"
+        **Skipping this/providing an invalid link could result in the issue being closed**
+      placeholder: 'https://github.com/user/my-minimal-hawa-ui-kit-issue-reproduction'
     validations:
       required: true
   - type: textarea
@@ -38,13 +39,13 @@ body:
     attributes:
       label: Current vs. Expected behavior
       description: A clear and concise description of what the bug is, and what you expected to happen.
-      placeholder: "Following the steps from the previous section, I expected A to happen, but observed B instead"
+      placeholder: 'Following the steps from the previous section, I expected A to happen, but observed B instead'
     validations:
       required: true
   - type: checkboxes
     attributes:
       label: Verify latest release
-      description: "Please ensure you have tested the latest release of the Hawa UI Kit. Some issues may already be fixed in the latest version, so verify that your issue persists before opening a new issue."
+      description: 'Please ensure you have tested the latest release of the Hawa UI Kit. Some issues may already be fixed in the latest version, so verify that your issue persists before opening a new issue.'
       options:
         - label: I verified that the issue exists in the latest Hawa UI Kit release
           required: true
@@ -61,7 +62,7 @@ body:
           Node: 14.17.1
           npm: 6.14.13
         Relevant Packages:
-          hawa-ui-kit: 1.0.0
+          @sikka/hawa: 1.0.0
           react: 17.0.2
           typescript: 4.3.5
     validations:
@@ -71,13 +72,13 @@ body:
       label: Which area(s) are affected? (Select all that apply)
       multiple: true
       options:
-        - "Not sure"
-        - "Components"
-        - "Styles"
-        - "Documentation"
-        - "Build and Deployment"
-        - "Examples"
-        - "Other"
+        - 'Not sure'
+        - 'Components'
+        - 'Styles'
+        - 'Documentation'
+        - 'Build and Deployment'
+        - 'Examples'
+        - 'Other'
     validations:
       required: true
   - type: dropdown
@@ -85,16 +86,12 @@ body:
       label: Which section is the component from?
       multiple: false
       options:
-        - "Blocks"
-        - "Layout"
-        - "Elements"
-        - "Other"
+        - 'Blocks'
+        - 'Layout'
+        - 'Elements'
+        - 'Other'
     validations:
       required: false
   - type: textarea
     attributes:
-      label: Additional context
-      description: |
-        Any extra information that might help us investigate. For example, browser details, hosting platform, etc. Also, if possible, pinpoint the version that introduced the issue to help narrow down the scope.
-      placeholder: |
-        The issue seems to have started from version 1.0.1. I tested it on both Chrome and Firefox, and the issue persists on both browsers.
+      label: Additional
