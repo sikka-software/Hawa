@@ -54,7 +54,9 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   args: {
-    sent: false
+    sent: false,
+    headless: true,
+    allowRegister: true
   },
   argTypes: {
     handleResetPassword: { action: "handleResetPassword" },

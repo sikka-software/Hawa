@@ -47,7 +47,6 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
           {!props.headless && (
             <CardHeader>
               <CardTitle>
-                {" "}
                 {props.texts?.headTitle || "Reset Password"}
               </CardTitle>
               <CardDescription>

@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.25.2
+
+### Patch Changes
+
+- Updated packages
+- Updated `Carousel` props
+- General cleanup
+
 ## 0.25.1
 
 ### Patch Changes

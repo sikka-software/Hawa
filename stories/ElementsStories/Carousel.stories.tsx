@@ -43,7 +43,7 @@ export const Default: Story = {
   render: (args) => (
     <div className="hawa-flex hawa-flex-col hawa-gap-10">
       <div className="hawa-h-52">
-        <Carousel loop={false} {...args} items={images} />
+        <Carousel options={{ loop: false }} {...args} items={images} />
       </div>
     </div>
   ),
@@ -53,10 +53,10 @@ export const Cards: Story = {
   render: () => (
     <div className="hawa-flex hawa-flex-col hawa-gap-10">
       <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel items={cards} loop={false} />
+        <Carousel items={cards} options={{ loop: false }} />
       </div>
       <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel items={itemCardsArray} loop={false} />
+        <Carousel items={itemCardsArray} options={{ loop: false }} />
       </div>
     </div>
   ),
@@ -68,7 +68,7 @@ export const Autoplay: Story = {
   render: (args) => (
     <div className="hawa-flex hawa-flex-col hawa-gap-10">
       <div className="hawa-h-52  hawa-max-w-md">
-        <Carousel {...args} items={autoplayCards} loop={false} />
+        <Carousel {...args} items={autoplayCards} options={{ loop: false }} />
       </div>
     </div>
   ),

@@ -4,26 +4,37 @@ import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 
 import { cn } from "../../util";
 
-interface CarouselProps {
+type CarouselProps = {
   items: React.ReactNode[];
   showArrows?: boolean;
   autoplay?: boolean;
   autoplayInterval?: number;
-}
-type Props = CarouselProps & EmblaOptionsType;
+  options?: EmblaOptionsType;
+};
+type DotsProps = {
+  itemsLength: number;
+  selectedIndex: number;
+  onDotClick: (index: number) => void;
+};
+type ControlsProps = {
+  canScrollPrev: boolean;
+  canScrollNext: boolean;
+  onPrev(): void;
+  onNext(): void;
+};
 
-export const Carousel = (props: PropsWithChildren<Props>) => {
-  const {
-    children,
-    items,
-    showArrows,
-    autoplay,
-    autoplayInterval = 3000,
-    ...options
-  } = props;
-
+export const Carousel: React.FC<CarouselProps> = ({
+  items,
+  showArrows,
+  options,
+  autoplay,
+  autoplayInterval = 3000,
+  ...props
+}) => {
+  const { loop } = options;
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: autoplay ? true : options.loop || false
+    ...options,
+    loop: autoplay ? true : loop || false
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -90,11 +101,6 @@ export const Carousel = (props: PropsWithChildren<Props>) => {
   );
 };
 
-type DotsProps = {
-  itemsLength: number;
-  selectedIndex: number;
-  onDotClick: (index: number) => void;
-};
 const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
@@ -118,12 +124,6 @@ const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
   );
 };
 
-type ControlsProps = {
-  canScrollPrev: boolean;
-  canScrollNext: boolean;
-  onPrev(): void;
-  onNext(): void;
-};
 const CarouselControls = (props: ControlsProps) => {
   return (
     <div className="hawa-flex hawa-justify-end hawa-gap-2 ">
