@@ -32,6 +32,7 @@ export const Default: Story = {
     </div>
   )
 };
+
 export const Variants: Story = {
   render: (args: any) => (
     <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">

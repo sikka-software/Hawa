@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.25.0
+
+### Minor Changes
+
+- Added `Glow` component that can be used to apply glow effect on it's children
+
 ## 0.24.15
 
 ### Patch Changes
