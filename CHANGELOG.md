@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.24.15
+
+### Patch Changes
+
+- `Label`: fixed clicking on the hint submits a form
+- `Label`: fixed clicking tab to go to the next field in a form accidentally focuses on the hint icon
+
 ## 0.24.14
 
 ### Patch Changes

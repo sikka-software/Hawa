@@ -1,6 +1,7 @@
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Input } from "@elements/input";
 import { Label } from "@elements/label";
 import { Skeleton } from "@elements/skeleton";
 
@@ -21,9 +22,15 @@ export const Default: Story = {
     setLocale(locale);
 
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-2">
-        <Label {...args}>This is a label</Label>
-        <Skeleton className="hawa-h-10 hawa-w-64" />
+      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <Label {...args}>This is a label</Label>
+          <Skeleton className="hawa-h-10 hawa-w-64" />
+        </div>
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <Label {...args}>This is a label</Label>
+          <Input className="hawa-h-10 hawa-w-64" />
+        </div>
       </div>
     );
   },
