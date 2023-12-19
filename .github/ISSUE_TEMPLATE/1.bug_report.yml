@@ -2,6 +2,31 @@ name: Bug Report
 description: Create a bug report to help us improve the Hawa UI Kit
 labels: ["template: bug"]
 body:
+  - type: dropdown
+    attributes:
+      label: Which area(s) are affected? (Select all that apply)
+      multiple: true
+      options:
+        - "Not sure"
+        - "Components"
+        - "Styles"
+        - "Documentation"
+        - "Build and Deployment"
+        - "Examples"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Which component group is your issue related to?
+      multiple: false
+      options:
+        - "Blocks"
+        - "Layout"
+        - "Elements"
+        - "Other"
+    validations:
+    required: false
   - type: markdown
     attributes:
       value: |
@@ -18,12 +43,12 @@ body:
       description: |
         Please provide a link to a **public** [GitHub repository](https://github.com/sikka-software/Hawa/tree/main/examples/reproduction-template) or a minimal reproduction created from our [bug report template](https://github.com/sikka-software/Hawa/tree/main/examples/reproduction-template). Include only changes that contribute to the issue.
 
-        If a minimal reproduction can't be created, please share a [replay](https://www.replay.io/) of the bug which doesn't require sharing a private repo.
+        If a minimal reproduction can't be created, please share a clip or a gif of the bug which doesn't require sharing a private repo.
 
-        **Skipping this/providing an invalid link will result in the issue being closed**
+        **Skipping this/providing an invalid link could potentially result in the issue being closed**
       placeholder: "https://github.com/user/my-minimal-hawa-ui-kit-issue-reproduction"
     validations:
-      required: true
+      required: false
   - type: textarea
     attributes:
       label: To Reproduce
@@ -61,36 +86,11 @@ body:
           Node: 14.17.1
           npm: 6.14.13
         Relevant Packages:
-          hawa-ui-kit: 1.0.0
+          @sikka/hawa: 1.0.0
           react: 17.0.2
           typescript: 4.3.5
     validations:
       required: true
-  - type: dropdown
-    attributes:
-      label: Which area(s) are affected? (Select all that apply)
-      multiple: true
-      options:
-        - "Not sure"
-        - "Components"
-        - "Styles"
-        - "Documentation"
-        - "Build and Deployment"
-        - "Examples"
-        - "Other"
-    validations:
-      required: true
-  - type: dropdown
-    attributes:
-      label: Which section is the component from?
-      multiple: false
-      options:
-        - "Blocks"
-        - "Layout"
-        - "Elements"
-        - "Other"
-    validations:
-      required: false
   - type: textarea
     attributes:
       label: Additional context
