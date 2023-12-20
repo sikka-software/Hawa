@@ -1,3 +1,4 @@
+import { Card, CardContent, Label } from "@/components";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -20,16 +21,25 @@ export const Default: Story = {
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-4">
-        <div className="hawa-w-full hawa-max-w-4xl hawa-p-2">
-          <Signature canvasProps={{ className: "hawa-border" }} {...args} />
-        </div>
-        <div className="hawa-w-full hawa-max-w-4xl hawa-p-2">
-          <Signature
-            canvasProps={{ className: "hawa-border", width: 400 }}
-            {...args}
-          />
-        </div>
+      <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-p-10 ">
+        <Card>
+          <CardContent headless>
+            <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2 hawa-p-2">
+              <Signature
+                label={t("Signature")}
+                texts={{ clear: t("clear") }}
+                canvasProps={{ className: "hawa-border hawa-bg-background" }}
+                {...args}
+              />
+            </div>
+            <div className="hawa-w-full hawa-max-w-4xl hawa-p-2">
+              <Signature
+                canvasProps={{ className: "hawa-border", width: 400 }}
+                {...args}
+              />
+            </div>
+          </CardContent>
+        </Card>
       </div>
     );
   }

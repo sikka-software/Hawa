@@ -6,18 +6,24 @@ import SignaturePad, { SignaturePadOptions } from "signature_pad";
 // @ts-ignore
 import trimCanvas from "trim-canvas";
 
-import { Button } from "@elements/button";
+import { Label, LabelProps } from "@elements/label";
 
 export interface SignatureCanvasProps extends SignaturePadOptions {
   canvasProps?: React.CanvasHTMLAttributes<HTMLCanvasElement>;
   clearOnResize?: boolean;
   onGetImage?: any;
+  texts?: { clear?: string };
+  labelProps?: LabelProps;
+  label?: any;
 }
 
 export const Signature: FC<SignatureCanvasProps> = ({
   canvasProps,
   clearOnResize = false,
   onGetImage,
+  texts,
+  label,
+  labelProps,
   ...sigPadProps
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -96,13 +102,19 @@ export const Signature: FC<SignatureCanvasProps> = ({
 
   return (
     <div className="hawa-w-full">
+      {label && (
+        <Label {...labelProps} className="hawa-mb-2">
+          {label || "Signature"}
+        </Label>
+      )}
       <canvas
         ref={canvasRef}
         {...canvasProps}
         className={cn("hawa-rounded", canvasProps?.className)}
       />
+
       <div className="clickable-link hawa-w-fit" onClick={() => clear()}>
-        Clear
+        {texts?.clear || "Clear"}
       </div>
     </div>
   );

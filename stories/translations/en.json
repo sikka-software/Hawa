@@ -9,6 +9,7 @@
   "Oceanic": "Oceanic",
   "No Color": "No Color",
   "small": "Small",
+  "clear": "Clear",
   "normal": "Normal",
   "large": "Large",
   "soon": "Soon",
@@ -124,7 +125,7 @@
   "namePlaceholder": "Fulan AlFulani",
   "nameRequiredText": "Name is required",
   "nameLabel": "Name",
-  
+
   "messageInvalidText": "Message invalid",
   "messageLabel": "Message",
   "messagePlaceholder": "Enter your message here",

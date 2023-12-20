@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.26.1
+
+### Patch Changes
+
+- Added `Label` to `Signature`
+- Added `texts` object prop to `Signature` to enable consumer based texts
+
 ## 0.26.0
 
 ### Minor Changes
