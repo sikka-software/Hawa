@@ -46,6 +46,7 @@ const elements = [
   "separator",
   "sheet",
   "simpleTable",
+  "signature",
   "skeleton",
   "slider",
   "sortButton",

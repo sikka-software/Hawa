@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.26.0
+
+### Minor Changes
+
+- Added `Signature` component for users to draw their signature.
+
 ## 0.25.2
 
 ### Patch Changes
