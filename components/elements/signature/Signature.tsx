@@ -12,6 +12,7 @@ export interface SignatureCanvasProps extends SignaturePadOptions {
   canvasProps?: React.CanvasHTMLAttributes<HTMLCanvasElement>;
   clearOnResize?: boolean;
   onGetImage?: any;
+  helperText?: React.ReactNode;
   texts?: { clear?: string };
   labelProps?: LabelProps;
   label?: any;
@@ -24,6 +25,7 @@ export const Signature: FC<SignatureCanvasProps> = ({
   texts,
   label,
   labelProps,
+  helperText,
   ...sigPadProps
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,11 +49,13 @@ export const Signature: FC<SignatureCanvasProps> = ({
         // Use specified width
         canvas.width = Number(canvasProps.width) * ratio;
       }
-      if (typeof canvasProps?.height === "undefined") {
-        canvas.height = canvas.parentElement.offsetHeight * ratio;
-      } else {
-        canvas.height = Number(canvasProps.height) * ratio; // Ensure it's treated as a number
-      }
+      canvas.height = 150 * ratio;
+
+      // if (typeof canvasProps?.height === "undefined") {
+      //   canvas.height = canvas.parentElement.offsetHeight * ratio;
+      // } else {
+      //   canvas.height = Number(canvasProps.height) * ratio; // Ensure it's treated as a number
+      // }
 
       canvas.getContext("2d")?.scale(ratio, ratio);
       clear();
@@ -110,11 +114,29 @@ export const Signature: FC<SignatureCanvasProps> = ({
       <canvas
         ref={canvasRef}
         {...canvasProps}
-        className={cn("hawa-rounded", canvasProps?.className)}
+        className={cn(
+          "hawa-rounded hawa-border hawa-bg-[hsl(var(--constant-background))]",
+          canvasProps?.className
+        )}
       />
 
-      <div className="clickable-link hawa-w-fit" onClick={() => clear()}>
-        {texts?.clear || "Clear"}
+      <div className="hawa-flex hawa-flex-row hawa-justify-between">
+        {/* Regular helper text */}
+        {helperText && (
+          <p
+            className={cn(
+              "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+              helperText
+                ? "hawa-h-4 hawa-opacity-100"
+                : "hawa-h-0 hawa-opacity-0"
+            )}
+          >
+            {helperText}
+          </p>
+        )}
+        <div className="clickable-link hawa-w-fit" onClick={() => clear()}>
+          {texts?.clear || "Clear"}
+        </div>
       </div>
     </div>
   );

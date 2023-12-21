@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.26.2
+
+### Patch Changes
+
+- Added `--constant-background` global variable
+- Made `Signature` background color constant regardless of color mode
+- Added `helperText` to `Signature` for validation
+
 ## 0.26.1
 
 ### Patch Changes

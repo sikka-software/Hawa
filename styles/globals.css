@@ -10,6 +10,7 @@ body {
   :root {
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
+    --constant-background: 0 0% 100%;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 210 50% 98%;
@@ -79,7 +80,9 @@ body {
   }
   body {
     @apply hawa-bg-background hawa-text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 @layer components {
@@ -103,8 +106,15 @@ body {
     background-color: transparent !important;
   }
   .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      Liberation Mono, Courier New, monospace !important;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      Liberation Mono,
+      Courier New,
+      monospace !important;
   }
   .inline-code {
     font-size: 0.75rem !important;
@@ -112,8 +122,15 @@ body {
     border-radius: theme("borderRadius.DEFAULT");
     padding: theme("spacing.1") theme("spacing[1.5]");
     border: theme("colors.gray.300") 1px solid;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      Liberation Mono, Courier New, monospace !important;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      Liberation Mono,
+      Courier New,
+      monospace !important;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
@@ -185,13 +202,13 @@ body {
     @apply shadow-[0_10px_15px_-3px_rgba(255,255,255,0.1),0_4px_6px_-2px_rgba(255,255,255,0.05)];
   } */
   .neo-brutalism {
-    @apply hawa-transition-all hawa-uppercase  dark:hawa-bg-black hawa-font-bold hawa-py-2 hawa-px-4 hawa-rounded hawa-border-2 hawa-border-primary active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 shadow-color-primary active:shadow-color-primary-active;
+    @apply shadow-color-primary active:shadow-color-primary-active  hawa-rounded hawa-border-2 hawa-border-primary hawa-px-4 hawa-py-2 hawa-font-bold hawa-uppercase hawa-transition-all active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 dark:hawa-bg-black;
   }
   .clickable-link {
     @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
   }
   .hawa-icon {
-    @apply hawa-w-4 hawa-h-4;
+    @apply hawa-h-4 hawa-w-4;
   }
 
   .ddm-w-parent {
@@ -443,8 +460,13 @@ body {
   }
 }
 @layer utilities {
+  .root-bg {
+    background-color: hsl(var(--background));
+  }
+
   .dark-shadow {
-    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
+    box-shadow:
+      0 10px 15px -3px rgba(255, 255, 255, 0.1),
       0 4px 6px -2px rgba(255, 255, 255, 0.05);
   }
   .shadow-color-primary {

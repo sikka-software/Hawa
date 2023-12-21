@@ -28,7 +28,7 @@ export const Default: Story = {
               <Signature
                 label={t("Signature")}
                 texts={{ clear: t("clear") }}
-                canvasProps={{ className: "hawa-border hawa-bg-background" }}
+                // canvasProps={{ className: "hawa-border hawa-bg-background" }}
                 {...args}
               />
             </div>
