@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { cn } from "../../util";
 import { Label, LabelProps } from "../label/Label";
+import "./style.css";
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -29,7 +30,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     return (
-      <div className="hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-gap-2">
+      <div className="hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-gap-2 textarea-main ">
         {props.label && <Label {...labelProps}>{props.label}</Label>}
         <textarea
           className={cn(
@@ -58,7 +59,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {showCount && (
             <div
               className={cn(
-                " hawa-text-start hawa-text-xs hawa-transition-all ",
+                "hawa-text-start hawa-text-xs hawa-transition-all",
                 {
                   "hawa-absolute hawa-bottom-[80px] hawa-end-0 hawa-translate-y-1/2":
                     countPosition === "top"
