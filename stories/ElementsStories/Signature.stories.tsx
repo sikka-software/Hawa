@@ -8,8 +8,7 @@ import { setLocale, t } from "../translations/i18n";
 
 const meta = {
   title: "Elements/Signature",
-  component: Signature,
-  parameters: { layout: "" }
+  component: Signature
 } satisfies Meta<typeof Signature>;
 
 export default meta;

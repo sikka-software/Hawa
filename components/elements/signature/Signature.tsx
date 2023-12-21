@@ -122,7 +122,7 @@ export const Signature: FC<SignatureCanvasProps> = ({
 
       <div className="hawa-flex hawa-flex-row hawa-justify-between">
         {/* Regular helper text */}
-        {helperText && (
+        {/* {helperText && ( */}
           <p
             className={cn(
               "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
@@ -133,7 +133,7 @@ export const Signature: FC<SignatureCanvasProps> = ({
           >
             {helperText}
           </p>
-        )}
+        {/* )} */}
         <div className="clickable-link hawa-w-fit" onClick={() => clear()}>
           {texts?.clear || "Clear"}
         </div>

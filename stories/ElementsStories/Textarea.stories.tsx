@@ -1,14 +1,16 @@
+import { useState } from "react";
+
+import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Avatar,
   Button,
   Input,
   Label,
-  Textarea,
+  Textarea
 } from "../../components/elements";
-import { ArgsTable, Story } from "@storybook/blocks";
 import { setLocale } from "../translations/i18n";
-import { useState } from "react";
 
 const meta = {
   title: "Elements/Inputs/Textarea",
@@ -21,10 +23,10 @@ const meta = {
           <h1>{"<Textarea/>"}</h1>
           <ArgsTable />
         </>
-      ),
-    },
+      )
+    }
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Textarea>;
 
 export default meta;
@@ -35,7 +37,7 @@ const Template = (args: any, globals: any) => {
   setLocale(locale);
 
   return (
-    <div className="hawa-w-64 hawa-flex hawa-flex-col hawa-gap-4">
+    <div className="hawa-flex hawa-w-64 hawa-flex-col hawa-gap-4">
       <Textarea
         textareaProps={{ placeholder: "Placeholder text here" }}
         label="Textarea component"
@@ -47,22 +49,22 @@ const Template = (args: any, globals: any) => {
 export const Default: Story = {
   render: Template.bind({}),
   parameters: {
-    layout: "centered",
-  },
+    layout: "centered"
+  }
 };
 export const WithCount: Story = {
   render: () => {
     const [text, setText] = useState("");
 
     return (
-      <div className="hawa-w-full hawa-flex  hawa-flex-row hawa-gap-4">
+      <div className="hawa-flex hawa-w-full  hawa-flex-row hawa-gap-4">
         <Textarea
           showCount
           textareaProps={{
             placeholder: "Placeholder text here",
             value: text,
             onChange: (e) => setText(e.target.value),
-            maxLength: 100,
+            maxLength: 100
           }}
           label="With Count (Top)"
           countPosition="top"
@@ -74,14 +76,14 @@ export const WithCount: Story = {
             placeholder: "Placeholder text here",
             value: text,
             onChange: (e) => setText(e.target.value),
-            maxLength: 100,
+            maxLength: 100
           }}
           label="With Count (Bottom)"
           helperText="This is the helperText"
         />
       </div>
     );
-  },
+  }
 };
 export const Examples: Story = {
   render: () => {
@@ -96,9 +98,12 @@ export const Examples: Story = {
         </div>
         <div className="hawa-flex hawa-flex-col">
           <Input />
-          <Textarea forceHideHelperText className="hawa-h-full" />
+          <Textarea
+            forceHideHelperText
+            classNames={{ textarea: "hawa-h-full" }}
+          />
         </div>
       </div>
     );
-  },
+  }
 };

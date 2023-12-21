@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.26.4
+
+### Patch Changes
+
+- Updated `Textarea` classNames
+- Fixed all className uses of `Textarea` in other components
+- Fixed `Radio` label color in dark mode
+- Fixed `helperText` in `Signature`
+
 ## 0.26.2
 
 ### Patch Changes

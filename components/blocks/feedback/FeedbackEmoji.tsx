@@ -108,7 +108,9 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
               open={helperText}
               trigger={
                 <Textarea
-                  className={cn("hawa-mt-2 hawa-h-full hawa-resize-none")}
+                  classNames={{
+                    textarea: "hawa-mt-2 hawa-h-full hawa-resize-none"
+                  }}
                   placeholder="Your feedback"
                   onChange={(e) => {
                     if (e.target.value) {

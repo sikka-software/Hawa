@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { cn } from "../../util";
 import { Label, LabelProps } from "../label/Label";
-import "./style.css";
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -14,12 +13,16 @@ export interface TextareaProps
   textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
   showCount?: boolean;
   countPosition?: "top" | "bottom";
+  classNames?: {
+    textarea?: string;
+  };
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       className,
+      classNames,
       labelProps,
       showCount,
       forceHideHelperText,
@@ -30,12 +33,18 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     return (
-      <div className="hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-gap-2 textarea-main ">
+      <div
+        className={cn(
+          "textarea-main hawa-relative hawa-flex hawa-h-full hawa-w-full hawa-flex-col",
+          !forceHideHelperText && "hawa-gap-2",
+          className
+        )}
+      >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
         <textarea
           className={cn(
             "hawa-flex hawa-min-h-[40px] hawa-w-full hawa-rounded-md hawa-border hawa-border-input hawa-bg-background hawa-px-3 hawa-py-2 hawa-text-sm hawa-ring-offset-background placeholder:hawa-text-gray-400 placeholder:hawa-text-muted-foreground focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
-            className
+            classNames?.textarea
           )}
           ref={ref}
           {...textareaProps}
