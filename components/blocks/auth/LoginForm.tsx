@@ -339,7 +339,6 @@ export const LoginForm: FC<LoginFormTypes> = ({
             })}
           >
             {renderFields()}
-
             <Button
               className="hawa-mt-0 hawa-w-full"
               type="submit"

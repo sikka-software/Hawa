@@ -376,10 +376,12 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   )}
                 </div>
                 <Button
-                  isLoading={props.isLoading}
                   className="hawa-mt-4 hawa-w-full"
+                  type="submit"
+                  isLoading={props.isLoading}
+                  disabled={props.isLoading}
                 >
-                  {texts?.registerText}
+                  {texts?.registerText || "Register"}
                 </Button>
                 {props.additionalButtons}
               </form>
