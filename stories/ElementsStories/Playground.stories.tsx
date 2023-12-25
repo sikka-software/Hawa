@@ -399,3 +399,51 @@ export const ToScreenshot: Story = {
     );
   }
 };
+
+
+// const UserDebugger = (props: any) => {
+//   const [expand, setExpanded] = useState(false);
+//   const [analyticsRadio, setAnalyticsRadio] = useState("allow");
+//   return (
+//     <div
+//       className="absolute bottom-4 start-4 flex h-10 w-10 items-center justify-center overflow-y-auto rounded border bg-white text-black transition-all"
+//       style={{
+//         width: expand ? 200 : 40,
+//         height: expand ? 200 : 40
+//       }}
+//       onClick={() => {
+//         if (!expand) {
+//           setExpanded(true);
+//         }
+//       }}
+//     >
+//       {expand ? (
+//         <>
+//           <div className=" absolute h-full w-full rounded">
+//             <div className="absolute end-2 top-2">
+//               <Button size={"smallIcon"} onClick={() => setExpanded(false)}>
+//                 <X className="h-4 w-4" />
+//               </Button>
+//             </div>
+//           </div>
+//           <div className=" h-full w-full p-2">
+//             <div className="text-sm">Debugging</div>
+//           </div>
+//           <div className="absolute top-10 w-full p-2">
+//             <Radio
+//               label="Allow Analytics"
+//               options={[
+//                 { label: "Allow", value: "allow" },
+//                 { label: "Disallow", value: "disallow" }
+//               ]}
+//               defaultValue={analyticsRadio}
+//               onChange={(e: any) => setAnalyticsRadio(e)}
+//             />
+//           </div>
+//         </>
+//       ) : (
+//         <ArrowUpRightSquare />
+//       )}
+//     </div>
+//   );
+// };
