@@ -55,12 +55,12 @@ jobs:
       - name: Install Hawa Landing
         run: |
           rm -fr /home/cloudpanel/htdocs/hawa.style || true
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path
+          cd /var/www/html/sikka/_work/Hawa/Hawa/deploy-landing-path
           rm -fr package-lock.json || true
           rm -fr node_modules  || true
           npm install
           npm run build --if-present
-          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path /home/cloudpanel/htdocs/hawa.style
+          ln -s /var/www/html/sikka/_work/Hawa/Hawa/deploy-landing-path /home/cloudpanel/htdocs/hawa.style
           pm2 stop hawa-landing || true
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
@@ -82,7 +82,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Generate Storybook Static Files
         run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path
+          cd /var/www/html/sikka/_work/Hawa/Hawa/build-storybook-path
           rm -fr package-lock.json || true
           npm install
           npm run build-storybook
