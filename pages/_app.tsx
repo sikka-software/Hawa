@@ -10,7 +10,7 @@ const IBMfont = IBM_Plex_Sans_Arabic({
   display: "auto",
   variable: "--font-ibm-plex-sans-arabic"
 });
- 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
