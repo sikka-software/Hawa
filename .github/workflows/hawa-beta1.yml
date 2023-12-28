@@ -4,25 +4,28 @@ env:
   NODE_AUTH_TOKEN: ${{secrets.npm_token}}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_PUBLISH_TAG: next # Specify the tag for publishing (make sure to change it in the append -beta as well)
-  NODE_VERSION: "21.x"
 
 on:
   push:
-    branches: [main]
+    branches: [main1]
 
 jobs:
   publish-package:
     if: ${{!contains(github.event.head_commit.message, 'skip_publish')}}
     runs-on: [self-hosted, linux, x64, A01]
+    strategy:
+      matrix:
+        node-version: [21.x]
     steps:
       - uses: actions/checkout@v2
       - name: Append -next to package.json version
         run: |
           node -e "const fs = require('fs'); const packageJson = require('./package.json'); packageJson.version += '-next'; fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));"
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+
+      - name: Use Node.js v21
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 21
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: npm install
@@ -37,14 +40,17 @@ jobs:
     if: ${{ contains(github.event.head_commit.message, 'deploy_landing') }}
 
     runs-on: [self-hosted, linux, x64, A01]
+    strategy:
+      matrix:
+        node-version: [21.x]
     steps:
       - uses: actions/checkout@v2
         with:
           path: deploy-landing-path
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ matrix.node-version }}
       - name: Install Hawa Landing
         run: |
           rm -fr /home/sikka/htdocs/hawa.style || true
@@ -62,14 +68,17 @@ jobs:
   build-storybook:
     if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
     runs-on: [self-hosted, linux, x64, A01]
+    strategy:
+      matrix:
+        node-version: [21.x]
     steps:
       - uses: actions/checkout@v2
         with:
           path: build-storybook-path
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ matrix.node-version }}
       - name: Generate Storybook Static Files
         run: |
           cd /var/www/html/sikka/_work/Hawa/Hawa/build-storybook-path
