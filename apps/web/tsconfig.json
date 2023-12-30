@@ -14,12 +14,7 @@
     "jsx": "preserve",
     "incremental": false,
     "paths": {
-      "@/*": ["./*"],
-      "@_types/*": ["packages/components/types/*"],
-      "@hooks/*": ["packages/components/hooks/*"],
-      "@blocks/*": ["./components/blocks/*"],
-      "@elements/*": ["./components/elements/*"],
-      "@layout/*": ["./components/layout/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

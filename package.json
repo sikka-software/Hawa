@@ -1,10 +1,16 @@
 {
   "name": "hawa",
   "private": true,
+  "scripts": {
+    "dev": "pnpm --filter hawa-docs dev",
+    "storybook": "pnpm --filter hawa-storybook storybook",
+    "build:lib": "pnpm --filter @sikka/hawa build-lib",
+    "build:docs": "pnpm --filter hawa-docs build"
+  },
   "workspaces": [
-    "packages/components*",
-    "apps/*",
-    "packages/storybook/*"
+    "packages/components",
+    "packages/storybook",
+    "apps/*"
   ],
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

@@ -45,5 +45,7 @@ next-env.d.ts
 
 
 # 
+apps/web/.next
 apps/web/node_modules
 packages/components/node_modules
+packages/storybook/node_modules
