@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.26.16
+
+### Patch Changes
+
+- Fixed `DropDownMenu` items array props
+
 ## 0.26.5
 
 ### Patch Changes

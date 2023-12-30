@@ -14,7 +14,11 @@ import {
 
 import { Button } from "@elements/button";
 import { Chip } from "@elements/chip";
-import { DropdownMenu, DropdownMenuRadio } from "@elements/dropdownMenu";
+import {
+  DropdownMenu,
+  DropdownMenuRadio,
+  MenuItemType
+} from "@elements/dropdownMenu";
 import { Radio } from "@elements/radio";
 import { Switch } from "@elements/switch";
 
@@ -28,7 +32,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof DropdownMenu>;
 
-const items = [
+const items: MenuItemType[] = [
   {
     label: "Default Shortcut",
     value: "item1",
@@ -180,7 +184,7 @@ const items = [
     ]
   }
 ];
-const items2 = [
+const items2: MenuItemType[] = [
   {
     itemType: "custom",
     content: (

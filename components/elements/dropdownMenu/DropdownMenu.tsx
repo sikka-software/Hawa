@@ -277,7 +277,8 @@ export type MenuItemType = {
   slug?: string;
   end?: any;
   presist?: boolean;
-  itemType?: "separator" | "label" | string;
+  // itemType?: "separator" | "label" | string;
+  itemType?: "separator" | "label" | "custom";
   action?: () => void;
   highlighted?: boolean;
   subitems?: SubItem[];

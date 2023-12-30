@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.26.14",
+  "version": "0.26.16",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -14,7 +14,7 @@
     "saas",
     "kit",
     "tailwind",
-    "hawa" 
+    "hawa"
   ],
   "repository": {
     "type": "git",
