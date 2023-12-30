@@ -4,12 +4,8 @@ import glowPlugin from "./glow-plugin";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./stories/**/*.{js,ts,jsx,tsx,mdx}",
-    "./stories/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./sharedUI/**/*.{js,ts,jsx,tsx,mdx}"
+    "./elements/**/*.{js,ts,jsx,tsx,mdx}",
+    "./blocks/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   prefix: "hawa-",
   darkMode: "class",

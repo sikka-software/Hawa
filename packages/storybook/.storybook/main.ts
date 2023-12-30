@@ -17,7 +17,6 @@ const config: StorybookConfig = {
   staticDirs: ["../public"],
 
   framework: { name: "@storybook/nextjs", options: {} },
-  // docs: { autodocs: true },
 
   webpackFinal: async (config: any) => {
     config.resolve.plugins = [

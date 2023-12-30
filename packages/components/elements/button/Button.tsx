@@ -77,7 +77,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(
           buttonVariants({ variant, size, className }),
-          centered && "hawa-justify-center"
+          centered && "hawa-justify-center",
+          // "hawa-bg-red-500"
         )}
         ref={ref}
         {...props}

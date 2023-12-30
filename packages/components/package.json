@@ -54,7 +54,7 @@
     "prebuild": "node pre-build.js",
     "build-lib": "npm run prebuild && node build-library.js",
     "build-lib-old": "tsup --dts",
-    "build-css": "postcss styles/globals.css -o dist/index.css",
+    "build-css": "postcss index.css -o dist/index.css",
     "prepub": "npm run build-lib && npm run build-css",
     "pub": "npm publish --tag next"
   },

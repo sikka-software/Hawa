@@ -1,15 +1,11 @@
 import type { Config } from "tailwindcss";
 
-import glowPlugin from "./packages/components/glow-plugin";
+// import glowPlugin from "./packages/components/glow-plugin";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./stories/**/*.{js,ts,jsx,tsx,mdx}",
-    "./stories/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./sharedUI/**/*.{js,ts,jsx,tsx,mdx}"
+    "./stories/*.{js,ts,jsx,tsx,mdx}"
   ],
   prefix: "hawa-",
   darkMode: "class",
@@ -163,6 +159,9 @@ const config: Config = {
       }
     }
   },
-  plugins: [require("tailwindcss-animate"), glowPlugin]
+  plugins: [
+    require("tailwindcss-animate")
+    //  glowPlugin
+  ]
 };
 export default config;

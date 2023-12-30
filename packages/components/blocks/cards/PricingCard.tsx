@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 
+import { PricingCardProps } from "@/types/pricingTypes";
+
 import { Button } from "@elements/button";
 import { Card } from "@elements/card";
-import { Chip } from "@elements/chip";
 import { Separator } from "@elements/separator";
 import { Skeleton } from "@elements/skeleton";
 import { Tooltip } from "@elements/tooltip";
 
-import { PricingCardProps } from "@/types/pricingTypes";
-
+import { Chip } from "../../elements/chip";
 import { cn } from "../../util";
 
 export const PricingCard: FC<PricingCardProps> = ({

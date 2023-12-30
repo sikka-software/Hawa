@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
-import "../styles/globals.css";
+import "../../components/styles.css";
 import { DocsContainer } from "./DocsContainer";
 import "./stories.css";
 

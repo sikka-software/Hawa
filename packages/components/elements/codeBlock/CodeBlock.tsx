@@ -2,10 +2,10 @@ import React, { FC, useEffect, useState } from "react";
 
 import { Highlight, themes } from "prism-react-renderer";
 
-import { Button, Tooltip } from "@elements/index";
-
 import { useClipboard } from "../../hooks/useClipboard";
 import { cn } from "../../util";
+import { Button } from "../button";
+import { Tooltip } from "../tooltip";
 
 type CodeBlockTypes = {
   /** Specifies the programming language for syntax highlighting.*/

@@ -1,11 +1,5 @@
 import React, { FC } from "react";
 
-import { Button } from "@elements/button";
-import { Chip } from "@elements/chip";
-import { Radio } from "@elements/radio";
-import { ScrollArea } from "@elements/scrollArea";
-import { Tooltip } from "@elements/tooltip";
-
 import {
   PlanFeature,
   PricingPlanTexts,
@@ -13,6 +7,12 @@ import {
   RadioOptionType
 } from "@/types/index";
 
+import { Button } from "@elements/button";
+import { Radio } from "@elements/radio";
+import { ScrollArea } from "@elements/scrollArea";
+import { Tooltip } from "@elements/tooltip";
+
+import { Chip } from "../../elements/chip";
 import { CheckMark, UncheckMark } from "../../icons";
 import { cn } from "../../util";
 
@@ -128,7 +128,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div
               key={featureIndex}
               className={cn(
-                "hawa-border-foreground-muted  dark:text-white hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700",
+                "hawa-border-foreground-muted  hawa-grid hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))]  hawa-gap-x-16 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white",
                 featureIndex === 0 ? "" : "hawa-border-t"
               )}
             >
