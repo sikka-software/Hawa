@@ -1,11 +1,11 @@
-import { useToast } from "@/packages/components/hooks/index";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@/packages/components/elements/button";
-import { DropdownMenu } from "@/packages/components/elements/dropdownMenu";
-import { ToastAction } from "@/packages/components/elements/toast";
-import { Toaster } from "@/packages/components/elements/toaster";
+import { Button } from "@sikka/hawa/button";
+import { DropdownMenu } from "@sikka/hawa/dropdownMenu";
+import { useToast } from "@sikka/hawa/hooks";
+import { ToastAction } from "@sikka/hawa/toast";
+import { Toaster } from "@sikka/hawa/toaster";
 
 import { setLocale, t } from "../../translations/i18n";
 
@@ -50,8 +50,7 @@ export const Default: Story = {
                 value: "info",
                 action: () => {
                   toast({
-                    title:
-                      "Small Toast " + Math.floor(Math.random() * 100),
+                    title: "Small Toast " + Math.floor(Math.random() * 100),
                     description: "Friday, February 10, 2023 at 5:57 PM",
                     severity: "info",
                     size: "sm",

@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { LegalTexts } from "@/packages/components/blocks/misc";
+import { LegalTexts } from "@sikka/hawa/blocks/misc";
 
 import { setLocale } from "../../../translations/i18n";
 

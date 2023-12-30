@@ -17,7 +17,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger
-} from "@/packages/components/layout/appMenubar";
+} from "@sikka/hawa/layout";
 
 import { setLocale, t } from "../../translations/i18n";
 

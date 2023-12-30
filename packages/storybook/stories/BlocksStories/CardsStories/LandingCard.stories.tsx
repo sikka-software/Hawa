@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ScreenShare } from "lucide-react";
 
-import { LandingCard } from "@/packages/components/blocks/cards";
+import { LandingCard } from "@sikka/hawa/blocks";
 
 const meta = {
   title: "Blocks/Cards/Landing Card",
-  component: LandingCard,
+  component: LandingCard
 } satisfies Meta<typeof LandingCard>;
 
 export default meta;

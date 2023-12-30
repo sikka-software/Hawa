@@ -1,8 +1,8 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Label } from "@/packages/components/elements/label";
-import { Progress } from "@/packages/components/elements/progress";
+import { Label } from "@sikka/hawa/label";
+import { Progress } from "@sikka/hawa/progress";
 
 import { setLocale, t } from "../../translations/i18n";
 

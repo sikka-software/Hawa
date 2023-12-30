@@ -1,7 +1,7 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ResetPasswordForm } from "@/packages/components/blocks/auth";
+import { ResetPasswordForm } from "@sikka/hawa/blocks/auth";
 
 import { setLocale, t } from "../../../translations/i18n";
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AdCard } from "@/packages/components/blocks/cards";
+import { AdCard } from "@sikka/hawa/blocks";
 
 const meta = {
   title: "Blocks/Cards/Ad Card",

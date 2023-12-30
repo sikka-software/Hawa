@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Button } from "@/packages/components/elements/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/packages/components/elements/dialog";
+import { Button } from "@sikka/hawa/button";
+import { Dialog, DialogContent, DialogTrigger } from "@sikka/hawa/dialog";
 
 import { cn } from "../../../components/util";
 

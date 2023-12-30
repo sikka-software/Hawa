@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ProgressCircle } from "@/packages/components/elements/progressCircle";
+import { ProgressCircle } from "@sikka/hawa/progressCircle";
 
 import { setLocale, t } from "../../translations/i18n";
 

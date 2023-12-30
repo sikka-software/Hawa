@@ -6,7 +6,7 @@ import {
   StandardNavigationMenuItem,
   NavigationMenu,
   NavigationMenuLink
-} from "@/packages/components/elements/navigationMenu";
+} from "@sikka/hawa/navigationMenu";
 
 import { t } from "../../translations/i18n";
 

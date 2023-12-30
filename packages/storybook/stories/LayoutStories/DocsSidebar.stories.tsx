@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { DocsSidebar } from "@/packages/components/layout/index";
+import { DocsSidebar } from "@sikka/hawa/layout";
 
 import { setLocale, t } from "../../translations/i18n";
 

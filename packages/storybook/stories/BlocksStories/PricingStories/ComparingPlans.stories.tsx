@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ComparingPlans } from "@/packages/components/blocks/pricing";
+import { ComparingPlans } from "@sikka/hawa/blocks/pricing";
 
 import { generateFeaturesArray } from "../../../utils/storiesUtils";
 import { setLocale, t } from "../../../translations/i18n";

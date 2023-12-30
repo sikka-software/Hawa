@@ -1,8 +1,8 @@
-import { Card, CardContent, Label } from "@/packages/components";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Signature } from "@/packages/components/elements/signature";
+import { Card, CardContent } from "@sikka/hawa/card";
+import { Signature } from "@sikka/hawa/signature";
 
 import { setLocale, t } from "../../translations/i18n";
 

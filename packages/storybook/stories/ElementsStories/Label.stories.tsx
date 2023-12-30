@@ -1,9 +1,9 @@
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "@/packages/components/elements/input";
-import { Label } from "@/packages/components/elements/label";
-import { Skeleton } from "@/packages/components/elements/skeleton";
+import { Input } from "@sikka/hawa/input";
+import { Label } from "@sikka/hawa/label";
+import { Skeleton } from "@sikka/hawa/skeleton";
 
 import { setLocale, t } from "../../translations/i18n";
 

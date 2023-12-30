@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ActionCard } from "@/packages/components/blocks/cards";
-
-import { Button } from "@/packages/components/elements/button";
+import { ActionCard } from "@sikka/hawa/blocks";
+import { Button } from "@sikka/hawa/button";
 
 const meta = {
   title: "Blocks/Cards/Action Card",

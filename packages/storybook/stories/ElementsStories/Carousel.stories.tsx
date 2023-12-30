@@ -13,12 +13,11 @@ import {
   HardDrive
 } from "lucide-react";
 
-import { ItemCard, LandingCard } from "@/packages/components/blocks/cards";
-
-import { Button } from "@/packages/components/elements/button";
-import { Carousel } from "@/packages/components/elements/carousel";
-import { Count } from "@/packages/components/elements/count";
-import { Tooltip } from "@/packages/components/elements/tooltip";
+import { ItemCard, LandingCard } from "@sikka/hawa/blocks";
+import { Button } from "@sikka/hawa/button";
+import { Carousel } from "@sikka/hawa/carousel";
+import { Count } from "@sikka/hawa/count";
+import { Tooltip } from "@sikka/hawa/tooltip";
 
 const meta = {
   title: "Elements/Carousel",

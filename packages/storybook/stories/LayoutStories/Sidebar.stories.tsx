@@ -3,9 +3,8 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AppSidebarItemProps, SidebarGroup } from "@/packages/components/layout/sidebar";
-
-import { Button } from "@/packages/components/elements/button";
+import { Button } from "@sikka/hawa/button";
+import { AppSidebarItemProps, SidebarGroup } from "@sikka/hawa/layout";
 
 import { setLocale, t } from "../../translations/i18n";
 

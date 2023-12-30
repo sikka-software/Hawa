@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-import { useDialogCarousel, useMultiStepDialog } from "@/packages/components/hooks/index";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@/packages/components/elements/button";
+import { Button } from "@sikka/hawa/button";
 import {
   DialogHeader,
   Dialog,
@@ -18,11 +17,12 @@ import {
   DialogCarousel,
   DialogSteps,
   DialogCarouselContent
-} from "@/packages/components/elements/dialog";
-import { Input } from "@/packages/components/elements/input";
+} from "@sikka/hawa/dialog";
+import { useDialogCarousel, useMultiStepDialog } from "@sikka/hawa/hooks";
+import { Input } from "@sikka/hawa/input";
 
-import { PropsTable } from "../../utils";
 import { setLocale, t } from "../../translations/i18n";
+import { PropsTable } from "../../utils";
 
 const meta = {
   title: "Elements/Dialog",

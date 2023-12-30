@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 
-import { useToast } from "@/packages/components/hooks/index";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil } from "lucide-react";
 
-import { Button } from "@/packages/components/elements/button";
-import { Card, CardContent, CardHeader } from "@/packages/components/elements/card";
-import { DataTable } from "@/packages/components/elements/dataTable";
-import { DropdownMenu } from "@/packages/components/elements/dropdownMenu";
-import { SortButton } from "@/packages/components/elements/sortButton";
-import { Toaster } from "@/packages/components/elements/toaster";
+import { Button } from "@sikka/hawa/button";
+import { Card, CardContent, CardHeader } from "@sikka/hawa/card";
+import { DataTable } from "@sikka/hawa/dataTable";
+import { DropdownMenu } from "@sikka/hawa/dropdownMenu";
+import { useToast } from "@sikka/hawa/hooks";
+import { SortButton } from "@sikka/hawa/sortButton";
+import { Toaster } from "@sikka/hawa/toaster";
 
-import { generateDummyCompanies } from "../../utils/storiesUtils";
 import { setLocale, t } from "../../translations/i18n";
+import { generateDummyCompanies } from "../../utils/storiesUtils";
 
 const meta = {
   title: "Elements/Tables/Data Table",

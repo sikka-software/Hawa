@@ -18,7 +18,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut
-} from "@/packages/components/elements/command";
+} from "@sikka/hawa/command";
 
 import { setLocale, t } from "../../translations/i18n";
 

@@ -4,7 +4,7 @@
   "scripts": {
     "dev:docs": "pnpm --filter hawa-docs dev",
     "dev:storybook": "pnpm --filter hawa-storybook storybook",
-    "build:lib": "pnpm --filter @sikka/hawa build-lib && build-css",
+    "build:lib": "pnpm --filter @sikka/hawa build-lib && pnpm --filter @sikka/hawa run build-css",
     "build:docs": "pnpm --filter hawa-docs build",
     "build:storybook": "pnpm --filter hawa-storybook build-storybook",
     "build:all": "pnpm run build:lib && pnpm run build:storybook && pnpm run build:docs"

@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { BackToTop } from "@/packages/components/elements/backToTop";
-import { ScrollIndicator } from "@/packages/components/elements/scrollIndicator";
+import { BackToTop } from "@sikka/hawa/backToTop";
+import { ScrollIndicator } from "@sikka/hawa/scrollIndicator";
 
 const meta = {
   title: "Elements/Scroll Indicator",

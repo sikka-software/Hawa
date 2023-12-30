@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FileDropzone } from "@/packages/components/elements/fileDropzone";
+import { FileDropzone } from "@sikka/hawa/fileDropzone";
 
 const meta = {
   title: "Elements/FileDropzone",

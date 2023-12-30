@@ -3,7 +3,7 @@ import React from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox } from "@/packages/components/elements/checkbox";
+import { Checkbox } from "@sikka/hawa/checkbox";
 
 import { setLocale } from "../../translations/i18n";
 

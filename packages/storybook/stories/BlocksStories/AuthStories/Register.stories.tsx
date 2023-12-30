@@ -1,9 +1,8 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RegisterForm } from "@/packages/components/blocks/auth";
-
-import { Button, Input } from "@/packages/components/elements/index";
+import { Button, Input } from "@sikka/hawa";
+import { RegisterForm } from "@sikka/hawa/blocks/auth";
 
 import { setLocale, t } from "../../../translations/i18n";
 import RegisterDocs from "./Register";

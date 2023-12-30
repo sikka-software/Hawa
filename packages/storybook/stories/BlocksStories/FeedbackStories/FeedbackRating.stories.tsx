@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FeedbackRating } from "@/packages/components/blocks/feedback";
+import { FeedbackRating } from "@sikka/hawa/blocks/feedback";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Rating",

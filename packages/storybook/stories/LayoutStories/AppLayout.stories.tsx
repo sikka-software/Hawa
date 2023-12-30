@@ -3,9 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Settings, User2 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppLayout } from "@/packages/components/layout/appLayout";
-
-import { Button } from "@/packages/components/elements/button";
+import { Button } from "@sikka/hawa/button";
+import { AppLayout } from "@sikka/hawa/layout";
 
 import { setLocale } from "../../translations/i18n";
 import { AppLayoutStory } from "./AppLayoutStory";

@@ -2,11 +2,10 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PricingCard } from "@/packages/components/blocks/cards";
-
-import { Input } from "@/packages/components/elements/input";
-import { Radio } from "@/packages/components/elements/radio";
-import { Separator } from "@/packages/components/elements/separator";
+import { PricingCard } from "@sikka/hawa/blocks";
+import { Input } from "@sikka/hawa/input";
+import { Radio } from "@sikka/hawa/radio";
+import { Separator } from "@sikka/hawa/separator";
 
 const meta = {
   title: "Blocks/Cards/Pricing Card",

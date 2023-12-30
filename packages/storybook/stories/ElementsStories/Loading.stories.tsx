@@ -1,8 +1,8 @@
 import { ArgsTable } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Loading } from "@/packages/components/elements/loading";
-import { Tooltip } from "@/packages/components/elements/tooltip";
+import { Loading } from "@sikka/hawa/loading";
+import { Tooltip } from "@sikka/hawa/tooltip";
 
 const meta = {
   title: "Elements/Loading",

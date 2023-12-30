@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FeedbackEmoji } from "@/packages/components/blocks/feedback";
+import { FeedbackEmoji } from "@sikka/hawa/blocks/feedback";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Emotion",

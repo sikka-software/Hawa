@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ContactForm } from "@/packages/components/blocks/index";
+import { ContactForm } from "@sikka/hawa/blocks";
 
 import { setLocale, t } from "../../../translations/i18n";
 
