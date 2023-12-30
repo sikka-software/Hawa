@@ -6,12 +6,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil } from "lucide-react";
 
-import { Button } from "@elements/button";
-import { Card, CardContent, CardHeader } from "@elements/card";
-import { DataTable } from "@elements/dataTable";
-import { DropdownMenu } from "@elements/dropdownMenu";
-import { SortButton } from "@elements/sortButton";
-import { Toaster } from "@elements/toaster";
+import { Button } from "@/packages/components/elements/button";
+import { Card, CardContent, CardHeader } from "@/packages/components/elements/card";
+import { DataTable } from "@/packages/components/elements/dataTable";
+import { DropdownMenu } from "@/packages/components/elements/dropdownMenu";
+import { SortButton } from "@/packages/components/elements/sortButton";
+import { Toaster } from "@/packages/components/elements/toaster";
 
 import { generateDummyCompanies } from "../storiesUtils";
 import { setLocale, t } from "../translations/i18n";

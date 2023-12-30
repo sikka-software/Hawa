@@ -1,7 +1,7 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PinInput } from "@elements/pinInput";
+import { PinInput } from "@/packages/components/elements/pinInput";
 
 const meta = {
   title: "Elements/Inputs/Pin Input",

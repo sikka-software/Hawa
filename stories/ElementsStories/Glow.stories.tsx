@@ -7,8 +7,8 @@ import {
   CardDescription,
   CardFooter,
   CardContent
-} from "@elements/card";
-import { GlowCapture, Glow } from "@elements/glow";
+} from "@/packages/components/elements/card";
+import { GlowCapture, Glow } from "@/packages/components/elements/glow";
 
 const meta = {
   title: "Elements/Glow",

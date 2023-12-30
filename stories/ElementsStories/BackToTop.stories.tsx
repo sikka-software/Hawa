@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { BackToTop } from "@elements/backToTop";
+import { BackToTop } from "@/packages/components/elements/backToTop";
 
 const meta = {
   title: "Elements/BackToTop",

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardHeader, CardTitle, CardDescription } from "@elements/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/packages/components/elements/card";
 
 interface LandingCardTypes {
   title?: string;

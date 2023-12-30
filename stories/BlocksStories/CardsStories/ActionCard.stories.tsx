@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ActionCard } from "@/packages/components/blocks/cards";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 
 const meta = {
   title: "Blocks/Cards/Action Card",

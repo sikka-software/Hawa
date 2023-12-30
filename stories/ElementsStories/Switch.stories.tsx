@@ -1,7 +1,7 @@
 import { ArgsTable, Story, Markdown } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Switch } from "@elements/switch";
+import { Switch } from "@/packages/components/elements/switch";
 
 const meta = {
   title: "Elements/Switch",

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
-import { Chip, ChipColors } from "@elements/chip";
+import { Chip, ChipColors } from "@/packages/components/elements/chip";
 
 import { DirectionType } from "@/packages/components/types/commonTypes";
 

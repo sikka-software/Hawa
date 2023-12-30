@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { AppSidebarItemProps, SidebarGroup } from "@/packages/components/layout/sidebar";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 
 import { setLocale, t } from "../translations/i18n";
 

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 
-import { Radio } from "@elements/radio";
+import { Radio } from "@/packages/components/elements/radio";
 
 import { DirectionType, RadioOptionType } from "@/packages/components/types/commonTypes";
 import { PlanFeature } from "@/packages/components/types/pricingTypes";

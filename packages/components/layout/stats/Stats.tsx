@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import { Card, CardContent, CardTitle } from "@elements/card";
-import { Skeleton } from "@elements/skeleton";
+import { Card, CardContent, CardTitle } from "@/packages/components/elements/card";
+import { Skeleton } from "@/packages/components/elements/skeleton";
 
 import { cn } from "../../util";
 

@@ -4,7 +4,7 @@ import {
   CardContent,
   SimpleTable,
   Table,
-} from "../../components/elements";
+} from "../../packages/components/elements";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../translations/i18n";
 import { Pencil } from "lucide-react";

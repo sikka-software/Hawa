@@ -15,10 +15,10 @@ import {
 
 import { ItemCard, LandingCard } from "@/packages/components/blocks/cards";
 
-import { Button } from "@elements/button";
-import { Carousel } from "@elements/carousel";
-import { Count } from "@elements/count";
-import { Tooltip } from "@elements/tooltip";
+import { Button } from "@/packages/components/elements/button";
+import { Carousel } from "@/packages/components/elements/carousel";
+import { Count } from "@/packages/components/elements/count";
+import { Tooltip } from "@/packages/components/elements/tooltip";
 
 const meta = {
   title: "Elements/Carousel",

@@ -1,15 +1,15 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle
-} from "@elements/card";
-import { Input } from "@elements/input";
+} from "@/packages/components/elements/card";
+import { Input } from "@/packages/components/elements/input";
 
 type LGProps = {
   texts?: {

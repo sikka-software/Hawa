@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Navbar } from "@/packages/components/layout/navbar";
 
-import { Button } from "@elements/button";
-import { Logos } from "@elements/logos";
+import { Button } from "@/packages/components/elements/button";
+import { Logos } from "@/packages/components/elements/logos";
 
 import { setLocale, t } from "../translations/i18n";
 

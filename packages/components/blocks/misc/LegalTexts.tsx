@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ScrollArea } from "@elements/scrollArea";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
+import { ScrollArea } from "@/packages/components/elements/scrollArea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/packages/components/elements/tabs";
 
 import { cn } from "../../util";
 

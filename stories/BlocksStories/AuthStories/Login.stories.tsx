@@ -6,7 +6,7 @@ import { useDarkMode } from "storybook-dark-mode";
 
 import { LoginForm } from "@/packages/components/blocks/auth";
 
-import { Button } from "@elements/index";
+import { Button } from "@/packages/components/elements/index";
 
 import { setLocale, t } from "../../translations/i18n";
 import LoginDocs from "./Login";

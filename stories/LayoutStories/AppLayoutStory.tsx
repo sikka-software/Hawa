@@ -14,8 +14,8 @@ import { useDarkMode } from "storybook-dark-mode";
 
 import { AppLayout } from "@/packages/components/layout/appLayout";
 
-import { ToastAction } from "@elements/toast";
-import { Toaster } from "@elements/toaster";
+import { ToastAction } from "@/packages/components/elements/toast";
+import { Toaster } from "@/packages/components/elements/toaster";
 
 import { t } from "../translations/i18n";
 

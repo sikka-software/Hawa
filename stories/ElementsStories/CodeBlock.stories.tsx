@@ -2,7 +2,7 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { CodeBlock } from "@elements/codeBlock";
+import { CodeBlock } from "@/packages/components/elements/codeBlock";
 
 const meta = {
   title: "Elements/CodeBlock",

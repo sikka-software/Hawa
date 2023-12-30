@@ -4,9 +4,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { PricingCard } from "@/packages/components/blocks/cards";
 
-import { Input } from "@elements/input";
-import { Radio } from "@elements/radio";
-import { Separator } from "@elements/separator";
+import { Input } from "@/packages/components/elements/input";
+import { Radio } from "@/packages/components/elements/radio";
+import { Separator } from "@/packages/components/elements/separator";
 
 const meta = {
   title: "Blocks/Cards/Pricing Card",

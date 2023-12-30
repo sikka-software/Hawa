@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
+import { DropdownMenu, MenuItemType } from "@/packages/components/elements/dropdownMenu";
 
 import { DirectionType } from "@/packages/components/types/commonTypes";
 

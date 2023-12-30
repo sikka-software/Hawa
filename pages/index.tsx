@@ -4,8 +4,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@elements/button";
-import { CodeBlock } from "@elements/codeBlock";
+import { Button } from "@/packages/components/elements/button";
+import { CodeBlock } from "@/packages/components/elements/codeBlock";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();

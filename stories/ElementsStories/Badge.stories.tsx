@@ -4,9 +4,9 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Bell } from "lucide-react";
 
-import { Badge, BadgedComponent } from "@elements/badge";
-import { Button } from "@elements/button";
-import { Card, CardContent } from "@elements/card";
+import { Badge, BadgedComponent } from "@/packages/components/elements/badge";
+import { Button } from "@/packages/components/elements/button";
+import { Card, CardContent } from "@/packages/components/elements/card";
 
 const meta = {
   title: "Elements/Badge",

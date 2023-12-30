@@ -1,8 +1,8 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "@elements/input";
-import { PasswordInput } from "@elements/passwordInput";
+import { Input } from "@/packages/components/elements/input";
+import { PasswordInput } from "@/packages/components/elements/passwordInput";
 
 import { setLocale, t } from "../../translations/i18n";
 

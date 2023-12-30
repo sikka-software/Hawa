@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 import {
   Sheet,
   SheetContent,
@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from "@elements/sheet";
+} from "@/packages/components/elements/sheet";
 
 import { setLocale, t } from "../translations/i18n";
 

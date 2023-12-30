@@ -18,7 +18,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut
-} from "@elements/command";
+} from "@/packages/components/elements/command";
 
 import { setLocale, t } from "../translations/i18n";
 

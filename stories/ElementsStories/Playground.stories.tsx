@@ -20,8 +20,8 @@ import {
   TabsList,
   TabsTrigger, // SplitButton,
   Slider
-} from "../../components/elements";
-import { SplitButton } from "../../components/elements/splitButton";
+} from "../../packages/components/elements";
+import { SplitButton } from "../../packages/components/elements/splitButton";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {

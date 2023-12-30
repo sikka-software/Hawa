@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Button } from "@elements/button";
-import { Loading } from "@elements/loading";
-import { Logos } from "@elements/logos";
+import { Button } from "@/packages/components/elements/button";
+import { Loading } from "@/packages/components/elements/loading";
+import { Logos } from "@/packages/components/elements/logos";
 
 import { ThirdPartyAuthTextsTypes } from "@/packages/components/types/textTypes";
 

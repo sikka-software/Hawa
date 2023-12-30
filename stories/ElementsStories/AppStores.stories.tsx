@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AppStores } from "@elements/appStores";
+import { AppStores } from "@/packages/components/elements/appStores";
 
 import { setLocale } from "../translations/i18n";
 

@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardFooter,
   CardContent
-} from "@elements/card";
+} from "@/packages/components/elements/card";
 
 const meta = {
   title: "Elements/Card",

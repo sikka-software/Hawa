@@ -2,7 +2,7 @@ import { Card, CardContent, Label } from "@/packages/components";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Signature } from "@elements/signature";
+import { Signature } from "@/packages/components/elements/signature";
 
 import { setLocale, t } from "../translations/i18n";
 

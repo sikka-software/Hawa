@@ -3,9 +3,9 @@ import { ArrowRightCircle, CopyIcon, Edit2, Heart, Trash2 } from "lucide-react";
 
 import { ItemCard } from "@/packages/components/blocks/cards";
 
-import { Button } from "@elements/button";
-import { Count } from "@elements/count";
-import { Tooltip } from "@elements/tooltip";
+import { Button } from "@/packages/components/elements/button";
+import { Count } from "@/packages/components/elements/count";
+import { Tooltip } from "@/packages/components/elements/tooltip";
 
 import { setLocale } from "../../translations/i18n";
 

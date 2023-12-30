@@ -1,8 +1,8 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Card, CardContent } from "@elements/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
+import { Card, CardContent } from "@/packages/components/elements/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/packages/components/elements/tabs";
 
 import { setLocale, t } from "../translations/i18n";
 

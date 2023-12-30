@@ -9,7 +9,7 @@ import {
   Input,
   Label,
   Textarea
-} from "../../components/elements";
+} from "../../packages/components/elements";
 import { setLocale } from "../translations/i18n";
 
 const meta = {

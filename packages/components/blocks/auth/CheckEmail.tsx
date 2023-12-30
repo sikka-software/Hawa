@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Card, CardContent, CardFooter } from "@elements/card";
+import { Card, CardContent, CardFooter } from "@/packages/components/elements/card";
 
 type CheckEmailBlocks = {
   handleResend?: () => void;

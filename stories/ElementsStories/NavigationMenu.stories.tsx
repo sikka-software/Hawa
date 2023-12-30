@@ -6,7 +6,7 @@ import {
   StandardNavigationMenuItem,
   NavigationMenu,
   NavigationMenuLink
-} from "@elements/navigationMenu";
+} from "@/packages/components/elements/navigationMenu";
 
 import { t } from "../translations/i18n";
 

@@ -1,4 +1,4 @@
-import { CodeBlock } from "../../components/elements";
+import { CodeBlock } from "../../packages/components/elements";
 import { useDarkMode } from "storybook-dark-mode";
 
 export const WrappedCodeBlock = (props: any) => {

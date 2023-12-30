@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { RegisterForm } from "@/packages/components/blocks/auth";
 
-import { Button, Input } from "@elements/index";
+import { Button, Input } from "@/packages/components/elements/index";
 
 import { setLocale, t } from "../../translations/i18n";
 import RegisterDocs from "./Register";

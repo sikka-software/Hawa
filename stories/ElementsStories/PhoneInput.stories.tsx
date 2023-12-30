@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PhoneInput } from "@elements/phoneInput";
+import { PhoneInput } from "@/packages/components/elements/phoneInput";
 
 import { setLocale } from "../translations/i18n";
 

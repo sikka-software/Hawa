@@ -1,8 +1,8 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@elements/button";
-import { Popover } from "@elements/popover";
+import { Button } from "@/packages/components/elements/button";
+import { Popover } from "@/packages/components/elements/popover";
 
 import { setLocale } from "../translations/i18n";
 

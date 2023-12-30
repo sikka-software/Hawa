@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { useTheme } from "next-themes";
 
-import { Card, CardContent } from "@elements/card";
-import { CodeBlock } from "@elements/codeBlock";
-import { ColorPicker } from "@elements/colorPicker";
+import { Card, CardContent } from "@/packages/components/elements/card";
+import { CodeBlock } from "@/packages/components/elements/codeBlock";
+import { ColorPicker } from "@/packages/components/elements/colorPicker";
 
 // TODO: use the actual variable name as an ID
 type ColorSetting = {

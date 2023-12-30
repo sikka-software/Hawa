@@ -4,7 +4,7 @@ import { useDialogCarousel, useMultiStepDialog } from "@/packages/components/hoo
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 import {
   DialogHeader,
   Dialog,
@@ -18,8 +18,8 @@ import {
   DialogCarousel,
   DialogSteps,
   DialogCarouselContent
-} from "@elements/dialog";
-import { Input } from "@elements/input";
+} from "@/packages/components/elements/dialog";
+import { Input } from "@/packages/components/elements/input";
 
 import { PropsTable } from "../../sharedUI/docsUI";
 import { setLocale, t } from "../translations/i18n";

@@ -4,13 +4,13 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Alert } from "@elements/alert";
-import { Button } from "@elements/button";
-import { Card, CardContent, CardFooter } from "@elements/card";
-import { Checkbox } from "@elements/checkbox";
-import { Input } from "@elements/input";
-import { Select, SelectOptionProps } from "@elements/select";
-import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
+import { Alert } from "@/packages/components/elements/alert";
+import { Button } from "@/packages/components/elements/button";
+import { Card, CardContent, CardFooter } from "@/packages/components/elements/card";
+import { Checkbox } from "@/packages/components/elements/checkbox";
+import { Input } from "@/packages/components/elements/input";
+import { Select, SelectOptionProps } from "@/packages/components/elements/select";
+import { StopPropagationWrapper } from "@/packages/components/elements/stopPropagationWrapper";
 
 import { DirectionType } from "@/packages/components/types/commonTypes";
 import {

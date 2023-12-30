@@ -2,10 +2,10 @@ import { useToast } from "@/packages/components/hooks/index";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@elements/button";
-import { DropdownMenu } from "@elements/dropdownMenu";
-import { ToastAction } from "@elements/toast";
-import { Toaster } from "@elements/toaster";
+import { Button } from "@/packages/components/elements/button";
+import { DropdownMenu } from "@/packages/components/elements/dropdownMenu";
+import { ToastAction } from "@/packages/components/elements/toast";
+import { Toaster } from "@/packages/components/elements/toaster";
 
 import { setLocale, t } from "../translations/i18n";
 

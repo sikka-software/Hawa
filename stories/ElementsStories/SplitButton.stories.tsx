@@ -1,7 +1,7 @@
 import { ArgsTable, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SplitButton } from "@elements/splitButton";
+import { SplitButton } from "@/packages/components/elements/splitButton";
 
 import { setLocale, t } from "../translations/i18n";
 

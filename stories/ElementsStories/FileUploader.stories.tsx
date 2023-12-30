@@ -4,15 +4,15 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Upload } from "lucide-react";
 
-import { Button } from "@elements/button";
+import { Button } from "@/packages/components/elements/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle
-} from "@elements/card";
-import { FileUploader } from "@elements/fileUploader";
+} from "@/packages/components/elements/card";
+import { FileUploader } from "@/packages/components/elements/fileUploader";
 
 import { cn } from "../../packages/components/util";
 

@@ -2,7 +2,7 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Flame, HeartPulse, KeyRound } from "lucide-react";
 
-import { Chip } from "@elements/chip";
+import { Chip } from "@/packages/components/elements/chip";
 
 import { setLocale, t } from "../translations/i18n";
 
