@@ -37,7 +37,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-
+dist
 
 # 
 apps/web/next-env.d.ts

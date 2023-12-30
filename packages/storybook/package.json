@@ -9,56 +9,11 @@
   },
   "homepage": "https://hawa.style",
   "license": "MIT",
-  "keywords": [
-    "ui",
-    "saas",
-    "kit",
-    "tailwind",
-    "hawa"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sikka-software/hawa.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sikka-software/hawa/issues",
-    "email": "hawa@sikka.io"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    },
-    "./*": {
-      "import": "./dist/*/index.js"
-    },
-    "./blocks/*": {
-      "import": "./dist/blocks/*/index.js"
-    },
-    "./dist/style.css": "./dist/index.css"
-  },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p 3032",
-    "lint": "next lint",
     "check": "tsc --noEmit",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prebuild": "node pre-build.js",
-    "build-lib": "npm run prebuild && node build-library.js",
-    "build-lib-old": "tsup --dts",
-    "build-css": "postcss styles/globals.css -o dist/index.css",
-    "prepub": "npm run build-lib && npm run build-css",
-    "pub": "npm publish --tag next",
     "chromatic": "npx chromatic --project-token=chpt_9c33d11ef14064f --output-dir ./storybook-static"
   },
   "dependencies": {

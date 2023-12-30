@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, FC } from "react";
 
-import { cn } from "@/packages/components/util";
+import { cn } from "@/util";
 // @ts-ignore
 import SignaturePad, { SignaturePadOptions } from "signature_pad";
 // @ts-ignore
