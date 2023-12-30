@@ -2,7 +2,7 @@ import React from "react";
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
-import { PositionType } from "@/packages/components/types/commonTypes";
+import { PositionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

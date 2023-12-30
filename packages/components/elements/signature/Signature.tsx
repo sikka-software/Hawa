@@ -6,7 +6,7 @@ import SignaturePad, { SignaturePadOptions } from "signature_pad";
 // @ts-ignore
 import trimCanvas from "trim-canvas";
 
-import { Label, LabelProps } from "@/packages/components/elements/label";
+import { Label, LabelProps } from "@elements/label";
 
 export interface SignatureCanvasProps extends SignaturePadOptions {
   canvasProps?: React.CanvasHTMLAttributes<HTMLCanvasElement>;

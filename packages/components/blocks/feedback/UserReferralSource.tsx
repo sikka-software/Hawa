@@ -4,12 +4,12 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button } from "@/packages/components/elements/button";
-import { Card, CardContent } from "@/packages/components/elements/card";
-import { Radio, RadioOptionsTypes } from "@/packages/components/elements/radio";
-import { Textarea } from "@/packages/components/elements/textarea";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { Radio, RadioOptionsTypes } from "@elements/radio";
+import { Textarea } from "@elements/textarea";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

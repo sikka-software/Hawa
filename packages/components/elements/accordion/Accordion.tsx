@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
-import { Chip, ChipTypes } from "@/packages/components/elements/chip";
+import { Chip, ChipTypes } from "@elements/chip";
 
 import { cn } from "../../util";
 import { AccordionContent } from "./AccordionContent";

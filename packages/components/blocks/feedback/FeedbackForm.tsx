@@ -4,13 +4,13 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button } from "@/packages/components/elements/button";
-import { Card, CardContent } from "@/packages/components/elements/card";
-import { Label } from "@/packages/components/elements/label";
-import { Select } from "@/packages/components/elements/select";
-import { Textarea } from "@/packages/components/elements/textarea";
+import { Button } from "@elements/button";
+import { Card, CardContent } from "@elements/card";
+import { Label } from "@elements/label";
+import { Select } from "@elements/select";
+import { Textarea } from "@elements/textarea";
 
-import { BaseInputType } from "@/packages/components/types/textTypes";
+import { BaseInputType } from "@/types/textTypes";
 
 import { cn } from "../../util";
 

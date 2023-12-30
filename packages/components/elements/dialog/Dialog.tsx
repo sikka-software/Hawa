@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useTheme } from "next-themes";
 
-import { Card, CardContent } from "@/packages/components/elements/card";
+import { Card, CardContent } from "@sikka/hawa/elements/card";
 import { CodeBlock } from "@/packages/components/elements/codeBlock";
 import { ColorPicker } from "@/packages/components/elements/colorPicker";
 

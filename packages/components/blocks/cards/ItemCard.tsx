@@ -1,10 +1,10 @@
 import React, { useEffect, useState, FC } from "react";
 
-import { Button } from "@/packages/components/elements/button";
-import { DropdownMenu, MenuItemType } from "@/packages/components/elements/dropdownMenu";
-import { StopPropagationWrapper } from "@/packages/components/elements/stopPropagationWrapper";
+import { Button } from "@elements/button";
+import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
+import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
-import { OrientationType } from "@/packages/components/types/commonTypes";
+import { OrientationType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

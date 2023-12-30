@@ -75,11 +75,11 @@ const layouts = [
 ];
 const elementEntries = elements.reduce((entries, elementName) => {
   entries[`${elementName}/index`] =
-    `components/elements/${elementName}/index.ts`;
+    `elements/${elementName}/index.ts`;
   return entries;
 }, {});
 const layoutEntries = layouts.reduce((entries, layoutName) => {
-  entries[`${layoutName}/index`] = `components/layout/${layoutName}/index.ts`;
+  entries[`${layoutName}/index`] = `layout/${layoutName}/index.ts`;
   return entries;
 }, {});
 
@@ -122,7 +122,7 @@ const buildAllConfig = defineConfig({
   clean: false,
   dts: true,
   target: "es2019",
-  entry: { index: "components/index.ts" },
+  entry: { index: "index.ts" },
   format: ["cjs", "esm"]
 });
 const buildCoreConfig = defineConfig({
@@ -133,11 +133,11 @@ const buildCoreConfig = defineConfig({
   format: ["cjs", "esm"],
   entry: {
     // CORE
-    "types/index": "components/types/index.ts",
-    "hooks/index": "components/hooks/index.ts",
-    "blocks/index": "components/blocks/index.ts",
-    "layout/index": "components/layout/index.ts",
-    "elements/index": "components/elements/index.ts"
+    "types/index": "types/index.ts",
+    "hooks/index": "hooks/index.ts",
+    "blocks/index": "blocks/index.ts",
+    "layout/index": "layout/index.ts",
+    "elements/index": "elements/index.ts"
   }
 });
 const buildBlocksConfig = defineConfig({
@@ -148,10 +148,10 @@ const buildBlocksConfig = defineConfig({
   format: ["cjs", "esm"],
   entry: {
     // BLOCKS
-    "blocks/misc/index": "components/blocks/misc/index.ts",
-    "blocks/auth/index": "components/blocks/auth/index.ts",
-    "blocks/pricing/index": "components/blocks/pricing/index.ts",
-    "blocks/feedback/index": "components/blocks/feedback/index.ts"
+    "blocks/misc/index": "blocks/misc/index.ts",
+    "blocks/auth/index": "blocks/auth/index.ts",
+    "blocks/pricing/index": "blocks/pricing/index.ts",
+    "blocks/feedback/index": "blocks/feedback/index.ts"
   }
 });
 module.exports = {

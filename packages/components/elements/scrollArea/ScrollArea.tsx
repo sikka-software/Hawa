@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
-import { OrientationType } from "@/packages/components/types/commonTypes";
+import { OrientationType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

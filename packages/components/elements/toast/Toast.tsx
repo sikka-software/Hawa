@@ -3,7 +3,7 @@ import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

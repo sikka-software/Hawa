@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { OrientationType } from "@/packages/components/types/commonTypes";
+import { OrientationType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 import { Chip, ChipTypes } from "../chip/Chip";

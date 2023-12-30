@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { useToast } from "../../hooks/useToast";
 import { cn } from "../../util";

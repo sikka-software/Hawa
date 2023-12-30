@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { Card, CardContent } from "@/packages/components/elements/card";
+import { Card, CardContent } from "@elements/card";
 
-import { DirectionType, ThirdPartyAuthTextsTypes } from "@/packages/components/types/index";
+import { DirectionType, ThirdPartyAuthTextsTypes } from "@/types/index";
 
 import { AuthButtons } from "./AuthButtons";
 

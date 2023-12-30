@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Alert } from "../packages/components/elements";
+import { Alert } from "../components/elements";
 
 test("renders Alert with text", () => {
   render(<Alert text="This is an alert" />);

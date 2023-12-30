@@ -5,17 +5,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { parsePhoneNumber } from "libphonenumber-js";
 import * as z from "zod";
 
-import { Alert } from "@/packages/components/elements/alert";
-import { Button } from "@/packages/components/elements/button";
-import { Card, CardContent, CardFooter } from "@/packages/components/elements/card";
-import { Input } from "@/packages/components/elements/input";
-import { PhoneInput } from "@/packages/components/elements/phoneInput";
+import { Alert } from "@elements/alert";
+import { Button } from "@elements/button";
+import { Card, CardContent, CardFooter } from "@elements/card";
+import { Input } from "@elements/input";
+import { PhoneInput } from "@elements/phoneInput";
 
 import {
   DirectionType,
   LoginFormTextsTypes,
   ThirdPartyAuthTextsTypes
-} from "@/packages/components/types/index";
+} from "@/types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { cn } from "../../util";

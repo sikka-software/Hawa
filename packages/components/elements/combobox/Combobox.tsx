@@ -8,12 +8,12 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem
-} from "@/packages/components/elements/command";
-import { Label, LabelProps } from "@/packages/components/elements/label";
-import { PopoverContent, PopoverTrigger } from "@/packages/components/elements/popover";
-import { Skeleton } from "@/packages/components/elements/skeleton";
+} from "@elements/command";
+import { Label, LabelProps } from "@elements/label";
+import { PopoverContent, PopoverTrigger } from "@elements/popover";
+import { Skeleton } from "@elements/skeleton";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 

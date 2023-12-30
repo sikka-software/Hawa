@@ -1,6 +1,6 @@
 import React from "react";
 
-import { RadiusType } from "@/packages/components/types/commonTypes";
+import { RadiusType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 import { FileUploader } from "../fileUploader";

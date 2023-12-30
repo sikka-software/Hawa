@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 
 import { Highlight, themes } from "prism-react-renderer";
 
-import { Button, Tooltip } from "@/packages/components/elements/index";
+import { Button, Tooltip } from "@elements/index";
 
 import { useClipboard } from "../../hooks/useClipboard";
 import { cn } from "../../util";

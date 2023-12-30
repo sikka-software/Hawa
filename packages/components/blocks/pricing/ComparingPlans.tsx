@@ -1,17 +1,17 @@
 import React, { FC } from "react";
 
-import { Button } from "@/packages/components/elements/button";
-import { Chip } from "@/packages/components/elements/chip";
-import { Radio } from "@/packages/components/elements/radio";
-import { ScrollArea } from "@/packages/components/elements/scrollArea";
-import { Tooltip } from "@/packages/components/elements/tooltip";
+import { Button } from "@elements/button";
+import { Chip } from "@elements/chip";
+import { Radio } from "@elements/radio";
+import { ScrollArea } from "@elements/scrollArea";
+import { Tooltip } from "@elements/tooltip";
 
 import {
   PlanFeature,
   PricingPlanTexts,
   DirectionType,
   RadioOptionType
-} from "@/packages/components/types/index";
+} from "@/types/index";
 
 import { CheckMark, UncheckMark } from "../../icons";
 import { cn } from "../../util";

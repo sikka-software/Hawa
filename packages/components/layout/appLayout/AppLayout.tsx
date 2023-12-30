@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { Button } from "@/packages/components/elements/button";
-import { DropdownMenu, MenuItemType } from "@/packages/components/elements/dropdownMenu";
-import { Tooltip } from "@/packages/components/elements/tooltip";
+import { Button } from "@elements/button";
+import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
+import { Tooltip } from "@elements/tooltip";
 
-import { DirectionType } from "@/packages/components/types/commonTypes";
+import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";

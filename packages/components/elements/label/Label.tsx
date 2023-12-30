@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { PositionType } from "@/packages/components/types/commonTypes";
+import { PositionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 import { Tooltip } from "../tooltip";
