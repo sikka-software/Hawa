@@ -47,7 +47,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install Hawa Landing 
         run: |
-          rm -fr /home/sikka/htdocs/hawa.style || true
+          # rm -fr /home/sikka/htdocs/hawa.style || true
           cd /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path
           rm -fr package-lock.json || true
           rm -fr node_modules  || true
