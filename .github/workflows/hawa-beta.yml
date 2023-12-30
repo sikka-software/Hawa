@@ -45,7 +45,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install Hawa Landing
+      - name: Install Hawa Landing 
         run: |
           rm -fr /home/sikka/htdocs/hawa.style || true
           cd /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path
