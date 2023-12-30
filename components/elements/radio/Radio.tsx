@@ -1,7 +1,7 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 
-import { DirectionType, OrientationType } from "../../types/commonTypes";
-import { cn } from "../../util";
+import { DirectionType, OrientationType } from "../../../packages/components/types/commonTypes";
+import { cn } from "../../../packages/components/util";
 import { Label, LabelProps } from "../label/Label";
 
 export type RadioOptionsTypes = {

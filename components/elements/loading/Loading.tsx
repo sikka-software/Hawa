@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 type LoadingTypes = {
   /** Specifies the size of the loading component.*/

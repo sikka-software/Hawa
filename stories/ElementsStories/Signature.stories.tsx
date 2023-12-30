@@ -1,4 +1,4 @@
-import { Card, CardContent, Label } from "@/components";
+import { Card, CardContent, Label } from "@/packages/components";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 

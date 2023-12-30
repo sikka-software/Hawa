@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { NotFound } from "@blocks/misc";
+import { NotFound } from "@/packages/components/blocks/misc";
 
 import { setLocale, t } from "../../translations/i18n";
 

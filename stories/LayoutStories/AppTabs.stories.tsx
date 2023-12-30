@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppTabs } from "@layout/appTabs";
+import { AppTabs } from "@/packages/components/layout/appTabs";
 
 import { setLocale, t } from "../translations/i18n";
 

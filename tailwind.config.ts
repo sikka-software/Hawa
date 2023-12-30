@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-import glowPlugin from "./components/glow-plugin";
+import glowPlugin from "./packages/components/glow-plugin";
 
 const config: Config = {
   content: [

@@ -1,7 +1,7 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FeedbackForm } from "@blocks/feedback";
+import { FeedbackForm } from "@/packages/components/blocks/feedback";
 
 import { TranslationTable } from "../../../sharedUI/docsUI";
 import { setLocale, t } from "../../translations/i18n";

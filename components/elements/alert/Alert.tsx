@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { DirectionType, SeverityType } from "@_types/commonTypes";
+import { DirectionType, SeverityType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 import { Button } from "../button";
 
 type AlertTypes = {

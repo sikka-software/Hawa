@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useToast } from "@hooks/index";
+import { useToast } from "@/packages/components/hooks/index";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ColumnDef } from "@tanstack/react-table";

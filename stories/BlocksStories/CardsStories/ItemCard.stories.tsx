@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ArrowRightCircle, CopyIcon, Edit2, Heart, Trash2 } from "lucide-react";
 
-import { ItemCard } from "@blocks/cards";
+import { ItemCard } from "@/packages/components/blocks/cards";
 
 import { Button } from "@elements/button";
 import { Count } from "@elements/count";

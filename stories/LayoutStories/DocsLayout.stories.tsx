@@ -4,7 +4,7 @@ import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { DocsSidebar, AppTopbar } from "@layout/index";
+import { DocsSidebar, AppTopbar } from "@/packages/components/layout/index";
 
 import { setLocale } from "../translations/i18n";
 

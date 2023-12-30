@@ -8,9 +8,9 @@ import {
   RowData
 } from "@tanstack/react-table";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 import { Skeleton } from "../skeleton";
 import {
   Table,

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useDialogCarousel, useMultiStepDialog } from "@hooks/index";
+import { useDialogCarousel, useMultiStepDialog } from "@/packages/components/hooks/index";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 

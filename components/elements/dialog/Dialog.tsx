@@ -2,9 +2,9 @@ import * as React from "react";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 const Dialog = DialogPrimitive.Root;
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PricingCard } from "@blocks/cards";
+import { PricingCard } from "@/packages/components/blocks/cards";
 
 import { Input } from "@elements/input";
 import { Radio } from "@elements/radio";

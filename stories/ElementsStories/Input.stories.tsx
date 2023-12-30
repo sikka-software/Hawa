@@ -10,7 +10,7 @@ import { DropdownMenuRadio } from "@elements/dropdownMenu";
 import { Input } from "@elements/input";
 import { Loading } from "@elements/loading";
 
-import { EyeIcon } from "../../components/icons/InputIcons";
+import { EyeIcon } from "../../packages/components/icons/InputIcons";
 import { setLocale, t } from "../translations/i18n";
 
 const meta = {

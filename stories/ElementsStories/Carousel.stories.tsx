@@ -13,7 +13,7 @@ import {
   HardDrive
 } from "lucide-react";
 
-import { ItemCard, LandingCard } from "@blocks/cards";
+import { ItemCard, LandingCard } from "@/packages/components/blocks/cards";
 
 import { Button } from "@elements/button";
 import { Carousel } from "@elements/carousel";

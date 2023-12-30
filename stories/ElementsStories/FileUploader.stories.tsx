@@ -14,7 +14,7 @@ import {
 } from "@elements/card";
 import { FileUploader } from "@elements/fileUploader";
 
-import { cn } from "../../components/util";
+import { cn } from "../../packages/components/util";
 
 const meta = {
   title: "Elements/FileUploader",

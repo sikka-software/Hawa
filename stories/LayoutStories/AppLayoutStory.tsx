@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useToast } from "@hooks/index";
+import { useToast } from "@/packages/components/hooks/index";
 import {
   BarChart2,
   FolderArchive,
@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppLayout } from "@layout/appLayout";
+import { AppLayout } from "@/packages/components/layout/appLayout";
 
 import { ToastAction } from "@elements/toast";
 import { Toaster } from "@elements/toaster";

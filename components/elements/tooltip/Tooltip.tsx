@@ -2,9 +2,9 @@ import React from "react";
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
-import { PositionType } from "@_types/commonTypes";
+import { PositionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,

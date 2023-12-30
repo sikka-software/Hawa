@@ -2,9 +2,9 @@ import React, { FC, useRef, useState } from "react";
 
 import { Card, CardContent } from "@elements/card";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 type DestroyableCard = {
   position?: "bottom-right" | "bottom-left";

@@ -4,7 +4,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Chip, ChipTypes } from "@elements/chip";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 import { AccordionContent } from "./AccordionContent";
 import { AccordionTrigger } from "./AccordionTrigger";
 

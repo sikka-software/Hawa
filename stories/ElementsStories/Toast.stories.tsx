@@ -1,4 +1,4 @@
-import { useToast } from "@hooks/index";
+import { useToast } from "@/packages/components/hooks/index";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 

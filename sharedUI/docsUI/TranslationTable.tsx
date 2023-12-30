@@ -1,4 +1,4 @@
-import { cn } from "../../components/util";
+import { cn } from "../../packages/components/util";
 import React, { FC } from "react";
 import { useDarkMode } from "storybook-dark-mode";
 

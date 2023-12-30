@@ -1,7 +1,7 @@
 import { ArgsTable, Title } from "@storybook/blocks";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { CodeBlock } from "../../../components";
+import { CodeBlock } from "../../../packages/components";
 import { TranslationTable } from "../../../sharedUI/docsUI";
 
 const LoginDocs = (args: any, globals: any) => {

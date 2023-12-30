@@ -1,7 +1,7 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CodeConfirmation } from "@blocks/auth";
+import { CodeConfirmation } from "@/packages/components/blocks/auth";
 
 import { setLocale, t } from "../../translations/i18n";
 

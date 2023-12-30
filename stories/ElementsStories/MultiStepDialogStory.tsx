@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@elements/button";
 import { Dialog, DialogContent, DialogTrigger } from "@elements/dialog";
 
-import { cn } from "../../components/util";
+import { cn } from "../../packages/components/util";
 
 type DialogStep = "paymentMethod" | "formFill" | "result";
 

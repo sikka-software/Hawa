@@ -1,7 +1,7 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 
-import Countries from "../../countries";
-import { cn } from "../../util";
+import Countries from "../../../packages/components/countries";
+import { cn } from "../../../packages/components/util";
 import { Label, LabelProps } from "../label/Label";
 import { Select } from "../select/Select";
 

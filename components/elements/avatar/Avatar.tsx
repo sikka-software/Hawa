@@ -1,8 +1,8 @@
 import React from "react";
 
-import { RadiusType } from "@_types/commonTypes";
+import { RadiusType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 import { FileUploader } from "../fileUploader";
 
 interface AvatarProps {

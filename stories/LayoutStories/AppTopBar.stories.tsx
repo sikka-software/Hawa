@@ -2,7 +2,7 @@ import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { AppLayout, AppTopbar } from "@layout/index";
+import { AppLayout, AppTopbar } from "@/packages/components/layout/index";
 
 const meta = {
   title: "Layout/App Topbar",

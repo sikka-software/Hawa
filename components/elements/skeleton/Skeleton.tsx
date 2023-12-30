@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;

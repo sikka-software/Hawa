@@ -1,9 +1,9 @@
 import React from "react";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { useToast } from "../../hooks/useToast";
-import { cn } from "../../util";
+import { useToast } from "../../../packages/components/hooks/useToast";
+import { cn } from "../../../packages/components/util";
 import {
   Toast,
   ToastClose,

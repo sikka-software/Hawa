@@ -4,7 +4,7 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { LoginForm } from "@blocks/auth";
+import { LoginForm } from "@/packages/components/blocks/auth";
 
 import { Button } from "@elements/index";
 

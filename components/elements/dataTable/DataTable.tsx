@@ -16,9 +16,9 @@ import {
   ExpandedState
 } from "@tanstack/react-table";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 import { Button } from "../button";
 import {
   DropdownMenu,

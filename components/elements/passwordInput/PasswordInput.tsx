@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { CheckMark, EyeIcon, HiddenEyeIcon, UncheckMark } from "../../icons";
+import { CheckMark, EyeIcon, HiddenEyeIcon, UncheckMark } from "../../../packages/components/icons";
 import { Input } from "../input";
 import { Popover } from "../popover";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 type GaugeType = {
   value: number; // Value between 0 and 100

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, RefObject, FC } from "react";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 type BadgeTypes = {
   position: "right" | "left";

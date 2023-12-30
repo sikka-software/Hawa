@@ -13,9 +13,9 @@ import { Label, LabelProps } from "@elements/label";
 import { PopoverContent, PopoverTrigger } from "@elements/popover";
 import { Skeleton } from "@elements/skeleton";
 
-import { DirectionType } from "@_types/commonTypes";
+import { DirectionType } from "@/packages/components/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "../../../packages/components/util";
 
 type ComboboxTypes<T> = {
   labelKey?: keyof T;

@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { HorizontalPricing } from "@blocks/pricing";
+import { HorizontalPricing } from "@/packages/components/blocks/pricing";
 
 import { setLocale } from "../../translations/i18n";
 

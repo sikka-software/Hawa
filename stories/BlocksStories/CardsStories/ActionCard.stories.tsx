@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ActionCard } from "@blocks/cards";
+import { ActionCard } from "@/packages/components/blocks/cards";
 
 import { Button } from "@elements/button";
 

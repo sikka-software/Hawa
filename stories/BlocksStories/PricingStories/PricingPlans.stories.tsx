@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { PricingPlans } from "@blocks/pricing";
+import { PricingPlans } from "@/packages/components/blocks/pricing";
 
 import { setLocale } from "../../translations/i18n";
 

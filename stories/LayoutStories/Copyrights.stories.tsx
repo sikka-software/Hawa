@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Copyrights } from "@layout/index";
+import { Copyrights } from "@/packages/components/layout/index";
 
 import { setLocale, t } from "../translations/i18n";
 
