@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import AutoHeight from "embla-carousel-auto-height";
-import useEmblaCarousel from "embla-carousel-react";
+import useEmblaCarousel, { EmblaCarouselType } from "embla-carousel-react";
 
-export const useDialogCarousel = (options?: any) => {
+export const useDialogCarousel = (options?: any): EmblaCarouselType => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: false, watchDrag: false, startIndex: 0, ...options },
     [AutoHeight({ destroyHeight: "fit", active: true })]
   );
-  // const [currentStep, setCurrentStep] = useState(initialStepId);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const checkCanScrollPrev = () => {
     if (emblaApi) {

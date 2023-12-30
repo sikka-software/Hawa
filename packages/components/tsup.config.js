@@ -74,8 +74,7 @@ const layouts = [
   "stats"
 ];
 const elementEntries = elements.reduce((entries, elementName) => {
-  entries[`${elementName}/index`] =
-    `elements/${elementName}/index.ts`;
+  entries[`${elementName}/index`] = `elements/${elementName}/index.ts`;
   return entries;
 }, {});
 const layoutEntries = layouts.reduce((entries, layoutName) => {
@@ -104,7 +103,8 @@ function createConfigForGroup(entries, name) {
     dts: true,
     target: "es2019",
     format: ["cjs", "esm"],
-    entry: entries
+    entry: entries,
+    tsconfig: "./tsconfig.json"
   });
 }
 const groupedElementEntries = chunkEntries(elementEntries, 3);
