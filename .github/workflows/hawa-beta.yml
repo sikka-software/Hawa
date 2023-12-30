@@ -76,9 +76,9 @@ jobs:
           rm -fr package-lock.json || true
           npm install
           npm run build-storybook
-      - name: Copy Storybook to hawa.style/ss-book
-        run: |
-          # Create the ss-book directory if it does not exist
-          mkdir -p /home/sikka/htdocs/hawa.style/ss-book || true
-          # Copy the entire build-storybook-path folder
-          cp -R /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path/storybook-static /home/sikka/htdocs/hawa.style/ss-book
+      # - name: Copy Storybook to hawa.style/ss-book
+      #   run: |
+      #     # Create the ss-book directory if it does not exist
+      #     mkdir -p /home/sikka/htdocs/hawa.style/ss-book || true
+      #     # Copy the entire build-storybook-path folder
+      #     cp -R /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path/storybook-static /home/sikka/htdocs/hawa.style/ss-book
