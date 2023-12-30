@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: deploy-landing-path
+          path: deploy-landing-path 
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
