@@ -1,4 +1,4 @@
-import { Button, Logos } from "../../packages/components";
+import { Button, Logos } from "../../../packages/components";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";

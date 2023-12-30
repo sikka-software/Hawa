@@ -1,4 +1,4 @@
-import Layout from "@/sharedUI/landingUI/Layout";
+import Layout from "@/apps/web/components/Layout";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
