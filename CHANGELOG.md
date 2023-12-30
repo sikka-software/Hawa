@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.26.17
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 0.26.16
 
 ### Patch Changes
