@@ -14,10 +14,10 @@ import {
 } from "lucide-react";
 
 import { ItemCard, LandingCard } from "@sikka/hawa/blocks";
-import { Button } from "@sikka/hawa/button";
-import { Carousel } from "@sikka/hawa/carousel";
-import { Count } from "@sikka/hawa/count";
-import { Tooltip } from "@sikka/hawa/tooltip";
+import { Button } from "@sikka/hawa/elements/button";
+import { Carousel } from "@sikka/hawa/elements/carousel";
+import { Count } from "@sikka/hawa/elements/count";
+import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
 const meta = {
   title: "Elements/Carousel",

@@ -50,6 +50,8 @@ packages/storybook/storybook-static
 packages/components/node_modules
 packages/components/dist
 
+packages/tests/node_modules
+
 
 # production
 /build

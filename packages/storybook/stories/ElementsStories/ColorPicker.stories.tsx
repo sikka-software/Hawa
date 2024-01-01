@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ColorPicker } from "@sikka/hawa/colorPicker";
+import { ColorPicker } from "@sikka/hawa/elements/colorPicker";
 
 const meta = {
   title: "Elements/Inputs/Color Picker",

@@ -4,8 +4,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@sikka/hawa";
-import { CodeBlock } from "@sikka/hawa";
+// import { Button } from "@sikka/hawa";
+// import { CodeBlock } from "@sikka/hawa";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -59,7 +59,7 @@ export default function Home() {
               exceptional web experiences with Hawa, one block at a time.
             </p>
             <div className="hawa-flex hawa-flex-row hawa-gap-2">
-              <Button
+              {/* <Button
                 variant="outline"
                 onClick={() => {
                   try {
@@ -75,18 +75,18 @@ export default function Home() {
                 aria-label="Open Documentation"
               >
                 Docs
-              </Button>
-              <Link href={"/theme"}>
+              </Button> */}
+              {/* <Link href={"/theme"}>
                 <Button aria-label="Open Documentation">Customize</Button>
-              </Link>
+              </Link> */}
             </div>
-            <CodeBlock
+            {/* <CodeBlock
               // forcedDarkMode
               tabs={[
                 { title: "npm", code: "npm install @sikka/hawa" },
                 { title: "yarn", code: "yarn add @sikka/hawa" }
               ]}
-            />
+            /> */}
 
             <div className="hawa-flex hawa-flex-row hawa-gap-2">
               <a href="https://www.npmjs.com/package/@sikka/hawa">

@@ -2,11 +2,11 @@ import { useRef } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-// import { Button } from "@sikka/hawa/button";
-import { Logos } from "@sikka/hawa/logos";
-import { Tooltip } from "@sikka/hawa/tooltip";
+// import { Button } from "@sikka/hawa/elements/button";
+import { Logos } from "@sikka/hawa/elements/logos";
+import { Button } from "@sikka/hawa/elements/button";
+import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
-import { Button } from "../../../components/elements/button";
 
 const meta = {
   title: "Elements/Button",

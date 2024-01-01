@@ -14,12 +14,7 @@
     "jsx": "preserve",
     "incremental": false,
     "paths": {
-      "@/*": ["./*"],
-      "@_types/*": ["./packages/components/types/*"],
-      "@hooks/*": ["./packages/components/hooks/*"],
-      "@blocks/*": ["./packages/components/blocks/*"],
-      "@elements/*": ["./packages/components/elements/*"],
-      "@layout/*": ["./packages/components/layout/*"]
+      "@sikka/hawa/*": ["../components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

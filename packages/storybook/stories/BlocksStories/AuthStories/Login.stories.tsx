@@ -4,8 +4,8 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { Button } from "@sikka/hawa";
 import { LoginForm } from "@sikka/hawa/blocks/auth";
+import { Button } from "@sikka/hawa/elements/button";
 
 import { setLocale, t } from "../../../translations/i18n";
 import LoginDocs from "./Login";

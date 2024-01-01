@@ -1,11 +1,11 @@
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@sikka/hawa/button";
-import { DropdownMenu } from "@sikka/hawa/dropdownMenu";
+import { Button } from "@sikka/hawa/elements/button";
+import { DropdownMenu } from "@sikka/hawa/elements/dropdownMenu";
 import { useToast } from "@sikka/hawa/hooks";
-import { ToastAction } from "@sikka/hawa/toast";
-import { Toaster } from "@sikka/hawa/toaster";
+import { ToastAction } from "@sikka/hawa/elements/toast";
+import { Toaster } from "@sikka/hawa/elements/toaster";
 
 import { setLocale, t } from "../../translations/i18n";
 

@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ArrowRightCircle, CopyIcon, Edit2, Heart, Trash2 } from "lucide-react";
 
 import { ItemCard } from "@sikka/hawa/blocks";
-import { Button } from "@sikka/hawa/button";
-import { Count } from "@sikka/hawa/count";
-import { Tooltip } from "@sikka/hawa/tooltip";
+import { Button } from "@sikka/hawa/elements/button";
+import { Count } from "@sikka/hawa/elements/count";
+import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
 import { setLocale } from "../../../translations/i18n";
 

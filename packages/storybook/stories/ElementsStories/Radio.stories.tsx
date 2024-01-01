@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Radio } from "@sikka/hawa/radio";
+import { Radio } from "@sikka/hawa/elements/radio";
 
 import { setLocale, t } from "../../translations/i18n";
 

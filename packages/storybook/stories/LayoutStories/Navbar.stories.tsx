@@ -1,9 +1,9 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@sikka/hawa/button";
+import { Button } from "@sikka/hawa/elements/button";
 import { Navbar } from "@sikka/hawa/layout";
-import { Logos } from "@sikka/hawa/logos";
+import { Logos } from "@sikka/hawa/elements/logos";
 
 import { setLocale, t } from "../../translations/i18n";
 

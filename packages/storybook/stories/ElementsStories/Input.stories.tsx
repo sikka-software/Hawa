@@ -5,10 +5,10 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Lock, Search } from "lucide-react";
 
-import { Button } from "@sikka/hawa/button";
-import { DropdownMenuRadio } from "@sikka/hawa/dropdownMenu";
-import { Input } from "@sikka/hawa/input";
-import { Loading } from "@sikka/hawa/loading";
+import { Button } from "@sikka/hawa/elements/button";
+import { DropdownMenuRadio } from "@sikka/hawa/elements/dropdownMenu";
+import { Input } from "@sikka/hawa/elements/input";
+import { Loading } from "@sikka/hawa/elements/loading";
 
 import { EyeIcon } from "../../../components/icons/InputIcons";
 import { setLocale, t } from "../../translations/i18n";

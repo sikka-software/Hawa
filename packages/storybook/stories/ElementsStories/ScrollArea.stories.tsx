@@ -1,8 +1,8 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Label } from "@sikka/hawa/label";
-import { ScrollArea } from "@sikka/hawa/scrollArea";
+import { Label } from "@sikka/hawa/elements/label";
+import { ScrollArea } from "@sikka/hawa/elements/scrollArea";
 
 const meta = {
   title: "Elements/ScrollArea",

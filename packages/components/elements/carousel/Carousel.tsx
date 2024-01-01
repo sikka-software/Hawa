@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 
@@ -109,6 +109,7 @@ const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
         const selected = index === selectedIndex;
         return (
           <div
+            key={index}
             onClick={() => onDotClick(index)}
             className={cn(
               "hawa-h-2 hawa-rounded-full hawa-bg-primary hawa-transition-all hawa-duration-300 hover:hawa-cursor-pointer",
@@ -116,7 +117,6 @@ const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
                 ? "hawa-w-2 hawa-opacity-50"
                 : "hawa-w-6 hawa-opacity-100"
             )}
-            key={index}
           ></div>
         );
       })}
@@ -128,11 +128,7 @@ const CarouselControls = (props: ControlsProps) => {
   return (
     <div className="hawa-flex hawa-justify-end hawa-gap-2 ">
       <button
-        onClick={() => {
-          if (props.canScrollPrev) {
-            props.onPrev();
-          }
-        }}
+        onClick={() => props.canScrollPrev && props.onPrev()}
         disabled={!props.canScrollPrev}
         className={cn(
           "hawa-absolute hawa-start-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",
@@ -151,11 +147,7 @@ const CarouselControls = (props: ControlsProps) => {
         </svg>
       </button>
       <button
-        onClick={() => {
-          if (props.canScrollNext) {
-            props.onNext();
-          }
-        }}
+        onClick={() => props.canScrollNext && props.onNext()}
         disabled={!props.canScrollNext}
         className={cn(
           "hawa-absolute hawa-end-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",

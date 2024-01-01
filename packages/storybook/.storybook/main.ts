@@ -19,6 +19,12 @@ const config: StorybookConfig = {
   framework: { name: "@storybook/nextjs", options: {} },
 
   webpackFinal: async (config: any) => {
+    config.resolve.alias["@sikka/hawa"] = path.resolve(
+      __dirname,
+      "../components/"
+    );
+ 
+
     config.resolve.plugins = [
       new TsconfigPathsPlugin({ extensions: config.resolve.extensions })
     ];

@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Breadcrumb } from "@sikka/hawa/breadcrumb";
+import { Breadcrumb } from "@sikka/hawa/elements/breadcrumb";
 
 const meta = {
   title: "Elements/Breadcrumb",

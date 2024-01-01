@@ -13,8 +13,8 @@ import { useDarkMode } from "storybook-dark-mode";
 
 import { useToast } from "@sikka/hawa/hooks";
 import { AppLayout } from "@sikka/hawa/layout";
-import { ToastAction } from "@sikka/hawa/toast";
-import { Toaster } from "@sikka/hawa/toaster";
+import { ToastAction } from "@sikka/hawa/elements/toast";
+import { Toaster } from "@sikka/hawa/elements/toaster";
 
 import { t } from "../../translations/i18n";
 

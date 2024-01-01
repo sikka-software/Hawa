@@ -12,15 +12,15 @@ import {
   MedalIcon
 } from "lucide-react";
 
-import { Button } from "@sikka/hawa/button";
-import { Chip } from "@sikka/hawa/chip";
+import { Button } from "@sikka/hawa/elements/button";
+import { Chip } from "@sikka/hawa/elements/chip";
 import {
   DropdownMenu,
   DropdownMenuRadio,
   MenuItemType
-} from "@sikka/hawa/dropdownMenu";
-import { Radio } from "@sikka/hawa/radio";
-import { Switch } from "@sikka/hawa/switch";
+} from "@sikka/hawa/elements/dropdownMenu";
+import { Radio } from "@sikka/hawa/elements/radio";
+import { Switch } from "@sikka/hawa/elements/switch";
 
 import { setLocale, t } from "../../translations/i18n";
 

@@ -1,7 +1,7 @@
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Select } from "@sikka/hawa/select";
+import { Select } from "@sikka/hawa/elements/select";
 
 import { setLocale, t } from "../../translations/i18n";
 

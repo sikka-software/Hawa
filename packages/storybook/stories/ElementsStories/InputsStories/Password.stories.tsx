@@ -1,8 +1,8 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "@sikka/hawa/input";
-import { PasswordInput } from "@sikka/hawa/passwordInput";
+import { Input } from "@sikka/hawa/elements/input";
+import { PasswordInput } from "@sikka/hawa/elements/passwordInput";
 
 import { setLocale, t } from "../../../translations/i18n";
 

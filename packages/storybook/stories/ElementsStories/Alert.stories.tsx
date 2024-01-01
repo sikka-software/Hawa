@@ -1,7 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Alert } from "@sikka/hawa/alert";
+import { Alert } from "@sikka/hawa/elements/alert";
 
 import { setLocale, t } from "../../translations/i18n";
 

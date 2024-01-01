@@ -2,8 +2,8 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Upload } from "lucide-react";
 
-import { Avatar } from "@sikka/hawa/avatar";
-import { BadgedComponent } from "@sikka/hawa/badge";
+import { Avatar } from "@sikka/hawa/elements/avatar";
+import { BadgedComponent } from "@sikka/hawa/elements/badge";
 
 import { setLocale, t } from "../../translations/i18n";
 

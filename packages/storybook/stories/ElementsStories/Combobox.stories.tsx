@@ -3,7 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Combobox } from "@sikka/hawa/combobox";
+import { Combobox } from "@sikka/hawa/elements/combobox";
 
 import { setLocale } from "../../translations/i18n";
 

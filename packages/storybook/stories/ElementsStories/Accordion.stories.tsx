@@ -8,7 +8,7 @@ import {
   AccordionContent,
   Accordion,
   AccordionItemProps
-} from "@sikka/hawa/accordion";
+} from "@sikka/hawa/elements/accordion";
 
 import { setLocale, t } from "../../translations/i18n";
 

@@ -5,13 +5,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil } from "lucide-react";
 
-import { Button } from "@sikka/hawa/button";
-import { Card, CardContent, CardHeader } from "@sikka/hawa/card";
-import { DataTable } from "@sikka/hawa/dataTable";
-import { DropdownMenu } from "@sikka/hawa/dropdownMenu";
+import { Button } from "@sikka/hawa/elements/button";
+import { Card, CardContent, CardHeader } from "@sikka/hawa/elements/card";
+import { DataTable } from "@sikka/hawa/elements/dataTable";
+import { DropdownMenu } from "@sikka/hawa/elements/dropdownMenu";
+import { SortButton } from "@sikka/hawa/elements/sortButton";
+import { Toaster } from "@sikka/hawa/elements/toaster";
 import { useToast } from "@sikka/hawa/hooks";
-import { SortButton } from "@sikka/hawa/sortButton";
-import { Toaster } from "@sikka/hawa/toaster";
 
 import { setLocale, t } from "../../translations/i18n";
 import { generateDummyCompanies } from "../../utils/storiesUtils";

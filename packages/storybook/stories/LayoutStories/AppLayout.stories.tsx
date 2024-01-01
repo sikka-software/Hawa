@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Settings, User2 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { Button } from "@sikka/hawa/button";
+import { Button } from "@sikka/hawa/elements/button";
 import { AppLayout } from "@sikka/hawa/layout";
 
 import { setLocale } from "../../translations/i18n";

@@ -1,8 +1,8 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Label } from "@sikka/hawa/label";
-import { Slider } from "@sikka/hawa/slider";
+import { Label } from "@sikka/hawa/elements/label";
+import { Slider } from "@sikka/hawa/elements/slider";
 
 import { setLocale } from "../../translations/i18n";
 

@@ -1,7 +1,7 @@
 import { ArgsTable, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SplitButton } from "@sikka/hawa/splitButton";
+import { SplitButton } from "@sikka/hawa/elements/splitButton";
 
 import { setLocale, t } from "../../translations/i18n";
 

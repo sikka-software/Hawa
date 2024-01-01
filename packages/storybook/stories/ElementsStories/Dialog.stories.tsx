@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@sikka/hawa/button";
+import { Button } from "@sikka/hawa/elements/button";
 import {
   DialogHeader,
   Dialog,
@@ -17,9 +17,9 @@ import {
   DialogCarousel,
   DialogSteps,
   DialogCarouselContent
-} from "@sikka/hawa/dialog";
+} from "@sikka/hawa/elements/dialog";
 import { useDialogCarousel, useMultiStepDialog } from "@sikka/hawa/hooks";
-import { Input } from "@sikka/hawa/input";
+import { Input } from "@sikka/hawa/elements/input";
 
 import { setLocale, t } from "../../translations/i18n";
 import { PropsTable } from "../../utils";

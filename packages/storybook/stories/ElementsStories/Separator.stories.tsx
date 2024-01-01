@@ -1,7 +1,7 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Separator } from "@sikka/hawa/separator";
+import { Separator } from "@sikka/hawa/elements/separator";
 
 import { setLocale } from "../../translations/i18n";
 

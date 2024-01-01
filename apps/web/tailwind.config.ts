@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-import glowPlugin from "./packages/components/glow-plugin";
+// import glowPlugin from "./packages/components/glow-plugin";
 
 const config: Config = {
   content: [
@@ -163,6 +163,9 @@ const config: Config = {
       }
     }
   },
-  plugins: [require("tailwindcss-animate"), glowPlugin]
+  plugins: [
+    require("tailwindcss-animate")
+    // , glowPlugin
+  ]
 };
 export default config;

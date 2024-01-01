@@ -3,9 +3,9 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { PricingCard } from "@sikka/hawa/blocks";
-import { Input } from "@sikka/hawa/input";
-import { Radio } from "@sikka/hawa/radio";
-import { Separator } from "@sikka/hawa/separator";
+import { Input } from "@sikka/hawa/elements/input";
+import { Radio } from "@sikka/hawa/elements/radio";
+import { Separator } from "@sikka/hawa/elements/separator";
 
 const meta = {
   title: "Blocks/Cards/Pricing Card",

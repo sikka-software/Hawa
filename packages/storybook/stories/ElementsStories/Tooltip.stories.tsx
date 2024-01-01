@@ -1,8 +1,8 @@
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@sikka/hawa/button";
-import { Tooltip } from "@sikka/hawa/tooltip";
+import { Button } from "@sikka/hawa/elements/button";
+import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
 const meta = {
   title: "Elements/Tooltip",

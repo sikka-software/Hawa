@@ -2,7 +2,7 @@ import { ArgsTable, Markdown, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Image } from "lucide-react";
 
-import { Skeleton } from "@sikka/hawa/skeleton";
+import { Skeleton } from "@sikka/hawa/elements/skeleton";
 
 const meta = {
   title: "Elements/Skeleton",
