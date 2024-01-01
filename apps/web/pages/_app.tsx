@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
+import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 
-import "@/styles/globals.css";
+import "@sikka/hawa/dist/style.css";
+
 const IBMfont = IBM_Plex_Sans_Arabic({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   subsets: ["arabic"],

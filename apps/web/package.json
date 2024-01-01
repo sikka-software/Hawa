@@ -16,7 +16,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sikka/hawa": "workspace:*",
+    "@sikka/hawa": "workspace:^0.26.18",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "next": "^14.0.4",
