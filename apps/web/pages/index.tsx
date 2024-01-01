@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useTheme } from "next-themes";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -46,6 +47,9 @@ export default function Home() {
   if (!mounted) return null;
   return (
     <main className="hawa-m-0 hawa-flex  hawa-flex-col hawa-gap-2 hawa-p-0">
+      <Head>
+        <title>Hawa UI | Sikka Software</title>
+      </Head>
       <div className="hawa-flex hawa-flex-1 hawa-flex-row">
         <div className="hawa-mt-10 hawa-flex hawa-w-full hawa-flex-col  hawa-items-center hawa-p-10 ">
           <div className="hawa-flex hawa-max-w-2xl hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-4">

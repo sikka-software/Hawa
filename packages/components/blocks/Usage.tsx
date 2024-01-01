@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 
-import { Progress } from "@elements/progress";
 import { Tooltip } from "@elements/tooltip";
+
+import { Progress } from "../elements/progress";
 
 type UsageCardTypes = {
   tooltip?: any;

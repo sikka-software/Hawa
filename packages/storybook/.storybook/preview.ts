@@ -1,9 +1,9 @@
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
-import "../../components/styles.css";
-import { DocsContainer } from "./DocsContainer";
 import "./stories.css";
+import { DocsContainer } from "./DocsContainer";
+import "../../components/styles.css";
 
 const preview: Preview = {
   parameters: {

@@ -2,11 +2,10 @@ import { useRef } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@sikka/hawa/elements/button";
 // import { Button } from "@sikka/hawa/elements/button";
 import { Logos } from "@sikka/hawa/elements/logos";
-import { Button } from "@sikka/hawa/elements/button";
 import { Tooltip } from "@sikka/hawa/elements/tooltip";
-
 
 const meta = {
   title: "Elements/Button",
@@ -17,52 +16,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const Template = () => {
-  const badgeRef = useRef(null);
-  return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2">
-      <h1>Variations</h1>
-      <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-        <Button variant={"default"}>Default</Button>
-        <Button variant={"outline"}>Outline</Button>
-        <Button variant={"destructive"}>Destructive</Button>
-        <Button variant={"ghost"}>Ghost</Button>
-        <Button variant={"light"}>Light</Button>
-        <Button variant={"secondary"}>Secondary</Button>
-        <Button variant={"link"}>Link</Button>
-        <Button variant={"neoBrutalism"}>NeoBrutalism</Button>
-      </div>
-      <h1>Loading</h1>
-      <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-        <Button isLoading variant={"default"}>
-          Default
-        </Button>
-        <Button isLoading variant={"outline"}>
-          Outline
-        </Button>
-        <Button isLoading variant={"destructive"}>
-          Destructive
-        </Button>
-        <Button isLoading variant={"ghost"}>
-          Ghost
-        </Button>
-        <Button isLoading variant={"light"}>
-          Light
-        </Button>
-        <Button isLoading variant={"secondary"}>
-          Secondary
-        </Button>
-        <Button isLoading variant={"link"}>
-          Link
-        </Button>
-        <Button isLoading variant={"neoBrutalism"}>
-          NeoBrutalism
-        </Button>
-      </div>
-    </div>
-  );
-};
-
 export const Variations: Story = {
   render: () => {
     const badgeRef = useRef(null);
@@ -70,14 +23,14 @@ export const Variations: Story = {
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         <h1>Variations</h1>
         <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-          <Button variant={"default"}>Default</Button>
-          <Button variant={"outline"}>Outline</Button>
-          <Button variant={"destructive"}>Destructive</Button>
-          <Button variant={"ghost"}>Ghost</Button>
-          <Button variant={"light"}>Light</Button>
-          <Button variant={"secondary"}>Secondary</Button>
-          <Button variant={"link"}>Link</Button>
-          <Button variant={"neoBrutalism"}>NeoBrutalism</Button>
+          <Button variant="default">Default</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="light">Light</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="link">Link</Button>
+          <Button variant="neoBrutalism">NeoBrutalism</Button>
         </div>
         <h1>Loading</h1>
         <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
