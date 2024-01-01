@@ -277,9 +277,6 @@ importers:
 
   packages/storybook:
     dependencies:
-      '@sikka/hawa':
-        specifier: workspace:*
-        version: link:../components
       '@types/react':
         specifier: ^18.2.46
         version: 18.2.46
