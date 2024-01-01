@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.26.19
+
+### Patch Changes
+
+- Allowed hiding a column by default in `DataTable` using `meta: { hidden: true }`
+
 ## 0.26.17
 
 ### Patch Changes

@@ -289,7 +289,6 @@ const Template = (args: any, globals: any) => {
     {
       accessorKey: "name",
       enableHiding: false,
-
       // header: t("company"),
       meta: { sortable: true },
       header: ({ column }) => (
@@ -302,7 +301,9 @@ const Template = (args: any, globals: any) => {
     },
     {
       accessorKey: "location",
-      header: t("location")
+      header: t("location"),
+      // enableHiding: false
+      meta: { hidden: false }
     },
     {
       accessorKey: "website",
@@ -438,7 +439,7 @@ const Template = (args: any, globals: any) => {
       <DataTable<Company>
         {...args}
         translateFn={t}
-        isLoading={isLoading}
+        // isLoading={isLoading}
         // defaultSort="share_price"
         columns={companiesColumns}
         showCount
