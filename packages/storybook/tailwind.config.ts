@@ -9,6 +9,7 @@ const config: Config = {
   ],
   prefix: "hawa-",
   darkMode: "class",
+
   theme: {
     container: {
       center: true,
@@ -160,8 +161,9 @@ const config: Config = {
     }
   },
   plugins: [
-    require("tailwindcss-animate")
+    require("tailwindcss-animate"),
     //  glowPlugin
+    require("../plugin/src/plugin")
   ]
 };
 export default config;

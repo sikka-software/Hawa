@@ -11,7 +11,7 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport
-} from "../toast/Toast";
+} from "../toast";
 
 type ToasterProps = {
   direction?: DirectionType;

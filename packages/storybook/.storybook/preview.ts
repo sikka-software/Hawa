@@ -1,12 +1,14 @@
+/** @type { import('@storybook/react').Preview } */
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
-
-import "./stories.css";
-import { DocsContainer } from "./DocsContainer";
+import 'tailwindcss/tailwind.css'
 import "../../components/styles.css";
+import { DocsContainer } from "./DocsContainer";
+import "./stories.css";
 
 const preview: Preview = {
   parameters: {
+
     grid: {
       cellSize: 15
     },

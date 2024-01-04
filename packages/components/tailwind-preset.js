@@ -1,6 +1,6 @@
-const colors = require("tailwindcss/colors");
+const glowPlugin = require("./glow-plugin");
 
-module.exports = require("tailwindcss/plugin")(() => undefined, {
+module.exports = {
   theme: {
     container: {
       center: true,
@@ -152,4 +152,4 @@ module.exports = require("tailwindcss/plugin")(() => undefined, {
     }
   },
   plugins: [require("tailwindcss-animate"), glowPlugin]
-});
+};

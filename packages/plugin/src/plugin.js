@@ -151,5 +151,5 @@ module.exports = require("tailwindcss/plugin")(() => undefined, {
       }
     }
   },
-  plugins: [require("tailwindcss-animate"), glowPlugin]
+  plugins: [require("tailwindcss-animate")]
 });

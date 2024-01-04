@@ -1,6 +1,8 @@
+/** @type { import('@storybook/react-vite').StorybookConfig } */
 import type { StorybookConfig } from "@storybook/nextjs";
 import path from "path";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+const getAbsolutePath = (name) => path.dirname(require.resolve(path.join(name, "package.json")))
 
 const config: StorybookConfig = {
   stories: [
@@ -8,6 +10,7 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   addons: [
+    // This is needed to have css files in ./preview.ts
     {
       name: "@storybook/addon-styling-webpack",
       options: {
@@ -69,3 +72,40 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+
+
+// {
+//   name: "@storybook/addon-styling-webpack",
+//   options: {
+//     rules: [
+//       {
+//         test: /\.css$/,
+//         use: [
+//           "style-loader",
+//           {
+//             loader: "css-loader",
+//             options: { importLoaders: 1 }
+//           },
+//           {
+//             loader: "postcss-loader",
+//             options: {
+//               postcssOptions: {
+//                 plugins: [
+//                   require("tailwindcss")(
+//                     path.resolve(
+//                       __dirname,
+//                       "../../components/tailwind.config.ts"
+//                     )
+//                   ),
+//                   require("autoprefixer")
+//                 ]
+//               },
+//               implementation: require.resolve("postcss")
+//             }
+//           }
+//         ]
+//       }
+//     ]
+//   }
+// },

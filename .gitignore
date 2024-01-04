@@ -50,6 +50,7 @@ packages/storybook/storybook-static
 packages/components/node_modules
 packages/components/dist
 
+packages/plugin/node_modules
 packages/tests/node_modules
 
 
