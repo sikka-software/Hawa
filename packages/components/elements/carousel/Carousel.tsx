@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 
 // import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
@@ -10,8 +11,8 @@ type CarouselProps = {
   showArrows?: boolean;
   autoplay?: boolean;
   autoplayInterval?: number;
-  // options?: EmblaOptionsType;
-  options?: any;
+  options?: EmblaOptionsType;
+  // options?: any;
 };
 type DotsProps = {
   itemsLength: number;
@@ -33,10 +34,9 @@ export const Carousel: React.FC<CarouselProps> = ({
   autoplayInterval = 3000,
   ...props
 }) => {
-  const { loop } = options;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     ...options,
-    loop: autoplay ? true : loop || false
+    loop: autoplay ? true : options?.loop || false
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 

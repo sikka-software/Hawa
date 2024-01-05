@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.26.20
+
+### Patch Changes
+
+- Added `embla-carousel` as a devDependency
+- Fixed types for `useDialogCarousel` hook
+
 ## 0.26.19
 
 ### Patch Changes

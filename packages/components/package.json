@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.26.19",
+  "version": "0.26.20",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -102,6 +102,7 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
+    "embla-carousel": "8.0.0-rc18",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lucide-react": "^0.303.0",
