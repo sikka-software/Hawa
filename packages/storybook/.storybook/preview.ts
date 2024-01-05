@@ -1,7 +1,7 @@
 /** @type { import('@storybook/react').Preview } */
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
-import 'tailwindcss/tailwind.css'
+// import 'tailwindcss/tailwind.css'
 import "../../components/styles.css";
 import { DocsContainer } from "./DocsContainer";
 import "./stories.css";

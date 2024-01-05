@@ -4,6 +4,7 @@
   "scripts": {
     "dev:docs": "pnpm --filter hawa-docs dev",
     "dev:storybook": "pnpm --filter hawa-storybook storybook",
+    "dev:all": "concurrently -p \"[{name}]\" -n \"docs,storybook\" -c \"cyan,magenta\" \"pnpm run dev:docs\" \"pnpm run dev:storybook\"",
     "build:lib": "pnpm --filter @sikka/hawa build-lib && pnpm --filter @sikka/hawa run build-css",
     "build:docs": "pnpm --filter hawa-docs build",
     "build:storybook": "pnpm --filter hawa-storybook build-storybook",
@@ -15,6 +16,7 @@
     "apps/*"
   ],
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.10",

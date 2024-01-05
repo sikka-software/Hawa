@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { useTheme } from "next-themes";
 
-// import { Card, CardContent } from "@sikka/hawa/elements/card";
-// import { CodeBlock } from "@/packages/components/elements/codeBlock";
-// import { ColorPicker } from "@/packages/components/elements/colorPicker";
+import { Card, CardContent } from "@sikka/hawa/card";
+import { CodeBlock } from "@sikka/hawa/codeBlock";
+import { ColorPicker } from "@sikka/hawa/colorPicker";
 
 // TODO: use the actual variable name as an ID
 type ColorSetting = {
@@ -183,8 +183,8 @@ ${cssVariables}    --radius: 0.5rem;
     setGeneratedCSS(generateCSS());
   }, [generateCSS]);
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-10 lg:hawa-flex-row ">
-      {/* <Card className="hawa-w-full">
+    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-10 md:hawa-flex-row ">
+      <Card className="hawa-w-full">
         <CardContent
           headless
           className="hawa-grid hawa-grid-cols-2  hawa-items-end hawa-gap-4 hawa-gap-x-10"
@@ -204,9 +204,9 @@ ${cssVariables}    --radius: 0.5rem;
             </div>
           ))}
         </CardContent>
-      </Card> */}
+      </Card>
 
-      {/* <CodeBlock className="hawa-z-0" language="css" code={generatedCSS} /> */}
+      <CodeBlock className="hawa-z-0" language="css" code={generatedCSS} />
     </div>
   );
 };
