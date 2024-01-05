@@ -12,7 +12,7 @@ on:
 
 jobs:
   publish-package:
-    if: ${{contains(github.event.head_commit.message, 'skip_publish')}}
+    if: ${{!contains(github.event.head_commit.message, 'skip_publish')}}
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v2
@@ -34,14 +34,13 @@ jobs:
         run: npm publish --tag $NPM_PUBLISH_TAG # Specify the tag here
 
   deploy-landing:
-    # if: ${{ contains(github.event.head_commit.message, 'deploy_landing') }}
+    if: ${{ contains(github.event.head_commit.message, 'deploy_landing') }}
 
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v2
         with:
-          # path: deploy-landing-path
-          clean: false
+          path: deploy-landing-path
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
@@ -49,38 +48,37 @@ jobs:
       - name: Install Hawa Landing
         run: |
           rm -fr /home/sikka/htdocs/hawa.style || true
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path
           rm -fr package-lock.json || true
           rm -fr node_modules  || true
           npm install
           npm run build --if-present
-          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/ /home/sikka/htdocs/hawa.style
+          ln -s /var/www/html/sikka-software/_work/Hawa/Hawa/deploy-landing-path /home/sikka/htdocs/hawa.style
           pm2 stop hawa-landing || true
           pm2 delete hawa-landing || true
           pm2 start npm --name "hawa-landing" -- start || true
           pm2 save || true
 
   build-storybook:
-    # if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') }}
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v2
         with:
-          # path: build-storybook-path
-          clean: false
+          path: build-storybook-path
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Generate Storybook Static Files
         run: |
-          cd /var/www/html/sikka-software/_work/Hawa/Hawa
+          cd /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path
           rm -fr package-lock.json || true
           npm install
           npm run build-storybook
-  # - name: Copy Storybook to hawa.style/ss-book
-  #   run: |
-  #     # Create the ss-book directory if it does not exist
-  #     mkdir -p /home/sikka/htdocs/hawa.style/ss-book || true
-  #     # Copy the entire build-storybook-path folder
-  #     cp -R /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path/storybook-static /home/sikka/htdocs/hawa.style/ss-book
+      # - name: Copy Storybook to hawa.style/ss-book
+      #   run: |
+      #     # Create the ss-book directory if it does not exist
+      #     mkdir -p /home/sikka/htdocs/hawa.style/ss-book || true
+      #     # Copy the entire build-storybook-path folder
+      #     cp -R /var/www/html/sikka-software/_work/Hawa/Hawa/build-storybook-path/storybook-static /home/sikka/htdocs/hawa.style/ss-book

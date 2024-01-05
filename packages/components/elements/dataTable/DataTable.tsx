@@ -69,6 +69,7 @@ declare module "@tanstack/table-core" {
   interface ColumnMeta<TData extends RowData, TValue> {
     padding?: "condensed" | "default" | "noPadding";
     sortable?: boolean;
+    hidden?: boolean;
   }
 }
 
@@ -90,13 +91,18 @@ export const DataTable = <DataProps extends {}>({
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
+
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
 
+  const visibleColumns = columns.filter(
+    (column) => column.meta?.hidden !== true
+  );
+
   const table = useReactTable({
     data,
-    columns,
+    columns: visibleColumns,
     onExpandedChange: setExpanded,
     getExpandedRowModel: getExpandedRowModel(),
     onGlobalFilterChange: setGlobalFilter,
