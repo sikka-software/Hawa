@@ -1,6 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/dist
 
 # dependencies
 /node_modules
@@ -15,9 +14,6 @@ package-lock.json
 /.next/
 /out/
 
-# production
-/build
-/storybook-static
 
 #chromatic
 chromatic.log
@@ -53,4 +49,23 @@ packages/tests/node_modules
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+dist
+
+# 
+apps/web/next-env.d.ts
+apps/web/.next
+apps/web/node_modules
+
+packages/storybook/node_modules
+packages/storybook/storybook-static
+
+packages/components/node_modules
+packages/components/dist
+
+packages/plugin/node_modules
+packages/tests/node_modules
+
+
+# production
+/build

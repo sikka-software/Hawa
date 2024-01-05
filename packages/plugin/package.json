@@ -1,0 +1,35 @@
+{
+  "name": "@sikka/hawa-tailwind-plugin",
+  "description": "Tailwind plugin for @sikka/hawa and components",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "plugin",
+    "react",
+    "hawa-ui",
+    "hawa",
+    "tailwind",
+    "dynamic",
+    "component"
+  ],
+  "homepage": "https://hawa.style",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sikka-software/hawa.git",
+    "directory": "packages/plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/sikka-software/hawa/issues"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "dependencies": {
+    "tailwindcss-animate": "1.0.7"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

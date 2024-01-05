@@ -1,0 +1,35 @@
+import { Meta, Unstyled } from "@storybook/blocks";
+import { WrappedCodeBlock } from "../../utils";
+import { useDarkMode } from "storybook-dark-mode";
+
+<Meta title="Installation" />
+
+<div className="hawa-pb-4">
+  <h1>Installation</h1>
+  <p>Run one of the following commands to add Hawa to your project:</p>
+  <Unstyled>
+    <WrappedCodeBlock
+      tabs={[
+        {
+          title: "npm",
+          code: "npm install @sikka/hawa",
+        },
+        {
+          title: "yarn",
+          code: "yarn add @sikka/hawa",
+        },
+      ]}
+    />
+  </Unstyled>
+</div>
+
+<h3>
+  The npm package has [(3
+  tags)](https://www.npmjs.com/package/@sikka/hawa?activeTab=versions)
+</h3>
+
+`@beta` for the archived hawa codebase (deprecated).
+
+`@next`tag is used for the pre-release.
+
+`@latest` latest stable release. (recommended)

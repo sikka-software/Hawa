@@ -8,6 +8,7 @@ module.exports = {
     "^@layout/(.*)$",
     "^@elements/(.*)$",
     "^@_types/(.*)$",
+    "^@sikka/(.*)$",
     "^[./]"
   ],
   plugins: [
