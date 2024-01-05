@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 
+// import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { cn } from "../../util";
 
 type CarouselProps = {
@@ -9,7 +10,8 @@ type CarouselProps = {
   showArrows?: boolean;
   autoplay?: boolean;
   autoplayInterval?: number;
-  options?: EmblaOptionsType;
+  // options?: EmblaOptionsType;
+  options?: any;
 };
 type DotsProps = {
   itemsLength: number;

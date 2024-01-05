@@ -2,7 +2,9 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 import path from "path";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
-const getAbsolutePath = (name) => path.dirname(require.resolve(path.join(name, "package.json")))
+
+const getAbsolutePath = (name) =>
+  path.dirname(require.resolve(path.join(name, "package.json")));
 
 const config: StorybookConfig = {
   stories: [
@@ -63,6 +65,8 @@ const config: StorybookConfig = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
+      "@/": path.resolve(__dirname, "../../components/"),
+      "@layout": path.resolve(__dirname, "../../components/layout"),
       "@elements": path.resolve(__dirname, "../../components/elements"),
       "@blocks": path.resolve(__dirname, "../../components/blocks")
     };
@@ -72,8 +76,6 @@ const config: StorybookConfig = {
 };
 
 export default config;
-
-
 
 // {
 //   name: "@storybook/addon-styling-webpack",

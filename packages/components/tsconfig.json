@@ -16,6 +16,7 @@
     "paths": {
       "@/*": ["./*"],
       "@_types/*": ["./types/*"],
+      "@util/*": ["./util/*"],
       "@hooks/*": ["./hooks/*"],
       "@blocks/*": ["./blocks/*"],
       "@elements/*": ["./elements/*"],

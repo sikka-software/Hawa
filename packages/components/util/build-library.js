@@ -6,7 +6,7 @@ const {
   buildAllConfig,
   buildBlocksConfig,
   buildCoreConfig
-} = require("./tsup.config");
+} = require("../tsup.config");
 
 async function buildGroup(config) {
   await build(config);

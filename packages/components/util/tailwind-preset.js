@@ -1,4 +1,4 @@
-const glowPlugin = require("./glow-plugin");
+const glowPlugin = require("../glow-plugin");
 
 module.exports = {
   theme: {

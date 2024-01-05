@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.26.18",
+  "version": "0.26.19",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -47,8 +47,8 @@
   "scripts": {
     "check": "tsc --noEmit",
     "test": "jest",
-    "prebuild": "node pre-build.js",
-    "build-lib": "npm run prebuild && node build-library.js",
+    "prebuild": "node ./util/pre-build.js",
+    "build-lib": "npm run prebuild && node ./util/build-library.js",
     "build-lib-old": "tsup --dts",
     "build-css": "postcss styles.css -o dist/index.css",
     "prepub": "npm run build-lib && npm run build-css",

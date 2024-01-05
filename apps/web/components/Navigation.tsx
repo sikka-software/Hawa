@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { Button } from "@sikka/hawa/button";
 import { Logos } from "@sikka/hawa/logos";
-
 export default function Navigation() {
   const { theme, setTheme } = useTheme();
 

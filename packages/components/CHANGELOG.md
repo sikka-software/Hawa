@@ -4,6 +4,13 @@
 
 ### Patch Changes
 
+- General cleanup
+- Created a `util` folder containing all the utility files
+
+## 0.26.19
+
+### Patch Changes
+
 - Allowed hiding a column by default in `DataTable` using `meta: { hidden: true }`
 
 ## 0.26.17
