@@ -6,7 +6,7 @@ import { Button } from "@sikka/hawa/button";
 import { Logos } from "@sikka/hawa/logos";
 export default function Navigation() {
   const { theme, setTheme } = useTheme();
- 
+  
   return (
     <div className="hawa-z-50  hawa-sticky hawa-top-0 hawa-items-center hawa-border-b  hawa-w-full hawa-flex hawa-flex-col hawa-justify-center hawa-h-fit hawa-bg-background">
       <div className="hawa-flex-row  hawa-flex  hawa-items-center hawa-justify-between  hawa-p-2  hawa-h-fit hawa-w-full hawa-max-w-2xl">
