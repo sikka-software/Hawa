@@ -1,11 +1,15 @@
 import * as React from "react";
 
 import { cn } from "@util/index";
-import { Label, LabelProps } from "../label/Label";
+
+import { Skeleton } from "@elements/skeleton";
+
+import { Label, LabelProps } from "../label";
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   helperText?: string;
+  isLoading?: boolean;
   /** The label of the input field   */
   label?: any;
   labelProps?: LabelProps;
@@ -28,6 +32,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       forceHideHelperText,
       textareaProps,
       countPosition = "bottom",
+      isLoading,
       ...props
     },
     ref
@@ -40,15 +45,31 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           className
         )}
       >
-        {props.label && <Label {...labelProps}>{props.label}</Label>}
-        <textarea
-          className={cn(
-            "hawa-flex hawa-min-h-[40px] hawa-w-full hawa-rounded-md hawa-border hawa-border-input hawa-bg-background hawa-px-3 hawa-py-2 hawa-text-sm hawa-ring-offset-background placeholder:hawa-text-gray-400 placeholder:hawa-text-muted-foreground focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
-            classNames?.textarea
+        <div className="hawa-flex hawa-flex-row hawa-justify-between">
+          {props.label && <Label {...labelProps}>{props.label}</Label>}
+          {showCount && countPosition === "top" && (
+            <div
+              className={
+                "hawa-text-start hawa-text-xs hawa-transition-all hawa-leading-none"
+              }
+            >
+              {textareaProps?.value ? String(textareaProps?.value).length : 0}/
+              {textareaProps?.maxLength}
+            </div>
           )}
-          ref={ref}
-          {...textareaProps}
-        />
+        </div>
+        {isLoading ? (
+          <Skeleton style={{ height: 40 }} />
+        ) : (
+          <textarea
+            className={cn(
+              "hawa-flex hawa-min-h-[40px] hawa-h-[40px]  hawa-w-full hawa-rounded-md hawa-border hawa-border-input hawa-bg-background hawa-px-3 hawa-py-2 hawa-text-sm hawa-ring-offset-background placeholder:hawa-text-gray-400 placeholder:hawa-text-muted-foreground focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
+              classNames?.textarea
+            )}
+            ref={ref}
+            {...textareaProps}
+          />
+        )}
         <div className="hawa-flex hawa-flex-row hawa-justify-between">
           {/* Regular helper text */}
           {!forceHideHelperText && (
@@ -65,16 +86,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           )}
 
           {/* Character Counter */}
-          {showCount && (
-            <div
-              className={cn(
-                "hawa-text-start hawa-text-xs hawa-transition-all",
-                {
-                  "hawa-absolute hawa-bottom-[80px] hawa-end-0 hawa-translate-y-1/2":
-                    countPosition === "top"
-                }
-              )}
-            >
+          {showCount && countPosition === "bottom" && (
+            <div className={"hawa-text-start hawa-text-xs hawa-transition-all"}>
               {textareaProps?.value ? String(textareaProps?.value).length : 0}/
               {textareaProps?.maxLength}
             </div>

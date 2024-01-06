@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ArgsTable, Story, Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+// import { Textarea } from "@sikka/hawa/textarea";
+//
 import {
   Alert,
   Button,
@@ -19,7 +21,8 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger, // SplitButton,
-  Slider
+  Slider,
+  Textarea
 } from "../../../components/elements";
 import { SplitButton } from "../../../components/elements/splitButton";
 import { setLocale, t } from "../../translations/i18n";
@@ -203,6 +206,31 @@ export const SelectAndInput: Story = {
               popoverClassName="hawa-w-full"
               defaultValue="84040984098"
             />
+
+            <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-w-full">
+              <Textarea
+                showCount
+                label={"This is textarea"}
+                // preview={preview}
+                isLoading={loading}
+                countPosition="top"
+                textareaProps={{
+                  maxLength: 100,
+                  placeholder: "Placeholder text here"
+                }}
+              />
+
+              <Textarea
+                showCount
+                label={"This is textarea"}
+                isLoading={loading}
+                // preview={preview}
+                textareaProps={{
+                  maxLength: 100,
+                  placeholder: "Placeholder text here"
+                }}
+              />
+            </div>
 
             <Input
               preview={preview}

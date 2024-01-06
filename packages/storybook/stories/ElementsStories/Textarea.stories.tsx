@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -23,9 +23,24 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
 
+    const [isLoading, setIsLoading] = useState(true);
+    const [currentColor, setCurrentColor] = useState("#f0f0f0");
+    useEffect(() => {
+      // Set a timeout to change isLoading to true after 2 seconds
+      const timeoutId = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      // Clear the timeout if the component unmounts before the timeout is reached
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []); // Empty dependency array ensures this effect runs only once
+
     return (
       <div className="hawa-flex hawa-w-64 hawa-flex-col hawa-gap-4">
         <Textarea
+          isLoading={isLoading}
           label="Textarea component"
           helperText="Helper text here"
           textareaProps={{ placeholder: "Placeholder text here" }}
