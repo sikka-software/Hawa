@@ -1,6 +1,8 @@
 import React from "react";
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+
 import "@testing-library/jest-dom";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+
 import { Alert } from "../components/elements";
 
 test("renders Alert with text", () => {
@@ -84,8 +86,8 @@ describe("Alert Component Prop Testing", () => {
           {
             label: "Action 1",
             onClick: handleClick,
-            variant: "default",
-          },
+            variant: "default"
+          }
         ]}
       />
     );

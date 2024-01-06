@@ -30,8 +30,6 @@ export const Default: Story = {
             <Checkbox
               label="I believe in good faith that the usage of the copyrighted material I have reported is not permitted by the copyright holder, their representative, or the law."
               id="diks"
-              // sublabel='fefefeef'
-              // helperText="dsdsdd"
             />
           </div>
         </div>

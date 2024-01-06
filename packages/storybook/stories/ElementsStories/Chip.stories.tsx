@@ -39,7 +39,6 @@ export const Sizes: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
     const direction = locale === "ar" ? "rtl" : "ltr";
-
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Chip size="small" label={t("small")} color={"green"} />
@@ -54,7 +53,6 @@ export const AsStatus: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
     const direction = locale === "ar" ? "rtl" : "ltr";
-
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Chip
@@ -80,7 +78,6 @@ export const WithIcons: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
     const direction = locale === "ar" ? "rtl" : "ltr";
-
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Chip

@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { DirectionType } from "@/types/commonTypes";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -15,8 +16,6 @@ import {
   RowData,
   ExpandedState
 } from "@tanstack/react-table";
-
-import { DirectionType } from "@/types/commonTypes";
 
 import { cn } from "../../util";
 import { Button } from "../button";
@@ -37,6 +36,8 @@ import {
   TableHeader,
   TableRow
 } from "../table";
+
+export type { ColumnDef } from "@tanstack/react-table";
 
 type DataTableProps<DataProps = {}> = {
   direction?: DirectionType;
@@ -278,7 +279,7 @@ export const DataTable = <DataProps extends {}>({
             {/* CAPTION FOR CURRENT SELECTED ROWS */}
             {props.showCount && (
               <div
-                className="text-sm text-muted-foreground"
+                className="text-muted-foreground text-sm"
                 dir={props.direction}
               >
                 <span>{props.texts?.total}</span>{" "}

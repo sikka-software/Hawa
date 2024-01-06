@@ -5,8 +5,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ComparingPlans } from "@sikka/hawa/blocks/pricing";
 
-import { generateFeaturesArray } from "../../../utils/storiesUtils";
 import { setLocale, t } from "../../../translations/i18n";
+import { generateFeaturesArray } from "../../../utils/storiesUtils";
 
 const meta = {
   title: "Blocks/Pricing/Comparing Plans",
@@ -81,18 +81,6 @@ export const Default: Story = {
               },
               features: generateFeaturesArray(3)
             }
-            // {
-            //   price: 30,
-            //   texts: {
-            //     buttonText: "Upgrade",
-            //     currencyText: "sar",
-            //     cycleText: "Month",
-            //     subtitle: "For businesses",
-            //     title: "Professional Plan",
-            //     soon: t("soon"),
-            //   },
-            //   features: generateFeaturesArray(3),
-            // },
           ]}
         />
         <div className="hawa-h-screen"></div>

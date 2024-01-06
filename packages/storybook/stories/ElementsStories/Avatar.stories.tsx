@@ -33,11 +33,7 @@ export const Default: Story = {
           </div>
           <div>
             <div className="hawa-text-lg hawa-font-bold">Without Image</div>
-            <Avatar
-              // src="https://source.unsplash.com/featured/?nature,1"
-              alt="User Avatar"
-              {...args}
-            />
+            <Avatar alt="User Avatar" {...args} />
           </div>
           <div>
             <div className="hawa-text-lg hawa-font-bold">Custom Icon</div>
@@ -62,12 +58,7 @@ export const Default: Story = {
           <div className="hawa-text-lg hawa-font-bold">
             Uploadable (click to upload)
           </div>
-          <Avatar
-            isUploadable={true}
-            // src="https://source.unsplash.com/featured/?nature,1"
-            alt="User Avatar"
-            {...args}
-          />
+          <Avatar isUploadable={true} alt="User Avatar" {...args} />
         </div>
       </div>
     );
@@ -109,7 +100,6 @@ export const Sizes: Story = {
           <div key={i}>
             <div className="hawa-text-lg hawa-font-bold">{avatarSize}</div>
             <Avatar
-              // isUploadable={true}
               src="https://source.unsplash.com/featured/?nature,1"
               alt="User Avatar"
               size={avatarSize}
@@ -160,9 +150,5 @@ export const Radius: Story = {
       </div>
     );
   },
-  parameters: {
-    controls: {
-      exclude: ["radius"]
-    }
-  }
+  parameters: { controls: { exclude: ["radius"] } }
 };

@@ -21,12 +21,10 @@ export const FullPage: Story = {
 
     return (
       <div
-        // dir={args.direction}
         className="hawa-bg-layoutPrimary-500 hawa-fixed hawa-left-0 hawa-top-0 hawa-flex hawa-h-screen hawa-w-screen hawa-flex-wrap hawa-items-start hawa-justify-start hawa-gap-2 hawa-overflow-y-scroll hawa-p-4"
         ref={ref}
       >
         <BackToTop anchor={ref} />
-
         <div>
           <h1 className="hawa-text-xl hawa-font-bold">
             Scroll down to see the button
@@ -49,10 +47,7 @@ export const InContainer: Story = {
     const ref1 = useRef(null);
     const ref2 = useRef(null);
     return (
-      <div
-        // dir={args.direction}
-        className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-4"
-      >
+      <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-4">
         <div
           className="hawa-h-64 hawa-w-1/2 hawa-overflow-y-scroll hawa-rounded hawa-bg-card hawa-p-4"
           ref={ref1}

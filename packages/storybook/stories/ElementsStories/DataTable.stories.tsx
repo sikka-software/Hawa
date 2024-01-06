@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ColumnDef } from "@tanstack/react-table";
 import { Pencil } from "lucide-react";
 
 import { Button } from "@sikka/hawa/elements/button";
 import { Card, CardContent, CardHeader } from "@sikka/hawa/elements/card";
-import { DataTable } from "@sikka/hawa/elements/dataTable";
+import { DataTable, ColumnDef } from "@sikka/hawa/elements/dataTable";
 import { DropdownMenu } from "@sikka/hawa/elements/dropdownMenu";
 import { SortButton } from "@sikka/hawa/elements/sortButton";
 import { Toaster } from "@sikka/hawa/elements/toaster";
@@ -24,253 +23,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof DataTable>;
 
-let companiesData: Company[] = [
-  {
-    name: "Microsoft",
-    location: "United States",
-    website: "www.microsoft.com",
-    employees: 123456,
-    share_price: 45.12
-  },
-  {
-    name: "Apple Inc.",
-    location: "United States",
-    website: "www.apple.com",
-    employees: 147000,
-    share_price: 150.99
-  },
-  {
-    name: "Amazon",
-    location: "United States",
-    website: "www.amazon.com",
-    employees: 876000,
-    share_price: 3345.67
-  },
-  {
-    name: "Google",
-    location: "United States",
-    website: "www.google.com",
-    employees: 150000,
-    share_price: 2750.33
-  },
-  {
-    name: "Facebook",
-    location: "United States",
-    website: "www.facebook.com",
-    employees: 60000,
-    share_price: 360.45
-  },
-  {
-    name: "Tesla",
-    location: "United States",
-    website: "www.tesla.com",
-    employees: 70000,
-    share_price: 750.2
-  },
-  {
-    name: "Alphabet Inc.",
-    location: "United States",
-    website: "www.abc.xyz",
-    employees: 135000,
-    share_price: 2850.75
-  },
-  {
-    name: "Alibaba Group",
-    location: "China",
-    website: "www.alibaba.com",
-    employees: 115000,
-    share_price: 200.1
-  },
-  {
-    name: "Samsung",
-    location: "South Korea",
-    website: "www.samsung.com",
-    employees: 270000,
-    share_price: 85.6
-  },
-  {
-    name: "IBM",
-    location: "United States",
-    website: "www.ibm.com",
-    employees: 34500,
-    share_price: 130.25
-  },
-  {
-    name: "Toyota",
-    location: "Japan",
-    website: "www.toyota-global.com",
-    employees: 360000,
-    share_price: 150.75
-  },
-  {
-    name: "Walmart",
-    location: "United States",
-    website: "www.walmart.com",
-    employees: 2200000,
-    share_price: 140.99
-  },
-  {
-    name: "General Electric",
-    location: "United States",
-    website: "www.ge.com",
-    employees: 283000,
-    share_price: 12.45
-  },
-  {
-    name: "Coca-Cola",
-    location: "United States",
-    website: "www.coca-cola.com",
-    employees: 72500,
-    share_price: 54.3
-  },
-  {
-    name: "Ford",
-    location: "United States",
-    website: "www.ford.com",
-    employees: 190000,
-    share_price: 25.8
-  },
-  {
-    name: "Boeing",
-    location: "United States",
-    website: "www.boeing.com",
-    employees: 140000,
-    share_price: 220.15
-  },
-  {
-    name: "Nestle",
-    location: "Switzerland",
-    website: "www.nestle.com",
-    employees: 273000,
-    share_price: 105.4
-  },
-  {
-    name: "Procter & Gamble",
-    location: "United States",
-    website: "www.pg.com",
-    employees: 99000,
-    share_price: 135.8
-  },
-  {
-    name: "Sony",
-    location: "Japan",
-    website: "www.sony.net",
-    employees: 111700,
-    share_price: 75.2
-  },
-  {
-    name: "Volkswagen",
-    location: "Germany",
-    website: "www.vw.com",
-    employees: 670000,
-    share_price: 220.5
-  },
-  {
-    name: "JPMorgan Chase",
-    location: "United States",
-    website: "www.jpmorganchase.com",
-    employees: 256105,
-    share_price: 120.3
-  },
-  {
-    name: "Pfizer",
-    location: "United States",
-    website: "www.pfizer.com",
-    employees: 78000,
-    share_price: 44.1
-  },
-  {
-    name: "ExxonMobil",
-    location: "United States",
-    website: "www.exxonmobil.com",
-    employees: 74900,
-    share_price: 62.9
-  },
-  {
-    name: "AT&T",
-    location: "United States",
-    website: "www.att.com",
-    employees: 230000,
-    share_price: 30.25
-  },
-  {
-    name: "Verizon",
-    location: "United States",
-    website: "www.verizon.com",
-    employees: 135000,
-    share_price: 55.75
-  },
-  {
-    name: "Intel",
-    location: "United States",
-    website: "www.intel.com",
-    employees: 110800,
-    share_price: 60.4
-  },
-  {
-    name: "Cisco Systems",
-    location: "United States",
-    website: "www.cisco.com",
-    employees: 77000,
-    share_price: 55.9
-  },
-  {
-    name: "Oracle",
-    location: "United States",
-    website: "www.oracle.com",
-    employees: 138000,
-    share_price: 82.15
-  },
-  {
-    name: "Adobe Inc.",
-    location: "United States",
-    website: "www.adobe.com",
-    employees: 24500,
-    share_price: 285.2
-  },
-  {
-    name: "Netflix",
-    location: "United States",
-    website: "www.netflix.com",
-    employees: 9800,
-    share_price: 550.75
-  },
-  {
-    name: "Mitsubishi",
-    location: "Japan",
-    website: "www.mitsubishi.com",
-    employees: 87000,
-    share_price: 32.4
-  },
-  {
-    name: "Novartis",
-    location: "Switzerland",
-    website: "www.novartis.com",
-    employees: 110000,
-    share_price: 86.2
-  },
-  {
-    name: "Siemens",
-    location: "Germany",
-    website: "www.siemens.com",
-    employees: 300000,
-    share_price: 120.1
-  },
-  {
-    name: "Nokia",
-    location: "Finland",
-    website: "www.nokia.com",
-    employees: 92000,
-    share_price: 4.5
-  },
-  {
-    name: "McDonald's",
-    location: "United States",
-    website: "www.mcdonalds.com",
-    employees: 205000,
-    share_price: 245.6
-  }
-];
 let generatedData: Company[] = generateDummyCompanies(150);
 
 type Company = {
@@ -289,7 +41,6 @@ const Template = (args: any, globals: any) => {
     {
       accessorKey: "name",
       enableHiding: false,
-      // header: t("company"),
       meta: { sortable: true },
       header: ({ column }) => (
         <SortButton
@@ -302,7 +53,6 @@ const Template = (args: any, globals: any) => {
     {
       accessorKey: "location",
       header: t("location"),
-      // enableHiding: false
       meta: { hidden: false }
     },
     {
@@ -372,7 +122,6 @@ const Template = (args: any, globals: any) => {
         return (
           <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
             <DropdownMenu
-              // width="parent"
               trigger={
                 <Button className="hawa-m-0 hawa-h-6" variant="ghost">
                   <span className="hawa-sr-only">Open menu</span>

@@ -27,7 +27,6 @@ export const Default: Story = {
         dir={direction}
       >
         <ItemCard
-          // className="hawa-h-full hawa-min-h-[400px]"
           headerActions={[
             { label: "QR Code", action: () => console.log("clicking on QR") },
             {
@@ -109,13 +108,9 @@ export const Default: Story = {
               </Tooltip>
             </div>
           }
-          {...args}
         />
       </div>
     );
   },
-  args: {},
-  argTypes: {
-    onCardClick: { action: "onCardClick" }
-  }
+  argTypes: { onCardClick: { action: "onCardClick" } }
 };

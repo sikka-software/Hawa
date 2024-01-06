@@ -21,7 +21,7 @@ export const Default: Story = {
     setLocale(locale);
 
     return (
-      <div dir="rtl" className="p-4 hawa-max-w-md">
+      <div dir="rtl" className="hawa-max-w-md p-4">
         <PasswordInput
           hidePopover
           onChange={(e) => console.log("changing to ", e.target.value)}

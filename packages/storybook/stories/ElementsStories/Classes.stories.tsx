@@ -5,7 +5,6 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Classes",
   parameters: {
-    // layout: "centered",
     docs: {
       page: () => (
         <>

@@ -3,7 +3,6 @@ import { useRef } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@sikka/hawa/elements/button";
-// import { Button } from "@sikka/hawa/elements/button";
 import { Logos } from "@sikka/hawa/elements/logos";
 import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
@@ -18,7 +17,6 @@ type Story = StoryObj<typeof Button>;
 
 export const Variations: Story = {
   render: () => {
-    const badgeRef = useRef(null);
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         <h1>Variations</h1>

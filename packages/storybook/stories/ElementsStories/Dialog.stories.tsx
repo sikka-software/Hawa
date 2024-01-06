@@ -18,8 +18,8 @@ import {
   DialogSteps,
   DialogCarouselContent
 } from "@sikka/hawa/elements/dialog";
-import { useDialogCarousel, useMultiStepDialog } from "@sikka/hawa/hooks";
 import { Input } from "@sikka/hawa/elements/input";
+import { useDialogCarousel, useMultiStepDialog } from "@sikka/hawa/hooks";
 
 import { setLocale, t } from "../../translations/i18n";
 import { PropsTable } from "../../utils";
@@ -124,9 +124,7 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    persist: true
-  }
+  args: { persist: true }
 };
 export const Persistent: Story = {
   render: (args: any, globals: any) => {
@@ -167,10 +165,7 @@ export const Persistent: Story = {
       </div>
     );
   },
-  args: {
-    persist: true,
-    hideCloseButton: true
-  }
+  args: { persist: true, hideCloseButton: true }
 };
 export const RTL: Story = {
   render: (args: any) => {

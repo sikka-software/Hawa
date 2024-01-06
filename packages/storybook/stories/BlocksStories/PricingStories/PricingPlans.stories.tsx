@@ -33,7 +33,6 @@ export const Default: Story = {
             setCurr(e);
           }}
           onCycleChange={(e) => setCycl(e)}
-          // onPlanClicked={(e: any) => console.log("upgradign to ", e)}
           billingCycles={[
             { label: `Month`, value: `monthly` },
             { label: `Year`, value: `annually` }
@@ -45,18 +44,7 @@ export const Default: Story = {
           plans={[
             {
               currentPlan: false,
-              // recommended: true,
               price: 9.99,
-              // price: {
-              //   sar: {
-              //     monthly: 9.99,
-              //     annually: 9.99 * 12,
-              //   },
-              //   usd: {
-              //     monthly: 34.49,
-              //     annually: 34.49 * 12,
-              //   },
-              // },
               currency: "SAR",
               cycleText: "month",
               buttonText: "Select Plan",
@@ -84,16 +72,6 @@ export const Default: Story = {
               currentPlan: true,
               oldPrice: cycl.value === "annually" ? 10 : null,
               price: 3000,
-              // price: {
-              //   sar: {
-              //     monthly: 300,
-              //     annually: 300 * 12,
-              //   },
-              //   usd: {
-              //     monthly: 300,
-              //     annually: 300 * 12,
-              //   },
-              // },
               currency: "SAR",
               cycleText: "month",
               buttonText: "Current Plan",
@@ -148,9 +126,5 @@ export const Default: Story = {
       </div>
     );
   },
-  argTypes: {
-    onPlanClicked: {
-      action: "onPlanClicked"
-    }
-  }
+  argTypes: { onPlanClicked: { action: "onPlanClicked" } }
 };

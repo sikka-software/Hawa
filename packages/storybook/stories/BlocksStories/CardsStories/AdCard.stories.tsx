@@ -35,9 +35,5 @@ export const Default: Story = {
     description:
       "Increase your hiring chances by turning your CV into a digital one with a link"
   },
-  argTypes: {
-    handleClick: {
-      action: "clicking ad"
-    }
-  }
+  argTypes: { handleClick: { action: "clicking ad" } }
 };

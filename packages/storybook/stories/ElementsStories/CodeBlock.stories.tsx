@@ -28,9 +28,7 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    code: "npm install @sikka/hawa"
-  }
+  args: { code: "npm install @sikka/hawa" }
 };
 
 export const withTabs: Story = {
@@ -45,18 +43,9 @@ export const withTabs: Story = {
   },
   args: {
     tabs: [
-      {
-        title: "npm",
-        code: "npm install @sikka/hawa"
-      },
-      {
-        title: "yarn",
-        code: "yarn add @sikka/hawa"
-      },
-      {
-        title: "pnpm",
-        code: "pnpm add @sikka/hawa"
-      }
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
     ]
   }
 };
@@ -92,18 +81,9 @@ export const withBoth: Story = {
     fileName: "hawa.js",
     language: "jsx",
     tabs: [
-      {
-        title: "npm",
-        code: "npm install @sikka/hawa"
-      },
-      {
-        title: "yarn",
-        code: "yarn add @sikka/hawa"
-      },
-      {
-        title: "pnpm",
-        code: "pnpm add @sikka/hawa"
-      }
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
     ]
   }
 };

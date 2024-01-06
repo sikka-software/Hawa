@@ -1,14 +1,13 @@
 /** @type { import('@storybook/react').Preview } */
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
-// import 'tailwindcss/tailwind.css'
+
 import "../../components/styles.css";
 import { DocsContainer } from "./DocsContainer";
 import "./stories.css";
 
 const preview: Preview = {
   parameters: {
-
     grid: {
       cellSize: 15
     },
@@ -20,22 +19,11 @@ const preview: Preview = {
           "Usage",
           "Blocks",
           "Layout",
-          "Elements",
-          [
-            "Introduction",
-            ["Container"],
-            "Inputs",
-            "Tables",
-            "Loading",
-            "Button",
-            "Cards"
-          ]
+          "Elements"
         ]
       }
     },
-    docs: {
-      container: DocsContainer
-    },
+    docs: { container: DocsContainer },
     darkMode: {
       current: "light",
       light: {
@@ -55,15 +43,9 @@ const preview: Preview = {
       darkClass: ["hawa-dark", "dark"],
       lightClass: ["hawa-light", "light"],
       stylePreview: true
-      // classTarget: "body",
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/
-      }
-    }
+    controls: { matchers: { color: /(background|color)$/i, date: /Date$/ } }
   }
 };
 export const globalTypes = {

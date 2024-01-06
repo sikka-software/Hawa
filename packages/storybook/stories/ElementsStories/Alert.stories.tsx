@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alert } from "@sikka/hawa/elements/alert";
 
-import { setLocale, t } from "../../translations/i18n";
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Alert",
@@ -73,9 +73,7 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    persistent: false
-  }
+  args: { persistent: false }
 };
 export const Persistent: Story = {
   render: (args) => (
@@ -89,7 +87,5 @@ export const Persistent: Story = {
       />
     </div>
   ),
-  args: {
-    persistent: false
-  }
+  args: { persistent: false }
 };

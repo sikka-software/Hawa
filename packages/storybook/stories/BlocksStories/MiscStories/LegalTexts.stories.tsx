@@ -21,7 +21,6 @@ export const Default: Story = {
     const tabsData = [
       {
         title: "Privacy Policy",
-        // content: "This is the content for the Privacy Policy.",
         content: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet tortor aliquam orci ultrices, eget ornare elit aliquet. Quisque suscipit finibus cursus. Donec consequat pellentesque augue id molestie. Aliquam nisi purus, consectetur ut sagittis vitae, feugiat vel orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis ex non nibh ultricies sodales. Curabitur et velit scelerisque, dictum mi at, tempor nibh. Vivamus auctor diam a sem vestibulum, eu lacinia ipsum laoreet. Proin cursus nisi bibendum, lobortis ipsum ac, auctor eros. Donec euismod mi nec mi elementum, a rutrum nibh venenatis. Integer felis nulla, rhoncus sed lectus eu, eleifend imperdiet tellus. Nulla quam tortor, bibendum in nulla a, convallis consequat neque. Praesent scelerisque, lorem sed semper commodo, nisi nulla faucibus dolor, eu ultricies neque dui a sem. Pellentesque orci velit, pharetra quis tempus id, facilisis ut orci. Nunc quis mauris fringilla, finibus eros vestibulum, finibus libero. Ut nec auctor risus.
   

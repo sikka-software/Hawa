@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { FeedbackForm } from "@sikka/hawa/blocks/feedback";
 
-import { TranslationTable } from "../../../utils";
 import { setLocale, t } from "../../../translations/i18n";
+import { TranslationTable } from "../../../utils";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Form",
@@ -61,61 +61,45 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof FeedbackForm>;
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  const direction = locale === "ar" ? "rtl" : "ltr";
-  setLocale(locale);
-
-  return (
-    <div dir={direction} className="hawa-max-w-sm">
-      <FeedbackForm
-        texts={{
-          description: {
-            label: t("description"),
-            tooShort: t("descriptionTooShort"),
-            required: t("descriptionRequired")
-          },
-          requestType: {
-            label: t("requestType"),
-            required: t("requestTypeRequired"),
-            placeholder: t("requestTypePlaceholder"),
-            noOptions: t("noOptions")
-          },
-          submit: t("submit")
-        }}
-        {...args}
-      />
-    </div>
-  );
-};
 export const Default: Story = {
-  render: Template.bind({}),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    return (
+      <div dir={direction} className="hawa-max-w-sm">
+        <FeedbackForm
+          texts={{
+            description: {
+              label: t("description"),
+              tooShort: t("descriptionTooShort"),
+              required: t("descriptionRequired")
+            },
+            requestType: {
+              label: t("requestType"),
+              required: t("requestTypeRequired"),
+              placeholder: t("requestTypePlaceholder"),
+              noOptions: t("noOptions")
+            },
+            submit: t("submit")
+          }}
+          {...args}
+        />
+      </div>
+    );
+  },
   argTypes: {
     onSubmit: { action: "onSubmit" }
   },
   args: {
     cardless: false,
     requestTypes: [
-      {
-        label: "Custom Type",
-        value: "custom-type"
-      },
-      {
-        label: "Bug",
-        value: "bug"
-      },
-      {
-        label: "Feature",
-        value: "feature"
-      },
-      {
-        label: "Complain",
-        value: "complain"
-      },
-      {
-        label: "Support",
-        value: "support"
-      }
+      { label: "Custom Type", value: "custom-type" },
+      { label: "Bug", value: "bug" },
+      { label: "Feature", value: "feature" },
+      { label: "Complain", value: "complain" },
+      { label: "Support", value: "support" }
     ]
   }
 };

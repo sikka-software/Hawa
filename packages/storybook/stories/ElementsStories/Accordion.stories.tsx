@@ -30,15 +30,14 @@ const accordionData: AccordionItemProps[] = [
   {
     trigger: "Another Question",
     content: "Here's another answer.",
-    chip: {
-      label: "soon"
-    }
+    chip: { label: "soon" }
   },
   { trigger: "Another Question", content: "Here's another answer." },
   {
     trigger: "Nested Question",
     content: (
       <Accordion
+        type="single"
         items={[
           {
             trigger: "Another Question",
@@ -48,12 +47,9 @@ const accordionData: AccordionItemProps[] = [
           {
             trigger: "Another Question",
             content: "Here's another answer.",
-            chip: {
-              label: "soon"
-            }
+            chip: { label: "soon" }
           }
         ]}
-        type="single"
       />
     )
   },

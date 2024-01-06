@@ -20,25 +20,15 @@ export const Default: Story = {
     const [curr, setCurr] = useState("sar");
     const [cycle, setCycle] = useState("monthly");
     const [priceObject, setPriceObject] = useState<any>({
-      sar: {
-        monthly: 300,
-        annually: 300 * 12
-      },
-      usd: {
-        monthly: 300,
-        annually: 300 * 12
-      }
+      sar: { monthly: 300, annually: 300 * 12 },
+      usd: { monthly: 300, annually: 300 * 12 }
     });
     return (
       <div>
         <PricingCard
           {...args}
           price={priceObject[curr][cycle]}
-          texts={{
-            ...args.texts,
-            currencyText: curr,
-            cycleText: cycle
-          }}
+          texts={{ ...args.texts, currencyText: curr, cycleText: cycle }}
         />
         <Separator className="hawa-my-4" />
         <h1>Debug</h1>
@@ -66,10 +56,7 @@ export const Default: Story = {
               onChange={(e) => {
                 setPriceObject({
                   ...priceObject,
-                  sar: {
-                    ...priceObject.sar,
-                    monthly: parseInt(e.target.value)
-                  }
+                  sar: { ...priceObject.sar, monthly: parseInt(e.target.value) }
                 });
               }}
             />
@@ -94,10 +81,7 @@ export const Default: Story = {
               onChange={(e) => {
                 setPriceObject({
                   ...priceObject,
-                  usd: {
-                    ...priceObject.usd,
-                    monthly: parseInt(e.target.value)
-                  }
+                  usd: { ...priceObject.usd, monthly: parseInt(e.target.value) }
                 });
               }}
             />

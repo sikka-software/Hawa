@@ -25,8 +25,6 @@ export const Default: Story = {
         <HorizontalPricing
           billingCycles={[
             { label: `Monthly`, value: `monthly` },
-            // { label: `3 Months`, value: `3-months` },
-            // { label: `6 Months`, value: `6-months` },
             { label: `Annually`, value: `annually` }
           ]}
           currencies={[
@@ -39,7 +37,6 @@ export const Default: Story = {
               price: 0,
               currency: "SAR",
               cycleText: "month",
-              // buttonText: "Select Plan",
               texts: {
                 buttonText: "Upgrade",
                 currencyText: "sar",
@@ -48,21 +45,9 @@ export const Default: Story = {
                 title: "Free Plan"
               },
               features: [
-                {
-                  // description: "Make as many menus as you want",
-                  included: true,
-                  text: "Unlimited Menus"
-                },
-                {
-                  //  description: "",
-                  included: true,
-                  text: "Unlimited Items"
-                },
-                {
-                  // description: "",
-                  included: false,
-                  text: "Custom Menus"
-                }
+                { included: true, text: "Unlimited Menus" },
+                { included: true, text: "Unlimited Items" },
+                { included: false, text: "Custom Menus" }
               ]
             },
             {
@@ -70,7 +55,6 @@ export const Default: Story = {
               price: 10,
               currency: "SAR",
               cycleText: "month",
-              // buttonText: "Current Plan",
               texts: {
                 buttonText: "Current Plan",
                 currencyText: "sar",

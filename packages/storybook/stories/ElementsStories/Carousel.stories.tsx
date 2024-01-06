@@ -21,18 +21,7 @@ import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
 const meta = {
   title: "Elements/Carousel",
-  component: Carousel,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Carousel/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  component: Carousel
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -45,8 +34,7 @@ export const Default: Story = {
         <Carousel options={{ loop: false }} {...args} items={images} />
       </div>
     </div>
-  ),
-  args: {}
+  )
 };
 export const Cards: Story = {
   render: () => (
@@ -58,10 +46,7 @@ export const Cards: Story = {
         <Carousel items={itemCardsArray} options={{ loop: false }} />
       </div>
     </div>
-  ),
-  args: {
-    autoplay: false
-  }
+  )
 };
 export const Autoplay: Story = {
   render: (args) => (
@@ -71,10 +56,7 @@ export const Autoplay: Story = {
       </div>
     </div>
   ),
-  args: {
-    autoplay: true
-    // autoplayInterval: 100,
-  }
+  args: { autoplay: true }
 };
 
 const images = [
@@ -249,4 +231,4 @@ const createItemCard = (numCards: number) => {
   return cards;
 };
 
-const itemCardsArray = createItemCard(4); // Replace 4 with the desired number of cards
+const itemCardsArray = createItemCard(4);

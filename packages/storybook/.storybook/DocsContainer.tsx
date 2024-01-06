@@ -1,8 +1,8 @@
-/* .storybook/DocsContainer.tsx */
 import React, { PropsWithChildren } from "react";
+
 import {
   DocsContainer as BaseContainer,
-  DocsContainerProps as BaseContainerProps,
+  DocsContainerProps as BaseContainerProps
 } from "@storybook/blocks";
 import { themes } from "@storybook/theming";
 import { useDarkMode } from "storybook-dark-mode";

@@ -19,14 +19,10 @@ export const FeedbackEmotion: Story = {
     const [isSuccess, setIsSuccess] = useState(false);
     const mockSubmit = async (data: any) => {
       return new Promise((resolve, reject) => {
-        // Simulate an asynchronous operation (e.g., a 2-second delay)
         setTimeout(() => {
-          // Simulate a successful submission
           setIsSuccess(true);
           resolve("Submission successful");
-          // Simulate an error
-          // reject("Submission failed");
-        }, 2000); // 2-second delay
+        }, 2000);
       });
     };
     return (

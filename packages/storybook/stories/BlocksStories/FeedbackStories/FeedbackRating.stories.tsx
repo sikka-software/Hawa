@@ -18,10 +18,7 @@ export const Popup: Story = {
   args: {
     title: "Quick question",
     question: "How satisfied are you with the invoicing system?",
-    texts: {
-      least: "Not at all satisfied",
-      most: "Extremely satisfied"
-    },
+    texts: { least: "Not at all satisfied", most: "Extremely satisfied" },
     options: [1, 2, 3, 4, 5],
     onOptionClicked: (e) => console.log("clicking option ", e)
   }
@@ -32,10 +29,7 @@ export const Banner: Story = {
     banner: true,
     title: "Quick question",
     question: "How satisfied are you with the invoicing system?",
-    texts: {
-      least: "Not at all satisfied",
-      most: "Extremely satisfied"
-    },
+    texts: { least: "Not at all satisfied", most: "Extremely satisfied" },
     options: [1, 2, 3, 4, 5],
     onOptionClicked: (e) => console.log("clicking option ", e)
   }

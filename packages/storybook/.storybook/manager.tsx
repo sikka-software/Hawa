@@ -4,13 +4,11 @@ import { addons } from "@storybook/manager-api";
 
 addons.setConfig({
   sidebar: {
-    renderLabel: (t) => {
-      return <div style={{ fontSize: t.isRoot ? 18 : 14 }}>{t.name}</div>;
-    },
+    renderLabel: ({ type, name }) => (
+      <div style={{ fontSize: type === "root" ? 18 : 14 }}>{name}</div>
+    ),
     filters: {
-      patterns: (item: any) => {
-        return !item.tags.includes("hide");
-      },
-    },
-  },
+      patterns: (item: any) => !item.tags.includes("hide")
+    }
+  }
 });

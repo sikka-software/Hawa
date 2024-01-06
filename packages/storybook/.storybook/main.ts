@@ -12,41 +12,6 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   addons: [
-    // This is needed to have css files in ./preview.ts
-    {
-      name: "@storybook/addon-styling-webpack",
-      options: {
-        rules: [
-          {
-            test: /\.css$/,
-            use: [
-              "style-loader",
-              {
-                loader: "css-loader",
-                options: { importLoaders: 1 }
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  postcssOptions: {
-                    plugins: [
-                      require("tailwindcss")(
-                        path.resolve(
-                          __dirname,
-                          "../../components/tailwind.config.ts"
-                        )
-                      ),
-                      require("autoprefixer")
-                    ]
-                  },
-                  implementation: require.resolve("postcss")
-                }
-              }
-            ]
-          }
-        ]
-      }
-    },
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
@@ -54,15 +19,12 @@ const config: StorybookConfig = {
   ],
   core: { disableWhatsNewNotifications: true },
   staticDirs: ["../public"],
-
   framework: { name: "@storybook/nextjs", options: {} },
-
   webpackFinal: async (config: any) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
       new TsconfigPathsPlugin({ extensions: config.resolve.extensions })
     ];
-
     config.resolve.alias = {
       ...config.resolve.alias,
       "@/": path.resolve(__dirname, "../../components/"),
@@ -76,38 +38,3 @@ const config: StorybookConfig = {
 };
 
 export default config;
-
-// {
-//   name: "@storybook/addon-styling-webpack",
-//   options: {
-//     rules: [
-//       {
-//         test: /\.css$/,
-//         use: [
-//           "style-loader",
-//           {
-//             loader: "css-loader",
-//             options: { importLoaders: 1 }
-//           },
-//           {
-//             loader: "postcss-loader",
-//             options: {
-//               postcssOptions: {
-//                 plugins: [
-//                   require("tailwindcss")(
-//                     path.resolve(
-//                       __dirname,
-//                       "../../components/tailwind.config.ts"
-//                     )
-//                   ),
-//                   require("autoprefixer")
-//                 ]
-//               },
-//               implementation: require.resolve("postcss")
-//             }
-//           }
-//         ]
-//       }
-//     ]
-//   }
-// },

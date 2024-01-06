@@ -47,11 +47,10 @@ export const Default: Story = {
               onClick={() => setHideBadge(!hideBadge)}
               variant={"outline"}
             >
-              Hide Badge{" "}
+              Hide Badge
             </Button>
           </BadgedComponent>
         </div>
-
         <BadgedComponent
           className="hawa-w-fit"
           position="left"
@@ -61,8 +60,7 @@ export const Default: Story = {
         </BadgedComponent>
       </div>
     );
-  },
-  args: {}
+  }
 };
 
 // export const WithText: Story = {

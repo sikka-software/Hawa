@@ -31,7 +31,5 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    color: "#f0f0f0"
-  }
+  args: { color: "#f0f0f0" }
 };

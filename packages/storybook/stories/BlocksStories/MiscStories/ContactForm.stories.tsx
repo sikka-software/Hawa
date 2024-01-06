@@ -47,10 +47,6 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    cardless: false
-  },
-  argTypes: {
-    onSubmit: { action: "onSubmit" }
-  }
+  args: { cardless: false },
+  argTypes: { onSubmit: { action: "onSubmit" } }
 };
