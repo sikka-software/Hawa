@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "../util";
+import { cn } from "@util/index";
 
 export const CheckMark = ({ size = "default", className }: any) => {
   let sizeStyles: any = {

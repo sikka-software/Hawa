@@ -17,7 +17,7 @@ import {
   ExpandedState
 } from "@tanstack/react-table";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Button } from "../button";
 import {
   DropdownMenu,

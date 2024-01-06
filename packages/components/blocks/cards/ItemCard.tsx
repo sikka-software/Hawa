@@ -6,7 +6,7 @@ import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
 import { OrientationType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 interface ItemCardTypes {
   headerActions?: MenuItemType[];

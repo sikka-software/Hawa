@@ -4,7 +4,7 @@ import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 
 // import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type CarouselProps = {
   items: React.ReactNode[];

@@ -6,7 +6,7 @@ import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {

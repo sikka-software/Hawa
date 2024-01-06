@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@elements/sheet";
 import { DirectionType } from "@/types/commonTypes";
 
 import { useBreakpoint } from "../../hooks/useBreakpoint";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { DocsSidebar } from "../docsSidebar/DocsSidebar";
 
 type AppLayoutTypes = {

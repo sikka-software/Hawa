@@ -4,7 +4,7 @@ import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
 import { OrientationType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type ScrollAreaProps = React.ComponentPropsWithoutRef<
   typeof ScrollAreaPrimitive.Root

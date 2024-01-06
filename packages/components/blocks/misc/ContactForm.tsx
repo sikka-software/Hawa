@@ -11,7 +11,7 @@ import { Textarea } from "@elements/textarea";
 
 import { TextInputType } from "@/types/textTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type ContactFormData = {
   name: string;

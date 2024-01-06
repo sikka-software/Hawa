@@ -7,7 +7,7 @@ import { Label, LabelProps } from "../label";
 import { PopoverContent, PopoverTrigger } from "../popover";
 import { Skeleton } from "../skeleton";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import {
   Command,
   CommandEmpty,

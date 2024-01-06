@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type SingleAppTab = {
   label: string;

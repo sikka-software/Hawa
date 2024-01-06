@@ -4,7 +4,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 import { DirectionType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 const Dialog = DialogPrimitive.Root;
 

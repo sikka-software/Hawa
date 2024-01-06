@@ -4,7 +4,7 @@ import { DirectionType } from "@/types/commonTypes";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Chip, ChipColors } from "../../elements/chip";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 const Accordion = AccordionPrimitive.Root;
 

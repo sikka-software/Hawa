@@ -18,7 +18,7 @@ import {
 } from "@/types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { AuthButtons } from "./AuthButtons";
 
 type LoginFormTypes = {

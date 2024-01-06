@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useRef } from "react";
 
 import { OrientationType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type AdCardTypes = {
   orientation: OrientationType;

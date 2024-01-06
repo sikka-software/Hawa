@@ -6,7 +6,7 @@ import { DirectionType, RadioOptionType } from "@/types/commonTypes";
 import { PlanFeature } from "@/types/pricingTypes";
 import { PricingPlanTexts } from "@/types/textTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type HorizontalPricingTypes = {
   plans: {

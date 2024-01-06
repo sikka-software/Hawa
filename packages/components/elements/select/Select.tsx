@@ -4,7 +4,7 @@ import CreatableSelect from "react-select/creatable";
 
 import clsx from "clsx";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Label, LabelProps } from "../label";
 import { Skeleton } from "../skeleton";
 

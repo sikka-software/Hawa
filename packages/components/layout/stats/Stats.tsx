@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Card, CardContent, CardTitle } from "@elements/card";
 import { Skeleton } from "@elements/skeleton";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;

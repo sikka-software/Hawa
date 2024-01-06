@@ -3,7 +3,7 @@ import * as React from "react";
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Dialog, DialogContent } from "../dialog";
 
 const Command = React.forwardRef<

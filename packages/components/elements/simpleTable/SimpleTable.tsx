@@ -10,7 +10,7 @@ import {
 
 import { DirectionType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Skeleton } from "../skeleton";
 import {
   Table,

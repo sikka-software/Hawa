@@ -3,7 +3,7 @@ import React from "react";
 import { DirectionType } from "@/types/commonTypes";
 
 import { useToast } from "../../hooks/useToast";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import {
   Toast,
   ToastClose,

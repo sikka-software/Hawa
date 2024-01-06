@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 
 import { OrientationType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Radio } from "../radio/Radio";
 
 type TypographyTypes = {

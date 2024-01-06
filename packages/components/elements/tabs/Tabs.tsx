@@ -3,7 +3,7 @@ import * as React from "react";
 import { OrientationType } from "@/types/commonTypes";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Chip, ChipTypes } from "../chip/Chip";
 
 const TabsContext = React.createContext<{

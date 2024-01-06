@@ -1,6 +1,6 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Button } from "../button";
 
 type BackToTopTypes = {

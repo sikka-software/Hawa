@@ -15,8 +15,8 @@
     "incremental": false,
     "paths": {
       "@/*": ["./*"],
-      "@_types/*": ["./types/*"],
       "@util/*": ["./util/*"],
+      "@_types/*": ["./types/*"],
       "@hooks/*": ["./hooks/*"],
       "@blocks/*": ["./blocks/*"],
       "@elements/*": ["./elements/*"],

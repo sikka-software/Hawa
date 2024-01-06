@@ -19,7 +19,7 @@ import {
 } from "@/types/textTypes";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { AuthButtons } from "./AuthButtons";
 
 type RegisterFormTypes = {

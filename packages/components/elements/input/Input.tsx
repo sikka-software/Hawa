@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Label, LabelProps } from "../label/Label";
 import { Skeleton } from "../skeleton/Skeleton";
 

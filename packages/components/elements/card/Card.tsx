@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   clickable?: boolean;

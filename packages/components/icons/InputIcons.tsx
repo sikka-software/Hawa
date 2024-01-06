@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "../util";
+import { cn } from "@util/index";
 
 export const EyeIcon = (props: any) => (
   <div className={cn("hawa-h-5 hawa-w-5", props.className)}>

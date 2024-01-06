@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 import { Loading } from "../loading/Loading";
 
 const buttonVariants = cva(

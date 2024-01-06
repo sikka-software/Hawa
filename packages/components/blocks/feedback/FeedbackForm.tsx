@@ -12,7 +12,7 @@ import { Textarea } from "@elements/textarea";
 
 import { BaseInputType } from "@/types/textTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type FeedbackFormRequestTypeInputProps = BaseInputType & {
   required?: string;

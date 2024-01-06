@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollArea } from "@elements/scrollArea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type TabType = {
   title: string;

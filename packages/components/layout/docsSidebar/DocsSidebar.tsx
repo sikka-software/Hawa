@@ -2,7 +2,7 @@ import React from "react";
 
 import { DirectionType } from "@/types/commonTypes";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type DocsSidebarType = {
   pages: any[];

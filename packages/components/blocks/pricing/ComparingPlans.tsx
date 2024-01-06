@@ -14,7 +14,7 @@ import { Tooltip } from "@elements/tooltip";
 
 import { Chip } from "../../elements/chip";
 import { CheckMark, UncheckMark } from "../../icons";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type ComparingPlansTypes = {
   plans: {

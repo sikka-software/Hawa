@@ -9,7 +9,7 @@ import { Skeleton } from "@elements/skeleton";
 import { Tooltip } from "@elements/tooltip";
 
 import { Chip } from "../../elements/chip";
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 export const PricingCard: FC<PricingCardProps> = ({
   size = "medium",

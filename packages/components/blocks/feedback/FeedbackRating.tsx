@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import { Button } from "@elements/button";
 
-import { cn } from "../../util";
+import { cn } from "@util/index";
 
 type ComponentTypes = {
   title?: string;
