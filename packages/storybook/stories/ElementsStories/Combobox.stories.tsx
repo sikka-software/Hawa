@@ -14,27 +14,13 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 let roles = [
-  {
-    _id: "09849846540345",
-    label: "Superadmin"
-  },
-  {
-    _id: "013216506546584098",
-    label: "Admin"
-  },
-  {
-    _id: "84940984065496",
-    label: "Viewer"
-  },
-  {
-    _id: "6401651321",
-    label: "User"
-  },
-  {
-    _id: "84040984098",
-    label: "Editor"
-  }
+  { _id: "09849846540345", label: "Superadmin" },
+  { _id: "013216506546584098", label: "Admin" },
+  { _id: "84940984065496", label: "Viewer" },
+  { _id: "6401651321", label: "User" },
+  { _id: "84040984098", label: "Editor" }
 ];
+
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
@@ -46,50 +32,40 @@ export const Default: Story = {
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
             label="Role"
-            preview={true}
-            texts={{
-              placeholder: "Select Role"
-            }}
             data={roles}
+            preview={true}
             valueKey={"_id"}
+            texts={{ placeholder: "Select Role" }}
           />
         </div>
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
             label="Role"
+            data={roles}
             preview={true}
-            texts={{
-              placeholder: "Select Role"
-            }}
+            valueKey={"_id"}
             helperText="this is helpertext"
-            data={roles}
-            valueKey={"_id"}
+            texts={{ placeholder: "Select Role" }}
           />
         </div>
-
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
-            label="Loading"
             isLoading
-            texts={{
-              placeholder: "Select Role"
-            }}
             data={roles}
+            label="Loading"
             valueKey={"_id"}
+            texts={{ placeholder: "Select Role" }}
           />
         </div>
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
-            label="No Search"
-            direction={direction}
             hideInput
             data={roles}
             valueKey={"_id"}
-            texts={{
-              placeholder: "Select Role"
-            }}
+            label="No Search"
+            direction={direction}
+            texts={{ placeholder: "Select Role" }}
           />
-
           <Combobox data={roles} valueKey={"_id"} direction={direction} />
         </div>
       </div>

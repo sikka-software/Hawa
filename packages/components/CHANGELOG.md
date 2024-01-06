@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.26.22
+
+### Patch Changes
+
+- Fixed RTL width issue in `ColorPicker`
+- Optimized internal import aliases
+
 ## 0.26.20
 
 ### Patch Changes

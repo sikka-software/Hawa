@@ -8,16 +8,15 @@ import React, {
 } from "react";
 
 import { cn } from "@util/index";
+
 import { Label, LabelProps } from "../label";
 
 type ColorPickerTypes = {
   label?: string;
   id?: string;
-  // hint?: string;
-  // hintSide?: PositionType;
-  // isRequired?: boolean;
   labelProps?: LabelProps;
   helperText?: string;
+  forceHideHelperText?: boolean;
   /** The hex code for the color */
   color?: any;
   /** Fires everytime the color changes */
@@ -36,6 +35,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   colorPickerProps,
   textInputProps,
   labelProps,
+  forceHideHelperText,
   ...props
 }) => {
   const [selectedColor, setSelectedColor] = useState(props.color);
@@ -66,7 +66,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   };
 
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2">
+    <div className="hawa-flex hawa-w-fit hawa-flex-col hawa-gap-2">
       {props.label && <Label {...labelProps}>{props.label}</Label>}
 
       <div dir="ltr" className="hawa-flex hawa-w-full hawa-flex-row">
@@ -104,16 +104,18 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
         </div>
       </div>
 
-      <p
-        className={cn(
-          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-          props.helperText
-            ? "hawa-h-4 hawa-opacity-100"
-            : "hawa-h-0 hawa-opacity-0"
-        )}
-      >
-        {props.helperText}
-      </p>
+      {!forceHideHelperText && (
+        <p
+          className={cn(
+            "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+            props.helperText
+              ? "hawa-h-4 hawa-opacity-100"
+              : "hawa-h-0 hawa-opacity-0"
+          )}
+        >
+          {props.helperText}
+        </p>
+      )}
     </div>
   );
 };

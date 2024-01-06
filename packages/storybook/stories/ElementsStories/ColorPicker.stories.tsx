@@ -5,22 +5,29 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ColorPicker } from "@sikka/hawa/elements/colorPicker";
 
+import { setLocale } from "../../translations/i18n";
+
 const meta = {
   title: "Elements/Inputs/Color Picker",
-  component: ColorPicker,
-  parameters: { layout: "centered" }
+  component: ColorPicker
+  // parameters: { layout: "centered" }
 } satisfies Meta<typeof ColorPicker>;
 
 export default meta;
 type Story = StoryObj<typeof ColorPicker>;
 
 export const Default: Story = {
-  render: (args: any) => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
     const [currentColor, setCurrentColor] = useState("#f0f0f0");
     return (
-      <div>
+      <div dir={direction} className="hawa-bg-red-500">
         <ColorPicker
           label="Color"
+          forceHideHelperText
           color={currentColor}
           handleChange={(e: any) => {
             console.log("changing color to: ", e.target.value);
