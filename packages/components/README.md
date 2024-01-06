@@ -64,28 +64,12 @@ npm install @sikka/hawa
 
 </br>
 
-# Contributing
 
-To contribute, clone this github repository and run the development server
+## Contributing
 
-```js
-// To preview the components
-npm run storybook
-// To run the landing pages
-npm run dev
-```
+Please see our [contributing.md](/contributing.md).
 
-To build the library to /dist
 
-```
-npm run build-lib
-```
-
-To generate /dist/index.css
-
-```
-npm run build-css
-```
 
 </br>
 
