@@ -347,9 +347,6 @@ importers:
       '@storybook/addon-mdx-gfm':
         specifier: ^7.6.7
         version: 7.6.7
-      '@storybook/addon-styling-webpack':
-        specifier: ^0.0.6
-        version: 0.0.6(webpack@5.89.0)
       '@storybook/blocks':
         specifier: ^7.6.7
         version: 7.6.7(@types/react-dom@18.2.18)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)
@@ -4597,15 +4594,6 @@ packages:
     dependencies:
       '@storybook/global': 5.0.0
       ts-dedent: 2.2.0
-    dev: true
-
-  /@storybook/addon-styling-webpack@0.0.6(webpack@5.89.0):
-    resolution: {integrity: sha512-JjM2FXFiHpjbJsp7nRUEMhYBRpK6ukBKsbtWzCrAGOfUgoElcGwPY8KhSKSnRknIhebonGK1bxalh3u8bGZ/dw==}
-    peerDependencies:
-      webpack: ^5.0.0
-    dependencies:
-      '@storybook/node-logger': 7.6.7
-      webpack: 5.89.0(@swc/core@1.3.102)(esbuild@0.19.11)
     dev: true
 
   /@storybook/addon-toolbars@7.6.7:

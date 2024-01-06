@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -22,11 +22,25 @@ export const Default: Story = {
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
 
+    const [isLoading, setIsLoading] = useState(true);
     const [currentColor, setCurrentColor] = useState("#f0f0f0");
+    useEffect(() => {
+      // Set a timeout to change isLoading to true after 2 seconds
+      const timeoutId = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      // Clear the timeout if the component unmounts before the timeout is reached
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []); // Empty dependency array ensures this effect runs only once
+
     return (
-      <div dir={direction} className="hawa-bg-red-500">
+      <div dir={direction}>
         <ColorPicker
           label="Color"
+          isLoading={isLoading}
           forceHideHelperText
           color={currentColor}
           handleChange={(e: any) => {

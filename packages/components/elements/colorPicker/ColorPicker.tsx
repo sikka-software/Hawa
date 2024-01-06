@@ -9,11 +9,14 @@ import React, {
 
 import { cn } from "@util/index";
 
+import { Skeleton } from "@elements/skeleton";
+
 import { Label, LabelProps } from "../label";
 
 type ColorPickerTypes = {
   label?: string;
   id?: string;
+  isLoading?: boolean;
   labelProps?: LabelProps;
   helperText?: string;
   forceHideHelperText?: boolean;
@@ -36,6 +39,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   textInputProps,
   labelProps,
   forceHideHelperText,
+  isLoading,
   ...props
 }) => {
   const [selectedColor, setSelectedColor] = useState(props.color);
@@ -68,41 +72,44 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   return (
     <div className="hawa-flex hawa-w-fit hawa-flex-col hawa-gap-2">
       {props.label && <Label {...labelProps}>{props.label}</Label>}
-
-      <div dir="ltr" className="hawa-flex hawa-w-full hawa-flex-row">
-        <div
-          style={{ height: 40, backgroundColor: selectedColor }}
-          className="hawa-rounded-bl-lg hawa-rounded-tl-lg hawa-border"
-        >
-          <input
-            type="color"
-            value={selectedColor}
-            onChange={(e) => {
-              setSelectedColor(e.target.value);
-              if (props.handleChange) {
-                props.handleChange(e);
-              }
-            }}
-            className={cn(
-              "hawa-mt-0 hawa-h-[38px] hawa-opacity-0",
-              props.colorPickerClassNames
-            )}
-            {...colorPickerProps}
-          />
+      {isLoading ? (
+        <Skeleton style={{ height: 40, width: 148 }} />
+      ) : (
+        <div dir="ltr" className="hawa-flex hawa-w-full hawa-flex-row">
+          <div
+            style={{ height: 40, backgroundColor: selectedColor }}
+            className="hawa-rounded-bl-lg hawa-rounded-tl-lg hawa-border"
+          >
+            <input
+              type="color"
+              value={selectedColor}
+              onChange={(e) => {
+                setSelectedColor(e.target.value);
+                if (props.handleChange) {
+                  props.handleChange(e);
+                }
+              }}
+              className={cn(
+                "hawa-mt-0 hawa-h-[38px] hawa-opacity-0",
+                props.colorPickerClassNames
+              )}
+              {...colorPickerProps}
+            />
+          </div>
+          <div className="hawa-relative hawa-flex hawa-max-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">
+            <input
+              maxLength={7}
+              type="text"
+              onInput={handleTextInputChange}
+              value={selectedColor}
+              className={cn(
+                "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all"
+              )}
+              {...textInputProps}
+            />
+          </div>
         </div>
-        <div className="hawa-relative hawa-flex hawa-max-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">
-          <input
-            maxLength={7}
-            type="text"
-            onInput={handleTextInputChange}
-            value={selectedColor}
-            className={cn(
-              "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all"
-            )}
-            {...textInputProps}
-          />
-        </div>
-      </div>
+      )}
 
       {!forceHideHelperText && (
         <p
