@@ -7,7 +7,7 @@ import React, {
   FormEvent
 } from "react";
 
-import { cn } from "@util/index";
+import { calculateLuminance, cn, getTextColor } from "@util/index";
 
 import { Skeleton } from "@elements/skeleton";
 
@@ -20,6 +20,8 @@ type ColorPickerTypes = {
   labelProps?: LabelProps;
   helperText?: string;
   forceHideHelperText?: boolean;
+  /** Boolean to enable/disable editing the input field and using it as a text field   */
+  preview?: boolean;
   /** The hex code for the color */
   color?: any;
   /** Fires everytime the color changes */
@@ -40,6 +42,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
   labelProps,
   forceHideHelperText,
   isLoading,
+  preview = false,
   ...props
 }) => {
   const [selectedColor, setSelectedColor] = useState(props.color);
@@ -81,6 +84,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
             className="hawa-rounded-bl-lg hawa-rounded-tl-lg hawa-border"
           >
             <input
+              disabled={preview}
               type="color"
               value={selectedColor}
               onChange={(e) => {
@@ -98,13 +102,27 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
           </div>
           <div className="hawa-relative hawa-flex hawa-max-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">
             <input
+              disabled={preview}
               maxLength={7}
               type="text"
               onInput={handleTextInputChange}
               value={selectedColor}
               className={cn(
-                "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all"
+                "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
+                "hawa-border hawa-border-l-0 hawa-border-l-transparent"
+                // "hawa-border hawa-border-x-0 hawa-border-x-transparent hawa-border-b-0 hawa-rounded-tr-none"
               )}
+              style={{
+                backgroundColor: preview
+                  ? selectedColor
+                  : "hsl(var(--background))",
+                color: preview
+                  ? calculateLuminance(selectedColor) > 0.5
+                    ? "black"
+                    : "white"
+                  : ""
+              }}
+              // 0.179
               {...textInputProps}
             />
           </div>

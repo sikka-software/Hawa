@@ -40,7 +40,7 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
-function getTextColor(color: string): "#FFF" | "#333" {
+export function getTextColor(color: string): "#FFF" | "#333" {
   const rgbColor = hexToRgb(color);
 
   if (!rgbColor) {
@@ -80,6 +80,27 @@ function darken(hex: string, intensity: number): string {
 
   return rgbToHex(r, g, b);
 }
+const parseColor = (color: any) => {
+  if (color.startsWith("#")) {
+    // Convert hex to RGB
+    let r = parseInt(color.slice(1, 3), 16);
+    let g = parseInt(color.slice(3, 5), 16);
+    let b = parseInt(color.slice(5, 7), 16);
+    return [r, g, b];
+  } else if (color.startsWith("rgb")) {
+    // Extract RGB values from rgb() format
+    return color.match(/\d+/g).map(Number);
+  }
+  // Default to white if format is unrecognized
+  return [255, 255, 255];
+};
+export const calculateLuminance = (color: any) => {
+  const [r, g, b] = parseColor(color)?.map((c: any) => {
+    c /= 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
 
 function getPallette(baseColor: string): Palette {
   const name = baseColor;
