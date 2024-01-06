@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Separator } from "@sikka/hawa/elements/separator";

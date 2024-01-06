@@ -9,18 +9,7 @@ import { setLocale } from "../../translations/i18n";
 const meta = {
   title: "Elements/Slider",
   component: Slider,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Slider/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  parameters: { layout: "centered" },
 } satisfies Meta<typeof Slider>;
 
 export default meta;

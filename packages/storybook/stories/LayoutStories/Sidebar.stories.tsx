@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@sikka/hawa/elements/button";
 import { AppSidebarItemProps, SidebarGroup } from "@sikka/hawa/layout";
 
-import { setLocale, t } from "../../translations/i18n";
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Layout/Sidebar",
@@ -42,43 +42,41 @@ let items: AppSidebarItemProps[] = [
   }
 ];
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  const direction = locale === "ar" ? "rtl" : "ltr";
-  const [selectedItem, setSelectedItem] = useState<string[]>([]);
-  const [val, setVal] = useState<any>(null);
-  setLocale(locale);
+export const Default: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    const [selectedItem, setSelectedItem] = useState<string[]>([]);
+    const [val, setVal] = useState<any>(null);
+    setLocale(locale);
 
-  return (
-    <div
-      className="hawa-flex hawa-max-w-xs hawa-flex-col hawa-gap-4"
-      dir={direction}
-    >
-      <Button onClick={() => setVal(null)}>Collapse All</Button>
+    return (
       <div
-        className="hawa-max-w-xs hawa-rounded hawa-border hawa-bg-card"
+        className="hawa-flex hawa-max-w-xs hawa-flex-col hawa-gap-4"
         dir={direction}
       >
-        <SidebarGroup
-          openedItem={val}
-          setOpenedItem={(e: any) => setVal(e)}
-          onItemClick={(values) => {
-            console.log("Clicked main item value:", values[0]);
-            setVal(values[1]);
-          }}
-          onSubItemClick={(values) => {
-            console.log("Parent item value:", values[0]);
-            console.log("Subitem value:", values[1]);
-            setVal(values[1]);
-          }}
-          selectedItem={selectedItem}
-          // title="Group 1"
-          items={items}
-        />
+        <Button onClick={() => setVal(null)}>Collapse All</Button>
+        <div
+          className="hawa-max-w-xs hawa-rounded hawa-border hawa-bg-card"
+          dir={direction}
+        >
+          <SidebarGroup
+            openedItem={val}
+            setOpenedItem={(e: any) => setVal(e)}
+            selectedItem={selectedItem}
+            items={items}
+            onItemClick={(values) => {
+              console.log("Clicked main item value:", values[0]);
+              setVal(values[1]);
+            }}
+            onSubItemClick={(values) => {
+              console.log("Parent item value:", values[0]);
+              console.log("Subitem value:", values[1]);
+              setVal(values[1]);
+            }}
+          />
+        </div>
       </div>
-    </div>
-  );
-};
-export const Default: Story = {
-  render: Template.bind({})
+    );
+  }
 };

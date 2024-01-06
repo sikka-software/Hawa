@@ -39,9 +39,7 @@ export const Default: Story = {
       </Button>
     )
   },
-  argTypes: {
-    onLogoClick: { action: "onLogoClick" }
-  }
+  argTypes: { onLogoClick: { action: "onLogoClick" } }
 };
 export const CustomHeader: Story = {
   render: (args: any, globals: any) => {
@@ -78,9 +76,7 @@ export const CustomHeader: Story = {
       </Button>
     )
   },
-  argTypes: {
-    onLogoClick: { action: "onLogoClick" }
-  }
+  argTypes: { onLogoClick: { action: "onLogoClick" } }
 };
 // export const CustomHeader: Story = {
 //   render: (args: any, globals: any) => {

@@ -1,3 +1,1 @@
-module.exports = {
-  basePath: "/docs"
-};
+module.exports = { basePath: "/docs" };

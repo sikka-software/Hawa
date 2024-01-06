@@ -29,92 +29,81 @@ const DummyChart = () => (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
         data={dummyChartData}
-        margin={{
-          top: 5,
-          right: 10,
-          left: 10,
-          bottom: 0
-        }}
+        margin={{ top: 5, right: 10, left: 10, bottom: 0 }}
       >
         <Line
           type="monotone"
           strokeWidth={2}
           dataKey="count"
-          activeDot={{
-            r: 6,
-            style: { fill: "#f69f69", opacity: 0.25 }
-          }}
-          style={{
-            stroke: "#f69f69"
-          }}
+          activeDot={{ r: 6, style: { fill: "#f69f69", opacity: 0.25 } }}
+          style={{ stroke: "#f69f69" }}
         />
       </LineChart>
     </ResponsiveContainer>
   </div>
 );
 
-const Template = (args: any, globals: any) => {
-  const locale = globals.globals?.locale === "ar" ? "ar" : "en";
-  const direction = locale === "ar" ? "rtl" : "ltr";
-  setLocale(locale);
-
-  return (
-    <div
-      className="hawa-grid hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
-      dir={direction}
-    >
-      <Stats
-        width="full"
-        variant="default"
-        number="+2350"
-        label="Subscriptions"
-        isLoading
-        helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-icon" />}
-      />
-      <Stats
-        width="full"
-        variant="default"
-        number="+2350"
-        label="Subscriptions"
-        helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-icon" />}
-        chart={<DummyChart />}
-      />
-      <Stats
-        onMouseDown={(e) =>
-          e.button === 1 && console.log("Middle Mouse Button Clicked. e:", e)
-        }
-        onClick={(e) => console.log("Stats card clicked. e:", e)}
-        width="full"
-        variant="default"
-        number="+2350"
-        label="Subscriptions"
-        helperTextColor="positive"
-        helperText="+180.1% from last month"
-        icon={<Users2 className="hawa-icon" />}
-      />
-      <Stats
-        width="full"
-        variant="default"
-        number="+2350"
-        label="Subscriptions"
-        helperTextColor="negative"
-        helperText="-11.5% from last month"
-        icon={<Users2 className="hawa-icon" />}
-      />
-      <Stats
-        width="full"
-        variant="default"
-        number="+2350"
-        label="Subscriptions"
-        helperTextColor="muted"
-        helperText="Muted helperText"
-        icon={<Users2 className="hawa-icon" />}
-      />
-    </div>
-  );
-};
 export const Default: Story = {
-  render: Template.bind({})
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    return (
+      <div
+        className="hawa-grid hawa-gap-4 md:hawa-grid-cols-2 lg:hawa-grid-cols-4"
+        dir={direction}
+      >
+        <Stats
+          width="full"
+          variant="default"
+          number="+2350"
+          label="Subscriptions"
+          isLoading
+          helperText="+180.1% from last month"
+          icon={<Users2 className="hawa-icon" />}
+        />
+        <Stats
+          width="full"
+          variant="default"
+          number="+2350"
+          label="Subscriptions"
+          helperText="+180.1% from last month"
+          icon={<Users2 className="hawa-icon" />}
+          chart={<DummyChart />}
+        />
+        <Stats
+          onMouseDown={(e) =>
+            e.button === 1 && console.log("Middle Mouse Button Clicked. e:", e)
+          }
+          onClick={(e) => console.log("Stats card clicked. e:", e)}
+          width="full"
+          variant="default"
+          number="+2350"
+          label="Subscriptions"
+          helperTextColor="positive"
+          helperText="+180.1% from last month"
+          icon={<Users2 className="hawa-icon" />}
+        />
+        <Stats
+          width="full"
+          variant="default"
+          number="+2350"
+          label="Subscriptions"
+          helperTextColor="negative"
+          helperText="-11.5% from last month"
+          icon={<Users2 className="hawa-icon" />}
+        />
+        <Stats
+          width="full"
+          variant="default"
+          number="+2350"
+          label="Subscriptions"
+          helperTextColor="muted"
+          helperText="Muted helperText"
+          icon={<Users2 className="hawa-icon" />}
+        />
+      </div>
+    );
+  }
 };

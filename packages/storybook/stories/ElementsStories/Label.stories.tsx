@@ -1,4 +1,4 @@
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Input } from "@sikka/hawa/elements/input";
@@ -34,8 +34,5 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    required: false,
-    hint: "This is a label hint"
-  }
+  args: { required: false, hint: "This is a label hint" }
 };

@@ -2,14 +2,18 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Card, CardContent } from "@sikka/hawa/elements/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@sikka/hawa/elements/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from "@sikka/hawa/elements/tabs";
 
 import { setLocale, t } from "../../translations/i18n";
 
-const meta = {
-  title: "Elements/Tabs",
-  component: Tabs
-} satisfies Meta<typeof Tabs>;
+const meta = { title: "Elements/Tabs", component: Tabs } satisfies Meta<
+  typeof Tabs
+>;
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;

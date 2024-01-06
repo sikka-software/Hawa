@@ -276,16 +276,14 @@ export const Default: Story = {
             <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold">
               Installation
             </h1>
-            <p>{dummyText}</p>{" "}
+            <p>{dummyText}</p>
           </div>
           <div id="Usage">
             <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold"> Usage</h1>
-            <p>{dummyText}</p>{" "}
+            <p>{dummyText}</p>
           </div>
         </div>
       </div>
     );
-  },
-  args: {},
-  argTypes: {}
+  }
 };

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Copyrights } from "@sikka/hawa/layout";
 
-import { setLocale, t } from "../../translations/i18n";
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Layout/Copyrights",
@@ -29,8 +29,5 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    version: "v1.2.3",
-    credits: "Developed by Sikka Software"
-  }
+  args: { version: "v1.2.3", credits: "Developed by Sikka Software" }
 };

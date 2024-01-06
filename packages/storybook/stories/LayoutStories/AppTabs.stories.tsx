@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   DownloadCloud,
@@ -43,18 +43,11 @@ export const Default: Story = {
       { icon: <KeyRound className="hawa-icon" />, label: t("roles") },
       { icon: <Smile className="hawa-icon" />, label: t("customers") },
       { icon: <UserSquare className="hawa-icon" />, label: t("clients") },
-      {
-        icon: <DownloadCloud className="hawa-icon" />,
-        label: t("invoices")
-      },
-      {
-        icon: <PanelTopClose className="hawa-icon" />,
-        label: t("community")
-      },
+      { icon: <DownloadCloud className="hawa-icon" />, label: t("invoices") },
+      { icon: <PanelTopClose className="hawa-icon" />, label: t("community") },
       { icon: <Settings2 className="hawa-icon" />, label: t("settings") }
     ]
-  },
-  argTypes: {}
+  }
 };
 export const WithHeader: Story = {
   render: (args: any, globals: any) => {
@@ -87,16 +80,9 @@ export const WithHeader: Story = {
       { icon: <KeyRound className="hawa-icon" />, label: t("roles") },
       { icon: <Smile className="hawa-icon" />, label: t("customers") },
       { icon: <UserSquare className="hawa-icon" />, label: t("clients") },
-      {
-        icon: <DownloadCloud className="hawa-icon" />,
-        label: t("invoices")
-      },
-      {
-        icon: <PanelTopClose className="hawa-icon" />,
-        label: t("community")
-      },
+      { icon: <DownloadCloud className="hawa-icon" />, label: t("invoices") },
+      { icon: <PanelTopClose className="hawa-icon" />, label: t("community") },
       { icon: <Settings2 className="hawa-icon" />, label: t("settings") }
     ]
-  },
-  argTypes: {}
+  }
 };

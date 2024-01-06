@@ -1,8 +1,7 @@
 import * as React from "react";
 
-import * as TabsPrimitive from "@radix-ui/react-tabs";
-
 import { OrientationType } from "@/types/commonTypes";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "../../util";
 import { Chip, ChipTypes } from "../chip/Chip";
@@ -13,26 +12,31 @@ const TabsContext = React.createContext<{
 
 type TabsRootProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
-> & { orientation?: OrientationType };
+> & { orientation?: "vertical" | "horizontal" };
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   TabsRootProps
->(({ className, orientation, ...props }, ref) => (
-  <TabsPrimitive.Root
-    ref={ref}
-    className={cn(
-      "hawa-flex hawa-gap-2",
-      orientation === "vertical" ? "hawa-flex-row" : "hawa-flex-col",
-      className
-    )}
-    {...props}
-  >
-    <TabsContext.Provider value={{ orientation }}>
-      {props.children}
-    </TabsContext.Provider>
-  </TabsPrimitive.Root>
-));
+>(
+  (
+    { className, orientation = "vertical" as OrientationType, ...props },
+    ref
+  ) => (
+    <TabsPrimitive.Root
+      ref={ref}
+      className={cn(
+        "hawa-flex hawa-gap-2",
+        orientation === "vertical" ? "hawa-flex-row" : "hawa-flex-col",
+        className
+      )}
+      {...props}
+    >
+      <TabsContext.Provider value={{ orientation }}>
+        {props.children}
+      </TabsContext.Provider>
+    </TabsPrimitive.Root>
+  )
+);
 Tabs.displayName = TabsPrimitive.Root.displayName;
 
 const TabsList = React.forwardRef<

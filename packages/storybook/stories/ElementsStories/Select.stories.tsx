@@ -1,4 +1,4 @@
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "@sikka/hawa/elements/select";
@@ -30,20 +30,19 @@ export const Default: Story = {
             isMulti={false}
             isClearable={false}
             isSearchable={true}
+            defaultValue={{ label: "Chocolate" }}
+            helperText="Helper text here"
             options={[
               { value: "chocolate", label: "Chocolate" },
               { value: "strawberry", label: "Strawberry" },
               { value: "vanilla", label: "Vanilla" }
             ]}
-            defaultValue={{ label: "Chocolate" }}
-            helperText="Helper text here"
             {...args}
           />
         </div>
       </div>
     );
   },
-  args: {},
   argTypes: {
     onChange: { action: "onChange" },
     onInputChange: { action: "onInputChange" }

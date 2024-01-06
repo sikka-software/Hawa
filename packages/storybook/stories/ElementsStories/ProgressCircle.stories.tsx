@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ProgressCircle } from "@sikka/hawa/elements/progressCircle";
 
-import { setLocale, t } from "../../translations/i18n";
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Progress Circle",

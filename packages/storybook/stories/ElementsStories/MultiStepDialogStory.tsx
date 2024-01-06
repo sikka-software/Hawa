@@ -1,14 +1,17 @@
 import React from "react";
 
 import { Button } from "@sikka/hawa/elements/button";
-import { Dialog, DialogContent, DialogTrigger } from "@sikka/hawa/elements/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger
+} from "@sikka/hawa/elements/dialog";
 
 import { cn } from "../../../components/util";
 
 type DialogStep = "paymentMethod" | "formFill" | "result";
 
 export const MultiStepDialog: React.FC = () => {
-  // State to keep track of the current step
   const [currentStep, setCurrentStep] =
     React.useState<DialogStep>("paymentMethod");
   const [dialogHeight, setDialogHeight] = React.useState<any>(null);
@@ -36,7 +39,6 @@ export const MultiStepDialog: React.FC = () => {
     }
   };
 
-  // Handler to go back to the previous step
   const handleBack = () => {
     switch (currentStep) {
       case "formFill":
@@ -63,8 +65,6 @@ export const MultiStepDialog: React.FC = () => {
               key={step}
               className={cn(
                 "hawa-absolute hawa-left-0 hawa-top-0 hawa-transition-opacity hawa-duration-300",
-
-                // "hawa-transition-opacity hawa-duration-300",
                 currentStep === step ? "hawa-opacity-100" : "hawa-opacity-0",
                 currentStep === step ? "hawa-visible" : "hawa-invisible"
               )}
@@ -84,12 +84,10 @@ export const MultiStepDialog: React.FC = () => {
   );
 };
 
-// Components for each step
 const PaymentMethodDefaultStep: React.FC<{ onNext: () => void }> = ({
   onNext
 }) => (
   <div>
-    {/* ... Payment Method Step Content ... */}
     <div>Select Payment Method</div>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
@@ -112,7 +110,6 @@ const FormFillDefaultStep: React.FC<{
   onBack: () => void;
 }> = ({ onNext, onBack }) => (
   <div>
-    {/* ... Form Fill Step Content ... */}
     <div>Fill the form</div>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
@@ -126,7 +123,6 @@ const FormFillDefaultStep: React.FC<{
 );
 const ResultDefaultStep: React.FC<{ onBack: () => void }> = ({ onBack }) => (
   <div>
-    {/* ... Result Step Content ... */}
     <div>Results here</div>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur

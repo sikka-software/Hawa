@@ -1,10 +1,6 @@
-const translations = {
-  en: require("./en.json"),
-  ar: require("./ar.json")
-  // ... you can add more languages here.
-};
+const translations = { en: require("./en.json"), ar: require("./ar.json") };
 
-let currentLocale = "en"; // default language
+let currentLocale = "en";
 
 export function setLocale(locale) {
   currentLocale = locale;

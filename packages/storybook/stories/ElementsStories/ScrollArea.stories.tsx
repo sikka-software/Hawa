@@ -17,7 +17,7 @@ export const Default: Story = {
   render: () => (
     <div>
       <Label>Vertical Scroll Area</Label>
-      <ScrollArea className="bg-red-500 hawa-h-[200px] hawa-w-[350px] hawa-rounded-md hawa-border hawa-p-4">
+      <ScrollArea className="hawa-h-[200px] hawa-w-[350px] hawa-rounded-md hawa-border hawa-p-4 bg-red-500">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut
         justo et rhoncus. Ut vehicula sem a pretium feugiat. Praesent at nisi ac
         lacus sodales rhoncus. Aenean lectus ex, hendrerit ac felis vel,
@@ -35,7 +35,7 @@ export const Horizontal: Story = {
       <Label>Horizontal Scroll Area</Label>
       <ScrollArea
         orientation="horizontal"
-        className="bg-red-500 hawa-h-fit hawa-w-[350px] hawa-max-w-xs hawa-whitespace-nowrap hawa-rounded-md hawa-border hawa-p-4"
+        className="hawa-h-fit hawa-w-[350px] hawa-max-w-xs hawa-whitespace-nowrap hawa-rounded-md hawa-border hawa-p-4 bg-red-500"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut
         justo et rhoncus. Ut vehicula sem a pretium feugiat. Praesent at nisi ac
@@ -51,7 +51,7 @@ export const Horizontal: Story = {
 export const FullPage: Story = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <ScrollArea className="bg-red-500 hawa-h-screen hawa-w-full hawa-rounded-md hawa-border hawa-p-4">
+    <ScrollArea className="hawa-h-screen hawa-w-full hawa-rounded-md hawa-border hawa-p-4 bg-red-500">
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor ut

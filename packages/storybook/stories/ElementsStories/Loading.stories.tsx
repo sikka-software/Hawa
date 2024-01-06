@@ -27,10 +27,7 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    design: {
-      options: ["spinner", "dots"],
-      control: { type: "radio" }
-    }
+    design: { options: ["spinner", "dots"], control: { type: "radio" } }
   }
 } satisfies Meta<typeof Loading>;
 
@@ -102,9 +99,7 @@ export const Spinner: Story = {
       </div>
     );
   },
-  args: {
-    design: "spinner"
-  }
+  args: { design: "spinner" }
 };
 export const Dots: Story = {
   render: (args: any) => {
@@ -135,7 +130,5 @@ export const Dots: Story = {
       </div>
     );
   },
-  args: {
-    design: "dots-pulse"
-  }
+  args: { design: "dots-pulse" }
 };

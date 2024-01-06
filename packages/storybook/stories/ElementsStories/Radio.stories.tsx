@@ -22,7 +22,7 @@ export const Default: Story = {
     setLocale(locale);
     return (
       <div
-        className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10"
+        className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -63,15 +63,11 @@ export const Default: Story = {
       </div>
     );
   },
-  argTypes: {
-    onChange: { action: "onChange" }
-  }
+  argTypes: { onChange: { action: "onChange" } }
 };
 
 export const Tabs: Story = {
-  parameters: {
-    layout: "padded"
-  },
+  parameters: { layout: "padded" },
   render: (args: any) => (
     <div className="hawa-relative hawa-flex hawa-flex-row hawa-gap-4 hawa-space-x-4">
       <div className="hawa-max-w-xs">
@@ -79,7 +75,7 @@ export const Tabs: Story = {
           Extra Small
         </div>
 
-        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
+        <div className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -124,7 +120,7 @@ export const Tabs: Story = {
           Small
         </div>
 
-        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
+        <div className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -169,7 +165,7 @@ export const Tabs: Story = {
           Default
         </div>
 
-        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
+        <div className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -212,7 +208,7 @@ export const Tabs: Story = {
           Large
         </div>
 
-        <div className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10">
+        <div className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2">
           <div className="hawa-flex hawa-flex-col hawa-gap-2">
             <h1>
               Orientation: <strong>Horizontal</strong>
@@ -252,9 +248,7 @@ export const Tabs: Story = {
       </div>
     </div>
   ),
-  argTypes: {
-    onChange: { action: "onChange" }
-  }
+  argTypes: { onChange: { action: "onChange" } }
 };
 export const Cards: Story = {
   render: (args: any, globals: any) => {
@@ -264,7 +258,7 @@ export const Cards: Story = {
 
     return (
       <div
-        className="w-1/2 hawa-flex hawa-max-w-sm hawa-flex-col hawa-gap-10"
+        className="hawa-flex hawa-max-w-sm hawa-flex-col hawa-gap-10 w-1/2"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -329,9 +323,7 @@ export const Cards: Story = {
       </div>
     );
   },
-  argTypes: {
-    onChange: { action: "onChange" }
-  }
+  argTypes: { onChange: { action: "onChange" } }
 };
 export const Bordered: Story = {
   render: (args: any, globals: any) => {
@@ -341,7 +333,7 @@ export const Bordered: Story = {
 
     return (
       <div
-        className="w-1/2 hawa-flex hawa-flex-col hawa-gap-10"
+        className="hawa-flex hawa-flex-col hawa-gap-10 w-1/2"
         dir={direction}
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -408,7 +400,5 @@ export const Bordered: Story = {
       </div>
     );
   },
-  argTypes: {
-    onChange: { action: "onChange" }
-  }
+  argTypes: { onChange: { action: "onChange" } }
 };

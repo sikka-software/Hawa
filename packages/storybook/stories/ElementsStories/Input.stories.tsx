@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { SA, USA } from "@sikka/alam";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Lock, Search } from "lucide-react";
 
+import { SA, USA } from "@sikka/alam";
 import { Button } from "@sikka/hawa/elements/button";
 import { DropdownMenuRadio } from "@sikka/hawa/elements/dropdownMenu";
 import { Input } from "@sikka/hawa/elements/input";
@@ -46,7 +46,6 @@ export const PreviewMode: Story = {
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <Button onClick={() => setPreview(!preview)}>
-          {/* {preview ? "Disable" : "Enable"} Preview */}
           {preview ? t("enable-preview") : t("disable-preview")}
         </Button>
         <Input
@@ -226,6 +225,8 @@ export const Examples: Story = {
         <Input type={"password"} label={t("password")} />
         <Input type={"text"} label={t("first-name")} />
         <Input
+          type={"text"}
+          label={t("first-name")}
           endIcon={
             <DropdownMenuRadio
               label="Input Language"
@@ -242,8 +243,6 @@ export const Examples: Story = {
               }
             />
           }
-          type={"text"}
-          label={t("first-name")}
         />
       </div>
     );

@@ -2,8 +2,8 @@ import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@sikka/hawa/elements/button";
-import { Navbar } from "@sikka/hawa/layout";
 import { Logos } from "@sikka/hawa/elements/logos";
+import { Navbar } from "@sikka/hawa/layout";
 
 import { setLocale, t } from "../../translations/i18n";
 
@@ -24,6 +24,7 @@ export const Default: Story = {
     return (
       <div>
         <Navbar
+          logo={<Logos.sikka className="hawa-h-6 hawa-w-6" />}
           menuItems={[
             {
               label: "item 1",
@@ -41,7 +42,6 @@ export const Default: Story = {
               action: () => console.log("clicked on item 3")
             }
           ]}
-          logo={<Logos.sikka className="hawa-h-6 hawa-w-6" />}
           buttons={
             <>
               <Button>Login</Button>

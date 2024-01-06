@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@sikka/hawa/elements/button";
 import { DropdownMenu } from "@sikka/hawa/elements/dropdownMenu";
-import { useToast } from "@sikka/hawa/hooks";
 import { ToastAction } from "@sikka/hawa/elements/toast";
 import { Toaster } from "@sikka/hawa/elements/toaster";
+import { useToast } from "@sikka/hawa/hooks";
 
 import { setLocale, t } from "../../translations/i18n";
 
@@ -44,6 +44,7 @@ export const Default: Story = {
         <div>
           <Toaster direction={direction} />
           <DropdownMenu
+            trigger={<Button>Add Toaster</Button>}
             items={[
               {
                 label: "Info",
@@ -84,9 +85,6 @@ export const Default: Story = {
                       "Scheduled: Catch up " + Math.floor(Math.random() * 100),
                     description: "Friday, February 10, 2023 at 5:57 PM",
                     severity: "success"
-                    // action: (
-                    //   <ToastAction altText="Try again">Try again</ToastAction>
-                    // )
                   });
                 }
               },
@@ -106,7 +104,6 @@ export const Default: Story = {
                 }
               }
             ]}
-            trigger={<Button>Add Toaster</Button>}
           />
         </div>
       </div>

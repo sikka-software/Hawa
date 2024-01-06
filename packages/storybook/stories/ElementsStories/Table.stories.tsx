@@ -1,30 +1,17 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Card,
   CardContent,
   SimpleTable,
-  Table,
+  Table
 } from "../../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
-import { Pencil } from "lucide-react";
 
 const meta = {
   title: "Elements/Tables/Simple Table",
-
-  component: Table,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Table/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  component: Table
 } satisfies Meta<typeof Table>;
 
 export default meta;
@@ -47,13 +34,13 @@ const Template = (args: any, globals: any) => {
           { header: "version", accessorKey: "version" },
           { header: "nickname", accessorKey: "nickname" },
           { header: "date", accessorKey: "date" },
-          { header: "number", accessorKey: "number" },
+          { header: "number", accessorKey: "number" }
         ]}
         data={[
           { project: "Hawa", version: "0.4.8" },
           { project: "Hajar", version: "0.1.3" },
           { project: "Tayar", version: "0.5.8" },
-          { project: "Silk", version: "1.0.5" },
+          { project: "Silk", version: "1.0.5" }
         ]}
       />
     </div>
@@ -61,7 +48,7 @@ const Template = (args: any, globals: any) => {
 };
 export const SimpleTableStory: Story = {
   name: "Simple Table",
-  render: Template.bind({}),
+  render: Template.bind({})
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -83,13 +70,13 @@ export const Sizes: Story = {
               { header: "version", accessorKey: "version" },
               { header: "nickname", accessorKey: "nickname" },
               { header: "date", accessorKey: "date" },
-              { header: "number", accessorKey: "number" },
+              { header: "number", accessorKey: "number" }
             ]}
             data={[
               { project: "Hawa", version: "0.4.8" },
               { project: "Hajar", version: "0.1.3" },
               { project: "Tayar", version: "0.5.8" },
-              { project: "Silk", version: "1.0.5" },
+              { project: "Silk", version: "1.0.5" }
             ]}
           />
         </div>
@@ -106,13 +93,13 @@ export const Sizes: Story = {
               { header: "version", accessorKey: "version" },
               { header: "nickname", accessorKey: "nickname" },
               { header: "date", accessorKey: "date" },
-              { header: "number", accessorKey: "number" },
+              { header: "number", accessorKey: "number" }
             ]}
             data={[
               { project: "Hawa", version: "0.4.8" },
               { project: "Hajar", version: "0.1.3" },
               { project: "Tayar", version: "0.5.8" },
-              { project: "Silk", version: "1.0.5" },
+              { project: "Silk", version: "1.0.5" }
             ]}
           />
         </div>
@@ -123,15 +110,11 @@ export const Sizes: Story = {
           <h1>No Padding</h1>
           <SimpleTable
             direction={direction}
-            // condensed
             columns={[
               {
                 header: "Project",
                 accessorKey: "project",
-                meta: {
-                  sortable: false,
-                  padding: "noPadding",
-                },
+                meta: { sortable: false, padding: "noPadding" }
               },
               {
                 header: "Version",
@@ -141,26 +124,26 @@ export const Sizes: Story = {
                   <div className="hawa-w-full hawa-h-full hawa-p-0 hawa-bg-red-300">
                     test
                   </div>
-                ),
+                )
               },
 
               {
                 header: "Test",
                 meta: { sortable: false, padding: "noPadding" },
-                accessorKey: "test",
-              },
+                accessorKey: "test"
+              }
             ]}
             data={[
               { project: "Hawa", version: "0.4.8" },
               { project: "Hajar", version: "0.1.3" },
               { project: "Tayar", version: "0.5.8" },
-              { project: "Silk", version: "1.0.5" },
+              { project: "Silk", version: "1.0.5" }
             ]}
           />
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const TableInCard: Story = {
@@ -186,7 +169,7 @@ export const TableInCard: Story = {
                   { header: "version", accessorKey: "version" },
                   { header: "nickname", accessorKey: "nickname" },
                   { header: "date", accessorKey: "date" },
-                  { header: "number", accessorKey: "number" },
+                  { header: "number", accessorKey: "number" }
                 ]}
                 data={[
                   { project: "Hawa", version: "0.4.8" },
@@ -272,7 +255,7 @@ export const TableInCard: Story = {
                   { project: "Hawa", version: "0.4.8" },
                   { project: "Hajar", version: "0.1.3" },
                   { project: "Tayar", version: "0.5.8" },
-                  { project: "Silk", version: "1.0.5" },
+                  { project: "Silk", version: "1.0.5" }
                 ]}
               />
             </div>
@@ -280,5 +263,5 @@ export const TableInCard: Story = {
         </Card>
       </div>
     );
-  },
+  }
 };

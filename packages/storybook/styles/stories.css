@@ -41,7 +41,9 @@
   border: 1px solid #e9e9ed;
 
   border-radius: 15px;
-  transition: background 150ms ease-out, border 150ms ease-out,
+  transition:
+    background 150ms ease-out,
+    border 150ms ease-out,
     transform 150ms ease-out;
   color: #333333;
   display: flex;

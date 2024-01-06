@@ -46,27 +46,10 @@ export const Default: Story = {
                   title={t("create")}
                   subtitle="Subtitle of this menu item here"
                 />
-
-                {/* <div className=" hawa-cursor-pointer hawa-p-4 hawa-py-2 hawa-rounded hawa-flex hawa-flex-row hawa-gap-4 hawa-items-center hawa-transition-all hover:hawa-bg-muted">
-                  <ArrowUpRightSquare />
-                  <div className="hawa-flex hawa-flex-col">
-                    <h1 className="hawa-font-bold hawa-text-xl">
-                      {t("share")}
-                    </h1>
-                    <p className="hawa-text-sm">
-                      Subtitle of this menu item here
-                    </p>
-                  </div>
-                </div> */}
               </div>
             )
           },
-          {
-            trigger: "item 2",
-            path: "https://xakher.com"
-
-            // action: () => console.log("clicked on item"),
-          },
+          { trigger: "item 2", path: "https://xakher.com" },
           {
             trigger: "item 3",
             content: (
@@ -193,9 +176,7 @@ export const RTL: Story = {
               </div>
             )
           },
-          {
-            trigger: "item 2"
-          },
+          { trigger: "item 2" },
           {
             trigger: "item 3",
             content: <div className="hawa-p-4">something here</div>
@@ -205,40 +186,3 @@ export const RTL: Story = {
     );
   }
 };
-
-// [
-//   {
-//     label: "item 1",
-//     dropDown: [
-//       {
-//         itemType: "custom",
-//         content: (
-//           <div className="hawa-bg-red-500 hawa-p-4">
-//             This is a html element
-//           </div>
-//         ),
-//       },
-//     ],
-//   },
-//   {
-//     label: "item 2",
-//     action: () => console.log("item 2 clicked"),
-//   },
-//   {
-//     label: "item 3",
-//     action: () => console.log("item 3 clicked"),
-//   },
-//   {
-//     label: "item 4",
-//     dropDown: [
-//       {
-//         itemType: "custom",
-//         content: (
-//           <div className="hawa-bg-red-500 hawa-p-4">
-//             This is a html element
-//           </div>
-//         ),
-//       },
-//     ],
-//   },
-// ]

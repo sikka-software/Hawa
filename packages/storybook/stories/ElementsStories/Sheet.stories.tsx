@@ -77,10 +77,7 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    persist: false,
-    hideCloseButton: false
-  }
+  args: { persist: false, hideCloseButton: false }
 };
 export const MaxWidth: Story = {
   render: (args: any, globals: any) => {

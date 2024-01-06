@@ -76,7 +76,7 @@ type Story = StoryObj<typeof Alert>;
 export const Default: Story = {
   name: "ProgressBar (AI)",
   render: () => (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center">
       <ProgressBar currentMetric={70} maxMetric={100} />
     </div>
   )
@@ -85,7 +85,7 @@ export const Carousel: Story = {
   name: "Carousel (AI)",
 
   render: () => (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center">
       <WidgetContainer />
     </div>
   )
@@ -399,7 +399,6 @@ export const ToScreenshot: Story = {
     );
   }
 };
-
 
 // const UserDebugger = (props: any) => {
 //   const [expand, setExpanded] = useState(false);

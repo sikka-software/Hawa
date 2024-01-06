@@ -33,8 +33,7 @@ export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
-    const [selectedItem, setSelectedItem] = useState<string[]>([]);
-    const [val, setVal] = useState(null);
+
     setLocale(locale);
 
     return (

@@ -10,7 +10,6 @@ const meta = {
   title: "Elements/Progress",
   component: Progress,
   parameters: {
-    // layout: "centered",
     docs: {
       extractArgTypes: () => ({
         value: {
@@ -40,10 +39,7 @@ export const Default: Story = {
       <Progress {...args} />
     </div>
   ),
-  args: {
-    value: 22
-  },
-
+  args: { value: 22 },
   argTypes: {
     value: {
       name: "value",

@@ -12,8 +12,7 @@ const meta = {
       values: [{ name: "offwhite", value: "#ededed" }]
     },
     layout: "centered"
-  },
-  tags: ["autodocs"]
+  }
 } satisfies Meta<typeof PinInput>;
 
 export default meta;
@@ -21,9 +20,7 @@ type Story = StoryObj<typeof PinInput>;
 
 export const Default: Story = {
   render: (args) => <PinInput {...args} />,
-  parameters: {
-    backgrounds: { default: "offwhite" }
-  },
+  parameters: { backgrounds: { default: "offwhite" } },
   args: {
     getPins: () => console.log("getting pins"),
     width: "normal",

@@ -73,6 +73,7 @@ const items: MenuItemType[] = [
   },
 
   {
+    presist: true,
     end: (
       <Radio
         width="full"
@@ -107,8 +108,7 @@ const items: MenuItemType[] = [
           }
         ]}
       />
-    ),
-    presist: true
+    )
   },
   {
     label: "With Switch",
@@ -117,14 +117,8 @@ const items: MenuItemType[] = [
     end: <Switch />,
     presist: true
   },
-  {
-    itemType: "separator"
-  },
-  {
-    label: "Label Here",
-    value: "item4",
-    itemType: "label"
-  },
+  { itemType: "separator" },
+  { label: "Label Here", value: "item4", itemType: "label" },
   {
     label: "Item 2",
     value: "item2",
@@ -264,13 +258,11 @@ export const Sizes: Story = {
       <div className="hawa-flex  hawa-flex-1 hawa-flex-col ">
         <div className="hawa-flex hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-6 hawa-p-3">
           <DropdownMenu
-            // width="parent"
             trigger={<Button>Default Size</Button>}
             items={items}
             onItemSelect={handleItemSelect}
           />
           <DropdownMenu
-            // width="parent"
             size="sm"
             trigger={<Button>Mini Size</Button>}
             items={items}

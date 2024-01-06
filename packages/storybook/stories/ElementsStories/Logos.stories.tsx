@@ -5,10 +5,7 @@ import { Logos } from "@sikka/hawa/elements/logos";
 
 import { setLocale, t } from "../../translations/i18n";
 
-const meta = {
-  title: "Elements/Logos"
-  // component: Logos
-} satisfies Meta<typeof Logos>;
+const meta = { title: "Elements/Logos" } satisfies Meta<typeof Logos>;
 
 export default meta;
 type Story = StoryObj<typeof Logos>;

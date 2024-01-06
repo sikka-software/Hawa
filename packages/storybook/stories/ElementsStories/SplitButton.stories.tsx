@@ -8,18 +8,7 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Split Button",
   component: SplitButton,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  parameters: { layout: "centered" }
 } satisfies Meta<typeof SplitButton>;
 
 export default meta;
@@ -38,8 +27,8 @@ export const Default: Story = {
           variant={"outline"}
           menuItems={[
             {
-              label: t("discard"),
               value: 10,
+              label: t("discard"),
               action: () => console.log("discarding changes")
             },
             { label: t("save-draft"), value: 10 },

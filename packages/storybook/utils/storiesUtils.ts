@@ -13,21 +13,21 @@ export function generateDummyCompanies(numCompanies: any) {
     "Innovate LLC",
     "BuildIt Inc.",
     "CodeWare",
-    "NextGen Solutions",
+    "NextGen Solutions"
   ];
   const locations = [
     "New York, NY",
     "San Francisco, CA",
     "Los Angeles, CA",
     "Seattle, WA",
-    "Austin, TX",
+    "Austin, TX"
   ];
   const websites = [
     "techcorp.com",
     "innovatellc.com",
     "builditinc.com",
     "codeware.com",
-    "nextgensol.com",
+    "nextgensol.com"
   ];
 
   let generatedData = [];
@@ -39,7 +39,7 @@ export function generateDummyCompanies(numCompanies: any) {
       location: getRandomElement(locations),
       website: getRandomElement(websites),
       employees: getRandomNumber(50, 1000),
-      share_price: getRandomNumber(10, 200),
+      share_price: getRandomNumber(10, 200)
     };
     generatedData.push(company);
   }
@@ -53,7 +53,7 @@ export function generateFeaturesArray(length: number) {
     features.push({
       soon: Math.random() > 0.5, // Randomly assign true or false
       included: Math.random() > 0.5, // Randomly assign true or false
-      text: `Feature ${i + 1}`, // Unique text for each feature
+      text: `Feature ${i + 1}` // Unique text for each feature
     });
   }
   return features;

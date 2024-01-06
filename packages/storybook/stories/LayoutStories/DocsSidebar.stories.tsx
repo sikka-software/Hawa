@@ -21,12 +21,10 @@ export const Default: Story = {
 
     return (
       <div dir={direction} className="hawa-flex hawa-flex-row">
-        {/* Sidebar */}
         <div className="hawa-fixed hawa-left-0 hawa-top-0 hawa-h-[calc(100dvh)] hawa-w-1/6 hawa-bg-gray-100 hawa-pt-10">
           <DocsSidebar pages={["Introduction", "Installation", "Usage"]} />
         </div>
 
-        {/* Main Content */}
         <div className="hawa-ml-auto hawa-w-3/4 hawa-p-4">
           <div id="Introduction">
             <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold">
@@ -252,7 +250,6 @@ export const Default: Story = {
               dolorem eum exercitationem vel, modi temporibus dicta nobis ipsum
               beatae tempora libero officiis! Officia.
             </p>
-            {/* ...other content... */}
           </div>
           <div id="Installation">
             <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold">
@@ -477,7 +474,7 @@ export const Default: Story = {
               adipisicing elit. Quis non quas quod, minima excepturi neque fugit
               dolorem eum exercitationem vel, modi temporibus dicta nobis ipsum
               beatae tempora libero officiis! Officia.
-            </p>{" "}
+            </p>
           </div>
           <div id="Usage">
             <h1 className="hawa-my-10 hawa-text-2xl hawa-font-bold"> Usage</h1>
@@ -700,9 +697,8 @@ export const Default: Story = {
               adipisicing elit. Quis non quas quod, minima excepturi neque fugit
               dolorem eum exercitationem vel, modi temporibus dicta nobis ipsum
               beatae tempora libero officiis! Officia.
-            </p>{" "}
+            </p>
           </div>
-          {/* ...other sections... */}
         </div>
       </div>
     );
