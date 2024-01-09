@@ -13,7 +13,7 @@
   "workspaces": [
     "packages/components",
     "packages/storybook",
-    "apps/web"
+    "apps/docs"
   ],
   "devDependencies": {
     "concurrently": "^8.2.2",
