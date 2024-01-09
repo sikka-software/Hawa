@@ -1,6 +1,4 @@
-import Layout from "@/components/Layout";
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 
@@ -13,14 +11,10 @@ const IBMfont = IBM_Plex_Sans_Arabic({
   variable: "--font-ibm-plex-sans-arabic"
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <main className={IBMfont.className}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </main>
-    </ThemeProvider>
+    <main className={IBMfont.className}>
+      <Component {...pageProps} />
+    </main>
   );
 }

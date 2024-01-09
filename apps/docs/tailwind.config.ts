@@ -4,6 +4,7 @@ const baseConfig = require("../../packages/components/tailwind.config");
 
 const config: Config = {
   ...baseConfig,
+  prefix: null,
   content: [
     ...baseConfig.content,
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",

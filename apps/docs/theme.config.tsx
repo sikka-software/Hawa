@@ -1,15 +1,49 @@
 import React from "react";
-import { DocsThemeConfig, useTheme } from "nextra-theme-docs";
+
 import Image from "next/image";
+import Link from "next/link";
+import { DocsThemeConfig, useTheme } from "nextra-theme-docs";
+
 // import { CustomFooter } from "./components/CustomFooter";
 // import { NoResult } from "./components/NoResult";
 import { Button, Logos } from "@sikka/hawa";
+import "@sikka/hawa/dist/style.css";
 
 const config: DocsThemeConfig = {
   project: {
-    link: 'https://github.com/shuding/nextra'
+    link: "https://github.com/sikka-software/hawa"
   },
-  logo: <strong>Project</strong>
+  // toc: {
+  //   component: (d) => <div>test</div>
+  // },
+
+  logo: (
+    <Link href={"/"}>
+      <div className="hawa-flex hawa-items-center hawa-flex-row hawa-gap-2 hawa-h-fit ">
+        <Image
+          width={35}
+          height={50}
+          src={
+            "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png"
+          }
+          alt="Hawa Logo"
+        />
+
+        <div className="hawa-flex hawa-flex-col">
+          <div className="hawa-font-extrabold hawa-text-2xl hawa-leading-none  hawa-mb-0">
+            HAWA
+          </div>
+          <div className="hawa-text-xs hawa-mt-0 hawa-leading-none">UI Kit</div>
+        </div>
+
+        <span className="hawa-sr-only">Hawa Logo</span>
+      </div>
+    </Link>
+  ),
+  nextThemes: {
+    defaultTheme: "dark"
+  }
+
   // head: (
   //   <>
   //     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import { useTheme } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
+import Link from "next/link";
 
+import { Button } from "@sikka/hawa/button";
 import { Card, CardContent } from "@sikka/hawa/card";
 import { CodeBlock } from "@sikka/hawa/codeBlock";
 import { ColorPicker } from "@sikka/hawa/colorPicker";
+import "@sikka/hawa/dist/style.css";
 
 // TODO: use the actual variable name as an ID
 type ColorSetting = {
@@ -183,18 +186,18 @@ ${cssVariables}    --radius: 0.5rem;
     setGeneratedCSS(generateCSS());
   }, [generateCSS]);
   return (
-    <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-10 md:hawa-flex-row ">
-      <Card className="hawa-w-full">
+    <div className=" flex  w-full  flex-col  gap-10 md:flex-row ">
+      <Card className=" w-full">
         <CardContent
           headless
-          className="hawa-grid hawa-grid-cols-2  hawa-items-end hawa-gap-4 hawa-gap-x-10"
+          className=" grid  grid-cols-2   items-end  gap-4  gap-x-10"
         >
           {colorSettingsArray.map((colorSetting) => (
             <div key={colorSetting.id}>
               <ColorPicker
                 id={colorSetting.id}
                 label={colorSetting.label}
-                colorTextClassNames="hawa-w-full"
+                colorTextClassNames=" w-full"
                 containerProps={{ id: colorSetting.id }}
                 color={hslToHex(...colorSetting.hsl)}
                 handleChange={(e: any) =>
@@ -206,7 +209,7 @@ ${cssVariables}    --radius: 0.5rem;
         </CardContent>
       </Card>
 
-      <CodeBlock className="hawa-z-0" language="css" code={generatedCSS} />
+      <CodeBlock className=" z-0" language="css" code={generatedCSS} />
     </div>
   );
 };
@@ -249,18 +252,27 @@ export default function Home() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
-    <main className="hawa-m-0 hawa-flex hawa-flex-col hawa-gap-2 hawa-p-10 ">
-      <div className="hawa-mb-4 hawa-flex hawa-flex-col hawa-gap-1">
-        <div className="hawa-text-4xl hawa-font-bold hawa-leading-none">
-          Customize Hawa
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <main className=" m-0  flex  flex-col  gap-2  p-10 ">
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col">
+            <div className=" mb-4  flex  flex-col  gap-1">
+              <div className=" text-4xl  font-bold  leading-none">
+                Customize Hawa
+              </div>
+              <div className=" max-w-lg  text-lg  leading-6">
+                Adjust the colors to generate the global CSS variables that you
+                can copy and paste into your primary CSS file
+              </div>
+            </div>
+          </div>
+          <Link href={"/"}>
+            <Button>Docs</Button>
+          </Link>
         </div>
-        <div className="hawa-max-w-lg hawa-text-lg hawa-leading-6">
-          Adjust the colors to generate the global CSS variables that you can
-          copy and paste into your primary CSS file
-        </div>
-      </div>
 
-      <ThemeCustomizer />
-    </main>
+        <ThemeCustomizer />
+      </main>
+    </ThemeProvider>
   );
 }
