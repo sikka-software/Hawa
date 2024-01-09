@@ -15,6 +15,11 @@
     "packages/storybook",
     "apps/docs"
   ],
+  "pnpm": {
+    "overrides": {
+      "flexsearch": "0.7.31"
+    }
+  },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

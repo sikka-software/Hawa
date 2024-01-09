@@ -5,7 +5,8 @@ import glowPlugin from "./glow-plugin";
 const config: Config = {
   content: [
     "./elements/**/*.{js,ts,jsx,tsx,mdx}",
-    "./blocks/**/*.{js,ts,jsx,tsx,mdx}"
+    "./blocks/**/*.{js,ts,jsx,tsx,mdx}",
+    "./layout/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   prefix: "hawa-",
   darkMode: "class",
