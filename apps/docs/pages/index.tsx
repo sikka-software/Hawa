@@ -63,23 +63,25 @@ export default function Home() {
               exceptional web experiences with Hawa, one block at a time.
             </p>
             <div className="hawa-flex hawa-flex-row hawa-gap-2">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  try {
-                    window.open(
-                      "https://hawa.style/docs",
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                  } catch (e) {
-                    console.error("Failed to open URL:", e);
-                  }
-                }}
-                aria-label="Open Documentation"
-              >
-                Docs
-              </Button>
+              <Link href="/introduction">
+                <Button
+                  variant="outline"
+                  // onClick={() => {
+                  //   try {
+                  //     window.open(
+                  //       "https://hawa.style/docs",
+                  //       "_blank",
+                  //       "noopener,noreferrer"
+                  //     );
+                  //   } catch (e) {
+                  //     console.error("Failed to open URL:", e);
+                  //   }
+                  // }}
+                  aria-label="Open Documentation"
+                >
+                  Docs
+                </Button>
+              </Link>
               <Link href={"/theme"}>
                 <Button aria-label="Open Documentation">Customize</Button>
               </Link>
