@@ -7,13 +7,15 @@
     "email": "contact@sikka.io",
     "url": "http://sikka.io"
   },
+  "type": "module",
   "homepage": "https://hawa.style",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 3032",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen": "node scripts.js"
   },
   "dependencies": {
     "@sikka/hawa": "workspace:*",
@@ -42,6 +44,8 @@
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.0.0",
+    "react-docgen": "^7.0.2",
+    "react-docgen-typescript": "^2.2.2",
     "recharts": "^2.10.3",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
