@@ -36,6 +36,7 @@ import {
   TabsTrigger,
 } from "@/registry/new-york/ui/tabs"
 import { Style } from "@/registry/styles"
+import { CodeBlock } from "@sikka/hawa/elements";
 
 const components = {
   Accordion,
@@ -45,6 +46,7 @@ const components = {
   Alert,
   AlertTitle,
   AlertDescription,
+  CodeBlock,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
