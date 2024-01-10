@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import { EmblaOptionsType } from "embla-carousel";
-import useEmblaCarousel from "embla-carousel-react";
-
+import { DirectionType } from "@/types";
 // import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { cn } from "@util/index";
+import { EmblaOptionsType } from "embla-carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 type CarouselProps = {
   items: React.ReactNode[];
@@ -12,11 +12,12 @@ type CarouselProps = {
   autoplay?: boolean;
   autoplayInterval?: number;
   options?: EmblaOptionsType;
-  // options?: any;
+  direction?: DirectionType;
 };
 type DotsProps = {
   itemsLength: number;
   selectedIndex: number;
+  direction: DirectionType;
   onDotClick: (index: number) => void;
 };
 type ControlsProps = {
@@ -31,11 +32,13 @@ export const Carousel: React.FC<CarouselProps> = ({
   showArrows,
   options,
   autoplay,
+  direction = "ltr",
   autoplayInterval = 3000,
   ...props
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     ...options,
+    direction,
     loop: autoplay ? true : options?.loop || false
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -86,6 +89,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       </div>
 
       <Dots
+        direction={direction}
         itemsLength={length}
         selectedIndex={selectedIndex}
         onDotClick={(index) => emblaApi?.scrollTo(index)}
@@ -103,10 +107,18 @@ export const Carousel: React.FC<CarouselProps> = ({
   );
 };
 
-const Dots = ({ onDotClick, itemsLength, selectedIndex }: DotsProps) => {
+const Dots = ({
+  onDotClick,
+  itemsLength,
+  selectedIndex,
+  direction
+}: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
-    <div className="hawa-z-50 hawa-my-2 hawa-flex hawa-justify-center hawa-gap-1">
+    <div
+      dir={direction}
+      className="hawa-z-50 hawa-my-2 hawa-flex hawa-justify-center hawa-gap-1"
+    >
       {arr.map((_, index) => {
         const selected = index === selectedIndex;
         return (

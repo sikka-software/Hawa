@@ -19,6 +19,8 @@ import { Carousel } from "@sikka/hawa/elements/carousel";
 import { Count } from "@sikka/hawa/elements/count";
 import { Tooltip } from "@sikka/hawa/elements/tooltip";
 
+import { setLocale } from "../../translations/i18n";
+
 const meta = {
   title: "Elements/Carousel",
   component: Carousel
@@ -28,13 +30,23 @@ export default meta;
 type Story = StoryObj<typeof Carousel>;
 
 export const Default: Story = {
-  render: (args) => (
-    <div className="hawa-flex hawa-flex-col hawa-gap-10">
-      <div className="hawa-h-52">
-        <Carousel options={{ loop: false }} {...args} items={images} />
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-10">
+        <div className="hawa-h-52">
+          <Carousel
+            options={{ loop: false }}
+            {...args}
+            items={images}
+            direction={direction}
+          />
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
 };
 export const Cards: Story = {
   render: () => (
