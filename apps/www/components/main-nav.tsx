@@ -9,13 +9,15 @@ import { Badge } from "@/registry/new-york/ui/badge";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { Logos } from "@sikka/hawa/elements";
+
 export function MainNav() {
   const pathname = usePathname();
 
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
+        <Logos.hawa className="h-6 w-6" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>

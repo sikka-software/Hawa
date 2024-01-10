@@ -17,17 +17,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 // import { Button } from "@sikka/hawa/dist/button";
-import { Button } from "@sikka/hawa/elements";
+import { Button, CodeBlock } from "@sikka/hawa/elements";
 
 export default function IndexPage() {
   return (
     <div className="container relative">
       <PageHeader>
         <Announcement />
-        <PageHeaderHeading>Build your component library</PageHeaderHeading>
+        <PageHeaderHeading>Elements, Blocks, and Layouts.</PageHeaderHeading>
         <PageHeaderDescription>
-          Beautifully designed components that you can copy and paste into your
-          apps. Accessible. Customizable. Open Source.
+          The library to build interfaces like the wind. Opinionated & Open
+          Source.
         </PageHeaderDescription>
         <PageActions>
           <Link href="/docs">
@@ -40,6 +40,16 @@ export default function IndexPage() {
             </Button>
           </Link>
         </PageActions>
+
+        <div className="w-full max-w-md">
+          <CodeBlock
+            tabs={[
+              { title: "npm", code: "npm install @sikka/hawa" },
+              { title: "yarn", code: "yarn add @sikka/hawa" },
+              { title: "pnpm", code: "pnpm add @sikka/hawa" }
+            ]}
+          ></CodeBlock>
+        </div>
       </PageHeader>
       {/* <ExamplesNav className="[&>a:first-child]:text-primary" />
       <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
