@@ -5,6 +5,7 @@ component: true
 links:
   doc: https://www.radix-ui.com/docs/primitives/components/accordion
   api: https://www.radix-ui.com/docs/primitives/components/accordion#api-reference
+  storybook: https://storybook.hawa.style/?path=/story/components-accordion--accordion-demo
 ---
 
 <ComponentPreview
@@ -12,12 +13,11 @@ links:
   className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
 />
 
-## Installation
+## Import
 
 <div className="mt-10">
   <CodeBlock
     langauge="bash"
-    fileName="package.json"
     tabs={[
       { title: "npm", code: "npm install @sikka/hawa" },
       { title: "yarn", code: "yarn add @sikka/hawa" },
@@ -26,115 +26,31 @@ links:
   ></CodeBlock>
 </div>
 
-<Tabs defaultValue="cli">
-
-<TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-
-<TabsContent value="cli">
-
-<Steps>
-
-<Step>Run the following command:</Step>
-
-```bash
-npx shadcn-ui@latest add accordion
-```
-
-<Step>Update `tailwind.config.js`</Step>
-
-Add the following animations to your `tailwind.config.js` file:
-
-```js title="tailwind.config.js" {5-18}
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  theme: {
-    extend: {
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" }
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" }
-        }
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
-      }
-    }
-  }
-};
-```
-
-</Steps>
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-accordion
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource name="accordion" />
-
-<Step>Update the import paths to match your project setup.</Step>
-
-<Step>Update `tailwind.config.js`</Step>
-
-Add the following animations to your `tailwind.config.js` file:
-
-```js title="tailwind.config.js" {5-18}
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  theme: {
-    extend: {
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" }
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" }
-        }
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
-      }
-    }
-  }
-};
-```
-
-</Steps>
-
-</TabsContent>
-
-</Tabs>
-
 ## Usage
 
 ```tsx
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/components/ui/accordion";
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
 ```
+
+## Props
+
+<div className="mt-10">
+  <CodeBlock
+    langauge="bash"
+    tabs={[
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
+    ]}
+  ></CodeBlock>
+</div>
 
 ```tsx
 <Accordion type="single" collapsible>
