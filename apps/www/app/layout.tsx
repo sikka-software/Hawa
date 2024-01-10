@@ -5,7 +5,7 @@ import "@sikka/hawa/dist/style.css";
 import { Metadata, Viewport } from "next";
 
 import { siteConfig } from "@/config/site";
-import { fontSans, IBMFont } from "@/lib/fonts";
+import { IBMFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers";
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com"
+      name: "Sikka Software",
+      url: "https://sikka.io"
     }
   ],
-  creator: "shadcn",
+  creator: "Sikka Software",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@shadcn"
+    creator: "@sikka_sa"
   },
   icons: {
     icon: "/favicon.ico",

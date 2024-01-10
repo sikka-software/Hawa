@@ -1,18 +1,11 @@
-import {
-  ChevronDownIcon,
-  CircleIcon,
-  PlusIcon,
-  StarIcon,
-} from "@radix-ui/react-icons"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
-} from "@/registry/new-york/ui/card"
+  CardTitle
+} from "@/registry/new-york/ui/card";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -20,22 +13,28 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Separator } from "@/registry/new-york/ui/separator"
+  DropdownMenuTrigger
+} from "@/registry/new-york/ui/dropdown-menu";
+import { Separator } from "@/registry/new-york/ui/separator";
+import {
+  ChevronDownIcon,
+  CircleIcon,
+  PlusIcon,
+  StarIcon
+} from "@radix-ui/react-icons";
 
 export function DemoGithub() {
   return (
     <Card>
       <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle>shadcn/ui</CardTitle>
+          <CardTitle>@sikka/hawa</CardTitle>
           <CardDescription>
-            Beautifully designed components that you can copy and paste into
-            your apps. Accessible. Customizable. Open Source.
+            Beautifully designed components that you can made for RTL-first
+            Arabic applications.
           </CardDescription>
         </div>
-        <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
+        <div className="bg-secondary text-secondary-foreground flex items-center space-x-1 rounded-md">
           <Button variant="secondary" className="px-3 shadow-none">
             <StarIcon className="mr-2 h-4 w-4" />
             Star
@@ -44,7 +43,7 @@ export function DemoGithub() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" className="px-2 shadow-none">
-                <ChevronDownIcon className="h-4 w-4 text-secondary-foreground" />
+                <ChevronDownIcon className="text-secondary-foreground h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -69,7 +68,7 @@ export function DemoGithub() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="flex space-x-4 text-sm text-muted-foreground">
+        <div className="text-muted-foreground flex space-x-4 text-sm">
           <div className="flex items-center">
             <CircleIcon className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
             TypeScript
@@ -82,5 +81,5 @@ export function DemoGithub() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
