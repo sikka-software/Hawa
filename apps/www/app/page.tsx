@@ -1,19 +1,23 @@
-import Image from "next/image"
-import Link from "next/link"
+"use client";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Announcement } from "@/components/announcement"
-import { ExamplesNav } from "@/components/examples-nav"
-import { Icons } from "@/components/icons"
+import MailPage from "@/app/examples/mail/page";
+import { Announcement } from "@/components/announcement";
+import { ExamplesNav } from "@/components/examples-nav";
+import { Icons } from "@/components/icons";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { buttonVariants } from "@/registry/new-york/ui/button"
-import MailPage from "@/app/examples/mail/page"
+  PageHeaderHeading
+} from "@/components/page-header";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/registry/new-york/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+
+// import { Button } from "@sikka/hawa/dist/button";
+import { Button } from "@sikka/hawa/elements";
 
 export default function IndexPage() {
   return (
@@ -26,21 +30,18 @@ export default function IndexPage() {
           apps. Accessible. Customizable. Open Source.
         </PageHeaderDescription>
         <PageActions>
-          <Link href="/docs" className={cn(buttonVariants())}>
-            Get Started
+          <Link href="/docs">
+            <Button size="sm">Get Started</Button>
           </Link>
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github}
-            className={cn(buttonVariants({ variant: "outline" }))}
-          >
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            GitHub
+          <Link target="_blank" rel="noreferrer" href={siteConfig.links.github}>
+            <Button size="sm" variant="outline">
+              <Icons.gitHub className="mr-2 h-4 w-4" />
+              GitHub
+            </Button>
           </Link>
         </PageActions>
       </PageHeader>
-      <ExamplesNav className="[&>a:first-child]:text-primary" />
+      {/* <ExamplesNav className="[&>a:first-child]:text-primary" />
       <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
         <Image
           src="/examples/mail-dark.png"
@@ -61,7 +62,7 @@ export default function IndexPage() {
         <div className="overflow-hidden rounded-lg border bg-background shadow-lg">
           <MailPage />
         </div>
-      </section>
+      </section> */}
     </div>
-  )
+  );
 }

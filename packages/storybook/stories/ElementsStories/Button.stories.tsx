@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@sikka/hawa/elements/button";
@@ -32,28 +30,28 @@ export const Variations: Story = {
         </div>
         <h1>Loading</h1>
         <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-          <Button isLoading variant={"default"}>
+          <Button isLoading variant="default">
             Default
           </Button>
-          <Button isLoading variant={"outline"}>
+          <Button isLoading variant="outline">
             Outline
           </Button>
-          <Button isLoading variant={"destructive"}>
+          <Button isLoading variant="destructive">
             Destructive
           </Button>
-          <Button isLoading variant={"ghost"}>
+          <Button isLoading variant="ghost">
             Ghost
           </Button>
-          <Button isLoading variant={"light"}>
+          <Button isLoading variant="light">
             Light
           </Button>
-          <Button isLoading variant={"secondary"}>
+          <Button isLoading variant="secondary">
             Secondary
           </Button>
-          <Button isLoading variant={"link"}>
+          <Button isLoading variant="link">
             Link
           </Button>
-          <Button isLoading variant={"neoBrutalism"}>
+          <Button isLoading variant="neoBrutalism">
             NeoBrutalism
           </Button>
         </div>
@@ -68,57 +66,53 @@ export const Sizes: Story = {
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
         <h1>Sizes</h1>
         <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-          <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
-            <Button size={"smallIcon"}>
+          <Tooltip content="Small Icon" triggerProps={{ asChild: true }}>
+            <Button size="smallIcon">
               <Logos.sikka className="hawa-icon" />
             </Button>
           </Tooltip>
-          <Tooltip content={"Icon"} triggerProps={{ asChild: true }}>
-            <Button size={"icon"}>
+          <Tooltip content="Icon" triggerProps={{ asChild: true }}>
+            <Button size="icon">
               <Logos.sikka className="hawa-icon" />
             </Button>
           </Tooltip>
-          <Button size={"xs"}>Extra Small</Button>
-          <Button size={"sm"}>Small</Button>
-          <Button size={"default"} variant={"default"}>
+          <Button size="xs">Extra Small</Button>
+          <Button size="sm">Small</Button>
+          <Button size="default" variant="default">
             Default
           </Button>
-          <Button size={"lg"}>Large</Button>
-          <Button size={"heightless"}>Auto Height</Button>
-          <Button size={"xl"}>Extra Large</Button>
+          <Button size="lg">Large</Button>
+          <Button size="heightless">Auto Height</Button>
+          <Button size="xl">Extra Large</Button>
         </div>
         <h1>Loading</h1>
         <div className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-gap-2">
-          <Tooltip content={"Small Icon"} triggerProps={{ asChild: true }}>
-            <Button variant={"outline"} isLoading={true} size={"smallIcon"}>
+          <Tooltip content="Small Icon" triggerProps={{ asChild: true }}>
+            <Button variant="outline" isLoading size="smallIcon">
               <Logos.sikka className="hawa-icon" />
             </Button>
           </Tooltip>
-          <Tooltip content={"Icon"} triggerProps={{ asChild: true }}>
-            <Button
-              //  variant={"outline"}
-              isLoading={true}
-              size={"icon"}
-            >
+          <Tooltip content="Icon" triggerProps={{ asChild: true }}>
+            <Button isLoading size="icon">
               <Logos.sikka className="hawa-icon" />
             </Button>
           </Tooltip>
-          <Button isLoading={true} size={"xs"}>
+          <Button isLoading size="xs">
             Extra Small
           </Button>
-          <Button isLoading={true} size={"sm"}>
+          <Button isLoading size="sm">
             Small
           </Button>
-          <Button isLoading={true} size={"default"} variant={"default"}>
+          <Button isLoading size="default" variant="default">
             Default
           </Button>
-          <Button isLoading={true} size={"lg"}>
+          <Button isLoading size="lg">
             Large
           </Button>
-          <Button isLoading={true} size={"heightless"}>
+          <Button isLoading size="heightless">
             Auto Height
           </Button>
-          <Button isLoading={true} size={"xl"}>
+          <Button isLoading size="xl">
             Extra Large
           </Button>
         </div>

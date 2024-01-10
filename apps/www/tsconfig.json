@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
+      // "@sikka/hawa/*": ["../../packages/components/*"]
     },
     "plugins": [
       {
