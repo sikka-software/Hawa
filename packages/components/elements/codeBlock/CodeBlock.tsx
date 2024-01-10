@@ -43,10 +43,10 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 }) => {
   const clipboard = useClipboard();
   const [selectedTab, setSelectedTab] = useState(0);
-  const isDarkMode =
-    props.forcedDarkMode ||
-    document.body.classList.contains("dark") ||
-    document.documentElement.classList.contains("dark");
+  // const isDarkMode =
+  //   props.forcedDarkMode ||
+  //   document.body.classList.contains("dark") ||
+  //   document.documentElement.classList.contains("dark");
   // const theme = isDarkMode ? themes.vsDark : themes.vsLight;
   const theme = themes.oceanicNext;
 
@@ -68,15 +68,15 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {fileName && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             fileName && tabs
-              ? "hawa-bg-gray-300 dark:hawa-bg-muted/50"
-              : "hawa-bg-gray-200 dark:hawa-bg-gray-500"
+              ? "hawa-bg-gray-100 dark:hawa-bg-gray-900"
+              : "hawa-bg-gray-100 dark:hawa-bg-gray-900"
           )}
         >
           <div
             className={cn(
-              "mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
+              "hawa-font-mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
             )}
           >
             {fileName}
