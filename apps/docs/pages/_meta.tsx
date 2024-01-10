@@ -15,15 +15,12 @@ export default {
       }
     }
   },
-  introduction: {
-    title: "Introduction"
-  },
-  "getting-started": {
-    title: "Getting Started"
-  },
-  "theme": {
-    title: "Customize Theme"
-  },
+  introduction: { title: "Introduction" },
+  "getting-started": { title: "Getting Started" },
+  elements: "",
+  blocks: "",
+  layout: "",
+  theme: { title: "Customize Theme" }
   // "*": {
   //   theme: {
   //     main: {
@@ -32,10 +29,10 @@ export default {
   //     }
   //   }
   // },
-  "--- yoo": {
-    title: "Do Not Use",
-    type: "separator"
-  },
-  more: "More: A Super Super Super Super Long Directory",
-  "file-name.with.DOTS": "Filenames with Dots"
+  // "--- yoo": {
+  //   title: "Do Not Use",
+  //   type: "separator"
+  // },
+  // more: "More: A Super Super Super Super Long Directory",
+  // "file-name.with.DOTS": "Filenames with Dots"
 };
