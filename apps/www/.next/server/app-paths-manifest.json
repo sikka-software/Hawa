@@ -1,7 +1,0 @@
-{
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
-  "/docs/[[...slug]]/page": "app/docs/[[...slug]]/page.js",
-  "/examples/authentication/page": "app/examples/authentication/page.js",
-  "/examples/mail/page": "app/examples/mail/page.js"
-}

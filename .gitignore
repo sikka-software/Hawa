@@ -34,6 +34,15 @@ yarn-error.log*
 # vercel
 .vercel
 
+# typescript
+*.tsbuildinfo
+dist
+
+
+.vscode
+.env
+/node_modules
+/.next
 # 
 apps/docs/next-env.d.ts
 apps/docs/.next
@@ -52,9 +61,5 @@ packages/storybook/node_modules
 packages/components/node_modules
 packages/tests/node_modules
 packages/plugin/node_modules
-
-# typescript
-*.tsbuildinfo
-dist
 
 
