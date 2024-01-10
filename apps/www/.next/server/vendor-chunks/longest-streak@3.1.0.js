@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/longest-streak@3.1.0";
+exports.ids = ["vendor-chunks/longest-streak@3.1.0"];
+exports.modules = {
+
+/***/ "(rsc)/../../node_modules/.pnpm/longest-streak@3.1.0/node_modules/longest-streak/index.js":
+/*!******************************************************************************************!*\
+  !*** ../../node_modules/.pnpm/longest-streak@3.1.0/node_modules/longest-streak/index.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   longestStreak: () => (/* binding */ longestStreak)\n/* harmony export */ });\n/**\n * Get the count of the longest repeating streak of `substring` in `value`.\n *\n * @param {string} value\n *   Content to search in.\n * @param {string} substring\n *   Substring to look for, typically one character.\n * @returns {number}\n *   Count of most frequent adjacent `substring`s in `value`.\n */ function longestStreak(value, substring) {\n    const source = String(value);\n    let index = source.indexOf(substring);\n    let expected = index;\n    let count = 0;\n    let max = 0;\n    if (typeof substring !== \"string\") {\n        throw new TypeError(\"Expected substring\");\n    }\n    while(index !== -1){\n        if (index === expected) {\n            if (++count > max) {\n                max = count;\n            }\n        } else {\n            count = 1;\n        }\n        expected = index + substring.length;\n        index = source.indexOf(substring, expected);\n    }\n    return max;\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL2xvbmdlc3Qtc3RyZWFrQDMuMS4wL25vZGVfbW9kdWxlcy9sb25nZXN0LXN0cmVhay9pbmRleC5qcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUE7Ozs7Ozs7OztDQVNDLEdBQ00sU0FBU0EsY0FBY0MsS0FBSyxFQUFFQyxTQUFTO0lBQzVDLE1BQU1DLFNBQVNDLE9BQU9IO0lBQ3RCLElBQUlJLFFBQVFGLE9BQU9HLE9BQU8sQ0FBQ0o7SUFDM0IsSUFBSUssV0FBV0Y7SUFDZixJQUFJRyxRQUFRO0lBQ1osSUFBSUMsTUFBTTtJQUVWLElBQUksT0FBT1AsY0FBYyxVQUFVO1FBQ2pDLE1BQU0sSUFBSVEsVUFBVTtJQUN0QjtJQUVBLE1BQU9MLFVBQVUsQ0FBQyxFQUFHO1FBQ25CLElBQUlBLFVBQVVFLFVBQVU7WUFDdEIsSUFBSSxFQUFFQyxRQUFRQyxLQUFLO2dCQUNqQkEsTUFBTUQ7WUFDUjtRQUNGLE9BQU87WUFDTEEsUUFBUTtRQUNWO1FBRUFELFdBQVdGLFFBQVFILFVBQVVTLE1BQU07UUFDbkNOLFFBQVFGLE9BQU9HLE9BQU8sQ0FBQ0osV0FBV0s7SUFDcEM7SUFFQSxPQUFPRTtBQUNUIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaGF3YS1kb2NzLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS9sb25nZXN0LXN0cmVha0AzLjEuMC9ub2RlX21vZHVsZXMvbG9uZ2VzdC1zdHJlYWsvaW5kZXguanM/Nzk3YiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEdldCB0aGUgY291bnQgb2YgdGhlIGxvbmdlc3QgcmVwZWF0aW5nIHN0cmVhayBvZiBgc3Vic3RyaW5nYCBpbiBgdmFsdWVgLlxuICpcbiAqIEBwYXJhbSB7c3RyaW5nfSB2YWx1ZVxuICogICBDb250ZW50IHRvIHNlYXJjaCBpbi5cbiAqIEBwYXJhbSB7c3RyaW5nfSBzdWJzdHJpbmdcbiAqICAgU3Vic3RyaW5nIHRvIGxvb2sgZm9yLCB0eXBpY2FsbHkgb25lIGNoYXJhY3Rlci5cbiAqIEByZXR1cm5zIHtudW1iZXJ9XG4gKiAgIENvdW50IG9mIG1vc3QgZnJlcXVlbnQgYWRqYWNlbnQgYHN1YnN0cmluZ2BzIGluIGB2YWx1ZWAuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBsb25nZXN0U3RyZWFrKHZhbHVlLCBzdWJzdHJpbmcpIHtcbiAgY29uc3Qgc291cmNlID0gU3RyaW5nKHZhbHVlKVxuICBsZXQgaW5kZXggPSBzb3VyY2UuaW5kZXhPZihzdWJzdHJpbmcpXG4gIGxldCBleHBlY3RlZCA9IGluZGV4XG4gIGxldCBjb3VudCA9IDBcbiAgbGV0IG1heCA9IDBcblxuICBpZiAodHlwZW9mIHN1YnN0cmluZyAhPT0gJ3N0cmluZycpIHtcbiAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdFeHBlY3RlZCBzdWJzdHJpbmcnKVxuICB9XG5cbiAgd2hpbGUgKGluZGV4ICE9PSAtMSkge1xuICAgIGlmIChpbmRleCA9PT0gZXhwZWN0ZWQpIHtcbiAgICAgIGlmICgrK2NvdW50ID4gbWF4KSB7XG4gICAgICAgIG1heCA9IGNvdW50XG4gICAgICB9XG4gICAgfSBlbHNlIHtcbiAgICAgIGNvdW50ID0gMVxuICAgIH1cblxuICAgIGV4cGVjdGVkID0gaW5kZXggKyBzdWJzdHJpbmcubGVuZ3RoXG4gICAgaW5kZXggPSBzb3VyY2UuaW5kZXhPZihzdWJzdHJpbmcsIGV4cGVjdGVkKVxuICB9XG5cbiAgcmV0dXJuIG1heFxufVxuIl0sIm5hbWVzIjpbImxvbmdlc3RTdHJlYWsiLCJ2YWx1ZSIsInN1YnN0cmluZyIsInNvdXJjZSIsIlN0cmluZyIsImluZGV4IiwiaW5kZXhPZiIsImV4cGVjdGVkIiwiY291bnQiLCJtYXgiLCJUeXBlRXJyb3IiLCJsZW5ndGgiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/../../node_modules/.pnpm/longest-streak@3.1.0/node_modules/longest-streak/index.js\n");
+
+/***/ })
+
+};
+;

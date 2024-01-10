@@ -1,6 +1,21 @@
 {
   "name": "hawa",
   "private": true,
+  "author": {
+    "name": "Sikka Software",
+    "url": "https://twitter.com/sikka_sa"
+  },
+  "workspaces": [
+    "packages/components",
+    "packages/storybook",
+    "apps/docs"
+  ],
+  "packageManager": "pnpm@8.13.1",
+  "pnpm": {
+    "overrides": {
+      "flexsearch": "0.7.31"
+    }
+  },
   "scripts": {
     "dev:docs": "pnpm --filter hawa-docs dev",
     "dev:storybook": "pnpm --filter hawa-storybook storybook",
@@ -9,16 +24,6 @@
     "build:docs": "pnpm --filter hawa-docs build",
     "build:storybook": "pnpm --filter hawa-storybook build-storybook",
     "build:all": "pnpm run build:lib && pnpm run build:storybook && pnpm run build:docs"
-  },
-  "workspaces": [
-    "packages/components",
-    "packages/storybook",
-    "apps/docs"
-  ],
-  "pnpm": {
-    "overrides": {
-      "flexsearch": "0.7.31"
-    }
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

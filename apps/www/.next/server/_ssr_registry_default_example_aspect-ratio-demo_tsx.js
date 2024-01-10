@@ -1,0 +1,35 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "_ssr_registry_default_example_aspect-ratio-demo_tsx";
+exports.ids = ["_ssr_registry_default_example_aspect-ratio-demo_tsx"];
+exports.modules = {
+
+/***/ "(ssr)/./registry/default/example/aspect-ratio-demo.tsx":
+/*!********************************************************!*\
+  !*** ./registry/default/example/aspect-ratio-demo.tsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ AspectRatioDemo)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/../../node_modules/.pnpm/next@14.0.4_@opentelemetry+api@1.7.0_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"(ssr)/../../node_modules/.pnpm/next@14.0.4_@opentelemetry+api@1.7.0_react-dom@18.2.0_react@18.2.0/node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _registry_default_ui_aspect_ratio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/registry/default/ui/aspect-ratio */ \"(ssr)/./registry/default/ui/aspect-ratio.tsx\");\n\n\n\nfunction AspectRatioDemo() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_registry_default_ui_aspect_ratio__WEBPACK_IMPORTED_MODULE_2__.AspectRatio, {\n        ratio: 16 / 9,\n        className: \"bg-muted\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {\n            src: \"https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80\",\n            alt: \"Photo by Drew Beamer\",\n            fill: true,\n            className: \"rounded-md object-cover\"\n        }, void 0, false, {\n            fileName: \"C:\\\\Users\\\\Zakher\\\\Desktop\\\\coding\\\\hawa\\\\apps\\\\www\\\\registry\\\\default\\\\example\\\\aspect-ratio-demo.tsx\",\n            lineNumber: 8,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\Zakher\\\\Desktop\\\\coding\\\\hawa\\\\apps\\\\www\\\\registry\\\\default\\\\example\\\\aspect-ratio-demo.tsx\",\n        lineNumber: 7,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9yZWdpc3RyeS9kZWZhdWx0L2V4YW1wbGUvYXNwZWN0LXJhdGlvLWRlbW8udHN4IiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBOEI7QUFFa0M7QUFFakQsU0FBU0U7SUFDdEIscUJBQ0UsOERBQUNELDBFQUFXQTtRQUFDRSxPQUFPLEtBQUs7UUFBR0MsV0FBVTtrQkFDcEMsNEVBQUNKLG1EQUFLQTtZQUNKSyxLQUFJO1lBQ0pDLEtBQUk7WUFDSkMsSUFBSTtZQUNKSCxXQUFVOzs7Ozs7Ozs7OztBQUlsQiIsInNvdXJjZXMiOlsid2VicGFjazovL2hhd2EtZG9jcy8uL3JlZ2lzdHJ5L2RlZmF1bHQvZXhhbXBsZS9hc3BlY3QtcmF0aW8tZGVtby50c3g/ODNlMSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgSW1hZ2UgZnJvbSBcIm5leHQvaW1hZ2VcIlxyXG5cclxuaW1wb3J0IHsgQXNwZWN0UmF0aW8gfSBmcm9tIFwiQC9yZWdpc3RyeS9kZWZhdWx0L3VpL2FzcGVjdC1yYXRpb1wiXHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBBc3BlY3RSYXRpb0RlbW8oKSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxBc3BlY3RSYXRpbyByYXRpbz17MTYgLyA5fSBjbGFzc05hbWU9XCJiZy1tdXRlZFwiPlxyXG4gICAgICA8SW1hZ2VcclxuICAgICAgICBzcmM9XCJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4ODM0NTkyMTUyMy1jMmRjZGI3ZjFkY2Q/dz04MDAmZHByPTImcT04MFwiXHJcbiAgICAgICAgYWx0PVwiUGhvdG8gYnkgRHJldyBCZWFtZXJcIlxyXG4gICAgICAgIGZpbGxcclxuICAgICAgICBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIG9iamVjdC1jb3ZlclwiXHJcbiAgICAgIC8+XHJcbiAgICA8L0FzcGVjdFJhdGlvPlxyXG4gIClcclxufVxyXG4iXSwibmFtZXMiOlsiSW1hZ2UiLCJBc3BlY3RSYXRpbyIsIkFzcGVjdFJhdGlvRGVtbyIsInJhdGlvIiwiY2xhc3NOYW1lIiwic3JjIiwiYWx0IiwiZmlsbCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./registry/default/example/aspect-ratio-demo.tsx\n");
+
+/***/ }),
+
+/***/ "(ssr)/./registry/default/ui/aspect-ratio.tsx":
+/*!**********************************************!*\
+  !*** ./registry/default/ui/aspect-ratio.tsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   AspectRatio: () => (/* binding */ AspectRatio)\n/* harmony export */ });\n/* harmony import */ var _radix_ui_react_aspect_ratio__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @radix-ui/react-aspect-ratio */ \"(ssr)/../../node_modules/.pnpm/@radix-ui+react-aspect-ratio@1.0.3_@types+react-dom@18.2.18_@types+react@18.2.47_react-dom@18.2.0_react@18.2.0/node_modules/@radix-ui/react-aspect-ratio/dist/index.mjs\");\n/* __next_internal_client_entry_do_not_use__ AspectRatio auto */ \nconst AspectRatio = _radix_ui_react_aspect_ratio__WEBPACK_IMPORTED_MODULE_0__.Root;\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9yZWdpc3RyeS9kZWZhdWx0L3VpL2FzcGVjdC1yYXRpby50c3giLCJtYXBwaW5ncyI6Ijs7Ozs7aUVBRW9FO0FBRXBFLE1BQU1DLGNBQWNELDhEQUF5QjtBQUV2QiIsInNvdXJjZXMiOlsid2VicGFjazovL2hhd2EtZG9jcy8uL3JlZ2lzdHJ5L2RlZmF1bHQvdWkvYXNwZWN0LXJhdGlvLnRzeD8zY2JhIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIGNsaWVudFwiXHJcblxyXG5pbXBvcnQgKiBhcyBBc3BlY3RSYXRpb1ByaW1pdGl2ZSBmcm9tIFwiQHJhZGl4LXVpL3JlYWN0LWFzcGVjdC1yYXRpb1wiXHJcblxyXG5jb25zdCBBc3BlY3RSYXRpbyA9IEFzcGVjdFJhdGlvUHJpbWl0aXZlLlJvb3RcclxuXHJcbmV4cG9ydCB7IEFzcGVjdFJhdGlvIH1cclxuIl0sIm5hbWVzIjpbIkFzcGVjdFJhdGlvUHJpbWl0aXZlIiwiQXNwZWN0UmF0aW8iLCJSb290Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./registry/default/ui/aspect-ratio.tsx\n");
+
+/***/ })
+
+};
+;

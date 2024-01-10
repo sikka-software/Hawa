@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "_ssr_registry_default_ui_skeleton_tsx";
+exports.ids = ["_ssr_registry_default_ui_skeleton_tsx"];
+exports.modules = {
+
+/***/ "(ssr)/./registry/default/ui/skeleton.tsx":
+/*!******************************************!*\
+  !*** ./registry/default/ui/skeleton.tsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Skeleton: () => (/* binding */ Skeleton)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/../../node_modules/.pnpm/next@14.0.4_@opentelemetry+api@1.7.0_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/lib/utils */ \"(ssr)/./lib/utils.ts\");\n\n\nfunction Skeleton({ className, ...props }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_1__.cn)(\"animate-pulse rounded-md bg-muted\", className),\n        ...props\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\Zakher\\\\Desktop\\\\coding\\\\hawa\\\\apps\\\\www\\\\registry\\\\default\\\\ui\\\\skeleton.tsx\",\n        lineNumber: 8,\n        columnNumber: 5\n    }, this);\n}\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9yZWdpc3RyeS9kZWZhdWx0L3VpL3NrZWxldG9uLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFnQztBQUVoQyxTQUFTQyxTQUFTLEVBQ2hCQyxTQUFTLEVBQ1QsR0FBR0MsT0FDa0M7SUFDckMscUJBQ0UsOERBQUNDO1FBQ0NGLFdBQVdGLDhDQUFFQSxDQUFDLHFDQUFxQ0U7UUFDbEQsR0FBR0MsS0FBSzs7Ozs7O0FBR2Y7QUFFbUIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9oYXdhLWRvY3MvLi9yZWdpc3RyeS9kZWZhdWx0L3VpL3NrZWxldG9uLnRzeD8zNzg2Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNuIH0gZnJvbSBcIkAvbGliL3V0aWxzXCJcclxuXHJcbmZ1bmN0aW9uIFNrZWxldG9uKHtcclxuICBjbGFzc05hbWUsXHJcbiAgLi4ucHJvcHNcclxufTogUmVhY3QuSFRNTEF0dHJpYnV0ZXM8SFRNTERpdkVsZW1lbnQ+KSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXZcclxuICAgICAgY2xhc3NOYW1lPXtjbihcImFuaW1hdGUtcHVsc2Ugcm91bmRlZC1tZCBiZy1tdXRlZFwiLCBjbGFzc05hbWUpfVxyXG4gICAgICB7Li4ucHJvcHN9XHJcbiAgICAvPlxyXG4gIClcclxufVxyXG5cclxuZXhwb3J0IHsgU2tlbGV0b24gfVxyXG4iXSwibmFtZXMiOlsiY24iLCJTa2VsZXRvbiIsImNsYXNzTmFtZSIsInByb3BzIiwiZGl2Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./registry/default/ui/skeleton.tsx\n");
+
+/***/ })
+
+};
+;

@@ -44,14 +44,26 @@ async function extractMetadata(componentFilePath) {
  * @param metadata Metadata of the component.
  * @returns Markdown content.
  */
+
 function generateMarkdown(metadata) {
   let markdown = `# ${metadata.displayName}\n\n`;
-  markdown += `${metadata.description}\n\n`;
-  markdown += `## Props\n`;
-  for (const propName in metadata.props) {
-    const prop = metadata.props[propName];
-    markdown += `- ${propName} (${prop.type.name}): ${prop.description}\n`;
+  markdown += metadata.description ? `${metadata.description}\n\n` : "";
+
+  if (metadata.props && Object.keys(metadata.props).length > 0) {
+    markdown += `## Props\n`;
+    for (const propName in metadata.props) {
+      const prop = metadata.props[propName];
+      markdown += `- **${propName}** (${prop.type.name})${
+        prop.required ? " (required)" : ""
+      }: ${prop.description || "No description provided."}\n`;
+      if (prop.defaultValue) {
+        markdown += `  - Default: \`${prop.defaultValue.value}\`\n`;
+      }
+    }
+  } else {
+    markdown += "No props available for this component.\n";
   }
+
   return markdown;
 }
 
@@ -68,20 +80,36 @@ function generateDocumentationForAllComponents(
     .readdirSync(componentsDirectory)
     .filter((file) => file.endsWith(".tsx") || file.endsWith(".jsx"));
 
-  componentFiles.forEach((file) => {
+  componentFiles.forEach(async (file) => {
     const filePath = path.join(componentsDirectory, file);
-    const metadata = extractMetadata(filePath);
-    if (metadata) {
-      const markdown = generateMarkdown(metadata);
-      const docFilePath = path.join(
-        docsDirectory,
-        `${metadata.displayName}.md`
-      );
-      console.log("👉 docFilePath", docFilePath);
-      fs.writeFileSync(docFilePath, markdown);
-      console.log(`Documentation generated for ${metadata.displayName}`);
+    const metadataArray = await extractMetadata(filePath);
+    if (metadataArray && metadataArray.length) {
+      metadataArray.forEach((metadata, index) => {
+        const markdown = generateMarkdown(metadata);
+        console.log("🚀 meta data is ", metadata);
+        const docFileName = metadata.displayName || `Component${index}`;
+        const docFilePath = path.join(docsDirectory, `${docFileName}.mdx`);
+        console.log("👉 docFilePath", docFilePath);
+        fs.writeFileSync(docFilePath, markdown);
+        console.log(`Documentation generated for ${docFileName}`);
+      });
     }
   });
+
+  // componentFiles.forEach((file) => {
+  //   const filePath = path.join(componentsDirectory, file);
+  //   const metadata = extractMetadata(filePath)[0];
+  //   if (metadata) {
+  //     const markdown = generateMarkdown(metadata);
+  //     const docFilePath = path.join(
+  //       docsDirectory,
+  //       `${metadata.displayName}.mdx`
+  //     );
+  //     console.log("👉 docFilePath", docFilePath);
+  //     fs.writeFileSync(docFilePath, markdown);
+  //     console.log(`Documentation generated for ${metadata.displayName}`);
+  //   }
+  // });
 }
 
 // Example usage

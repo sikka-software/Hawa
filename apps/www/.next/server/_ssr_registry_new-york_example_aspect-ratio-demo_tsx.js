@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "_ssr_registry_new-york_example_aspect-ratio-demo_tsx";
+exports.ids = ["_ssr_registry_new-york_example_aspect-ratio-demo_tsx"];
+exports.modules = {
+
+/***/ "(ssr)/./registry/new-york/example/aspect-ratio-demo.tsx":
+/*!*********************************************************!*\
+  !*** ./registry/new-york/example/aspect-ratio-demo.tsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ AspectRatioDemo)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/../../node_modules/.pnpm/next@14.0.4_@opentelemetry+api@1.7.0_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"(ssr)/../../node_modules/.pnpm/next@14.0.4_@opentelemetry+api@1.7.0_react-dom@18.2.0_react@18.2.0/node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _registry_new_york_ui_aspect_ratio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/registry/new-york/ui/aspect-ratio */ \"(ssr)/./registry/new-york/ui/aspect-ratio.tsx\");\n\n\n\nfunction AspectRatioDemo() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_registry_new_york_ui_aspect_ratio__WEBPACK_IMPORTED_MODULE_2__.AspectRatio, {\n        ratio: 16 / 9,\n        className: \"bg-muted\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {\n            src: \"https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80\",\n            alt: \"Photo by Drew Beamer\",\n            fill: true,\n            className: \"rounded-md object-cover\"\n        }, void 0, false, {\n            fileName: \"C:\\\\Users\\\\Zakher\\\\Desktop\\\\coding\\\\hawa\\\\apps\\\\www\\\\registry\\\\new-york\\\\example\\\\aspect-ratio-demo.tsx\",\n            lineNumber: 8,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\Zakher\\\\Desktop\\\\coding\\\\hawa\\\\apps\\\\www\\\\registry\\\\new-york\\\\example\\\\aspect-ratio-demo.tsx\",\n        lineNumber: 7,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9yZWdpc3RyeS9uZXcteW9yay9leGFtcGxlL2FzcGVjdC1yYXRpby1kZW1vLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQThCO0FBRW1DO0FBRWxELFNBQVNFO0lBQ3RCLHFCQUNFLDhEQUFDRCwyRUFBV0E7UUFBQ0UsT0FBTyxLQUFLO1FBQUdDLFdBQVU7a0JBQ3BDLDRFQUFDSixtREFBS0E7WUFDSkssS0FBSTtZQUNKQyxLQUFJO1lBQ0pDLElBQUk7WUFDSkgsV0FBVTs7Ozs7Ozs7Ozs7QUFJbEIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9oYXdhLWRvY3MvLi9yZWdpc3RyeS9uZXcteW9yay9leGFtcGxlL2FzcGVjdC1yYXRpby1kZW1vLnRzeD9kZjJiIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBJbWFnZSBmcm9tIFwibmV4dC9pbWFnZVwiXHJcblxyXG5pbXBvcnQgeyBBc3BlY3RSYXRpbyB9IGZyb20gXCJAL3JlZ2lzdHJ5L25ldy15b3JrL3VpL2FzcGVjdC1yYXRpb1wiXHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBBc3BlY3RSYXRpb0RlbW8oKSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxBc3BlY3RSYXRpbyByYXRpbz17MTYgLyA5fSBjbGFzc05hbWU9XCJiZy1tdXRlZFwiPlxyXG4gICAgICA8SW1hZ2VcclxuICAgICAgICBzcmM9XCJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4ODM0NTkyMTUyMy1jMmRjZGI3ZjFkY2Q/dz04MDAmZHByPTImcT04MFwiXHJcbiAgICAgICAgYWx0PVwiUGhvdG8gYnkgRHJldyBCZWFtZXJcIlxyXG4gICAgICAgIGZpbGxcclxuICAgICAgICBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIG9iamVjdC1jb3ZlclwiXHJcbiAgICAgIC8+XHJcbiAgICA8L0FzcGVjdFJhdGlvPlxyXG4gIClcclxufVxyXG4iXSwibmFtZXMiOlsiSW1hZ2UiLCJBc3BlY3RSYXRpbyIsIkFzcGVjdFJhdGlvRGVtbyIsInJhdGlvIiwiY2xhc3NOYW1lIiwic3JjIiwiYWx0IiwiZmlsbCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./registry/new-york/example/aspect-ratio-demo.tsx\n");
+
+/***/ })
+
+};
+;

@@ -1,0 +1,2072 @@
+{
+  "..\\__registry__\\index.tsx -> @/registry/default/example/accordion-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/accordion-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_accordion-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/alert-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/alert-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_alert-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/alert-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/alert-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_alert-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/alert-dialog-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/alert-dialog-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_alert-dialog-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/aspect-ratio-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/aspect-ratio-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_aspect-ratio-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/avatar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/avatar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_avatar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/badge-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/badge-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_badge-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/badge-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/badge-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_badge-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/badge-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/badge-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_badge-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/badge-secondary": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/badge-secondary",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_badge-secondary_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-as-child": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-as-child",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-as-child_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-ghost": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-ghost",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-ghost_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-icon": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-icon",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-icon_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-link": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-link",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-link_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-loading": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-loading",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-loading_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-secondary": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-secondary",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-secondary_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/button-with-icon": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/button-with-icon",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_button-with-icon_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/calendar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/calendar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_calendar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/calendar-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/calendar-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_calendar-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/card-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/card-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_card-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/card-with-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/card-with-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_card-with-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/cards": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/cards",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_cards_index_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-api": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-api",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-api_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-orientation": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-orientation",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-orientation_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-plugin": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-plugin",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-plugin_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-size": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-size",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-size_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-spacing": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/carousel-spacing",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_carousel-spacing_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_checkbox-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_checkbox-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-form-multiple": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-form-multiple",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_checkbox-form-multiple_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-form-single": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-form-single",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_checkbox-form-single_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/checkbox-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_checkbox-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/collapsible-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/collapsible-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_collapsible-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_combobox-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-dropdown-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-dropdown-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_combobox-dropdown-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_combobox-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-popover": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-popover",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_combobox-popover_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-responsive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/combobox-responsive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_combobox-responsive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/command-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/command-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_command-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/command-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/command-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_command-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/context-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/context-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_context-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/data-table-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/data-table-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_data-table-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_date-picker-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_date-picker-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-with-presets": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-with-presets",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_date-picker-with-presets_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-with-range": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/date-picker-with-range",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_date-picker-with-range_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/dialog-close-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/dialog-close-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_dialog-close-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/dialog-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/dialog-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_dialog-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/drawer-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/drawer-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_drawer-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/drawer-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/drawer-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_drawer-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-checkboxes": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-checkboxes",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_dropdown-menu-checkboxes_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_dropdown-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-radio-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/dropdown-menu-radio-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_dropdown-menu-radio-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/hover-card-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/hover-card-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_hover-card-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-file": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-file",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-file_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-with-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-with-label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/input-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_input-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/label-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/label-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_label-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/menubar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/menubar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_menubar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/mode-toggle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/mode-toggle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_mode-toggle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/navigation-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/navigation-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_navigation-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/pagination-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/pagination-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_pagination-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/popover-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/popover-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_popover-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/progress-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/progress-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_progress-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/radio-group-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/radio-group-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_radio-group-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/radio-group-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/radio-group-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_radio-group-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_resizable-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-demo-with-handle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-demo-with-handle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_resizable-demo-with-handle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-handle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-handle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_resizable-handle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-vertical": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/resizable-vertical",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_resizable-vertical_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/scroll-area-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/scroll-area-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_scroll-area-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/scroll-area-horizontal-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/scroll-area-horizontal-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_scroll-area-horizontal-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/select-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/select-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_select-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/select-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/select-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_select-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/select-scrollable": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/select-scrollable",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_select-scrollable_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/separator-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/separator-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_separator-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/sheet-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/sheet-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_sheet-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/sheet-side": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/sheet-side",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_sheet-side_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/skeleton-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/skeleton-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_skeleton-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/slider-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/slider-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_slider-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/sonner-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/sonner-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_sonner-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/switch-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/switch-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_switch-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/switch-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/switch-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_switch-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/table-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/table-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_table-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/tabs-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/tabs-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_tabs-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-with-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-with-label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/textarea-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_textarea-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toast-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toast-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toast-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toast-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toast-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toast-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toast-simple": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toast-simple",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toast-simple_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toast-with-action": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toast-with-action",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toast-with-action_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toast-with-title": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toast-with-title",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toast-with-title_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-lg": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-lg",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-lg_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-single": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-single",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-single_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-sm": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-group-sm",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-group-sm_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-lg": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-lg",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-lg_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-sm": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-sm",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-sm_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/toggle-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_toggle-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/tooltip-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/tooltip-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_tooltip-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-blockquote": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-blockquote",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-blockquote_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h1": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h1",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-h1_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h2": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h2",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-h2_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h3": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h3",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-h3_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h4": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-h4",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-h4_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-inline-code": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-inline-code",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-inline-code_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-large": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-large",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-large_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-lead": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-lead",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-lead_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-list": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-list",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-list_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-muted": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-muted",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-muted_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-p": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-p",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-p_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-small": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-small",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-small_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/example/typography-table": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/example/typography-table",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_example_typography-table_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/accordion": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/accordion",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_accordion_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/alert": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/alert",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_alert_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/alert-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/alert-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_alert-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/aspect-ratio": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/aspect-ratio",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_aspect-ratio_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/avatar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/avatar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_avatar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/badge": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/badge",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_badge_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/calendar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/calendar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_calendar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/card": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/card",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_card_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/carousel": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/carousel",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_carousel_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/checkbox": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/checkbox",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_checkbox_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/collapsible": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/collapsible",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_collapsible_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/command": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/command",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_command_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/context-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/context-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_context-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/drawer": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/drawer",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_drawer_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/dropdown-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/dropdown-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_dropdown-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/hover-card": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/hover-card",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_hover-card_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/input": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/input",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_input_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/menubar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/menubar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_menubar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/navigation-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/navigation-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_navigation-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/pagination": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/pagination",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_pagination_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/popover": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/popover",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_popover_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/progress": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/progress",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_progress_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/radio-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/radio-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_radio-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/resizable": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/resizable",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_resizable_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/scroll-area": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/scroll-area",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_scroll-area_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/select": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/select",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_select_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/separator": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/separator",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_separator_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/sheet": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/sheet",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_sheet_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/skeleton": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/skeleton",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_skeleton_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/slider": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/slider",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_slider_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/sonner": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/sonner",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_sonner_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/switch": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/switch",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_switch_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/table": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/table",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_table_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/tabs": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/tabs",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_tabs_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/textarea": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/textarea",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_textarea_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/toast": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/toast",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_toast_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/toggle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/toggle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_toggle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/toggle-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/toggle-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_toggle-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/default/ui/tooltip": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/default/ui/tooltip",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_default_ui_tooltip_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/accordion-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/accordion-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_accordion-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_alert-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_alert-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-dialog-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/alert-dialog-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_alert-dialog-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/aspect-ratio-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/aspect-ratio-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_aspect-ratio-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/avatar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/avatar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_avatar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_badge-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_badge-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_badge-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-secondary": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/badge-secondary",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_badge-secondary_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-as-child": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-as-child",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-as-child_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-ghost": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-ghost",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-ghost_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-icon": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-icon",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-icon_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-link": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-link",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-link_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-loading": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-loading",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-loading_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-secondary": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-secondary",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-secondary_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-with-icon": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/button-with-icon",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_button-with-icon_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/calendar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/calendar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_calendar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/calendar-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/calendar-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_calendar-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/card-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/card-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_card-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/card-with-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/card-with-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_card-with-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/cards": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/cards",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_cards_index_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-api": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-api",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-api_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-orientation": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-orientation",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-orientation_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-plugin": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-plugin",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-plugin_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-size": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-size",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-size_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-spacing": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/carousel-spacing",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_carousel-spacing_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_checkbox-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_checkbox-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-form-multiple": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-form-multiple",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_checkbox-form-multiple_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-form-single": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-form-single",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_checkbox-form-single_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/checkbox-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_checkbox-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/collapsible-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/collapsible-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_collapsible-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_combobox-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-dropdown-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-dropdown-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_combobox-dropdown-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_combobox-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-popover": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-popover",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_combobox-popover_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-responsive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/combobox-responsive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_combobox-responsive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/command-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/command-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_command-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/command-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/command-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_command-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/context-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/context-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_context-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/data-table-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/data-table-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_data-table-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_date-picker-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_date-picker-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-with-presets": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-with-presets",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_date-picker-with-presets_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-with-range": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/date-picker-with-range",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_date-picker-with-range_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/dialog-close-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/dialog-close-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_dialog-close-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/dialog-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/dialog-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_dialog-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/drawer-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/drawer-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_drawer-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/drawer-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/drawer-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_drawer-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-checkboxes": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-checkboxes",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_dropdown-menu-checkboxes_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_dropdown-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-radio-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/dropdown-menu-radio-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_dropdown-menu-radio-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/hover-card-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/hover-card-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_hover-card-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-file": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-file",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-file_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-with-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-with-label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/input-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_input-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/label-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/label-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_label-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/menubar-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/menubar-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_menubar-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/mode-toggle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/mode-toggle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_mode-toggle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/navigation-menu-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/navigation-menu-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_navigation-menu-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/pagination-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/pagination-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_pagination-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/popover-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/popover-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_popover-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/progress-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/progress-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_progress-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/radio-group-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/radio-group-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_radio-group-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/radio-group-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/radio-group-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_radio-group-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_resizable-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-demo-with-handle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-demo-with-handle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_resizable-demo-with-handle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-handle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-handle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_resizable-handle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-vertical": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/resizable-vertical",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_resizable-vertical_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/scroll-area-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/scroll-area-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_scroll-area-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/scroll-area-horizontal-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/scroll-area-horizontal-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_scroll-area-horizontal-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_select-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_select-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-scrollable": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/select-scrollable",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_select-scrollable_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/separator-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/separator-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_separator-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/sheet-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/sheet-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_sheet-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/sheet-side": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/sheet-side",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_sheet-side_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/skeleton-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/skeleton-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_skeleton-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/slider-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/slider-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_slider-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/sonner-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/sonner-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_sonner-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/switch-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/switch-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_switch-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/switch-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/switch-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_switch-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/table-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/table-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_table-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/tabs-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/tabs-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_tabs-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-button",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-with-button_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-with-label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/textarea-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_textarea-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toast-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-destructive": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-destructive",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toast-destructive_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-simple": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-simple",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toast-simple_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-with-action": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-with-action",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toast-with-action_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-with-title": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toast-with-title",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toast-with-title_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-disabled": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-disabled",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-disabled_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-lg": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-lg",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-lg_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-single": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-single",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-single_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-sm": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-group-sm",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-group-sm_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-lg": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-lg",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-lg_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-outline": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-outline",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-outline_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-sm": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-sm",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-sm_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-with-text": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/toggle-with-text",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_toggle-with-text_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/tooltip-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/tooltip-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_tooltip-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-blockquote": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-blockquote",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-blockquote_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-demo": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-demo",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-demo_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h1": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h1",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-h1_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h2": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h2",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-h2_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h3": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h3",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-h3_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h4": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-h4",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-h4_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-inline-code": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-inline-code",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-inline-code_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-large": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-large",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-large_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-lead": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-lead",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-lead_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-list": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-list",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-list_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-muted": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-muted",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-muted_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-p": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-p",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-p_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-small": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-small",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-small_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-table": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/example/typography-table",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_example_typography-table_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/accordion": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/accordion",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/alert": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/alert",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/alert-dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/alert-dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_alert-dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/aspect-ratio": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/aspect-ratio",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/avatar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/avatar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_avatar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/badge": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/badge",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_badge_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/button": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/button",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/calendar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/calendar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_calendar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/card": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/card",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_card_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/carousel": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/carousel",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_carousel_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/checkbox": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/checkbox",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_checkbox_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/collapsible": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/collapsible",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/command": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/command",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_command_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/context-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/context-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_context-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/dialog": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/dialog",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_dialog_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/drawer": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/drawer",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_drawer_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/dropdown-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/dropdown-menu",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/form": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/form",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_form_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/hover-card": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/hover-card",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_hover-card_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/input": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/input",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_input_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/label": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/label",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_label_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/menubar": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/menubar",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_menubar_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/navigation-menu": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/navigation-menu",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_navigation-menu_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/pagination": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/pagination",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_pagination_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/popover": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/popover",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_popover_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/progress": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/progress",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_progress_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/radio-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/radio-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_radio-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/resizable": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/resizable",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_resizable_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/scroll-area": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/scroll-area",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/select": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/select",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/separator": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/separator",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_separator_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/sheet": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/sheet",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_sheet_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/skeleton": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/skeleton",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_skeleton_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/slider": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/slider",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_slider_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/sonner": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/sonner",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_sonner_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/switch": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/switch",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_switch_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/table": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/table",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_table_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/tabs": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/tabs",
+    "files": []
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/textarea": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/textarea",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_textarea_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toast": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toast",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_toast_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toggle": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toggle",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_toggle_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toggle-group": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/toggle-group",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_toggle-group_tsx.js"
+    ]
+  },
+  "..\\__registry__\\index.tsx -> @/registry/new-york/ui/tooltip": {
+    "id": "..\\__registry__\\index.tsx -> @/registry/new-york/ui/tooltip",
+    "files": [
+      "static/chunks/_app-pages-browser_registry_new-york_ui_tooltip_tsx.js"
+    ]
+  }
+}
