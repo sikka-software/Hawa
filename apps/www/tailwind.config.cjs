@@ -1,13 +1,14 @@
-const baseConfig = require("../../packages/components/tailwind.config");
+const hawaConfig = require('../../packages/components/tailwind.config.ts')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  ...baseConfig,
+  ...hawaConfig,
   prefix: null,
   content: [
-    ...baseConfig.content,
-    "../../packages/components/**/*.{js,ts,jsx,tsx,mdx}",
+    ...hawaConfig.content,
+    "app/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
     "content/**/*.mdx",
-    "registry/**/*.{ts,tsx}"
-  ]
-};
+    "registry/**/*.{ts,tsx}",
+  ],
+}

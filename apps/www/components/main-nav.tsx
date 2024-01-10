@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import * as React from "react";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import { Badge } from "@/registry/new-york/ui/badge"
+import { Icons } from "@/components/icons";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/registry/new-york/ui/badge";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function MainNav() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="mr-4 hidden md:flex">
@@ -24,7 +24,7 @@ export function MainNav() {
         <Link
           href="/docs"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "hover:text-foreground/80 transition-colors",
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
@@ -33,7 +33,7 @@ export function MainNav() {
         <Link
           href="/docs/components"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "hover:text-foreground/80 transition-colors",
             pathname?.startsWith("/docs/components")
               ? "text-foreground"
               : "text-foreground/60"
@@ -44,7 +44,7 @@ export function MainNav() {
         <Link
           href="/themes"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "hover:text-foreground/80 transition-colors",
             pathname?.startsWith("/themes")
               ? "text-foreground"
               : "text-foreground/60"
@@ -55,7 +55,7 @@ export function MainNav() {
         <Link
           href="/examples"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "hover:text-foreground/80 transition-colors",
             pathname?.startsWith("/examples")
               ? "text-foreground"
               : "text-foreground/60"
@@ -66,12 +66,12 @@ export function MainNav() {
         <Link
           href={siteConfig.links.github}
           className={cn(
-            "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
+            "text-foreground/60 hover:text-foreground/80 hidden transition-colors lg:block"
           )}
         >
           GitHub
         </Link>
       </nav>
     </div>
-  )
+  );
 }

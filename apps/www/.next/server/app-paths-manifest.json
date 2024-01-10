@@ -1,9 +1,7 @@
 {
   "/not-found": "app/not-found.js",
   "/page": "app/page.js",
-  "/examples/dashboard/page": "app/examples/dashboard/page.js",
-  "/examples/cards/page": "app/examples/cards/page.js",
-  "/examples/mail/page": "app/examples/mail/page.js",
-  "/examples/tasks/page": "app/examples/tasks/page.js",
-  "/docs/[[...slug]]/page": "app/docs/[[...slug]]/page.js"
+  "/docs/[[...slug]]/page": "app/docs/[[...slug]]/page.js",
+  "/examples/authentication/page": "app/examples/authentication/page.js",
+  "/examples/mail/page": "app/examples/mail/page.js"
 }
