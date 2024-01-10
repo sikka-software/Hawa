@@ -52,7 +52,7 @@ apps/www/next-env.d.ts
 apps/www/.next
 apps/www/node_modules
 apps/www/.contentlayer
-
+next-env.d.ts
 
 packages/storybook/storybook-static
 packages/components/dist
