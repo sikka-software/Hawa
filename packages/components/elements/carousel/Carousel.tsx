@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { DirectionType } from "@/types";
+import { DirectionType } from "@/types/commonTypes";
 // import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { cn } from "@util/index";
 import { EmblaOptionsType } from "embla-carousel";

@@ -70,8 +70,8 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             fileName && tabs
-              ? "hawa-bg-gray-100 dark:hawa-bg-gray-900"
-              : "hawa-bg-gray-100 dark:hawa-bg-gray-900"
+              ? "hawa-bg-primary/10"
+              : "hawa-bg-primary/15"
           )}
         >
           <div
@@ -86,7 +86,8 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {tabs && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-300 dark:hawa-bg-gray-600 hawa-p-1  hawa-pb-0 hawa-font-mono hawa-text-foreground dark:hawa-bg-muted",
+            // hawa-bg-gray-300 dark:hawa-bg-red-600
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             tabs && fileName && "hawa-rounded-t-none"
           )}
         >
