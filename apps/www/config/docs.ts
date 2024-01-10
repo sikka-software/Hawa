@@ -122,11 +122,11 @@ export const docsConfig: DocsConfig = {
         //   href: "/docs/components/badge",
         //   items: []
         // },
-        // {
-        //   title: "Button",
-        //   href: "/docs/components/button",
-        //   items: []
-        // },
+        {
+          title: "Button",
+          href: "/docs/components/button",
+          items: []
+        },
         // {
         //   title: "Calendar",
         //   href: "/docs/components/calendar",

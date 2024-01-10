@@ -1,587 +1,582 @@
 ---
 title: Changelog
 description: Latest updates and announcements.
-toc: false
 ---
 
-## December 2023 - New components, CLI and more
+# @sikka/hawa
 
-We've added new components to shadcn/ui and made a lot of improvements to the CLI.
+## 0.26.22
 
-Here's a quick overview of what's new:
+### Patch Changes
 
-- [**Carousel**](#carousel) - A carousel component with motion, swipe gestures and keyboard support.
-- [**Drawer**](#drawer) - A drawer component that looks amazing on mobile.
-- [**Pagination**](#pagination) - A pagination component with page navigation, previous and next buttons.
-- [**Resizable**](#resizable) - A resizable component for building resizable panel groups and layouts.
-- [**Sonner**](#sonner) - The last toast component you'll ever need.
-- [**CLI updates**](#cli-updates) - Support for custom **Tailwind prefix** and `tailwind.config.ts`.
+- Fixed RTL width issue in `ColorPicker`
+- Optimized internal import aliases
 
-### Carousel
+## 0.26.20
 
-We've added a fully featured carousel component with motion, swipe gestures and keyboard support. Built on top of [Embla Carousel](https://www.embla-carousel.com).
+### Patch Changes
 
-It has support for infinite looping, autoplay, vertical orientation, and more.
+- Added `embla-carousel` as a devDependency
+- Fixed types for `useDialogCarousel` hook
 
-<ComponentPreview name="carousel-demo" />
+## 0.26.19
 
-### Drawer
+### Patch Changes
 
-Oh the drawer component 😍. Built on top of [Vaul](https://github.com/emilkowalski/vaul) by [emilkowalski\_](https://twitter.com/emilkowalski_).
+- General cleanup
+- Created a `util` folder containing all the utility files
 
-Try opening the following drawer on mobile. It looks amazing!
+## 0.26.19
 
-<ComponentPreview name="drawer-demo" />
+### Patch Changes
 
-### Pagination
+- Allowed hiding a column by default in `DataTable` using `meta: { hidden: true }`
 
-We've added a pagination component with page navigation, previous and next buttons. Simple, flexible and works with your framework's `<Link />` component.
+## 0.26.17
 
-<ComponentPreview name="pagination-demo" />
+### Patch Changes
 
-### Resizable
+- Updated dependencies
 
-Build resizable panel groups and layouts with this `<Resizable />` component.
+## 0.26.16
 
-<ComponentPreview name="resizable-demo-with-handle" />
+### Patch Changes
 
-`<Resizable />` is built using [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) by [bvaughn](https://github.com/bvaughn). It has support for mouse, touch and keyboard.
+- Fixed `DropDownMenu` items array props
 
-### Sonner
+## 0.26.5
 
-Another one by [emilkowalski\_](https://twitter.com/emilkowalski_). The last toast component you'll ever need. Sonner is now availabe in shadcn/ui.
+### Patch Changes
 
-<ComponentPreview name="sonner-demo" />
+- Minor fixes & cleanup
 
-### CLI updates
+## 0.26.4
 
-This has been one of the most requested features. You can now configure a custom Tailwind prefix and the cli will automatically prefix your utility classes when adding components.
+### Patch Changes
 
-This means you can now easily add shadcn/ui components to existing projects like Docusaurus, Nextra...etc. A drop-in for your existing design system with no conflict. 🔥
+- Updated `Textarea` classNames
+- Fixed all className uses of `Textarea` in other components
+- Fixed `Radio` label color in dark mode
+- Fixed `helperText` in `Signature`
 
-```tsx /tw-/
-<AlertDialog className="tw-grid tw-gap-4 tw-border tw-bg-background tw-shadow-lg" />
-```
+## 0.26.2
 
-It works with `cn`, `cva` and CSS variables.
+### Patch Changes
 
-The cli can now also detect `tailwind.config.ts` and add the TypeScript version of the config for you.
+- Added `--constant-background` global variable
+- Made `Signature` background color constant regardless of color mode
+- Added `helperText` to `Signature` for validation
 
-That's it. Happy Holidays.
+## 0.26.1
 
-## July 2023 - JavaScript
+### Patch Changes
 
-This project and the components are written in TypeScript. **We recommend using TypeScript for your project as well**.
+- Added `Label` to `Signature`
+- Added `texts` object prop to `Signature` to enable consumer based texts
 
-However we provide a JavaScript version of the components, available via the [cli](/docs/cli).
+## 0.26.0
 
-```txt
-Would you like to use TypeScript (recommended)? no
-```
+### Minor Changes
 
-To opt-out of TypeScript, you can use the `tsx` flag in your `components.json` file.
+- Added `Signature` component for users to draw their signature.
 
-```json {10} title="components.json"
-{
-  "style": "default",
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/app/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": true
-  },
-  "rsc": false,
-  "tsx": false,
-  "aliases": {
-    "utils": "~/lib/utils",
-    "components": "~/components"
-  }
-}
-```
+## 0.25.2
 
-To configure import aliases, you can use the following `jsconfig.json`:
+### Patch Changes
 
-```json {4} title="jsconfig.json"
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
-}
-```
+- Updated packages
+- Updated `Carousel` props
+- General cleanup
 
-## June 2023 - New CLI, Styles and more
+## 0.25.1
 
-I have a lot of updates to share with you today:
+### Patch Changes
 
-- [**New CLI**](#new-cli) - Rewrote the CLI from scratch. You can now add components, dependencies and configure import paths.
-- [**Theming**](#theming-with-css-variables-or-tailwind-colors) - Choose between using CSS variables or Tailwind CSS utility classes for theming.
-- [**Base color**](#base-color) - Configure the base color for your project. This will be used to generate the default color palette for your components.
-- [**React Server Components**](#react-server-components) - Opt out of using React Server Components. The CLI will automatically append or remove the `use client` directive.
-- [**Styles**](#styles) - Introducing a new concept called _Style_. A style comes with its own set of components, animations, icons and more.
-- [**Exit animations**](#exit-animations) - Added exit animations to all components.
-- [**Other updates**](#other-updates) - New `icon` button size, updated `sheet` component and more.
-- [**Updating your project**](#updating-your-project) - How to update your project to get the latest changes.
+- `PinInput`: now shows numeric keyboard on phone
+- Exported `Glow` to be built via `tsup`
+- Replaced `tsup.config.ts` with `tsup.config.js`
 
----
+## 0.25.0
 
-### New CLI
+### Minor Changes
 
-I've been working on a new CLI for the past few weeks. It's a complete rewrite. It comes with a lot of new features and improvements.
+- Added `Glow` component that can be used to apply glow effect on it's children
 
-### `init`
+## 0.24.15
 
-```bash
-npx shadcn-ui@latest init
-```
+### Patch Changes
 
-When you run the `init` command, you will be asked a few questions to configure `components.json`:
+- `Label`: fixed clicking on the hint submits a form
+- `Label`: fixed clicking tab to go to the next field in a form accidentally focuses on the hint icon
 
-```txt showLineNumbers
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › app/globals.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no / yes
-```
+## 0.24.14
 
-This file contains all the information about your components: where to install them, the import paths, how they are styled...etc.
+### Patch Changes
 
-You can use this file to change the import path of a component, set a baseColor or change the styling method.
+- Fixed `CommandInput` direction
+- Fixed margins of check mark of `CommandItem` in `Combobox`
 
-```json title="components.json"
-{
-  "style": "default",
-  "tailwind": {
-    "config": "tailwind.config.ts",
-    "css": "src/app/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": true
-  },
-  "rsc": false,
-  "aliases": {
-    "utils": "~/lib/utils",
-    "components": "~/components"
-  }
-}
-```
+## 0.24.13
 
-This means you can now use the CLI with any directory structure including `src` and `app` directories.
+### Patch Changes
 
-### `add`
+- `Combobox`: fixed text color from primary to pure white/black
 
-```bash
-npx shadcn-ui@latest add
-```
+## 0.24.12
 
-The `add` command is now much more capable. You can now add UI components but also import more complex components (coming soon).
+### Patch Changes
 
-The CLI will automatically resolve all components and dependencies, format them based on your custom config and add them to your project.
-
-### `diff` (experimental)
+- `Combobox`: added `RTL` support
+- Fixed icon spacing in `CommandInput`
 
-```bash
-npx shadcn-ui diff
-```
+## 0.24.11
 
-We're also introducing a new `diff` command to help you keep track of upstream updates.
+### Patch Changes
 
-You can use this command to see what has changed in the upstream repository and update your project accordingly.
+- `Radio`: fixed full width when `bordered` design
+- `Radio`: disabled selecting text when design is `bordered`
+- `Checkbox`: fixed line height of `label`
+- General cleanup
 
-Run the `diff` command to get a list of components that have updates available:
+## 0.24.10
 
-```bash
-npx shadcn-ui diff
-```
+### Patch Changes
 
-```txt
-The following components have updates available:
-- button
-  - /path/to/my-app/components/ui/button.tsx
-- toast
-  - /path/to/my-app/components/ui/use-toast.ts
-  - /path/to/my-app/components/ui/toaster.tsx
-```
+- Replaced all references of `onChangeTab` to `onChange`
 
-Then run `diff [component]` to see the changes:
+## 0.24.9
 
-```bash
-npx shadcn-ui diff alert
-```
+### Patch Changes
 
-```diff /pl-12/
-const alertVariants = cva(
-- "relative w-full rounded-lg border",
-+ "relative w-full pl-12 rounded-lg border"
-)
-```
+- Added `name` prop to `Radio` component
+- Change `onChangeTab` to `onChange`
+- Added handling change to all types of `Radio`
 
----
+## 0.24.8
 
-### Theming with CSS Variables or Tailwind Colors
+### Patch Changes
 
-You can choose between using CSS variables or Tailwind CSS utility classes for theming.
+- Fixed missing translation of soon `Chip` in `PricingCard`
 
-When you add new components, the CLI will automatically use the correct theming methods based on your `components.json` configuration.
+## 0.24.7
 
-#### Utility classes
+### Patch Changes
 
-```tsx /bg-zinc-950/ /text-zinc-50/ /dark:bg-white/ /dark:text-zinc-950/
-<div className="bg-zinc-950 dark:bg-white" />
-```
+- `AppTabs`: fixed horizontal align of icon and label in a single tab
 
-To use utility classes for theming set `tailwind.cssVariables` to `false` in your `components.json` file.
+## 0.24.6
 
-```json {6} title="components.json"
-{
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "slate",
-    "cssVariables": false
-  }
-}
-```
+### Patch Changes
 
-#### CSS Variables
+- `AppTabs`: fixed inactive tab hover color
+- `ItemCard`: fixed spaceing when height is larger
+- `ItemCard`: fixed UI when in RTL direction
 
-```tsx /bg-background/ /text-foreground/
-<div className="bg-background text-foreground" />
-```
+## 0.24.5
 
-To use CSS variables classes for theming set `tailwind.cssVariables` to `true` in your `components.json` file.
+### Patch Changes
 
-```json {6} title="components.json"
-{
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  }
-}
-```
+- Fixed background color of `AppTabs`
+- Codesplitting `Layout` components each component in it's own folder
+- Updated the build process for `Layout` components to be grouped 3 at a time during build
+- Updated story imports
 
----
+## 0.24.4
 
-### Base color
+### Patch Changes
 
-You can now configure the base color for your project. This will be used to generate the default color palette for your components.
+- Added click handling to `AppTabs`
 
-```json {5} title="components.json"
-{
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": false
-  }
-}
-```
+## 0.24.3
 
-Choose between `gray`, `neutral`, `slate`, `stone` or `zinc`.
+### Patch Changes
 
-If you have `cssVariables` set to `true`, we will set the base colors as CSS variables in your `globals.css` file. If you have `cssVariables` set to `false`, we will inline the Tailwind CSS utility classes in your components.
+- Changed `content` type to `React.ReactNode`
+- Tested nesting an `Accordion` inside an `Accordion` content field.
 
----
+## 0.24.2
 
-### React Server Components
+### Patch Changes
 
-If you're using a framework that does not support React Server Components, you can now opt out by setting `rsc` to `false`. We will automatically append or remove the `use client` directive when adding components.
+- Added `sm` and `default` sizes to `Toaster`
+- Updated the way `Toast`, `ToastTitle`, `ToastDescription`, and `ToastClose` are styled and moved the conditional styling to `Toaster`
 
-```json title="components.json"
-{
-  "rsc": false
-}
-```
+## 0.24.1
 
----
+### Patch Changes
 
-### Styles
+- Organized tsup configuration
+- Added `clickable` prop to `Stats`
+- Added `type='button'` to `Combobox` to fix submit behavior while in form
+- Updated dependencies
 
-We are introducing a new concept called _Style_.
+## 0.24.0
 
-_You can think of style as the visual foundation: shapes, icons, animations & typography._ A style comes with its own set of components, animations, icons and more.
+### Minor Changes
 
-We are shipping two styles: `default` and `new-york` (with more coming soon).
+- Improved imports in all stories
+- Removed unused story docs
+- `Elements` bundling code is now more readable
+- Optimized imports within `Navbar`, `Sidebar`, `Stats`, `AppLayout`, `LandingCard`, `PricingCard`, `DestroyableCard`, and `AppTopbar`
 
-<Image
-  src="/images/style.jpg"
-  width="716"
-  height="402"
-  alt="Default vs New York style"
-  className="border rounded-lg overflow-hidden mt-6"
-/>
+## 0.23.11
 
-The `default` style is the one you are used to. It's the one we've been using since the beginning of this project. It uses `lucide-react` for icons and `tailwindcss-animate` for animations.
+### Patch Changes
 
-The `new-york` style is a new style. It ships with smaller buttons, cards with shadows and a new set of icons from [Radix Icons](https://icons.radix-ui.com).
+- Code splitting the following components:
+  - `Carousel`
+  - `CodeBlock`
+  - `Collapsible`
+  - `ColorPicker`
+  - `DestroyableCard`
+  - `FileUploader`
+  - `InterfaceSettings`
+  - `Pagination`
+  - `PasswordInput`
+  - `ProgressCircle`
+  - `ScrollIndicator`
+  - `Separator`
+  - `SimpleTable`
+  - `Slider`
+  - `Toast`,
+  - `Toaster`
 
-When you run the `init` command, you will be asked which style you would like to use. This is saved in your `components.json` file.
+## 0.23.10
 
-```json title="components.json"
-{
-  "style": "new-york"
-}
-```
+### Patch Changes
 
-### Theming
+- Fixed clearing `dist` folder on each build
 
-Start with a style as the base then theme using CSS variables or Tailwind CSS utility classes to completely change the look of your components.
+## 0.23.9
 
-<Image
-  src="/images/style-with-theming.jpg"
-  width="716"
-  height="402"
-  alt="Style with theming"
-  className="border rounded-lg overflow-hidden mt-6"
-/>
+### Patch Changes
 
----
+- Included `blocks` and `layout` to the build process
 
-### Exit animations
+## 0.23.7
 
-I added exit animations to all components. Click on the combobox below to see the subtle exit animation.
+### Patch Changes
 
-<ComponentPreview name="combobox-demo" className="[&_.preview]:items-start" />
+- Removed `--dts` flag from `build-lib` script
+- Attempting to fix out-of-memory build issue
 
-The animations can be customized using utility classes.
+## 0.23.6
 
----
+### Patch Changes
 
-### Other updates
+- Code splitting `ScrollArea`
+- General cleanup
 
-### Button
+## 0.23.5
 
-- Added a new button size `icon`:
+### Patch Changes
 
-<ComponentPreview name="button-icon" />
+- Code splitting `PinInput`, `PhoneInput`, and `StopPropagationWrapper`
 
-### Sheet
+## 0.23.4
 
-- Renamed `position` to `side` to match the other elements.
+### Patch Changes
 
-<ComponentPreview name="sheet-side" />
+8ba2587: - Moved `Chip` to it's own folder
 
-- Removed the `size` props. Use `className="w-[200px] md:w-[450px]"` for responsive sizing.
+- Moved `Breadcrumb` to it's own folder
+- Moved `AppStores` to it's own folder
+- Moved `Badge` to it's own folder
 
----
+## 0.23.3
 
-### Updating your project
+### Patch Changes
 
-Since we follow a copy and paste approach, you will need to manually update your project to get the latest changes.
+- Improved size of `NoPermission` and `ResetPassword` blocks
 
-<Callout className="mt-4">
-  Note: we are working on a [`diff`](#diff-experimental) command to help you
-  keep track of upstream updates.
-</Callout>
+## 0.23.2
 
-<Steps>
+### Patch Changes
 
-### Add `components.json`
+- Moved `Checkbox` to it's own folder
+- Moved `Switch` to it's own folder
 
-Creating a `components.json` file at the root:
+## 0.23.1
 
-```json title="components.json"
-{
-  "style": "default",
-  "rsc": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  }
-}
-```
+### Patch Changes
 
-Update the values for `tailwind.css` and `aliases` to match your project structure.
+- Moved `Popover` to it's own folder
+- Improved the imports within `Comobobox`
 
-### Button
+## 0.23.0
 
-Add the `icon` size to the `buttonVariants`:
+### Minor Changes
 
-```tsx {7} title="components/ui/button.tsx"
-const buttonVariants = cva({
-  variants: {
-    size: {
-      default: "h-10 px-4 py-2",
-      sm: "h-9 rounded-md px-3",
-      lg: "h-11 rounded-md px-8",
-      icon: "h-10 w-10",
-    },
-  },
-})
-```
-
-### Sheet
-
-1. Replace the content of `sheet.tsx` with the following:
-
-```tsx title="components/ui/sheet.tsx"
-"use client"
-
-import * as React from "react"
-import * as SheetPrimitive from "@radix-ui/react-dialog"
-import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-
-const Sheet = SheetPrimitive.Root
-
-const SheetTrigger = SheetPrimitive.Trigger
-
-const SheetClose = SheetPrimitive.Close
-
-const SheetPortal = ({
-  className,
-  ...props
-}: SheetPrimitive.DialogPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
-)
-SheetPortal.displayName = SheetPrimitive.Portal.displayName
-
-const SheetOverlay = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <SheetPrimitive.Overlay
-    className={cn(
-      "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-      className
-    )}
-    {...props}
-    ref={ref}
-  />
-))
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
-
-const sheetVariants = cva(
-  "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
-  {
-    variants: {
-      side: {
-        top: "inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
-        bottom:
-          "inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
-        left: "inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
-        right:
-          "inset-y-0 right-0 h-full w-3/4  border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
-      },
-    },
-    defaultVariants: {
-      side: "right",
-    },
-  }
-)
-
-interface SheetContentProps
-  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
-
-const SheetContent = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Content>,
-  SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
-  <SheetPortal>
-    <SheetOverlay />
-    <SheetPrimitive.Content
-      ref={ref}
-      className={cn(sheetVariants({ side }), className)}
-      {...props}
-    >
-      {children}
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
-    </SheetPrimitive.Content>
-  </SheetPortal>
-))
-SheetContent.displayName = SheetPrimitive.Content.displayName
-
-const SheetHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col space-y-2 text-center sm:text-left",
-      className
-    )}
-    {...props}
-  />
-)
-SheetHeader.displayName = "SheetHeader"
-
-const SheetFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
-    )}
-    {...props}
-  />
-)
-SheetFooter.displayName = "SheetFooter"
-
-const SheetTitle = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <SheetPrimitive.Title
-    ref={ref}
-    className={cn("text-lg font-semibold text-foreground", className)}
-    {...props}
-  />
-))
-SheetTitle.displayName = SheetPrimitive.Title.displayName
-
-const SheetDescription = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <SheetPrimitive.Description
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-))
-SheetDescription.displayName = SheetPrimitive.Description.displayName
-
-export {
-  Sheet,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-}
-```
-
-2. Rename `position` to `side`
-
-```diff /position/ /side/
-- <Sheet position="right" />
-+ <Sheet side="right" />
-```
-
-</Steps>
-
-### Thank you
-
-I'd like to thank everyone who has been using this project, providing feedback and contributing to it. I really appreciate it. Thank you 🙏
+- Updated `tsup.config.ts`
+- Splitting the bundling process by `tsup` to prevent no-memory breaking error
+
+## 0.22.8
+
+### Patch Changes
+
+- Moved `Input` to it's own exported folder
+
+## 0.22.7
+
+### Patch Changes
+
+- Moved `Tabs` to it's own folder
+- Updated `tsup` configuration
+
+## 0.22.6
+
+### Patch Changes
+
+- Moved `Combobox` to it's own folder
+- Updated `hawa-beta.yml` github action file
+
+## 0.22.5
+
+### Patch Changes
+
+- moved `Alert` to it's own folder
+- moved `FileDropzone` to it's own folder
+- moved `Table` to it's own folder
+- moved `DataTable` to it's own folder
+- moved `Label` to it's own folder
+- moved `BackToTop` to it's own folder
+- moved `Avatar` to it's own folder
+- moved `Textarea` to it's own folder
+
+## 0.22.4
+
+### Patch Changes
+
+- Updated packages
+
+## 0.22.3
+
+### Patch Changes
+
+- Exporting `Radio` individually
+
+## 0.22.2
+
+### Patch Changes
+
+- Fixed types in `PricingPlans` block
+- Exporting `Alert` individually
+
+## 0.22.1
+
+### Patch Changes
+
+- Exported `/types` to be imported by consumer via `@sikka/hawa/types`
+- Organized types within `/blocks/pricing`
+
+## 0.22.0
+
+### Minor Changes
+
+- `blocks` can now be imported via `@sikka/hawa/blocks`
+- auth blocks can now be imported via `@sikka/hawa/blocks/auth`
+- feedback blocks can now be imported via `@sikka/hawa/blocks/feedback`
+- pricing blocks can now be imported via `@sikka/hawa/blocks/pricing`
+- misc blocks can now be imported via `@sikka/hawa/blocks/misc`
+- `elements` can now be imported via `@sikka/hawa/elements`
+- `layout` can now be imported via `@sikka/hawa/layout`
+
+## 0.21.15
+
+### Patch Changes
+
+- Moved `Logos` to it's own folder
+
+## 0.21.14
+
+### Patch Changes
+
+- Moved `Card` to it's own folder
+
+## 0.21.13
+
+### Patch Changes
+
+- Moved `Tooltip` to it's own folder
+- Moved `hooks` to `/hooks` folder
+
+## 0.21.12
+
+### Patch Changes
+
+- Moved `NavigationMenu` to it's own folder
+
+## 0.21.11
+
+### Patch Changes
+
+- Split all `Accordion` subcomponents to seperate files
+- Moved `DropdownMenu` to it's own folder
+- Moved `Sheet` to it's own folder
+
+## 0.21.10
+
+### Patch Changes
+
+- Moved `SplitButton` to its own directory
+- Updated exports in `package.json`
+
+## 0.21.9
+
+### Patch Changes
+
+- Moved `Skeleton` to a separate directory
+
+## 0.21.8
+
+### Patch Changes
+
+- Added `/Button` export to `package.json`
+
+## 0.21.7
+
+### Patch Changes
+
+- Fixing build issue
+
+## 0.21.6
+
+### Patch Changes
+
+- Moved `Button` and `SplitButton` and `SortButton` to `/elements/Button` folder
+
+## 0.21.5
+
+### Patch Changes
+
+- Added `DropdownMenuRadio` to a storybook
+- Fixed cursor design in `DropdownMenuRadio`
+
+## 0.21.4
+
+### Patch Changes
+
+- Added `unstyled` to `AccordionTrigger` and `AccordionContent`
+- Added `hideArrow` to `AccordionTrigger` to hide arrow
+
+## 0.21.3
+
+### Patch Changes
+
+- Fixed `ContactForm` width on mobile
+
+## 0.21.2
+
+### Patch Changes
+
+- Added `chip` prop to `Accordion` item [#SIKKA-5849](https://app.clickup.com/t/613523/SIKKA-5849)
+
+## 0.21.1
+
+### Patch Changes
+
+- Updated imports to use aliases
+- General cleanup
+
+## 0.21.0
+
+### Minor Changes
+
+- Added `prettier-plugin-tailwindcss`
+- Added `@trivago/prettier-plugin-sort-imports`
+- Cleaned up
+
+## 0.20.10
+
+### Patch Changes
+
+- Added `actionFirst` prop to `NavigationMenu` for router usage in next.js apps
+
+## 0.20.8
+
+### Patch Changes
+
+- `ContactForm` now resets on submision
+
+## 0.20.7
+
+### Patch Changes
+
+- Updated dependencies
+- Fixed the way IBM Plex Sans Arabic is applied
+
+## 0.20.6
+
+### Patch Changes
+
+- Removing IBM font references
+
+## 0.20.5
+
+### Patch Changes
+
+- Added `formId` to `ContactForm`
+- Added `formAutoComplete` to `ContactForm`
+- Added `disabled` to `AccordionTrigger`
+- Exported `AccordionItemProps` type
+
+## 0.20.4
+
+### Patch Changes
+
+- Exposed `triggerClassNames` in `NavigationMenu`
+
+## 0.20.3
+
+### Patch Changes
+
+- Updated storybook
+- Fixed default design of `Accordion`
+
+## 0.20.2
+
+### Patch Changes
+
+- Added `Separated` variant to `Accordion`
+
+## 0.20.1
+
+### Patch Changes
+
+- Fixed close button in `Sheet`
+
+## 0.20.0
+
+### Minor Changes
+
+- Added `ContactForm`
+- Fixed `Textarea` placeholder text color
+- Removed all shadows of `FeedbackForm` and `ContactForm` when `cardless` prop is true
+- exporting `TextInputType`
+- General cleanup
+
+## 0.19.41
+
+### Patch Changes
+
+- Minor cleanup
+
+## 0.19.40
+
+### Patch Changes
+
+- Added sizes to `Radio` tabs
+
+## 0.19.39
+
+### Patch Changes
+
+- Added background to `Radio`
+- Fixed responsiveness of `PricingPlans`
+- Added priceless option to `PricingCard`
+
+## 0.19.38
+
+### Patch Changes
+
+- ComparingPlans: added background to scroll area

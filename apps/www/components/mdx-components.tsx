@@ -1,42 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer/hooks"
-import { NpmCommands } from "types/unist"
+import * as React from "react";
 
-import { Event } from "@/lib/events"
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
-import { Callout } from "@/components/callout"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentExample } from "@/components/component-example"
-import { ComponentPreview } from "@/components/component-preview"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
-import { FrameworkDocs } from "@/components/framework-docs"
-import { StyleWrapper } from "@/components/style-wrapper"
+import { Callout } from "@/components/callout";
+import { CodeBlockWrapper } from "@/components/code-block-wrapper";
+import { ComponentExample } from "@/components/component-example";
+import { ComponentPreview } from "@/components/component-preview";
+import { ComponentSource } from "@/components/component-source";
+import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
+import { FrameworkDocs } from "@/components/framework-docs";
+import { StyleWrapper } from "@/components/style-wrapper";
+import { useConfig } from "@/hooks/use-config";
+import { Event } from "@/lib/events";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/registry/new-york/ui/accordion"
+  AccordionTrigger
+} from "@/registry/new-york/ui/accordion";
 import {
   Alert,
   AlertDescription,
-  AlertTitle,
-} from "@/registry/new-york/ui/alert"
-import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio"
+  AlertTitle
+} from "@/registry/new-york/ui/alert";
+import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio";
 import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import { Style } from "@/registry/styles"
-import { CodeBlock } from "@sikka/hawa/elements";
+  TabsTrigger
+} from "@/registry/new-york/ui/tabs";
+import { Style } from "@/registry/styles";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
+import Link from "next/link";
+import { NpmCommands } from "types/unist";
+
+import { Button, CodeBlock } from "@sikka/hawa/elements";
 
 const components = {
   Accordion,
@@ -47,6 +48,7 @@ const components = {
   AlertTitle,
   AlertDescription,
   CodeBlock,
+  Button,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -146,7 +148,7 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t p-0 even:bg-muted", className)}
+      className={cn("even:bg-muted m-0 border-t p-0", className)}
       {...props}
     />
   ),
@@ -181,11 +183,11 @@ const components = {
     __style__,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style["name"]
-    __rawString__?: string
-    __withMeta__?: boolean
-    __src__?: string
-    __event__?: Event["name"]
+    __style__?: Style["name"];
+    __rawString__?: string;
+    __withMeta__?: boolean;
+    __src__?: string;
+    __event__?: Event["name"];
   } & NpmCommands) => {
     return (
       <StyleWrapper styleName={__style__}>
@@ -213,18 +215,18 @@ const components = {
                 __npmCommand__,
                 __yarnCommand__,
                 __pnpmCommand__,
-                __bunCommand__,
+                __bunCommand__
               }}
               className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
             />
           )}
       </StyleWrapper>
-    )
+    );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
       {...props}
@@ -275,7 +277,7 @@ const components = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none",
         className
       )}
       {...props}
@@ -308,27 +310,27 @@ const components = {
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        "flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10",
+        "bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow transition-colors sm:p-10",
         className
       )}
       {...props}
     />
-  ),
-}
+  )
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function Mdx({ code }: MdxProps) {
-  const [config] = useConfig()
+  const [config] = useConfig();
   const Component = useMDXComponent(code, {
-    style: config.style,
-  })
+    style: config.style
+  });
 
   return (
     <div className="mdx">
       <Component components={components} />
     </div>
-  )
+  );
 }
