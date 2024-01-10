@@ -38,6 +38,10 @@ yarn-error.log*
 apps/docs/next-env.d.ts
 apps/docs/.next
 apps/docs/node_modules
+
+apps/www/next-env.d.ts
+apps/www/.next
+apps/www/node_modules
 packages/storybook/storybook-static
 packages/components/dist
 
