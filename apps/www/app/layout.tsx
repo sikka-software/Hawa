@@ -7,7 +7,6 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { IBMFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -106,7 +105,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
             <TailwindIndicator />
             <ThemeSwitcher />
-            <Analytics />
             <NewYorkToaster />
             <DefaultToaster />
             <NewYorkSonner />
