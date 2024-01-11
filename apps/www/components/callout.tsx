@@ -8,7 +8,7 @@ interface CalloutProps {
   icon?: string
   title?: string
   children?: React.ReactNode
-}
+} 
 
  export function Callout({ title, children, icon, ...props }: CalloutProps) {
   return (
