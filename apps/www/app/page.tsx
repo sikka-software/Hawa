@@ -1,6 +1,5 @@
 "use client";
 
-import MailPage from "@/app/examples/mail/page";
 import { Announcement } from "@/components/announcement";
 import { ExamplesNav } from "@/components/examples-nav";
 import { Icons } from "@/components/icons";
@@ -17,7 +16,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 // import { Button } from "@sikka/hawa/dist/button";
-import { Button, CodeBlock } from "@sikka/hawa/elements";
+import { Button } from "@sikka/hawa/elements/button";
+import { CodeBlock } from "@sikka/hawa/elements/codeBlock";
 
 export default function IndexPage() {
   return (
