@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
+    "prebuild": "nx build @sikka/hawa",
     "build": "contentlayer build && next build",
     "build:registry": "ts-node --esm --project ./tsconfig.scripts.json ./scripts/build-registry.ts",
     "seed:tasks": "ts-node --esm --project ./tsconfig.scripts.json ./app/examples/tasks/data/seed.ts",
