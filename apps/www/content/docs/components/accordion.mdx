@@ -1,0 +1,64 @@
+---
+title: Accordion
+description: A vertically stacked set of interactive headings that each reveal a section of content.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/accordion
+  api: https://www.radix-ui.com/docs/primitives/components/accordion#api-reference
+  storybook: https://storybook.hawa.style/?path=/story/components-accordion--accordion-demo
+---
+
+<ComponentPreview
+  name="accordion-demo"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+/>
+
+## Import
+
+<div className="mt-10">
+  <CodeBlock
+    langauge="bash"
+    tabs={[
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
+    ]}
+  ></CodeBlock>
+</div>
+
+## Usage
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Props
+
+<div className="mt-10">
+  <CodeBlock
+    langauge="bash"
+    tabs={[
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
+    ]}
+  ></CodeBlock>
+</div>
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```

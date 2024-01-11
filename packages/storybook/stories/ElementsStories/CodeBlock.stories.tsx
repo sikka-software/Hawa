@@ -18,7 +18,7 @@ export const Default: Story = {
 
     return (
       <div className="hawa-flex hawa-max-w-lg hawa-flex-col hawa-gap-6">
-        <CodeBlock {...args} tabs={args.tabs} />
+        <CodeBlock {...args} language="bash" tabs={args.tabs} />
         <CodeBlock
           language="jsx"
           code={`<CodeBlock fileName='hawa.js'>
@@ -37,7 +37,7 @@ export const withTabs: Story = {
 
     return (
       <div className="hawa-max-w-lg">
-        <CodeBlock {...args} tabs={args.tabs} />
+        <CodeBlock {...args} language={"rust"} tabs={args.tabs} />
       </div>
     );
   },

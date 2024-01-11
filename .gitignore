@@ -34,38 +34,32 @@ yarn-error.log*
 # vercel
 .vercel
 
-# 
-apps/web/next-env.d.ts
-apps/web/.next
-apps/web/node_modules
-
-packages/storybook/node_modules
-packages/storybook/storybook-static
-
-packages/components/node_modules
-packages/components/dist
-
-packages/tests/node_modules
-
 # typescript
 *.tsbuildinfo
-
 dist
 
+
+.vscode
+.env
+/node_modules
+/.next
 # 
-apps/web/next-env.d.ts
-apps/web/.next
-apps/web/node_modules
+apps/docs/next-env.d.ts
+apps/docs/.next
+apps/docs/node_modules
 
-packages/storybook/node_modules
+apps/www/next-env.d.ts
+apps/www/.next
+apps/www/node_modules
+apps/www/.contentlayer
+next-env.d.ts
+
 packages/storybook/storybook-static
-
-packages/components/node_modules
 packages/components/dist
 
-packages/plugin/node_modules
+packages/storybook/node_modules
+packages/components/node_modules
 packages/tests/node_modules
+packages/plugin/node_modules
 
 
-# production
-/build

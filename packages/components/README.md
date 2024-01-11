@@ -67,7 +67,7 @@ npm install @sikka/hawa
 
 ## Contributing
 
-Please see our [contributing.md](/contributing.md).
+Please see our [contributing.md](/CONTRIBUTING.md).
 
 
 

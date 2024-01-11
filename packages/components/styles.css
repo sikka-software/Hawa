@@ -9,6 +9,7 @@ body {
 @layer base {
   :root {
     --primary: 240 5.9% 10%;
+    /* --primary: 159 100% 33%; */
     --primary-foreground: 0 0% 98%;
     --constant-background: 0 0% 100%;
     --background: 0 0% 100%;
@@ -47,6 +48,7 @@ body {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --primary: 0 0% 98%;
+    /* --primary: 159 100% 50%; */
     --primary-foreground: 240 5.9% 10%;
     --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;

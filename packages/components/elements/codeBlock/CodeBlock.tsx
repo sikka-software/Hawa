@@ -1,15 +1,24 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { Highlight, themes } from "prism-react-renderer";
+import { cn } from "@util/index";
+import {
+  Highlight,
+  HighlightProps,
+  Language,
+  themes,
+  Prism
+} from "prism-react-renderer";
 
 import { useClipboard } from "../../hooks/useClipboard";
-import { cn } from "@util/index";
 import { Button } from "../button";
 import { Tooltip } from "../tooltip";
 
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+require("prismjs/components/prism-bash");
+
 type CodeBlockTypes = {
   /** Specifies the programming language for syntax highlighting.*/
-  language?: string;
+  language?: HighlightProps["language"];
   /** Defines the width of the code block.*/
   width?: "full" | "md" | "sm";
   /** Array of tabs each containing a title and code content.*/
@@ -34,9 +43,12 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 }) => {
   const clipboard = useClipboard();
   const [selectedTab, setSelectedTab] = useState(0);
-  const isDarkMode =
-    props.forcedDarkMode || document.body.classList.contains("dark");
-  const theme = isDarkMode ? themes.vsDark : themes.vsLight;
+  // const isDarkMode =
+  //   props.forcedDarkMode ||
+  //   document.body.classList.contains("dark") ||
+  //   document.documentElement.classList.contains("dark");
+  // const theme = isDarkMode ? themes.vsDark : themes.vsLight;
+  const theme = themes.oceanicNext;
 
   let widthStyles = {
     full: "hawa-w-full",
@@ -56,15 +68,15 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {fileName && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground dark:hawa-bg-muted",
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             fileName && tabs
-              ? "hawa-bg-gray-300 dark:hawa-bg-muted/50"
-              : "hawa-bg-gray-200"
+              ? "hawa-bg-primary/10"
+              : "hawa-bg-primary/15"
           )}
         >
           <div
             className={cn(
-              "mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
+              "hawa-font-mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
             )}
           >
             {fileName}
@@ -74,7 +86,8 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {tabs && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-bg-gray-200 hawa-p-2  hawa-pb-0 hawa-font-mono hawa-text-foreground dark:hawa-bg-muted",
+            // hawa-bg-gray-300 dark:hawa-bg-red-600
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             tabs && fileName && "hawa-rounded-t-none"
           )}
         >
@@ -90,7 +103,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               <div
                 onClick={() => setSelectedTab(i)}
                 className={cn(
-                  "hawa-mb-1 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-1 hawa-text-center hawa-text-[1rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20"
+                  "hawa-mb-0.5 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-0.5 hawa-text-center hawa-text-[0.7rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20"
                 )}
               >
                 {tab.title}
@@ -102,7 +115,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 
       <div
         className={cn(
-          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-foreground/5 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
+          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-700 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
           tabs || fileName
             ? "hawa-rounded-b hawa-rounded-t-none"
             : "hawa-rounded"
@@ -153,10 +166,10 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
                 clipboard.copy(tabs ? tabs[selectedTab].code : code)
               }
               variant="outline"
-              className="hawa-text-foreground hawa-opacity-50 sm:hawa-opacity-100"
+              className="hawa-text-gray-200 hawa-opacity-50 "
             >
               <svg
-                aria-label="Copy Icon"
+                aria-label="Copy"
                 stroke="currentColor"
                 fill="none"
                 strokeWidth="2"
