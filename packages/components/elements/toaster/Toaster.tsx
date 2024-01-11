@@ -16,7 +16,7 @@ import {
 type ToasterProps = {
   direction?: DirectionType;
 };
-
+ 
 export function Toaster(props: ToasterProps) {
   const { toasts } = useToast();
   let isRTL = props.direction === "rtl";

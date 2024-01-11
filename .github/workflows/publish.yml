@@ -1,0 +1,31 @@
+name: Hawa CI - @beta
+
+env:
+  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  NPM_PUBLISH_TAG: next # Specify the tag for publishing (make sure to change it in the append -beta as well)
+  NODE_VERSION: "21.x"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish-package:
+    runs-on: [self-hosted, linux, x64, A01]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Append -next to package.json version
+        run: |
+          node -e "const fs = require('fs'); const packageJson = require('./package.json'); packageJson.version += '-next'; fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));"
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build Library
+        run: pnpm run build:lib
+      - name: Publish to NPM @next tag
+        run: pnpm --filter @sikka/hawa publish --no-git-checks --tag $NPM_PUBLISH_TAG # Specify the tag here

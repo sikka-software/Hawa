@@ -8,7 +8,7 @@ env:
 
 on:
   push:
-    branches: [main]
+    branches: [main1]
 
 jobs:
   publish-package:
@@ -76,7 +76,9 @@ jobs:
           rm -fr package-lock.json || true
           pnpm install
           pnpm run build:storybook
-  # - name: Copy Storybook to hawa.style/ss-book
+ 
+ 
+          # - name: Copy Storybook to hawa.style/ss-book
   #   run: |
   #     # Create the ss-book directory if it does not exist
   #     mkdir -p /home/sikka/htdocs/hawa.style/ss-book || true
