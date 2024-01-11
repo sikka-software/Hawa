@@ -16,7 +16,6 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
-    "@sikka/hawa": "workspace:*",
     "@faker-js/faker": "^8.2.0",
     "@hookform/resolvers": "^3.1.0",
     "@radix-ui/react-accessible-icon": "^1.0.3",
@@ -48,6 +47,7 @@
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.6",
+    "@sikka/hawa": "workspace:^",
     "@tanstack/react-table": "^8.9.1",
     "@vercel/analytics": "^1.0.1",
     "@vercel/og": "^0.0.21",
