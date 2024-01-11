@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build Library
-        run: npm run build-lib
+        run: npm run build
       - name: Generate Tailwind Styles
         run: npm run build-css
       - name: Publish to NPM @next tag

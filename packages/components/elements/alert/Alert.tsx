@@ -34,6 +34,7 @@ type AlertTypes = {
         | "ghost";
     }
   ];
+  /** Removes the close button */
   persistent?: boolean;
   icon?: any;
   className?: any;

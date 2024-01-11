@@ -48,10 +48,10 @@
     "check": "tsc --noEmit",
     "test": "jest",
     "prebuild": "node ./util/pre-build.js",
-    "build-lib": "npm run prebuild && node ./util/build-library.js",
+    "build": "npm run prebuild && node ./util/build-library.js",
     "build-lib-old": "tsup --dts",
     "build-css": "postcss styles.css -o dist/index.css",
-    "prepub": "npm run build-lib && npm run build-css",
+    "prepub": "npm run build && npm run build-css",
     "pub": "npm publish --tag next"
   },
   "dependencies": {
