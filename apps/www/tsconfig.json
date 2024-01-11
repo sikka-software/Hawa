@@ -18,6 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
+      // "@/*": ["../../packages/components/*"],
       "@util/*": ["../../packages/components/util/*"],
       "@_types/*": ["../../packages/components/types/*"],
       "@hooks/*": ["../../packages/components/hooks/*"],
