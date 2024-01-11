@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 import {
   ColumnDef,
   ColumnFiltersState,

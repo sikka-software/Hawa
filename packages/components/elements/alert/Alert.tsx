@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { DirectionType, SeverityType } from "@/types/commonTypes";
+import { DirectionType, SeverityType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 import { Button } from "../button";

@@ -2,9 +2,9 @@ import React, { FC, useState } from "react";
 
 import { Radio } from "@elements/radio";
 
-import { DirectionType, RadioOptionType } from "@/types/commonTypes";
-import { PlanFeature } from "@/types/pricingTypes";
-import { PricingPlanTexts } from "@/types/textTypes";
+import { DirectionType, RadioOptionType } from "@_types/commonTypes";
+import { PlanFeature } from "@_types/pricingTypes";
+import { PricingPlanTexts } from "@_types/textTypes";
 
 import { cn } from "@util/index";
 

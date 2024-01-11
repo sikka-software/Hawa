@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { PricingCardProps } from "@/types/pricingTypes";
+import { PricingCardProps } from "@_types/pricingTypes";
 
 import { Button } from "@elements/button";
 import { Card } from "@elements/card";

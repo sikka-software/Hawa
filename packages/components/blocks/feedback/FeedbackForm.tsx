@@ -10,7 +10,7 @@ import { Label } from "@elements/label";
 import { Select } from "@elements/select";
 import { Textarea } from "@elements/textarea";
 
-import { BaseInputType } from "@/types/textTypes";
+import { BaseInputType } from "@_types/textTypes";
 
 import { cn } from "@util/index";
 

@@ -4,7 +4,7 @@ import { Button } from "@elements/button";
 import { Logos } from "@elements/logos";
 import { Sheet, SheetContent, SheetTrigger } from "@elements/sheet";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { cn } from "@util/index";

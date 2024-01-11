@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { OrientationType } from "@/types/commonTypes";
+import { OrientationType } from "@_types/commonTypes";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "@util/index";

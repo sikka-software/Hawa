@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useRef } from "react";
 
-import { OrientationType } from "@/types/commonTypes";
+import { OrientationType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 

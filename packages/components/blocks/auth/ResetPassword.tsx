@@ -15,8 +15,8 @@ import {
 } from "@elements/card";
 import { Input } from "@elements/input";
 
-import { DirectionType } from "@/types/commonTypes";
-import { ResetPasswordTextsTypes } from "@/types/textTypes";
+import { DirectionType } from "@_types/commonTypes";
+import { ResetPasswordTextsTypes } from "@_types/textTypes";
 
 type ResetPasswordType = {
   handleResetPassword: (e: any) => void;

@@ -9,7 +9,7 @@ import { Card, CardContent } from "@elements/card";
 import { Radio, RadioOptionsTypes } from "@elements/radio";
 import { Textarea } from "@elements/textarea";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 

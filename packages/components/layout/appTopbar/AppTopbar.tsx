@@ -2,7 +2,7 @@ import React from "react";
 
 import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 

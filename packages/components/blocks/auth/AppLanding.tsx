@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { Card, CardContent } from "@elements/card";
 
-import { DirectionType, ThirdPartyAuthTextsTypes } from "@/types/index";
+import { DirectionType, ThirdPartyAuthTextsTypes } from "@_types/index";
 
 import { AuthButtons } from "./AuthButtons";
 

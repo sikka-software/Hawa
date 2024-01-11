@@ -12,11 +12,11 @@ import { Input } from "@elements/input";
 import { Select, SelectOptionProps } from "@elements/select";
 import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 import {
   RegisterFormTextsTypes,
   ThirdPartyAuthTextsTypes
-} from "@/types/textTypes";
+} from "@_types/textTypes";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { cn } from "@util/index";

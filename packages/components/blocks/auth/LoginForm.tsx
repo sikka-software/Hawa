@@ -15,7 +15,7 @@ import {
   DirectionType,
   LoginFormTextsTypes,
   ThirdPartyAuthTextsTypes
-} from "@/types/index";
+} from "@_types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { cn } from "@util/index";

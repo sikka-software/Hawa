@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { DirectionType } from "@/types/commonTypes";
+import { DirectionType } from "@_types/commonTypes";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { Label, LabelProps } from "../label";

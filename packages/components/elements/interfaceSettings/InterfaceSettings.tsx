@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 
-import { OrientationType } from "@/types/commonTypes";
+import { OrientationType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 import { Radio } from "../radio/Radio";

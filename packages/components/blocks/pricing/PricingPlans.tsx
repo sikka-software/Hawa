@@ -4,8 +4,8 @@ import { PricingCard } from "@blocks/cards";
 
 import { Radio } from "@elements/radio";
 
-import { DirectionType, RadioOptionType } from "@/types/commonTypes";
-import { PricingCardProps } from "@/types/pricingTypes";
+import { DirectionType, RadioOptionType } from "@_types/commonTypes";
+import { PricingCardProps } from "@_types/pricingTypes";
 
 type PricingPlansTypes = {
   plans: PricingCardProps[];

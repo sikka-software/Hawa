@@ -9,7 +9,7 @@ import { Card, CardContent } from "@elements/card";
 import { Input } from "@elements/input";
 import { Textarea } from "@elements/textarea";
 
-import { TextInputType } from "@/types/textTypes";
+import { TextInputType } from "@_types/textTypes";
 
 import { cn } from "@util/index";
 

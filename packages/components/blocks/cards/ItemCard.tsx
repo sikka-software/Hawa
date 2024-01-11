@@ -4,7 +4,7 @@ import { Button } from "@elements/button";
 import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
-import { OrientationType } from "@/types/commonTypes";
+import { OrientationType } from "@_types/commonTypes";
 
 import { cn } from "@util/index";
 

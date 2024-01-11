@@ -227,7 +227,7 @@ importers:
         version: link:../../packages/components
       '@tanstack/react-table':
         specifier: ^8.9.1
-        version: 8.11.3(react-dom@18.2.0)(react@18.2.0)
+        version: 8.11.4(react-dom@18.2.0)(react@18.2.0)
       '@vercel/analytics':
         specifier: ^1.0.1
         version: 1.1.1
@@ -435,10 +435,10 @@ importers:
         version: 1.0.7(@types/react-dom@18.2.18)(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-table':
         specifier: ^8.11.3
-        version: 8.11.3(react-dom@18.2.0)(react@18.2.0)
+        version: 8.11.4(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/table-core':
         specifier: ^8.11.3
-        version: 8.11.3
+        version: 8.11.4
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -480,7 +480,7 @@ importers:
         version: 14.2.3(react@18.2.0)
       react-headless-pagination:
         specifier: ^1.1.4
-        version: 1.1.4(react@18.2.0)
+        version: 1.1.5(react@18.2.0)
       react-hook-form:
         specifier: ^7.49.3
         version: 7.49.3(react@18.2.0)
@@ -749,7 +749,7 @@ importers:
         version: 14.2.3(react@18.2.0)
       react-headless-pagination:
         specifier: ^1.1.4
-        version: 1.1.4(react@18.2.0)
+        version: 1.1.5(react@18.2.0)
       react-hook-form:
         specifier: ^7.49.3
         version: 7.49.3(react@18.2.0)
@@ -6826,14 +6826,14 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tanstack/react-table@8.11.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Gwwm7po1MaObBguw69L+UiACkaj+eOtThQEArj/3fmUwMPiWaJcXvNG2X5Te5z2hg0HMx8h0T0Q7p5YmQlTUfw==}
+  /@tanstack/react-table@8.11.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-P9OIM+4zM66wrm/27mV+UnjoFn9A/oiH7tIrtymvuq7uMAhrn20hOQCyjExM1XhRhjxyUHAXdhIjJJ3rL/FTnA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@tanstack/table-core': 8.11.3
+      '@tanstack/table-core': 8.11.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -6849,8 +6849,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@tanstack/table-core@8.11.3:
-    resolution: {integrity: sha512-nkcFIL696wTf1QMvhGR7dEg60OIRwEZm1OqFTYYDTRc4JOWspgrsJO3IennsOJ7ptumHWLDjV8e5BjPkZcSZAQ==}
+  /@tanstack/table-core@8.11.4:
+    resolution: {integrity: sha512-wvEl2wXJdFt3FZ+CRtOen2t6M9LwHwLKZ4BehMS2voGkCIApbTNAX9AnKZS2GNq9OjXHSj0dEQfTtZvXNk4LBQ==}
     engines: {node: '>=12'}
     dev: false
 
@@ -8652,10 +8652,6 @@ packages:
       clsx: 2.0.0
     dev: false
 
-  /classnames@2.3.1:
-    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
-    dev: false
-
   /clean-css@5.3.3:
     resolution: {integrity: sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg==}
     engines: {node: '>= 10.0'}
@@ -10076,7 +10072,7 @@ packages:
       object.assign: 4.1.5
       regexp.prototype.flags: 1.5.1
       safe-array-concat: 1.0.1
-      safe-regex-test: 1.0.1
+      safe-regex-test: 1.0.2
       string.prototype.trim: 1.2.8
       string.prototype.trimend: 1.0.7
       string.prototype.trimstart: 1.0.7
@@ -14504,7 +14500,7 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      next: 14.0.4(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)
+      next: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -15900,13 +15896,13 @@ packages:
       react-is: 18.1.0
     dev: true
 
-  /react-headless-pagination@1.1.4(react@18.2.0):
-    resolution: {integrity: sha512-Z5d55g3gM2BQMvHJUGm1jbbQ5Bgtq54kNlI5ca1NTwdVR8ZNunN0EdOtNKNobsFRKuZGkQ24VTIu6ulNq190Iw==}
-    engines: {node: '>=12.13'}
+  /react-headless-pagination@1.1.5(react@18.2.0):
+    resolution: {integrity: sha512-WLtrF4DckZ89rri1tN0xr6aPlsQU/dSVmnafrsfTRUOS6w0gDgukv0tT3b2EGONeevkBUTLY14KpK7GNeoEoIg==}
+    engines: {node: '>=18.13'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      classnames: 2.3.1
+      clsx: 2.1.0
       react: 18.2.0
     dev: false
 
@@ -16685,8 +16681,8 @@ packages:
   /safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
-  /safe-regex-test@1.0.1:
-    resolution: {integrity: sha512-Y5NejJTTliTyY4H7sipGqY+RX5P87i3F7c4Rcepy72nq+mNLhIsD0W4c7kEmduMDQCSqtPsXPlSTsFhh2LQv+g==}
+  /safe-regex-test@1.0.2:
+    resolution: {integrity: sha512-83S9w6eFq12BBIJYvjMux6/dkirb8+4zJRA9cxNBVb7Wq5fJBW+Xze48WqR8pxua7bDuAaaAxtVVd4Idjp1dBQ==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.5

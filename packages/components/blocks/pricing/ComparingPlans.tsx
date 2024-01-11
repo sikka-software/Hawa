@@ -5,7 +5,7 @@ import {
   PricingPlanTexts,
   DirectionType,
   RadioOptionType
-} from "@/types/index";
+} from "@_types/index";
 
 import { Button } from "@elements/button";
 import { Radio } from "@elements/radio";

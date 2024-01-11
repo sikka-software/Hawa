@@ -4,7 +4,7 @@ import { Button } from "@elements/button";
 import { Loading } from "@elements/loading";
 import { Logos } from "@elements/logos";
 
-import { ThirdPartyAuthTextsTypes } from "@/types/textTypes";
+import { ThirdPartyAuthTextsTypes } from "@_types/textTypes";
 
 type AuthButtonsType = {
   texts?: ThirdPartyAuthTextsTypes;
