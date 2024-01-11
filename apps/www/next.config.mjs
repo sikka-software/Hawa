@@ -5,10 +5,13 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      "avatars.githubusercontent.com",
-      "images.unsplash.com",
-      "sikka-images.s3.ap-southeast-1.amazonaws.com"
+    remotePatterns: [
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      {
+        protocol: "https",
+        hostname: "sikka-images.s3.ap-southeast-1.amazonaws.com"
+      }
     ]
   },
   redirects() {
