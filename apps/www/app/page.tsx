@@ -16,8 +16,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 // import { Button } from "@sikka/hawa/dist/button";
-import { Button } from "@sikka/hawa/elements/button";
-import { CodeBlock } from "@sikka/hawa/elements/codeBlock";
+import { Button } from "@sikka/hawa/elements";
+import { CodeBlock } from "@sikka/hawa/elements";
 
 export default function IndexPage() {
   return (

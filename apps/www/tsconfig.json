@@ -17,15 +17,16 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./*","../../packages/components/*"],
+      "@util/*": ["../../packages/components/util/*"],
+      "@_types/*": ["../../packages/components/types/*"],
+      "@hooks/*": ["../../packages/components/hooks/*"],
+      "@blocks/*": ["../../packages/components/blocks/*"],
+      "@elements/*": ["../../packages/components/elements/*"],
+      "@layout/*": ["./layout/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
-      // "@sikka/hawa/*": ["../../packages/components/*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "next-env.d.ts",
