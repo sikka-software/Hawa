@@ -5,6 +5,8 @@ env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_PUBLISH_TAG: next # Specify the tag for publishing (make sure to change it in the append -beta as well)
   NODE_VERSION: "21.x"
+  PM2_PATH: /www/server/nvm/versions/node/v20.11.0/bin/pm2
+  PNPM_PATH: /www/server/nodejs/v20.11.0/bin/pnpm
 
 on:
   push:
@@ -24,8 +26,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: pnpm install
+        run: ${{ env.PNPM_PATH }} install
       - name: Build Library
-        run: pnpm run build:lib
+        run: ${{ env.PNPM_PATH }} run build:lib
       - name: Publish to NPM @next tag
-        run: pnpm --filter @sikka/hawa publish --no-git-checks --tag $NPM_PUBLISH_TAG # Specify the tag here
+        run: ${{ env.PNPM_PATH }} --filter @sikka/hawa publish --no-git-checks --tag $NPM_PUBLISH_TAG # Specify the tag here
