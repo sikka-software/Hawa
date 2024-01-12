@@ -25,6 +25,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org/
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.14.0
+          run_install: false
       - name: Install dependencies
         run: ${{ env.PNPM_PATH }} install
       - name: Build Library
