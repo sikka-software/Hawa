@@ -15,11 +15,13 @@ import { buttonVariants } from "@/registry/new-york/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Toast, Toaster, useToast } from "@sikka/hawa";
 // import { Button } from "@sikka/hawa/dist/button";
 import { Button } from "@sikka/hawa/elements";
 import { CodeBlock } from "@sikka/hawa/elements";
 
 export default function IndexPage() {
+  const { toast } = useToast();
   return (
     <div className="container relative">
       <PageHeader>
@@ -50,6 +52,16 @@ export default function IndexPage() {
             ]}
           ></CodeBlock>
         </div>
+        <Button
+          onClick={() =>
+            toast({
+              title: "test"
+            })
+          }
+        >
+          test
+        </Button>
+        <Toaster />
       </PageHeader>
       {/* <ExamplesNav className="[&>a:first-child]:text-primary" />
       <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">

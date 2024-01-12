@@ -1,4 +1,4 @@
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@sikka/hawa/elements/button";
@@ -9,30 +9,15 @@ import { useToast } from "@sikka/hawa/hooks";
 
 import { setLocale, t } from "../../translations/i18n";
 
-const meta = {
-  title: "Elements/Toast",
-  component: Toaster,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Toaster/>"}</h1>
-          <p>
-            To use this component you must wrap your app with a Toaster
-            component. And use {"<ToastAction/>"}
-          </p>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
-} satisfies Meta<typeof Toaster>;
+const meta = { title: "Elements/Toast", component: Toaster } satisfies Meta<
+  typeof Toaster
+>;
 
 export default meta;
 type Story = StoryObj<typeof Toaster>;
 
 export const Default: Story = {
+  name: "Toast",
   render: (args: any, globals: any) => {
     const { toast } = useToast();
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
