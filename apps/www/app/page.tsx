@@ -1,6 +1,6 @@
 "use client";
 
-import { allDocs } from "@/.contentlayer/generated";
+// import { allDocs } from "@/.contentlayer/generated";
 import { Announcement } from "@/components/announcement";
 import { ExamplesNav } from "@/components/examples-nav";
 import { Icons } from "@/components/icons";
@@ -63,9 +63,9 @@ export default function IndexPage() {
           test
         </Button>
         <Toaster />
-        {allDocs.map((d) => (
+        {/* {allDocs.map((d) => (
           <div>{d.title}</div>
-        ))}
+        ))} */}
       </PageHeader>
       {/* <ExamplesNav className="[&>a:first-child]:text-primary" />
       <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">

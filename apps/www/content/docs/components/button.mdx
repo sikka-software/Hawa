@@ -1,6 +1,6 @@
 ---
-title: Button
-description: Displays a button or a component that looks like a button.
+title: Accordion2
+description: A vertically stacked set of interactive headings that each reveal a section of content.
 component: true
 links:
   doc: https://www.radix-ui.com/docs/primitives/components/accordion
@@ -8,114 +8,57 @@ links:
   storybook: https://storybook.hawa.style/?path=/story/components-accordion--accordion-demo
 ---
 
-<ComponentPreview name="button-demo" />
+<ComponentPreview
+  name="accordion-demo"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+/>
 
-## Installation
+## Import
 
-<Tabs defaultValue="cli">
-
-<TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn-ui@latest add button
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-slot
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource name="button" />
-
-<Step>Update the import paths to match your project setup.</Step>
-
-</Steps>
-
-</TabsContent>
-
-</Tabs>
+<div className="mt-10">
+  <CodeBlock
+    langauge="bash"
+    tabs={[
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
+    ]}
+  ></CodeBlock>
+</div>
 
 ## Usage
 
 ```tsx
-import { Button } from "@/components/ui/button";
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
 ```
+
+## Props
+
+<div className="mt-10">
+  <CodeBlock
+    langauge="bash"
+    tabs={[
+      { title: "npm", code: "npm install @sikka/hawa" },
+      { title: "yarn", code: "yarn add @sikka/hawa" },
+      { title: "pnpm", code: "pnpm add @sikka/hawa" }
+    ]}
+  ></CodeBlock>
+</div>
 
 ```tsx
-<Button variant="outline">Button</Button>
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
 ```
-
-## Link
-
-You can use the `buttonVariants` helper to create a link that looks like a button.
-
-```tsx
-import { buttonVariants } from "@/components/ui/button";
-```
-
-```tsx
-<Link className={buttonVariants({ variant: "outline" })}>Click here</Link>
-```
-
-Alternatively, you can set the `asChild` parameter and nest the link component.
-
-```tsx
-<Button asChild>
-  <Link href="/login">Login</Link>
-</Button>
-```
-
-## Examples
-
-### Primary
-
-<ComponentPreview name="button-demo" />
-
-### Secondary
-
-<ComponentPreview name="button-secondary" />
-
-### Destructive
-
-<ComponentPreview name="button-destructive" />
-
-### Outline
-
-<ComponentPreview name="button-outline" />
-
-### Ghost
-
-<ComponentPreview name="button-ghost" />
-
-### Link
-
-<ComponentPreview name="button-link" />
-
-### Icon
-
-<ComponentPreview name="button-icon" />
-
-### With Icon
-
-<ComponentPreview name="button-with-icon" />
-
-### Loading
-
-<ComponentPreview name="button-loading" />
-
-### As Child
-
-<ComponentPreview name="button-as-child" />
