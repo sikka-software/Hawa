@@ -169,11 +169,12 @@ function useToast() {
   React.useEffect(() => {
     console.log("useToast triggered in useEffect");
     console.log("toast state", state);
-    console.log("listerners", listeners);
+    console.log("listerners BEFORE", listeners);
     console.log("TOAST: setState is ", setState);
     listeners.push(setState);
     return () => {
       const index = listeners.indexOf(setState);
+      console.log("listerners AFTER", listeners);
       if (index > -1) {
         listeners.splice(index, 1);
       }
