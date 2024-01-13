@@ -27,7 +27,7 @@ function chunkEntries(entries, chunkSize) {
 function createConfigForGroup(entries, name) {
   return defineConfig({
     name: name || "Grouped Entries",
-    clean: true,
+    clean: false,
     sourcemap: true,
     dts: true,
     target: "es2020",
