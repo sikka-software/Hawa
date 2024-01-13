@@ -4,11 +4,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@sikka/hawa/elements/button";
 import { DropdownMenu } from "@sikka/hawa/elements/dropdownMenu";
 import { ToastAction } from "@sikka/hawa/elements/toast";
+import { Toaster } from "@sikka/hawa/elements/toaster";
 import { useToast } from "@sikka/hawa/hooks";
 
-// import { ToastProvider } from "../../../components/dist";
-// import { Toaster } from "@sikka/hawa/elements/toaster";
-import { Toaster } from "../../../components/dist/toaster";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = { title: "Elements/Toast", component: Toaster } satisfies Meta<
@@ -21,7 +19,7 @@ type Story = StoryObj<typeof Toaster>;
 export const Default: Story = {
   name: "Toast",
   render: (args: any, globals: any) => {
-    const { toast } = useToast();
+    const { toast, toasts } = useToast();
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
@@ -29,25 +27,9 @@ export const Default: Story = {
     return (
       <div>
         <div>
-
-          
-          <Toaster direction={direction} />
-          <Button
-            onClick={() =>
-              toast({
-                title: "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                severity: "warning",
-                action: <ToastAction altText="Try again">Try again</ToastAction>
-              })
-            }
-          >
-            Add Toaster
-          </Button>
-          {/* <DropdownMenu
-            trigger={
-              <Button>Add Toaster</Button>
-            }
+          <Toaster toasts={toasts} direction={direction} />
+          <DropdownMenu
+            trigger={<Button>Add Toaster</Button>}
             items={[
               {
                 label: "Info",
@@ -107,7 +89,7 @@ export const Default: Story = {
                 }
               }
             ]}
-          /> */}
+          />
         </div>
       </div>
     );

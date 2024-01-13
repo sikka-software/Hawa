@@ -1,11 +1,10 @@
 import * as React from "react";
 
 import * as ToastPrimitives from "@radix-ui/react-toast";
+import { cn } from "@util/index";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { DirectionType } from "@_types/commonTypes";
-
-import { cn } from "@util/index";
 
 const toastVariants = cva(
   "hawa-group hawa-z-[900] hawa-pointer-events-auto hawa-relative hawa-flex hawa-w-full hawa-items-center hawa-justify-between hawa-overflow-hidden hawa-rounded-md hawa-border hawa-shadow-lg hawa-transition-all data-[swipe=cancel]:hawa-translate-x-0 data-[swipe=end]:hawa-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:hawa-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:hawa-transition-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[swipe=end]:hawa-animate-out data-[state=closed]:hawa-fade-out-80  data-[state=open]:hawa-slide-in-from-top-full data-[state=open]:sm:hawa-slide-in-from-bottom-full",
@@ -42,8 +41,7 @@ const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
 >(({ className, ...props }, ref) => (
-<div>
-    <ToastPrimitives.Viewport
+  <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
       "hawa-fixed hawa-top-0 hawa-z-[100] hawa-flex hawa-max-h-screen hawa-w-full hawa-flex-col-reverse hawa-p-4 sm:hawa-bottom-0 sm:hawa-right-0 sm:hawa-top-auto sm:hawa-flex-col md:hawa-max-w-[420px]",
@@ -51,8 +49,6 @@ const ToastViewport = React.forwardRef<
     )}
     {...props}
   />
-  <div>inside ToastViewport</div>
-</div>
 ));
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
@@ -173,7 +169,14 @@ ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
 type ToastActionElement = React.ReactElement<typeof ToastAction>;
-
+export type ToasterToastProps = ToastProps & {
+  id: string;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  severity?: "info" | "warning" | "error" | "success" | "none";
+  action?: ToastActionElement;
+  size?: "default" | "sm";
+};
 export {
   type ToastProps,
   type ToastActionElement,
