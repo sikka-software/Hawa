@@ -29,14 +29,14 @@ const preview: Preview = {
       light: {
         ...themes.light,
         brandTitle: "Hawa UI",
-        brandUrl: "https://sikka.io",
+        brandUrl: "https://hawa.style",
         brandImage:
           "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png"
       },
       dark: {
         ...themes.dark,
         brandTitle: "Hawa UI",
-        brandUrl: "https://sikka.io",
+        brandUrl: "https://hawa.style",
         brandImage:
           "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
       },
