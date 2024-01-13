@@ -17,7 +17,7 @@ export const Default: Story = {
     const isDark = useDarkMode();
 
     return (
-      <div className="hawa-flex hawa-max-w-lg hawa-flex-col hawa-gap-6">
+      <div className="hawa-flex hawa-max-w-lg hawa-flex-col">
         <CodeBlock {...args} language="bash" tabs={args.tabs} />
         <CodeBlock
           language="jsx"

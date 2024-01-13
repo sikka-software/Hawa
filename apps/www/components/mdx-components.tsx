@@ -13,12 +13,12 @@ import { StyleWrapper } from "@/components/style-wrapper";
 import { useConfig } from "@/hooks/use-config";
 import { Event } from "@/lib/events";
 import { cn } from "@/lib/utils";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/registry/new-york/ui/accordion";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger
+// } from "@/registry/new-york/ui/accordion";
 import {
   Alert,
   AlertDescription,
@@ -36,8 +36,38 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { NpmCommands } from "types/unist";
-
+import {
+  // Accordion,
+  AccordionRoot as Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@sikka/hawa/elements";
 import { Button, CodeBlock } from "@sikka/hawa/elements";
+
+type ChildElement = React.ReactElement<{ children: React.ReactNode }>;
+
+const isChildElement: any = (child: any): child is ChildElement =>
+  React.isValidElement(child) &&
+  typeof child.props === "object" &&
+  child.props !== null &&
+  "children" in child.props;
+
+const getCodeString: any = (children: React.ReactNode): string => {
+  if (typeof children === "string") {
+    return children;
+  }
+  if (React.Children.count(children) === 0) {
+    return "";
+  }
+  // @ts-ignore
+  return React.Children.map(children, (child: any) => {
+    if (isChildElement(child)) {
+      return getCodeString(child?.props?.children);
+    }
+    return child;
+  }).join("");
+};
 
 const components = {
   Accordion,
@@ -172,55 +202,18 @@ const components = {
   ),
   pre: ({
     className,
-    __rawString__,
-    __npmCommand__,
-    __yarnCommand__,
-    __pnpmCommand__,
-    __bunCommand__,
-    __withMeta__,
-    __src__,
-    __event__,
-    __style__,
+    children,
     ...props
-  }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style["name"];
-    __rawString__?: string;
-    __withMeta__?: boolean;
-    __src__?: string;
-    __event__?: Event["name"];
-  } & NpmCommands) => {
+  }: React.HTMLAttributes<HTMLPreElement>) => {
+    const codeString = getCodeString(children);
+
     return (
-      <StyleWrapper styleName={__style__}>
-        <pre
-          className={cn(
-            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-            className
-          )}
-          {...props}
-        />
-        {__rawString__ && !__npmCommand__ && (
-          <CopyButton
-            value={__rawString__}
-            src={__src__}
-            event={__event__}
-            className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-          />
-        )}
-        {__npmCommand__ &&
-          __yarnCommand__ &&
-          __pnpmCommand__ &&
-          __bunCommand__ && (
-            <CopyNpmCommandButton
-              commands={{
-                __npmCommand__,
-                __yarnCommand__,
-                __pnpmCommand__,
-                __bunCommand__
-              }}
-              className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-            />
-          )}
-      </StyleWrapper>
+      <CodeBlock
+        language="jsx"
+        code={codeString}
+        className={className}
+        {...props}
+      />
     );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (

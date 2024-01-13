@@ -61,7 +61,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={cn(
         widthStyles[width],
-        "hawa-w-full hawa-flex-col hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-text-white sm:hawa-text-base",
+        "hawa-w-full hawa-flex-col hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-my-2 hawa-text-white sm:hawa-text-base",
         className
       )}
     >
@@ -69,9 +69,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         <div
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
-            fileName && tabs
-              ? "hawa-bg-primary/10"
-              : "hawa-bg-primary/15"
+            fileName && tabs ? "hawa-bg-primary/10" : "hawa-bg-primary/15"
           )}
         >
           <div

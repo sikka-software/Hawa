@@ -15,6 +15,7 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster";
 import { Toaster as NewYorkSonner } from "@/registry/new-york/ui/sonner";
 import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster";
+import { LoadingBar } from "@/components/loading-bar";
 
 export const metadata: Metadata = {
   title: {
@@ -108,6 +109,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <NewYorkToaster />
             <DefaultToaster />
             <NewYorkSonner />
+           <LoadingBar/>
           </ThemeProvider>
         </body>
       </html>
