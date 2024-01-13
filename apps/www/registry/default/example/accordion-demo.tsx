@@ -1,15 +1,15 @@
 import {
-  Accordion,
+  AccordionRoot as Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/default/ui/accordion"
+} from "@sikka/hawa/elements"
 
 export default function AccordionDemo() {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionTrigger>THIS IS ITEM 1</AccordionTrigger>
         <AccordionContent>
           Yes. It adheres to the WAI-ARIA design pattern.
         </AccordionContent>

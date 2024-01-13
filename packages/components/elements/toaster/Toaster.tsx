@@ -4,7 +4,6 @@ import { cn } from "@util/index";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { useToast } from "../../hooks/useToast";
 import {
   Toast,
   ToastClose,

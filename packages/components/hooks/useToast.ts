@@ -40,10 +40,7 @@ const addToRemoveQueue = (toastId: string) => {
 
   const timeout = setTimeout(() => {
     toastTimeouts.delete(toastId);
-    dispatch({
-      type: "REMOVE_TOAST",
-      toastId: toastId
-    });
+    dispatch({ type: "REMOVE_TOAST", toastId: toastId });
   }, TOAST_REMOVE_DELAY);
 
   toastTimeouts.set(toastId, timeout);
@@ -52,7 +49,6 @@ const addToRemoveQueue = (toastId: string) => {
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
-      console.log("adding toast case");
       return {
         ...state,
         toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT)
@@ -102,10 +98,8 @@ const listeners: Array<(state: State) => void> = [];
 let memoryState: State = { toasts: [] };
 
 function dispatch(action: Action) {
-  console.log("dispatching toast");
   memoryState = reducer(memoryState, action);
   listeners.forEach((listener) => {
-    console.log("mapping through listerners in dispathc");
     listener(memoryState);
   });
 }
@@ -116,10 +110,7 @@ function toast({ ...props }: Toast) {
   const id = genId();
 
   const update = (props: ToasterToastProps) =>
-    dispatch({
-      type: "UPDATE_TOAST",
-      toast: { ...props, id }
-    });
+    dispatch({ type: "UPDATE_TOAST", toast: { ...props, id } });
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
 
   dispatch({
@@ -134,25 +125,16 @@ function toast({ ...props }: Toast) {
     }
   });
 
-  return {
-    id: id,
-    dismiss,
-    update
-  };
+  return { id: id, dismiss, update };
 }
 
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState);
 
   React.useEffect(() => {
-    console.log("useToast triggered in useEffect");
-    console.log("toast state", state);
-    console.log("listerners BEFORE", listeners);
-    console.log("TOAST: setState is ", setState);
     listeners.push(setState);
     return () => {
       const index = listeners.indexOf(setState);
-      console.log("listerners AFTER", listeners);
       if (index > -1) {
         listeners.splice(index, 1);
       }
