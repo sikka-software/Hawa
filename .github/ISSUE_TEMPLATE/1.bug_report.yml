@@ -14,8 +14,8 @@ body:
         - "Build and Deployment"
         - "Examples"
         - "Other"
-    validations:
-      required: true
+    # validations:
+      # required: true
   - type: dropdown
     attributes:
       label: Which component group is your issue related to?
