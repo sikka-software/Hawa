@@ -44,6 +44,10 @@ dist
 /node_modules
 /.next
 # 
+apps/old_docs/next-env.d.ts
+apps/old_docs/.next
+apps/old_docs/node_modules
+
 apps/docs/next-env.d.ts
 apps/docs/.next
 apps/docs/node_modules
