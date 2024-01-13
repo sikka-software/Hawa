@@ -27,12 +27,14 @@ function chunkEntries(entries, chunkSize) {
 function createConfigForGroup(entries, name) {
   return defineConfig({
     name: name || "Grouped Entries",
-    clean: false,
+    clean: true,
+    sourcemap: true,
     dts: true,
-    target: "es2019",
+    target: "es2020",
     format: ["cjs", "esm"],
     entry: entries,
-    tsconfig: "./tsconfig.json"
+    tsconfig: "./tsconfig.json",
+    external: ["react", "react-dom", "@radix-ui/react-toast"]
   });
 }
 const groupedElementEntries = chunkEntries(elementEntries, 3);

@@ -1,10 +1,10 @@
 import React from "react";
 
+import { useToast } from "@hooks/useToast";
 import { cn } from "@util/index";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { useToast } from "../../hooks/useToast";
 import {
   Toast,
   ToastClose,

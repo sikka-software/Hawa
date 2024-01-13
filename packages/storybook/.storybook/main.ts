@@ -29,6 +29,7 @@ const config: StorybookConfig = {
       ...config.resolve.alias,
       "@/": path.resolve(__dirname, "../../components/"),
       "@util": path.resolve(__dirname, "../../components/util"),
+      "@hooks": path.resolve(__dirname, "../../components/hooks"),
       "@layout": path.resolve(__dirname, "../../components/layout"),
       "@elements": path.resolve(__dirname, "../../components/elements"),
       "@blocks": path.resolve(__dirname, "../../components/blocks")
