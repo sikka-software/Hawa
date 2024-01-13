@@ -1,6 +1,5 @@
 "use client";
 
-// import { allDocs } from "@/.contentlayer/generated";
 import { Announcement } from "@/components/announcement";
 import { ExamplesNav } from "@/components/examples-nav";
 import { Icons } from "@/components/icons";

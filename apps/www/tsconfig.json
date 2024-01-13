@@ -24,17 +24,10 @@
       "@hooks/*": ["../../packages/components/hooks/*"],
       "@blocks/*": ["../../packages/components/blocks/*"],
       "@elements/*": ["../../packages/components/elements/*"],
-      "@layout/*": ["./layout/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@layout/*": ["./layout/*"]
     },
     "plugins": [{ "name": "next" }]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "./scripts/build-registry.ts"]
 }

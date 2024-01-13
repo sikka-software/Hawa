@@ -10,11 +10,12 @@ import { badgeVariants } from "@/registry/new-york/ui/badge";
 import { ScrollArea } from "@/registry/new-york/ui/scroll-area";
 import "@/styles/mdx.css";
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
-import { allDocs } from "contentlayer/generated";
+// import { allDocs } from "contentlayer/generated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+const allDocs = [{}];
 interface DocPageProps {
   params: {
     slug: string[];
@@ -23,7 +24,8 @@ interface DocPageProps {
 
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || "";
-  const doc = allDocs.find((doc) => doc.slugAsParams === slug);
+  // const doc = allDocs.find((doc) => doc.slugAsParams === slug);
+  const doc = [{}];
   console.log("slug is ", slug);
   if (!doc) {
     return null;
@@ -72,7 +74,7 @@ export async function generateStaticParams(): Promise<
   DocPageProps["params"][]
 > {
   return allDocs.map((doc) => ({
-    slug: doc.slugAsParams.split("/")
+    slug: doc?.slugAsParams?.split("/")
   }));
 }
 
@@ -83,7 +85,7 @@ export default async function DocPage({ params }: DocPageProps) {
     notFound();
   }
 
-  const toc = await getTableOfContents(doc.body.raw);
+  const toc = await getTableOfContents(doc.body?.raw);
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
@@ -143,7 +145,7 @@ export default async function DocPage({ params }: DocPageProps) {
           </div>
         ) : null}
         <div className="pb-12 pt-8">
-          <Mdx code={doc.body.code} />
+          <Mdx code={doc.body?.code} />
         </div>
         <DocsPager doc={doc} />
       </div>

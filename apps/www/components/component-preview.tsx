@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Index } from "@/__registry__";
+// import { Index } from "@/__registry__";
 import { CopyButton, CopyWithClassNames } from "@/components/copy-button";
 import { Icons } from "@/components/icons";
 import { StyleSwitcher } from "@/components/style-switcher";
@@ -40,7 +40,9 @@ export function ComponentPreview({
   const Code = Codes[index];
 
   const Preview = React.useMemo(() => {
-    const Component = Index[config.style][name]?.component;
+    const Component = React.lazy(() =>
+      import("@sikka/hawa/elements").then((mod) => mod.AccordionRoot)
+    );
 
     if (!Component) {
       return (
@@ -105,7 +107,7 @@ export function ComponentPreview({
       <ThemeWrapper defaultTheme="zinc">
         <div
           className={cn(
-            "preview flex min-h-[350px] w-full rounded justify-center p-10 border",
+            "preview flex min-h-[350px] w-full justify-center rounded border p-10",
             {
               "items-center": align === "center",
               "items-start": align === "start",
