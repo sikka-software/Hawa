@@ -199,7 +199,6 @@ const components = {
     ...props
   }: React.HTMLAttributes<HTMLPreElement>) => {
     const codeString = getCodeString(children);
-    console.log("🚀🚀🚀 pre is ", props);
     return <CodeBlock language="jsx" code={codeString} {...props} />;
   },
   code: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (

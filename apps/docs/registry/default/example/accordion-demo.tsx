@@ -1,9 +1,16 @@
 import {
-  Accordion,
+  AccordionRoot as Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/registry/default/ui/accordion"
+  AccordionTrigger
+} from "@sikka/hawa/elements";
+
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "@/registry/default/ui/accordion"
 
 export default function AccordionDemo() {
   return (
@@ -29,5 +36,5 @@ export default function AccordionDemo() {
         </AccordionContent>
       </AccordionItem>
     </Accordion>
-  )
+  );
 }

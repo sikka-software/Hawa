@@ -113,7 +113,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 
       <div
         className={cn(
-          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-700 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
+          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-800 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
           tabs || fileName
             ? "hawa-rounded-b hawa-rounded-t-none"
             : "hawa-rounded"

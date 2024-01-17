@@ -34,6 +34,7 @@ export type LinksProperties = {
   type: 'LinksProperties'
   doc?: string | undefined
   api?: string | undefined
+  storybook?: string | undefined
 
 }  
 
