@@ -51,6 +51,7 @@ apps/old_docs/node_modules
 apps/docs/next-env.d.ts
 apps/docs/.next
 apps/docs/node_modules
+apps/docs/.contentlayer
 
 apps/www/next-env.d.ts
 apps/www/.next

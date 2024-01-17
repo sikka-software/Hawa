@@ -15,10 +15,8 @@ import { buttonVariants } from "@/registry/new-york/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-import {  Toaster, useToast } from "@sikka/hawa";
-// import { Button } from "@sikka/hawa/dist/button";
-import { Button } from "@sikka/hawa/elements";
-import { CodeBlock } from "@sikka/hawa/elements";
+import { CodeBlock, Button } from "@sikka/hawa/elements";
+import { useToast } from "@sikka/hawa/hooks";
 
 export default function IndexPage() {
   const { toast } = useToast();

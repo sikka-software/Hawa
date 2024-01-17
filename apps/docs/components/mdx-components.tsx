@@ -1,41 +1,67 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer/hooks"
-import { NpmCommands } from "types/unist"
+import * as React from "react";
 
-import { Event } from "@/lib/events"
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
-import { Callout } from "@/components/callout"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentExample } from "@/components/component-example"
-import { ComponentPreview } from "@/components/component-preview"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
-import { FrameworkDocs } from "@/components/framework-docs"
-import { StyleWrapper } from "@/components/style-wrapper"
+import { Callout } from "@/components/callout";
+import { CodeBlockWrapper } from "@/components/code-block-wrapper";
+import { ComponentExample } from "@/components/component-example";
+import { ComponentPreview } from "@/components/component-preview";
+import { ComponentSource } from "@/components/component-source";
+import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
+import { FrameworkDocs } from "@/components/framework-docs";
+import { StyleWrapper } from "@/components/style-wrapper";
+import { useConfig } from "@/hooks/use-config";
+import { Event } from "@/lib/events";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/registry/new-york/ui/accordion"
+  AccordionTrigger
+} from "@/registry/new-york/ui/accordion";
 import {
   Alert,
   AlertDescription,
-  AlertTitle,
-} from "@/registry/new-york/ui/alert"
-import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio"
+  AlertTitle
+} from "@/registry/new-york/ui/alert";
+import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio";
 import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import { Style } from "@/registry/styles"
+  TabsTrigger
+} from "@/registry/new-york/ui/tabs";
+import { Style } from "@/registry/styles";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
+import Link from "next/link";
+import { NpmCommands } from "types/unist";
+
+import { CodeBlock } from "@sikka/hawa";
+
+type ChildElement = React.ReactElement<{ children: React.ReactNode }>;
+
+const isChildElement: any = (child: any): child is ChildElement =>
+  React.isValidElement(child) &&
+  typeof child.props === "object" &&
+  child.props !== null &&
+  "children" in child.props;
+
+const getCodeString: any = (children: React.ReactNode): string => {
+  if (typeof children === "string") {
+    return children;
+  }
+  if (React.Children.count(children) === 0) {
+    return "";
+  }
+  // @ts-ignore
+  return React.Children.map(children, (child: any) => {
+    if (isChildElement(child)) {
+      return getCodeString(child?.props?.children);
+    }
+    return child;
+  }).join("");
+};
 
 const components = {
   Accordion,
@@ -45,6 +71,7 @@ const components = {
   Alert,
   AlertTitle,
   AlertDescription,
+  CodeBlock,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -144,7 +171,7 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t p-0 even:bg-muted", className)}
+      className={cn("even:bg-muted m-0 border-t p-0", className)}
       {...props}
     />
   ),
@@ -166,63 +193,78 @@ const components = {
       {...props}
     />
   ),
+  // pre: ({
+  //   className,
+  //   __rawString__,
+  //   __npmCommand__,
+  //   __yarnCommand__,
+  //   __pnpmCommand__,
+  //   __bunCommand__,
+  //   __withMeta__,
+  //   __src__,
+  //   __event__,
+  //   __style__,
+  //   ...props
+  // }: React.HTMLAttributes<HTMLPreElement> & {
+  //   __style__?: Style["name"];
+  //   __rawString__?: string;
+  //   __withMeta__?: boolean;
+  //   __src__?: string;
+  //   __event__?: Event["name"];
+  // } & NpmCommands) => {
+  //   return (
+  //     <StyleWrapper styleName={__style__}>
+  //       <pre
+  //         className={cn(
+  //           "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
+  //           className
+  //         )}
+  //         {...props}
+  //       />
+  //       {__rawString__ && !__npmCommand__ && (
+  //         <CopyButton
+  //           value={__rawString__}
+  //           src={__src__}
+  //           event={__event__}
+  //           className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
+  //         />
+  //       )}
+  //       {__npmCommand__ &&
+  //         __yarnCommand__ &&
+  //         __pnpmCommand__ &&
+  //         __bunCommand__ && (
+  //           <CopyNpmCommandButton
+  //             commands={{
+  //               __npmCommand__,
+  //               __yarnCommand__,
+  //               __pnpmCommand__,
+  //               __bunCommand__
+  //             }}
+  //             className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
+  //           />
+  //         )}
+  //     </StyleWrapper>
+  //   );
+  // },
   pre: ({
     className,
-    __rawString__,
-    __npmCommand__,
-    __yarnCommand__,
-    __pnpmCommand__,
-    __bunCommand__,
-    __withMeta__,
-    __src__,
-    __event__,
-    __style__,
+    children,
     ...props
-  }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style["name"]
-    __rawString__?: string
-    __withMeta__?: boolean
-    __src__?: string
-    __event__?: Event["name"]
-  } & NpmCommands) => {
+  }: React.HTMLAttributes<HTMLPreElement>) => {
+    const codeString = getCodeString(children);
     return (
-      <StyleWrapper styleName={__style__}>
-        <pre
-          className={cn(
-            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-            className
-          )}
-          {...props}
-        />
-        {__rawString__ && !__npmCommand__ && (
-          <CopyButton
-            value={__rawString__}
-            src={__src__}
-            event={__event__}
-            className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-          />
-        )}
-        {__npmCommand__ &&
-          __yarnCommand__ &&
-          __pnpmCommand__ &&
-          __bunCommand__ && (
-            <CopyNpmCommandButton
-              commands={{
-                __npmCommand__,
-                __yarnCommand__,
-                __pnpmCommand__,
-                __bunCommand__,
-              }}
-              className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-            />
-          )}
-      </StyleWrapper>
-    )
+      <CodeBlock
+        language="jsx"
+        code={codeString}
+        className={className}
+        {...props}
+      />
+    );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
       {...props}
@@ -273,7 +315,7 @@ const components = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none",
         className
       )}
       {...props}
@@ -306,27 +348,27 @@ const components = {
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        "flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10",
+        "bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow transition-colors sm:p-10",
         className
       )}
       {...props}
     />
-  ),
-}
+  )
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function Mdx({ code }: MdxProps) {
-  const [config] = useConfig()
+  const [config] = useConfig();
   const Component = useMDXComponent(code, {
-    style: config.style,
-  })
+    style: config.style
+  });
 
   return (
     <div className="mdx">
       <Component components={components} />
     </div>
-  )
+  );
 }

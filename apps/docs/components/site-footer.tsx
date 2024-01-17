@@ -1,31 +1,37 @@
-import { siteConfig } from "@/config/site"
+"use client";
+
+import { useEffect, useState } from "react";
+
+import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export function SiteFooter() {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState(
+    "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/white-symbol.png"
+  );
+  useEffect(() => {
+    setLogoSrc(
+      resolvedTheme === "light"
+        ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/black-symbol.png"
+        : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/sikka/brand/white-symbol.png"
+    );
+  }, [resolvedTheme]);
+
   return (
     <footer className="py-6 md:px-8 md:py-0">
-      <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-        <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
-          Built by{" "}
-          <a
-            href={siteConfig.links.twitter}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            shadcn
-          </a>
-          . The source code is available on{" "}
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            GitHub
-          </a>
-          .
+      <div className="mt-10 flex w-full flex-col items-center opacity-50">
+        <a href="https://sikka.io">
+          <Image width={20} height={50} alt="Sikka" src={logoSrc} />
+        </a>
+        <p className="m-0 mb-4">
+          <sub>
+            <a href="https://sikka.io">
+              An open source project by Sikka Software
+            </a>
+          </sub>
         </p>
       </div>
     </footer>
-  )
+  );
 }
