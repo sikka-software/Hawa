@@ -11,7 +11,6 @@ export const docsConfig: DocsConfig = {
     { title: "Components", href: "/docs/components/accordion" },
     { title: "Themes", href: "/themes" },
     { title: "Examples", href: "/examples" },
-    { title: "Figma", href: "/docs/figma" },
     {
       title: "GitHub",
       href: "https://github.com/sikka-software/hawa",
@@ -30,7 +29,6 @@ export const docsConfig: DocsConfig = {
         { title: "Dark mode", href: "/docs/dark-mode", items: [] },
         { title: "CLI", href: "/docs/cli", items: [] },
         { title: "Typography", href: "/docs/components/typography", items: [] },
-        { title: "Figma", href: "/docs/figma", items: [] },
         { title: "Changelog", href: "/docs/changelog", items: [] }
       ]
     },
