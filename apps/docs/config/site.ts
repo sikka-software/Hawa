@@ -1,13 +1,13 @@
 export const siteConfig = {
-  name: "Hawa",
-  url: "https://hawa.style",
-  ogImage: "https://hawa.style/og.jpg",
+  name: "shadcn/ui",
+  url: "https://ui.shadcn.com",
+  ogImage: "https://ui.shadcn.com/og.jpg",
   description:
     "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
-    twitter: "https://twitter.com/sikka_sa",
-    github: "https://github.com/sikka-software/hawa"
-  }
-};
+    twitter: "https://twitter.com/shadcn",
+    github: "https://github.com/shadcn-ui/ui",
+  },
+}
 
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig

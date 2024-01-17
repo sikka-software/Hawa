@@ -18,16 +18,20 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      // "@/*": ["../../packages/components/*"],
-      // "@util/*": ["../../packages/components/util/*"],
-      // "@_types/*": ["../../packages/components/types/*"],
-      // "@hooks/*": ["../../packages/components/hooks/*"],
-      // "@blocks/*": ["../../packages/components/blocks/*"],
-      // "@elements/*": ["../../packages/components/elements/*"],
-      // "@layout/*": ["./layout/*"]
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules", "./scripts/build-registry.ts"]
 }

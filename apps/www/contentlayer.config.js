@@ -11,7 +11,10 @@ import { visit } from "unist-util-visit";
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`
+    resolve: (doc) => {
+      console.log(" 👉 log in slug computed fields is ", doc);
+      return `/${doc._raw.flattenedPath}`;
+    }
   },
   slugAsParams: {
     type: "string",

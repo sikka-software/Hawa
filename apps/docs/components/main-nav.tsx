@@ -1,23 +1,21 @@
-"use client";
+"use client"
 
-import * as React from "react";
+import * as React from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-import { Icons } from "@/components/icons";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { Badge } from "@/registry/new-york/ui/badge";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-import { Logos } from "@sikka/hawa/logos";
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Icons } from "@/components/icons"
+import { Badge } from "@/registry/new-york/ui/badge"
 
 export function MainNav() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <Logos.hawa className="h-6 w-6" />
+        <Icons.logo className="h-6 w-6" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
@@ -26,7 +24,7 @@ export function MainNav() {
         <Link
           href="/docs"
           className={cn(
-            "hover:text-foreground/80 transition-colors",
+            "transition-colors hover:text-foreground/80",
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
@@ -35,7 +33,7 @@ export function MainNav() {
         <Link
           href="/docs/components"
           className={cn(
-            "hover:text-foreground/80 transition-colors",
+            "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/docs/components")
               ? "text-foreground"
               : "text-foreground/60"
@@ -46,7 +44,7 @@ export function MainNav() {
         <Link
           href="/themes"
           className={cn(
-            "hover:text-foreground/80 transition-colors",
+            "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/themes")
               ? "text-foreground"
               : "text-foreground/60"
@@ -57,7 +55,7 @@ export function MainNav() {
         <Link
           href="/examples"
           className={cn(
-            "hover:text-foreground/80 transition-colors",
+            "transition-colors hover:text-foreground/80",
             pathname?.startsWith("/examples")
               ? "text-foreground"
               : "text-foreground/60"
@@ -68,12 +66,12 @@ export function MainNav() {
         <Link
           href={siteConfig.links.github}
           className={cn(
-            "text-foreground/60 hover:text-foreground/80 hidden transition-colors lg:block"
+            "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
           )}
         >
           GitHub
         </Link>
       </nav>
     </div>
-  );
+  )
 }

@@ -1,9 +1,9 @@
 {
-  "name": "hawa-docs-contentlayer",
+  "name": "hawa-docs-old-old",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"contentlayer dev\" \"next dev\"",
     "prebuild": "nx build @sikka/hawa",
     "build": "contentlayer build && next build",
     "build:registry": "ts-node --esm --project ./tsconfig.scripts.json ./scripts/build-registry.ts",
