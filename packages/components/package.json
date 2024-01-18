@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.26.36",
+  "version": "0.26.37",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -51,7 +51,8 @@
     "build:lib": "npm run prebuild && node ./util/build-library.js",
     "build:css": "postcss styles.css -o dist/index.css",
     "build": "npm run build:lib && npm run build:css",
-    "pub": "npm publish --tag next"
+    "pub:next": "npm publish --tag next",
+    "pub": "npm publish"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
