@@ -30,10 +30,10 @@ jobs:
         with:
           version: 8.14.0
           run_install: false
-          
+
       - name: Install dependencies
-        run: ${{ env.PNPM_PATH }} install
+        run: pnpm install
       - name: Build Library
-        run: ${{ env.PNPM_PATH }} run build:lib
+        run: pnpm run build:lib
       - name: Publish to NPM @next tag
-        run: ${{ env.PNPM_PATH }} --filter @sikka/hawa publish --no-git-checks --tag $NPM_PUBLISH_TAG # Specify the tag here
+        run: pnpm --filter @sikka/hawa publish --no-git-checks --tag $NPM_PUBLISH_TAG # Specify the tag here

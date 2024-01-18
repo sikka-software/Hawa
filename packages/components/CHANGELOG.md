@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.26.35
+
+### Patch Changes
+
+- `Loading`: added classnames for `container`, `track`, and `car` to customize loading designs
+
 ## 0.26.22
 
 ### Patch Changes

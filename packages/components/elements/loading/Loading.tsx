@@ -16,9 +16,14 @@ type LoadingTypes = {
     | "square"
     | "progress"
     | "orbit";
-  /** Specifies the color of the loading component. By default it will inherit the value of <span className="inline-code">--primary</span> global CSS variable*/
+  /** Specifies the color of the loading component. By default it will inherit the value of --primary global CSS variable*/
   color?: string;
-  className?: string;
+  classNames?: {
+    container: string;
+    track: string;
+    car: string;
+  };
+
   themeMode?: "dark" | "light";
 };
 
@@ -26,6 +31,7 @@ export const Loading: FC<LoadingTypes> = ({
   design = "spinner",
   size = "sm",
   themeMode = "light",
+  classNames,
   color,
   ...props
 }) => {
@@ -46,7 +52,10 @@ export const Loading: FC<LoadingTypes> = ({
     case "dots":
       return (
         <div
-          className={cn("hawa-flex hawa-flex-row hawa-gap-2", props.className)}
+          className={cn(
+            "hawa-flex hawa-flex-row hawa-gap-2",
+            classNames?.container
+          )}
         >
           <div
             className={cn(
@@ -77,7 +86,11 @@ export const Loading: FC<LoadingTypes> = ({
     case "square":
       return (
         <svg
-          className={cn("squircle-container", sizeStyles[size])}
+          className={cn(
+            "squircle-container",
+            sizeStyles[size],
+            classNames?.container
+          )}
           viewBox="0 0 35 35"
           height="35"
           width="35"
@@ -106,7 +119,11 @@ export const Loading: FC<LoadingTypes> = ({
     case "squircle":
       return (
         <svg
-          className={cn("squircle-container", sizeStyles[size])}
+          className={cn(
+            "squircle-container",
+            sizeStyles[size],
+            classNames?.container
+          )}
           x="0px"
           y="0px"
           viewBox="0 0 37 37"
@@ -138,16 +155,24 @@ export const Loading: FC<LoadingTypes> = ({
     default:
       return (
         <svg
-          className={cn("circle-container", sizeStyles[size])}
+          className={cn(
+            "circle-container",
+            sizeStyles[size],
+            classNames?.container
+          )}
           viewBox="0 0 40 40"
           height="40"
           width="40"
         >
           <circle
-            className={cn("circle-track", {
-              "hawa-stroke-primary-foreground": themeMode === "dark",
-              "hawa-stroke-primary": themeMode === "light"
-            })}
+            className={cn(
+              "circle-track",
+              {
+                "hawa-stroke-primary-foreground": themeMode === "dark",
+                "hawa-stroke-primary": themeMode === "light"
+              },
+              classNames?.track
+            )}
             cx="20"
             cy="20"
             r="17.5"
@@ -156,10 +181,14 @@ export const Loading: FC<LoadingTypes> = ({
             fill="none"
           />
           <circle
-            className={cn("circle-car", {
-              "hawa-stroke-primary-foreground": themeMode === "dark",
-              "hawa-stroke-primary": themeMode === "light"
-            })}
+            className={cn(
+              "circle-car",
+              {
+                "hawa-stroke-primary-foreground": themeMode === "dark",
+                "hawa-stroke-primary": themeMode === "light"
+              },
+              classNames?.car
+            )}
             cx="20"
             cy="20"
             r="17.5"
