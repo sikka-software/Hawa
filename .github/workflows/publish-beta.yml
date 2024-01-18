@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Append -next to package.json version
         run: |
-          node -e "const fs = require('fs'); const packageJson = require('./package.json'); packageJson.version += '-next'; fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));"
+          node -e "const fs = require('fs'); const packageJson = require('./packages/components/package.json'); packageJson.version += '-next'; fs.writeFileSync('./packages/components/package.json', JSON.stringify(packageJson, null, 2));"
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
