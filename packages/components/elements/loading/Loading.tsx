@@ -131,14 +131,14 @@ export const Loading: FC<LoadingTypes> = ({
           )}
         >
           <path
-            className="squircle-track"
+            className={cn("squircle-track", classNames?.track)}
             fill="none"
             strokeWidth="5"
             pathLength="100"
             d="M0.37 18.5 C0.37 5.772 5.772 0.37 18.5 0.37 S36.63 5.772 36.63 18.5 S31.228 36.63 18.5 36.63 S0.37 31.228 0.37 18.5"
           ></path>
           <path
-            className="squircle-car"
+            className={cn("squircle-car", classNames?.car)}
             fill="none"
             strokeWidth="5"
             pathLength="100"
@@ -147,9 +147,13 @@ export const Loading: FC<LoadingTypes> = ({
         </svg>
       );
     case "progress":
-      return <div className="progress-loading"></div>;
+      return (
+        <div className={cn("progress-loading", classNames?.container)}></div>
+      );
     case "orbit":
-      return <div className="orbit-container"></div>;
+      return (
+        <div className={cn("orbit-container", classNames?.container)}></div>
+      );
 
     default:
       return (
