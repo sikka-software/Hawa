@@ -1,73 +1,47 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Minus, Plus } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Bar, BarChart, ResponsiveContainer } from "recharts"
+import * as React from "react";
 
-import { useConfig } from "@/hooks/use-config"
-import { Button } from "@/registry/default/ui/button"
+import { useConfig } from "@/hooks/use-config";
+import { Button } from "@/registry/default/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "@/registry/default/ui/card"
-import { themes } from "@/registry/themes"
+  CardTitle
+} from "@/registry/default/ui/card";
+import { themes } from "@/registry/themes";
+import { Minus, Plus } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Bar, BarChart, ResponsiveContainer } from "recharts";
 
 const data = [
-  {
-    goal: 400,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 239,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 349,
-  },
-]
+  { goal: 400 },
+  { goal: 300 },
+  { goal: 200 },
+  { goal: 300 },
+  { goal: 200 },
+  { goal: 278 },
+  { goal: 189 },
+  { goal: 239 },
+  { goal: 300 },
+  { goal: 200 },
+  { goal: 278 },
+  { goal: 189 },
+  { goal: 349 }
+];
 
 export function CardsActivityGoal() {
-  const { theme: mode } = useTheme()
-  const [config] = useConfig()
+  const { theme: mode } = useTheme();
+  const [config] = useConfig();
 
-  const theme = themes.find((theme) => theme.name === config.theme)
-  const [goal, setGoal] = React.useState(350)
+  const theme = themes.find((theme) => theme.name === config.theme);
+  const [goal, setGoal] = React.useState(350);
 
   function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
   }
 
   return (
@@ -90,7 +64,7 @@ export function CardsActivityGoal() {
           </Button>
           <div className="flex-1 text-center">
             <div className="text-5xl font-bold tracking-tighter">{goal}</div>
-            <div className="text-[0.70rem] uppercase text-muted-foreground">
+            <div className="text-muted-foreground text-[0.70rem] uppercase">
               Calories/day
             </div>
           </div>
@@ -116,7 +90,7 @@ export function CardsActivityGoal() {
                     opacity: 0.2,
                     "--theme-primary": `hsl(${
                       theme?.cssVars[mode === "dark" ? "dark" : "light"].primary
-                    })`,
+                    })`
                   } as React.CSSProperties
                 }
               />
@@ -128,5 +102,5 @@ export function CardsActivityGoal() {
         <Button className="w-full">Set Goal</Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

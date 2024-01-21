@@ -1043,7 +1043,4 @@ const example: Registry = [
   }
 ];
 
-export const registry: Registry = [
-  // ...ui,
-  ...example
-];
+export const registry: Registry = [...example];
