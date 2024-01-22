@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.26.39
+
+### Patch Changes
+
+- Exported `TextFieldTypes`
+- `ContactForm` block now accepts `customFields` to allow consumer to add their own custom fields.
+
 ## 0.26.35
 
 ### Patch Changes

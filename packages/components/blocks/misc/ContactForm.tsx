@@ -2,23 +2,29 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Button } from "@elements/button";
 import { Card, CardContent } from "@elements/card";
 import { Input } from "@elements/input";
+import { Select } from "@elements/select";
 import { Textarea } from "@elements/textarea";
 
+import { RadioOptionType } from "@_types/commonTypes";
 import { TextInputType } from "@_types/textTypes";
 
-import { cn } from "@util/index";
-
-type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
+type ContactFormData = { name: string; email: string; message: string } & {
+  [key: string]: string;
 };
 
+type CustomField = {
+  label: string;
+  type: "text" | "number" | "select";
+  name: string;
+  placeholder?: string;
+  options?: RadioOptionType[];
+};
 type ContactFormProps = {
   cardless?: boolean;
   formId?: string;
@@ -31,6 +37,7 @@ type ContactFormProps = {
     email: TextInputType;
     message: TextInputType;
   };
+  customFields?: CustomField[];
 };
 export const ContactForm: React.FC<ContactFormProps> = ({
   cardless,
@@ -38,8 +45,31 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   texts,
   formId,
   formAutoComplete,
-  onSubmit
+  onSubmit,
+  customFields
 }) => {
+  const customFieldsSchema = z.object({
+    ...customFields?.reduce(
+      (acc: { [key: string]: z.ZodType<any, any> }, curr: CustomField) => {
+        switch (curr.type) {
+          case "text":
+            acc[curr.name] = z.string().optional().default("");
+            break;
+          case "number":
+            acc[curr.name] = z.string().optional().default("");
+            break;
+          case "select":
+            acc[curr.name] = z.string().optional().default("");
+            break;
+          default:
+            break;
+        }
+        return acc;
+      },
+      {}
+    )
+  });
+
   const contactFormSchema = z.object({
     name: z
       .string({ required_error: texts?.name.required })
@@ -50,26 +80,35 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       .min(1, { message: texts?.email?.required })
       .email({ message: texts?.email?.invalid })
       .default(""),
-
     message: z
       .string({ required_error: texts?.message.required })
       .min(10, texts?.message.invalid)
       .default("")
   });
+
+  const customFieldsDefaultValues = customFields?.reduce(
+    (acc: { [key: string]: any }, curr: CustomField) => {
+      acc[curr.name] = "";
+      return acc;
+    },
+    {}
+  );
+  const MainSchema = contactFormSchema.merge(customFieldsSchema);
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     reset
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(MainSchema),
     defaultValues: {
       name: "",
       email: "",
-      message: ""
+      message: "",
+      ...customFieldsDefaultValues
     }
   });
-
   const handleFormSubmit = (data: ContactFormData) => {
     if (onSubmit) {
       onSubmit(data);
@@ -79,14 +118,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
   };
 
-  let sizeStyle = {
-    sm: "hawa-max-w-sm",
-    default: "hawa-w-full"
-  };
   return (
     <Card
       className={cn(
-        // sizeStyle[size],
         "hawa-w-full",
         cardless &&
           "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
@@ -137,6 +171,46 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               )}
             />
           </div>
+          {customFields &&
+            customFields.map((customField: CustomField) => {
+              console.log("custom", customField);
+              return (
+                <Controller
+                  control={control}
+                  name={customField.name}
+                  render={({ field }) => {
+                    const { type, label, placeholder } = customField;
+
+                    switch (type) {
+                      case "text":
+                      case "number":
+                        return (
+                          <Input
+                            id={customField.name}
+                            type={type}
+                            label={label}
+                            placeholder={placeholder}
+                            {...field}
+                          />
+                        );
+                      case "select":
+                        return (
+                          <Select
+                            label={label}
+                            options={customField.options}
+                            value={field.value}
+                            onChange={(option: any) =>
+                              field.onChange(option.value)
+                            }
+                          />
+                        );
+                      default:
+                        return <div>Unknown type</div>;
+                    }
+                  }}
+                />
+              );
+            })}
           <Controller
             control={control}
             name="message"

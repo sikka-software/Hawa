@@ -18,7 +18,9 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-
+    const handleSubmit = (data: any) => {
+      console.log("✅ :", data);
+    };
     return (
       <div dir={direction} className="hawa-max-w-lg">
         <ContactForm
@@ -43,6 +45,45 @@ export const Default: Story = {
               required: t("messageRequiredText")
             }
           }}
+          onSubmit={handleSubmit}
+          customFields={[
+            {
+              label: "value1",
+              type: "text",
+              name: "value1"
+            },
+            {
+              label: "value2",
+              type: "number",
+              name: "value2"
+            },
+            {
+              label: "value3",
+              type: "select",
+              name: "value3",
+              options: [
+                { label: "option1", value: "option1" },
+                { label: "option2", value: "option2" },
+                { label: "option3", value: "option3" }
+              ]
+            },
+            {
+              label: "value4",
+              type: "number",
+              name: "value4",
+              placeholder: "TYPE SOMETHING HERE"
+            },
+            {
+              label: "value5",
+              type: "select",
+              name: "value5",
+              options: [
+                { label: "option1", value: "option1" },
+                { label: "option2", value: "option2" },
+                { label: "option3", value: "option3" }
+              ]
+            }
+          ]}
         />
       </div>
     );

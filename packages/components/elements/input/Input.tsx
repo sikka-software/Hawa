@@ -1,10 +1,11 @@
 import React, { forwardRef } from "react";
 
 import { cn } from "@util/index";
+
 import { Label, LabelProps } from "../label/Label";
 import { Skeleton } from "../skeleton/Skeleton";
 
-type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
+export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
   containerClassName?: string;
   margin?: "none" | "normal" | "large";
@@ -12,7 +13,6 @@ type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   /** The label of the input field   */
   label?: any;
   labelProps?: LabelProps;
-
   hideSeparator?: boolean;
   /** The small red text under the input field to show validation.   */
   helperText?: any;
