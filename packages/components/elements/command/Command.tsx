@@ -1,15 +1,30 @@
 import * as React from "react";
 
 import { DialogProps } from "@radix-ui/react-dialog";
+import { cn } from "@util/index";
 import { Command as CommandPrimitive } from "cmdk";
 
-import { cn } from "@util/index";
 import { Dialog, DialogContent } from "../dialog";
 
-const Command = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
+type CommandProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive>;
+interface CommandDialogProps extends DialogProps {}
+interface CommandInputProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
+interface CommandListProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> {}
+interface CommandEmptyProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> {}
+interface CommandGroupProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> {}
+interface CommandSeparatorProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator> {}
+interface CommandItemProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {}
+interface CommandShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {}
+
+const Command: React.ForwardRefExoticComponent<
+  CommandProps & React.RefAttributes<React.ElementRef<typeof CommandPrimitive>>
+> = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
     className={cn(
@@ -20,8 +35,6 @@ const Command = React.forwardRef<
   />
 ));
 Command.displayName = CommandPrimitive.displayName;
-
-interface CommandDialogProps extends DialogProps {}
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   return (
@@ -37,7 +50,7 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
 
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
+  CommandInputProps
 >(({ className, ...props }, ref) => (
   <div
     className="hawa-flex hawa-items-center hawa-border-b hawa-px-3"
@@ -74,7 +87,7 @@ CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
+  CommandListProps
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
@@ -90,7 +103,7 @@ CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
+  CommandEmptyProps
 >((props, ref) => (
   <CommandPrimitive.Empty
     ref={ref}
@@ -103,7 +116,7 @@ CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
+  CommandGroupProps
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Group
     ref={ref}
@@ -119,7 +132,7 @@ CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
+  CommandSeparatorProps
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Separator
     ref={ref}
@@ -131,7 +144,7 @@ CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
+  CommandItemProps
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Item
     ref={ref}
@@ -148,7 +161,7 @@ CommandItem.displayName = CommandPrimitive.Item.displayName;
 const CommandShortcut = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: React.HTMLAttributes<HTMLSpanElement> & React.FC<CommandShortcutProps>) => {
   return (
     <span
       className={cn(
