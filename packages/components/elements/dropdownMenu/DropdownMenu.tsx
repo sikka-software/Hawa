@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { cn } from "@util/index";
 
 import { DirectionType } from "../../types/commonTypes";
-import { cn } from "@util/index";
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -347,8 +347,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           className={cn(
             className,
             widthStyles[width],
-            "hawa-flex hawa-flex-col hawa-gap-1"
+            "hawa-flex hawa-flex-col hawa-gap-1 hawa-overflow-y-auto"
           )}
+          style={{
+            maxHeight: "var(--radix-dropdown-menu-content-available-height)"
+          }}
           align={align}
           alignOffset={alignOffset}
         >

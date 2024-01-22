@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 1.0.0
+
+### Major Changes
+
+- Fixed `DropdownMenu` height exceeding the screen.
+
 ## 0.26.39
 
 ### Patch Changes
