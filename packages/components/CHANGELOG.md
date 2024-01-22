@@ -1,20 +1,20 @@
 # @sikka/hawa
 
-## 1.0.2
+## 0.27.0
 
 ### Patch Changes
 
 - Fixed max height UI issue in `CodeBlock`
 
-## 1.0.1
+## 0.26.41
 
 ### Patch Changes
 
 - Added `usernameOptions` in `RegisterForm` to allow consumer to customize the username field.
 
-## 1.0.0
+## 0.26.40
 
-### Major Changes
+### Patch Changes
 
 - Fixed `DropdownMenu` height exceeding the screen.
 
