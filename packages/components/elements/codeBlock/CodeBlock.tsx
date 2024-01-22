@@ -1,13 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 
 import { cn } from "@util/index";
-import {
-  Highlight,
-  HighlightProps,
-  Language,
-  themes,
-  Prism
-} from "prism-react-renderer";
+import { Highlight, HighlightProps, themes, Prism } from "prism-react-renderer";
 
 import { useClipboard } from "../../hooks/useClipboard";
 import { Button } from "../button";
@@ -27,27 +21,49 @@ type CodeBlockTypes = {
   fileName?: string;
   /** Code content to be displayed within the code block.*/
   code?: string;
+  /** line numbers for code block   */
   lineNumbers?: boolean;
-  forcedDarkMode?: boolean;
-  className?: string;
+  /** Wrap text in code block */
+  wrapText?: boolean;
+  /** Custom class names for the code block */
+  classNames?: {
+    root?: string;
+    tabs?: string;
+    tab?: string;
+    code?: string;
+    fileName?: string;
+    codeBlockContainer?: string;
+  };
 };
 
+const CopyIcon = () => (
+  <svg
+    aria-label="Copy"
+    stroke="currentColor"
+    fill="none"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    height="1em"
+    width="1em"
+  >
+    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+  </svg>
+);
 export const CodeBlock: FC<CodeBlockTypes> = ({
   tabs,
   code,
   fileName,
-  className,
+  classNames,
   language = "javascript", // default to JavaScript if no language is provided
+  wrapText = false,
   width = "full",
   ...props
 }) => {
   const clipboard = useClipboard();
   const [selectedTab, setSelectedTab] = useState(0);
-  // const isDarkMode =
-  //   props.forcedDarkMode ||
-  //   document.body.classList.contains("dark") ||
-  //   document.documentElement.classList.contains("dark");
-  // const theme = isDarkMode ? themes.vsDark : themes.vsLight;
   const theme = themes.oceanicNext;
 
   let widthStyles = {
@@ -61,15 +77,43 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     <div
       className={cn(
         widthStyles[width],
-        "hawa-w-full hawa-flex-col hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-my-2 hawa-text-white sm:hawa-text-base",
-        className
+        "hawa-w-full hawa-flex-col hawa-relative hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-my-2 hawa-text-white sm:hawa-text-base",
+        classNames?.root
       )}
     >
+      <div
+        className={cn(
+          "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3.5",
+          {
+            "hawa-top-3.5": !tabs && !fileName,
+            "hawa-top-[50px]": tabs && !fileName,
+            "hawa-top-11": !tabs && fileName,
+            "hawa-top-[80px]": tabs && fileName
+          }
+        )}
+      >
+        <Tooltip
+          open={clipboard.copied}
+          side="left"
+          content={<div>Copied!</div>}
+          triggerProps={{ asChild: true }}
+        >
+          <Button
+            size="smallIcon"
+            onClick={() => clipboard.copy(tabs ? tabs[selectedTab].code : code)}
+            variant="outline"
+            className="hawa-text-gray-200 hawa-opacity-50 "
+          >
+            <CopyIcon />
+          </Button>
+        </Tooltip>
+      </div>
       {fileName && (
         <div
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
-            fileName && tabs ? "hawa-bg-primary/10" : "hawa-bg-primary/15"
+            fileName && tabs ? "hawa-bg-primary/10" : "hawa-bg-primary/15",
+            classNames?.fileName
           )}
         >
           <div
@@ -84,9 +128,9 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {tabs && (
         <div
           className={cn(
-            // hawa-bg-gray-300 dark:hawa-bg-red-600
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
-            tabs && fileName && "hawa-rounded-t-none"
+            tabs && fileName && "hawa-rounded-t-none",
+            classNames?.tabs
           )}
         >
           {tabs.map((tab, i) => (
@@ -95,7 +139,8 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               className={cn(
                 selectedTab === i
                   ? " hawa-border-b-2 hawa-border-primary"
-                  : "hawa-bg-transparent"
+                  : "hawa-bg-transparent",
+                classNames?.tab
               )}
             >
               <div
@@ -113,10 +158,12 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
 
       <div
         className={cn(
-          "hawa-flex hawa-w-full hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-800 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base ",
+          "hawa-flex hawa-w-full hawa-relative hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-800 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base",
           tabs || fileName
             ? "hawa-rounded-b hawa-rounded-t-none"
-            : "hawa-rounded"
+            : "hawa-rounded",
+          classNames?.codeBlockContainer,
+          "hawa-overflow-y-auto"
         )}
       >
         <Highlight
@@ -124,8 +171,14 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           code={tabs ? tabs[selectedTab].code : code || ""}
           language={language}
         >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className="hawa-min-h-[37.75px] hawa-w-full hawa-overflow-auto hawa-p-4 hawa-font-mono hawa-text-foreground">
+          {({ tokens, getLineProps, getTokenProps }) => (
+            <pre
+              className={cn(
+                "hawa-min-h-[37.75px] !hawa-pe-12 hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
+                classNames?.code,
+                wrapText && "hawa-text-wrap"
+              )}
+            >
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   {props.lineNumbers && (
@@ -139,50 +192,6 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             </pre>
           )}
         </Highlight>
-
-        {/* <code
-            className={cn(
-              "language-jsx",
-              "hawa-flex hawa-min-h-[37.75px] hawa-w-full hawa-flex-row hawa-justify-start hawa-overflow-auto hawa-p-4 hawa-text-foreground hawa-bg-background/70 hawa-font-mono"
-            )}
-          >
-            {tabs ? tabs[selectedTab].code : code}
-          </code> */}
-
-        <div className="hawa-flex hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-p-2">
-          <Tooltip
-            open={clipboard.copied}
-            side="left"
-            content={<div>Copied!</div>}
-            triggerProps={{
-              asChild: true
-            }}
-          >
-            <Button
-              size="icon"
-              onClick={() =>
-                clipboard.copy(tabs ? tabs[selectedTab].code : code)
-              }
-              variant="outline"
-              className="hawa-text-gray-200 hawa-opacity-50 "
-            >
-              <svg
-                aria-label="Copy"
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                height="1em"
-                width="1em"
-              >
-                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-              </svg>
-            </Button>
-          </Tooltip>
-        </div>
       </div>
     </div>
   );

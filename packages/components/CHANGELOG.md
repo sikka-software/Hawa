@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 1.0.2
+
+### Patch Changes
+
+- Fixed max height UI issue in `CodeBlock`
+
 ## 1.0.1
 
 ### Patch Changes
