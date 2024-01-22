@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 1.0.1
+
+### Patch Changes
+
+- Added `usernameOptions` in `RegisterForm` to allow consumer to customize the username field.
+
 ## 1.0.0
 
 ### Major Changes
