@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Alert } from "@elements/alert";
@@ -9,6 +10,7 @@ import { Button } from "@elements/button";
 import { Card, CardContent, CardFooter } from "@elements/card";
 import { Checkbox } from "@elements/checkbox";
 import { Input } from "@elements/input";
+import { LabelProps } from "@elements/label";
 import { Select, SelectOptionProps } from "@elements/select";
 import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
@@ -19,7 +21,6 @@ import {
 } from "@_types/textTypes";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { cn } from "@util/index";
 import { AuthButtons } from "./AuthButtons";
 
 type RegisterFormTypes = {
@@ -77,6 +78,10 @@ type RegisterFormTypes = {
   additionalButtons?: any;
   /** To add more custom input fields   */
   additionalInputs?: any;
+  /** To customize the username input field   */
+  usernameOptions: {
+    label?: LabelProps;
+  };
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = ({
@@ -241,6 +246,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                               width="full"
                               autoComplete="username"
                               label={texts?.username?.label}
+                              labelProps={{
+                                ...props.usernameOptions?.label
+                              }}
                               helperText={formState.errors.username?.message}
                               placeholder={texts?.username?.placeholder}
                               {...field}
