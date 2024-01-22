@@ -222,6 +222,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   placeholder: texts?.message.placeholder,
                   ...field
                 }}
+                classNames={{ textarea: "hawa-min-h-20" }}
                 helperText={errors.message?.message}
               />
             )}
