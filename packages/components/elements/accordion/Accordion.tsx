@@ -55,7 +55,7 @@ const Accordion = React.forwardRef<
             <AccordionTrigger
               disabled={item.disabled || false}
               className={cn(
-                "hawa-transition-all",
+                "hawa-transition-all hawa-text-start",
                 design === "separated"
                   ? "hawa-rounded data-[state=open]:hawa-rounded-b-none"
                   : {
