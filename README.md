@@ -23,10 +23,10 @@
   </a>
   <br />
   <a href="https://github.com/sikka-software/Hawa/actions/workflows/hawa-main.yml">
-    <img src="https://github.com/sikka-software/Hawa/actions/workflows/hawa-main.yml/badge.svg" alt="@latest tag"/>
+    <img src="https://github.com/sikka-software/Hawa/actions/workflows/publish-production.yml/badge.svg" alt="@latest tag"/>
   </a>
   <a href="https://github.com/sikka-software/Hawa/actions/workflows/hawa-beta.yml">
-    <img src="https://github.com/sikka-software/Hawa/actions/workflows/hawa-monorepo.yml/badge.svg" alt="@next tag"/>
+    <img src="https://github.com/sikka-software/Hawa/actions/workflows/publish-beta.yml/badge.svg" alt="@next tag"/>
   </a>
 </p>
 
