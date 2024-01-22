@@ -11,28 +11,23 @@ on:
 
 jobs:
   publish-package:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
+    runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v2
-
-      - name: Use Node.js v16
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org/
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.14.0
+          run_install: false
+
       - name: Install dependencies
-        run: |
-          if [ -e 'package-lock.json' ]; then 
-           npm ci
-          else 
-           npm install
-          fi
+        run: pnpm install
       - name: Build Library
-        run: npm run build
-      - name: Generate Tailwind Styles
-        run: npm run build-css
-      - name: Publish to NPM main tag
-        run: npm publish
+        run: pnpm run build:lib
+      - name: Publish to NPM
+        run: pnpm --filter @sikka/hawa publish --no-git-checks
