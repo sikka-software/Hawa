@@ -68,7 +68,7 @@ npm install @sikka/hawa
 
 Please see our [contributing.md](/CONTRIBUTING.md).
 
-## Contributing
+## Inspiration
 
 [shadcn-ui](https://github.com/shadcn-ui/ui), [mantine](https://github.com/mantinedev/mantine), and [nextui](https://github.com/nextui-org/nextui)
 
