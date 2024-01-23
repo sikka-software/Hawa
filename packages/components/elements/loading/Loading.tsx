@@ -148,7 +148,12 @@ export const Loading: FC<LoadingTypes> = ({
       );
     case "progress":
       return (
-        <div className={cn("progress-loading", classNames?.container)}></div>
+        <div
+          className={cn(
+            "progress-loading after:hawa-rounded hawa-rounded",
+            classNames?.container
+          )}
+        ></div>
       );
     case "orbit":
       return (

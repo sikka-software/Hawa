@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.2
+
+### Patch Changes
+
+- `Loading`: progress design now inherits the global `--radius` CSS variable
+
 ## 0.27.1
 
 ### Patch Changes

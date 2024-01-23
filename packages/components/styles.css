@@ -235,7 +235,6 @@ body {
     justify-content: center;
     height: 5px;
     width: 80px;
-    border-radius: calc(5px / 2);
     overflow: hidden;
     transform: translate3d(0, 0, 0);
   }
@@ -256,7 +255,6 @@ body {
     content: "";
     height: 100%;
     width: 100%;
-    border-radius: calc(5px / 2);
     animation: wobble 1.75s ease-in-out infinite;
     transform: translateX(-95%);
     background-color: hsl(var(--primary));

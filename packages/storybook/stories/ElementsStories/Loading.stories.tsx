@@ -7,25 +7,25 @@ import { Tooltip } from "@sikka/hawa/elements/tooltip";
 const meta = {
   title: "Elements/Loading",
   component: Loading,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Loading/>"}</h1>
-          <span>
-            The Loading component provides visual feedback during data fetching
-            or other asynchronous tasks. It offers two design variations: a
-            spinner and a dots-pulse animation (more to come). <br /> This
-            loading component is already built-in{" "}
-            <span className="inline-code">{"<Button/>"}</span> and other
-            components & blocks.
-          </span>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"],
+  // parameters: {
+  //   docs: {
+  //     page: () => (
+  //       <>
+  //         <h1>{"<Loading/>"}</h1>
+  //         <span>
+  //           The Loading component provides visual feedback during data fetching
+  //           or other asynchronous tasks. It offers two design variations: a
+  //           spinner and a dots-pulse animation (more to come). <br /> This
+  //           loading component is already built-in{" "}
+  //           <span className="inline-code">{"<Button/>"}</span> and other
+  //           components & blocks.
+  //         </span>
+  //         <ArgsTable />
+  //       </>
+  //     )
+  //   }
+  // },
+  // tags: ["autodocs"],
   argTypes: {
     design: { options: ["spinner", "dots"], control: { type: "radio" } }
   }
