@@ -220,9 +220,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id={texts?.message.label}
                 textareaProps={{
                   placeholder: texts?.message.placeholder,
+                  className: "hawa-min-h-20",
                   ...field
                 }}
-                classNames={{ textarea: "hawa-min-h-20" }}
+                classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
                 helperText={errors.message?.message}
               />
             )}

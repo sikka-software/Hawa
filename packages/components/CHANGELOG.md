@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.1
+
+### Patch Changes
+
+- Fixed textarea height in `ContactForm`
+
 ## 0.27.0
 
 ### Patch Changes
