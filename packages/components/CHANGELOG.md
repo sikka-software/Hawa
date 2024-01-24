@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.27.4
+
+### Patch Changes
+
+0cc9ae5: - Made usernameOptions optional in `RegisterForm`
+
+- `FeedbackForm` : add min-h for the textarea
+
 ## 0.27.3
 
 ### Patch Changes
