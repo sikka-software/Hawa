@@ -42,6 +42,14 @@ export const Loading: FC<LoadingTypes> = ({
     lg: "hawa-h-14 hawa-w-14",
     xl: "hawa-h-24 hawa-w-24"
   };
+  let progressSizes = {
+    button: "hawa-h-1",
+    xs: "hawa-h-1 hawa-w-1",
+    sm: "hawa-h-6 hawa-w-6",
+    normal: "",
+    lg: "hawa-h-6",
+    xl: "hawa-h-10 hawa-w-64"
+  };
 
   let animationStyles: any = {
     pulse: "hawa-animate-in hawa-fade-in hawa-duration-1000",
@@ -151,6 +159,7 @@ export const Loading: FC<LoadingTypes> = ({
         <div
           className={cn(
             "progress-loading after:hawa-rounded hawa-rounded",
+            progressSizes[size],
             classNames?.container
           )}
         ></div>

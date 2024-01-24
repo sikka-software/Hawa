@@ -42,32 +42,36 @@ export const Designs: Story = {
         <div className="hawa-flex hawa-flex-row hawa-gap-6 ">
           <Tooltip content={"default"}>
             <div>
-              <Loading size={"lg"} />
+              <Loading {...args} />
             </div>
           </Tooltip>
           <Tooltip content={"squircle"}>
             <div>
-              <Loading design={"squircle"} size={"lg"} />
+              <Loading design={"squircle"} {...args} />
             </div>
           </Tooltip>
           <Tooltip content={"square"}>
             <div>
-              <Loading design={"square"} size={"lg"} />
+              <Loading design={"square"} {...args} />
             </div>
           </Tooltip>
           <Tooltip content={"progress"}>
             <div>
-              <Loading design={"progress"} size={"lg"} />
+              <Loading design={"progress"} {...args} />
             </div>
           </Tooltip>
           <Tooltip content={"orbit"}>
             <div>
-              <Loading design={"orbit"} size={"lg"} />
+              <Loading design={"orbit"} {...args} />
             </div>
           </Tooltip>
         </div>
       </div>
     );
+  },
+  args: {
+    // design: "spinner",
+    size: "normal"
   }
 };
 export const Spinner: Story = {
