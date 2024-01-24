@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.27.5
+
+### Patch Changes
+
+- Added sizes to `Loading`
+- Added sizes to `Tooltip`
+- Fixed missing loading state in `FeedbackForm`
+
 ## 0.27.4
 
 ### Patch Changes
