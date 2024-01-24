@@ -127,7 +127,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       )}
       style={cardless ? { boxShadow: "none" } : undefined}
     >
-      <CardContent headless>
+      <CardContent headless className={cardless ? "!hawa-p-0" : ""}>
         <form
           noValidate
           onSubmit={handleSubmit(handleFormSubmit)}

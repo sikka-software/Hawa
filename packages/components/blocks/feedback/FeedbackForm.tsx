@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Button } from "@elements/button";
@@ -11,8 +12,6 @@ import { Select } from "@elements/select";
 import { Textarea } from "@elements/textarea";
 
 import { BaseInputType } from "@_types/textTypes";
-
-import { cn } from "@util/index";
 
 type FeedbackFormRequestTypeInputProps = BaseInputType & {
   required?: string;
@@ -58,7 +57,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
       )}
       style={props.cardless ? { boxShadow: "none" } : undefined}
     >
-      <CardContent headless>
+      <CardContent headless className={props.cardless ? "!hawa-p-0" : ""}>
         <form
           noValidate
           onSubmit={handleSubmit((e) => {
@@ -70,7 +69,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
           })}
           className="hawa-flex hawa-flex-col hawa-gap-4"
         >
-          <Label>{props.texts?.requestType?.label}</Label>
+          <Label></Label>
           <Controller
             name="requestType"
             control={control}
@@ -78,6 +77,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
               <Select
                 {...field}
                 {...props.selectProps}
+                label={props.texts?.requestType?.label}
                 onChange={(option: any) => field.onChange(option.value)}
                 options={props.requestTypes}
                 helperText={formState.errors.requestType?.message?.toString()}
@@ -88,18 +88,25 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
               />
             )}
           />
-          <Label>{props.texts?.description?.label}</Label>
           <Controller
             name="description"
             control={control}
             render={({ field }) => (
               <Textarea
-                {...field}
+                // {...field}
                 helperText={
                   formState.errors.description &&
                   formState.errors.description?.message?.toString()
                 }
-                placeholder={props.texts?.description?.placeholder}
+                label={props.texts?.description?.label}
+                textareaProps={{
+                  onChange: (e) => {
+                    field.onChange(e.target.value);
+                  },
+
+                  value: field.value,
+                  placeholder: props.texts?.description?.placeholder
+                }}
               />
             )}
           />

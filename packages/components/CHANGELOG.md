@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.27.3
+
+### Patch Changes
+
+- Removed padding when `cardless` is true for `ContactForm` and `FeedbackForm`
+- Fixed label spacing in `FeedbackForm`
+- Fixed textarea submission for `FeedbackForm`
+
 ## 0.27.2
 
 ### Patch Changes

@@ -1,11 +1,12 @@
 import React, { FC, useState } from "react";
 
+import { cn } from "@util/index";
+
 import { Button } from "@elements/button";
 import { Popover } from "@elements/popover";
 import { Textarea } from "@elements/textarea";
 
 import { BadEmoji, GoodEmoji, VeryBadEmoji, VeryGoodEmoji } from "../../icons";
-import { cn } from "@util/index";
 
 type ComponentTypes = {
   handleSubmit: ({}) => void;
@@ -111,12 +112,14 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                   classNames={{
                     textarea: "hawa-mt-2 hawa-h-full hawa-resize-none"
                   }}
-                  placeholder="Your feedback"
-                  onChange={(e) => {
-                    if (e.target.value) {
-                      setHelperText(false);
+                  textareaProps={{
+                    placeholder: "Your feedback",
+                    onChange: (e) => {
+                      if (e.target.value) {
+                        setHelperText(false);
+                      }
+                      setFeedbackText(e.target.value);
                     }
-                    setFeedbackText(e.target.value);
                   }}
                 />
               }
