@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { ArgsTable, Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,54 +10,54 @@ import { TranslationTable } from "../../../utils";
 
 const meta = {
   title: "Blocks/User Feedback/Feedback Form",
-  component: FeedbackForm,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<FeedbackForm/>"}</h1>
-          <ArgsTable exclude={["texts"]} />
-          <h2>Texts Object</h2>
+  component: FeedbackForm
+  // parameters: {
+  //   docs: {
+  //     page: () => (
+  //       <>
+  //         <h1>{"<FeedbackForm/>"}</h1>
+  //         <ArgsTable exclude={["texts"]} />
+  //         <h2>Texts Object</h2>
 
-          <TranslationTable
-            componentProps={[
-              {
-                key: "requestType",
-                description: "Label for the request type select input",
-                default: "Request Type"
-              },
-              {
-                key: "requestTypeRequired",
-                description: "Error text if request type is not selected",
-                default: "Request type is required"
-              },
-              {
-                key: "description",
-                description: "Label for the description textarea input",
-                default: "Description"
-              },
-              {
-                key: "descriptionRequired",
-                description: "Error text if description is not provided",
-                default: "Description is required"
-              },
-              {
-                key: "descriptionTooShort",
-                description: "Error text if description text is too short",
-                default: "Description is too short"
-              },
-              {
-                key: "submit",
-                description: "Text for the submit button",
-                default: "Submit"
-              }
-            ]}
-          />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  //         <TranslationTable
+  //           componentProps={[
+  //             {
+  //               key: "requestType",
+  //               description: "Label for the request type select input",
+  //               default: "Request Type"
+  //             },
+  //             {
+  //               key: "requestTypeRequired",
+  //               description: "Error text if request type is not selected",
+  //               default: "Request type is required"
+  //             },
+  //             {
+  //               key: "description",
+  //               description: "Label for the description textarea input",
+  //               default: "Description"
+  //             },
+  //             {
+  //               key: "descriptionRequired",
+  //               description: "Error text if description is not provided",
+  //               default: "Description is required"
+  //             },
+  //             {
+  //               key: "descriptionTooShort",
+  //               description: "Error text if description text is too short",
+  //               default: "Description is too short"
+  //             },
+  //             {
+  //               key: "submit",
+  //               description: "Text for the submit button",
+  //               default: "Submit"
+  //             }
+  //           ]}
+  //         />
+  //       </>
+  //     )
+  //   }
+  // },
+  // tags: ["autodocs"]
 } satisfies Meta<typeof FeedbackForm>;
 
 export default meta;
@@ -66,10 +68,20 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-
+    const [isSuccess, setIsSuccess] = useState(false);
+    const mockSubmit = async (data: any) => {
+      return new Promise((resolve, reject) => {
+        setIsSuccess(true);
+        setTimeout(() => {
+          resolve("Submission successful");
+          setIsSuccess(false);
+        }, 2000);
+      });
+    };
     return (
       <div dir={direction} className="hawa-max-w-sm">
         <FeedbackForm
+          loadingSubmission={isSuccess}
           texts={{
             description: {
               label: t("description"),
@@ -85,6 +97,7 @@ export const Default: Story = {
             submit: t("submit")
           }}
           {...args}
+          onSubmit={mockSubmit}
         />
       </div>
     );

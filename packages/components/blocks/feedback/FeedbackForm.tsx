@@ -24,6 +24,7 @@ type FeedbackFormDescriptionInputProps = BaseInputType & {
 
 type FeedbackFormType = {
   onSubmit: (e: any) => void;
+  loadingSubmission?: boolean;
   requestTypes?: { label: string; value: any }[];
   selectProps?: any;
   cardless?: boolean;
@@ -114,7 +115,9 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
               />
             )}
           />
-          <Button type="submit">{props.texts?.submit}</Button>
+          <Button isLoading={props.loadingSubmission} type="submit">
+            {props.texts?.submit}
+          </Button>
         </form>
       </CardContent>
     </Card>
