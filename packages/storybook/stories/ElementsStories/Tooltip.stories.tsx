@@ -20,6 +20,7 @@ export const Default: Story = {
         side={args.side}
         triggerProps={{ asChild: true }}
         delayDuration={200}
+        {...args}
         content={
           <div className="hawa-max-w-xs">
             A tooltip is a brief, informative message that appears when a user
