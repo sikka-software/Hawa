@@ -79,7 +79,7 @@ type RegisterFormTypes = {
   /** To add more custom input fields   */
   additionalInputs?: any;
   /** To customize the username input field   */
-  usernameOptions: {
+  usernameOptions?: {
     label?: LabelProps;
   };
 };

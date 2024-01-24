@@ -44,8 +44,12 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
       .min(10, { message: props.texts?.description?.tooShort })
   });
 
-  const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema)
+  const { handleSubmit, control, formState, reset } = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      requestType: "",
+      description: ""
+    }
   });
 
   return (
@@ -67,7 +71,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
               console.log("Form is submitted but onSubmit prop is missing");
             }
           })}
-          className="hawa-flex hawa-flex-col hawa-gap-4"
+          className="hawa-flex hawa-flex-col hawa-gap-2"
         >
           <Label></Label>
           <Controller
@@ -93,11 +97,11 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
             control={control}
             render={({ field }) => (
               <Textarea
-                // {...field}
                 helperText={
                   formState.errors.description &&
                   formState.errors.description?.message?.toString()
                 }
+                classNames={{ textarea: "hawa-h-full hawa-min-h-20" }}
                 label={props.texts?.description?.label}
                 textareaProps={{
                   onChange: (e) => {
