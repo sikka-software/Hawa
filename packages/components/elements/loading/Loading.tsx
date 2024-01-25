@@ -28,7 +28,7 @@ type LoadingTypes = {
 
 export const Loading: FC<LoadingTypes> = ({
   design = "spinner",
-  size = "sm",
+  size = "normal",
   themeMode = "light",
   classNames,
   color,

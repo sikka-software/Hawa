@@ -202,6 +202,7 @@ export const RTL: Story = {
     );
   }
 };
+// TODO: to be deprecated
 export const Multistep: Story = {
   name: "Multistep",
   render: (args: any) => {
