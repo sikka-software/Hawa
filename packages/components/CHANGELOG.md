@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.7
+
+### Patch Changes
+
+- Fixed fade direction in `Skeleton`
+
 ## 0.27.6
 
 ### Patch Changes
