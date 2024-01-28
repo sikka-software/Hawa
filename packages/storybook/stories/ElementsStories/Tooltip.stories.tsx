@@ -36,7 +36,7 @@ export const Default: Story = {
       </Tooltip>
     </div>
   ),
-  args: { side: "top" }
+  args: { side: "top", disabled: false }
 };
 export const Sides: Story = {
   render: () => (

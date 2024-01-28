@@ -52,6 +52,8 @@ type TooltipTypes = {
   delayDuration?: any;
   /** Size of the tooltip. */
   size?: "default" | "small" | "large";
+  /** Disables the tooltip. */
+  disabled?: boolean;
   triggerProps?: TooltipPrimitive.TooltipTriggerProps;
   contentProps?: TooltipPrimitive.TooltipContentProps;
   providerProps?: TooltipPrimitive.TooltipProviderProps;
@@ -63,6 +65,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
   open,
   content,
   children,
+  disabled ,
   defaultOpen,
   onOpenChange,
   triggerProps,
@@ -77,7 +80,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
       {...providerProps}
     >
       <TooltipPrimitive.Root
-        open={open}
+        open={!disabled && open}
         defaultOpen={defaultOpen}
         onOpenChange={onOpenChange}
         {...props}
