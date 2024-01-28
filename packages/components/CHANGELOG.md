@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.27.6
+
+### Patch Changes
+
+- Added `fade` feature to `Skeleton`
+- Made `name` property required in `Radio`
+
 ## 0.27.5
 
 ### Patch Changes
