@@ -195,6 +195,34 @@ export const WithCount: Story = {
     );
   }
 };
+export const WithPrefix: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const [text, setText] = useState("");
+    return (
+      <div className="hawa-flex hawa-flex-col hawa-gap-4" dir={direction}>
+        <div className="hawa-flex hawa-flex-col hawa-gap-4 ">
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            label="With Prefix"
+            prefixText="https://"
+            placeholder={"Bismillah"}
+          />
+          <Input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            label="Choose handle"
+            prefixText="https://puk.la/"
+            placeholder={"Bismillah"}
+          />
+        </div>
+      </div>
+    );
+  }
+};
 export const Examples: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";

@@ -33,6 +33,7 @@ export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   countPosition?: "top" | "bottom" | "center";
   popup?: boolean;
   popupContent?: React.ReactNode;
+  prefixText?: any;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -78,109 +79,117 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
         )}
       >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
-        {props.isLoading ? (
-          <div className="hawa-pb-2">
-            <Skeleton className="hawa-h-[40px] hawa-w-full" />
-          </div>
-        ) : (
-          <>
-            {!props.hideSeparator && (
-              <div
-                className={cn(
-                  "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
-                  preview ? "hawa-opacity-100" : "hawa-opacity-0"
-                )}
-              ></div>
-            )}
+        <div className="hawa-flex hawa-flex-row hawa-w-full hawa-items-center ">
+          {props.prefixText && (
+            <span className={cn("hawa-me-2 hawa-opacity-90",!forceHideHelperText && 'hawa-mb-2')}>
+              {props.prefixText}
+            </span>
+          )}
+          {props.isLoading ? (
+            <div className="hawa-pb-2">
+              <Skeleton className="hawa-h-[40px] hawa-w-full" />
+            </div>
+          ) : (
             <>
-              <div className={"hawa-relative"}>
-                {props.startIcon && (
-                  <div className="hawa-absolute hawa-start-3 hawa-top-1/2 hawa--translate-y-1/2">
-                    {props.startIcon}
-                  </div>
-                )}
-                {props.endIcon && (
-                  <div
+              {!props.hideSeparator && (
+                <div
+                  className={cn(
+                    "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
+                    preview ? "hawa-opacity-100" : "hawa-opacity-0"
+                  )}
+                ></div>
+              )}
+              <div className="hawa-flex hawa-flex-col hawa-w-full hawa-gap-2">
+                <div className={"hawa-relative"}>
+                  {props.startIcon && (
+                    <div className="hawa-absolute hawa-start-3 hawa-top-1/2 hawa--translate-y-1/2">
+                      {props.startIcon}
+                    </div>
+                  )}
+                  {props.endIcon && (
+                    <div
+                      className={cn(
+                        "hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2",
+                        props.endIconProps?.className
+                      )}
+                    >
+                      {props.endIcon}
+                    </div>
+                  )}
+                  <input
+                    required
+                    dir={props.dir}
+                    type={props.type}
+                    value={props.value}
+                    onChange={props.onChange}
+                    autoComplete={props.autoComplete}
+                    defaultValue={props.defaultValue}
+                    placeholder={placeholder}
+                    disabled={props.disabled || preview}
+                    style={{ height: 40 }}
+                    {...inputProps}
                     className={cn(
-                      "hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2",
-                      props.endIconProps?.className
+                      defaultInputStyle,
+                      " focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
+                      {
+                        "hawa-pe-9": props.endIcon,
+                        "hawa-ps-9": props.startIcon,
+                        "hawa-pe-[60px]": countPosition === "center"
+                      },
+                      preview &&
+                        "hawa-border-transparent hawa-bg-transparent hawa-px-0",
+                      inputProps?.className
+                    )}
+                  />
+                </div>
+
+                {/* Regular helper text */}
+                {!forceHideHelperText && (
+                  <p
+                    className={cn(
+                      "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                      props.helperText
+                        ? "hawa-h-4 hawa-opacity-100"
+                        : "hawa-h-0 hawa-opacity-0"
                     )}
                   >
-                    {props.endIcon}
+                    {props.helperText}
+                  </p>
+                )}
+                {/* Popover helper text */}
+                {!props.disabled && forceHideHelperText && (
+                  <div
+                    className={cn(
+                      "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start  hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
+                      props.helperText
+                        ? "hawa-border hawa-p-1"
+                        : "hawa-border-none hawa-p-0"
+                    )}
+                  >
+                    {props.helperText}
                   </div>
                 )}
-                <input
-                  required
-                  dir={props.dir}
-                  type={props.type}
-                  value={props.value}
-                  onChange={props.onChange}
-                  autoComplete={props.autoComplete}
-                  defaultValue={props.defaultValue}
-                  placeholder={placeholder}
-                  disabled={props.disabled || preview}
-                  style={{ height: 40 }}
-                  {...inputProps}
-                  className={cn(
-                    defaultInputStyle,
-                    " focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
-                    {
-                      "hawa-pe-9": props.endIcon,
-                      "hawa-ps-9": props.startIcon,
-                      "hawa-pe-[60px]": countPosition === "center"
-                    },
-                    preview &&
-                      "hawa-border-transparent hawa-bg-transparent hawa-px-0",
-                    inputProps?.className
-                  )}
-                />
-              </div>
+                {/* Character Counter */}
+                {showCount && (
+                  <div
+                    className={cn(
+                      "hawa-absolute hawa-translate-y-1/2 hawa-text-start hawa-text-xs hawa-transition-all",
+                      {
+                        "hawa-end-0 hawa-top-[62px]":
+                          countPosition === "bottom",
+                        "hawa-bottom-[62px] hawa-end-0":
+                          countPosition === "top",
+                        "hawa-end-2": countPosition === "center"
+                      }
+                    )}
+                  >
+                    {props.value ? String(props.value).length : 0}/
+                    {props.maxLength}
+                  </div>
+                )}
 
-              {/* Regular helper text */}
-              {!forceHideHelperText && (
-                <p
-                  className={cn(
-                    "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                    props.helperText
-                      ? "hawa-h-4 hawa-opacity-100"
-                      : "hawa-h-0 hawa-opacity-0"
-                  )}
-                >
-                  {props.helperText}
-                </p>
-              )}
-              {/* Popover helper text */}
-              {!props.disabled && forceHideHelperText && (
-                <div
-                  className={cn(
-                    "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start  hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
-                    props.helperText
-                      ? "hawa-border hawa-p-1"
-                      : "hawa-border-none hawa-p-0"
-                  )}
-                >
-                  {props.helperText}
-                </div>
-              )}
-              {/* Character Counter */}
-              {showCount && (
-                <div
-                  className={cn(
-                    "hawa-absolute hawa-translate-y-1/2 hawa-text-start hawa-text-xs hawa-transition-all",
-                    {
-                      "hawa-end-0 hawa-top-[62px]": countPosition === "bottom",
-                      "hawa-bottom-[62px] hawa-end-0": countPosition === "top",
-                      "hawa-end-2": countPosition === "center"
-                    }
-                  )}
-                >
-                  {props.value ? String(props.value).length : 0}/
-                  {props.maxLength}
-                </div>
-              )}
-
-              {/* Popover helper text */}
-              {/* {props.popup && (
+                {/* Popover helper text */}
+                {/* {props.popup && (
                 <div
                   className={cn(
                     "hawa-absolute hawa-top-[47px] hawa-min-h-fit hawa-w-full hawa-text-xs hawa-text-helper-color hawa-transition-all hawa-text-start hawa-rounded hawa-end-0  hawa-z-20 hawa-drop-shadow-md hawa-bg-background hawa-translate-y-1/2",
@@ -192,9 +201,10 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                   {props.popupContent}
                 </div>
               )} */}
+              </div>
             </>
-          </>
-        )}
+          )}
+        </div>
       </div>
     );
   }
