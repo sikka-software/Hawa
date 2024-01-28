@@ -1,7 +1,8 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 
-import { DirectionType, OrientationType } from "../../types/commonTypes";
 import { cn } from "@util/index";
+
+import { DirectionType, OrientationType } from "../../types/commonTypes";
 import { Label, LabelProps } from "../label/Label";
 
 export type RadioOptionsTypes = {
@@ -17,7 +18,8 @@ type RadioTypes = {
   design?: "default" | "tabs" | "cards" | "bordered";
   width?: "default" | "full" | "none";
   size?: "default" | "lg" | "sm" | "xs";
-  name?: string;
+  /** Required to enable selection and differentiate between different Radio instances. */
+  name: string;
   options: RadioOptionsTypes[];
   onChange?: any;
   defaultValue?: any;

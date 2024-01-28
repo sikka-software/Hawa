@@ -118,3 +118,10 @@ export const withContent: Story = {
     </div>
   )
 };
+export const withFade: Story = {
+  render: () => (
+    <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      <Skeleton fade="bottom" className="hawa-h-[500px] hawa-w-[500px]" />
+    </div>
+  )
+};
