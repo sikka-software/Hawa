@@ -1,12 +1,12 @@
 import React, { FC, useState } from "react";
 
+import { cn } from "@util/index";
+
 import { Radio } from "@elements/radio";
 
 import { DirectionType, RadioOptionType } from "@_types/commonTypes";
 import { PlanFeature } from "@_types/pricingTypes";
 import { PricingPlanTexts } from "@_types/textTypes";
-
-import { cn } from "@util/index";
 
 type HorizontalPricingTypes = {
   plans: {
@@ -40,11 +40,13 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
       <div className="hawa-max-w-2xl ">
         <div className="hawa-flex hawa-flex-row hawa-justify-between">
           <Radio
+            name="currency"
             design="tabs"
             options={props.currencies}
             defaultValue={props.currentCurrency}
           />
           <Radio
+            name="cycle"
             design="tabs"
             options={props.billingCycles}
             defaultValue={props.currentCycle}

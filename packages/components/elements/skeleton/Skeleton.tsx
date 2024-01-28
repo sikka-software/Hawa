@@ -22,19 +22,8 @@ function Skeleton({
     shimmer:
       "hawa-space-y-5 hawa-rounded hawa-bg-muted  hawa-p-4 hawa-relative  before:hawa-absolute before:hawa-inset-0 before:hawa--translate-x-full before:hawa-animate-[shimmer_2s_infinite] before:hawa-bg-gradient-to-r before:hawa-from-transparent before:hawa-via-gray-300/40 dark:before:hawa-via-white/10 before:hawa-to-transparent hawa-isolate hawa-overflow-hidden  before:hawa-border-t before:hawa-border-rose-100/10"
   };
-  // const fadeStyle =
-  //   "after:hawa-content-[''] after:hawa-block after:hawa-absolute after:hawa-inset-x-0 after:hawa-bottom-10 after:hawa-h-10 after:hawa-bg-gradient-to-b after:hawa-from-transparent after:hawa-to-hawa-bg-muted";
-
-  // const fadeStyle = `[mask-image:linear-gradient(1turn,#D1D4DC_50%,transparent_100%)]`;
   const fadeStyle = `[mask-image:linear-gradient(to_${fade},#D1D4DC_50%,transparent_100%)]`;
 
-  //   const fadeStyle = `
-  //   hawa-relative after:hawa-content-[''] after:hawa-block
-  //   after:hawa-absolute after:hawa-bottom-0 after:hawa-left-0
-  //   after:hawa-right-0 after:hawa-h-10
-  //   after:hawa-bg-gradient-to-b after:hawa-from-transparent
-  //   after:hawa-to-hawa-bg-muted
-  // `;
   return (
     <div
       className={cn(

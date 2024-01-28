@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 
+import { cn } from "@util/index";
+
 import { OrientationType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { Radio } from "../radio/Radio";
 
 type TypographyTypes = {
@@ -33,6 +34,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
   return (
     <div className={cn(orientationStyle[orientation])}>
       <Radio
+        name="language"
         width={width}
         defaultValue={language}
         onChange={(e: any) => {
@@ -48,6 +50,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         ]}
       />
       <Radio
+        name="theme"
         width={width}
         defaultValue={color}
         onChange={(e: any) => {

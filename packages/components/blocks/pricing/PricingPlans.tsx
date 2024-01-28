@@ -30,6 +30,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
     <div {...mainContainerProps}>
       <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-justify-between">
         <Radio
+          name="cycle"
           design="tabs"
           defaultValue={props.currentCycle.value}
           options={props.billingCycles}
@@ -40,6 +41,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
           }}
         />
         <Radio
+          name="currency"
           design="tabs"
           defaultValue={props.currentCurrency.value}
           options={props.currencies}

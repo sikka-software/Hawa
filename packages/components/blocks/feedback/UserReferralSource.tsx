@@ -2,6 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Button } from "@elements/button";
@@ -10,8 +11,6 @@ import { Radio, RadioOptionsTypes } from "@elements/radio";
 import { Textarea } from "@elements/textarea";
 
 import { DirectionType } from "@_types/commonTypes";
-
-import { cn } from "@util/index";
 
 type ComponentTypes = {
   title?: string;
@@ -126,6 +125,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                   name="source"
                   render={({ field }) => (
                     <Radio
+                      name="source"
                       direction={props.direction}
                       orientation="vertical"
                       options={optionsWithOther}

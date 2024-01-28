@@ -1,5 +1,12 @@
 import React, { FC } from "react";
 
+import { cn } from "@util/index";
+
+import { Button } from "@elements/button";
+import { Radio } from "@elements/radio";
+import { ScrollArea } from "@elements/scrollArea";
+import { Tooltip } from "@elements/tooltip";
+
 import {
   PlanFeature,
   PricingPlanTexts,
@@ -7,14 +14,8 @@ import {
   RadioOptionType
 } from "@_types/index";
 
-import { Button } from "@elements/button";
-import { Radio } from "@elements/radio";
-import { ScrollArea } from "@elements/scrollArea";
-import { Tooltip } from "@elements/tooltip";
-
 import { Chip } from "../../elements/chip";
 import { CheckMark, UncheckMark } from "../../icons";
-import { cn } from "@util/index";
 
 type ComparingPlansTypes = {
   plans: {
@@ -50,6 +51,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
     <div id="detailed-pricing" className="hawa-w-full">
       <div className="hawa-mb-2 hawa-flex hawa-w-full hawa-flex-col hawa-justify-between hawa-gap-2 sm:hawa-flex-row">
         <Radio
+          name="cycle"
           tabsContainerClassName="hawa-w-full sm:hawa-max-w-fit"
           width="none"
           design="tabs"
@@ -62,6 +64,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           }}
         />
         <Radio
+          name="currency"
           tabsContainerClassName="hawa-w-full sm:hawa-max-w-fit"
           width="none"
           design="tabs"
