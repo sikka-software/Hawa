@@ -135,6 +135,23 @@ body {
       monospace !important;
   }
 
+  .hawa-mask-fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, #d1d4dc, transparent);
+    mask-image: linear-gradient(to bottom, #d1d4dc, transparent);
+  }
+  .hawa-mask-fade-top {
+    -webkit-mask-image: linear-gradient(to top, #d1d4dc, transparent);
+    mask-image: linear-gradient(to top, #d1d4dc, transparent);
+  }
+  .hawa-mask-fade-right {
+    -webkit-mask-image: linear-gradient(to right, #d1d4dc, transparent);
+    mask-image: linear-gradient(to right, #d1d4dc, transparent);
+  }
+  .hawa-mask-fade-left {
+    -webkit-mask-image: linear-gradient(to left, #d1d4dc, transparent);
+    mask-image: linear-gradient(to left, #d1d4dc, transparent);
+  }
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;

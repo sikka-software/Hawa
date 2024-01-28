@@ -23,12 +23,10 @@ function Skeleton({
       "hawa-space-y-5 hawa-rounded hawa-bg-muted  hawa-p-4 hawa-relative  before:hawa-absolute before:hawa-inset-0 before:hawa--translate-x-full before:hawa-animate-[shimmer_2s_infinite] before:hawa-bg-gradient-to-r before:hawa-from-transparent before:hawa-via-gray-300/40 dark:before:hawa-via-white/10 before:hawa-to-transparent hawa-isolate hawa-overflow-hidden  before:hawa-border-t before:hawa-border-rose-100/10"
   };
   const fadeStyle = {
-    bottom:
-      "[mask-image:linear-gradient(to_bottom,#D1D4DC_50%,transparent_100%)]",
-    top: "[mask-image:linear-gradient(to_top,#D1D4DC_50%,transparent_100%)]",
-    right:
-      "[mask-image:linear-gradient(to_right,#D1D4DC_50%,transparent_100%)]",
-    left: "[mask-image:linear-gradient(to_left,#D1D4DC_50%,transparent_100%)]"
+    bottom: "hawa-mask-fade-bottom",
+    top: "hawa-mask-fade-top",
+    right: "hawa-mask-fade-right",
+    left: "hawa-mask-fade-left "
   };
 
   return (
