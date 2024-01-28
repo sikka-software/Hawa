@@ -12,14 +12,8 @@
   <a href="https://www.npmjs.com/package/@sikka/hawa">
     <img src="https://img.shields.io/npm/v/@sikka/hawa.svg?style=flat&colorA=000000&colorB=1082c3" alt="npm"/>
   </a>
-  <!-- <a href="https://www.npmjs.com/package/@sikka/hawa">
-    <img src="https://img.shields.io/npm/v/@sikka/hawa/beta.svg?style=flat&colorA=000000&colorB=ea7637" alt="@beta tag"/>
-  </a> -->
   <a href="https://www.npmjs.com/package/@sikka/hawa">
     <img src="https://img.shields.io/npm/v/@sikka/hawa/next.svg?style=flat&colorA=000000&colorB=ea7637" alt="@next tag"/>
-  </a>
-  <a href="https://www.npmjs.com/package/@sikka/hawa">
-    <img src="https://img.shields.io/npm/dt/@sikka/hawa.svg?style=flat&colorA=000000&colorB=000000" alt="npm"/>
   </a>
   <br />
   <a href="https://github.com/sikka-software/Hawa/actions/workflows/hawa-main.yml">
