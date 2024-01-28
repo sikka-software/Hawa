@@ -8,6 +8,7 @@ import { DirectionType, RadioOptionType } from "@_types/commonTypes";
 import { PricingCardProps } from "@_types/pricingTypes";
 
 type PricingPlansTypes = {
+  loadingCards?: boolean;
   plans: PricingCardProps[];
   currencies: RadioOptionType[];
   billingCycles: RadioOptionType[];
@@ -74,6 +75,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
                 }
               }}
               {...plan}
+              isLoadingCard={props.loadingCards || plan.isLoadingCard}
               price={plan.price}
               texts={{
                 ...plan.texts,

@@ -33,6 +33,7 @@ export const Default: Story = {
         <Separator className="hawa-my-4" />
         <h1>Debug</h1>
         <Radio
+          name="currency"
           key={"currency"}
           onChange={(e: any) => setCurr(e.value)}
           options={[
@@ -41,6 +42,7 @@ export const Default: Story = {
           ]}
         />
         <Radio
+          name=""
           key={"cycle"}
           onChange={(e: any) => setCycle(e.value)}
           options={[
@@ -104,6 +106,8 @@ export const Default: Story = {
     );
   },
   args: {
+    isLoadingCard: false,
+    isLoadingPrice: false,
     direction: "ltr",
     price: 300,
     oldPrice: 900,

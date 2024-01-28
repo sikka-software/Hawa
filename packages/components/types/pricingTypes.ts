@@ -21,6 +21,7 @@ export type PricingCardProps = {
   currentPlan?: boolean;
   recommended?: boolean;
   size?: "small" | "medium" | "large";
-  isLoading?: boolean;
+  isLoadingPrice?: boolean;
+  isLoadingCard?: boolean;
   texts: PricingPlanTexts;
 };
