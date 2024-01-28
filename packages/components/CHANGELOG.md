@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.27.9
+
+### Patch Changes
+
+- Added `prefixText` to `Input` which adds a non-editable text before the input itself.
+- Added ability to disable `Tooltip`
+- Added `loadingCard` and `loadingPrice` to `PricingCard` which will show a skeleton if true.
+- Added loading ability to cards in `PricingPlans`
+
 ## 0.27.7
 
 ### Patch Changes
