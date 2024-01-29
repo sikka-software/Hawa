@@ -20,7 +20,7 @@
     "dev:docs": "pnpm --filter hawa-docs dev",
     "dev:storybook": "pnpm --filter hawa-storybook storybook",
     "dev:all": "concurrently -p \"[{name}]\" -n \"docs,storybook\" -c \"cyan,magenta\" \"pnpm run dev:docs\" \"pnpm run dev:storybook\"",
-    "build:lib": "pnpm --filter @sikka/hawa build && pnpm --filter @sikka/hawa run build-css",
+    "build:lib": "pnpm --filter @sikka/hawa build && pnpm --filter @sikka/hawa run build:css",
     "build:docs": "pnpm --filter hawa-docs build",
     "build:storybook": "pnpm --filter hawa-storybook build-storybook",
     "build:docs+lib": "pnpm build:lib && pnpm build:docs",

@@ -8,7 +8,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { ThemeCustomizer } from "@/components/theme-customizer"
+// import { ThemeCustomizer } from "@/components/theme-customizer"
 import { ThemeWrapper } from "@/components/theme-wrapper"
 import { ThemesTabs } from "@/app/themes/tabs"
 
@@ -36,7 +36,7 @@ export default function ThemesPage() {
             Hand-picked themes that you can copy and paste into your apps.
           </PageHeaderDescription>
           <PageActions>
-            <ThemeCustomizer />
+            {/* <ThemeCustomizer /> */}
           </PageActions>
         </PageHeader>
       </ThemeWrapper>
