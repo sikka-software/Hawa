@@ -1,0 +1,119 @@
+name: Hawa Deployment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/docs/**"
+      - "packages/storybook/**"
+
+env:
+  NODE_VERSION: "21.x"
+  PM2_PATH: /www/server/nvm/versions/node/v20.11.0/bin/pm2
+  PNPM_PATH: /www/server/nodejs/v20.11.0/bin/pnpm
+  PROJECT_PATH: /var/www/html/a01-runner/_work/Hawa/Hawa
+
+  STORYBOOK_DOMAIN: storybook.hawa.style
+  STORYBOOK_SERVER_DIR: hawa-storybook
+  STORYBOOK_PM2: hawa-storybook
+
+  DOCS_DOMAIN: hawa.style
+  DOCS_SERVER_DIR: hawa-docs
+  DOCS_PM2: hawa-docs
+
+jobs:
+  check_changes:
+    runs-on: [self-hosted, linux, x64, A01]
+    name: "Detecting Changes"
+    outputs:
+      storybook_changed: ${{ steps.filter.outputs.storybook }}
+      docs_changed: ${{ steps.filter.outputs.docs }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+      - id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            storybook:
+              - "packages/storybook/**"
+              - "packages/components/**"
+            docs:
+              - "apps/docs/**"
+
+  # =====================================================================================
+  # ============================= HAWA STORYBOOK ========================================
+  # =====================================================================================
+
+  storybook:
+    needs: check_changes
+    name: "Deploy Storybook"
+    if: needs.check_changes.outputs.storybook_changed == 'true'
+    runs-on: [self-hosted, linux, x64, A01]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies and Build ${{env.STORYBOOK_PM2}}
+        run: |
+          pnpm install --filter hawa-storybook
+          cd packages/storybook
+          npm run build-storybook
+
+      #   - name: Link to Production and Restart with PM2
+      #     run: |
+      #       cd frontend/pukla-portal
+      #       if pm2 list | grep -q ${{env.PUKLA_PM2}}; then
+      #         pm2 restart ${{env.PUKLA_PM2}}
+      #       else
+      #         pm2 start npm --name ${{env.PUKLA_PM2}} -- run start
+      #       fi
+      #       pm2 save
+
+      - name: Display Deployment URL
+        run: echo "Hawa Storybook deployed successfully at https://${{ env.STORYBOOK_DOMAIN }}"
+
+  # =====================================================================================
+  # ============================= HAWA DOCS =============================================
+  # =====================================================================================
+
+  docs:
+    needs: check_changes
+    name: "Deploy Docs"
+    if: needs.check_changes.outputs.docs_changed == 'true'
+    runs-on: [self-hosted, linux, x64, A01]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies and Build beta-user-portal
+        run: |
+          pnpm install --filter hawa-docs
+          cd apps/docs
+          npm run build
+
+      - name: Link to Production and Restart with PM2
+        run: |
+          cd apps/docs
+          if pm2 list | grep -q ${{env.DOCS_PM2}}; then
+            pm2 restart ${{env.DOCS_PM2}}
+          else
+            pm2 start npm --name ${{env.DOCS_PM2}} -- run start
+          fi
+          pm2 save
+
+      - name: Display Deployment URL
+        run: echo "Hawa docs deployed successfully at https://${{ env.DOCS_DOMAIN }}"
