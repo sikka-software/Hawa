@@ -13,7 +13,7 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof Input>;
-
+ 
 export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
