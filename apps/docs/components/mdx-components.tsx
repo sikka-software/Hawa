@@ -202,7 +202,7 @@ const components = {
     return <CodeBlock language="jsx" code={codeString} {...props} />;
   },
   code: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <span className="inline-code">{props.children}</span>
+    <span className="inline-code ">{props.children}</span>
   ),
   Image,
   Callout,
