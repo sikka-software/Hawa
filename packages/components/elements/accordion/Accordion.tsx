@@ -19,8 +19,12 @@ type AccordionProps = {
   itemClassNames?: string;
   triggerclassNames?: string;
   contentclassNames?: string;
+  className?: string;
   design?: "default" | "separated";
-} & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
+  type: "single" | "multiple";
+  collapsible?: boolean;
+};
+// & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,

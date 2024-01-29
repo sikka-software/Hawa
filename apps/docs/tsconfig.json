@@ -2,26 +2,46 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2019",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": false,
+
+    // "target": "es5",
+
+    // "lib": ["dom", "dom.iterable", "esnext"],
+    // "allowJs": true,
+    // "skipLibCheck": true,
+    // "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    // "noEmit": true,
+    // "incremental": true,
+    // "esModuleInterop": true,
+    // "module": "esnext",
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    // "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"],
+      "@util/*": ["../../packages/components/util/"]
       // "@sikka/hawa": ["../../packages/components/"]
     },
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
