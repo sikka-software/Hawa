@@ -22,6 +22,8 @@
   <a href="https://github.com/sikka-software/Hawa/actions/workflows/hawa-beta.yml">
     <img src="https://github.com/sikka-software/Hawa/actions/workflows/publish-beta.yml/badge.svg" alt="@next tag"/>
   </a>
+  <br/>
+  <a href="https://storybook.hawa.style" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
 </p>
 
 ---
