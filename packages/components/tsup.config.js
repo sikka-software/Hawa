@@ -35,6 +35,7 @@ function createConfigForGroup(entries, name) {
     minify: false,
     target: "es2019",
     format: ["cjs", "esm"],
+    banner: { js: '"use client";' },
     entry: entries,
     tsconfig: "./tsconfig.json",
     external: ["react", "react-dom", "@radix-ui/react-toast"]
@@ -56,7 +57,8 @@ const buildAllConfig = defineConfig({
   dts: true,
   target: "es2019",
   entry: { index: "index.ts" },
-  format: ["cjs", "esm"]
+  format: ["cjs", "esm"],
+  banner: { js: '"use client";' }
 });
 const buildCoreConfig = defineConfig({
   name: "Build Core",
@@ -64,6 +66,7 @@ const buildCoreConfig = defineConfig({
   dts: true,
   target: "es2019",
   format: ["cjs", "esm"],
+  banner: { js: '"use client";' },
   entry: {
     // CORE
     "types/index": "types/index.ts",
@@ -79,6 +82,7 @@ const buildBlocksConfig = defineConfig({
   dts: true,
   target: "es2019",
   format: ["cjs", "esm"],
+  banner: { js: '"use client";' },
   entry: {
     // BLOCKS
     "blocks/misc/index": "blocks/misc/index.ts",

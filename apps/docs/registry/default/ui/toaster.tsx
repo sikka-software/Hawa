@@ -1,35 +1,10 @@
-"use client"
+"use client"; // This directive ensures the component is treated as a Client Component
 
-import {
-  Toast,
-  ToastClose,
-  ToastDescription,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
-} from "@/registry/default/ui/toast"
-import { useToast } from "@/registry/default/ui/use-toast"
+import { useToast } from "@sikka/hawa/hooks";
+import { Toaster as T } from "@sikka/hawa/toaster";
 
 export function Toaster() {
-  const { toasts } = useToast()
+  const { toasts } = useToast(); // This hook will now be correctly used in the client context
 
-  return (
-    <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
-        return (
-          <Toast key={id} {...props}>
-            <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
-            </div>
-            {action}
-            <ToastClose />
-          </Toast>
-        )
-      })}
-      <ToastViewport />
-    </ToastProvider>
-  )
+  return <T toasts={toasts} />;
 }

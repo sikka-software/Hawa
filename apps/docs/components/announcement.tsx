@@ -1,20 +1,18 @@
-import Link from "next/link"
-import { ArrowRightIcon } from "@radix-ui/react-icons"
-
-import { Separator } from "@/registry/new-york/ui/separator"
+import { Separator } from "@/registry/new-york/ui/separator";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export function Announcement() {
   return (
     <Link
       href="/docs/changelog"
-      className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
+      className="bg-muted inline-flex items-center rounded-lg px-3 py-1 text-sm font-medium"
     >
-      🎉 <Separator className="mx-2 h-4" orientation="vertical" />{" "}
-      <span className="sm:hidden">New components and more.</span>
+      <span className="sm:hidden">Docs under construction</span>
       <span className="hidden sm:inline">
-        New components, cli updates and more.
+        We're currently building the docs
       </span>
-      <ArrowRightIcon className="ml-1 h-4 w-4" />
+      {/* <ArrowRightIcon className="ml-1 h-4 w-4" /> */}
     </Link>
-  )
+  );
 }

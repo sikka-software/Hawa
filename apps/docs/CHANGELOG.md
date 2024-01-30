@@ -1,5 +1,13 @@
 # hawa-docs
 
+## 0.0.15
+
+### Patch Changes
+
+- Added `toast` documentation
+- Updated dependencies
+  - @sikka/hawa@0.27.12
+
 ## 0.0.12
 
 ### Patch Changes

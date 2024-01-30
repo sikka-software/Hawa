@@ -33,6 +33,16 @@ export const docsConfig: DocsConfig = {
       ]
     },
     {
+      title: "Hooks",
+      items: [
+        {
+          title: "useToast",
+          href: "/docs/hooks/use-toast",
+          items: []
+        }
+      ]
+    },
+    {
       title: "Blocks",
       items: [
         {
@@ -51,7 +61,7 @@ export const docsConfig: DocsConfig = {
     {
       title: "Components",
       items: [
-        { title: "Accordion", href: "/docs/components/accordion", items: [] }
+        { title: "Accordion", href: "/docs/components/accordion", items: [] },
         // { title: "Alert", href: "/docs/components/alert", items: [] },
         // {
         //   title: "Alert Dialog",
@@ -222,11 +232,11 @@ export const docsConfig: DocsConfig = {
         //   href: "/docs/components/textarea",
         //   items: []
         // },
-        // {
-        //   title: "Toast",
-        //   href: "/docs/components/toast",
-        //   items: []
-        // },
+        {
+          title: "Toast",
+          href: "/docs/components/toast",
+          items: []
+        }
         // {
         //   title: "Toggle",
         //   href: "/docs/components/toggle",

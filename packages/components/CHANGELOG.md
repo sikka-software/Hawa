@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.12
+
+### Patch Changes
+
+- Added `use client` directive to all components via `tsup` config
+
 ## 0.27.9
 
 ### Patch Changes
