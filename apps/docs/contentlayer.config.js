@@ -76,7 +76,6 @@ export default makeSource({
             }
             const fileNameRegex = /fileName="([^"]*)"/;
             node.fileName = codeEl.data?.meta.match(fileNameRegex)?.[1];
-            console.log('😂😂😂😂😂 ',  codeEl.data?.meta.match(fileNameRegex)?.[1])
             node.__rawString__ = codeEl.children?.[0].value;
             node.__src__ = node.properties?.__src__;
             node.__style__ = node.properties?.__style__;

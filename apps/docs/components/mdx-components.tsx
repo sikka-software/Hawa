@@ -7,37 +7,27 @@ import { CodeBlockWrapper } from "@/components/code-block-wrapper";
 import { ComponentExample } from "@/components/component-example";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
 import { FrameworkDocs } from "@/components/framework-docs";
-import { StyleWrapper } from "@/components/style-wrapper";
 import { useConfig } from "@/hooks/use-config";
-import { Event } from "@/lib/events";
 import { cn } from "@/lib/utils";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/registry/new-york/ui/accordion";
 import {
   Alert,
   AlertDescription,
   AlertTitle
 } from "@/registry/new-york/ui/alert";
 import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger
-} from "@/registry/new-york/ui/tabs";
-import { Style } from "@/registry/styles";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import { NpmCommands } from "types/unist";
 
 import { CodeBlock } from "@sikka/hawa";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@sikka/hawa/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@sikka/hawa/tabs";
 
 type ChildElement = React.ReactElement<{ children: React.ReactNode }>;
 
@@ -235,7 +225,11 @@ const components = {
     />
   ),
   Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
-    <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
+    <Tabs
+      className={cn("relative mt-6 w-full", className)}
+      {...props}
+      orientation="horizontal"
+    />
   ),
   TabsList: ({
     className,
