@@ -199,7 +199,13 @@ const components = {
     ...props
   }: React.HTMLAttributes<HTMLPreElement>) => {
     const codeString = getCodeString(children);
-    return <CodeBlock language="jsx" code={codeString} {...props} />;
+    return (
+      <CodeBlock
+        language={props["data-language" as keyof typeof props]}
+        code={codeString}
+        {...props}
+      />
+    );
   },
   code: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
     <span className="inline-code ">{props.children}</span>

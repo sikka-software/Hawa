@@ -74,7 +74,9 @@ export default makeSource({
                 codeEl.data.meta = codeEl.data.meta.replace(regex, "");
               }
             }
-
+            const fileNameRegex = /fileName="([^"]*)"/;
+            node.fileName = codeEl.data?.meta.match(fileNameRegex)?.[1];
+            console.log('😂😂😂😂😂 ',  codeEl.data?.meta.match(fileNameRegex)?.[1])
             node.__rawString__ = codeEl.children?.[0].value;
             node.__src__ = node.properties?.__src__;
             node.__style__ = node.properties?.__style__;
@@ -120,6 +122,7 @@ export default makeSource({
             preElement.properties["__withMeta__"] =
               node.children.at(0).tagName === "div";
             preElement.properties["__rawString__"] = node.__rawString__;
+            preElement.properties["fileName"] = node.fileName;
 
             if (node.__src__) {
               preElement.properties["__src__"] = node.__src__;

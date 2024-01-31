@@ -50,7 +50,7 @@ npm install @radix-ui/react-icons
 
 I use the `@` alias. This is how I configure it in tsconfig.json:
 
-```json {3-6} title="tsconfig.json"
+```json fileName="tsconfig.json"
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -69,7 +69,7 @@ The `@` alias is a preference. You can use other aliases if you want.
 
 Here's what my `tailwind.config.js` file looks like:
 
-```js title="tailwind.config.js"
+```js fileName="tailwind.config.js"
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
@@ -152,7 +152,7 @@ module.exports = {
 
 Add the following to your styles/globals.css file. You can learn more about using CSS variables for theming in the [theming section](/docs/theming).
 
-```css title="globals.css"
+```css fileName="globals.css"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -242,7 +242,7 @@ Add the following to your styles/globals.css file. You can learn more about usin
 
 I use a `cn` helper to make it easier to conditionally add Tailwind CSS classes. Here's how I define it in `lib/utils.ts`:
 
-```ts title="lib/utils.ts"
+```ts fileName="lib/utils.ts"
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
