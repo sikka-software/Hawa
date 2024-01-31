@@ -1,8 +1,30 @@
 ---
 title: useToast
-description: A modal dialog that interrupts the user with important content and expects a response.
+description: A hook to show and control toast messages
 ---
 
-# This is the useToast hook
+The `useToast` hook is used to show and control toast messages. It returns an object with a `toast` function and a `toasts` state. The `toast` function is used to show a toast message.
 
-COMING SOON INSHALLAH
+The `toasts` state is an array of toast messages that are currently being shown.
+
+Each toast message can be dismissed by clicking the x button or by swiping it away. The `toasts` state is updated when a toast message is dismissed.
+
+```js
+const { toast, toasts } = useToast();
+```
+
+# toast (creator)
+
+The `toast` function is used to show a toast message. It accepts a `message` and an optional `options` object.
+
+```js
+toast({
+  title: "The title of the toast message, in bold.",
+  description: "The description of the toast message, in normal text.",
+  severity: "info",
+  size: "sm",
+  action: <ToastAction altText="Try again">Try again</ToastAction>
+});
+```
+
+# toasts (state)

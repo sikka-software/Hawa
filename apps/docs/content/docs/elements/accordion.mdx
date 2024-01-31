@@ -40,7 +40,10 @@ const items = [
     trigger: "Can I pay with Bitcoin??",
     content: "You'll be able to send payments via a cryptocurrency soon.",
     disabled: false,
-    chip: "Soon"
+    chip: {
+      label: "Soon",
+      color: "green"
+    }
   }
 ];
 ```
@@ -63,11 +66,11 @@ const items = [
 
 ```tsx
 import {
-  Accordion,
+  AccordionRoot,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion";
+} from "@sikka/hawa/accordion";
 ```
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -77,14 +80,14 @@ import {
 Add the following animations to your `tailwind.config.js` file:
 
 ```tsx
-<Accordion type="single" collapsible>
+<AccordionRoot type="single" collapsible>
   <AccordionItem value="item-1">
     <AccordionTrigger>Is it accessible?</AccordionTrigger>
     <AccordionContent>
       Yes. It adheres to the WAI-ARIA design pattern.
     </AccordionContent>
   </AccordionItem>
-</Accordion>
+</AccordionRoot>
 ```
 
 </Steps>

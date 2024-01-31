@@ -16,10 +16,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CodeBlock, Button } from "@sikka/hawa/elements";
-import { useToast } from "@sikka/hawa/hooks";
 
 export default function IndexPage() {
-  const { toast } = useToast();
   return (
     <div className="container relative">
       <PageHeader>

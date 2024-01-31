@@ -1,5 +1,5 @@
 ---
-title: Toast
+title: Toaster
 description: A succinct message that is displayed temporarily.
 component: true
 links:
@@ -8,7 +8,7 @@ links:
   storybook: https://storybook.hawa.style/?path=/story/elements-toast--default
 ---
 
-<ComponentPreview name="toast-demo" />
+<ComponentPreview previewOnly name="toast-demo" />
 
 ## Usage
 
@@ -22,6 +22,8 @@ import { Toaster } from "@sikka/hawa/toaster";
 ```
 
 <Step>Get the `toasts` array from `useToast`</Step>
+
+You can learn more about the `useToast` hook [here](/docs/hooks/use-toast).
 
 ```js
 const { toasts } = useToast();
@@ -37,12 +39,13 @@ apps directory.
 import { Toaster } from "@sikka/hawa/toaster";
 
 export default function MyApp({ children }) {
+  const { toasts } = useToast();
   return (
     <html lang="en">
       <head />
       <body>
         <main>{children}</main>
-        <Toaster />
+        <Toaster toasts={toasts} />
       </body>
     </html>
   );

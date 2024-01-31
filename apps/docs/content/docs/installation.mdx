@@ -7,34 +7,6 @@ description: How to install Hawa in your app
 
 ### Install @sikka/hawa
 
-بسم الله ا لرحمن ا لرحيم
-
-Components are styled using Tailwind CSS. You need to install Tailwind CSS in your project.
-
-[Follow the Tailwind CSS installation instructions to get started.](https://tailwindcss.com/docs/installation)
-
-### Add dependencies
-
-Add the following dependencies to your project:
-
-```bash
-npm install tailwindcss-animate class-variance-authority clsx tailwind-merge
-```
-
-### Add icon library
-
-If you're using the `default` style, install `lucide-react`:
-
-```bash
-npm install lucide-react
-```
-
-If you're using the `new-york` style, install `@radix-ui/react-icons`:
-
-```bash
-npm install @radix-ui/react-icons
-```
-
 <div className="mt-10">
   <CodeBlock
     langauge="bash"
@@ -46,111 +18,25 @@ npm install @radix-ui/react-icons
   ></CodeBlock>
 </div>
 
-### Configure path aliases
+Components are styled using Tailwind CSS. You need to install Tailwind CSS in your project.
 
-I use the `@` alias. This is how I configure it in tsconfig.json:
+[Follow the Tailwind CSS installation instructions to get started.](https://tailwindcss.com/docs/installation)
 
-```json fileName="tsconfig.json"
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
-}
+### Import hawa styles in your app
+
+In your main file (e.g. `pages/_app.tsx`), import the Hawa styles.
+
+<Callout className="mt-4 border-red-400">
+  Note: Make sure `@sikka/hawa/dist/style.css` is the last import in the file.
+</Callout>
+
+```tsx fileName="_app.tsx"
+import "@sikka/hawa/dist/style.css";
 ```
 
-The `@` alias is a preference. You can use other aliases if you want.
+### Overwrite global styles
 
-**If you use a different alias such as ~, you'll need to update import statements when adding components.**
-
-### Configure tailwind.config.js
-
-Here's what my `tailwind.config.js` file looks like:
-
-```js fileName="tailwind.config.js"
-const { fontFamily } = require("tailwindcss/defaultTheme");
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px"
-      }
-    },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))"
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))"
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))"
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))"
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))"
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))"
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))"
-        }
-      },
-      borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
-        sm: "calc(var(--radius) - 4px)"
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans]
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" }
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" }
-        }
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
-      }
-    }
-  },
-  plugins: [require("tailwindcss-animate")]
-};
-```
-
-### Configure styles
-
-Add the following to your styles/globals.css file. You can learn more about using CSS variables for theming in the [theming section](/docs/theming).
+Add the following to your styles/globals.css file (for next.js apps). and change the colors to match your brand colors.
 
 ```css fileName="globals.css"
 @tailwind base;
@@ -159,100 +45,94 @@ Add the following to your styles/globals.css file. You can learn more about usin
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 210 50% 98%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 72.22% 50.59%;
+    --destructive-foreground: 0 0% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --info: 209 62% 50%;
+    --info-foreground: 0 0% 98%;
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 148 48% 43%;
+    --success-foreground: 0 0% 98%;
 
-    --ring: 215 20.2% 65.1%;
+    --warning: 24 75% 50%;
+    --warning-foreground: 0 0% 98%;
 
+    --error: 0 84.2% 60.2%;
+    --error-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --constant-background: 0 0% 100%;
+    --helper-text: 0 72% 51%;
+    --ring: 240 5% 64.9%;
     --radius: 0.5rem;
+    --radius-inner: calc(var(--radius) - calc(var(--radius) / 3));
   }
-
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --card: 0 0% 2%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
 
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
+    --success: 106 70% 40%;
+    --success-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --info: 200 100% 30%;
+    --info-foreground: 0 0% 100%;
 
-    --ring: 216 34% 17%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 20%;
 
-    --radius: 0.5rem;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --helper-text: 0 84% 60%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
-  }
-}
-```
-
-### Add a cn helper
-
-I use a `cn` helper to make it easier to conditionally add Tailwind CSS classes. Here's how I define it in `lib/utils.ts`:
-
-```ts fileName="lib/utils.ts"
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
 }
 ```
 
 ### That's it
 
-You can now start adding components to your project.
+You can now start using Hawa components in your app.
 
 </Steps>

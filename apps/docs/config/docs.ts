@@ -236,8 +236,8 @@ export const docsConfig: DocsConfig = {
         //   items: []
         // },
         {
-          title: "Toast",
-          href: "/docs/elements/toast",
+          title: "Toaster",
+          href: "/docs/elements/toaster",
           items: []
         }
         // {
