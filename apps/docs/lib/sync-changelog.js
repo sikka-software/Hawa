@@ -3,7 +3,7 @@ const path = require("path");
 
 const srcPath = path.resolve(
   __dirname,
-  "../../../packages/components/changelog.md"
+  "../../../packages/components/CHANGELOG.md"
 );
 const destPath = path.join(__dirname, "../content/docs/changelog.mdx");
 
