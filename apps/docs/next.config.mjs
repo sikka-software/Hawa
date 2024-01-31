@@ -17,13 +17,43 @@ const nextConfig = {
   redirects() {
     return [
       {
-        source: "/components",
-        destination: "/docs/components/accordion",
+        source: "/elements",
+        destination: "/docs/elements/accordion",
         permanent: true
       },
       {
-        source: "/docs/components",
-        destination: "/docs/components/accordion",
+        source: "/docs/elements",
+        destination: "/docs/elements/accordion",
+        permanent: true
+      },
+      {
+        source: "/blocks",
+        destination: "/docs/blocks/login-form",
+        permanent: true
+      },
+      {
+        source: "/docs/blocks",
+        destination: "/docs/blocks/login-form",
+        permanent: true
+      },
+      {
+        source: "/layout",
+        destination: "/docs/layout/app-layout",
+        permanent: true
+      },
+      {
+        source: "/docs/layout",
+        destination: "/docs/layout/app-layout",
+        permanent: true
+      },
+      {
+        source: "/hooks",
+        destination: "/docs/hooks/use-toast",
+        permanent: true
+      },
+      {
+        source: "/docs/hooks",
+        destination: "/docs/hooks/use-toast",
         permanent: true
       },
       {
@@ -33,18 +63,18 @@ const nextConfig = {
       },
       {
         source: "/docs/primitives/:path*",
-        destination: "/docs/components/:path*",
+        destination: "/docs/elements/:path*",
         permanent: true
       },
 
       {
         source: "/docs/forms",
-        destination: "/docs/components/form",
+        destination: "/docs/elements/form",
         permanent: false
       },
       {
         source: "/docs/forms/react-hook-form",
-        destination: "/docs/components/form",
+        destination: "/docs/elements/form",
         permanent: false
       }
     ];

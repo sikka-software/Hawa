@@ -8,7 +8,10 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     { title: "Documentation", href: "/docs" },
-    { title: "Components", href: "/docs/components/accordion" },
+    { title: "Elements", href: "/docs/elements/accordion" },
+    { title: "Blocks", href: "/docs/blocks/login-form" },
+    { title: "Layout", href: "/docs/layout/app-layout" },
+    { title: "Hooks", href: "/docs/hooks/use-toast" },
     { title: "Themes", href: "/themes" },
     { title: "Examples", href: "/examples" },
     {
@@ -28,7 +31,7 @@ export const docsConfig: DocsConfig = {
         // { title: "Theming", href: "/docs/theming", items: [] },
         // { title: "Dark mode", href: "/docs/dark-mode", items: [] },
         // { title: "CLI", href: "/docs/cli", items: [] },
-        // { title: "Typography", href: "/docs/components/typography", items: [] },
+        // { title: "Typography", href: "/docs/elements/typography", items: [] },
         { title: "Changelog", href: "/docs/changelog", items: [] }
       ]
     },
@@ -59,197 +62,197 @@ export const docsConfig: DocsConfig = {
       ]
     },
     {
-      title: "Components",
+      title: "Elements",
       items: [
-        { title: "Accordion", href: "/docs/components/accordion", items: [] },
-        // { title: "Alert", href: "/docs/components/alert", items: [] },
+        { title: "Accordion", href: "/docs/elements/accordion", items: [] },
+        // { title: "Alert", href: "/docs/elements/alert", items: [] },
         // {
         //   title: "Alert Dialog",
-        //   href: "/docs/components/alert-dialog",
+        //   href: "/docs/elements/alert-dialog",
         //   items: []
         // },
         // {
         //   title: "Aspect Ratio",
-        //   href: "/docs/components/aspect-ratio",
+        //   href: "/docs/elements/aspect-ratio",
         //   items: []
         // },
-        // { title: "Avatar", href: "/docs/components/avatar", items: [] },
-        // { title: "Badge", href: "/docs/components/badge", items: [] },
-        // { title: "Button", href: "/docs/components/button", items: [] },
-        // { title: "Calendar", href: "/docs/components/calendar", items: [] },
-        // { title: "Card", href: "/docs/components/card", items: [] },
+        // { title: "Avatar", href: "/docs/elements/avatar", items: [] },
+        // { title: "Badge", href: "/docs/elements/badge", items: [] },
+        // { title: "Button", href: "/docs/elements/button", items: [] },
+        // { title: "Calendar", href: "/docs/elements/calendar", items: [] },
+        // { title: "Card", href: "/docs/elements/card", items: [] },
         // {
         //   title: "Carousel",
-        //   href: "/docs/components/carousel",
+        //   href: "/docs/elements/carousel",
         //   items: [],
         //   label: "New"
         // },
-        // { title: "Checkbox", href: "/docs/components/checkbox", items: [] },
+        // { title: "Checkbox", href: "/docs/elements/checkbox", items: [] },
         // {
         //   title: "Collapsible",
-        //   href: "/docs/components/collapsible",
+        //   href: "/docs/elements/collapsible",
         //   items: []
         // },
-        // { title: "Combobox", href: "/docs/components/combobox", items: [] },
-        // { title: "Command", href: "/docs/components/command", items: [] },
+        // { title: "Combobox", href: "/docs/elements/combobox", items: [] },
+        // { title: "Command", href: "/docs/elements/command", items: [] },
         // {
         //   title: "Context Menu",
-        //   href: "/docs/components/context-menu",
+        //   href: "/docs/elements/context-menu",
         //   items: []
         // },
-        // { title: "Data Table", href: "/docs/components/data-table", items: [] },
+        // { title: "Data Table", href: "/docs/elements/data-table", items: [] },
         // {
         //   title: "Date Picker",
-        //   href: "/docs/components/date-picker",
+        //   href: "/docs/elements/date-picker",
         //   items: []
         // },
         // {
         //   title: "Dialog",
-        //   href: "/docs/components/dialog",
+        //   href: "/docs/elements/dialog",
         //   items: []
         // },
         // {
         //   title: "Drawer",
-        //   href: "/docs/components/drawer",
+        //   href: "/docs/elements/drawer",
         //   items: [],
         //   label: "New"
         // },
         // {
         //   title: "Dropdown Menu",
-        //   href: "/docs/components/dropdown-menu",
+        //   href: "/docs/elements/dropdown-menu",
         //   items: []
         // },
         // {
         //   title: "Form",
-        //   href: "/docs/components/form",
+        //   href: "/docs/elements/form",
         //   items: []
         // },
         // {
         //   title: "Hover Card",
-        //   href: "/docs/components/hover-card",
+        //   href: "/docs/elements/hover-card",
         //   items: []
         // },
         // {
         //   title: "Input",
-        //   href: "/docs/components/input",
+        //   href: "/docs/elements/input",
         //   items: []
         // },
         // {
         //   title: "Label",
-        //   href: "/docs/components/label",
+        //   href: "/docs/elements/label",
         //   items: []
         // },
         // {
         //   title: "Menubar",
-        //   href: "/docs/components/menubar",
+        //   href: "/docs/elements/menubar",
         //   items: []
         // },
         // {
         //   title: "Navigation Menu",
-        //   href: "/docs/components/navigation-menu",
+        //   href: "/docs/elements/navigation-menu",
         //   items: []
         // },
         // {
         //   title: "Pagination",
-        //   href: "/docs/components/pagination",
+        //   href: "/docs/elements/pagination",
         //   items: [],
         //   label: "New"
         // },
         // {
         //   title: "Popover",
-        //   href: "/docs/components/popover",
+        //   href: "/docs/elements/popover",
         //   items: []
         // },
         // {
         //   title: "Progress",
-        //   href: "/docs/components/progress",
+        //   href: "/docs/elements/progress",
         //   items: []
         // },
         // {
         //   title: "Radio Group",
-        //   href: "/docs/components/radio-group",
+        //   href: "/docs/elements/radio-group",
         //   items: []
         // },
         // {
         //   title: "Resizable",
-        //   href: "/docs/components/resizable",
+        //   href: "/docs/elements/resizable",
         //   items: [],
         //   label: "New"
         // },
         // {
         //   title: "Scroll Area",
-        //   href: "/docs/components/scroll-area",
+        //   href: "/docs/elements/scroll-area",
         //   items: []
         // },
         // {
         //   title: "Select",
-        //   href: "/docs/components/select",
+        //   href: "/docs/elements/select",
         //   items: []
         // },
         // {
         //   title: "Separator",
-        //   href: "/docs/components/separator",
+        //   href: "/docs/elements/separator",
         //   items: []
         // },
         // {
         //   title: "Sheet",
-        //   href: "/docs/components/sheet",
+        //   href: "/docs/elements/sheet",
         //   items: []
         // },
         // {
         //   title: "Skeleton",
-        //   href: "/docs/components/skeleton",
+        //   href: "/docs/elements/skeleton",
         //   items: []
         // },
         // {
         //   title: "Slider",
-        //   href: "/docs/components/slider",
+        //   href: "/docs/elements/slider",
         //   items: []
         // },
         // {
         //   title: "Sonner",
-        //   href: "/docs/components/sonner",
+        //   href: "/docs/elements/sonner",
         //   items: [],
         //   label: "New"
         // },
         // {
         //   title: "Switch",
-        //   href: "/docs/components/switch",
+        //   href: "/docs/elements/switch",
         //   items: []
         // },
         // {
         //   title: "Table",
-        //   href: "/docs/components/table",
+        //   href: "/docs/elements/table",
         //   items: []
         // },
         // {
         //   title: "Tabs",
-        //   href: "/docs/components/tabs",
+        //   href: "/docs/elements/tabs",
         //   items: []
         // },
         // {
         //   title: "Textarea",
-        //   href: "/docs/components/textarea",
+        //   href: "/docs/elements/textarea",
         //   items: []
         // },
         {
           title: "Toast",
-          href: "/docs/components/toast",
+          href: "/docs/elements/toast",
           items: []
         }
         // {
         //   title: "Toggle",
-        //   href: "/docs/components/toggle",
+        //   href: "/docs/elements/toggle",
         //   items: []
         // },
         // {
         //   title: "Toggle Group",
-        //   href: "/docs/components/toggle-group",
+        //   href: "/docs/elements/toggle-group",
         //   items: []
         // },
         // {
         //   title: "Tooltip",
-        //   href: "/docs/components/tooltip",
+        //   href: "/docs/elements/tooltip",
         //   items: []
         // }
       ]

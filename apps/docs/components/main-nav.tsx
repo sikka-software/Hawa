@@ -33,15 +33,48 @@ export function MainNav() {
           Docs
         </Link>
         <Link
-          href="/docs/components"
+          href="/docs/elements"
           className={cn(
             "hover:text-foreground/80 transition-colors",
-            pathname?.startsWith("/docs/components")
+            pathname?.startsWith("/docs/elements")
               ? "text-foreground"
               : "text-foreground/60"
           )}
         >
-          Components
+          Elements
+        </Link>
+        <Link
+          href="/docs/blocks"
+          className={cn(
+            "hover:text-foreground/80 transition-colors",
+            pathname?.startsWith("/docs/blocks")
+              ? "text-foreground"
+              : "text-foreground/60"
+          )}
+        >
+          Blocks
+        </Link>
+        <Link
+          href="/docs/layout"
+          className={cn(
+            "hover:text-foreground/80 transition-colors",
+            pathname?.startsWith("/docs/layout")
+              ? "text-foreground"
+              : "text-foreground/60"
+          )}
+        >
+          Layout
+        </Link>
+        <Link
+          href="/docs/hooks"
+          className={cn(
+            "hover:text-foreground/80 transition-colors",
+            pathname?.startsWith("/docs/hooks")
+              ? "text-foreground"
+              : "text-foreground/60"
+          )}
+        >
+          Hooks
         </Link>
         {/* <Link
           href="/themes"
