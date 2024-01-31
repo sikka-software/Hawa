@@ -22,7 +22,7 @@ import Link from "next/link";
 
 import { CodeBlock } from "@sikka/hawa";
 import {
-  Accordion,
+  AccordionRoot as Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
