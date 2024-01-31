@@ -27,32 +27,28 @@ links:
 import { Accordion } form "@sikka/hawa/accordion";
 ```
 
-<Step>Update `tailwind.config.js`</Step>
+<Step>Create an array of array items</Step>
 
-Add the following animations to your `tailwind.config.js` file:
-
-```js title="tailwind.config.js" {5-18}
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  theme: {
-    extend: {
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" }
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" }
-        }
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
-      }
-    }
+```tsx
+const items = [
+  {
+    trigger: "What is Sikka?",
+    content: "Sikka is a software company based in Saudi Arabia.",
+    disabled: false
+  },
+  {
+    trigger: "Can I pay with Bitcoin??",
+    content: "You'll be able to send payments via a cryptocurrency soon.",
+    disabled: false,
+    chip: "Soon"
   }
-};
+];
+```
+
+<Step>Pass the accordion items array to the Accordion component</Step>
+
+```tsx
+<Accordion items={items} />
 ```
 
 </Steps>
@@ -73,8 +69,6 @@ import {
   AccordionTrigger
 } from "@/components/ui/accordion";
 ```
-
-<ComponentSource name="accordion" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
