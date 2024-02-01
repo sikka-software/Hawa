@@ -40,8 +40,7 @@
 
 ### Patch Changes
 
-0cc9ae5: - Made usernameOptions optional in `RegisterForm`
-
+- Made usernameOptions optional in `RegisterForm`
 - `FeedbackForm` : add min-h for the textarea
 
 ## 0.27.3

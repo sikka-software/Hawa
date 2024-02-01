@@ -27,7 +27,7 @@ export const docsConfig: DocsConfig = {
       items: [
         { title: "Introduction", href: "/docs", items: [] },
         { title: "Installation", href: "/docs/installation", items: [] },
-        // { title: "components.json", href: "/docs/components-json", items: [] },
+        { title: "Texts", href: "/docs/texts", items: [] },
         // { title: "Theming", href: "/docs/theming", items: [] },
         // { title: "Dark mode", href: "/docs/dark-mode", items: [] },
         // { title: "CLI", href: "/docs/cli", items: [] },
@@ -48,11 +48,7 @@ export const docsConfig: DocsConfig = {
     {
       title: "Blocks",
       items: [
-        {
-          title: "Login Form",
-          href: "/docs/blocks/login-form",
-          items: []
-        }
+        { title: "Login Form", href: "/docs/blocks/login-form", items: [] }
       ]
     },
     {

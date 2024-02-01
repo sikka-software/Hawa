@@ -270,8 +270,14 @@ const example: Registry = [
   {
     name: "accordion-demo",
     type: "components:example",
-    registryDependencies: ["accordion"],
+    registryDependencies: [],
     files: ["example/accordion-demo.tsx"]
+  },
+  {
+    name: "login-form-demo",
+    type: "components:example",
+    registryDependencies: [],
+    files: ["example/login-form-demo.tsx"]
   },
   {
     name: "alert-demo",

@@ -13,9 +13,11 @@ Each toast message can be dismissed by clicking the x button or by swiping it aw
 const { toast, toasts } = useToast();
 ```
 
-# toast (creator)
+<br />
 
-The `toast` function is used to show a toast message. It accepts a `message` and an optional `options` object.
+## toast (creator)
+
+The `toast` function is used to show a toast message. It adds a toast message to the `toasts` state.
 
 ```js
 toast({
@@ -23,8 +25,41 @@ toast({
   description: "The description of the toast message, in normal text.",
   severity: "info",
   size: "sm",
-  action: <ToastAction altText="Try again">Try again</ToastAction>
+  action: <ToastAction>Action</ToastAction>
 });
 ```
 
-# toasts (state)
+### Props
+
+| Prop        | Type            | Description                                                                      |
+| ----------- | --------------- | -------------------------------------------------------------------------------- |
+| title       | string          | The title of the toast message, in bold.                                         |
+| description | string          | The description of the toast message, in normal text.                            |
+| severity    | string          | The severity of the toast message. Can be "info", "success", "warning", "error". |
+| size        | string          | The size of the toast message. Can be "default" or "sm".                         |
+| action      | React component | The action of the toast message. Can be a button or a link.                      |
+
+## toasts (state)
+
+The `toasts` state is an array of toast messages that are currently being shown. This is typically passed to a [`Toaster`](/docs/elements/toaster) component.
+
+```tsx
+<Toaster toasts={toasts} />
+```
+
+But you can map through the `toasts` state and render each toast message individually with your own custom component.
+
+```tsx
+toasts.map((toast) => {
+  return (
+    <MyCustomToast
+      key={toast.id}
+      title={toast.title}
+      description={toast.description}
+      severity={toast.severity}
+      size={toast.size}
+      action={toast.action}
+    />
+  );
+});
+```

@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import { parsePhoneNumber } from "libphonenumber-js";
 import * as z from "zod";
 
@@ -18,7 +19,6 @@ import {
 } from "@_types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
-import { cn } from "@util/index";
 import { AuthButtons } from "./AuthButtons";
 
 type LoginFormTypes = {
@@ -37,7 +37,7 @@ type LoginFormTypes = {
   /** Login identifier type user will use to log in.   */
   loginType?: "email" | "username" | "phone" | "link";
   /** If true, the reset password option is hidden.   */
-  withoutResetPassword?: boolean;
+  withResetPassword?: boolean;
   /** If true, the register option is hidden.   */
   allowRegister?: boolean;
   /** If true, a loading spinner is displayed within the main form submit button.   */
@@ -55,7 +55,7 @@ type LoginFormTypes = {
   /** If true, Twitter login option is displayed.   */
   viaTwitter?: boolean;
   /** Function to handle form submission.   */
-  onLogin?: (e: any) => void;
+  onLogin: (e: any) => void;
   /** Function to route user to the register page.   */
   onRouteToRegister?: () => void;
   /** Function to handle forgotten password case.   */
@@ -73,7 +73,7 @@ type LoginFormTypes = {
 };
 
 export const LoginForm: FC<LoginFormTypes> = ({
-  loginType,
+  loginType = "email",
   texts,
   passwordLength = 8,
   ...props
@@ -164,7 +164,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   dir={"ltr"}
                   width="full"
                   autoComplete="email"
-                  label={texts?.email?.label}
+                  label={texts?.email?.label || "Email"}
                   helperText={formState.errors.email?.message}
                   placeholder={texts?.email?.placeholder || "contact@sikka.io"}
                   {...field}
@@ -201,7 +201,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   />
                 )}
               />
-              {!props.withoutResetPassword && (
+              {props.withResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
                   className="hawa-mb-3  hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
@@ -240,7 +240,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     width="full"
                     autoComplete="current-password"
                     type={passwordVisible ? "text" : "password"}
-                    label={texts?.password?.label}
+                    label={texts?.password?.label || "Password"}
                     endIcon={
                       <div
                         className="hawa-cursor-pointer"
@@ -261,7 +261,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   />
                 )}
               />
-              {!props.withoutResetPassword && (
+              {props.withResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
                   className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
@@ -280,7 +280,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               name="phone"
               render={({ field }) => (
                 <PhoneInput
-                  label={texts?.phone?.label}
+                  label={texts?.phone?.label || "Phone Number"}
                   helperText={formState.errors.phone?.message}
                   preferredCountry={{ label: "+966" }}
                   handleChange={(e) =>

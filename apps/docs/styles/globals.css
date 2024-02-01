@@ -71,8 +71,16 @@
     @apply ml-[-50px] mt-[-4px];
     content: counter(step);
   }
+  .neo-brutalism {
+    @apply shadow-color-primary active:shadow-color-primary-active  hawa-rounded hawa-border-2 hawa-border-primary hawa-px-4 hawa-py-2 hawa-font-bold hawa-uppercase hawa-transition-all active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 dark:hawa-bg-black;
+  }
+  .clickable-link {
+    @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
+  }
+  .hawa-icon {
+    @apply hawa-h-4 hawa-w-4;
+  }
 }
-
 
 @layer components {
   .link::after {
@@ -207,15 +215,6 @@
   /* .dark-shadow {
     @apply shadow-[0_10px_15px_-3px_rgba(255,255,255,0.1),0_4px_6px_-2px_rgba(255,255,255,0.05)];
   } */
-  .neo-brutalism {
-    @apply shadow-color-primary active:shadow-color-primary-active  hawa-rounded hawa-border-2 hawa-border-primary hawa-px-4 hawa-py-2 hawa-font-bold hawa-uppercase hawa-transition-all active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 dark:hawa-bg-black;
-  }
-  .clickable-link {
-    @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
-  }
-  .hawa-icon {
-    @apply hawa-h-4 hawa-w-4;
-  }
 
   .ddm-w-parent {
     width: var(--radix-dropdown-menu-trigger-width);

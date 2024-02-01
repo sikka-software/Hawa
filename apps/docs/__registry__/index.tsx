@@ -313,6 +313,20 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/default/example/accordion-demo")),
       files: ["registry/default/example/accordion-demo.tsx"],
     },
+    "login-form-demo": {
+      name: "login-form-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/login-form-demo")),
+      files: ["registry/default/example/login-form-demo.tsx"],
+    },
+    "app-layout-demo": {
+      name: "app-layout-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/app-layout-demo")),
+      files: ["registry/default/example/app-layout-demo.tsx"],
+    },
     "alert-demo": {
       name: "alert-demo",
       type: "components:example",

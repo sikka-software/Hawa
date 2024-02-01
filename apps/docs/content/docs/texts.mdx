@@ -1,0 +1,52 @@
+---
+title: Texts
+description: The texts object used to translate blocks
+---
+
+## Concept
+
+The texts object is used to translate texts that exist in blocks. It is a simple key-value object where the key is the text to translate and the value is the translated text.
+
+## Example
+
+If we take the [`LoginForm`](/docs/blocks/login-form) block as an example, it has two texts that can be translated: `username` and `password`. The texts object for this block would look like this:
+
+```jsx
+<LoginForm
+  texts={{
+    username: {
+      label: "Username",
+      placeholder: "Enter your username",
+      required: "Username is required"
+    },
+    password: {
+      label: "Password",
+      placeholder: "Enter your password",
+      required: "Password is required"
+    }
+  }}
+  {...otherProps}
+/>
+```
+
+## Usage
+
+The texts object is ideally used along with a i18n library. The texts object can be passed to the block as a prop and then the block can use the i18n library to translate the texts. This way the blocks can be used in different languages.
+
+```jsx
+<LoginForm
+  texts={{
+    username: {
+      label: t("username.label"),
+      placeholder: t("username.placeholder"),
+      required: t("username.required")
+    },
+    password: {
+      label: t("password.label"),
+      placeholder: t("password.placeholder"),
+      required: t("password.required")
+    }
+  }}
+  {...otherProps}
+/>
+```
