@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.13
+
+### Patch Changes
+
+- Made essential props required in `LoginForm`
+
 ## 0.27.12
 
 ### Patch Changes

@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { cn } from "@util/index";
-
 import { Button } from "@elements/button";
 import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 
+import { cn } from "@util/index";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {
@@ -145,7 +144,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   }, [keepOpen]);
 
   return (
-    <div className="hawa-absolute hawa-left-0">
+    <div className="hawa-fixed hawa-left-0">
       {/*
        * ----------------------------------------------------------------------------------------------------
        * Top Bar

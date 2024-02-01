@@ -1,5 +1,14 @@
 # hawa-docs
 
+## 0.0.17
+
+### Patch Changes
+
+- Update Layout docs
+- General Cleanup
+- Updated dependencies
+  - @sikka/hawa@0.27.13
+
 ## 0.0.15
 
 ### Patch Changes

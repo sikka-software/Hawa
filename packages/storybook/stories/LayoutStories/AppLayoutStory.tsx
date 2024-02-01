@@ -124,22 +124,6 @@ export const AppLayoutStory = (args: any) => {
         <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
           <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
             App Content
-            <Toaster direction={args.direction} />
-            <button
-              onClick={() => {
-                toast({
-                  title:
-                    "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                  description: "Friday, February 10, 2023 at 5:57 PM",
-                  severity: "warning",
-                  action: (
-                    <ToastAction altText="Try again">Try again</ToastAction>
-                  )
-                });
-              }}
-            >
-              open toaster
-            </button>
           </span>
         </div>
       </div>

@@ -23,6 +23,7 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   extractedClassNames?: string;
   align?: "center" | "start" | "end";
   previewOnly?: boolean;
+  iFrame?: string;
 }
 
 export function ComponentPreview({
@@ -32,6 +33,7 @@ export function ComponentPreview({
   extractClassname,
   extractedClassNames,
   align = "center",
+
   ...props
 }: ComponentPreviewProps) {
   const [config] = useConfig();
@@ -74,7 +76,9 @@ export function ComponentPreview({
       className={cn("group relative my-4 flex flex-col space-y-2", className)}
       {...props}
     >
-      {props.previewOnly ? (
+      {props.iFrame ? (
+        <iframe src={props.iFrame} height="800" />
+      ) : props.previewOnly ? (
         <div className="relative rounded-md border">
           <ThemeWrapper defaultTheme="zinc">
             <div
