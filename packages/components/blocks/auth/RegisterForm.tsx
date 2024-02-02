@@ -357,51 +357,53 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     )}
                   />
                 )}
-                <div className="hawa-flex hawa-flex-col hawa-gap-3">
-                  {showTermsOption && (
-                    <Controller
-                      control={control}
-                      name="terms_accepted"
-                      render={({ field }) => (
-                        <Checkbox
-                          id="terms_accepted"
-                          helperText={formState.errors.terms_accepted?.message?.toString()}
-                          onCheckedChange={(e) => field.onChange(e)}
-                          label={
-                            <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
-                              <span>
-                                {texts?.iAcceptText || "I accept the "}
-                              </span>{" "}
-                              <StopPropagationWrapper>
-                                <a
-                                  onClick={props.onRouteToTOS}
-                                  className="clickable-link"
-                                >
-                                  {texts?.termsText || "Terms of Service"}
-                                </a>
-                              </StopPropagationWrapper>
-                            </div>
-                          }
-                        />
-                      )}
-                    />
-                  )}
-                  {showNewsletterOption && (
-                    <Controller
-                      control={control}
-                      name="newsletter_accepted"
-                      render={({ field }) => (
-                        <Checkbox
-                          id="newsletter_accepted"
-                          label={texts?.subscribeToNewsletter}
-                          onCheckedChange={field.onChange}
-                        />
-                      )}
-                    />
-                  )}
-                </div>
+                {showTermsOption || showNewsletterOption ? (
+                  <div className="hawa-flex hawa-flex-col hawa-gap-3 hawa-mb-2">
+                    {showTermsOption && (
+                      <Controller
+                        control={control}
+                        name="terms_accepted"
+                        render={({ field }) => (
+                          <Checkbox
+                            id="terms_accepted"
+                            helperText={formState.errors.terms_accepted?.message?.toString()}
+                            onCheckedChange={(e) => field.onChange(e)}
+                            label={
+                              <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
+                                <span>
+                                  {texts?.iAcceptText || "I accept the "}
+                                </span>{" "}
+                                <StopPropagationWrapper>
+                                  <a
+                                    onClick={props.onRouteToTOS}
+                                    className="clickable-link"
+                                  >
+                                    {texts?.termsText || "Terms of Service"}
+                                  </a>
+                                </StopPropagationWrapper>
+                              </div>
+                            }
+                          />
+                        )}
+                      />
+                    )}
+                    {showNewsletterOption && (
+                      <Controller
+                        control={control}
+                        name="newsletter_accepted"
+                        render={({ field }) => (
+                          <Checkbox
+                            id="newsletter_accepted"
+                            label={texts?.subscribeToNewsletter}
+                            onCheckedChange={field.onChange}
+                          />
+                        )}
+                      />
+                    )}
+                  </div>
+                ) : null}
                 <Button
-                  className="hawa-mt-4 hawa-w-full"
+                  className=" hawa-w-full"
                   type="submit"
                   isLoading={props.isLoading}
                   disabled={props.isLoading}
