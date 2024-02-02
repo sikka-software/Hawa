@@ -1,4 +1,5 @@
 // sort-imports-ignore
+
 import "@/styles/globals.css";
 import "@sikka/hawa/dist/style.css";
 import { Metadata, Viewport } from "next";
@@ -6,18 +7,13 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster";
-import { Toaster as NewYorkSonner } from "@/registry/new-york/ui/sonner";
-import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster";
 import { LoadingBar } from "@/components/loading-bar";
-import { useToast } from "@sikka/hawa/hooks";
-import { Toaster } from "@sikka/hawa/toaster";
+import DocsToaster from "@/components/docs-toaster";
 
 export const metadata: Metadata = {
   title: {
@@ -35,11 +31,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com"
+      name: "Sikka Software",
+      url: "https://sikka.io"
     }
   ],
-  creator: "shadcn",
+  creator: "Sikka Software",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -61,7 +57,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@shadcn"
+    creator: "@sikka_sa"
   },
   icons: {
     icon: "/favicon.ico",
@@ -100,7 +96,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             disableTransitionOnChange
           >
             <LoadingBar />
-
             <div vaul-drawer-wrapper="">
               <div className="bg-background relative flex min-h-screen flex-col">
                 <SiteHeader />
@@ -110,11 +105,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
             <TailwindIndicator />
             <ThemeSwitcher />
-            <Analytics />
-            <Toaster />
-            <NewYorkToaster />
-            <DefaultToaster />
-            <NewYorkSonner />
+            <DocsToaster />
           </ThemeProvider>
         </body>
       </html>

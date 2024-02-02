@@ -1006,34 +1006,7 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/default/example/toast-demo")),
       files: ["registry/default/example/toast-demo.tsx"],
     },
-    "toast-destructive": {
-      name: "toast-destructive",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/default/example/toast-destructive")),
-      files: ["registry/default/example/toast-destructive.tsx"],
-    },
-    "toast-simple": {
-      name: "toast-simple",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/default/example/toast-simple")),
-      files: ["registry/default/example/toast-simple.tsx"],
-    },
-    "toast-with-action": {
-      name: "toast-with-action",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/default/example/toast-with-action")),
-      files: ["registry/default/example/toast-with-action.tsx"],
-    },
-    "toast-with-title": {
-      name: "toast-with-title",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/default/example/toast-with-title")),
-      files: ["registry/default/example/toast-with-title.tsx"],
-    },
+
     "toggle-group-demo": {
       name: "toggle-group-demo",
       type: "components:example",
@@ -2218,41 +2191,7 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/new-york/example/textarea-with-text")),
       files: ["registry/new-york/example/textarea-with-text.tsx"],
     },
-    "toast-demo": {
-      name: "toast-demo",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/new-york/example/toast-demo")),
-      files: ["registry/new-york/example/toast-demo.tsx"],
-    },
-    "toast-destructive": {
-      name: "toast-destructive",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/new-york/example/toast-destructive")),
-      files: ["registry/new-york/example/toast-destructive.tsx"],
-    },
-    "toast-simple": {
-      name: "toast-simple",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/new-york/example/toast-simple")),
-      files: ["registry/new-york/example/toast-simple.tsx"],
-    },
-    "toast-with-action": {
-      name: "toast-with-action",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/new-york/example/toast-with-action")),
-      files: ["registry/new-york/example/toast-with-action.tsx"],
-    },
-    "toast-with-title": {
-      name: "toast-with-title",
-      type: "components:example",
-      registryDependencies: ["toast"],
-      component: React.lazy(() => import("@/registry/new-york/example/toast-with-title")),
-      files: ["registry/new-york/example/toast-with-title.tsx"],
-    },
+   
     "toggle-group-demo": {
       name: "toggle-group-demo",
       type: "components:example",

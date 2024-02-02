@@ -392,18 +392,6 @@
     "type": "components:ui"
   },
   {
-    "name": "toast",
-    "dependencies": [
-      "@radix-ui/react-toast"
-    ],
-    "files": [
-      "ui/toast.tsx",
-      "ui/use-toast.ts",
-      "ui/toaster.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
     "name": "toggle",
     "dependencies": [
       "@radix-ui/react-toggle"

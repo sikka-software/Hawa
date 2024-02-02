@@ -1,7 +1,6 @@
 "use client";
 
 import { Announcement } from "@/components/announcement";
-import { ExamplesNav } from "@/components/examples-nav";
 import { Icons } from "@/components/icons";
 import {
   PageActions,
@@ -10,9 +9,6 @@ import {
   PageHeaderHeading
 } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/registry/new-york/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 
 import { CodeBlock, Button } from "@sikka/hawa/elements";
@@ -48,33 +44,7 @@ export default function IndexPage() {
             ]}
           ></CodeBlock>
         </div>
-
-        {/* {allDocs.map((d) => (
-          <div>{d.title}</div>
-        ))} */}
       </PageHeader>
-      {/* <ExamplesNav className="[&>a:first-child]:text-primary" />
-      <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
-        <Image
-          src="/examples/mail-dark.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="hidden dark:block"
-        />
-        <Image
-          src="/examples/mail-light.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="block dark:hidden"
-        />
-      </section>
-      <section className="hidden md:block">
-        <div className="overflow-hidden rounded-lg border bg-background shadow-lg">
-          <MailPage />
-        </div>
-      </section> */}
     </div>
   );
 }
