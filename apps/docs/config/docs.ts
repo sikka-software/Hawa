@@ -28,27 +28,22 @@ export const docsConfig: DocsConfig = {
         { title: "Introduction", href: "/docs", items: [] },
         { title: "Installation", href: "/docs/installation", items: [] },
         { title: "Texts", href: "/docs/texts", items: [] },
-        // { title: "Theming", href: "/docs/theming", items: [] },
-        // { title: "Dark mode", href: "/docs/dark-mode", items: [] },
-        // { title: "CLI", href: "/docs/cli", items: [] },
-        // { title: "Typography", href: "/docs/elements/typography", items: [] },
         { title: "Changelog", href: "/docs/changelog", items: [] }
       ]
     },
     {
       title: "Hooks",
-      items: [
-        {
-          title: "useToast",
-          href: "/docs/hooks/use-toast",
-          items: []
-        }
-      ]
+      items: [{ title: "useToast", href: "/docs/hooks/use-toast", items: [] }]
     },
     {
       title: "Blocks",
       items: [
-        { title: "Login Form", href: "/docs/blocks/login-form", items: [] }
+        { title: "Login Form", href: "/docs/blocks/login-form", items: [] },
+        {
+          title: "Register Form",
+          href: "/docs/blocks/register-form",
+          items: []
+        }
       ]
     },
     {

@@ -8,13 +8,13 @@ import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn } from "@/lib/utils";
 import { badgeVariants } from "@/registry/default/ui/badge";
 import "@/styles/mdx.css";
-import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import { allDocs } from "contentlayer/generated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ScrollArea } from "@sikka/hawa/scrollArea";
+import { ArrowUpRightFromSquare, ChevronRight } from "lucide-react";
 
 interface DocPageProps {
   params: {
@@ -93,7 +93,7 @@ export default async function DocPage({ params }: DocPageProps) {
           <div className="overflow-hidden text-ellipsis whitespace-nowrap">
             Docs
           </div>
-          <ChevronRightIcon className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" />
           <div className="text-foreground font-medium">{doc.title}</div>
         </div>
         <div className="space-y-2">
@@ -116,7 +116,7 @@ export default async function DocPage({ params }: DocPageProps) {
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
                 Docs
-                <ExternalLinkIcon className="h-3 w-3" />
+                <ArrowUpRightFromSquare className="h-3 w-3" />
               </Link>
             )}
             {doc.links?.api && (
@@ -127,7 +127,7 @@ export default async function DocPage({ params }: DocPageProps) {
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
                 API Reference
-                <ExternalLinkIcon className="h-3 w-3" />
+                <ArrowUpRightFromSquare className="h-3 w-3" />
               </Link>
             )}
             {doc.links?.storybook && (
@@ -138,7 +138,7 @@ export default async function DocPage({ params }: DocPageProps) {
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
                 Storybook
-                <ExternalLinkIcon className="h-3 w-3" />
+                <ArrowUpRightFromSquare className="h-3 w-3" />
               </Link>
             )}
           </div>

@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.27.14
+
+### Patch Changes
+
+- Added default texts in `RegisterForm`
+- Made the terms checkbox conditional rendering false by default in `RegisterForm`
+
 ## 0.27.13
 
 ### Patch Changes

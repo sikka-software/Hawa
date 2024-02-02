@@ -5,6 +5,34 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "accordion-demo": {
+      name: "accordion-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/accordion-demo")),
+      files: ["registry/default/example/accordion-demo.tsx"],
+    },
+    "login-form-demo": {
+      name: "login-form-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/login-form-demo")),
+      files: ["registry/default/example/login-form-demo.tsx"],
+    },
+    "register-form-demo": {
+      name: "register-form-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/register-form-demo")),
+      files: ["registry/default/example/register-form-demo.tsx"],
+    },
+    "app-layout-demo": {
+      name: "app-layout-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/default/example/app-layout-demo")),
+      files: ["registry/default/example/app-layout-demo.tsx"],
+    },
     "accordion": {
       name: "accordion",
       type: "components:ui",
@@ -305,27 +333,6 @@ export const Index: Record<string, any> = {
       registryDependencies: undefined,
       component: React.lazy(() => import("@/registry/default/ui/tooltip")),
       files: ["registry/default/ui/tooltip.tsx"],
-    },
-    "accordion-demo": {
-      name: "accordion-demo",
-      type: "components:example",
-      registryDependencies: ["accordion"],
-      component: React.lazy(() => import("@/registry/default/example/accordion-demo")),
-      files: ["registry/default/example/accordion-demo.tsx"],
-    },
-    "login-form-demo": {
-      name: "login-form-demo",
-      type: "components:example",
-      registryDependencies: ["accordion"],
-      component: React.lazy(() => import("@/registry/default/example/login-form-demo")),
-      files: ["registry/default/example/login-form-demo.tsx"],
-    },
-    "app-layout-demo": {
-      name: "app-layout-demo",
-      type: "components:example",
-      registryDependencies: ["accordion"],
-      component: React.lazy(() => import("@/registry/default/example/app-layout-demo")),
-      files: ["registry/default/example/app-layout-demo.tsx"],
     },
     "alert-demo": {
       name: "alert-demo",
@@ -1006,7 +1013,6 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/default/example/toast-demo")),
       files: ["registry/default/example/toast-demo.tsx"],
     },
-
     "toggle-group-demo": {
       name: "toggle-group-demo",
       type: "components:example",

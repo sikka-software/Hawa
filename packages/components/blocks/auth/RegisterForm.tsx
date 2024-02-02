@@ -87,6 +87,8 @@ type RegisterFormTypes = {
 export const RegisterForm: FC<RegisterFormTypes> = ({
   texts,
   registerFields = ["email"],
+  showTermsOption = false,
+  showNewsletterOption = false,
   ...props
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -111,20 +113,26 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         break;
       case "email":
         fieldSchemas["email"] = z
-          .string({ required_error: texts?.email?.required })
-          .email({ message: texts?.email?.invalid })
-          .min(1, { message: texts?.email?.required });
+          .string({
+            required_error: texts?.email?.required || "Email is required"
+          })
+          .email({ message: texts?.email?.invalid || "Invalid email" })
+          .min(1, { message: texts?.email?.required || "Email is required" });
         break;
       case "username":
         fieldSchemas["username"] = z
-          .string({ required_error: texts?.username?.required })
-          .min(1, { message: texts?.username?.required })
+          .string({
+            required_error: texts?.username?.required || "Username is required"
+          })
+          .min(1, {
+            message: texts?.username?.required || "Username is required"
+          })
           .refine(
             (value) => {
               const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
               return isValid;
             },
-            { message: texts?.username?.invalid }
+            { message: texts?.username?.invalid || "Invalid username" }
           );
         break;
     }
@@ -134,15 +142,22 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
     .object({
       ...fieldSchemas,
       password: z
-        .string({ required_error: texts?.password?.required })
-        .min(5, { message: texts?.password?.tooShort })
+        .string({
+          required_error: texts?.password?.required || "Password is required"
+        })
+        .min(5, {
+          message: texts?.password?.tooShort || "Password is too short"
+        })
         .refine((value) => value !== "", {
-          message: texts?.password?.required
+          message: texts?.password?.required || "Password is required"
         }),
       confirm_password: z
-        .string({ required_error: texts?.confirm?.required })
+        .string({
+          required_error:
+            texts?.confirm?.required || "Confirm password required"
+        })
         .refine((value) => value !== "", {
-          message: texts?.password?.required
+          message: texts?.password?.required || "Confirm password is required"
         }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
@@ -198,7 +213,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           render={({ field }) => (
                             <Input
                               width="full"
-                              label={texts?.fullName?.label}
+                              label={texts?.fullName?.label || "Full Name"}
                               placeholder={texts?.fullName?.placeholder}
                               helperText={formState.errors.fullName?.message}
                               {...field}
@@ -224,7 +239,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                               }}
                               width="full"
                               autoComplete="email"
-                              label={texts?.email?.label}
+                              label={texts?.email?.label || "Email"}
                               helperText={formState.errors.email?.message}
                               placeholder={
                                 texts?.email?.placeholder || "Enter your email"
@@ -245,7 +260,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                             <Input
                               width="full"
                               autoComplete="username"
-                              label={texts?.username?.label}
+                              label={texts?.username?.label || "Username"}
                               labelProps={{
                                 ...props.usernameOptions?.label
                               }}
@@ -279,7 +294,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                         </div>
                       }
                       autoComplete="new-password"
-                      label={texts?.password?.label}
+                      label={texts?.password?.label || "Password"}
                       placeholder={texts?.password?.placeholder}
                       helperText={formState.errors.password?.message}
                       {...field}
@@ -294,7 +309,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       width="full"
                       type="password"
                       autoComplete="new-password"
-                      label={texts?.confirm?.label}
+                      label={texts?.confirm?.label || "Confirm Password"}
                       placeholder={texts?.confirm?.placeholder}
                       helperText={formState.errors.confirm_password?.message}
                       {...field}
@@ -343,7 +358,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   />
                 )}
                 <div className="hawa-flex hawa-flex-col hawa-gap-3">
-                  {props.showTermsOption && (
+                  {showTermsOption && (
                     <Controller
                       control={control}
                       name="terms_accepted"
@@ -354,13 +369,15 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           onCheckedChange={(e) => field.onChange(e)}
                           label={
                             <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
-                              <span>{texts?.iAcceptText}</span>{" "}
+                              <span>
+                                {texts?.iAcceptText || "I accept the "}
+                              </span>{" "}
                               <StopPropagationWrapper>
                                 <a
                                   onClick={props.onRouteToTOS}
                                   className="clickable-link"
                                 >
-                                  {texts?.termsText}
+                                  {texts?.termsText || "Terms of Service"}
                                 </a>
                               </StopPropagationWrapper>
                             </div>
@@ -369,7 +386,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       )}
                     />
                   )}
-                  {props.showNewsletterOption && (
+                  {showNewsletterOption && (
                     <Controller
                       control={control}
                       name="newsletter_accepted"
@@ -395,7 +412,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
               </form>
             </FormProvider>
             <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
-              <span>{texts?.existingUserText}</span>
+              <span>
+                {texts?.existingUserText || "Already have an account?"}
+              </span>
               <span onClick={props.onRouteToLogin} className="clickable-link">
                 {texts?.loginText || "Login"}
               </span>
@@ -426,9 +445,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           </CardFooter>
         ) : null}
       </Card>
-      {/* {props.handleColorMode && props.handleLanguage && (
-        
-      )} */}
     </div>
   );
 };

@@ -1,7 +1,8 @@
 {
   "name": "hawa-docs",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "npm run sync:changelog && contentlayer build && next build",
