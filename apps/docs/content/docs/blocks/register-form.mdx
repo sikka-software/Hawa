@@ -12,3 +12,97 @@ links:
 ## Props
 
 The following props can be passed to the component
+
+| Prop                 | Type     | Default | Description                                                                                     |
+| -------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------- |
+| [texts](#texts)    | object   |         | Object containing text labels used throughout the form.                                         |
+| direction            | string   | `ltr`   | Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right).            |
+| logosOnly            | boolean  | `false` | Determines whether to display logos only or with text in the social media registration section. |
+| viaGoogle            | boolean  | `false` | Enables registration via Google when set to true.                                               |
+| viaGithub            | boolean  | `false` | Enables registration via Github when set to true.                                               |
+| viaTwitter           | boolean  | `false` | Enables registration via Twitter when set to true.                                              |
+| showRefCode          | boolean  | `false` | Determines whether to show the referral code field.                                             |
+| showUserSource       | boolean  | `false` | Determines whether to show the user source selection.                                           |
+| showTermsOption      | boolean  | `false` | Determines whether to show the terms acceptance checkbox.                                       |
+| showNewsletterOption | boolean  | `false` | Determines whether to show the newsletter subscription checkbox.                                |
+| onRegister           | function |         | Callback function triggered on form submission.                                                 |
+| onRouteToLogin       | function |         | Callback function triggered to route to the login page.                                         |
+| onGoogleRegister     | function |         | Callback function triggered to handle registration via Google.                                  |
+| onGithubRegister     | function |         | Callback function triggered to handle registration via Github.                                  |
+| onTwitterRegister    | function |         | Callback function triggered to handle registration via Twitter.                                 |
+| onRouteToTOS         | function |         | Callback function triggered to route to the Terms of Service page.                              |
+| showError            | boolean  | `false` | Determines whether to show an error alert.                                                      |
+| errorTitle           | string   |         | Title for the error alert.                                                                      |
+| errorText            | string   |         | Text for the error alert.                                                                       |
+| registerFields       | array    |         | Array containing the fields to be included in the form.                                         |
+| isLoading            | boolean  | `false` | Indicates whether the form submission is in progress.                                           |
+| isGoogleLoading      | boolean  | `false` | If true, a loading spinner is displayed within the Google login button.                         |
+| isTwitterLoading     | boolean  | `false` | If true, a loading spinner is displayed within the Twitter login button.                        |
+| isGithubLoading      | boolean  | `false` | If true, a loading spinner is displayed within the Github login button.                         |
+| additionalButtons    | any      |         | To add more custom buttons under the register button.                                           |
+| additionalInputs     | any      |         | To add more custom input fields.                                                                |
+
+## Texts
+
+The following texts can be passed to the component
+
+### email
+
+| Key           | Default            |
+| ------------- | ------------------ |
+| `label`       | "Email"            |
+| `placeholder` | "contact@sikka.io" |
+| `required`    | "Email Required"   |
+| `invalid`     | "Email Invalid"    |
+
+### password
+
+| Key           | Default               |
+| ------------- | --------------------- |
+| `label`       | "Password"            |
+| `placeholder` | "Enter your password" |
+| `required`    | "Password Required"   |
+| `invalid`     | "Password Invalid"    |
+| `tooShort`    | "Password too short"  |
+
+### confirm
+
+| Key           | Default                     |
+| ------------- | --------------------------- |
+| `label`       | "Confirm Password"          |
+| `placeholder` | "Confirm your password"     |
+| `required`    | "Confirm password required" |
+| `dontMatch`   | "Passwords don't match"     |
+
+### username
+
+| Key           | Default                |
+| ------------- | ---------------------- |
+| `label`       | "Username"             |
+| `placeholder` |                        |
+| `required`    | "Username is Required" |
+| `invalid`     | "Invalid username"     |
+
+### userReference
+
+| Key           | Default                       |
+| ------------- | ----------------------------- |
+| `label`       | "How did you learn about us?" |
+| `placeholder` |                               |
+
+### misc
+
+| Key                     | Default                       |
+| ----------------------- | ----------------------------- |
+| `loginText`             | "Login"                       |
+| `subscribeToNewsletter` | "Subscribe to our newsletter" |
+| `termsRequired`         | "Terms required"              |
+| `refCode`               |                               |
+| `refCodePlaceholder`    |                               |
+| `existingUserText`      | "Already have an account?"    |
+| `termsText`             | "Terms of Service"            |
+| `iAcceptText`           | "I accept the "               |
+| `registerText`          | "Register"                    |
+| `continueWithGoogle`    | "Continue With Google"        |
+| `continueWithGithub`    | "Continue With Github"        |
+| `continueWithTwitter`   | "Continue With Twitter"       |

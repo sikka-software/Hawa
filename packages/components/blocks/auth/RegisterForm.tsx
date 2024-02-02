@@ -162,12 +162,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
       refCode: z.string().optional(),
       reference: z.string().optional(),
       terms_accepted: z
-        .boolean({ required_error: texts?.termsRequired })
-        .refine((value) => value, { message: texts?.termsRequired }),
+        .boolean({ required_error: texts?.termsRequired || "Terms required" })
+        .refine((value) => value, {
+          message: texts?.termsRequired || "Terms required"
+        }),
       newsletter_accepted: z.boolean().optional()
     })
     .refine((data) => data.password === data.confirm_password, {
-      message: texts?.confirm?.dontMatch,
+      message: texts?.confirm?.dontMatch || "Passwords don't match",
       path: ["confirm_password"]
     });
 
@@ -310,7 +312,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       type="password"
                       autoComplete="new-password"
                       label={texts?.confirm?.label || "Confirm Password"}
-                      placeholder={texts?.confirm?.placeholder}
+                      placeholder={
+                        texts?.confirm?.placeholder || "Confirm your Password"
+                      }
                       helperText={formState.errors.confirm_password?.message}
                       {...field}
                     />
@@ -394,7 +398,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                         render={({ field }) => (
                           <Checkbox
                             id="newsletter_accepted"
-                            label={texts?.subscribeToNewsletter}
+                            label={
+                              texts?.subscribeToNewsletter ||
+                              "Subscribe to our newsletter"
+                            }
                             onCheckedChange={field.onChange}
                           />
                         )}
