@@ -103,6 +103,7 @@ jobs:
         run: |
           pnpm install --filter hawa-docs
           cd apps/docs
+          npm run sync:changelog
           npm run build
 
       - name: Link to Production and Restart with PM2
