@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "npm run sync:changelog && contentlayer build && next build",
+    "build": "contentlayer build && next build",
     "build:registry": "ts-node --esm --project ./tsconfig.scripts.json ./scripts/build-registry.ts",
     "seed:tasks": "ts-node --esm --project ./tsconfig.scripts.json ./app/examples/tasks/data/seed.ts",
     "start": "next start -p 3010",
