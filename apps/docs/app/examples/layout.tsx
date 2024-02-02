@@ -1,24 +1,23 @@
-import { Metadata } from "next"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
-import { Announcement } from "@/components/announcement"
-import { ExamplesNav } from "@/components/examples-nav"
+import { Announcement } from "@/components/announcement";
+import { ExamplesNav } from "@/components/examples-nav";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { buttonVariants } from "@/registry/new-york/ui/button"
+  PageHeaderHeading
+} from "@/components/page-header";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/registry/default/ui/button";
+import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Examples",
-  description: "Check out some examples app built using the components.",
-}
+  description: "Check out some examples app built using the components."
+};
 
 interface ExamplesLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
@@ -55,11 +54,11 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
         </PageHeader>
         <section>
           <ExamplesNav />
-          <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
+          <div className="bg-background overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
             {children}
           </div>
         </section>
       </div>
     </>
-  )
+  );
 }

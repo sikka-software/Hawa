@@ -1,4 +1,4 @@
-import { Separator } from "@/registry/new-york/ui/separator"
+import { Separator } from "@/registry/default/ui/separator"
 import { NotificationsForm } from "@/app/examples/forms/notifications/notifications-form"
 
 export default function SettingsNotificationsPage() {

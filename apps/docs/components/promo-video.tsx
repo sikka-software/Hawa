@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio"
+import { AspectRatio } from "@/registry/default/ui/aspect-ratio";
 
 export function PromoVideo() {
   return (
@@ -15,5 +15,5 @@ export function PromoVideo() {
         />
       </video>
     </AspectRatio>
-  )
+  );
 }

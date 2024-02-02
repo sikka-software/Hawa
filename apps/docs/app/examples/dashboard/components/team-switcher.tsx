@@ -12,8 +12,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york/ui/avatar"
-import { Button } from "@/registry/new-york/ui/button"
+} from "@/registry/default/ui/avatar"
+import { Button } from "@/registry/default/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -22,7 +22,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/registry/new-york/ui/command"
+} from "@/registry/default/ui/command"
 import {
   Dialog,
   DialogContent,
@@ -31,21 +31,21 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york/ui/dialog"
-import { Input } from "@/registry/new-york/ui/input"
-import { Label } from "@/registry/new-york/ui/label"
+} from "@/registry/default/ui/dialog"
+import { Input } from "@/registry/default/ui/input"
+import { Label } from "@/registry/default/ui/label"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "@/registry/default/ui/popover"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "@/registry/default/ui/select"
 
 const groups = [
   {

@@ -22,16 +22,16 @@ import { Nav } from "@/app/examples/mail/components/nav"
 import { Mail } from "@/app/examples/mail/data"
 import { useMail } from "@/app/examples/mail/use-mail"
 import { cn } from "@/lib/utils"
-import { Separator } from "@/registry/new-york/ui/separator"
-import { Input } from "@/registry/new-york/ui/input"
+import { Separator } from "@/registry/default/ui/separator"
+import { Input } from "@/registry/default/ui/input"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import { TooltipProvider } from "@/registry/new-york/ui/tooltip"
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/registry/new-york/ui/resizable"
+} from "@/registry/default/ui/tabs"
+import { TooltipProvider } from "@/registry/default/ui/tooltip"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/registry/default/ui/resizable"
 
 interface MailProps {
   accounts: {

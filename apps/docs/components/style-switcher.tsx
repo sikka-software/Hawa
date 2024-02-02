@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { type SelectTriggerProps } from "@radix-ui/react-select"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
+import { useConfig } from "@/hooks/use-config";
+import { cn } from "@/lib/utils";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york/ui/select"
-import { Style, styles } from "@/registry/styles"
+  SelectValue
+} from "@/registry/default/ui/select";
+import { Style, styles } from "@/registry/styles";
+import { type SelectTriggerProps } from "@radix-ui/react-select";
 
 export function StyleSwitcher({ className }: SelectTriggerProps) {
-  const [config, setConfig] = useConfig()
+  const [config, setConfig] = useConfig();
 
   return (
     <Select
@@ -23,7 +23,7 @@ export function StyleSwitcher({ className }: SelectTriggerProps) {
       onValueChange={(value: Style["name"]) =>
         setConfig({
           ...config,
-          style: value,
+          style: value
         })
       }
     >
@@ -44,5 +44,5 @@ export function StyleSwitcher({ className }: SelectTriggerProps) {
         ))}
       </SelectContent>
     </Select>
-  )
+  );
 }

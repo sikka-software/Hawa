@@ -21,27 +21,27 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york/ui/avatar"
-import { Button } from "@/registry/new-york/ui/button"
-import { Calendar } from "@/registry/new-york/ui/calendar"
+} from "@/registry/default/ui/avatar"
+import { Button } from "@/registry/default/ui/button"
+import { Calendar } from "@/registry/default/ui/calendar"
 import {
   DropdownMenu,
   DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Label } from "@/registry/new-york/ui/label"
+} from "@/registry/default/ui/dropdown-menu"
+import { Label } from "@/registry/default/ui/label"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
-import { Separator } from "@/registry/new-york/ui/separator"
-import { Switch } from "@/registry/new-york/ui/switch"
-import { Textarea } from "@/registry/new-york/ui/textarea"
+} from "@/registry/default/ui/popover"
+import { Separator } from "@/registry/default/ui/separator"
+import { Switch } from "@/registry/default/ui/switch"
+import { Textarea } from "@/registry/default/ui/textarea"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/new-york/ui/tooltip"
+} from "@/registry/default/ui/tooltip"
 import { Mail } from "@/app/examples/mail/data"
 
 interface MailDisplayProps {

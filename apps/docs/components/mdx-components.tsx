@@ -14,8 +14,8 @@ import {
   Alert,
   AlertDescription,
   AlertTitle
-} from "@/registry/new-york/ui/alert";
-import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio";
+} from "@/registry/default/ui/alert";
+import { AspectRatio } from "@/registry/default/ui/aspect-ratio";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
@@ -306,4 +306,3 @@ export function Mdx({ code }: MdxProps) {
     </div>
   );
 }
-

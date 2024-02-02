@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/registry/default/ui/badge";
-import { Button } from "@/registry/new-york/ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -11,13 +11,13 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from "@/registry/new-york/ui/command";
+} from "@/registry/default/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from "@/registry/new-york/ui/popover";
-import { Separator } from "@/registry/new-york/ui/separator";
+} from "@/registry/default/ui/popover";
+import { Separator } from "@/registry/default/ui/separator";
 import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { Column } from "@tanstack/react-table";
 

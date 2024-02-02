@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/mobile-nav";
 import { ModeToggle } from "@/components/mode-toggle";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/registry/new-york/ui/button";
+import { buttonVariants } from "@/registry/default/ui/button";
 import Link from "next/link";
 
 import { LangToggle } from "./lang-toggle";
@@ -13,7 +13,9 @@ import { LangToggle } from "./lang-toggle";
 export function SiteHeader() {
   return (
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <div className="bg-red-500 text-center text-sm p-2">This docs is still work in progress. </div>
+      <div className="bg-red-500 p-2 text-center text-sm">
+        This docs is still work in progress.{" "}
+      </div>
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <MobileNav />
         <MainNav />

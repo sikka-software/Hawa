@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { docsConfig } from "@/config/docs";
 import { cn } from "@/lib/utils";
-import { Button } from "@/registry/new-york/ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -13,7 +13,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from "@/registry/new-york/ui/command";
+} from "@/registry/default/ui/command";
 import { DialogProps } from "@radix-ui/react-alert-dialog";
 import {
   CircleIcon,

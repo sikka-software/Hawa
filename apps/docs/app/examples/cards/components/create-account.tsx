@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { Icons } from "@/components/icons"
-import { Button } from "@/registry/new-york/ui/button"
+import { Icons } from "@/components/icons";
+import { Button } from "@/registry/default/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "@/registry/new-york/ui/card"
-import { Input } from "@/registry/new-york/ui/input"
-import { Label } from "@/registry/new-york/ui/label"
+  CardTitle
+} from "@/registry/default/ui/card";
+import { Input } from "@/registry/default/ui/input";
+import { Label } from "@/registry/default/ui/label";
 
 export function DemoCreateAccount() {
   return (
@@ -38,7 +38,7 @@ export function DemoCreateAccount() {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
+            <span className="bg-background text-muted-foreground px-2">
               Or continue with
             </span>
           </div>
@@ -56,5 +56,5 @@ export function DemoCreateAccount() {
         <Button className="w-full">Create account</Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
