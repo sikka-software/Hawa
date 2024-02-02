@@ -1211,13 +1211,7 @@ export const Index: Record<string, any> = {
       files: ["registry/default/example/cards/cards.tsx"],
     },
   },  "new-york": {
-    "accordion": {
-      name: "accordion",
-      type: "components:ui",
-      registryDependencies: undefined,
-      component: React.lazy(() => import("@/registry/new-york/ui/accordion")),
-      files: ["registry/new-york/ui/accordion.tsx"],
-    },
+   
     "alert": {
       name: "alert",
       type: "components:ui",
@@ -1246,13 +1240,7 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/new-york/ui/avatar")),
       files: ["registry/new-york/ui/avatar.tsx"],
     },
-    "badge": {
-      name: "badge",
-      type: "components:ui",
-      registryDependencies: undefined,
-      component: React.lazy(() => import("@/registry/new-york/ui/badge")),
-      files: ["registry/new-york/ui/badge.tsx"],
-    },
+
     "button": {
       name: "button",
       type: "components:ui",
@@ -1512,13 +1500,7 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/new-york/ui/tooltip")),
       files: ["registry/new-york/ui/tooltip.tsx"],
     },
-    "accordion-demo": {
-      name: "accordion-demo",
-      type: "components:example",
-      registryDependencies: ["accordion"],
-      component: React.lazy(() => import("@/registry/new-york/example/accordion-demo")),
-      files: ["registry/new-york/example/accordion-demo.tsx"],
-    },
+
     "alert-demo": {
       name: "alert-demo",
       type: "components:example",
@@ -1554,34 +1536,7 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/new-york/example/avatar-demo")),
       files: ["registry/new-york/example/avatar-demo.tsx"],
     },
-    "badge-demo": {
-      name: "badge-demo",
-      type: "components:example",
-      registryDependencies: ["badge"],
-      component: React.lazy(() => import("@/registry/new-york/example/badge-demo")),
-      files: ["registry/new-york/example/badge-demo.tsx"],
-    },
-    "badge-destructive": {
-      name: "badge-destructive",
-      type: "components:example",
-      registryDependencies: ["badge"],
-      component: React.lazy(() => import("@/registry/new-york/example/badge-destructive")),
-      files: ["registry/new-york/example/badge-destructive.tsx"],
-    },
-    "badge-outline": {
-      name: "badge-outline",
-      type: "components:example",
-      registryDependencies: ["badge"],
-      component: React.lazy(() => import("@/registry/new-york/example/badge-outline")),
-      files: ["registry/new-york/example/badge-outline.tsx"],
-    },
-    "badge-secondary": {
-      name: "badge-secondary",
-      type: "components:example",
-      registryDependencies: ["badge"],
-      component: React.lazy(() => import("@/registry/new-york/example/badge-secondary")),
-      files: ["registry/new-york/example/badge-secondary.tsx"],
-    },
+   
     "button-demo": {
       name: "button-demo",
       type: "components:example",

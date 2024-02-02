@@ -6,7 +6,7 @@ import { DashboardTableOfContents } from "@/components/toc";
 import { siteConfig } from "@/config/site";
 import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn } from "@/lib/utils";
-import { badgeVariants } from "@/registry/new-york/ui/badge";
+import { badgeVariants } from "@/registry/default/ui/badge";
 import "@/styles/mdx.css";
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import { allDocs } from "contentlayer/generated";

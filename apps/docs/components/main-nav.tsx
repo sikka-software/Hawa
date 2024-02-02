@@ -2,10 +2,8 @@
 
 import * as React from "react";
 
-import { Icons } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/registry/new-york/ui/badge";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
