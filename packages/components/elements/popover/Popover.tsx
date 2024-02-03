@@ -1,10 +1,9 @@
 import * as React from "react";
 
 import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cn } from "@util/index";
 
 import { PositionType } from "@_types/commonTypes";
-
-import { cn } from "@util/index";
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -76,7 +75,9 @@ const Popover: React.FC<HawaPopoverTypes> = ({
         align={align}
         sideOffset={sideOffset}
         style={{
-          width: widthStyles[width]
+          width: widthStyles[width],
+          maxWidth: "var(--radix-popover-content-available-width)",
+          maxHeight: "var(--radix-popover-content-available-height)"
         }}
         {...contentProps}
       >

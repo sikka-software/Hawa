@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.16
+
+### Patch Changes
+
+- Fixed `maxWidth` and `maxHeight` to not exceed the screen width & height for `Tooltip` and `Popover`
+
 ## 0.27.14
 
 ### Patch Changes

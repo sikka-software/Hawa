@@ -65,7 +65,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
   open,
   content,
   children,
-  disabled ,
+  disabled,
   defaultOpen,
   onOpenChange,
   triggerProps,
@@ -93,6 +93,11 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
           side={side}
           align="center"
           {...contentProps}
+          style={{
+            ...contentProps?.style,
+            maxWidth: "var(--radix-tooltip-content-available-width)",
+            maxHeight: "var(--radix-tooltip-content-available-height)"
+          }}
         >
           {content}
         </TooltipContent>

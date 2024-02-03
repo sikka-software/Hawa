@@ -6,23 +6,10 @@ import { Button } from "@sikka/hawa/elements/button";
 import { Input } from "@sikka/hawa/elements/input";
 
 import { setLocale, t } from "../../../translations/i18n";
-import RegisterDocs from "./Register";
 
 const meta = {
   title: "Blocks/User Auth/Register Form",
   component: RegisterForm
-  // parameters: {
-  //   controls: { exclude: ["direction"] },
-  //   docs: {
-  //     page: () => <RegisterDocs />,
-  //     toc: {
-  //       title: "Register Form",
-  //       headingSelector: "h2,h3",
-  //       ignoreSelector: "div"
-  //     }
-  //   }
-  // },
-  // tags: ["autodocs"]
 } satisfies Meta<typeof RegisterForm>;
 
 export default meta;
