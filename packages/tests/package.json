@@ -33,7 +33,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.51",
+    "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
     "@babel/preset-react": "^7.23.3",
     "@sikka/alam": "^0.0.4",
