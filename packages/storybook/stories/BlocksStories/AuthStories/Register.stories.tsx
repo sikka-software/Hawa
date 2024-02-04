@@ -34,7 +34,7 @@ export const Default: Story = {
           usernameOptions={{
             label: {
               hintSide: "right",
-              hint: "Testing a hint",
+              hint: "Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint ",
               required: true
             }
           }}
