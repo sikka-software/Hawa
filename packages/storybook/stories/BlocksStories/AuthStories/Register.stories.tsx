@@ -33,8 +33,8 @@ export const Default: Story = {
           ]}
           usernameOptions={{
             label: {
-              hintSide: "right",
-              hint: "Testing a hint",
+              hintSide: "top",
+              hint: "إسم البكلة هو الجزء الأخير من رابط البكلة الخاص بك. مثال: https://puk.la/example",
               required: true
             }
           }}
