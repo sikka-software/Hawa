@@ -34,7 +34,7 @@ export const Default: Story = {
           usernameOptions={{
             label: {
               hintSide: "right",
-              hint: "Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint Testing a hint ",
+              hint: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui eget nunc aliquam tincidunt nec nec libero. Nulla facilisi. Nulla nec dui eget nunc aliquam tincidunt nec nec libero.",
               required: true
             }
           }}

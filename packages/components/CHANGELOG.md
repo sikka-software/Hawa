@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.20
+
+### Patch Changes
+
+- RegisterForm: added classnames to allow consumers to customize the block.
+
 ## 0.27.16
 
 ### Patch Changes

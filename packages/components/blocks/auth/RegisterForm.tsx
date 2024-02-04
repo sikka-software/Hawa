@@ -82,6 +82,11 @@ type RegisterFormTypes = {
   usernameOptions?: {
     label?: LabelProps;
   };
+  classNames?: {
+    root?: string;
+    form?: string;
+    card?: string;
+  };
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = ({
@@ -178,8 +183,13 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
   });
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-4">
-      <Card dir={props.direction}>
+    <div
+      className={cn(
+        "hawa-flex hawa-flex-col hawa-gap-4",
+        props.classNames?.root
+      )}
+    >
+      <Card dir={props.direction} className={cn(props.classNames?.card)}>
         <CardContent headless>
           <div>
             {props.showError && (
