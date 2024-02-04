@@ -96,8 +96,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
           style={{
             ...contentProps?.style,
             maxWidth: "var(--radix-tooltip-content-available-width) !important",
-            maxHeight:
-              "var(--radix-tooltip-content-available-height) !important"
+            maxHeight: "var(--radix-tooltip-content-available-height)"
           }}
         >
           {content}
