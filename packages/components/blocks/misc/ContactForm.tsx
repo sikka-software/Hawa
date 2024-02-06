@@ -30,14 +30,14 @@ type ContactFormProps = {
   formId?: string;
   formAutoComplete?: "on" | "off";
   size?: "sm" | "default";
-  onSubmit?: (e: ContactFormData) => void;
+  onSubmit: (e: ContactFormData) => void;
+  customFields?: CustomField[];
   texts?: {
     submit: string;
     name: TextInputType;
     email: TextInputType;
     message: TextInputType;
   };
-  customFields?: CustomField[];
 };
 export const ContactForm: React.FC<ContactFormProps> = ({
   cardless,
@@ -72,17 +72,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   const contactFormSchema = z.object({
     name: z
-      .string({ required_error: texts?.name.required })
-      .min(1, texts?.name.required)
+      .string({ required_error: texts?.name.required || "Name is required" })
+      .min(1, texts?.name.required || "Name is required")
       .default(""),
     email: z
-      .string({ required_error: texts?.email?.required })
-      .min(1, { message: texts?.email?.required })
-      .email({ message: texts?.email?.invalid })
+      .string({ required_error: texts?.email?.required || "Email is required" })
+      .min(1, { message: texts?.email?.required || "Email is required" })
+      .email({ message: texts?.email?.invalid || "Invalid email" })
       .default(""),
     message: z
-      .string({ required_error: texts?.message.required })
-      .min(10, texts?.message.invalid)
+      .string({
+        required_error: texts?.message.required || "Message is required"
+      })
+      .min(10, texts?.message.invalid || "Message is too short")
       .default("")
   });
 
@@ -149,7 +151,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               name="name"
               render={({ field }) => (
                 <Input
-                  label={texts?.name.label}
+                  label={texts?.name.label || "Name"}
                   id={texts?.name.label}
                   {...field}
                   placeholder={texts?.name.placeholder}
@@ -162,7 +164,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               name="email"
               render={({ field }) => (
                 <Input
-                  label={texts?.email.label}
+                  label={texts?.email.label || "Email"}
                   id={texts?.email.label}
                   {...field}
                   placeholder={texts?.email.placeholder}
@@ -216,7 +218,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             name="message"
             render={({ field }) => (
               <Textarea
-                label={texts?.message.label}
+                label={texts?.message.label || "Message"}
                 id={texts?.message.label}
                 textareaProps={{
                   placeholder: texts?.message.placeholder,
