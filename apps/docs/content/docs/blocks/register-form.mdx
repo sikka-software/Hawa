@@ -15,7 +15,7 @@ The following props can be passed to the component
 
 | Prop                 | Type     | Default | Description                                                                                     |
 | -------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------- |
-| [texts](#texts)    | object   |         | Object containing text labels used throughout the form.                                         |
+| [texts](#texts)      | object   |         | Object containing text labels used throughout the form.                                         |
 | direction            | string   | `ltr`   | Direction of text and layout, either 'rtl' (right-to-left) or 'ltr' (left-to-right).            |
 | logosOnly            | boolean  | `false` | Determines whether to display logos only or with text in the social media registration section. |
 | viaGoogle            | boolean  | `false` | Enables registration via Google when set to true.                                               |
@@ -106,3 +106,22 @@ The following texts can be passed to the component
 | `continueWithGoogle`    | "Continue With Google"        |
 | `continueWithGithub`    | "Continue With Github"        |
 | `continueWithTwitter`   | "Continue With Twitter"       |
+
+## Known Issues
+
+- The popover tooltip of the hint of the username will not abide by the width of the screen if the register form container has a drop shadow. This issue will most likely appear when the hint message is long and the screen is small (i.e. mobile view).
+
+To replicate:
+
+```jsx
+<div className="drop-shadow">
+  <RegisterForm
+    // other props
+    usernameOptions={{
+      label: {
+        hint: "Write a long hint here that could potentially exceed the width of the screen"
+      }
+    }}
+  />
+</div>
+```
