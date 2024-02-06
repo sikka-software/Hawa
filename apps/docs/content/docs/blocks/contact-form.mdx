@@ -8,3 +8,58 @@ links:
 ---
 
 <ComponentPreview name="contact-form-demo" />
+
+## Props
+
+The following props can be passed to the component
+
+| Prop             | Type                                 | Default   | Description                                                             |
+| ---------------- | ------------------------------------ | --------- | ----------------------------------------------------------------------- |
+| [texts](#texts)  | object                               |           | Object containing text labels used throughout the form.                 |
+| cardless         | boolean                              | `false`   | Removes the card background and border                                  |
+| formId           | string                               |           | The id of the form                                                      |
+| formAutoComplete | `on` \| `off`                        | `off`     | Enable/disable autocomplete in the form fields                          |
+| onSubmit         | function                             |           | Function to be called when the form is submitted                        |
+| size             | `default` \| `sm`                    | `default` | The size of the form                                                    |
+| customFields     | array of [CustomField](#customfield) |           | Additional fields to be placed between the email and the message fields |
+
+### CustomField
+
+| Prop        | Type                           | Default | Description                                                                                                                   |
+| ----------- | ------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| label       | string                         |         | The label of the field                                                                                                        |
+| type        | `text` \| `number` \| `select` |         | The type of the field                                                                                                         |
+| name        | string                         |         | The name of the field                                                                                                         |
+| placeholder | string                         |         | The placeholder of the field                                                                                                  |
+| options     | array                          |         | An array of objects in the shape of `{  label: string;  value: string;}` which is used when the custom field type is `select` |
+
+## Texts
+
+The following texts can be passed to the component
+
+### name
+
+| Key           | Default            |
+| ------------- | ------------------ |
+| `label`       | "Name"             |
+| `placeholder` |                    |
+| `required`    | "Name is required" |
+| `invalid`     | "Name is required" |
+
+### email
+
+| Key           | Default             |
+| ------------- | ------------------- |
+| `label`       | "Email"             |
+| `placeholder` |                     |
+| `required`    | "Email is required" |
+| `invalid`     | "Invalid email"     |
+
+### message
+
+| Key           | Default                |
+| ------------- | ---------------------- |
+| `label`       | "Message"              |
+| `placeholder` |                        |
+| `required`    | "Message is Required"  |
+| `invalid`     | "Message is too short" |

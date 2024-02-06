@@ -44,7 +44,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   size = "default",
   texts,
   formId,
-  formAutoComplete,
+  formAutoComplete = "off",
   onSubmit,
   customFields
 }) => {
