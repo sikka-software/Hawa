@@ -5,13 +5,6 @@ import * as React from "react";
 
 export const Index: Record<string, any> = {
   default: {
-    "accordion-demo": {
-      name: "accordion-demo",
-      type: "components:example",
-      registryDependencies: ["accordion"],
-      component: React.lazy(() => import("@/registry/demos/accordion-demo")),
-      files: ["registry/demos/accordion-demo.tsx"]
-    },
     "login-form-demo": {
       name: "login-form-demo",
       type: "components:example",
@@ -42,12 +35,35 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/demos/app-layout-demo")),
       files: ["registry/demos/app-layout-demo.tsx"]
     },
+    "accordion-demo": {
+      name: "accordion-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/demos/accordion-demo")),
+      files: ["registry/demos/accordion-demo.tsx"]
+    },
     "toast-demo": {
       name: "toast-demo",
       type: "components:example",
       registryDependencies: ["toast"],
       component: React.lazy(() => import("@/registry/demos/toast-demo")),
       files: ["registry/demos/toast-demo.tsx"]
+    },
+    "alert-demo": {
+      name: "alert-demo",
+      type: "components:example",
+      registryDependencies: ["alert"],
+      component: React.lazy(() => import("@/registry/demos/alert-demo")),
+      files: ["registry/demos/alert-demo.tsx"]
+    },
+    "alert-customized-demo": {
+      name: "alert-customized-demo",
+      type: "components:example",
+      registryDependencies: ["alert"],
+      component: React.lazy(
+        () => import("@/registry/demos/alert-customized-demo")
+      ),
+      files: ["registry/demos/alert-customized-demo.tsx"]
     }
   }
 };

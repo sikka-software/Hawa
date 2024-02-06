@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 
+import { cn } from "@util/index";
+
 import { DirectionType, SeverityType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { Button } from "../button";
 
 type AlertTypes = {
@@ -13,13 +14,6 @@ type AlertTypes = {
   text: any;
   /** The duration for the alert to stay on the screen */
   duration?: number;
-  variant?:
-    | "normal"
-    | "solid"
-    | "top-accent"
-    | "left-accent"
-    | "right-accent"
-    | "bottom-accent";
   direction?: DirectionType;
   actions?: [
     {
@@ -42,7 +36,6 @@ type AlertTypes = {
 };
 
 export const Alert: React.FunctionComponent<AlertTypes> = ({
-  variant = "normal",
   direction = "ltr",
   severity = "none",
   duration,

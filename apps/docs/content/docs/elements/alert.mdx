@@ -7,3 +7,22 @@ links:
 ---
 
 <ComponentPreview name="alert-demo" />
+
+## Props
+
+| Name          | Type                                                                          | Default | Description                                                                                                                          |
+| ------------- | ----------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| severity      | `none` \| `success` \| `warning` \| `error` \| `info` \| `hyper` \| `oceanic` | `none`  | The severity of the alert.                                                                                                           |
+| title         | string                                                                        | -       | The title of the alert placed above the text of the alert. Can be used alone.                                                        |
+| text          | string                                                                        | -       | The text of the alert placed below the title of the alert. Can be used alone.                                                        |
+| duration      | number                                                                        | -       | The duration for the alert to stay on the screen.                                                                                    |
+| direction     | `rtl` \| `ltr`                                                                | `ltr`   | The text direction of the alert.                                                                                                     |
+| actions       | array of objects                                                              | -       | The actions that can be performed from the alert. Each object in the array should have a `label`, `onClick` function, and `variant`. |
+| persistent    | boolean                                                                       | false   | If true, removes the close button.                                                                                                   |
+| icon          | any                                                                           | -       | The icon to be displayed in the alert.                                                                                               |
+| className     | any                                                                           | -       | The CSS class to apply to the alert.                                                                                                 |
+| onAlertClosed | function                                                                      | -       | The function to call when the alert is closed.                                                                                       |
+
+## Custom Example
+
+<ComponentPreview name="alert-customized-demo" />

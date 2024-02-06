@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.22
+
+### Patch Changes
+
+- Removed unused old prop from `Alert`
+
 ## 0.27.21
 
 ### Patch Changes

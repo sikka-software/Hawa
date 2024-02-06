@@ -60,6 +60,7 @@ export const docsConfig: DocsConfig = {
       title: "Elements",
       items: [
         { title: "Accordion", href: "/docs/elements/accordion", items: [] },
+        { title: "Alert", href: "/docs/elements/alert", items: [] },
         {
           title: "Toaster",
           href: "/docs/elements/toaster",
