@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.21
+
+### Patch Changes
+
+- ContactForm: added default text strings and made `onSubmit` a required prop
+
 ## 0.27.20
 
 ### Patch Changes
