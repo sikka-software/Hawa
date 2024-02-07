@@ -8,6 +8,7 @@ import { ComponentExample } from "@/components/component-example";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
 import { FrameworkDocs } from "@/components/framework-docs";
+import { InlinePreview } from "@/components/inline-preview";
 import { useConfig } from "@/hooks/use-config";
 import { cn } from "@/lib/utils";
 import {
@@ -202,6 +203,7 @@ const components = {
   ),
   Image,
   Callout,
+  InlinePreview,
   ComponentPreview,
   ComponentExample,
   ComponentSource,

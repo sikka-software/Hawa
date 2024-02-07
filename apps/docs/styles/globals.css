@@ -72,10 +72,10 @@
     content: counter(step);
   }
   .neo-brutalism {
-    @apply shadow-color-primary active:shadow-color-primary-active  hawa-rounded hawa-border-2 hawa-border-primary hawa-px-4 hawa-py-2 hawa-font-bold hawa-uppercase hawa-transition-all active:hawa-translate-x-0.5 active:hawa-translate-y-0.5 dark:hawa-bg-black;
+    @apply shadow-color-primary active:shadow-color-primary-active  border-primary rounded border-2 px-4 py-2 font-bold uppercase transition-all active:translate-x-0.5 active:translate-y-0.5 dark:bg-black;
   }
   .clickable-link {
-    @apply hawa-cursor-pointer hawa-text-primary/80 hawa-underline hawa-underline-offset-4 hawa-transition-all hover:hawa-text-primary;
+    @apply text-primary/80 hover:text-primary cursor-pointer underline underline-offset-4 transition-all;
   }
   .hawa-icon {
     @apply hawa-h-4 hawa-w-4;

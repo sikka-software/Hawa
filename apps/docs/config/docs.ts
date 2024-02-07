@@ -28,6 +28,7 @@ export const docsConfig: DocsConfig = {
         { title: "Introduction", href: "/docs", items: [] },
         { title: "Installation", href: "/docs/installation", items: [] },
         { title: "Texts", href: "/docs/texts", items: [] },
+        { title: "Classes", href: "/docs/classes", items: [] },
         { title: "Changelog", href: "/docs/changelog", items: [] }
       ]
     },
