@@ -265,10 +265,9 @@ export const MultistepCarousel: Story = {
 
     return (
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Button onClick={() => setOpenDialog(!openDialog)}>Open Dialog</Button>
+
         <Dialog onOpenChange={setOpenDialog} open={openDialog}>
-          <DialogTrigger asChild>
-            <Button>Open Dialog</Button>
-          </DialogTrigger>
           <DialogCarouselContent
             hidePrevButton={!canScrollPrev} // Conditionally hide if cannot scroll to previous
             onPrev={emblaApi?.canScrollPrev && prevStep}

@@ -1,8 +1,9 @@
 import React from "react";
 
+import { cn } from "@util/index";
+
 import { RadiusType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { FileUploader } from "../fileUploader";
 
 interface AvatarProps {
@@ -24,9 +25,11 @@ interface AvatarProps {
   radius?: RadiusType;
   className?: string;
   icon?: React.ReactNode;
+  hideIcon?: boolean;
 }
 export const Avatar: React.FC<AvatarProps> = ({
   isUploadable,
+  hideIcon,
   src,
   alt,
   size = "default",
@@ -81,7 +84,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         src={src}
         alt={alt}
       />
-      {!src && !isUploadable && (
+      {!src && !hideIcon && (
         <div
           className={cn(
             sizeStyles[size],

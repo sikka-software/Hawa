@@ -54,11 +54,25 @@ export const Default: Story = {
             </BadgedComponent>
           </div>
         </div>
-        <div>
-          <div className="hawa-text-lg hawa-font-bold">
-            Uploadable (click to upload)
+        <div className="hawa-flex hawa-flex-row hawa-gap-6">
+          {" "}
+          <div>
+            <div className="hawa-text-lg hawa-font-bold">
+              Uploadable (click to upload)
+            </div>
+            <Avatar hideIcon isUploadable={true} alt="User Avatar" {...args} />
           </div>
-          <Avatar isUploadable={true} alt="User Avatar" {...args} />
+          <div>
+            <div className="hawa-text-lg hawa-font-bold">
+              Uploadable + Icon
+            </div>
+            <Avatar
+              icon={<Upload className="hawa-h-4 hawa-w-4" />}
+              isUploadable={true}
+              alt="User Avatar"
+              {...args}
+            />
+          </div>
         </div>
       </div>
     );
