@@ -1,7 +1,8 @@
 import React, { useState, FC, useRef, useEffect } from "react";
 
-import Countries from "../../countries";
 import { cn } from "@util/index";
+
+import Countries from "../../countries";
 import { Label, LabelProps } from "../label/Label";
 import { Select } from "../select/Select";
 
@@ -10,6 +11,7 @@ type PhoneInputTypes = {
   helperText?: any;
   label?: string;
   labelProps?: LabelProps;
+  placeholder?: string;
   handleChange?: (value: string) => void;
 };
 export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
@@ -67,7 +69,7 @@ export const PhoneInput: FC<PhoneInputTypes> = ({ labelProps, ...props }) => {
             onChange={handleInputChange}
             value={phoneNumber}
             type="tel"
-            placeholder="531045453"
+            placeholder={props.placeholder}
           />
         </div>
       </div>

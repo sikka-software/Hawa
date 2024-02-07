@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.27.23
+
+### Patch Changes
+
+- Added `hideIcon` prop to `Avatar`
+- Added `placeholder` prop to `PhoneInput`
+
 ## 0.27.22
 
 ### Patch Changes

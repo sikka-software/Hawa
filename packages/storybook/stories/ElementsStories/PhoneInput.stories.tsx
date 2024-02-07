@@ -20,7 +20,7 @@ export const Default: Story = {
 
     return (
       <div className="hawa-w-full hawa-max-w-sm hawa-p-2">
-        <PhoneInput label="Testing" />
+        <PhoneInput label="Testing" placeholder="531045453" />
       </div>
     );
   }
