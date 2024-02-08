@@ -49,6 +49,11 @@ export const docsConfig: DocsConfig = {
           title: "Register Form",
           href: "/docs/blocks/register-form",
           items: []
+        },
+        {
+          title: "Reset Password",
+          href: "/docs/blocks/reset-password",
+          items: []
         }
       ]
     },

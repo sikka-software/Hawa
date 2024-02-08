@@ -28,12 +28,17 @@ type ResetPasswordType = {
   texts?: ResetPasswordTextsTypes;
 };
 
-export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
+export const ResetPasswordForm: FC<ResetPasswordType> = ({
+  allowRegister = true,
+  ...props
+}) => {
   const formSchema = z.object({
     email: z
-      .string({ required_error: props.texts?.email?.required })
-      .email({ message: props.texts?.email?.invalid })
-      .min(1, { message: props.texts?.email?.required })
+      .string({
+        required_error: props.texts?.email?.required || "Email is required"
+      })
+      .email({ message: props.texts?.email?.invalid || "Invalid email" })
+      .min(1, { message: props.texts?.email?.required || "Email is required" })
   });
 
   const { handleSubmit, control, formState } = useForm({
@@ -65,14 +70,14 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
               }
             })}
           >
-            <CardContent headless={props.headless}>
+            <CardContent headless={props.headless} className="hawa-pb-4">
               <Controller
                 control={control}
                 name="email"
                 render={({ field }) => (
                   <Input
                     width="full"
-                    label={props.texts?.email?.label}
+                    label={props.texts?.email?.label || "Email"}
                     helperText={formState.errors.email?.message}
                     placeholder={props.texts?.email?.placeholder}
                     {...field}
@@ -81,10 +86,10 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
               />
             </CardContent>
             <CardFooter className="hawa-flex hawa-flex-col">
-              <Button type="submit" className="hawa-w-full">
-                {props.texts?.resetPassword}
+              <Button type="submit" className="hawa-w-full ">
+                {props.texts?.resetPassword || "Reset Password"}
               </Button>
-              {props.allowRegister && (
+              {allowRegister && (
                 <div className="hawa-mt-4 hawa-pb-0 hawa-text-center hawa-text-sm dark:hawa-text-gray-300">
                   {props.texts?.dontHaveAccount ?? "Don't have an account? "}
                   <span
@@ -100,7 +105,10 @@ export const ResetPasswordForm: FC<ResetPasswordType> = (props) => {
         </>
       ) : (
         <CardContent headless>
-          <div className="hawa-text-center">{props.texts?.emailSentText}</div>
+          <div className="hawa-text-center">
+            {props.texts?.emailSentText ||
+              "An email has been sent with a link to set a new password"}
+          </div>
         </CardContent>
       )}
     </Card>

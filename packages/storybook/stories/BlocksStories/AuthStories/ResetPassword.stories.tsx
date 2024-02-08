@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof ResetPasswordForm>;
 
-export const Default: Story = {
+const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
@@ -50,3 +50,5 @@ export const Default: Story = {
     handleRouteToRegister: { action: "handleRouteToRegister" }
   }
 };
+
+export { Default as ResetPasswordForm };

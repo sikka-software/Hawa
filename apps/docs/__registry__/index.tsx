@@ -8,21 +8,21 @@ export const Index: Record<string, any> = {
     "auth-buttons-demo": {
       name: "auth-buttons-demo",
       type: "components:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: [],
       component: React.lazy(() => import("@/registry/demos/auth-buttons-demo")),
       files: ["registry/demos/auth-buttons-demo.tsx"]
     },
     "login-form-demo": {
       name: "login-form-demo",
       type: "components:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: [],
       component: React.lazy(() => import("@/registry/demos/login-form-demo")),
       files: ["registry/demos/login-form-demo.tsx"]
     },
     "register-form-demo": {
       name: "register-form-demo",
       type: "components:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: [],
       component: React.lazy(
         () => import("@/registry/demos/register-form-demo")
       ),
@@ -31,14 +31,21 @@ export const Index: Record<string, any> = {
     "contact-form-demo": {
       name: "contact-form-demo",
       type: "components:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: [],
       component: React.lazy(() => import("@/registry/demos/contact-form-demo")),
       files: ["registry/demos/contact-form-demo.tsx"]
+    },
+    "reset-password-demo": {
+      name: "reset-password-demo",
+      type: "components:example",
+      registryDependencies: [],
+      component: React.lazy(() => import("@/registry/demos/reset-password-demo")),
+      files: ["registry/demos/reset-password-demo.tsx"]
     },
     "app-layout-demo": {
       name: "app-layout-demo",
       type: "components:example",
-      registryDependencies: ["accordion"],
+      registryDependencies: [],
       component: React.lazy(() => import("@/registry/demos/app-layout-demo")),
       files: ["registry/demos/app-layout-demo.tsx"]
     },
