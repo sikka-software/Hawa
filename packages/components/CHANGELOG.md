@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.27.24
+
+### Patch Changes
+
+- Exported `AuthButtons` from the blocks directory
+
 ## 0.27.23
 
 ### Patch Changes

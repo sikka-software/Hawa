@@ -1,0 +1,52 @@
+---
+title: Auth Buttons
+description: a collection of buttons for authentication
+component: true
+links:
+  storybook: https://storybook.hawa.style/?path=/story/blocks-user-auth-auth-buttons--auth-buttons
+---
+
+<ComponentPreview name="auth-buttons-demo" />
+
+## Props
+
+The following props can be passed to the component
+
+| Prop               | Type     | Default | Description                                       |
+| ------------------ | -------- | ------- | ------------------------------------------------- |
+| [texts](#text)     |          |         | Text labels used throughout the form.             |
+| viaGoogle          | boolean  |         | Enables Google authentication.                    |
+| viaTwitter         | boolean  |         | Enables Twitter authentication.                   |
+| viaGithub          | boolean  |         | Enables Github authentication.                    |
+| viaMicrosoft       | boolean  |         | Enables Microsoft authentication.                 |
+| viaEmail           | boolean  |         | Enables Email authentication.                     |
+| viaPhone           | boolean  |         | Enables Phone authentication.                     |
+| viaApple           | boolean  |         | Enables Apple authentication.                     |
+| isGoogleLoading    | boolean  |         | Indicates if Google authentication is loading.    |
+| isGithubLoading    | boolean  |         | Indicates if Github authentication is loading.    |
+| isTwitterLoading   | boolean  |         | Indicates if Twitter authentication is loading.   |
+| isMicrosoftLoading | boolean  |         | Indicates if Microsoft authentication is loading. |
+| isEmailLoading     | boolean  |         | Indicates if Email authentication is loading.     |
+| isPhoneLoading     | boolean  |         | Indicates if Phone authentication is loading.     |
+| isAppleLoading     | boolean  |         | Indicates if Apple authentication is loading.     |
+| handleGoogle       | function |         | Function to handle Google authentication.         |
+| handleTwitter      | function |         | Function to handle Twitter authentication.        |
+| handleApple        | function |         | Function to handle Apple authentication.          |
+| handleMicrosoft    | function |         | Function to handle Microsoft authentication.      |
+| handleGithub       | function |         | Function to handle Github authentication.         |
+| handleEmail        | function |         | Function to handle Email authentication.          |
+| handlePhone        | function |         | Function to handle Phone authentication.          |
+
+## Texts
+
+The following props can be passed to the component
+
+| Key                   | Default |
+| --------------------- | ------- |
+| continueWithGoogle    |         |
+| continueWithTwitter   |         |
+| continueWithApple     |         |
+| continueWithMicrosoft |         |
+| continueWithGithub    |         |
+| continueWithEmail     |         |
+| continueWithPhone     |         |

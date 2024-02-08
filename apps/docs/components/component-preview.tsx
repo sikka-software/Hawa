@@ -3,9 +3,7 @@
 import * as React from "react";
 
 import { Index } from "@/__registry__";
-import { CopyButton, CopyWithClassNames } from "@/components/copy-button";
 import { Icons } from "@/components/icons";
-import { StyleSwitcher } from "@/components/style-switcher";
 import { ThemeWrapper } from "@/components/theme-wrapper";
 import { useConfig } from "@/hooks/use-config";
 import { cn } from "@/lib/utils";

@@ -42,6 +42,7 @@ export const docsConfig: DocsConfig = {
     {
       title: "Blocks",
       items: [
+        { title: "Auth Buttons", href: "/docs/blocks/auth-buttons", items: [] },
         { title: "Contact Form", href: "/docs/blocks/contact-form", items: [] },
         { title: "Login Form", href: "/docs/blocks/login-form", items: [] },
         {

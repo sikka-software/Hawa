@@ -5,6 +5,13 @@ import * as React from "react";
 
 export const Index: Record<string, any> = {
   default: {
+    "auth-buttons-demo": {
+      name: "auth-buttons-demo",
+      type: "components:example",
+      registryDependencies: ["accordion"],
+      component: React.lazy(() => import("@/registry/demos/auth-buttons-demo")),
+      files: ["registry/demos/auth-buttons-demo.tsx"]
+    },
     "login-form-demo": {
       name: "login-form-demo",
       type: "components:example",
