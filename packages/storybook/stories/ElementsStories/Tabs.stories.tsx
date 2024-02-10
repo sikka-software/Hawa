@@ -8,6 +8,7 @@ import {
   TabsList,
   TabsTrigger
 } from "@sikka/hawa/elements/tabs";
+import { OrientationType } from "@sikka/hawa/types/commonTypes";
 
 import { setLocale, t } from "../../translations/i18n";
 
@@ -25,7 +26,7 @@ export const Default: Story = {
     setLocale(locale);
 
     return (
-      <Tabs defaultValue="account" dir={direction}>
+      <Tabs variant={args.variant} defaultValue="account" dir={direction}>
         <TabsList className="hawa-w-full">
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
@@ -70,6 +71,9 @@ export const Default: Story = {
         </TabsContent>
       </Tabs>
     );
+  },
+  args: {
+    variant: "default"
   }
 };
 export const Vertical: Story = {
@@ -79,7 +83,12 @@ export const Vertical: Story = {
     const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
-      <Tabs defaultValue="account" orientation="vertical" dir={direction}>
+      <Tabs
+        variant={args.variant}
+        defaultValue="account"
+        orientation="vertical"
+        dir={direction}
+      >
         <TabsList>
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
@@ -114,5 +123,8 @@ export const Vertical: Story = {
         </TabsContent>
       </Tabs>
     );
+  },
+  args: {
+    variant: "default"
   }
 };

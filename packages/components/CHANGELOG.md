@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.28.0
+
+### Minor Changes
+
+- Adds new variants (`underlined` and `underlined_tabs`) to `Tabs`
+- Initial integration of 'tailwind-variants' package
+
 ## 0.27.24
 
 ### Patch Changes
