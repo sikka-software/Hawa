@@ -2,7 +2,7 @@ name: Hawa Deployment
 
 on:
   push:
-    branches: [main]
+    branches: [main2]
     paths:
       - "apps/docs/**"
       - "packages/storybook/**"
