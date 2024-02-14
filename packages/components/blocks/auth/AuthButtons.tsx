@@ -8,6 +8,9 @@ import { ThirdPartyAuthTextsTypes } from "@_types/textTypes";
 
 type AuthButtonsType = {
   texts?: ThirdPartyAuthTextsTypes;
+
+  viaMetamask?: boolean;
+  viaNafath?: boolean;
   viaGoogle?: boolean;
   viaTwitter?: boolean;
   viaGithub?: boolean;
@@ -15,6 +18,9 @@ type AuthButtonsType = {
   viaEmail?: boolean;
   viaPhone?: boolean;
   viaApple?: boolean;
+
+  isMetamaskLoading?: boolean;
+  isNafathLoading?: boolean;
   isGoogleLoading?: boolean;
   isGithubLoading?: boolean;
   isTwitterLoading?: boolean;
@@ -22,6 +28,9 @@ type AuthButtonsType = {
   isEmailLoading?: boolean;
   isPhoneLoading?: boolean;
   isAppleLoading?: boolean;
+
+  handleMetamask?: () => void;
+  handleNafath?: () => void;
   handleGoogle?: () => void;
   handleTwitter?: () => void;
   handleApple?: () => void;
@@ -34,6 +43,40 @@ type AuthButtonsType = {
 export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      {/* Metamask */}
+      {props.viaMetamask && (
+        <Button
+          disabled={props.isMetamaskLoading}
+          className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
+          variant="outline"
+          onClick={props.handleMetamask}
+        >
+          {props.isMetamaskLoading ? (
+            <Loading size="button" />
+          ) : (
+            <Logos.metamask className="hawa-h-6" />
+          )}
+          {props.texts?.continueWithMetamask ?? "Connect Metamask"}
+        </Button>
+      )}
+      {/* Nafath */}
+      {props.viaNafath && (
+        <Button
+          disabled={props.isNafathLoading}
+          className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"
+          variant="outline"
+          onClick={props.handleNafath}
+        >
+          {props.isNafathLoading ? (
+            <Loading size="button" />
+          ) : (
+            <Logos.nafath className="hawa-h-4" />
+          )}
+          {props.texts?.continueWithNafath ?? "Continue With Nafath"}
+        </Button>
+      )}
+
+      {/* Google */}
       {props.viaGoogle && (
         <Button
           disabled={props.isGoogleLoading}
@@ -49,6 +92,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithGoogle ?? "Continue With Google"}
         </Button>
       )}
+
       {props.viaGithub && (
         <Button
           disabled={props.isGithubLoading}

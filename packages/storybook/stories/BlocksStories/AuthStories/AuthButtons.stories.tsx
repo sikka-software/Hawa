@@ -26,6 +26,8 @@ const Default: Story = {
     );
   },
   args: {
+    viaMetamask: true,
+    viaNafath: true,
     viaEmail: true,
     viaPhone: true,
     viaApple: true,
@@ -35,6 +37,8 @@ const Default: Story = {
     viaMicrosoft: true
   },
   argTypes: {
+    handleMetamask: { action: "handleMetamask" },
+    handleNafath: { action: "handleNafath" },
     handlePhone: { action: "handlePhone" },
     handleApple: { action: "handleApple" },
     handleEmail: { action: "handleEmail" },

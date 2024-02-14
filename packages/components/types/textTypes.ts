@@ -16,6 +16,8 @@ export type ThirdPartyAuthTextsTypes = {
   continueWithGithub?: string;
   continueWithEmail?: string;
   continueWithPhone?: string;
+  continueWithNafath?: string;
+  continueWithMetamask?: string;
 };
 export type BaseInputType = {
   label?: string;
