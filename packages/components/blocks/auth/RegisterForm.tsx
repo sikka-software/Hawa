@@ -383,17 +383,20 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                             helperText={formState.errors.terms_accepted?.message?.toString()}
                             onCheckedChange={(e) => field.onChange(e)}
                             label={
-                              <div className="hawa-flex hawa-flex-row hawa-gap-0.5">
-                                <span>
-                                  {texts?.iAcceptText || "I accept the "}
-                                </span>{" "}
+                              <div className="hawa-flex hawa-flex-row hawa-gap-0.5 hawa-whitespace-nowrap hawa-flex-wrap">
+                                {texts?.iAcceptText || "I accept the"}{" "}
                                 <StopPropagationWrapper>
-                                  <a
-                                    onClick={props.onRouteToTOS}
+                                  <span
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      if (props.onRouteToTOS) {
+                                        props.onRouteToTOS();
+                                      }
+                                    }}
                                     className="clickable-link"
                                   >
                                     {texts?.termsText || "Terms of Service"}
-                                  </a>
+                                  </span>
                                 </StopPropagationWrapper>
                               </div>
                             }
