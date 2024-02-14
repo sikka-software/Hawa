@@ -5,6 +5,7 @@ import { Highlight, HighlightProps, themes, Prism } from "prism-react-renderer";
 
 import { useClipboard } from "../../hooks/useClipboard";
 import { Button } from "../button";
+import { ScrollArea } from "../scrollArea";
 import { Tooltip } from "../tooltip";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
@@ -58,7 +59,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
   fileName,
   classNames,
   language = "javascript", // default to JavaScript if no language is provided
-  wrapText = false,
+  wrapText = true,
   width = "full",
   ...props
 }) => {
@@ -81,33 +82,6 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
         classNames?.root
       )}
     >
-      <div
-        className={cn(
-          "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3.5",
-          {
-            "hawa-top-3.5": !tabs && !fileName,
-            "hawa-top-[50px]": tabs && !fileName,
-            "hawa-top-11": !tabs && fileName,
-            "hawa-top-[80px]": tabs && fileName
-          }
-        )}
-      >
-        <Tooltip
-          open={clipboard.copied}
-          side="left"
-          content={<div>Copied!</div>}
-          triggerProps={{ asChild: true }}
-        >
-          <Button
-            size="smallIcon"
-            onClick={() => clipboard.copy(tabs ? tabs[selectedTab].code : code)}
-            variant="outline"
-            className="hawa-text-gray-200 hawa-opacity-50 "
-          >
-            <CopyIcon />
-          </Button>
-        </Tooltip>
-      </div>
       {fileName && (
         <div
           className={cn(
@@ -166,6 +140,29 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           "hawa-overflow-y-auto"
         )}
       >
+        <div
+          className={cn(
+            "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3 hawa-top-3"
+          )}
+        >
+          <Tooltip
+            open={clipboard.copied}
+            side="left"
+            content={<div>Copied!</div>}
+            triggerProps={{ asChild: true }}
+          >
+            <Button
+              size="smallIcon"
+              onClick={() =>
+                clipboard.copy(tabs ? tabs[selectedTab].code : code)
+              }
+              variant="outline"
+              className="hawa-text-gray-200 hawa-opacity-50 dark:hawa-border-gray-200 dark:hover:hawa-border-gray-400"
+            >
+              <CopyIcon />
+            </Button>
+          </Tooltip>
+        </div>
         <Highlight
           theme={theme}
           code={tabs ? tabs[selectedTab].code : code || ""}
@@ -174,7 +171,8 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre
               className={cn(
-                "hawa-min-h-[37.75px] !hawa-pe-12 hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
+                // !hawa-pe-12
+                "hawa-min-h-[37.75px]  hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
                 classNames?.code,
                 wrapText && "hawa-text-wrap"
               )}
