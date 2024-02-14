@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.28.1
+
+### Patch Changes
+
+- handling submit screen in `FeedbackForm`
+- Added Nafath and Metamask auth buttons in `AuthButtons`
+- Fixed tos text wrapping in `RegisterForm`
+- Fixed overflow and text wrapping in `CodeBlock`
+
 ## 0.28.0
 
 ### Minor Changes
