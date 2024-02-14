@@ -68,20 +68,23 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    const [isSuccess, setIsSuccess] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [sent, setSent] = useState(false);
     const mockSubmit = async (data: any) => {
       return new Promise((resolve, reject) => {
-        setIsSuccess(true);
+        setIsLoading(true);
         setTimeout(() => {
           resolve("Submission successful");
-          setIsSuccess(false);
+          setIsLoading(false);
+          setSent(true);
         }, 2000);
       });
     };
     return (
       <div dir={direction} className="hawa-max-w-sm">
         <FeedbackForm
-          loadingSubmission={isSuccess}
+          sent={sent}
+          loadingSubmission={isLoading}
           texts={{
             description: {
               label: t("description"),
