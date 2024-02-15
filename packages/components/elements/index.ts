@@ -53,3 +53,4 @@ export * from "./toaster";
 export * from "./destroyableCard";
 export * from "./interfaceSettings";
 export * from "./fileUploader";
+export * from "./phoneMockup";

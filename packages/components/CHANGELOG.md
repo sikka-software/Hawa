@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.0
+
+### Minor Changes
+
+- Add `PhoneMockup` element for iPhone and Andriod
+
 ## 0.28.1
 
 ### Patch Changes
