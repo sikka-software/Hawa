@@ -10,7 +10,7 @@ import {
   AccordionItemProps
 } from "@sikka/hawa/elements/accordion";
 
-import { setLocale, t } from "../../translations/i18n";
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Accordion",
