@@ -87,43 +87,49 @@ export const Radio: FC<RadioTypes> = ({
   switch (design) {
     case "tabs":
       return (
-        <ul
-          ref={parentRef}
-          className={cn(
-            props.options && props.options?.length > 2
-              ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
-              : "",
-            "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium",
-            orientationStyle[orientation],
-            widthStyle[width],
-            tabsContainerClassName
-          )}
-        >
-          {props.options?.map((opt: any, o) => (
-            <li
-              aria-current="page"
-              onClick={() => handleChange(opt)}
-              className={cn(
-                "hawa-w-full hawa-cursor-pointer ",
-                orientation === "horizontal" &&
-                  parentDirection === "ltr" &&
-                  "hawa-rounded-none first:hawa-rounded-l last:hawa-rounded-r",
-                orientation === "horizontal" &&
-                  parentDirection === "rtl" &&
-                  "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
-                orientation === "vertical" &&
-                  "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
-                tabSizeStyle[size],
-                "hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
-                selectedOption === opt.value ? activeTabStyle : inactiveTabStyle
-              )}
-              key={o}
-            >
-              {opt.icon && opt.icon}
-              {opt.label}
-            </li>
-          ))}
-        </ul>
+        <div className="hawa-gap-2 hawa-flex hawa-flex-col">
+          {props.label && <Label {...labelProps}>{props.label}</Label>}
+
+          <ul
+            ref={parentRef}
+            className={cn(
+              props.options && props.options?.length > 2
+                ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
+                : "",
+              "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium",
+              orientationStyle[orientation],
+              widthStyle[width],
+              tabsContainerClassName
+            )}
+          >
+            {props.options?.map((opt: any, o) => (
+              <li
+                aria-current="page"
+                onClick={() => handleChange(opt)}
+                className={cn(
+                  "hawa-w-full hawa-cursor-pointer ",
+                  orientation === "horizontal" &&
+                    parentDirection === "ltr" &&
+                    "hawa-rounded-none first:hawa-rounded-l last:hawa-rounded-r",
+                  orientation === "horizontal" &&
+                    parentDirection === "rtl" &&
+                    "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
+                  orientation === "vertical" &&
+                    "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
+                  tabSizeStyle[size],
+                  "hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
+                  selectedOption === opt.value
+                    ? activeTabStyle
+                    : inactiveTabStyle
+                )}
+                key={o}
+              >
+                {opt.icon && opt.icon}
+                {opt.label}
+              </li>
+            ))}
+          </ul>
+        </div>
       );
     case "bordered":
       return (

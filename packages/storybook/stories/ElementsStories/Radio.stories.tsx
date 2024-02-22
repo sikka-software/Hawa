@@ -1,6 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Input } from "@sikka/hawa/elements";
 import { Radio } from "@sikka/hawa/elements/radio";
 
 import { setLocale, t } from "../../translations/i18n";
@@ -65,7 +66,6 @@ export const Default: Story = {
   },
   argTypes: { onChange: { action: "onChange" } }
 };
-
 export const Tabs: Story = {
   parameters: { layout: "padded" },
   render: (args: any) => (
@@ -401,4 +401,35 @@ export const Bordered: Story = {
     );
   },
   argTypes: { onChange: { action: "onChange" } }
+};
+export const Playground: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    setLocale(locale);
+    return (
+      <div className="hawa-flex hawa-flex-row hawa-gap-2">
+        <Radio
+          name="default"
+          design="tabs"
+          defaultValue="option2"
+          labelProps={{ htmlFor: "horizontal" }}
+          label="Radio Field"
+          helperText="Please pick an option"
+          direction={direction}
+          tabsContainerClassName="hawa-h-[40px]"
+          options={[
+            { label: `Option 1`, value: `option1` },
+            { label: `Option 2`, value: `option2`, disabled: true },
+            { label: `Option 3`, value: `option3` }
+          ]}
+          {...args}
+        />
+        <Input label="Input Field" />
+      </div>
+    );
+  },
+  argTypes: { onChange: { action: "onChange" } },
+  parameters: { layout: "full-screen" }
 };

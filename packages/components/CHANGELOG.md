@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.1
+
+### Patch Changes
+
+- Adds label option to `Radio` when design is `tabs`
+
 ## 0.29.0
 
 ### Minor Changes
