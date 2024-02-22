@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.3
+
+### Patch Changes
+
+- Adds `helperText` props to `Radio` when design is `tabs`
+
 ## 0.29.2
 
 ### Patch Changes

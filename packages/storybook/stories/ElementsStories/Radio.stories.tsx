@@ -426,7 +426,7 @@ export const Playground: Story = {
           ]}
           {...args}
         />
-        <Input label="Input Field" />
+        <Input label="Input Field" helperText="Please pick an option" />
       </div>
     );
   },

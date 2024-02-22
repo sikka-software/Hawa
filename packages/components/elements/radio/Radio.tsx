@@ -129,6 +129,16 @@ export const Radio: FC<RadioTypes> = ({
               </li>
             ))}
           </ul>
+          <p
+            className={cn(
+              "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+              props.helperText
+                ? "hawa-h-4 hawa-opacity-100"
+                : "hawa-h-0 hawa-opacity-0"
+            )}
+          >
+            {props.helperText}
+          </p>
         </div>
       );
     case "bordered":
