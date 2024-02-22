@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.2
+
+### Patch Changes
+
+- Adds ability to stylize the logo in `AppLayout`
+
 ## 0.29.1
 
 ### Patch Changes

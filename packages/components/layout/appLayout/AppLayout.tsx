@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { cn } from "@util/index";
+
 import { Button } from "@elements/button";
 import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {
@@ -73,11 +74,17 @@ type AppLayoutTypes = {
     /** Label for collapse sidebar button. */
     collapseSidebar?: string;
   };
+  classNames?: {
+    fullLogoImg?: string;
+    symbolLogoImg?: string;
+    logoContainer?: string;
+  };
 };
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   profileMenuWidth = "default",
   DrawerFooterActions,
+  classNames,
   design = "default",
   direction = "ltr",
   drawerSize = "md",
@@ -318,7 +325,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           dir={direction}
           className={cn(
             "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all",
-            props.onLogoClick && "hawa-cursor-pointer"
+            props.onLogoClick && "hawa-cursor-pointer",
+            classNames?.logoContainer
           )}
           style={{
             width:
@@ -339,7 +347,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 "hawa-h-9  hawa-opacity-0 hawa-transition-all",
                 !openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
-                  : "hawa-visible hawa-opacity-100"
+                  : "hawa-visible hawa-opacity-100",
+                classNames?.fullLogoImg
               )}
               src={props.logoLink}
             />
@@ -358,7 +367,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   : "hawa-left-2.5 hawa-top-2.5",
                 openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
-                  : "hawa-visible hawa-opacity-100"
+                  : "hawa-visible hawa-opacity-100",
+                classNames?.symbolLogoImg
               )}
               src={props.logoSymbol}
             />
