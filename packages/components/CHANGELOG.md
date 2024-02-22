@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.5
+
+### Patch Changes
+
+- Ability to pass custom anchor component for `AppLayout` subitems
+
 ## 0.29.4
 
 ### Patch Changes

@@ -79,6 +79,7 @@ type AppLayoutTypes = {
     symbolLogoImg?: string;
     logoContainer?: string;
   };
+  LinkComponent?: any;
 };
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
@@ -92,6 +93,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   clickedItem,
   setKeepOpen,
   keepOpen,
+  LinkComponent,
   ...props
 }) => {
   let closeDrawerWidth = 56;
@@ -413,6 +415,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
             isOpen={keepOpen || openSideMenu}
             items={props.drawerItems}
+            LinkComponent={LinkComponent}
           />
         </div>
         {/*

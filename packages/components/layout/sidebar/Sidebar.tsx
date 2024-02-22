@@ -1,10 +1,11 @@
 import * as React from "react";
 
-import { DirectionType } from "@_types/commonTypes";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { cn } from "@util/index";
+
+import { DirectionType } from "@_types/commonTypes";
 
 import { Chip, ChipColors } from "../../elements/chip";
-import { cn } from "@util/index";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -98,6 +99,7 @@ interface SidebarGroupProps {
   onItemClick?: (value: string[]) => void;
   onSubItemClick?: (values: string[]) => void;
   direction?: DirectionType;
+  LinkComponent?: any;
 }
 
 const SidebarGroup: React.FC<SidebarGroupProps> = ({
@@ -109,9 +111,11 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
   onItemClick,
   onSubItemClick,
   direction,
-  isOpen
+  isOpen,
+  ...props
 }) => {
-  // console.log("selected item is ", selectedItem)
+  const LinkComponent = props.LinkComponent || "a"; // Use the provided LinkComponent or 'a' as a fallback
+
   return (
     <div className="hawa-m-2">
       {title && <h3 className="hawa-mb-1 hawa-font-bold">{title}</h3>}
@@ -134,6 +138,7 @@ const SidebarGroup: React.FC<SidebarGroupProps> = ({
               item={item}
               onItemClick={onItemClick}
               onSubItemClick={onSubItemClick}
+              LinkComponent={LinkComponent}
             />
           ))}
         </Accordion>
@@ -148,12 +153,14 @@ const SidebarItem: React.FC<{
   onItemClick?: (value: string[]) => void;
   onSubItemClick?: (values: string[]) => void;
   isOpen?: boolean;
+  LinkComponent?: any;
 }> = ({
   item,
   onItemClick,
   onSubItemClick,
   direction,
   isOpen = true,
+  LinkComponent,
   ...props
 }) => {
   const getSelectedStyle = (value: string) => {
@@ -207,18 +214,15 @@ const SidebarItem: React.FC<{
               )}
             >
               {item.subitems.map((subitem, idx) => (
-                <a
+                <LinkComponent
                   href={subitem.slug}
                   key={idx}
-                  onMouseDown={(e) => {
+                  onMouseDown={(e: any) => {
                     if (subitem.onMouseDown) {
                       subitem.onMouseDown(e);
                     }
-                    // if (onItemClick) {
-                    //   onItemClick([item.value]);
-                    // }
                   }}
-                  onClick={(e) => {
+                  onClick={(e: any) => {
                     e.stopPropagation();
                     if (subitem.onClick) {
                       subitem.onClick(e);
@@ -235,7 +239,7 @@ const SidebarItem: React.FC<{
                 >
                   {subitem.icon && subitem.icon}
                   {subitem.label}
-                </a>
+                </LinkComponent>
               ))}
             </div>
           </AccordionContent>
