@@ -28,6 +28,7 @@ type RadioTypes = {
   labelProps?: LabelProps;
   label?: string;
   tabsContainerClassName?: string;
+  forceHideHelperText?: boolean;
 };
 export const Radio: FC<RadioTypes> = ({
   design = "default",
@@ -37,6 +38,7 @@ export const Radio: FC<RadioTypes> = ({
   name,
   labelProps,
   tabsContainerClassName,
+  forceHideHelperText = false,
   onChange,
   ...props
 }) => {
@@ -129,16 +131,18 @@ export const Radio: FC<RadioTypes> = ({
               </li>
             ))}
           </ul>
-          <p
-            className={cn(
-              "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-              props.helperText
-                ? "hawa-h-4 hawa-opacity-100"
-                : "hawa-h-0 hawa-opacity-0"
-            )}
-          >
-            {props.helperText}
-          </p>
+          {!forceHideHelperText && (
+            <p
+              className={cn(
+                "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+                props.helperText
+                  ? "hawa-h-4 hawa-opacity-100"
+                  : "hawa-h-0 hawa-opacity-0"
+              )}
+            >
+              {props.helperText}
+            </p>
+          )}
         </div>
       );
     case "bordered":
