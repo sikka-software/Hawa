@@ -23,6 +23,7 @@ type RadioTypes = {
   options: RadioOptionsTypes[];
   onChange?: any;
   defaultValue?: any;
+  value?: any;
   direction?: DirectionType;
   helperText?: string;
   labelProps?: LabelProps;
@@ -42,7 +43,9 @@ export const Radio: FC<RadioTypes> = ({
   onChange,
   ...props
 }) => {
-  const [selectedOption, setSelectedOption] = useState(props.defaultValue);
+  const [selectedOption, setSelectedOption] = useState(
+    props.defaultValue || props.value
+  );
   let activeTabStyle =
     "hawa-inline-block hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
   let inactiveTabStyle =

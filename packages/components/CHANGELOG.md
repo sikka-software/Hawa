@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.4
+
+### Patch Changes
+
+- Adds `value` prop to `Radio`
+
 ## 0.29.3
 
 ### Patch Changes
