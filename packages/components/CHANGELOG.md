@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.14
+
+### Patch Changes
+
+- Add `disabled` prop to `Radio` component when the design prop is set to `tabs`
+
 ## 0.29.9
 
 ### Patch Changes

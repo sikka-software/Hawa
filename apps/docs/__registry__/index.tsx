@@ -49,6 +49,13 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/demos/app-layout-demo")),
       files: ["registry/demos/app-layout-demo.tsx"]
     },
+    "dropdown-menu-demo": {
+      name: "dropdown-menu-demo",
+      type: "components:example",
+      registryDependencies: ["dropdownmenu"],
+      component: React.lazy(() => import("@/registry/demos/dropdown-menu-demo")),
+      files: ["registry/demos/accordion-demo.tsx"]
+    },
     "accordion-demo": {
       name: "accordion-demo",
       type: "components:example",

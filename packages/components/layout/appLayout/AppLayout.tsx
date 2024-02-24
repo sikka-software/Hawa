@@ -101,16 +101,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   let closeDrawerWidth = 56;
   let openDrawerWidth = 200;
   let drawerSizeStyle: any = {
-    opened: {
-      sm: "100",
-      md: openDrawerWidth,
-      lg: "250"
-    },
-    closed: {
-      sm: closeDrawerWidth,
-      md: closeDrawerWidth,
-      lg: closeDrawerWidth
-    }
+    opened: { sm: "100", md: openDrawerWidth, lg: "250" },
+    closed: { sm: closeDrawerWidth, md: closeDrawerWidth, lg: closeDrawerWidth }
   };
 
   const ref = useRef<HTMLDivElement>(null);

@@ -72,6 +72,11 @@ export const docsConfig: DocsConfig = {
           title: "Toaster",
           href: "/docs/elements/toaster",
           items: []
+        },
+        {
+          title: "DropdownMenu",
+          href: "/docs/elements/dropdown-menu",
+          items: []
         }
       ]
     }

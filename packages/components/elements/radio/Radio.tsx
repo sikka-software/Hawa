@@ -14,12 +14,13 @@ export type RadioOptionsTypes = {
 };
 
 type RadioTypes = {
+  /** Required to enable selection and differentiate between different Radio instances. */
+  name: string;
+  disabled?: boolean;
   orientation?: OrientationType;
   design?: "default" | "tabs" | "cards" | "bordered";
   width?: "default" | "full" | "none";
   size?: "default" | "lg" | "sm" | "xs";
-  /** Required to enable selection and differentiate between different Radio instances. */
-  name: string;
   options: RadioOptionsTypes[];
   onChange?: any;
   defaultValue?: any;
@@ -31,6 +32,7 @@ type RadioTypes = {
   tabsContainerClassName?: string;
   forceHideHelperText?: boolean;
 };
+
 export const Radio: FC<RadioTypes> = ({
   design = "default",
   width = "default",
@@ -48,9 +50,8 @@ export const Radio: FC<RadioTypes> = ({
   );
   let activeTabStyle =
     "hawa-inline-block hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
-  let inactiveTabStyle =
-    "hawa-inline-block hawa-w-full hawa-transition-all hover:hawa-bg-muted hawa-bg-primary-foreground dark:hover:hawa-text-white";
-  // hawa-bg-primary/5
+  let inactiveTabStyle = `hawa-inline-block hawa-w-full hawa-transition-all  hawa-bg-primary-foreground dark:hover:hawa-text-white
+    ${props.disabled ? "" : "hover:hawa-bg-muted"}`;
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row",
     vertical: "hawa-flex hawa-flex-col"
@@ -110,9 +111,13 @@ export const Radio: FC<RadioTypes> = ({
             {props.options?.map((opt: any, o) => (
               <li
                 aria-current="page"
-                onClick={() => handleChange(opt)}
+                onClick={() => {
+                  if (props.disabled) return;
+                  handleChange(opt);
+                }}
                 className={cn(
-                  "hawa-w-full hawa-cursor-pointer ",
+                  "hawa-w-full hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
+                  !props.disabled && "hawa-cursor-pointer",
                   orientation === "horizontal" &&
                     parentDirection === "ltr" &&
                     "hawa-rounded-none first:hawa-rounded-l last:hawa-rounded-r",
@@ -122,7 +127,6 @@ export const Radio: FC<RadioTypes> = ({
                   orientation === "vertical" &&
                     "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
                   tabSizeStyle[size],
-                  "hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
                   selectedOption === opt.value
                     ? activeTabStyle
                     : inactiveTabStyle
