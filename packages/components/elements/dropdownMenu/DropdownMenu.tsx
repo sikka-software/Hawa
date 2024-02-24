@@ -347,6 +347,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         <DropdownMenuContent
           side={side}
           sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
           className={cn(
             className,
             widthStyles[width],
@@ -355,12 +357,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           style={{
             maxHeight: "var(--radix-dropdown-menu-content-available-height)"
           }}
-          align={align}
-          alignOffset={alignOffset}
         >
           {header && header}
           {items &&
             items.map((item, index) => {
+              const ItemLinkComponent = item.slug ? LinkComponent : "a";
               if (item.itemType === "separator") {
                 return <DropdownMenuSeparator key={index} />;
               } else if (item.itemType === "label") {
@@ -375,56 +376,59 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                 return item.subitems ? (
                   <DropdownMenuSub key={index}>
                     <DropdownMenuSubTrigger
-                      className={cn(sizeStyles[size])}
                       dir={direction}
+                      className={cn(sizeStyles[size])}
                     >
                       {item.icon && item.icon}
                       {item.label && item.label}
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
-                        {item.subitems.map((subitem, subIndex) => (
-                          <DropdownMenuItem
-                            LinkComponent={subitem.slug ? LinkComponent : "a"}
-                            slug={subitem.slug}
-                            onMouseDown={(event: any) => {
-                              if (
-                                event.button === 1 ||
-                                (event.button === 0 && event.ctrlKey)
-                              ) {
-                                event.preventDefault(); // This line prevents the default behavior of the middle button
-                                if (subitem.onMiddleClick) {
-                                  subitem.onMiddleClick(item.value);
+                        {item.subitems.map((subitem, subIndex) => {
+                          const SubitemLinkComponent = subitem.slug
+                            ? LinkComponent
+                            : "a";
+                          return (
+                            <DropdownMenuItem
+                              key={subIndex}
+                              LinkComponent={SubitemLinkComponent}
+                              slug={subitem.slug}
+                              disabled={subitem.disabled}
+                              className={cn(
+                                sizeStyles[size],
+                                !item.icon && !item.label
+                                  ? "hawa-px-0 hawa-py-0 focus:hawa-bg-transparent"
+                                  : "focus:hawa-bg-accent"
+                              )}
+                              onMouseDown={(event: any) => {
+                                if (
+                                  event.button === 1 ||
+                                  (event.button === 0 && event.ctrlKey)
+                                ) {
+                                  event.preventDefault(); // This line prevents the default behavior of the middle button
+                                  if (subitem.onMiddleClick) {
+                                    subitem.onMiddleClick(item.value);
+                                  }
                                 }
-                              }
-                            }}
-                            key={subIndex}
-                            className={cn(
-                              sizeStyles[size],
-
-                              !item.icon && !item.label
-                                ? "hawa-px-0 hawa-py-0 focus:hawa-bg-transparent"
-                                : "focus:hawa-bg-accent"
-                            )}
-                            disabled={subitem.disabled}
-                            // className="flex flex-row gap-2"
-                            onSelect={() => {
-                              subitem.action && subitem.action();
-                              if (onItemSelect) {
-                                onItemSelect(subitem.value);
-                              }
-                            }}
-                          >
-                            {subitem.icon && subitem.icon}
-                            {subitem.label && subitem.label}
-                          </DropdownMenuItem>
-                        ))}
+                              }}
+                              onSelect={() => {
+                                subitem.action && subitem.action();
+                                if (onItemSelect) {
+                                  onItemSelect(subitem.value);
+                                }
+                              }}
+                            >
+                              {subitem.icon && subitem.icon}
+                              {subitem.label && subitem.label}
+                            </DropdownMenuItem>
+                          );
+                        })}
                       </DropdownMenuSubContent>
                     </DropdownMenuPortal>
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
-                    LinkComponent={item.slug ? LinkComponent : "a"}
+                    LinkComponent={ItemLinkComponent}
                     slug={item.slug}
                     key={index}
                     disabled={item.disabled}
@@ -483,20 +487,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 };
 interface DropdownMenuRadioProps {
   trigger?: React.ReactNode;
-  // items?: MenuItemType[];
-  // direction?: DirectionType;
-  // className?: ExtendedDropdownMenuContentProps["className"];
-  // triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
-  // sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"];
   side?: ExtendedDropdownMenuContentProps["side"];
   align?: ExtendedDropdownMenuContentProps["align"];
-  // alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"];
-  // width?: "default" | "sm" | "lg" | "parent";
-  // size?: "default" | "sm";
-  // onItemSelect?: any;
-  // onOpenChange?: any;
-  // header?: React.ReactNode;
-  // open?: any;
   options: { label?: any; value: string }[];
   value: string;
   onValueChange: any;
