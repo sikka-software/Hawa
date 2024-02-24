@@ -95,8 +95,7 @@ const DropdownMenuItem = React.forwardRef<
     LinkComponent?: any;
   }
 >(({ className, inset, badged, slug, ...props }, ref) => {
-  const LinkComponent = props.LinkComponent || "a";
-
+  const LinkComponent = slug && props.LinkComponent ? props.LinkComponent : "a";
   return (
     <LinkComponent href={slug}>
       <DropdownMenuPrimitive.Item
