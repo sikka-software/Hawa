@@ -92,10 +92,13 @@ const DropdownMenuItem = React.forwardRef<
     shortcut?: React.ReactNode;
     badged?: boolean;
     slug?: string;
+    LinkComponent?: any;
   }
 >(({ className, inset, badged, slug, ...props }, ref) => {
+  const LinkComponent = props.LinkComponent || "a"; // Use the provided LinkComponent or 'a' as a fallback
+
   return (
-    <a href={slug}>
+    <LinkComponent href={slug}>
       <DropdownMenuPrimitive.Item
         disabled={props.disabled}
         ref={ref}
@@ -122,7 +125,7 @@ const DropdownMenuItem = React.forwardRef<
           <div className="hawa-h-3 hawa-w-3 hawa-rounded-full hawa-bg-red-500" />
         )}
       </DropdownMenuPrimitive.Item>
-    </a>
+    </LinkComponent>
   );
 });
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
@@ -302,6 +305,7 @@ interface DropdownMenuProps {
   onOpenChange?: any;
   header?: React.ReactNode;
   open?: any;
+  LinkComponent?: any;
 }
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
@@ -318,7 +322,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   width = "default",
   header,
   onOpenChange,
-  open
+  open,
+  LinkComponent
 }) => {
   const widthStyles = {
     default: "hawa-min-w-[8rem]",
@@ -330,6 +335,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     default: "hawa-px-2 hawa-py-3 ",
     sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 "
   };
+
   return (
     <DropdownMenuRoot
       onOpenChange={onOpenChange}
@@ -382,6 +388,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
+                            LinkComponent={LinkComponent}
                             slug={subitem.slug}
                             onMouseDown={(event: any) => {
                               if (
@@ -420,6 +427,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
+                    LinkComponent={LinkComponent}
                     slug={item.slug}
                     key={index}
                     disabled={item.disabled}

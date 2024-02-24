@@ -79,7 +79,8 @@ type AppLayoutTypes = {
     symbolLogoImg?: string;
     logoContainer?: string;
   };
-  LinkComponent?: any;
+  DrawerLinkComponent?: any;
+  MenuLinkComponent?: any;
 };
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
@@ -93,7 +94,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   clickedItem,
   setKeepOpen,
   keepOpen,
-  LinkComponent,
+  DrawerLinkComponent,
+  MenuLinkComponent,
   ...props
 }) => {
   let closeDrawerWidth = 56;
@@ -243,6 +245,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             ) : null}
             {/* Profile Icon & Menu */}
             <DropdownMenu
+              LinkComponent={MenuLinkComponent}
               triggerClassname="hawa-mx-2"
               align="end"
               alignOffset={8}
@@ -415,7 +418,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
             isOpen={keepOpen || openSideMenu}
             items={props.drawerItems}
-            LinkComponent={LinkComponent}
+            LinkComponent={DrawerLinkComponent}
           />
         </div>
         {/*

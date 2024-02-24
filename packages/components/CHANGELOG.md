@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.29.8
+
+### Patch Changes
+
+- Add custom link component to `DropDownMenuItem` and `DropDownMenu`
+- Add `MenuLinkComponent` to `AppLayout`
+
 ## 0.29.7
 
 ### Patch Changes
