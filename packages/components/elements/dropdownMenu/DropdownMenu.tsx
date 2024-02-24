@@ -94,8 +94,7 @@ const DropdownMenuItem = React.forwardRef<
     slug?: string;
     LinkComponent?: any;
   }
->(({ className, inset, badged, slug, ...props }, ref) => {
-  const LinkComponent = slug && props.LinkComponent ? props.LinkComponent : "a";
+>(({ className, inset, badged, slug, LinkComponent, ...props }, ref) => {
   return (
     <LinkComponent href={slug}>
       <DropdownMenuPrimitive.Item
@@ -279,7 +278,6 @@ export type MenuItemType = {
   slug?: string;
   end?: any;
   presist?: boolean;
-  // itemType?: "separator" | "label" | string;
   itemType?: "separator" | "label" | "custom";
   action?: () => void;
   highlighted?: boolean;
@@ -387,7 +385,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
-                            LinkComponent={subitem.slug ?? LinkComponent}
+                            LinkComponent={subitem.slug ? LinkComponent : "a"}
                             slug={subitem.slug}
                             onMouseDown={(event: any) => {
                               if (
@@ -426,7 +424,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
-                    LinkComponent={item.slug ?? LinkComponent}
+                    LinkComponent={item.slug ? LinkComponent : "a"}
                     slug={item.slug}
                     key={index}
                     disabled={item.disabled}
