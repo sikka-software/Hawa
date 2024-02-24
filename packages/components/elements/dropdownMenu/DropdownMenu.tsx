@@ -388,7 +388,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => (
                           <DropdownMenuItem
-                            LinkComponent={LinkComponent}
+                            LinkComponent={subitem.slug ? LinkComponent : "a"}
                             slug={subitem.slug}
                             onMouseDown={(event: any) => {
                               if (
@@ -427,7 +427,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
-                    LinkComponent={LinkComponent}
+                    LinkComponent={item.slug ? LinkComponent : "a"}
                     slug={item.slug}
                     key={index}
                     disabled={item.disabled}

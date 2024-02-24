@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.9
+
+### Patch Changes
+
+- Fix link component in `DropdownMenuItem`
+
 ## 0.29.8
 
 ### Patch Changes
