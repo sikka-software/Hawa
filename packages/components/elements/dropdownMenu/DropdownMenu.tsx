@@ -95,7 +95,7 @@ const DropdownMenuItem = React.forwardRef<
     LinkComponent?: any;
   }
 >(({ className, inset, badged, slug, ...props }, ref) => {
-  const LinkComponent = props.LinkComponent || "a"; // Use the provided LinkComponent or 'a' as a fallback
+  const LinkComponent = props.LinkComponent || "a";
 
   return (
     <LinkComponent href={slug}>
