@@ -25,9 +25,7 @@ type ColorPickerTypes = {
   /** The hex code for the color */
   color?: any;
   /** Fires everytime the color changes */
-  handleChange?: (
-    e: ChangeEvent<HTMLInputElement> | FormEvent<HTMLInputElement>
-  ) => void;
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   colorPickerClassNames?: string;
   colorTextClassNames?: string;
   colorPickerProps?: InputHTMLAttributes<HTMLInputElement>;
@@ -53,7 +51,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
     }
   }, [selectedColor]);
 
-  const handleTextInputChange = (e: FormEvent<HTMLInputElement>) => {
+  const handleTextInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputElement = e.target as HTMLInputElement;
     let inputColor = inputElement.value;
 
@@ -90,7 +88,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
               onChange={(e) => {
                 setSelectedColor(e.target.value);
                 if (props.handleChange) {
-                  props.handleChange(e);
+                  props.handleChange(e); //TODO: perhaps change this to onChange
                 }
               }}
               className={cn(

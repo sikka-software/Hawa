@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.6
+
+### Patch Changes
+
+- Fix change event in `ColorPicker`
+
 ## 0.29.5
 
 ### Patch Changes
