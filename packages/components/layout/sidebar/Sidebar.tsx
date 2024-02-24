@@ -248,15 +248,15 @@ const SidebarItem: React.FC<{
     );
   } else {
     return (
-      <a
+      <LinkComponent
         href={item.slug}
         dir={direction}
-        onMouseDown={(e) => {
+        onMouseDown={(e: React.MouseEvent) => {
           if (item.onMouseDown) {
             item.onMouseDown(e);
           }
         }}
-        onClick={(e) => {
+        onClick={(e: React.MouseEvent) => {
           if (item.onClick) {
             item.onClick(e);
           }
@@ -284,7 +284,7 @@ const SidebarItem: React.FC<{
             )}
           </span>
         </div>
-      </a>
+      </LinkComponent>
     );
   }
 };

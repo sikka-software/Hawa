@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.29.7
+
+### Patch Changes
+
+- Replace anchor in `AppLayout`
+
 ## 0.29.6
 
 ### Patch Changes
