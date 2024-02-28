@@ -68,6 +68,26 @@ export const Default: Story = {
           />
           <Combobox data={roles} valueKey={"_id"} direction={direction} />
         </div>
+        <div
+          className="hawa-w-full hawa-max-w-md hawa-flex hawa-flex-col hawa-gap-4"
+          dir={direction}
+        >
+          <h1>Custom Options</h1>
+          <Combobox
+            hideInput
+            data={roles}
+            renderOption={(option) => (
+              <div className="hawa-flex hawa-flex-col hawa-gap-0">
+                <span>{option.label}</span>
+                <span className="hawa-text-xs">{option._id}</span>
+              </div>
+            )}
+            valueKey={"_id"}
+            label="No Search"
+            direction={direction}
+            texts={{ placeholder: "Select Role" }}
+          />
+        </div>
       </div>
     );
   }

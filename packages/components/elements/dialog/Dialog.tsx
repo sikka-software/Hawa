@@ -1,10 +1,9 @@
 import * as React from "react";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { cn } from "@util/index";
 
 import { DirectionType } from "@_types/commonTypes";
-
-import { cn } from "@util/index";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -31,9 +30,10 @@ const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
     persist?: boolean;
     hideCloseButton?: boolean;
+    container?: HTMLElement;
   }
 >(({ className, children, persist, hideCloseButton, ...props }, ref) => (
-  <DialogPortal>
+  <DialogPortal container={props.container}>
     <DialogOverlay />
     <DialogPrimitive.Content
       onPointerDownOutside={(e) => {

@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { DirectionType } from "@_types/commonTypes";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -16,8 +15,10 @@ import {
   RowData,
   ExpandedState
 } from "@tanstack/react-table";
-
 import { cn } from "@util/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import { Button } from "../button";
 import {
   DropdownMenu,
@@ -331,8 +332,9 @@ export const DataTable = <DataProps extends {}>({
                     size="icon"
                     className="hawa-h-fit hawa-w-fit hawa-p-0 hawa-px-2 hawa-py-1 "
                   >
-                    {`${table.getState().pagination.pageSize} / ${props.texts
-                      ?.page}`}
+                    {`${table.getState().pagination.pageSize} / ${
+                      props.texts?.page
+                    }`}
                   </Button>
                 }
                 onItemSelect={(e: any) => table.setPageSize(Number(e))}

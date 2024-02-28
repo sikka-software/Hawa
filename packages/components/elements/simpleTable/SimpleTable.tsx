@@ -7,10 +7,10 @@ import {
   useReactTable,
   RowData
 } from "@tanstack/react-table";
+import { cn } from "@util/index";
 
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { Skeleton } from "../skeleton";
 import {
   Table,
@@ -21,9 +21,7 @@ import {
   TableRow
 } from "../table";
 
-type DataProps = {};
-
-type SimpleTableProps = {
+type SimpleTableProps<DataProps = {}> = {
   direction?: DirectionType;
   columns: ColumnDef<DataProps>[];
   data: DataProps[];
@@ -44,15 +42,16 @@ type SimpleTableProps = {
 declare module "@tanstack/table-core" {
   interface ColumnMeta<TData extends RowData, TValue> {
     padding?: "condensed" | "default" | "noPadding";
+    sortable?: boolean;
+    hidden?: boolean;
   }
 }
-
-export const SimpleTable: React.FC<SimpleTableProps> = ({
+export const SimpleTable = <DataProps extends {}>({
   columns,
   data,
   classNames,
   ...props
-}) => {
+}: SimpleTableProps<DataProps>) => {
   const table = useReactTable({
     data,
     columns,

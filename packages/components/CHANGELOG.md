@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.30.0
+
+### Minor Changes
+
+- Add ability to customize option for `Combobox`
+- Fix issue with not able to scroll a `Combobox` while inside a `Dialog`
+- Fix missing types from `SimpleTable`
+
 ## 0.29.14
 
 ### Patch Changes

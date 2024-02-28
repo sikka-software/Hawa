@@ -1,13 +1,10 @@
 import * as React from "react";
 
-import { DirectionType } from "@_types/commonTypes";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-
-import { Label, LabelProps } from "../label";
-import { PopoverContent, PopoverTrigger } from "../popover";
-import { Skeleton } from "../skeleton";
-
 import { cn } from "@util/index";
+
+import { DirectionType } from "@_types/commonTypes";
+
 import {
   Command,
   CommandEmpty,
@@ -15,6 +12,9 @@ import {
   CommandInput,
   CommandItem
 } from "../command";
+import { Label, LabelProps } from "../label";
+import { PopoverContent, PopoverTrigger } from "../popover";
+import { Skeleton } from "../skeleton";
 
 type ComboboxTypes<T> = {
   labelKey?: keyof T;
@@ -41,6 +41,7 @@ type ComboboxTypes<T> = {
   /** If true, it will show a red asterisk next to the label*/
   isRequired?: boolean;
   onChange?: (e: any) => void;
+  renderOption?: (item: T) => React.ReactNode;
 };
 
 export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
@@ -53,12 +54,14 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       direction,
       labelProps,
       data,
+      renderOption,
       ...props
     },
     ref
   ) => {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(defaultValue);
+    const containerRef = React.useRef<HTMLDivElement>(null);
     function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
       return obj[key];
     }
@@ -73,6 +76,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
           "hawa-relative hawa-flex hawa-h-fit hawa-flex-col hawa-gap-2",
           props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
         )}
+        ref={containerRef}
       >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
 
@@ -144,6 +148,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
             sideOffset={0}
             className={cn("popover-w-parent", props.helperText && "-hawa-mt-4")}
             dir={direction}
+            container={containerRef.current}
           >
             <Command>
               {!props.hideInput && (
@@ -155,7 +160,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
               <CommandEmpty>
                 {props.texts?.noItems || "No items found."}
               </CommandEmpty>
-              <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-auto">
+              <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-scroll">
                 {data.map((item: any, i) => (
                   <CommandItem
                     key={i}
@@ -191,7 +196,9 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    {getProperty(item, labelKey)}
+                    {renderOption
+                      ? renderOption(item)
+                      : getProperty(item, labelKey)}
                   </CommandItem>
                 ))}
               </CommandGroup>
