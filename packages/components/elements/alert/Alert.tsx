@@ -9,9 +9,9 @@ import { Button } from "../button";
 type AlertTypes = {
   severity?: SeverityType | "hyper" | "oceanic";
   /** The title of the alert placed above the text of the alert. Can be used alone */
-  title?: any;
+  title?: React.ReactNode;
   /** The text of the alert placed below the title of the alert. Can be used alone */
-  text: any;
+  text: React.ReactNode;
   /** The duration for the alert to stay on the screen */
   duration?: number;
   direction?: DirectionType;
@@ -31,8 +31,9 @@ type AlertTypes = {
   /** Removes the close button */
   persistent?: boolean;
   icon?: any;
-  className?: any;
-  onAlertClosed?: any;
+  className?: string;
+  onAlertClosed?: () => void;
+  noDestroy?: boolean;
 };
 
 export const Alert: React.FunctionComponent<AlertTypes> = ({
@@ -160,12 +161,16 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               if (props.onAlertClosed) {
                 props.onAlertClosed();
               }
-              setClosed(true);
-              setTimeout(() => {
-                if (alertRef?.current) {
-                  alertRef?.current.removeChild(alertRef?.current.children[0]);
-                }
-              }, 200);
+              if (!props.noDestroy) {
+                setClosed(true);
+                setTimeout(() => {
+                  if (alertRef?.current) {
+                    alertRef?.current.removeChild(
+                      alertRef?.current.children[0]
+                    );
+                  }
+                }, 200);
+              }
             }}
           >
             <span className="hawa-sr-only">Close</span>

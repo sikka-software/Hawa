@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.1
+
+### Patch Changes
+
+- Add `noDestroy` prop in `Alert` to prevent the element from being removed from DOM
+- Add `onErrorDismissed` prop in `RegisterForm` to control what happens when the alert is closed
+
 ## 0.30.0
 
 ### Minor Changes

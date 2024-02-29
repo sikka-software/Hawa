@@ -58,6 +58,8 @@ type RegisterFormTypes = {
   onRouteToTOS?: () => void;
   /** Determines whether to show an error alert. */
   showError?: boolean;
+  /** Callback function triggered when the error alert is dismissed. */
+  onErrorDismissed?: () => void;
   /** Title for the error alert. */
   errorTitle?: any;
   /** Text for the error alert. */
@@ -197,8 +199,15 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 title={props.errorTitle}
                 text={props.errorText}
                 severity="error"
+                noDestroy
+                onAlertClosed={() => {
+                  if (props.onErrorDismissed) {
+                    props.onErrorDismissed();
+                  }
+                }}
               />
             )}
+
             {/* TODO: is formprovider needed? you got 2 useForm  */}
             <FormProvider {...methods}>
               <form

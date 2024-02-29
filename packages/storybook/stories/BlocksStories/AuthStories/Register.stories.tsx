@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -114,6 +116,107 @@ export const Default: Story = {
   },
   argTypes: {
     onRegister: { action: "onRegister" },
+    onGoogleRegister: { action: "onGoogleRegister" },
+    onGithubRegister: { action: "onGithubRegister" },
+    onTwitterRegister: { action: "onTwitterRegister" },
+    onRouteToTOS: { action: "onRouteToTOS" },
+    onRouteToLogin: { action: "onRouteToLogin" }
+  }
+};
+export const Minimal: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const [showError, setShowError] = useState(false);
+
+    return (
+      <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
+        <RegisterForm
+          logosOnly
+          direction={direction}
+          userReferenceOptions={[
+            { label: t("friends-family"), value: "friends-family" },
+            { label: t("ad"), value: "ad" },
+            { label: t("other"), value: "other" }
+          ]}
+          usernameOptions={{
+            label: {
+              hintSide: "right",
+              hint: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui eget nunc aliquam tincidunt nec nec libero. Nulla facilisi. Nulla nec dui eget nunc aliquam tincidunt nec nec libero.",
+              required: true
+            }
+          }}
+          texts={{
+            continueWithGoogle: t("registerViaGoogleLabel"),
+            continueWithGithub: t("registerViaGithubLabel"),
+            continueWithTwitter: t("registerViaTwitterLabel"),
+            fullName: {
+              label: t("fullNameLabel"),
+              placeholder: t("fullNamePlaceholder")
+            },
+            email: {
+              label: t("emailLabel"),
+              placeholder: t("emailPlaceholder"),
+              required: t("emailRequiredText"),
+              invalid: t("emailInvalidText")
+            },
+            username: {
+              label: t("usernameLabel"),
+              placeholder: t("usernamePlaceholder"),
+              required: t("usernameRequired"),
+              invalid: t("usernameInvalid")
+            },
+            password: {
+              label: t("passwordLabel"),
+              placeholder: t("passwordPlaceholder"),
+              required: t("passwordRequiredText"),
+              tooShort: t("passwordTooShortText")
+            },
+            confirm: {
+              label: t("confirmPasswordLabel"),
+              placeholder: t("confirmPasswordPlaceholder"),
+              required: t("confirmPasswordRequired"),
+              dontMatch: t("passwordsDontMatch")
+            },
+            userReference: {
+              label: t("userReferenceLabel"),
+              placeholder: t("userReferencePlaceholder")
+            },
+            subscribeToNewsletter: t("subscribeToNewsletter"),
+            iAcceptText: t("iAcceptText"),
+            termsText: t("termsText"),
+            termsRequired: t("termsRequiredText"),
+            loginText: t("loginText"),
+            existingUserText: t("existingUserText"),
+            registerText: t("registerText"),
+            refCode: t("refCode"),
+            refCodePlaceholder: t("refCodePlaceholder")
+          }}
+          {...args}
+          onRegister={() => setShowError(true)}
+          onErrorDismissed={() => setShowError(false)}
+          showError={showError}
+          errorTitle="Error"
+          errorText="Something went wrong"
+        />
+      </div>
+    );
+  },
+  args: {
+    logosOnly: false,
+    viaGoogle: false,
+    viaGithub: false,
+    viaTwitter: false,
+    showRefCode: false,
+    showUserSource: false,
+    showTermsOption: true,
+    showNewsletterOption: false,
+
+    registerFields: ["email"]
+  },
+  argTypes: {
+    // onRegister: { action: "onRegister" },
     onGoogleRegister: { action: "onGoogleRegister" },
     onGithubRegister: { action: "onGithubRegister" },
     onTwitterRegister: { action: "onTwitterRegister" },
