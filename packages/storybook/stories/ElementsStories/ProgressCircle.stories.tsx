@@ -25,5 +25,6 @@ export const Default: Story = {
         <ProgressCircle {...args}>{args.value}%</ProgressCircle>
       </div>
     );
-  }
+  },
+  args: { value: 22 }
 };

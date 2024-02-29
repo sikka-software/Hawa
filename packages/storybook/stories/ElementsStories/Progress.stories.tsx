@@ -1,42 +1,21 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Label } from "@sikka/hawa/elements/label";
 import { Progress } from "@sikka/hawa/elements/progress";
 
-import { setLocale, t } from "../../translations/i18n";
-
 const meta = {
   title: "Elements/Progress",
-  component: Progress,
-  parameters: {
-    docs: {
-      extractArgTypes: () => ({
-        value: {
-          name: "value",
-          description: "The position of the progress bar, out of 100",
-          type: "number"
-        }
-      }),
-      page: () => (
-        <>
-          <h1>{"<Progress/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
+  component: Progress
 } satisfies Meta<typeof Progress>;
 
 export default meta;
 type Story = StoryObj<typeof Progress>;
 
-export const Default: Story = {
+const Default: Story = {
   render: (args) => (
     <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-2">
-      <Label>Progress Component</Label>
-      <Progress {...args} />
+      <Progress label="Progress Component" {...args} />
     </div>
   ),
   args: { value: 22 },
@@ -48,3 +27,5 @@ export const Default: Story = {
     }
   }
 };
+
+export { Default as Progress };

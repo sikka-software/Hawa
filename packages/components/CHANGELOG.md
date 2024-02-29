@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.3
+
+### Patch Changes
+
+- Add `label` and `labelProps` to `Progress` component
+- Add `prefixText` in `Input`
+
 ## 0.30.1
 
 ### Patch Changes

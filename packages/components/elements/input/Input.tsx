@@ -33,6 +33,7 @@ export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   countPosition?: "top" | "bottom" | "center";
   popup?: boolean;
   popupContent?: React.ReactNode;
+  outsidePrefix?: any;
   prefixText?: any;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
@@ -68,6 +69,29 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
     let defaultInputStyle =
       "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-3 hawa-text-sm ";
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      let newValue = e.target.value;
+
+      if (props.prefixText) {
+        // If newValue is shorter than prefixText, set newValue to prefixText
+        if (newValue.length < props.prefixText.length) {
+          newValue = props.prefixText;
+        } else {
+          // Check if newValue starts with a substring of prefixText
+          const isSubstring = props.prefixText.startsWith(newValue);
+
+          if (!isSubstring && !newValue.startsWith(props.prefixText)) {
+            newValue = `${props.prefixText}${newValue}`;
+          }
+        }
+      }
+
+      if (props.onChange) {
+        const newEvent = { ...e, target: { ...e.target, value: newValue } };
+        props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
+      }
+    };
+
     return (
       <div
         className={cn(
@@ -80,9 +104,14 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
         <div className="hawa-flex hawa-flex-row hawa-w-full hawa-items-center ">
-          {props.prefixText && (
-            <span className={cn("hawa-me-2 hawa-opacity-90",!forceHideHelperText && 'hawa-mb-2')}>
-              {props.prefixText}
+          {props.outsidePrefix && (
+            <span
+              className={cn(
+                "hawa-me-2 hawa-opacity-90",
+                !forceHideHelperText && "hawa-mb-2"
+              )}
+            >
+              {props.outsidePrefix}
             </span>
           )}
           {props.isLoading ? (
@@ -121,7 +150,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     dir={props.dir}
                     type={props.type}
                     value={props.value}
-                    onChange={props.onChange}
+                    onChange={handleChange}
                     autoComplete={props.autoComplete}
                     defaultValue={props.defaultValue}
                     placeholder={placeholder}

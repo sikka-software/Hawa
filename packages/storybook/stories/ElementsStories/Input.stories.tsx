@@ -207,15 +207,15 @@ export const WithPrefix: Story = {
           <Input
             value={text}
             onChange={(e) => setText(e.target.value)}
-            label="With Prefix"
+            label="Default Prefix"
             prefixText="https://"
             placeholder={"Bismillah"}
           />
           <Input
             value={text}
             onChange={(e) => setText(e.target.value)}
-            label="Choose handle"
-            prefixText="https://puk.la/"
+            label="With Outside Prefix"
+            outsidePrefix="https://puk.la/"
             placeholder={"Bismillah"}
           />
         </div>
