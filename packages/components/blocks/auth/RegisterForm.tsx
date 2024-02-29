@@ -196,15 +196,16 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           <div>
             {props.showError && (
               <Alert
+                direction={props.direction}
                 title={props.errorTitle}
                 text={props.errorText}
                 severity="error"
-                noDestroy
-                onAlertClosed={() => {
-                  if (props.onErrorDismissed) {
-                    props.onErrorDismissed();
-                  }
-                }}
+                // noDestroy
+                // onAlertClosed={() => {
+                //   if (props.onErrorDismissed) {
+                //     props.onErrorDismissed();
+                //   }
+                // }}
               />
             )}
 
