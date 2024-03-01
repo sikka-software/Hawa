@@ -24,11 +24,13 @@ import {
 type SimpleTableProps<DataProps = {}> = {
   direction?: DirectionType;
   columns: ColumnDef<DataProps>[];
+  headerless?: boolean;
   data: DataProps[];
   condensed?: boolean;
   isLoading?: boolean;
   defaultSort?: string;
   classNames?: string;
+  extra?: React.ReactNode;
   texts?: {
     searchPlaceholder?: string;
     noData?: any;
@@ -50,6 +52,7 @@ export const SimpleTable = <DataProps extends {}>({
   columns,
   data,
   classNames,
+  headerless,
   ...props
 }: SimpleTableProps<DataProps>) => {
   const table = useReactTable({
@@ -69,7 +72,7 @@ export const SimpleTable = <DataProps extends {}>({
       ) : (
         <div className="hawa-rounded">
           <Table>
-            {table.getAllColumns().length > 0 && (
+            {!headerless && table.getAllColumns().length > 0 && (
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}>
@@ -93,6 +96,7 @@ export const SimpleTable = <DataProps extends {}>({
                 ))}
               </TableHeader>
             )}
+
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
@@ -128,6 +132,7 @@ export const SimpleTable = <DataProps extends {}>({
                   </TableCell>
                 </TableRow>
               )}
+              {props.extra}
             </TableBody>
           </Table>
         </div>

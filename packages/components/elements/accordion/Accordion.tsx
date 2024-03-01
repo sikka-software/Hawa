@@ -24,7 +24,6 @@ type AccordionProps = {
   type: "single" | "multiple";
   collapsible?: boolean;
 };
-// & React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,

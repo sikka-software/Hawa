@@ -1,12 +1,10 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {
-  Card,
-  CardContent,
-  SimpleTable,
-  Table
-} from "../../../components/elements";
+import { Card, CardContent } from "@sikka/hawa/elements/card";
+import { SimpleTable } from "@sikka/hawa/elements/simpleTable";
+import { Table, TableCell, TableRow } from "@sikka/hawa/elements/table";
+
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
@@ -46,9 +44,107 @@ const Template = (args: any, globals: any) => {
     </div>
   );
 };
-export const SimpleTableStory: Story = {
-  name: "Simple Table",
+export const Default: Story = {
   render: Template.bind({})
+};
+export const Headerless: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    return (
+      <div
+        className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md"
+        dir={direction}
+      >
+        <SimpleTable
+          direction={direction}
+          headerless
+          columns={[
+            { header: "Project", accessorKey: "project" },
+            { header: "version", accessorKey: "version" },
+            { header: "date", accessorKey: "date" },
+            { header: "number", accessorKey: "number" }
+          ]}
+          data={[
+            {
+              project: "Hawa",
+              version: "0.4.8",
+              date: "2021-10-10",
+              number: 1
+            },
+            {
+              project: "Hajar",
+              version: "0.1.3",
+              date: "2021-10-10",
+              number: 1
+            },
+            {
+              project: "Tayar",
+              version: "0.5.8",
+              date: "2021-10-10",
+              number: 1
+            },
+            { project: "Silk", version: "1.0.5", date: "2021-10-10", number: 1 }
+          ]}
+        />
+      </div>
+    );
+  }
+};
+export const ExtraRows: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    return (
+      <div
+        className="hawa-flex hawa-flex-col hawa-w-full hawa-max-w-md"
+        dir={direction}
+      >
+        <SimpleTable
+          direction={direction}
+          columns={[
+            { header: "Project", accessorKey: "project" },
+            { header: "version", accessorKey: "version" },
+            { header: "date", accessorKey: "date" },
+            { header: "number", accessorKey: "number" }
+          ]}
+          data={[
+            {
+              project: "Hawa",
+              version: "0.4.8",
+              date: "2021-10-10",
+              number: 1
+            },
+            {
+              project: "Hajar",
+              version: "0.1.3",
+              date: "2021-10-10",
+              number: 1
+            },
+            {
+              project: "Tayar",
+              version: "0.5.8",
+              date: "2021-10-10",
+              number: 1
+            },
+            { project: "Silk", version: "1.0.5", date: "2021-10-10", number: 1 }
+          ]}
+          extra={
+            <TableRow>
+              <TableCell>This</TableCell>
+              <TableCell>Is</TableCell>
+              <TableCell>Extra</TableCell>
+              <TableCell>Row</TableCell>
+            </TableRow>
+          }
+        />
+      </div>
+    );
+  }
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -145,7 +241,6 @@ export const Sizes: Story = {
     );
   }
 };
-
 export const TableInCard: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
