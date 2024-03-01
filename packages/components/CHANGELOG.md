@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.4
+
+### Patch Changes
+
+- Fix trigger option inside the `Accordion` items array to be a react node instead of text.
+
 ## 0.30.3
 
 ### Patch Changes

@@ -8,7 +8,7 @@ import { AccordionContent } from "./AccordionContent";
 import { AccordionTrigger } from "./AccordionTrigger";
 
 export type AccordionItemProps = {
-  trigger: string;
+  trigger: React.ReactNode;
   content: React.ReactNode;
   disabled?: boolean;
   chip?: ChipTypes;
