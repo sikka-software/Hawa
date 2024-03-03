@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.9
+
+### Patch Changes
+
+- Add `noPadding` prop to `CardFooter`
+
 ## 0.30.7
 
 ### Patch Changes

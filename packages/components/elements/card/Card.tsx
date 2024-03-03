@@ -84,11 +84,15 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
 );
 const CardFooter = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & { noPadding?: boolean }
+>(({ className, noPadding, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("hawa-flex hawa-items-center hawa-p-6 hawa-pt-0", className)}
+    className={cn(
+      noPadding ? "hawa-p-0" : "hawa-p-6",
+      "hawa-flex hawa-items-center hawa-pt-0",
+      className
+    )}
     {...props}
   />
 ));

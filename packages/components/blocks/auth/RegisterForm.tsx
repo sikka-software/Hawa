@@ -464,6 +464,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
 
         {props.viaGithub || props.viaGoogle || props.viaTwitter ? (
           <CardFooter
+            noPadding={props.cardless}
             className={cn(
               props.logosOnly
                 ? "hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2"
