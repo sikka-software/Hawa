@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.6
+
+### Patch Changes
+
+- Fix background color of `Alert` when severity is "none"
+
 ## 0.30.5
 
 ### Patch Changes

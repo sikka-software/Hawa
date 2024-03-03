@@ -78,7 +78,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     oceanic: ""
   };
   let styleVariant = {
-    none: "hawa-text-gray-700 hawa-bg-gray-100 dark:hawa-bg-gray-900 ",
+    none: "hawa-bg-background hawa-border",
     info: "hawa-text-info-foreground hawa-bg-info/90",
     warning: "hawa-text-warning-foreground hawa-bg-warning/90",
     error: "hawa-text-destructive-foreground hawa-bg-destructive/90",
