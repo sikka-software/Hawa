@@ -337,10 +337,10 @@ export const LoginForm: FC<LoginFormTypes> = ({
         dir={props.direction}
         className={cn(
           props.cardless &&
-            "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
+            "hawa-border-none hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none"
         )}
       >
-        <CardContent headless>
+        <CardContent headless noPadding={props.cardless}>
           {props.showError && (
             <Alert
               direction={props.direction}

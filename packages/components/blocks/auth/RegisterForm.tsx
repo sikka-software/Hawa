@@ -198,10 +198,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         className={cn(
           props.classNames?.card,
           props.cardless &&
-            "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
+            "hawa-border-none hawa-bg-transparent !hawa-shadow-none hawa-drop-shadow-none"
         )}
       >
-        <CardContent headless>
+        <CardContent headless noPadding={props.cardless}>
           <div>
             {props.showError && (
               <Alert
