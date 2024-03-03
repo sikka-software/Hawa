@@ -70,12 +70,14 @@ type LoginFormTypes = {
   additionalButtons?: any;
   /** The allowed length of the password input field */
   passwordLength?: number;
+  /** If true, the form is displayed without a card container styling.*/
+  cardless?: boolean;
 };
 
 export const LoginForm: FC<LoginFormTypes> = ({
   loginType = "email",
-  texts,
   passwordLength = 8,
+  texts,
   ...props
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -331,7 +333,13 @@ export const LoginForm: FC<LoginFormTypes> = ({
   };
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-4">
-      <Card dir={props.direction}>
+      <Card
+        dir={props.direction}
+        className={cn(
+          props.cardless &&
+            "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
+        )}
+      >
         <CardContent headless>
           {props.showError && (
             <Alert

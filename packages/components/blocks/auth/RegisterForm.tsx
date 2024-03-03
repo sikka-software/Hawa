@@ -89,6 +89,8 @@ type RegisterFormTypes = {
     form?: string;
     card?: string;
   };
+  /** If true, the form is displayed without a card container styling.*/
+  cardless?: boolean;
 };
 
 export const RegisterForm: FC<RegisterFormTypes> = ({
@@ -191,7 +193,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         props.classNames?.root
       )}
     >
-      <Card dir={props.direction} className={cn(props.classNames?.card)}>
+      <Card
+        dir={props.direction}
+        className={cn(
+          props.classNames?.card,
+          props.cardless &&
+            "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
+        )}
+      >
         <CardContent headless>
           <div>
             {props.showError && (

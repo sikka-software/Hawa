@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.7
+
+### Patch Changes
+
+- Add `cardless` boolean prop to `LoginForm` and `RegisterForm` for hiding the card UI
+
 ## 0.30.6
 
 ### Patch Changes
