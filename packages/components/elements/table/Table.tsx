@@ -2,6 +2,16 @@ import * as React from "react";
 
 import { cn } from "@util/index";
 
+interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
+  clickable?: boolean;
+  condensed?: boolean;
+}
+interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
+  condensed?: boolean;
+  enablePadding?: boolean;
+  padding?: "condensed" | "default" | "noPadding";
+}
+
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
@@ -14,7 +24,6 @@ const Table = React.forwardRef<
     />
   </div>
 ));
-Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
@@ -26,12 +35,6 @@ const TableHeader = React.forwardRef<
     {...props}
   />
 ));
-TableHeader.displayName = "TableHeader";
-
-interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
-  clickable?: boolean;
-  condensed?: boolean;
-}
 
 const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
   ({ className, condensed, clickable, dir, ...props }, ref) => (
@@ -53,7 +56,6 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     />
   )
 );
-TableHead.displayName = "TableHead";
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
@@ -61,7 +63,6 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody ref={ref} className={cn("hawa-border-none", className)} {...props} />
 ));
-TableBody.displayName = "TableBody";
 
 const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
@@ -76,7 +77,6 @@ const TableFooter = React.forwardRef<
     {...props}
   />
 ));
-TableFooter.displayName = "TableFooter";
 
 const TableRow = React.forwardRef<
   HTMLTableRowElement,
@@ -94,13 +94,6 @@ const TableRow = React.forwardRef<
     {...props}
   />
 ));
-TableRow.displayName = "TableRow";
-
-interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
-  condensed?: boolean;
-  enablePadding?: boolean;
-  padding?: "condensed" | "default" | "noPadding";
-}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, enablePadding = true, padding = "default", ...props }, ref) => {
@@ -132,7 +125,6 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
     );
   }
 );
-TableCell.displayName = "TableCell";
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
@@ -147,6 +139,14 @@ const TableCaption = React.forwardRef<
     {...props}
   />
 ));
+
+Table.displayName = "Table";
+TableRow.displayName = "TableRow";
+TableBody.displayName = "TableBody";
+TableHead.displayName = "TableHead";
+TableCell.displayName = "TableCell";
+TableFooter.displayName = "TableFooter";
+TableHeader.displayName = "TableHeader";
 TableCaption.displayName = "TableCaption";
 
 export {

@@ -124,6 +124,9 @@ export const DataTable = <DataProps extends {}>({
       rowSelection,
       expanded
     }
+    // defaultColumn: {
+    //   maxSize: 200
+    // }
   });
   const pageText = props.texts?.page || "page";
   const itemsPerPageOptions = props.itemsPerPage?.map((item) => ({
@@ -220,6 +223,9 @@ export const DataTable = <DataProps extends {}>({
                             condensed={props.condensed}
                             clickable={Boolean(isSortable)}
                             key={header.id}
+                            style={{
+                              maxWidth: header.column.columnDef.maxSize
+                            }}
                           >
                             {header.isPlaceholder
                               ? null
@@ -243,6 +249,9 @@ export const DataTable = <DataProps extends {}>({
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell
+                          style={{
+                            maxWidth: cell.column.columnDef.maxSize
+                          }}
                           dir={props.direction}
                           padding={
                             props.condensed

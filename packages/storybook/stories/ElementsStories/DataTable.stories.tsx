@@ -37,6 +37,7 @@ const Template = (args: any, globals: any) => {
   const locale = globals.globals?.locale === "ar" ? "ar" : "en";
   const direction = locale === "ar" ? "rtl" : "ltr";
   setLocale(locale);
+
   const companiesColumns: ColumnDef<Company>[] = [
     {
       accessorKey: "name",
@@ -53,6 +54,7 @@ const Template = (args: any, globals: any) => {
     {
       accessorKey: "location",
       header: t("location"),
+      maxSize: 200,
       meta: { hidden: false }
     },
     {

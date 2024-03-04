@@ -37,6 +37,8 @@ export function generateDummyCompanies(numCompanies: any) {
       name: i.toString(),
       // name: getRandomElement(companyNames),
       location: getRandomElement(locations),
+      // location:
+      //   "Setting up 3 Emails in Google Workspace with 1 year subscription",
       website: getRandomElement(websites),
       employees: getRandomNumber(50, 1000),
       share_price: getRandomNumber(10, 200)

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.11
+
+### Patch Changes
+
+- Apply `maxSize` option in `DataTable` and `SimpleTable`
+
 ## 0.30.9
 
 ### Patch Changes

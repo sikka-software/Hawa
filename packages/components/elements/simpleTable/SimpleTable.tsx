@@ -82,6 +82,9 @@ export const SimpleTable = <DataProps extends {}>({
                           condensed={props.condensed}
                           dir={props.direction}
                           key={header.id}
+                          style={{
+                            maxWidth: header.column.columnDef.maxSize
+                          }}
                         >
                           {header.isPlaceholder
                             ? null
@@ -112,6 +115,9 @@ export const SimpleTable = <DataProps extends {}>({
                             ? "condensed"
                             : cell.column.columnDef.meta?.padding
                         }
+                        style={{
+                          maxWidth: cell.column.columnDef.maxSize
+                        }}
                         key={cell.id}
                       >
                         {flexRender(
