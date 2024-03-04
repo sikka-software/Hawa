@@ -8,7 +8,7 @@ const config: Config = {
     ...baseConfig.content,
     "../components/**/*.{js,ts,jsx,tsx,mdx}",
     "./stories/**/*.{js,ts,jsx,tsx,mdx}",
-    "./stories/*.{js,ts,jsx,tsx,mdx}"
-  ]
+    "./stories/*.{js,ts,jsx,tsx,mdx}",
+  ],
 };
 export default config;

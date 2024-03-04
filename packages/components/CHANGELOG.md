@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.12
+
+### Patch Changes
+
+- Ability to hide redirection to login from within `RegisterForm`
+
 ## 0.30.11
 
 ### Patch Changes

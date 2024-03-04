@@ -1,8 +1,8 @@
 import React, { FC, useState, useEffect, useRef } from "react";
 
-import { OrientationType } from "@_types/commonTypes";
-
 import { cn } from "@util/index";
+
+import { OrientationType } from "@_types/commonTypes";
 
 type AdCardTypes = {
   orientation: OrientationType;
@@ -49,12 +49,12 @@ export const AdCard: FC<AdCardTypes> = ({
     horizontal:
       "hawa-flex hawa-flex-row  hawa-max-w-xl hawa-rounded hawa-border hawa-bg-card hawa-p-2 hawa-gap-2 hawa-items-center hawa-relative ",
     vertical:
-      "hawa-flex hawa-flex-col hawa-max-w-[200px] hawa-justify-start hawa-rounded hawa-border hawa-bg-card hawa-gap-2 hawa-p-2 hawa-relative"
+      "hawa-flex hawa-flex-col hawa-max-w-[200px] hawa-justify-start hawa-rounded hawa-border hawa-bg-card hawa-gap-2 hawa-p-2 hawa-relative",
   };
 
   let imageStyles = {
     horizontal: "hawa-w-auto hawa-h-full hawa-bg-blue-500  hawa-rounded-inner",
-    vertical: "hawa-bg-blue-500 hawa-rounded-inner hawa-w-auto "
+    vertical: "hawa-bg-blue-500 hawa-rounded-inner hawa-w-auto ",
   };
 
   return (

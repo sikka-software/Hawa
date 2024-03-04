@@ -45,12 +45,12 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
       .min(1, { message: props.texts?.requestType?.required }),
     description: z
       .string({ required_error: props.texts?.description?.required })
-      .min(10, { message: props.texts?.description?.tooShort })
+      .min(10, { message: props.texts?.description?.tooShort }),
   });
 
   const { handleSubmit, control, formState, reset } = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { requestType: "", description: "" }
+    defaultValues: { requestType: "", description: "" },
   });
 
   return (
@@ -58,7 +58,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
       className={cn(
         props.cardless
           ? "hawa-border-none hawa-bg-transparent hawa-shadow-none"
-          : ""
+          : "",
       )}
       style={props.cardless ? { boxShadow: "none" } : undefined}
     >
@@ -98,7 +98,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                   helperText={formState.errors.requestType?.message?.toString()}
                   placeholder={props.texts?.requestType?.placeholder}
                   texts={{
-                    noOptions: props.texts?.requestType?.noOptions
+                    noOptions: props.texts?.requestType?.noOptions,
                   }}
                 />
               )}
@@ -120,7 +120,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                     },
 
                     value: field.value,
-                    placeholder: props.texts?.description?.placeholder
+                    placeholder: props.texts?.description?.placeholder,
                   }}
                 />
               )}

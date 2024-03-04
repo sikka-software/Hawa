@@ -35,11 +35,11 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
   const formSchema = z.object({
     otp_code: z
       .string({ required_error: props.texts?.codeRequiredText })
-      .min(6, { message: props.texts?.codeTooShort })
+      .min(6, { message: props.texts?.codeTooShort }),
   });
 
   const { handleSubmit, control, formState, setValue } = useForm({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
   });
   const [resendTimer, setResendTimer] = useState<number | null>(null);
   const [remainingTime, setRemainingTime] = useState(0);
@@ -101,7 +101,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
               return props.handleConfirm(e);
             } else {
               console.log(
-                "Form is submitted but handleConfirm prop is missing"
+                "Form is submitted but handleConfirm prop is missing",
               );
             }
           })}

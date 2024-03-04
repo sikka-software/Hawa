@@ -1,5 +1,5 @@
 module.exports = {
-  trailingComma: "none",
+  trailingComma: "all",
   importOrderSeparation: true,
   importOrder: [
     "^react(?!-dom$)",

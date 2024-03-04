@@ -93,6 +93,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
         </Button>
       )}
 
+      {/* Github */}
       {props.viaGithub && (
         <Button
           disabled={props.isGithubLoading}
@@ -108,6 +109,8 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithGithub ?? "Continue With Github"}
         </Button>
       )}
+
+      {/* Twitter */}
       {props.viaTwitter && (
         <Button
           disabled={props.isTwitterLoading}
@@ -123,6 +126,8 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithTwitter ?? "Continue With Twitter"}
         </Button>
       )}
+
+      {/* Apple */}
       {props.viaApple && (
         <Button
           disabled={props.isAppleLoading}
@@ -139,6 +144,8 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithApple ?? "Continue With Apple"}
         </Button>
       )}
+
+      {/* Microsoft */}
       {props.viaMicrosoft && (
         <Button
           disabled={props.isMicrosoftLoading}
@@ -154,6 +161,8 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithMicrosoft ?? "Continue With Microsoft"}
         </Button>
       )}
+
+      {/* Email */}
       {props.viaEmail && (
         <Button
           disabled={props.isEmailLoading}
@@ -169,6 +178,8 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           {props.texts?.continueWithEmail ?? "Continue With Email"}
         </Button>
       )}
+
+      {/* Phone */}
       {props.viaPhone && (
         <Button
           disabled={props.isPhoneLoading}

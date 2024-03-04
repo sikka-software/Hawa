@@ -17,7 +17,7 @@ import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 import { DirectionType } from "@_types/commonTypes";
 import {
   RegisterFormTextsTypes,
-  ThirdPartyAuthTextsTypes
+  ThirdPartyAuthTextsTypes,
 } from "@_types/textTypes";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
@@ -109,7 +109,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone
+    continueWithPhone: texts?.continueWithPhone,
   };
 
   const methods = useForm();
@@ -123,7 +123,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
       case "email":
         fieldSchemas["email"] = z
           .string({
-            required_error: texts?.email?.required || "Email is required"
+            required_error: texts?.email?.required || "Email is required",
           })
           .email({ message: texts?.email?.invalid || "Invalid email" })
           .min(1, { message: texts?.email?.required || "Email is required" });
@@ -131,17 +131,17 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
       case "username":
         fieldSchemas["username"] = z
           .string({
-            required_error: texts?.username?.required || "Username is required"
+            required_error: texts?.username?.required || "Username is required",
           })
           .min(1, {
-            message: texts?.username?.required || "Username is required"
+            message: texts?.username?.required || "Username is required",
           })
           .refine(
             (value) => {
               const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
               return isValid;
             },
-            { message: texts?.username?.invalid || "Invalid username" }
+            { message: texts?.username?.invalid || "Invalid username" },
           );
         break;
     }
@@ -152,45 +152,45 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
       ...fieldSchemas,
       password: z
         .string({
-          required_error: texts?.password?.required || "Password is required"
+          required_error: texts?.password?.required || "Password is required",
         })
         .min(5, {
-          message: texts?.password?.tooShort || "Password is too short"
+          message: texts?.password?.tooShort || "Password is too short",
         })
         .refine((value) => value !== "", {
-          message: texts?.password?.required || "Password is required"
+          message: texts?.password?.required || "Password is required",
         }),
       confirm_password: z
         .string({
           required_error:
-            texts?.confirm?.required || "Confirm password required"
+            texts?.confirm?.required || "Confirm password required",
         })
         .refine((value) => value !== "", {
-          message: texts?.password?.required || "Confirm password is required"
+          message: texts?.password?.required || "Confirm password is required",
         }),
       refCode: z.string().optional(),
       reference: z.string().optional(),
       terms_accepted: z
         .boolean({ required_error: texts?.termsRequired || "Terms required" })
         .refine((value) => value, {
-          message: texts?.termsRequired || "Terms required"
+          message: texts?.termsRequired || "Terms required",
         }),
-      newsletter_accepted: z.boolean().optional()
+      newsletter_accepted: z.boolean().optional(),
     })
     .refine((data) => data.password === data.confirm_password, {
       message: texts?.confirm?.dontMatch || "Passwords don't match",
-      path: ["confirm_password"]
+      path: ["confirm_password"],
     });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
   });
 
   return (
     <div
       className={cn(
         "hawa-flex hawa-flex-col hawa-gap-4",
-        props.classNames?.root
+        props.classNames?.root,
       )}
     >
       <Card
@@ -198,7 +198,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         className={cn(
           props.classNames?.card,
           props.cardless &&
-            "hawa-border-none hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none"
+            "hawa-border-none hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none",
         )}
       >
         <CardContent headless noPadding={props.cardless}>
@@ -226,7 +226,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     return props.onRegister(e);
                   } else {
                     console.log(
-                      "Form is submitted but onRegister prop is missing"
+                      "Form is submitted but onRegister prop is missing",
                     );
                   }
                 })}
@@ -265,7 +265,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                 className:
                                   props.direction === "rtl"
                                     ? "hawa-text-right"
-                                    : "hawa-text-left"
+                                    : "hawa-text-left",
                               }}
                               width="full"
                               autoComplete="email"
@@ -292,7 +292,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                               autoComplete="username"
                               label={texts?.username?.label || "Username"}
                               labelProps={{
-                                ...props.usernameOptions?.label
+                                ...props.usernameOptions?.label,
                               }}
                               helperText={formState.errors.username?.message}
                               placeholder={texts?.username?.placeholder}
@@ -451,14 +451,16 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 {props.additionalButtons}
               </form>
             </FormProvider>
-            <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
-              <span>
-                {texts?.existingUserText || "Already have an account?"}
-              </span>
-              <span onClick={props.onRouteToLogin} className="clickable-link">
-                {texts?.loginText || "Login"}
-              </span>
-            </div>
+            {props.onRouteToLogin && (
+              <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
+                <span>
+                  {texts?.existingUserText || "Already have an account?"}
+                </span>
+                <span onClick={props.onRouteToLogin} className="clickable-link">
+                  {texts?.loginText || "Login"}
+                </span>
+              </div>
+            )}
           </div>
         </CardContent>
 
@@ -468,7 +470,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
             className={cn(
               props.logosOnly
                 ? "hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2"
-                : "hawa-grid hawa-grid-cols-1 hawa-gap-2"
+                : "hawa-grid hawa-grid-cols-1 hawa-gap-2",
             )}
           >
             <AuthButtons

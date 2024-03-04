@@ -11,7 +11,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@elements/card";
 import { Input } from "@elements/input";
 
@@ -35,14 +35,14 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
   const formSchema = z.object({
     email: z
       .string({
-        required_error: props.texts?.email?.required || "Email is required"
+        required_error: props.texts?.email?.required || "Email is required",
       })
       .email({ message: props.texts?.email?.invalid || "Invalid email" })
-      .min(1, { message: props.texts?.email?.required || "Email is required" })
+      .min(1, { message: props.texts?.email?.required || "Email is required" }),
   });
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
   });
 
   return (

@@ -18,7 +18,7 @@ export const ActionCard: FC<ImageCardTypes> = (props) => {
       <div
         className="hawa-group hawa-relative hawa-h-full hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-bg-cover hawa-bg-center hawa-transition-all hawa-duration-500 hover:hawa-drop-shadow-2xl"
         style={{
-          backgroundImage: `url(${props.blank ? "" : props.cardImage})`
+          backgroundImage: `url(${props.blank ? "" : props.cardImage})`,
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

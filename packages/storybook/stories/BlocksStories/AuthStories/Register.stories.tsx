@@ -11,7 +11,7 @@ import { setLocale, t } from "../../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/Register Form",
-  component: RegisterForm
+  component: RegisterForm,
 } satisfies Meta<typeof RegisterForm>;
 
 export default meta;
@@ -31,14 +31,14 @@ export const Default: Story = {
           userReferenceOptions={[
             { label: t("friends-family"), value: "friends-family" },
             { label: t("ad"), value: "ad" },
-            { label: t("other"), value: "other" }
+            { label: t("other"), value: "other" },
           ]}
           usernameOptions={{
             label: {
               hintSide: "right",
               hint: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui eget nunc aliquam tincidunt nec nec libero. Nulla facilisi. Nulla nec dui eget nunc aliquam tincidunt nec nec libero.",
-              required: true
-            }
+              required: true,
+            },
           }}
           additionalInputs={
             <Input
@@ -55,35 +55,35 @@ export const Default: Story = {
             continueWithTwitter: t("registerViaTwitterLabel"),
             fullName: {
               label: t("fullNameLabel"),
-              placeholder: t("fullNamePlaceholder")
+              placeholder: t("fullNamePlaceholder"),
             },
             email: {
               label: t("emailLabel"),
               placeholder: t("emailPlaceholder"),
               required: t("emailRequiredText"),
-              invalid: t("emailInvalidText")
+              invalid: t("emailInvalidText"),
             },
             username: {
               label: t("usernameLabel"),
               placeholder: t("usernamePlaceholder"),
               required: t("usernameRequired"),
-              invalid: t("usernameInvalid")
+              invalid: t("usernameInvalid"),
             },
             password: {
               label: t("passwordLabel"),
               placeholder: t("passwordPlaceholder"),
               required: t("passwordRequiredText"),
-              tooShort: t("passwordTooShortText")
+              tooShort: t("passwordTooShortText"),
             },
             confirm: {
               label: t("confirmPasswordLabel"),
               placeholder: t("confirmPasswordPlaceholder"),
               required: t("confirmPasswordRequired"),
-              dontMatch: t("passwordsDontMatch")
+              dontMatch: t("passwordsDontMatch"),
             },
             userReference: {
               label: t("userReferenceLabel"),
-              placeholder: t("userReferencePlaceholder")
+              placeholder: t("userReferencePlaceholder"),
             },
             subscribeToNewsletter: t("subscribeToNewsletter"),
             iAcceptText: t("iAcceptText"),
@@ -93,7 +93,7 @@ export const Default: Story = {
             existingUserText: t("existingUserText"),
             registerText: t("registerText"),
             refCode: t("refCode"),
-            refCodePlaceholder: t("refCodePlaceholder")
+            refCodePlaceholder: t("refCodePlaceholder"),
           }}
           {...args}
         />
@@ -112,7 +112,7 @@ export const Default: Story = {
     showError: false,
     errorTitle: "Error",
     errorText: "Something went wrong",
-    registerFields: ["fullname", "username", "email"]
+    registerFields: ["fullname", "username", "email"],
   },
   argTypes: {
     onRegister: { action: "onRegister" },
@@ -120,8 +120,8 @@ export const Default: Story = {
     onGithubRegister: { action: "onGithubRegister" },
     onTwitterRegister: { action: "onTwitterRegister" },
     onRouteToTOS: { action: "onRouteToTOS" },
-    onRouteToLogin: { action: "onRouteToLogin" }
-  }
+    onRouteToLogin: { action: "onRouteToLogin" },
+  },
 };
 export const Minimal: Story = {
   render: (args: any, globals: any) => {
@@ -138,14 +138,14 @@ export const Minimal: Story = {
           userReferenceOptions={[
             { label: t("friends-family"), value: "friends-family" },
             { label: t("ad"), value: "ad" },
-            { label: t("other"), value: "other" }
+            { label: t("other"), value: "other" },
           ]}
           usernameOptions={{
             label: {
               hintSide: "right",
               hint: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui eget nunc aliquam tincidunt nec nec libero. Nulla facilisi. Nulla nec dui eget nunc aliquam tincidunt nec nec libero.",
-              required: true
-            }
+              required: true,
+            },
           }}
           texts={{
             continueWithGoogle: t("registerViaGoogleLabel"),
@@ -153,35 +153,35 @@ export const Minimal: Story = {
             continueWithTwitter: t("registerViaTwitterLabel"),
             fullName: {
               label: t("fullNameLabel"),
-              placeholder: t("fullNamePlaceholder")
+              placeholder: t("fullNamePlaceholder"),
             },
             email: {
               label: t("emailLabel"),
               placeholder: t("emailPlaceholder"),
               required: t("emailRequiredText"),
-              invalid: t("emailInvalidText")
+              invalid: t("emailInvalidText"),
             },
             username: {
               label: t("usernameLabel"),
               placeholder: t("usernamePlaceholder"),
               required: t("usernameRequired"),
-              invalid: t("usernameInvalid")
+              invalid: t("usernameInvalid"),
             },
             password: {
               label: t("passwordLabel"),
               placeholder: t("passwordPlaceholder"),
               required: t("passwordRequiredText"),
-              tooShort: t("passwordTooShortText")
+              tooShort: t("passwordTooShortText"),
             },
             confirm: {
               label: t("confirmPasswordLabel"),
               placeholder: t("confirmPasswordPlaceholder"),
               required: t("confirmPasswordRequired"),
-              dontMatch: t("passwordsDontMatch")
+              dontMatch: t("passwordsDontMatch"),
             },
             userReference: {
               label: t("userReferenceLabel"),
-              placeholder: t("userReferencePlaceholder")
+              placeholder: t("userReferencePlaceholder"),
             },
             subscribeToNewsletter: t("subscribeToNewsletter"),
             iAcceptText: t("iAcceptText"),
@@ -191,7 +191,7 @@ export const Minimal: Story = {
             existingUserText: t("existingUserText"),
             registerText: t("registerText"),
             refCode: t("refCode"),
-            refCodePlaceholder: t("refCodePlaceholder")
+            refCodePlaceholder: t("refCodePlaceholder"),
           }}
           {...args}
           onRegister={() => setShowError(true)}
@@ -213,7 +213,7 @@ export const Minimal: Story = {
     showTermsOption: true,
     showNewsletterOption: false,
 
-    registerFields: ["email"]
+    registerFields: ["email"],
   },
   argTypes: {
     // onRegister: { action: "onRegister" },
@@ -221,6 +221,6 @@ export const Minimal: Story = {
     onGithubRegister: { action: "onGithubRegister" },
     onTwitterRegister: { action: "onTwitterRegister" },
     onRouteToTOS: { action: "onRouteToTOS" },
-    onRouteToLogin: { action: "onRouteToLogin" }
-  }
+    onRouteToLogin: { action: "onRouteToLogin" },
+  },
 };

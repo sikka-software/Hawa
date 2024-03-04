@@ -37,37 +37,37 @@ export const UserReferralSource: FC<ComponentTypes> = ({
 
   const formSchema = z.object({
     source: z.string({ required_error: props.texts?.pleaseSelectOption }),
-    feedback: z.string().optional()
+    feedback: z.string().optional(),
   });
 
   const { handleSubmit, control, formState, watch } = useForm({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
   });
   const selectedSource = watch("source");
 
   const boxPosition = {
     "bottom-right": "hawa-right-4",
-    "bottom-left": "hawa-left-4"
+    "bottom-left": "hawa-left-4",
   };
   const optionsWithOther = [
     ...options,
     {
       value: "other",
-      label: "Other"
-    }
+      label: "Other",
+    },
   ];
   return (
     <div
       className={cn(
         "hawa-transition-all",
-        closed ? "hawa-opacity-0" : "hawa-opacity-100"
+        closed ? "hawa-opacity-0" : "hawa-opacity-100",
       )}
       ref={popUpRef}
     >
       <Card
         className={cn(
           "hawa-fixed hawa-bottom-4 hawa-p-0 ",
-          boxPosition[position]
+          boxPosition[position],
         )}
         dir={props.direction}
       >
@@ -75,7 +75,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
           type="button"
           className={cn(
             props.direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
-            "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white"
+            "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white",
           )}
           data-dismiss-target="#toast-default"
           aria-label="Close"
@@ -115,7 +115,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
             <div
               className={cn(
                 "hawa-flex hawa-flex-col hawa-gap-4 hawa-transition-all",
-                closed ? "hawa-opacity-0" : "hawa-opacity-100"
+                closed ? "hawa-opacity-0" : "hawa-opacity-100",
               )}
             >
               <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
@@ -145,7 +145,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                       {...field}
                       textareaProps={{
                         onChange: (e) => field.onChange(e.target.value),
-                        disabled: selectedSource !== "other"
+                        disabled: selectedSource !== "other",
                       }}
                       helperText={formState.errors.feedback?.message?.toString()}
                     />

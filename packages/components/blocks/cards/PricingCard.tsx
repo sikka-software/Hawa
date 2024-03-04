@@ -26,7 +26,7 @@ export const PricingCard: FC<PricingCardProps> = ({
     medium:
       "hawa-w-full hawa-rounded hawa-min-w-fit hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
     large:
-      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background "
+      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
   };
   return (
     <>
@@ -44,7 +44,7 @@ export const PricingCard: FC<PricingCardProps> = ({
               : "hawa-border",
             cardSizes[size],
             "hawa-relative hawa-flex  hawa-flex-col hawa-justify-between hawa-gap-4 hawa-p-4",
-            recommended ? "hawa-rounded hawa-rounded-t-none" : "hawa-rounded"
+            recommended ? "hawa-rounded hawa-rounded-t-none" : "hawa-rounded",
           )}
         >
           {recommended && (
@@ -107,7 +107,7 @@ export const PricingCard: FC<PricingCardProps> = ({
             <div
               className={cn(
                 "hawa-flex hawa-h-full hawa-justify-between hawa-gap-4",
-                endButton ? "hawa-flex-col" : "hawa-flex-col-reverse"
+                endButton ? "hawa-flex-col" : "hawa-flex-col-reverse",
               )}
             >
               {props.features && (
@@ -118,7 +118,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                         key={o}
                         className={cn(
                           "hawa-flex hawa-flex-row hawa-justify-between hawa-gap-2",
-                          !feature.included && "hawa-line-through"
+                          !feature.included && "hawa-line-through",
                         )}
                       >
                         <div className="hawa-flex hawa-flex-row hawa-items-center">

@@ -15,7 +15,7 @@ import { PhoneInput } from "@elements/phoneInput";
 import {
   DirectionType,
   LoginFormTextsTypes,
-  ThirdPartyAuthTextsTypes
+  ThirdPartyAuthTextsTypes,
 } from "@_types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
@@ -89,7 +89,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone
+    continueWithPhone: texts?.continueWithPhone,
   };
 
   let formSchema;
@@ -102,18 +102,18 @@ export const LoginForm: FC<LoginFormTypes> = ({
         .email({ message: texts?.email?.invalid || "Email Invalid" }),
       password: z
         .string({
-          required_error: texts?.password?.required || "Password Required"
+          required_error: texts?.password?.required || "Password Required",
         })
         .min(1, { message: texts?.password?.required || "Password Required" })
         .min(passwordLength, {
-          message: texts?.password?.tooShort || "Password too short"
-        })
+          message: texts?.password?.tooShort || "Password too short",
+        }),
     });
   } else if (loginType === "username") {
     formSchema = z.object({
       username: z
         .string({
-          required_error: texts?.username?.required || "Username Required"
+          required_error: texts?.username?.required || "Username Required",
         })
         .min(2, { message: texts?.username?.tooShort || "Username too short" })
         .refine(
@@ -121,44 +121,44 @@ export const LoginForm: FC<LoginFormTypes> = ({
             const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);
             return isValid;
           },
-          { message: texts?.username?.invalid || "Username Invalid" }
+          { message: texts?.username?.invalid || "Username Invalid" },
         ),
       password: z
         .string({
-          required_error: texts?.password?.required || "Password Required"
+          required_error: texts?.password?.required || "Password Required",
         })
         .min(1, { message: texts?.password?.required || "Password Required" })
         .min(passwordLength, {
-          message: texts?.password?.tooShort || "Password too short"
-        })
+          message: texts?.password?.tooShort || "Password too short",
+        }),
     });
   } else if (loginType === "phone") {
     formSchema = z.object({
       phone: z
         .string({
-          required_error: texts?.phone?.required || "Phone Number Required"
+          required_error: texts?.phone?.required || "Phone Number Required",
         })
         .refine(
           (value) => {
             let phoneNumber = parsePhoneNumber(value);
             return phoneNumber.isValid();
           },
-          { message: texts?.phone?.invalid || "Phone Number Invalid" }
-        )
+          { message: texts?.phone?.invalid || "Phone Number Invalid" },
+        ),
     });
   } else if (loginType === "link") {
     formSchema = z.object({
       email: z
         .string({ required_error: texts?.email?.required || "Email Required" })
         .min(1, { message: texts?.email?.required || "Email Required" })
-        .email({ message: texts?.email?.invalid || "Email Invalid" })
+        .email({ message: texts?.email?.invalid || "Email Invalid" }),
     });
   } else {
     formSchema = z.object({});
   }
 
   const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
   });
 
   const renderFields = () => {
@@ -175,7 +175,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                     className:
                       props.direction === "rtl"
                         ? "hawa-text-right"
-                        : "hawa-text-left"
+                        : "hawa-text-left",
                   }}
                   dir={"ltr"}
                   width="full"
@@ -337,7 +337,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
         dir={props.direction}
         className={cn(
           props.cardless &&
-            "!hawa-border-none !hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none"
+            "!hawa-border-none !hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none",
         )}
       >
         <CardContent headless noPadding={props.cardless}>
@@ -390,7 +390,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             className={cn(
               props.logosOnly
                 ? "hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2"
-                : "hawa-grid hawa-grid-cols-1 hawa-gap-2"
+                : "hawa-grid hawa-grid-cols-1 hawa-gap-2",
             )}
           >
             <AuthButtons

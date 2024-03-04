@@ -41,7 +41,7 @@ export const AppLanding: FC<AppLandingTypes> = ({ texts, ...props }) => {
     continueWithMicrosoft: texts?.continueWithMicrosoft,
     continueWithGithub: texts?.continueWithGithub,
     continueWithEmail: texts?.continueWithEmail,
-    continueWithPhone: texts?.continueWithPhone
+    continueWithPhone: texts?.continueWithPhone,
   };
 
   return (

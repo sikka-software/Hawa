@@ -50,18 +50,18 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       countPosition = "bottom",
       ...props
     },
-    ref
+    ref,
   ) => {
     let marginStyles = {
       none: "hawa-mb-0",
       normal: "hawa-mb-3",
-      large: "hawa-mb-5"
+      large: "hawa-mb-5",
     };
     let widthStyles = {
       small: "hawa-w-full hawa-max-w-2xs",
       normal: "hawa-w-1/2",
       full: "hawa-w-full",
-      auto: ""
+      auto: "",
     };
 
     let defaultStyle =
@@ -99,7 +99,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
           marginStyles[margin],
           widthStyles[width],
           props.containerClassName,
-          "hawa-w-full hawa-gap-2"
+          "hawa-w-full hawa-gap-2",
         )}
       >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
@@ -108,7 +108,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
             <span
               className={cn(
                 "hawa-me-2 hawa-opacity-90",
-                !forceHideHelperText && "hawa-mb-2"
+                !forceHideHelperText && "hawa-mb-2",
               )}
             >
               {props.outsidePrefix}
@@ -124,7 +124,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                 <div
                   className={cn(
                     "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
-                    preview ? "hawa-opacity-100" : "hawa-opacity-0"
+                    preview ? "hawa-opacity-100" : "hawa-opacity-0",
                   )}
                 ></div>
               )}
@@ -139,7 +139,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     <div
                       className={cn(
                         "hawa-absolute hawa-end-3 hawa-top-1/2 hawa--translate-y-1/2",
-                        props.endIconProps?.className
+                        props.endIconProps?.className,
                       )}
                     >
                       {props.endIcon}
@@ -163,11 +163,11 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                       {
                         "hawa-pe-9": props.endIcon,
                         "hawa-ps-9": props.startIcon,
-                        "hawa-pe-[60px]": countPosition === "center"
+                        "hawa-pe-[60px]": countPosition === "center",
                       },
                       preview &&
                         "hawa-border-transparent hawa-bg-transparent hawa-px-0",
-                      inputProps?.className
+                      inputProps?.className,
                     )}
                   />
                 </div>
@@ -179,7 +179,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                       "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
                       props.helperText
                         ? "hawa-h-4 hawa-opacity-100"
-                        : "hawa-h-0 hawa-opacity-0"
+                        : "hawa-h-0 hawa-opacity-0",
                     )}
                   >
                     {props.helperText}
@@ -192,7 +192,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                       "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start  hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
                       props.helperText
                         ? "hawa-border hawa-p-1"
-                        : "hawa-border-none hawa-p-0"
+                        : "hawa-border-none hawa-p-0",
                     )}
                   >
                     {props.helperText}
@@ -208,8 +208,8 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                           countPosition === "bottom",
                         "hawa-bottom-[62px] hawa-end-0":
                           countPosition === "top",
-                        "hawa-end-2": countPosition === "center"
-                      }
+                        "hawa-end-2": countPosition === "center",
+                      },
                     )}
                   >
                     {props.value ? String(props.value).length : 0}/
@@ -236,5 +236,5 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
         </div>
       </div>
     );
-  }
+  },
 );

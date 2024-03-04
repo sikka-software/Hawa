@@ -22,7 +22,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
     { icon: <VeryGoodEmoji />, value: "very-good" },
     { icon: <GoodEmoji />, value: "good" },
     { icon: <BadEmoji />, value: "bad" },
-    { icon: <VeryBadEmoji />, value: "very-bad" }
+    { icon: <VeryBadEmoji />, value: "very-bad" },
   ];
 
   const onFeedbackSubmit = async () => {
@@ -31,7 +31,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
       try {
         await props.handleSubmit({
           choice: selectedEmoji,
-          feedback: feedbackText
+          feedback: feedbackText,
         });
       } catch (error) {
         console.error("Error during submission:", error);
@@ -47,7 +47,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
     <div
       className={cn(
         "hawa-flex  hawa-flex-col hawa-rounded hawa-border  hawa-p-2 hawa-transition-all",
-        selectedEmoji ? "hawa-h-[189px]  hawa-min-w-fit" : "hawa-h-[44px] "
+        selectedEmoji ? "hawa-h-[189px]  hawa-min-w-fit" : "hawa-h-[44px] ",
       )}
     >
       <div className="hawa-flex hawa-flex-row   hawa-items-center hawa-justify-center hawa-gap-2 ">
@@ -67,7 +67,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
               className={cn(
                 selectedEmoji === emoji.value
                   ? "hawa-bg-primary/10 hover:hawa-bg-primary/10 "
-                  : "hawa-text-[#666666]"
+                  : "hawa-text-[#666666]",
               )}
             >
               {emoji.icon}
@@ -80,7 +80,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
           "hawa-flex hawa-flex-col hawa-overflow-clip  hawa-transition-all hawa-duration-500 hawa-ease-in-out ",
           selectedEmoji
             ? "hawa-visible hawa-opacity-100"
-            : "hawa-invisible hawa-opacity-0 "
+            : "hawa-invisible hawa-opacity-0 ",
         )}
       >
         {props.showSuccess ? (
@@ -110,7 +110,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
               trigger={
                 <Textarea
                   classNames={{
-                    textarea: "hawa-mt-2 hawa-h-full hawa-resize-none"
+                    textarea: "hawa-mt-2 hawa-h-full hawa-resize-none",
                   }}
                   textareaProps={{
                     placeholder: "Your feedback",
@@ -119,7 +119,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
                         setHelperText(false);
                       }
                       setFeedbackText(e.target.value);
-                    }
+                    },
                   }}
                 />
               }
