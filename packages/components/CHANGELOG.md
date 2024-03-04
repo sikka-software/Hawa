@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.13
+
+### Patch Changes
+
+- Add forwardRef for `Radio` component
+
 ## 0.30.12
 
 ### Patch Changes
