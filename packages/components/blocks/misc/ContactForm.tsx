@@ -46,7 +46,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   formId,
   formAutoComplete = "off",
   onSubmit,
-  customFields
+  customFields,
 }) => {
   const customFieldsSchema = z.object({
     ...customFields?.reduce(
@@ -66,8 +66,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         }
         return acc;
       },
-      {}
-    )
+      {},
+    ),
   });
 
   const contactFormSchema = z.object({
@@ -82,10 +82,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       .default(""),
     message: z
       .string({
-        required_error: texts?.message.required || "Message is required"
+        required_error: texts?.message.required || "Message is required",
       })
       .min(10, texts?.message.invalid || "Message is too short")
-      .default("")
+      .default(""),
   });
 
   const customFieldsDefaultValues = customFields?.reduce(
@@ -93,7 +93,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       acc[curr.name] = "";
       return acc;
     },
-    {}
+    {},
   );
   const MainSchema = contactFormSchema.merge(customFieldsSchema);
 
@@ -101,15 +101,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     control,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(MainSchema),
     defaultValues: {
       name: "",
       email: "",
       message: "",
-      ...customFieldsDefaultValues
-    }
+      ...customFieldsDefaultValues,
+    },
   });
   const handleFormSubmit = (data: ContactFormData) => {
     if (onSubmit) {
@@ -125,7 +125,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       className={cn(
         "hawa-w-full",
         cardless &&
-          "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none"
+          "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none",
       )}
       style={cardless ? { boxShadow: "none" } : undefined}
     >
@@ -142,8 +142,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               "hawa-flex hawa-items-start hawa-justify-start hawa-gap-2",
               {
                 "hawa-flex-row": size === "default",
-                "hawa-flex-col": size === "sm"
-              }
+                "hawa-flex-col": size === "sm",
+              },
             )}
           >
             <Controller
@@ -199,7 +199,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                         return (
                           <Select
                             label={label}
-                            options={customField.options}
+                            options={customField.options || []}
                             value={field.value}
                             onChange={(option: any) =>
                               field.onChange(option.value)
@@ -223,7 +223,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 textareaProps={{
                   placeholder: texts?.message.placeholder,
                   className: "hawa-min-h-20",
-                  ...field
+                  ...field,
                 }}
                 classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
                 helperText={errors.message?.message}

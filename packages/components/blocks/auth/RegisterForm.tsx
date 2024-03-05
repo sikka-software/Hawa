@@ -381,7 +381,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                         isMulti={false ?? false}
                         isSearchable={false}
                         isClearable={false ?? false}
-                        options={props.userReferenceOptions}
+                        options={props.userReferenceOptions || []}
                         onChange={(e: any) => {
                           field.onChange(e.value);
                         }}

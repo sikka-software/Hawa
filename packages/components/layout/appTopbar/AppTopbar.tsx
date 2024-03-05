@@ -1,10 +1,10 @@
 import React from "react";
 
+import { cn } from "@util/index";
+
 import { DropdownMenu, MenuItemType } from "@elements/dropdownMenu";
 
 import { DirectionType } from "@_types/commonTypes";
-
-import { cn } from "@util/index";
 
 type AppTopbarType = {
   direction?: DirectionType;
@@ -22,7 +22,7 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
     <div
       className={cn(
         "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-30 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-border-b hawa-bg-primary-foreground hawa-p-2",
-        isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
+        isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row",
       )}
     >
       {/* Nav Side Of Navbar */}
@@ -100,7 +100,7 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
       <div
         className={cn(
           "hawa-flex hawa-gap-2 dark:hawa-text-white",
-          isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row"
+          isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row",
         )}
       >
         {/* User Info */}
@@ -125,7 +125,7 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
           sideOffset={5}
           // width={props.profileMenuWidth}
           direction={isRTL ? "rtl" : "ltr"}
-          items={props.profileMenuItems}
+          items={props.profileMenuItems || []}
           onItemSelect={(e: any) => console.log("selecting item ", e)}
           trigger={
             <div className="hawa-relative hawa-h-8 hawa-w-8  hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600">
