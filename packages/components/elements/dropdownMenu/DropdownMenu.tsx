@@ -23,7 +23,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     className={cn(
       "hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-text-sm hawa-outline-none focus:hawa-bg-accent data-[state=open]:hawa-bg-accent",
       inset && "hawa-pl-8",
-      className
+      className,
     )}
     {...props}
   >
@@ -58,7 +58,7 @@ const DropdownMenuSubContent = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-z-50 hawa-min-w-[8rem] hawa-gap-1 hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-      className
+      className,
     )}
     {...props}
   />
@@ -76,7 +76,7 @@ const DropdownMenuContent = React.forwardRef<
       sideOffset={sideOffset}
       className={cn(
         "hawa-z-50  hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-md data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-        className
+        className,
       )}
       {...props}
     />
@@ -107,7 +107,7 @@ const DropdownMenuItem = React.forwardRef<
             Array.isArray(props.children) &&
             props.children[1] &&
             "hawa-gap-6",
-          className
+          className,
         )}
         {...props}
       >
@@ -136,7 +136,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-      className
+      className,
     )}
     checked={checked}
     {...props}
@@ -171,7 +171,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-pointer hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-      className
+      className,
     )}
     {...props}
   >
@@ -210,7 +210,7 @@ const DropdownMenuLabel = React.forwardRef<
     className={cn(
       "hawa-px-2 hawa-py-1.5 hawa-text-sm hawa-font-semibold",
       inset && "hawa-pl-8",
-      className
+      className,
     )}
     {...props}
   />
@@ -237,7 +237,7 @@ const DropdownMenuShortcut = ({
     <span
       className={cn(
         "hawa-text-xs hawa-tracking-widest hawa-opacity-60",
-        className
+        className,
       )}
       {...props}
     />
@@ -288,7 +288,7 @@ export type MenuItemType = {
 };
 interface DropdownMenuProps {
   trigger?: any;
-  items?: MenuItemType[];
+  items: MenuItemType[];
   direction?: DirectionType;
   className?: ExtendedDropdownMenuContentProps["className"];
   triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
@@ -320,17 +320,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   header,
   onOpenChange,
   open,
-  LinkComponent
+  LinkComponent,
 }) => {
   const widthStyles = {
     default: "hawa-min-w-[8rem]",
     sm: "hawa-w-fit",
     lg: "hawa-w-[200px]",
-    parent: "ddm-w-parent"
+    parent: "ddm-w-parent",
   };
   const sizeStyles = {
     default: "hawa-px-2 hawa-py-3 ",
-    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 "
+    sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
 
   return (
@@ -352,10 +352,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           className={cn(
             className,
             widthStyles[width],
-            "hawa-flex hawa-flex-col hawa-gap-1 hawa-overflow-y-auto"
+            "hawa-flex hawa-flex-col hawa-gap-1 hawa-overflow-y-auto",
           )}
           style={{
-            maxHeight: "var(--radix-dropdown-menu-content-available-height)"
+            maxHeight: "var(--radix-dropdown-menu-content-available-height)",
           }}
         >
           {header && header}
@@ -398,7 +398,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                                 sizeStyles[size],
                                 !item.icon && !item.label
                                   ? "hawa-px-0 hawa-py-0 focus:hawa-bg-transparent"
-                                  : "focus:hawa-bg-accent"
+                                  : "focus:hawa-bg-accent",
                               )}
                               onMouseDown={(event: any) => {
                                 if (
@@ -471,7 +471,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       !item.icon && !item.label
                         ? "hawa-px-0 hawa-py-0 focus:hawa-bg-transparent "
                         : "focus:hawa-bg-accent ",
-                      item.presist && "focus:hawa-bg-transparent"
+                      item.presist && "focus:hawa-bg-transparent",
                     )}
                   >
                     {item.icon && item.icon}
@@ -539,5 +539,5 @@ export {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuRadioGroup
+  DropdownMenuRadioGroup,
 };

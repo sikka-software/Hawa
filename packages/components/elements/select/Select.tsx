@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import ReactSelect, { MenuProps } from "react-select";
 import CreatableSelect from "react-select/creatable";
 
+import { cn } from "@util/index";
 import clsx from "clsx";
 
-import { cn } from "@util/index";
 import { Label, LabelProps } from "../label";
 import { Skeleton } from "../skeleton";
 
@@ -44,7 +44,7 @@ export type SelectOptionProps = {
 type SelectTypes = {
   label?: string;
   hideHelperText?: boolean;
-  options?: SelectOptionProps[];
+  options: SelectOptionProps[];
   labelKey?: string;
   isCreatable?: boolean;
   isClearable?: boolean;
@@ -87,7 +87,7 @@ export const Select: FC<SelectTypes> = ({
       <div
         ref={innerRef}
         className={clsx(
-          "hawa-flex hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500"
+          "hawa-flex hawa-w-full hawa-rounded hawa-border hawa-bg-background hawa-p-2 hawa-text-sm hawa-text-gray-900 focus:hawa-border-blue-500 focus:hawa-ring-blue-500 dark:focus:hawa-ring-blue-500",
         )}
         {...innerProps}
       >
@@ -100,7 +100,7 @@ export const Select: FC<SelectTypes> = ({
       <div
         ref={innerRef}
         className={cn(
-          "hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hawa-transition-all hover:hawa-bg-primary hover:hawa-text-primary-foreground"
+          "hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hawa-transition-all hover:hawa-bg-primary hover:hawa-text-primary-foreground",
         )}
         {...innerProps}
       >
@@ -122,7 +122,7 @@ export const Select: FC<SelectTypes> = ({
         className={cn(
           "dark:dark-shadow  hawa-absolute hawa-z-10 -hawa-mx-1 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background hawa-shadow-md",
           props.phoneCode ? "hawa-p-1.5" : "hawa-w-full hawa-p-1.5",
-          menuOpen && "hawa-animate-in hawa-fade-in-0 hawa-zoom-in-95 "
+          menuOpen && "hawa-animate-in hawa-fade-in-0 hawa-zoom-in-95 ",
         )}
         ref={innerRef}
         {...innerProps}
@@ -137,7 +137,7 @@ export const Select: FC<SelectTypes> = ({
     <div
       className={cn(
         "hawa-flex hawa-flex-col hawa-gap-2",
-        props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
+        props.width === "fit" ? "hawa-w-fit" : "hawa-w-full",
       )}
     >
       {props.label && <Label {...labelProps}>{props.label}</Label>}
@@ -151,7 +151,7 @@ export const Select: FC<SelectTypes> = ({
             control: () =>
               cn(
                 props.phoneCode && "hawa-rounded-r-none",
-                props.controlClassNames
+                props.controlClassNames,
               ),
             container: () =>
               cn(
@@ -162,7 +162,7 @@ export const Select: FC<SelectTypes> = ({
                 "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm",
                 props.disabled
                   ? "hawa-cursor-not-allowed"
-                  : "hawa-cursor-pointer"
+                  : "hawa-cursor-pointer",
               ),
             placeholder: () =>
               "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1",
@@ -171,8 +171,8 @@ export const Select: FC<SelectTypes> = ({
             indicatorsContainer: () =>
               cn(
                 "hawa-cursor-pointer hawa-text-muted-foreground",
-                props.hideIndicator ? "hawa-invisible" : "hawa-px-1"
-              )
+                props.hideIndicator ? "hawa-invisible" : "hawa-px-1",
+              ),
           }}
           unstyled
           autoFocus
@@ -202,7 +202,7 @@ export const Select: FC<SelectTypes> = ({
                 "hawa-rounded",
                 props.disabled
                   ? "hawa-cursor-not-allowed"
-                  : "hawa-cursor-pointer"
+                  : "hawa-cursor-pointer",
               ),
             placeholder: () => "hawa-px-2 hawa-text-muted-foreground",
             input: () => "hawa-text-primary hawa-px-2",
@@ -210,7 +210,7 @@ export const Select: FC<SelectTypes> = ({
               "hawa-text-white dark:hawa-text-muted-foreground",
             singleValue: () => "hawa-text-black dark:hawa-text-white hawa-px-2",
             indicatorsContainer: () =>
-              " hawa-px-2 hawa-cursor-pointer hawa-text-muted-foreground"
+              " hawa-px-2 hawa-cursor-pointer hawa-text-muted-foreground",
           }}
           unstyled
           options={props.options}
@@ -232,7 +232,7 @@ export const Select: FC<SelectTypes> = ({
             "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
             props.helperText
               ? "hawa-h-4 hawa-opacity-100"
-              : "hawa-h-0 hawa-opacity-0"
+              : "hawa-h-0 hawa-opacity-0",
           )}
         >
           {props.helperText}
