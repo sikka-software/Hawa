@@ -9,7 +9,7 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Radio",
   component: Radio,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 } satisfies Meta<typeof Radio>;
 
 export default meta;
@@ -38,7 +38,7 @@ export const Default: Story = {
             options={[
               { label: `Option 1`, value: `option1` },
               { label: `Option 2`, value: `option2`, disabled: true },
-              { label: `Option 3`, value: `option3` }
+              { label: `Option 3`, value: `option3` },
             ]}
             {...args}
           />
@@ -56,7 +56,7 @@ export const Default: Story = {
             options={[
               { label: `Option 4`, value: `option4` },
               { label: `Option 5`, value: `option5`, disabled: true },
-              { label: `Option 6`, value: `option6` }
+              { label: `Option 6`, value: `option6` },
             ]}
             {...args}
           />
@@ -64,7 +64,7 @@ export const Default: Story = {
       </div>
     );
   },
-  argTypes: { onChange: { action: "onChange" } }
+  argTypes: { onChange: { action: "onChange" } },
 };
 export const Tabs: Story = {
   parameters: { layout: "padded" },
@@ -89,7 +89,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 1`, value: `option1` },
                   { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` }
+                  { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
               />
@@ -107,7 +107,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 4`, value: `option4` },
                   { label: `Option 5`, value: `option5`, disabled: true },
-                  { label: `Option 6`, value: `option6` }
+                  { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
               />
@@ -134,7 +134,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 1`, value: `option1` },
                   { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` }
+                  { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
               />
@@ -152,7 +152,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 4`, value: `option4` },
                   { label: `Option 5`, value: `option5`, disabled: true },
-                  { label: `Option 6`, value: `option6` }
+                  { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
               />
@@ -178,7 +178,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 1`, value: `option1` },
                   { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` }
+                  { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
               />
@@ -195,7 +195,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 4`, value: `option4` },
                   { label: `Option 5`, value: `option5`, disabled: true },
-                  { label: `Option 6`, value: `option6` }
+                  { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
               />
@@ -222,7 +222,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 1`, value: `option1` },
                   { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` }
+                  { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
               />
@@ -240,7 +240,7 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 4`, value: `option4` },
                   { label: `Option 5`, value: `option5`, disabled: true },
-                  { label: `Option 6`, value: `option6` }
+                  { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
               />
@@ -267,7 +267,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 1`, value: `option1` },
                 { label: `Option 2`, value: `option2`, disabled: true },
-                { label: `Option 3`, value: `option3` }
+                { label: `Option 3`, value: `option3` },
               ]}
               {...args}
             />
@@ -285,7 +285,7 @@ export const Tabs: Story = {
               options={[
                 { label: `Option 4`, value: `option4` },
                 { label: `Option 5`, value: `option5`, disabled: true },
-                { label: `Option 6`, value: `option6` }
+                { label: `Option 6`, value: `option6` },
               ]}
               {...args}
             />
@@ -294,7 +294,7 @@ export const Tabs: Story = {
       </div>
     </div>
   ),
-  argTypes: { onChange: { action: "onChange" } }
+  argTypes: { onChange: { action: "onChange" } },
 };
 export const Cards: Story = {
   render: (args: any, globals: any) => {
@@ -319,19 +319,19 @@ export const Cards: Story = {
               {
                 label: `Option 1`,
                 sublabel: "This is a sublabel under the label",
-                value: `option1`
+                value: `option1`,
               },
               {
                 label: `Option 2`,
                 sublabel: "This is a sublabel under the label",
                 value: `option2`,
-                disabled: true
+                disabled: true,
               },
               {
                 label: `Option 3`,
                 sublabel: "This is a sublabel under the label",
-                value: `option3`
-              }
+                value: `option3`,
+              },
             ]}
             {...args}
           />
@@ -349,19 +349,19 @@ export const Cards: Story = {
               {
                 label: `Option 4`,
                 sublabel: "This is a sublabel under the label",
-                value: `option4`
+                value: `option4`,
               },
               {
                 label: `Option 5`,
                 sublabel: "This is a sublabel under the label",
                 value: `option5`,
-                disabled: true
+                disabled: true,
               },
               {
                 label: `Option 6`,
                 sublabel: "This is a sublabel under the label",
-                value: `option6`
-              }
+                value: `option6`,
+              },
             ]}
             {...args}
           />
@@ -369,7 +369,7 @@ export const Cards: Story = {
       </div>
     );
   },
-  argTypes: { onChange: { action: "onChange" } }
+  argTypes: { onChange: { action: "onChange" } },
 };
 export const Bordered: Story = {
   render: (args: any, globals: any) => {
@@ -395,19 +395,19 @@ export const Bordered: Story = {
               {
                 label: `Option 1`,
                 sublabel: "This is a sublabel under the label",
-                value: `option1`
+                value: `option1`,
               },
               {
                 label: `Option 2`,
                 sublabel: "This is a sublabel under the label",
                 value: `option2`,
-                disabled: true
+                disabled: true,
               },
               {
                 label: `Option 3`,
                 sublabel: "This is a sublabel under the label",
-                value: `option3`
-              }
+                value: `option3`,
+              },
             ]}
             {...args}
           />
@@ -426,19 +426,19 @@ export const Bordered: Story = {
               {
                 label: `Option 4`,
                 sublabel: "This is a sublabel under the label",
-                value: `option4`
+                value: `option4`,
               },
               {
                 label: `Option 5`,
                 sublabel: "This is a sublabel under the label",
                 value: `option5`,
-                disabled: true
+                disabled: true,
               },
               {
                 label: `Option 6`,
                 sublabel: "This is a sublabel under the label",
-                value: `option6`
-              }
+                value: `option6`,
+              },
             ]}
             {...args}
           />
@@ -446,7 +446,7 @@ export const Bordered: Story = {
       </div>
     );
   },
-  argTypes: { onChange: { action: "onChange" } }
+  argTypes: { onChange: { action: "onChange" } },
 };
 export const Playground: Story = {
   render: (args: any, globals: any) => {
@@ -464,11 +464,10 @@ export const Playground: Story = {
           label="Radio Field"
           helperText="Please pick an option"
           direction={direction}
-          tabsContainerClassName="hawa-h-[40px]"
           options={[
             { label: `Option 1`, value: `option1` },
             { label: `Option 2`, value: `option2`, disabled: true },
-            { label: `Option 3`, value: `option3` }
+            { label: `Option 3`, value: `option3` },
           ]}
           {...args}
         />
@@ -477,5 +476,5 @@ export const Playground: Story = {
     );
   },
   argTypes: { onChange: { action: "onChange" } },
-  parameters: { layout: "full-screen" }
+  parameters: { layout: "full-screen" },
 };

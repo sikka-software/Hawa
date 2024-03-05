@@ -106,7 +106,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                 props.options && props.options?.length > 2
                   ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
                   : "",
-                "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium",
+                "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium hawa-h-[40px]",
                 orientationStyle[orientation],
                 widthStyle[width],
                 tabsContainerClassName,

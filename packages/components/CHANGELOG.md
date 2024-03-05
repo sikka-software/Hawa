@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.15
+
+### Patch Changes
+
+- Fix `Radio` tabs height to be 40px
+
 ## 0.30.14
 
 ### Patch Changes
