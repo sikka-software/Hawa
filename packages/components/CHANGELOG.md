@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.14
+
+### Patch Changes
+
+- Fix required types for `Select` and `DropdownMenu`
+- Fix dark mode colos for `Radio` when design is "cards"
+
 ## 0.30.13
 
 ### Patch Changes

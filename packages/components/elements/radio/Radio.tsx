@@ -212,10 +212,10 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                 <label
                   htmlFor={opt.value.toString()}
                   className={cn(
-                    "hawa-inline-flex hawa-h-full hawa-w-full  hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-gray-200 hawa-bg-white hawa-p-5 hawa-text-gray-500  peer-checked:hawa-border-primary peer-checked:hawa-text-primary dark:hawa-border-gray-700 dark:hawa-bg-gray-800 dark:hawa-text-gray-400  dark:peer-checked:hawa-text-primary",
+                    "hawa-inline-flex hawa-h-full hawa-w-full hawa-transition-all  hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-gray-200 hawa-bg-background hawa-p-5 hawa-text-gray-500  peer-checked:hawa-border-primary peer-checked:hawa-text-primary dark:hawa-border-gray-700 dark:hawa-bg-foreground/5 dark:hawa-text-gray-400  dark:peer-checked:hawa-text-primary",
                     opt.disabled
                       ? "hawa-opacity-50"
-                      : "hawa-cursor-pointer hover:hawa-bg-gray-100 hover:hawa-text-gray-600 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-gray-300",
+                      : "hawa-cursor-pointer hover:hawa-bg-foreground/10 hover:hawa-text-gray-600 dark:hover:hawa-bg-foreground/20 dark:hover:hawa-text-gray-300",
                   )}
                 >
                   <div className="hawa-block  hawa-h-full hawa-w-full">
