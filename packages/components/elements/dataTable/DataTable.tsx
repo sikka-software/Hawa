@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable,
   RowData,
-  ExpandedState
+  ExpandedState,
 } from "@tanstack/react-table";
 import { cn } from "@util/index";
 
@@ -25,7 +25,7 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuRoot,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "../dropdownMenu";
 import { Input } from "../input";
 import { Skeleton } from "../skeleton";
@@ -35,7 +35,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from "../table";
 
 export type { ColumnDef } from "@tanstack/react-table";
@@ -86,10 +86,10 @@ export const DataTable = <DataProps extends {}>({
   ...props
 }: DataTableProps<DataProps>) => {
   const [sorting, setSorting] = React.useState<SortingState>(
-    props.defaultSort ? [{ id: props.defaultSort, desc: false }] : []
+    props.defaultSort ? [{ id: props.defaultSort, desc: false }] : [],
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
+    [],
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
@@ -98,13 +98,13 @@ export const DataTable = <DataProps extends {}>({
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
 
-  const visibleColumns = columns.filter(
-    (column) => column.meta?.hidden !== true
-  );
+  // const visibleColumns = columns.filter(
+  //   (column) => column.meta?.hidden !== true,
+  // );
 
   const table = useReactTable({
     data,
-    columns: visibleColumns,
+    columns,
     onExpandedChange: setExpanded,
     getExpandedRowModel: getExpandedRowModel(),
     onGlobalFilterChange: setGlobalFilter,
@@ -122,17 +122,24 @@ export const DataTable = <DataProps extends {}>({
       columnVisibility,
       globalFilter,
       rowSelection,
-      expanded
-    }
-    // defaultColumn: {
-    //   maxSize: 200
-    // }
+      expanded,
+    },
   });
   const pageText = props.texts?.page || "page";
   const itemsPerPageOptions = props.itemsPerPage?.map((item) => ({
     label: `${item} / ${pageText}`,
-    value: item
+    value: item,
   }));
+
+  React.useEffect(() => {
+    setColumnVisibility((prev) => {
+      let newColumnVisibility: VisibilityState = {};
+      columns.forEach((column: any) => {
+        newColumnVisibility[column.accessorKey] = !column.meta?.hidden;
+      });
+      return newColumnVisibility;
+    });
+  }, [columns]);
 
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
@@ -183,7 +190,6 @@ export const DataTable = <DataProps extends {}>({
                     return (
                       <DropdownMenuCheckboxItem
                         key={column.id}
-                        // className="hawa-capitalize"
                         checked={column.getIsVisible()}
                         onCheckedChange={(value) =>
                           column.toggleVisibility(!!value)
@@ -206,7 +212,7 @@ export const DataTable = <DataProps extends {}>({
             "hawa-flex hawa-w-full  hawa-gap-4",
             paginationPosition === "top"
               ? "hawa-flex-col-reverse"
-              : "hawa-flex-col"
+              : "hawa-flex-col",
           )}
         >
           <div className="hawa-rounded-md">
@@ -224,14 +230,14 @@ export const DataTable = <DataProps extends {}>({
                             clickable={Boolean(isSortable)}
                             key={header.id}
                             style={{
-                              maxWidth: header.column.columnDef.maxSize
+                              maxWidth: header.column.columnDef.maxSize,
                             }}
                           >
                             {header.isPlaceholder
                               ? null
                               : flexRender(
                                   header.column.columnDef.header,
-                                  header.getContext()
+                                  header.getContext(),
                                 )}
                           </TableHead>
                         );
@@ -250,7 +256,7 @@ export const DataTable = <DataProps extends {}>({
                       {row.getVisibleCells().map((cell) => (
                         <TableCell
                           style={{
-                            maxWidth: cell.column.columnDef.maxSize
+                            maxWidth: cell.column.columnDef.maxSize,
                           }}
                           dir={props.direction}
                           padding={
@@ -262,7 +268,7 @@ export const DataTable = <DataProps extends {}>({
                         >
                           {flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext()
+                            cell.getContext(),
                           )}
                         </TableCell>
                       ))}
@@ -332,7 +338,7 @@ export const DataTable = <DataProps extends {}>({
                     { label: `20 / ${pageText}`, value: 20 },
                     { label: `30 / ${pageText}`, value: 30 },
                     { label: `40 / ${pageText}`, value: 40 },
-                    { label: `50 / ${pageText}`, value: 50 }
+                    { label: `50 / ${pageText}`, value: 50 },
                   ]
                 }
                 trigger={
@@ -372,7 +378,7 @@ export const DataTable = <DataProps extends {}>({
                     onClick={() => table.setPageIndex(0)}
                     disabled={!table.getCanPreviousPage()}
                     className={cn(
-                      props.direction === "rtl" && "hawa-rotate-180"
+                      props.direction === "rtl" && "hawa-rotate-180",
                     )}
                   >
                     <svg
@@ -398,7 +404,7 @@ export const DataTable = <DataProps extends {}>({
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
                     className={cn(
-                      props.direction === "rtl" && "hawa-rotate-180"
+                      props.direction === "rtl" && "hawa-rotate-180",
                     )}
                   >
                     <svg
@@ -424,7 +430,7 @@ export const DataTable = <DataProps extends {}>({
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
                     className={cn(
-                      props.direction === "ltr" && "hawa-rotate-180"
+                      props.direction === "ltr" && "hawa-rotate-180",
                     )}
                   >
                     <svg
@@ -449,7 +455,7 @@ export const DataTable = <DataProps extends {}>({
                     onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                     disabled={!table.getCanNextPage()}
                     className={cn(
-                      props.direction === "ltr" && "hawa-rotate-180"
+                      props.direction === "ltr" && "hawa-rotate-180",
                     )}
                   >
                     <svg

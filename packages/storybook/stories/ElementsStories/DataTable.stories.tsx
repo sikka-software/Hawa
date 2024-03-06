@@ -17,7 +17,7 @@ import { generateDummyCompanies } from "../../utils/storiesUtils";
 
 const meta = {
   title: "Elements/Tables/Data Table",
-  component: DataTable
+  component: DataTable,
 } satisfies Meta<typeof DataTable>;
 
 export default meta;
@@ -49,13 +49,13 @@ const Template = (args: any, globals: any) => {
           onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
           label={t("company")}
         />
-      )
+      ),
     },
     {
       accessorKey: "location",
       header: t("location"),
       maxSize: 200,
-      meta: { hidden: false }
+      meta: { hidden: true },
     },
     {
       accessorKey: "website",
@@ -71,12 +71,12 @@ const Template = (args: any, globals: any) => {
         <a href={row.getValue("website")} className="clickable-link">
           {row.getValue("website")}
         </a>
-      )
+      ),
     },
 
     {
       accessorKey: "employees",
-      meta: { sortable: true },
+      meta: { sortable: true, hidden: true },
       header: ({ column }) => {
         return (
           <SortButton
@@ -90,7 +90,7 @@ const Template = (args: any, globals: any) => {
         <div className="hawa-font-medium">
           {d.row.getValue("employees")?.toLocaleString()}
         </div>
-      )
+      ),
     },
     {
       accessorKey: "share_price",
@@ -108,11 +108,11 @@ const Template = (args: any, globals: any) => {
         const amount = parseFloat(row.getValue("share_price"));
         const formatted = new Intl.NumberFormat("en-US", {
           style: "currency",
-          currency: "USD"
+          currency: "USD",
         }).format(amount);
 
         return <div className="hawa-font-medium">{formatted}</div>;
-      }
+      },
     },
 
     {
@@ -147,15 +147,15 @@ const Template = (args: any, globals: any) => {
               items={[
                 {
                   label: "copy",
-                  value: "copy"
+                  value: "copy",
                   // action: () => navigator.clipboard.writeText(payment.id),
-                }
+                },
               ]}
             />
           </span>
         );
-      }
-    }
+      },
+    },
   ];
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
@@ -181,7 +181,7 @@ const Template = (args: any, globals: any) => {
             title: "test",
             description: "Description",
             severity: "success",
-            duration: 5000
+            duration: 5000,
           })
         }
       >
@@ -208,7 +208,7 @@ const Template = (args: any, globals: any) => {
           page: t("page"),
           noData: t("no-data"),
           goTo: t("go-to"),
-          searchPlaceholder: t("search-items")
+          searchPlaceholder: t("search-items"),
         }}
       />
       <Toaster />
@@ -216,20 +216,20 @@ const Template = (args: any, globals: any) => {
   );
 };
 export const Default: Story = {
-  render: Template.bind({})
+  render: Template.bind({}),
 };
 export const WithSearch: Story = {
   render: Template.bind({}),
   args: {
-    enableSearch: true
-  }
+    enableSearch: true,
+  },
 };
 export const WithHideColumns: Story = {
   render: Template.bind({}),
   args: {
     enableHideColumns: true,
-    enableSearch: true
-  }
+    enableSearch: true,
+  },
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -239,11 +239,11 @@ export const Sizes: Story = {
     const companiesColumns: ColumnDef<Company>[] = [
       {
         accessorKey: "name",
-        header: t("company")
+        header: t("company"),
       },
       {
         accessorKey: "location",
-        header: t("location")
+        header: t("location"),
       },
       {
         accessorKey: "website",
@@ -252,7 +252,7 @@ export const Sizes: Story = {
           <a href={row.getValue("website")} className="clickable-link">
             {row.getValue("website")}
           </a>
-        )
+        ),
       },
 
       {
@@ -262,11 +262,11 @@ export const Sizes: Story = {
           <div className="hawa-font-medium">
             {d.row.getValue("employees")?.toLocaleString()}
           </div>
-        )
+        ),
       },
       {
         accessorKey: "share_price",
-        header: t("share_price")
+        header: t("share_price"),
       },
       {
         id: "actions",
@@ -300,27 +300,27 @@ export const Sizes: Story = {
                 items={[
                   {
                     label: "copy",
-                    value: "copy"
+                    value: "copy",
                     // action: () => navigator.clipboard.writeText(payment.id),
-                  }
+                  },
                 ]}
               />
             </span>
           );
-        }
-      }
+        },
+      },
     ];
     const noPaddingCompaniesColumns: ColumnDef<Company>[] = [
       {
         accessorKey: "name",
         header: t("company"),
-        meta: { padding: "noPadding", sortable: false }
+        meta: { padding: "noPadding", sortable: false },
       },
 
       {
         accessorKey: "location",
         header: t("location"),
-        meta: { padding: "noPadding", sortable: false }
+        meta: { padding: "noPadding", sortable: false },
       },
       {
         accessorKey: "website",
@@ -330,7 +330,7 @@ export const Sizes: Story = {
           <a href={row.getValue("website")} className="clickable-link">
             {row.getValue("website")}
           </a>
-        )
+        ),
       },
 
       {
@@ -341,12 +341,12 @@ export const Sizes: Story = {
           <div className="hawa-font-medium">
             {d.row.getValue("employees")?.toLocaleString()}
           </div>
-        )
+        ),
       },
       {
         accessorKey: "share_price",
         header: t("share_price"),
-        meta: { padding: "noPadding", sortable: false }
+        meta: { padding: "noPadding", sortable: false },
       },
       {
         id: "actions",
@@ -380,15 +380,15 @@ export const Sizes: Story = {
                 items={[
                   {
                     label: "copy",
-                    value: "copy"
+                    value: "copy",
                     // action: () => navigator.clipboard.writeText(payment.id),
-                  }
+                  },
                 ]}
               />
             </span>
           );
-        }
-      }
+        },
+      },
     ];
     const { toast } = useToast();
 
@@ -415,7 +415,7 @@ export const Sizes: Story = {
               page: t("page"),
               noData: t("no-data"),
               goTo: t("go-to"),
-              searchPlaceholder: t("search-items")
+              searchPlaceholder: t("search-items"),
             }}
           />
         </div>
@@ -437,7 +437,7 @@ export const Sizes: Story = {
               page: t("page"),
               noData: t("no-data"),
               goTo: t("go-to"),
-              searchPlaceholder: t("search-items")
+              searchPlaceholder: t("search-items"),
             }}
           />
         </div>
@@ -458,13 +458,13 @@ export const Sizes: Story = {
               page: t("page"),
               noData: t("no-data"),
               goTo: t("go-to"),
-              searchPlaceholder: t("search-items")
+              searchPlaceholder: t("search-items"),
             }}
           />
         </div>
       </div>
     );
-  }
+  },
 };
 export const InCard: Story = {
   render: (args: any, globals: any) => {
@@ -484,11 +484,11 @@ export const InCard: Story = {
             onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
             label={t("company")}
           />
-        )
+        ),
       },
       {
         accessorKey: "location",
-        header: t("location")
+        header: t("location"),
       },
       {
         accessorKey: "website",
@@ -504,7 +504,7 @@ export const InCard: Story = {
           <a href={row.getValue("website")} className="clickable-link">
             {row.getValue("website")}
           </a>
-        )
+        ),
       },
 
       {
@@ -525,7 +525,7 @@ export const InCard: Story = {
           <div className="hawa-font-medium">
             {d.row.getValue("employees")?.toLocaleString()}
           </div>
-        )
+        ),
       },
       {
         accessorKey: "share_price",
@@ -545,11 +545,11 @@ export const InCard: Story = {
           const amount = parseFloat(row.getValue("share_price"));
           const formatted = new Intl.NumberFormat("en-US", {
             style: "currency",
-            currency: "USD"
+            currency: "USD",
           }).format(amount);
 
           return <div className="hawa-font-medium">{formatted}</div>;
-        }
+        },
       },
 
       {
@@ -585,15 +585,15 @@ export const InCard: Story = {
                 items={[
                   {
                     label: "copy",
-                    value: "copy"
+                    value: "copy",
                     // action: () => navigator.clipboard.writeText(payment.id),
-                  }
+                  },
                 ]}
               />
             </span>
           );
-        }
-      }
+        },
+      },
     ];
     const [isLoading, setIsLoading] = useState(true);
     const { toast } = useToast();
@@ -649,12 +649,12 @@ export const InCard: Story = {
                 page: t("page"),
                 noData: t("no-data"),
                 goTo: t("go-to"),
-                searchPlaceholder: t("search-items")
+                searchPlaceholder: t("search-items"),
               }}
             />
           </div>
         </CardContent>
       </Card>
     );
-  }
+  },
 };

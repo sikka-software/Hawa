@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.17
+
+### Patch Changes
+
+- Allow making column hidden by default in `DataTable`
+
 ## 0.30.15
 
 ### Patch Changes
