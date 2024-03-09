@@ -21,7 +21,7 @@ type CodeBlockTypes = {
   /** Name of the file being displayed.   */
   fileName?: string;
   /** Code content to be displayed within the code block.*/
-  code?: string;
+  code: string;
   /** line numbers for code block   */
   lineNumbers?: boolean;
   /** Wrap text in code block */
