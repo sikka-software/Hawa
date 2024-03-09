@@ -4,7 +4,7 @@ import React, {
   ChangeEvent,
   InputHTMLAttributes,
   useEffect,
-  FormEvent
+  FormEvent,
 } from "react";
 
 import { calculateLuminance, cn, getTextColor } from "@util/index";
@@ -93,7 +93,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
               }}
               className={cn(
                 "hawa-mt-0 hawa-h-[38px] hawa-opacity-0",
-                props.colorPickerClassNames
+                props.colorPickerClassNames,
               )}
               {...colorPickerProps}
             />
@@ -107,7 +107,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
               value={selectedColor}
               className={cn(
                 "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
-                "hawa-border hawa-border-l-0 hawa-border-l-transparent"
+                "hawa-border hawa-border-l-0 hawa-border-l-transparent",
                 // "hawa-border hawa-border-x-0 hawa-border-x-transparent hawa-border-b-0 hawa-rounded-tr-none"
               )}
               style={{
@@ -118,7 +118,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
                   ? calculateLuminance(selectedColor) > 0.5
                     ? "black"
                     : "white"
-                  : ""
+                  : "",
               }}
               // 0.179
               {...textInputProps}
@@ -133,7 +133,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
             "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
             props.helperText
               ? "hawa-h-4 hawa-opacity-100"
-              : "hawa-h-0 hawa-opacity-0"
+              : "hawa-h-0 hawa-opacity-0",
           )}
         >
           {props.helperText}

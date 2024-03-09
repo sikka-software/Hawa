@@ -10,7 +10,7 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem
+  CommandItem,
 } from "../command";
 import { Label, LabelProps } from "../label";
 import { PopoverContent, PopoverTrigger } from "../popover";
@@ -57,7 +57,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       renderOption,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(defaultValue);
@@ -74,7 +74,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       <div
         className={cn(
           "hawa-relative hawa-flex hawa-h-fit hawa-flex-col hawa-gap-2",
-          props.width === "fit" ? "hawa-w-fit" : "hawa-w-full"
+          props.width === "fit" ? "hawa-w-fit" : "hawa-w-full",
         )}
         ref={containerRef}
       >
@@ -91,7 +91,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                 <div
                   className={cn(
                     "hawa-absolute hawa-top-[22px] hawa-h-[0.8px] hawa-w-full hawa-bg-gray-200 hawa-transition-all dark:hawa-bg-gray-800",
-                    props.preview ? "hawa-opacity-100" : "hawa-opacity-0"
+                    props.preview ? "hawa-opacity-100" : "hawa-opacity-0",
                   )}
                 ></div>
                 <button
@@ -102,14 +102,14 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                     "hawa-inline-flex hawa-h-10 hawa-w-full hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-md hawa-border hawa-py-2 hawa-text-sm hawa-font-normal  hawa-ring-offset-background  hawa-transition-all  focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
                     props.preview
                       ? "hawa-cursor-default hawa-rounded-none hawa-border-transparent hawa-px-0"
-                      : "hawa-bg-background hawa-px-3 "
+                      : "hawa-bg-background hawa-px-3 ",
                   )}
                 >
                   {value
                     ? getProperty(
                         data.find((item: any) => item[valueKey] === value) ||
                           {},
-                        labelKey
+                        labelKey,
                       )
                     : props.texts?.placeholder || ". . ."}
                   <svg
@@ -118,7 +118,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       "hawa-icon hawa-transition-all",
                       !props.preview
                         ? "hawa-visible hawa-opacity-100"
-                        : "hawa-invisible hawa-opacity-0"
+                        : "hawa-invisible hawa-opacity-0",
                     )}
                     aria-label="Chevron down icon"
                     viewBox="0 0 24 24"
@@ -136,7 +136,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                     "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
                     props.helperText
                       ? "hawa-h-4 hawa-opacity-100"
-                      : "hawa-h-0 hawa-opacity-0"
+                      : "hawa-h-0 hawa-opacity-0",
                   )}
                 >
                   {props.helperText}
@@ -169,7 +169,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       setValue(newValue === value ? "" : (newValue as string));
                       if (props.onChange) {
                         props.onChange(
-                          newValue === value ? "" : (newValue as string)
+                          newValue === value ? "" : (newValue as string),
                         );
                       }
                       setOpen(false);
@@ -190,7 +190,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                         "hawa-icon",
                         value === getProperty(item, valueKey)
                           ? "hawa-opacity-100"
-                          : "hawa-opacity-0"
+                          : "hawa-opacity-0",
                       )}
                       style={{ marginInlineEnd: "0.5rem" }}
                     >
@@ -207,5 +207,5 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
         </PopoverPrimitive.Root>
       </div>
     );
-  }
+  },
 );

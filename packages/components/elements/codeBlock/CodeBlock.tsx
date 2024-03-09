@@ -71,7 +71,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
     full: "hawa-w-full",
     md: "hawa-w-full hawa-max-w-md",
     sm: "hawa-w-full hawa-max-w-sm",
-    xs: "hawa-w-full hawa-max-w-xs"
+    xs: "hawa-w-full hawa-max-w-xs",
   };
 
   return (
@@ -79,7 +79,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       className={cn(
         widthStyles[width],
         "hawa-w-full hawa-flex-col hawa-relative hawa-items-center hawa-rounded hawa-bg-background hawa-text-left hawa-my-2 hawa-text-white sm:hawa-text-base",
-        classNames?.root
+        classNames?.root,
       )}
     >
       {fileName && (
@@ -87,12 +87,12 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-2 hawa-py-0.5 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             fileName && tabs ? "hawa-bg-primary/10" : "hawa-bg-primary/15",
-            classNames?.fileName
+            classNames?.fileName,
           )}
         >
           <div
             className={cn(
-              "hawa-font-mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]"
+              "hawa-font-mono hawa-w-full hawa-max-w-[52px] hawa-rounded-inner hawa-p-1 hawa-py-0.5 hawa-text-center hawa-text-[0.75rem]",
             )}
           >
             {fileName}
@@ -104,7 +104,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             tabs && fileName && "hawa-rounded-t-none",
-            classNames?.tabs
+            classNames?.tabs,
           )}
         >
           {tabs.map((tab, i) => (
@@ -114,13 +114,13 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
                 selectedTab === i
                   ? " hawa-border-b-2 hawa-border-primary"
                   : "hawa-bg-transparent",
-                classNames?.tab
+                classNames?.tab,
               )}
             >
               <div
                 onClick={() => setSelectedTab(i)}
                 className={cn(
-                  "hawa-mb-0.5 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-0.5 hawa-text-center hawa-text-[0.7rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20"
+                  "hawa-mb-0.5 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-0.5 hawa-text-center hawa-text-[0.7rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20",
                 )}
               >
                 {tab.title}
@@ -137,12 +137,12 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             ? "hawa-rounded-b hawa-rounded-t-none"
             : "hawa-rounded",
           classNames?.codeBlockContainer,
-          "hawa-overflow-y-auto"
+          "hawa-overflow-y-auto",
         )}
       >
         <div
           className={cn(
-            "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3 hawa-top-3"
+            "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3 hawa-top-3",
           )}
         >
           <Tooltip
@@ -174,7 +174,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
                 // !hawa-pe-12
                 "hawa-min-h-[37.75px]  hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
                 classNames?.code,
-                wrapText && "hawa-text-wrap"
+                wrapText && "hawa-text-wrap",
               )}
             >
               {tokens.map((line, i) => (

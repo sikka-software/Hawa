@@ -22,19 +22,19 @@ interface CommandItemProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {}
 interface CommandShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {}
 
-const Command: React.ForwardRefExoticComponent<
-  CommandProps & React.RefAttributes<React.ElementRef<typeof CommandPrimitive>>
-> = React.forwardRef(({ className, ...props }, ref) => (
+const Command = React.forwardRef<
+  React.ElementRef<typeof CommandPrimitive>,
+  CommandProps
+>(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
     className={cn(
       "hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-overflow-hidden hawa-rounded-md hawa-bg-popover hawa-text-popover-foreground",
-      className
+      className,
     )}
     {...props}
   />
 ));
-Command.displayName = CommandPrimitive.displayName;
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   return (
@@ -76,14 +76,12 @@ const CommandInput = React.forwardRef<
       ref={ref}
       className={cn(
         "hawa-flex hawa-h-11 hawa-w-full hawa-rounded-md hawa-bg-transparent hawa-py-3 hawa-text-sm hawa-outline-none placeholder:hawa-text-muted-foreground disabled:hawa-cursor-not-allowed disabled:hawa-opacity-50",
-        className
+        className,
       )}
       {...props}
     />
   </div>
 ));
-
-CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
@@ -93,13 +91,11 @@ const CommandList = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-max-h-[300px] hawa-overflow-y-auto hawa-overflow-x-hidden",
-      className
+      className,
     )}
     {...props}
   />
 ));
-
-CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
@@ -112,8 +108,6 @@ const CommandEmpty = React.forwardRef<
   />
 ));
 
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
-
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
   CommandGroupProps
@@ -122,13 +116,11 @@ const CommandGroup = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-overflow-hidden hawa-p-1 hawa-text-foreground [&_[cmdk-group-heading]]:hawa-px-2 [&_[cmdk-group-heading]]:hawa-py-1.5 [&_[cmdk-group-heading]]:hawa-text-xs [&_[cmdk-group-heading]]:hawa-font-medium [&_[cmdk-group-heading]]:hawa-text-muted-foreground",
-      className
+      className,
     )}
     {...props}
   />
 ));
-
-CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
@@ -140,7 +132,6 @@ const CommandSeparator = React.forwardRef<
     {...props}
   />
 ));
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
@@ -150,13 +141,11 @@ const CommandItem = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-px-2 hawa-py-1.5 hawa-text-sm hawa-outline-none aria-selected:hawa-bg-accent aria-selected:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-      className
+      className,
     )}
     {...props}
   />
 ));
-
-CommandItem.displayName = CommandPrimitive.Item.displayName;
 
 const CommandShortcut = ({
   className,
@@ -166,13 +155,21 @@ const CommandShortcut = ({
     <span
       className={cn(
         "hawa-ml-auto hawa-text-xs hawa-tracking-widest hawa-text-muted-foreground",
-        className
+        className,
       )}
       {...props}
     />
   );
 };
+
 CommandShortcut.displayName = "CommandShortcut";
+CommandItem.displayName = CommandPrimitive.Item.displayName;
+CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
+CommandGroup.displayName = CommandPrimitive.Group.displayName;
+CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
+CommandList.displayName = CommandPrimitive.List.displayName;
+Command.displayName = CommandPrimitive.displayName;
+CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 export {
   Command,
@@ -183,5 +180,5 @@ export {
   CommandGroup,
   CommandItem,
   CommandShortcut,
-  CommandSeparator
+  CommandSeparator,
 };

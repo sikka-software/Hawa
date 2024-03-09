@@ -20,7 +20,7 @@ const DialogOverlay = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-fixed hawa-inset-0 hawa-z-50 hawa-bg-background/80 hawa-backdrop-blur-sm data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0",
-      className
+      className,
     )}
     {...props}
   />
@@ -44,7 +44,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         "hawa-fixed hawa-left-[50%] hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-shadow-lg hawa-transition-all hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
-        className
+        className,
       )}
       {...props}
     >
@@ -53,7 +53,7 @@ const DialogContent = React.forwardRef<
         <DialogPrimitive.Close
           className={cn(
             "hawa-absolute hawa-top-4 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
-            props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4"
+            props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4",
           )}
         >
           <svg
@@ -95,7 +95,7 @@ const DialogCarouselContent = React.forwardRef<
       hidePrevButton,
       ...props
     },
-    ref
+    ref,
   ) => (
     <DialogPortal>
       <DialogOverlay />
@@ -108,7 +108,7 @@ const DialogCarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           "hawa-fixed hawa-left-[50%] hawa-top-[50%] hawa-z-50 hawa-grid hawa-w-full hawa-max-w-lg hawa-translate-x-[-50%] hawa-translate-y-[-50%] hawa-gap-4 hawa-border hawa-bg-background hawa-p-6 hawa-pt-14 hawa-shadow-lg hawa-transition-all hawa-duration-200 data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[state=closed]:hawa-slide-out-to-left-1/2 data-[state=closed]:hawa-slide-out-to-top-[48%] data-[state=open]:hawa-slide-in-from-left-1/2 data-[state=open]:hawa-slide-in-from-top-[48%] sm:hawa-rounded md:hawa-w-full",
-          className
+          className,
         )}
         {...props}
       >
@@ -116,7 +116,7 @@ const DialogCarouselContent = React.forwardRef<
         <div
           className={cn(
             "hawa-absolute hawa-top-0 hawa-flex hawa-w-full hawa-flex-row hawa-p-4",
-            onPrev ? "hawa-justify-between" : "hawa-justify-end"
+            onPrev ? "hawa-justify-between" : "hawa-justify-end",
           )}
         >
           {hidePrevButton ? (
@@ -126,7 +126,7 @@ const DialogCarouselContent = React.forwardRef<
               onClick={onPrev}
               className={cn(
                 "hawa-end-0 hawa-cursor-pointer hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
-                props.dir === "rtl" && "hawa-rotate-180"
+                props.dir === "rtl" && "hawa-rotate-180",
               )}
             >
               <svg
@@ -149,7 +149,7 @@ const DialogCarouselContent = React.forwardRef<
             <DialogPrimitive.Close
               className={cn(
                 "hawa-end-0 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground ",
-                props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4"
+                props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4",
               )}
             >
               <svg
@@ -171,7 +171,7 @@ const DialogCarouselContent = React.forwardRef<
         </div>
       </DialogPrimitive.Content>
     </DialogPortal>
-  )
+  ),
 );
 
 const DialogHeader = ({
@@ -181,7 +181,7 @@ const DialogHeader = ({
   <div
     className={cn(
       "hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-text-center sm:hawa-text-left",
-      className
+      className,
     )}
     {...props}
   />
@@ -194,7 +194,7 @@ const DialogTitle = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-text-start hawa-text-lg hawa-font-semibold hawa-leading-none hawa-tracking-tight",
-      className
+      className,
     )}
     {...props}
   />
@@ -207,7 +207,7 @@ const DialogDescription = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-text-start hawa-text-sm hawa-text-muted-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -219,7 +219,7 @@ const DialogFooter = ({
   <div
     className={cn(
       "hawa-flex hawa-flex-col-reverse sm:hawa-flex-row sm:hawa-justify-end sm:hawa-gap-2",
-      className
+      className,
     )}
     {...props}
   />
@@ -234,7 +234,7 @@ const DialogCarousel: React.FC<DialogCarouselProps> = ({
   stepsApi,
   stepsRef,
   children,
-  direction
+  direction,
 }) => {
   React.useEffect(() => {
     if (stepsApi) {
@@ -247,13 +247,13 @@ const DialogCarousel: React.FC<DialogCarouselProps> = ({
         <div
           className="hawa-flex"
           style={{
-            transition: "height 0.2s"
+            transition: "height 0.2s",
           }}
         >
           {React.Children.map(children, (child, index) => (
             <div
               className={cn(
-                "hawa-flex hawa-h-fit hawa-flex-[0_0_100%] hawa-items-center hawa-justify-center"
+                "hawa-flex hawa-h-fit hawa-flex-[0_0_100%] hawa-items-center hawa-justify-center",
               )}
               key={index}
             >
@@ -274,7 +274,7 @@ interface DialogStepsProps {
 const DialogSteps: React.FC<DialogStepsProps> = ({
   currentStep,
   visibleStepRef,
-  children
+  children,
 }) => {
   const [dialogHeight, setDialogHeight] = React.useState<any>(null);
   React.useEffect(() => {
@@ -289,7 +289,7 @@ const DialogSteps: React.FC<DialogStepsProps> = ({
       className="hawa-relative hawa-overflow-clip"
       style={{
         height: dialogHeight || "fit-content",
-        transition: "height 0.2s"
+        transition: "height 0.2s",
       }}
     >
       {React.Children.map(children, (child, index) => (
@@ -298,7 +298,7 @@ const DialogSteps: React.FC<DialogStepsProps> = ({
           className={cn(
             currentStep === `step-${index + 1}`
               ? "hawa-visible hawa-block"
-              : "hawa-invisible hawa-hidden"
+              : "hawa-invisible hawa-hidden",
           )}
         >
           {child}
@@ -317,7 +317,7 @@ const DialogStep: React.FC<DialogStepProps> = ({
   id,
   children,
   className,
-  stepRef
+  stepRef,
 }) => {
   return (
     <div
@@ -363,5 +363,5 @@ export {
   DialogSteps,
   DialogStep,
   DialogBody,
-  DialogDescription
+  DialogDescription,
 };

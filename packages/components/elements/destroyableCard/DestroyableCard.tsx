@@ -1,8 +1,9 @@
 import React, { FC, useRef, useState } from "react";
 
+import { cn } from "@util/index";
+
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { Card, CardContent } from "../card";
 
 type DestroyableCard = {
@@ -22,21 +23,21 @@ export const DestroyableCard: FC<DestroyableCard> = ({
 
   const boxPosition = {
     "bottom-right": "hawa-right-4 hawa-bottom-4",
-    "bottom-left": "hawa-left-4 hawa-bottom-4"
+    "bottom-left": "hawa-left-4 hawa-bottom-4",
   };
 
   return (
     <div
       className={cn(
         "hawa-transition-all",
-        closed ? "hawa-opacity-0" : "hawa-opacity-100"
+        closed ? "hawa-opacity-0" : "hawa-opacity-100",
       )}
       ref={popUpRef}
     >
       <Card
         className={cn(
           fixed ? "hawa-fixed" : "hawa-relative",
-          fixed && position && boxPosition[position]
+          fixed && position && boxPosition[position],
         )}
         dir={direction}
       >
@@ -44,7 +45,7 @@ export const DestroyableCard: FC<DestroyableCard> = ({
           type="button"
           className={cn(
             direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
-            "hawa-absolute hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white"
+            "hawa-absolute hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white",
           )}
           data-dismiss-target="#destroyable-card"
           aria-label="Close"
