@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.18
+
+### Patch Changes
+
+- Fix ref forwarding in `Command`
+
 ## 0.30.17
 
 ### Patch Changes
