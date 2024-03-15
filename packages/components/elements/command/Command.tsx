@@ -6,7 +6,11 @@ import { Command as CommandPrimitive } from "cmdk";
 
 import { Dialog, DialogContent } from "../dialog";
 
-type CommandProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive>;
+interface CommandProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive> {
+  // Include additional props if necessary
+}
+
 interface CommandDialogProps extends DialogProps {}
 interface CommandInputProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
