@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import { ArgsTable, Story, Title } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-// import { Textarea } from "@sikka/hawa/textarea";
 //
 import {
   Alert,
@@ -22,7 +21,7 @@ import {
   TabsList,
   TabsTrigger, // SplitButton,
   Slider,
-  Textarea
+  Textarea,
 } from "../../../components/elements";
 import { SplitButton } from "../../../components/elements/splitButton";
 import { setLocale, t } from "../../translations/i18n";
@@ -30,18 +29,6 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Playground",
   component: Alert,
-  parameters: {
-    // layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Alert/>"}</h1>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
 } satisfies Meta<typeof Alert>;
 
 const ProgressBar = (props: any) => {
@@ -82,7 +69,7 @@ export const Default: Story = {
     <div className="flex min-h-screen items-center justify-center">
       <ProgressBar currentMetric={70} maxMetric={100} />
     </div>
-  )
+  ),
 };
 export const Carousel: Story = {
   name: "Carousel (AI)",
@@ -91,7 +78,7 @@ export const Carousel: Story = {
     <div className="flex min-h-screen items-center justify-center">
       <WidgetContainer />
     </div>
-  )
+  ),
 };
 export const GaugeStory: Story = {
   name: "Gauge (AI)",
@@ -99,7 +86,7 @@ export const GaugeStory: Story = {
     <div className="hawa-flex hawa-min-h-screen hawa-items-center hawa-justify-center">
       <Gauge value={23} />
     </div>
-  )
+  ),
 };
 export const NavBar: Story = {
   name: "Navbar (AI)",
@@ -108,7 +95,7 @@ export const NavBar: Story = {
     <div className="hawa-flex hawa-min-h-screen hawa-items-center hawa-justify-center">
       <ShopNavBar />
     </div>
-  )
+  ),
 };
 export const WifiIcon: Story = {
   name: "Wifi Icon",
@@ -145,30 +132,30 @@ export const WifiIcon: Story = {
         y2="20"
       />
     </svg>
-  )
+  ),
 };
 
 let roles = [
   {
     _id: "09849846540345",
-    label: "Superadmin"
+    label: "Superadmin",
   },
   {
     _id: "013216506546584098",
-    label: "Admin"
+    label: "Admin",
   },
   {
     _id: "84940984065496",
-    label: "Viewer"
+    label: "Viewer",
   },
   {
     _id: "6401651321",
-    label: "User"
+    label: "User",
   },
   {
     _id: "84040984098",
-    label: "Editor"
-  }
+    label: "Editor",
+  },
 ];
 export const SelectAndInput: Story = {
   name: "Select & Input",
@@ -200,7 +187,7 @@ export const SelectAndInput: Story = {
               valueKey={"_id"}
               texts={{
                 placeholder: "Select something",
-                searchPlaceholder: "Search ..."
+                searchPlaceholder: "Search ...",
               }}
               // helperText={"Testing helperText"}
               popoverClassName="hawa-w-full"
@@ -216,7 +203,7 @@ export const SelectAndInput: Story = {
                 countPosition="top"
                 textareaProps={{
                   maxLength: 100,
-                  placeholder: "Placeholder text here"
+                  placeholder: "Placeholder text here",
                 }}
               />
 
@@ -227,7 +214,7 @@ export const SelectAndInput: Story = {
                 // preview={preview}
                 textareaProps={{
                   maxLength: 100,
-                  placeholder: "Placeholder text here"
+                  placeholder: "Placeholder text here",
                 }}
               />
             </div>
@@ -260,7 +247,7 @@ export const SelectAndInput: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 
 const WidgetCard = (props: any) => (
@@ -408,10 +395,10 @@ export const ToScreenshot: Story = {
                   {
                     label: `Discard changes`,
                     value: 10,
-                    action: () => console.log("discarding changes")
+                    action: () => console.log("discarding changes"),
                   },
                   { label: `Save as draft`, value: 10 },
-                  { label: `Send for review`, value: 10 }
+                  { label: `Send for review`, value: 10 },
                 ]}
               >
                 نشر
@@ -425,7 +412,7 @@ export const ToScreenshot: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 
 // const UserDebugger = (props: any) => {

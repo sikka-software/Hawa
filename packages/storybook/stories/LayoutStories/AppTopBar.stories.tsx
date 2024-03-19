@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
@@ -6,7 +6,7 @@ import { AppLayout, AppTopbar } from "@sikka/hawa/layout";
 
 const meta = {
   title: "Layout/App Topbar",
-  component: AppLayout
+  component: AppLayout,
 } satisfies Meta<typeof AppLayout>;
 
 export default meta;
@@ -24,9 +24,9 @@ export const Default: Story = {
           { label: "Profile", value: "Dashboard" },
           { value: "Billing", label: "Billing" },
           { value: "عربي", label: "عربي" },
-          { label: "Sign Out", value: "Sign Out", highlighted: true }
+          { label: "Sign Out", value: "Sign Out", highlighted: true },
         ]}
       />
     );
-  }
+  },
 };

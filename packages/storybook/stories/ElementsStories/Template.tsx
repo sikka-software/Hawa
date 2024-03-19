@@ -1,23 +1,13 @@
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { Button } from "../../../components/elements";
-import { ArgsTable, Story, Title } from "@storybook/blocks";
 import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Template",
   component: Button,
-  parameters: {
-    layout: "centered",
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Template/>"}</h1>
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-  tags: ["autodocs"],
+  parameters: { layout: "centered" },
 } satisfies Meta<typeof Button>;
 
 export default meta;

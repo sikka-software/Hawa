@@ -1,4 +1,4 @@
-import { ArgsTable, Title } from "@storybook/blocks";
+import { Title } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SplitButton } from "@sikka/hawa/elements/splitButton";
@@ -8,7 +8,7 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Split Button",
   component: SplitButton,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 } satisfies Meta<typeof SplitButton>;
 
 export default meta;
@@ -29,10 +29,10 @@ export const Default: Story = {
             {
               value: 10,
               label: t("discard"),
-              action: () => console.log("discarding changes")
+              action: () => console.log("discarding changes"),
             },
             { label: t("save-draft"), value: 10 },
-            { label: t("send-review"), value: 10 }
+            { label: t("send-review"), value: 10 },
           ]}
           {...args}
         >
@@ -40,5 +40,5 @@ export const Default: Story = {
         </SplitButton>
       </div>
     );
-  }
+  },
 };

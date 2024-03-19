@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Label } from "@sikka/hawa/elements/label";
@@ -26,5 +26,5 @@ export const Default: Story = {
         <Slider {...args} />
       </div>
     );
-  }
+  },
 };

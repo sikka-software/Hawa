@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
@@ -10,7 +10,7 @@ import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Layout/Docs Layout",
-  component: DocsSidebar
+  component: DocsSidebar,
 } satisfies Meta<typeof DocsSidebar>;
 
 export default meta;
@@ -285,5 +285,5 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };

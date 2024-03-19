@@ -1,4 +1,3 @@
-import { ArgsTable } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Loading } from "@sikka/hawa/elements/loading";
@@ -7,28 +6,10 @@ import { Tooltip } from "@sikka/hawa/elements/tooltip";
 const meta = {
   title: "Elements/Loading",
   component: Loading,
-  // parameters: {
-  //   docs: {
-  //     page: () => (
-  //       <>
-  //         <h1>{"<Loading/>"}</h1>
-  //         <span>
-  //           The Loading component provides visual feedback during data fetching
-  //           or other asynchronous tasks. It offers two design variations: a
-  //           spinner and a dots-pulse animation (more to come). <br /> This
-  //           loading component is already built-in{" "}
-  //           <span className="inline-code">{"<Button/>"}</span> and other
-  //           components & blocks.
-  //         </span>
-  //         <ArgsTable />
-  //       </>
-  //     )
-  //   }
-  // },
-  // tags: ["autodocs"],
+
   argTypes: {
-    design: { options: ["spinner", "dots"], control: { type: "radio" } }
-  }
+    design: { options: ["spinner", "dots"], control: { type: "radio" } },
+  },
 } satisfies Meta<typeof Loading>;
 
 export default meta;
@@ -71,8 +52,8 @@ export const Designs: Story = {
   },
   args: {
     // design: "spinner",
-    size: "normal"
-  }
+    size: "normal",
+  },
 };
 export const Spinner: Story = {
   render: (args: any) => {
@@ -82,7 +63,7 @@ export const Spinner: Story = {
       { prop: "normal", title: "Normal" },
       { prop: "sm", title: "Small" },
       { prop: "button", title: "Button Size" },
-      { prop: "xs", title: "Extra Small" }
+      { prop: "xs", title: "Extra Small" },
     ];
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -103,7 +84,7 @@ export const Spinner: Story = {
       </div>
     );
   },
-  args: { design: "spinner" }
+  args: { design: "spinner" },
 };
 export const Dots: Story = {
   render: (args: any) => {
@@ -113,7 +94,7 @@ export const Dots: Story = {
       { prop: "normal", title: "Normal" },
       { prop: "sm", title: "Small" },
       { prop: "button", title: "Button Size" },
-      { prop: "xs", title: "Extra Small" }
+      { prop: "xs", title: "Extra Small" },
     ];
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-2">
@@ -134,5 +115,5 @@ export const Dots: Story = {
       </div>
     );
   },
-  args: { design: "dots-pulse" }
+  args: { design: "dots-pulse" },
 };

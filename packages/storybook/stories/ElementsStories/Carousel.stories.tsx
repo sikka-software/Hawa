@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   ArrowRightCircle,
@@ -10,7 +10,7 @@ import {
   ScreenShareOff,
   Trash2,
   Apple,
-  HardDrive
+  HardDrive,
 } from "lucide-react";
 
 import { ItemCard, LandingCard } from "@sikka/hawa/blocks";
@@ -23,7 +23,7 @@ import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Carousel",
-  component: Carousel
+  component: Carousel,
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -46,7 +46,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const Cards: Story = {
   render: () => (
@@ -58,7 +58,7 @@ export const Cards: Story = {
         <Carousel items={itemCardsArray} options={{ loop: false }} />
       </div>
     </div>
-  )
+  ),
 };
 export const Autoplay: Story = {
   render: (args) => (
@@ -68,7 +68,7 @@ export const Autoplay: Story = {
       </div>
     </div>
   ),
-  args: { autoplay: true }
+  args: { autoplay: true },
 };
 
 const images = [
@@ -80,7 +80,7 @@ const images = [
   <img src="https://source.unsplash.com/featured/?nature,6" />,
   <img src="https://source.unsplash.com/featured/?nature,7" />,
   <img src="https://source.unsplash.com/featured/?nature,8" />,
-  <img src="https://source.unsplash.com/featured/?nature,9" />
+  <img src="https://source.unsplash.com/featured/?nature,9" />,
 ];
 const autoplayCards = [
   <LandingCard
@@ -112,7 +112,7 @@ const autoplayCards = [
     title="This is the 5th card"
     subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
     icon={<HardDrive />}
-  />
+  />,
 ];
 const cards = [
   <LandingCard
@@ -138,7 +138,7 @@ const cards = [
     title="Title of landing card"
     subtitle="This is a longer description of the landing card, you can use this directly in a landing page"
     icon={<ScreenShare />}
-  />
+  />,
 ];
 
 const createItemCard = (numCards: number) => {
@@ -152,18 +152,18 @@ const createItemCard = (numCards: number) => {
           {
             label: "Menu Settings",
             value: "Menu Settings",
-            action: () => console.log("clicking on Settings")
+            action: () => console.log("clicking on Settings"),
           },
           {
             label: "Menu Styles",
             value: "Menu Styles",
-            action: () => console.log("clicking on Styles")
+            action: () => console.log("clicking on Styles"),
           },
           {
             label: "Analytics",
             value: "Analytics",
-            action: () => console.log("clicking on Analytics")
-          }
+            action: () => console.log("clicking on Analytics"),
+          },
         ]}
         header={
           <div>
@@ -236,7 +236,7 @@ const createItemCard = (numCards: number) => {
             </Tooltip>
           </div>
         }
-      />
+      />,
     );
   }
 

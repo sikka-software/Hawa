@@ -1,4 +1,4 @@
-import { ArgsTable, Markdown, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Image } from "lucide-react";
 
@@ -7,28 +7,6 @@ import { Skeleton } from "@sikka/hawa/elements/skeleton";
 const meta = {
   title: "Elements/Skeleton",
   component: Skeleton,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <h1>{"<Skeleton/>"}</h1>
-          <p>
-            You can customize the shape and size of the component simply by
-            passing a height and width. For example
-            <Markdown
-              children='
-              ```jsx
-              <Skeleton className="h-10 w-10" /> //This will show a square skeleton
-              ```
-              '
-            />
-          </p>
-          <ArgsTable />
-        </>
-      )
-    }
-  },
-  tags: ["autodocs"]
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;
@@ -56,7 +34,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 
 export const Sizes: Story = {
@@ -80,7 +58,7 @@ export const Sizes: Story = {
         <Skeleton className="hawa-h-10 hawa-w-32" />
       </div>
     </div>
-  )
+  ),
 };
 
 export const Animations: Story = {
@@ -102,7 +80,7 @@ export const Animations: Story = {
         <Skeleton animation="shimmer" className="hawa-h-10 hawa-w-64" />
       </div>
     </div>
-  )
+  ),
 };
 
 export const withContent: Story = {
@@ -116,7 +94,7 @@ export const withContent: Story = {
         <Skeleton className="hawa-h-20 hawa-w-40" content="Text here" />
       </div>
     </div>
-  )
+  ),
 };
 export const withFade: Story = {
   render: () => (
@@ -142,5 +120,5 @@ export const withFade: Story = {
         className="hawa-h-[500px] hawa-w-[500px]"
       />
     </div>
-  )
+  ),
 };

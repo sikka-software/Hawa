@@ -8,25 +8,15 @@ import { LoginForm } from "@sikka/hawa/blocks/auth";
 import { Button } from "@sikka/hawa/elements/button";
 
 import { setLocale, t } from "../../../translations/i18n";
-import LoginDocs from "./Login";
 
 const meta = {
   title: "Blocks/User Auth/Login Form",
   component: LoginForm,
   parameters: {
     controls: {
-      exclude: ["direction"]
+      exclude: ["direction"],
     },
-    docs: {
-      page: () => <LoginDocs />,
-      toc: {
-        title: "Register Form",
-        headingSelector: "h2,h3",
-        ignoreSelector: "div"
-      }
-    }
   },
-  tags: ["autodocs"]
 } satisfies Meta<typeof LoginForm>;
 
 export default meta;
@@ -52,26 +42,26 @@ const Template = (args: any, globals: any) => {
             label: t("emailLabel"),
             placeholder: t("emailPlaceholder"),
             required: t("emailRequiredText"),
-            invalid: t("emailInvalidText")
+            invalid: t("emailInvalidText"),
           },
           password: {
             label: t("passwordLabel"),
             placeholder: t("passwordPlaceholder"),
             required: t("passwordRequiredText"),
-            tooShort: t("passwordTooShort")
+            tooShort: t("passwordTooShort"),
           },
           username: {
             label: t("usernameLabel"),
             placeholder: t("usernamePlaceholder"),
             required: t("usernameRequired"),
             invalid: t("usernameRequired"),
-            tooShort: t("usernameTooShort")
+            tooShort: t("usernameTooShort"),
           },
           phone: {
             required: t("phoneRequiredText"),
             invalid: t("phoneInvalid"),
             label: t("phoneLabel"),
-            placeholder: "531045453"
+            placeholder: "531045453",
           },
 
           forgotPassword: t("forgotPasswordText"),
@@ -80,7 +70,7 @@ const Template = (args: any, globals: any) => {
           loginText: t("loginText"),
           continueWithGoogle: t("loginViaGoogleLabel"),
           continueWithGithub: t("loginViaGithubLabel"),
-          continueWithTwitter: t("loginViaTwitterLabel")
+          continueWithTwitter: t("loginViaTwitterLabel"),
         }}
         {...args}
       />
@@ -92,25 +82,25 @@ export const Default: Story = {
 
   args: {
     loginType: "email",
-    allowRegister: true
+    allowRegister: true,
   },
   argTypes: {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
-    onForgotPassword: { action: "onForgotPassword" }
-  }
+    onForgotPassword: { action: "onForgotPassword" },
+  },
 };
 export const viaPhone: Story = {
   render: Template.bind({}),
 
   args: {
-    loginType: "phone"
+    loginType: "phone",
   },
   argTypes: {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
-    onForgotPassword: { action: "onForgotPassword" }
-  }
+    onForgotPassword: { action: "onForgotPassword" },
+  },
 };
 export const MagicLink: Story = {
   render: (args: any, globals: any) => {
@@ -148,7 +138,7 @@ export const MagicLink: Story = {
             loginText: t("send-email-to-login"),
             loginViaGoogleLabel: t("loginViaGoogleLabel"),
             loginViaGithubLabel: t("loginViaGithubLabel"),
-            loginViaTwitterLabel: t("loginViaTwitterLabel")
+            loginViaTwitterLabel: t("loginViaTwitterLabel"),
           }}
           additionalButtons={
             <Button variant={"outline"}>{t("type-password")}</Button>
@@ -160,12 +150,12 @@ export const MagicLink: Story = {
   },
 
   args: {
-    loginType: "link"
+    loginType: "link",
   },
 
   argTypes: {
     onLogin: { action: "onLogin" },
     onRouteToRegister: { action: "onRouteToRegister" },
-    onForgotPassword: { action: "onForgotPassword" }
-  }
+    onForgotPassword: { action: "onForgotPassword" },
+  },
 };

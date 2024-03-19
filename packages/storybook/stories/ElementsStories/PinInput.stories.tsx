@@ -1,4 +1,4 @@
-import { ArgsTable, Story } from "@storybook/blocks";
+import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { PinInput } from "@sikka/hawa/elements/pinInput";
@@ -9,10 +9,10 @@ const meta = {
   parameters: {
     backgrounds: {
       default: "offwhite",
-      values: [{ name: "offwhite", value: "#ededed" }]
+      values: [{ name: "offwhite", value: "#ededed" }],
     },
-    layout: "centered"
-  }
+    layout: "centered",
+  },
 } satisfies Meta<typeof PinInput>;
 
 export default meta;
@@ -24,6 +24,6 @@ export const Default: Story = {
   args: {
     getPins: () => console.log("getting pins"),
     width: "normal",
-    digits: 6
-  }
+    digits: 6,
+  },
 };
