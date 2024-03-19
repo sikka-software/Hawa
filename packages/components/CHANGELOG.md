@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.19
+
+### Patch Changes
+
+- Fix missing rounded radius in `Dialog` when screen is `sm`
+
 ## 0.30.18
 
 ### Patch Changes
