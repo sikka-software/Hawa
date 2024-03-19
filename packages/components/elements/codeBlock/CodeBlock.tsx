@@ -11,17 +11,13 @@ import { Tooltip } from "../tooltip";
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 require("prismjs/components/prism-bash");
 
-type CodeBlockTypes = {
+type CodeBlockTypesBase = {
   /** Specifies the programming language for syntax highlighting.*/
   language?: HighlightProps["language"];
   /** Defines the width of the code block.*/
   width?: "full" | "md" | "sm";
-  /** Array of tabs each containing a title and code content.*/
-  tabs?: { title: string; code: string }[];
   /** Name of the file being displayed.   */
   fileName?: string;
-  /** Code content to be displayed within the code block.*/
-  code: string;
   /** line numbers for code block   */
   lineNumbers?: boolean;
   /** Wrap text in code block */
@@ -36,6 +32,34 @@ type CodeBlockTypes = {
     codeBlockContainer?: string;
   };
 };
+
+/**
+ * Type for when tabs are provided. In this case, the code property is optional.
+ * Do not provide the "code" prop if "tabs" exists.
+ */
+type CodeBlockTypesWithTabs = CodeBlockTypesBase & {
+  /** Array of tabs each containing a title and code content.*/
+  tabs: { title: string; code: string }[];
+  /** Code content to be displayed within the code block.*/
+  code?: string;
+};
+
+/**
+ * Type for when tabs are not provided. In this case, the code property is required.
+ * You must provide the "code" prop if "tabs" does not exist.
+ */
+type CodeBlockTypesWithoutTabs = CodeBlockTypesBase & {
+  /** Array of tabs each containing a title and code content.*/
+  tabs?: never;
+  /** Code content to be displayed within the code block.*/
+  code: string;
+};
+
+/**
+ * Either provide "tabs" prop (in which case "code" is optional),
+ * or do not provide "tabs" (in which case "code" is required).
+ */
+type CodeBlockTypes = CodeBlockTypesWithTabs | CodeBlockTypesWithoutTabs;
 
 const CopyIcon = () => (
   <svg

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.20
+
+### Patch Changes
+
+- Fix conditional props in `Codeblock`
+
 ## 0.30.19
 
 ### Patch Changes
