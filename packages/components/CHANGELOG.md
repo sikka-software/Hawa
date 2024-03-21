@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.21
+
+### Patch Changes
+
+- Fix aria-disabled issue in `CommandItem` according to [this](https://github.com/shadcn-ui/ui/issues/2944#issuecomment-1985153126)
+
 ## 0.30.20
 
 ### Patch Changes

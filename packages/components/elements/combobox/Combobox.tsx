@@ -11,6 +11,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from "../command";
 import { Label, LabelProps } from "../label";
 import { PopoverContent, PopoverTrigger } from "../popover";
@@ -160,48 +161,52 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
               <CommandEmpty>
                 {props.texts?.noItems || "No items found."}
               </CommandEmpty>
-              <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-scroll">
-                {data.map((item: any, i) => (
-                  <CommandItem
-                    key={i}
-                    onSelect={() => {
-                      const newValue = getProperty(item, valueKey);
-                      setValue(newValue === value ? "" : (newValue as string));
-                      if (props.onChange) {
-                        props.onChange(
+              <CommandList>
+                <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-scroll">
+                  {data.map((item: any, i) => (
+                    <CommandItem
+                      key={i}
+                      onSelect={() => {
+                        const newValue = getProperty(item, valueKey);
+                        setValue(
                           newValue === value ? "" : (newValue as string),
                         );
-                      }
-                      setOpen(false);
-                    }}
-                  >
-                    <svg
-                      aria-label="Check Icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={cn(
-                        "hawa-icon",
-                        value === getProperty(item, valueKey)
-                          ? "hawa-opacity-100"
-                          : "hawa-opacity-0",
-                      )}
-                      style={{ marginInlineEnd: "0.5rem" }}
+                        if (props.onChange) {
+                          props.onChange(
+                            newValue === value ? "" : (newValue as string),
+                          );
+                        }
+                        setOpen(false);
+                      }}
                     >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    {renderOption
-                      ? renderOption(item)
-                      : getProperty(item, labelKey)}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+                      <svg
+                        aria-label="Check Icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={cn(
+                          "hawa-icon",
+                          value === getProperty(item, valueKey)
+                            ? "hawa-opacity-100"
+                            : "hawa-opacity-0",
+                        )}
+                        style={{ marginInlineEnd: "0.5rem" }}
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {renderOption
+                        ? renderOption(item)
+                        : getProperty(item, labelKey)}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
             </Command>
           </PopoverContent>
         </PopoverPrimitive.Root>
