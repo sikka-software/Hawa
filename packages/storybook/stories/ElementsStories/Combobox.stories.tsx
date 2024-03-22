@@ -7,7 +7,7 @@ import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Combobox",
-  component: Combobox
+  component: Combobox,
 } satisfies Meta<typeof Combobox>;
 
 export default meta;
@@ -18,7 +18,7 @@ let roles = [
   { _id: "013216506546584098", label: "Admin" },
   { _id: "84940984065496", label: "Viewer" },
   { _id: "6401651321", label: "User" },
-  { _id: "84040984098", label: "Editor" }
+  { _id: "84040984098", label: "Editor" },
 ];
 
 export const Default: Story = {
@@ -66,7 +66,12 @@ export const Default: Story = {
             direction={direction}
             texts={{ placeholder: "Select Role" }}
           />
-          <Combobox data={roles} valueKey={"_id"} direction={direction} />
+          <Combobox
+            label="With Search"
+            data={roles}
+            valueKey="_id"
+            direction={direction}
+          />
         </div>
         <div
           className="hawa-w-full hawa-max-w-md hawa-flex hawa-flex-col hawa-gap-4"
@@ -90,5 +95,5 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };

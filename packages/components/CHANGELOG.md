@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.22
+
+### Patch Changes
+
+- Extract `CommandInput` props to be accessable in `Combobox` via the `inputProps` property
+- Fix search filtering in `Command`
+
 ## 0.30.21
 
 ### Patch Changes

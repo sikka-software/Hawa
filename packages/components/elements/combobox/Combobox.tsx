@@ -10,6 +10,7 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
+  CommandInputProps,
   CommandItem,
   CommandList,
 } from "../command";
@@ -35,6 +36,7 @@ type ComboboxTypes<T> = {
   preview?: boolean;
   hideInput?: boolean;
   direction?: DirectionType;
+  inputProps?: CommandInputProps;
   id?: string;
   /** The label of the input field   */
   label?: any;
@@ -44,7 +46,6 @@ type ComboboxTypes<T> = {
   onChange?: (e: any) => void;
   renderOption?: (item: T) => React.ReactNode;
 };
-
 export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
   (
     {
@@ -54,6 +55,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       popoverClassName,
       direction,
       labelProps,
+      inputProps,
       data,
       renderOption,
       ...props
@@ -71,6 +73,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
         setOpen(open);
       }
     };
+
     return (
       <div
         className={cn(
@@ -151,9 +154,16 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
             dir={direction}
             container={containerRef.current}
           >
-            <Command>
+            <Command
+              filter={(value, search) => {
+                if (value.toLowerCase().includes(search.toLowerCase()))
+                  return 1;
+                return 0;
+              }}
+            >
               {!props.hideInput && (
                 <CommandInput
+                  {...inputProps}
                   dir={direction}
                   placeholder={props.texts?.searchPlaceholder || "Search"}
                 />

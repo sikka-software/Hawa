@@ -12,18 +12,25 @@ interface CommandProps
 }
 
 interface CommandDialogProps extends DialogProps {}
-interface CommandInputProps
+
+export interface CommandInputProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
+
 interface CommandListProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> {}
+
 interface CommandEmptyProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> {}
+
 interface CommandGroupProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> {}
+
 interface CommandSeparatorProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator> {}
+
 interface CommandItemProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {}
+
 interface CommandShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {}
 
 const Command = React.forwardRef<
