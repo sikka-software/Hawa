@@ -20,6 +20,13 @@ let roles = [
   { _id: "6401651321", label: "User" },
   { _id: "84040984098", label: "Editor" },
 ];
+let roles2 = [
+  { _id: "09849846540345", label: { en: "Superadmin", ar: "سوبر ادمن" } },
+  { _id: "013216506546584098", label: { en: "Admin", ar: "ادمن" } },
+  { _id: "84940984065496", label: { en: "Viewer", ar: "فيوير" } },
+  { _id: "6401651321", label: { en: "User", ar: "يوسر" } },
+  { _id: "84040984098", label: { en: "Editor", ar: "اديتور" } },
+];
 
 export const Default: Story = {
   render: (args: any, globals: any) => {
@@ -41,8 +48,10 @@ export const Default: Story = {
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Combobox
             label="Role"
-            data={roles}
-            preview={true}
+            data={roles2}
+            // preview={true}
+            // labelKey={'label.ar'}
+            labelKey={"label.ar"}
             valueKey={"_id"}
             helperText="this is helpertext"
             texts={{ placeholder: "Select Role" }}

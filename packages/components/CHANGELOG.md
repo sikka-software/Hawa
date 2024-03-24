@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.30.23
+
+### Patch Changes
+
+- `Combobox`: ability to use nested properties in labelKey
+
 ## 0.30.22
 
 ### Patch Changes

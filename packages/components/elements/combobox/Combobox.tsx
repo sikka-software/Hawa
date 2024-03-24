@@ -19,8 +19,8 @@ import { PopoverContent, PopoverTrigger } from "../popover";
 import { Skeleton } from "../skeleton";
 
 type ComboboxTypes<T> = {
-  labelKey?: keyof T;
-  valueKey?: keyof T;
+  labelKey?: keyof T | any;
+  valueKey?: keyof T | any;
   data: T[];
   width?: string;
   texts?: {
@@ -65,9 +65,13 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(defaultValue);
     const containerRef = React.useRef<HTMLDivElement>(null);
-    function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-      return obj[key];
+    // function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+    //   return key.split(".").reduce((o, k) => (o || {})[k], obj);
+    // }
+    function getProperty<T>(obj: T, key: string): any {
+      return key.split(".").reduce((o: any, k: string) => (o || {})[k], obj);
     }
+
     const handleOpenChange = (open: boolean) => {
       if (!(props.isLoading || props.preview)) {
         setOpen(open);
