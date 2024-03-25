@@ -101,6 +101,14 @@ export const Default: Story = {
             direction={direction}
             texts={{ placeholder: "Select Role" }}
           />
+          <Combobox
+            hideInput
+            data={[]}
+            valueKey={"_id"}
+            label="No Options"
+            direction={direction}
+            texts={{ placeholder: "Select Role" }}
+          />
         </div>
       </div>
     );

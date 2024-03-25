@@ -176,7 +176,12 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                 {props.texts?.noItems || "No items found."}
               </CommandEmpty>
               <CommandList>
-                <CommandGroup className="hawa-max-h-[200px] hawa-overflow-y-scroll">
+                <CommandGroup
+                  className={cn(
+                    "hawa-max-h-[200px]",
+                    data.length > 0 && "hawa-overflow-y-scroll",
+                  )}
+                >
                   {data.map((item: any, i) => (
                     <CommandItem
                       key={i}

@@ -3,7 +3,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "@util/index";
 
-import { DirectionType } from "../../types/commonTypes";
+import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -278,10 +278,13 @@ export type MenuItemType = {
   slug?: string;
   end?: any;
   presist?: boolean;
-  itemType?: "separator" | "label" | "custom";
+  itemType?: "separator" | "label" | "custom" | "radio";
   action?: () => void;
   highlighted?: boolean;
   subitems?: SubItem[];
+  options?: RadioOptionType[];
+  currentOption?: string;
+  onOptionChange?: (value: string) => void;
   disabled?: boolean;
   onMiddleClick?: (e: any) => void;
   onClick?: any;
@@ -332,6 +335,9 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     default: "hawa-px-2 hawa-py-3 ",
     sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
+  let [values, setValues] = React.useState(
+    items.map((item) => item.currentOption),
+  );
 
   return (
     <DropdownMenuRoot
@@ -369,6 +375,39 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                   <DropdownMenuLabel key={index}>
                     {item.label}
                   </DropdownMenuLabel>
+                );
+              } else if (item.itemType === "radio") {
+                let dd = item.currentOption;
+                return (
+                  <DropdownMenuSub key={index}>
+                    <DropdownMenuSubTrigger
+                      dir={direction}
+                      className={cn(sizeStyles[size])}
+                    >
+                      {item.icon && item.icon}
+                      {item.label && item.label}
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent>
+                      <DropdownMenuRadioGroup
+                        value={values[index]}
+                        onValueChange={(e) => {
+                          let newValues = [...values];
+                          newValues[index] = e;
+                          setValues(newValues);
+                          console.log("changing to ", e);
+                          if (item.onOptionChange) {
+                            item.onOptionChange(e);
+                          }
+                        }}
+                      >
+                        {item.options?.map((opt, i) => (
+                          <DropdownMenuRadioItem key={i} value={opt.value}>
+                            {opt.label}
+                          </DropdownMenuRadioItem>
+                        ))}
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
                 );
               } else if (item.itemType === "custom") {
                 return <div key={index}>{item.content}</div>;
@@ -489,7 +528,7 @@ interface DropdownMenuRadioProps {
   trigger?: React.ReactNode;
   side?: ExtendedDropdownMenuContentProps["side"];
   align?: ExtendedDropdownMenuContentProps["align"];
-  options: { label?: any; value: string }[];
+  options: RadioOptionType[];
   value: string;
   onValueChange: any;
   label?: string;

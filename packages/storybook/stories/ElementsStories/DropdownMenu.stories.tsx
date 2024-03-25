@@ -9,7 +9,7 @@ import {
   FolderArchive,
   FolderOpen,
   Home,
-  MedalIcon
+  MedalIcon,
 } from "lucide-react";
 
 import { Button } from "@sikka/hawa/elements/button";
@@ -17,7 +17,7 @@ import { Chip } from "@sikka/hawa/elements/chip";
 import {
   DropdownMenu,
   DropdownMenuRadio,
-  MenuItemType
+  MenuItemType,
 } from "@sikka/hawa/elements/dropdownMenu";
 import { Radio } from "@sikka/hawa/elements/radio";
 import { Switch } from "@sikka/hawa/elements/switch";
@@ -26,7 +26,7 @@ import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/DropdownMenu",
-  component: DropdownMenu
+  component: DropdownMenu,
 } satisfies Meta<typeof DropdownMenu>;
 
 export default meta;
@@ -38,7 +38,7 @@ const items: MenuItemType[] = [
     value: "item1",
     onMiddleClick: (e: any) => console.log("middle clicked ", e),
     icon: <Home className="hawa-icon" />,
-    shortcut: <span>shift + E</span>
+    shortcut: <span>shift + E</span>,
   },
 
   {
@@ -47,14 +47,14 @@ const items: MenuItemType[] = [
     onMiddleClick: (e: any) => console.log("middle clicked ", e),
     icon: <Bell className="hawa-icon" />,
     badged: true,
-    end: <span>shift + E</span>
+    end: <span>shift + E</span>,
   },
   {
     label: "With Badge",
     value: "item_badged",
     onMiddleClick: (e: any) => console.log("middle clicked ", e),
     icon: <Bell className="hawa-icon" />,
-    badged: true
+    badged: true,
   },
   {
     label: "Disabled",
@@ -62,20 +62,21 @@ const items: MenuItemType[] = [
     icon: <FolderOpen className="hawa-icon" />,
     end: <Switch size="sm" />,
     presist: true,
-    disabled: true
+    disabled: true,
   },
   {
     label: "Small Switch",
     value: "item2",
     icon: <FolderOpen className="hawa-icon" />,
     end: <Switch size="sm" />,
-    presist: true
+    presist: true,
   },
 
   {
     presist: true,
     end: (
       <Radio
+        name="langauge"
         width="full"
         design="tabs"
         options={[
@@ -90,7 +91,7 @@ const items: MenuItemType[] = [
               >
                 <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
               </svg>
-            )
+            ),
           },
           {
             value: "en",
@@ -104,18 +105,58 @@ const items: MenuItemType[] = [
               >
                 <path d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
               </svg>
-            )
-          }
+            ),
+          },
         ]}
       />
-    )
+    ),
   },
   {
     label: "With Switch",
     value: "item2",
     icon: <FolderOpen className="hawa-icon" />,
     end: <Switch />,
-    presist: true
+    presist: true,
+  },
+  {
+    label: "Radio Group 1",
+    value: "item2",
+    itemType: "radio",
+    currentOption: "option1",
+    onOptionChange: (value: any) => console.log("Selected option:", value),
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+    ],
+    icon: <FolderOpen className="hawa-icon" />,
+    end: <Switch />,
+    presist: true,
+  },
+  {
+    label: "Radio Group 2",
+    value: "item2",
+    itemType: "radio",
+    currentOption: "option1",
+    onOptionChange: (value: any) => console.log("Selected option:", value),
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+    ],
+    icon: <FolderOpen className="hawa-icon" />,
+    end: <Switch />,
+    presist: true,
   },
   { itemType: "separator" },
   { label: "Label Here", value: "item4", itemType: "label" },
@@ -124,21 +165,22 @@ const items: MenuItemType[] = [
     value: "item2",
     icon: <FolderArchive className="hawa-icon" />,
     end: <Switch />,
-    presist: true
+    presist: true,
   },
   {
     presist: true,
     end: (
       <Radio
+        name="langauge"
         width="full"
         onChange={() => console.log()}
         design="tabs"
         options={[
           { value: "ar", label: "عربي" },
-          { value: "en", label: "English" }
+          { value: "en", label: "English" },
         ]}
       />
-    )
+    ),
   },
   {
     label: "Item 3",
@@ -150,15 +192,15 @@ const items: MenuItemType[] = [
         label: "subitem 1",
         value: "subitem 1",
         onMiddleClick: (e: any) => console.log("test", e),
-        icon: <MedalIcon className="hawa-icon" />
+        icon: <MedalIcon className="hawa-icon" />,
       },
       {
         label: "subitem 2",
         value: "subitem 2",
         onMiddleClick: () => console.log("test"),
-        icon: <AlignVerticalDistributeStart className="hawa-icon" />
-      }
-    ]
+        icon: <AlignVerticalDistributeStart className="hawa-icon" />,
+      },
+    ],
   },
   {
     label: "Item 3",
@@ -168,15 +210,15 @@ const items: MenuItemType[] = [
       {
         label: "subitem 1",
         value: "subitem 1",
-        icon: <MedalIcon className="hawa-icon" />
+        icon: <MedalIcon className="hawa-icon" />,
       },
       {
         label: "subitem 2",
         value: "subitem 2",
-        icon: <AlignVerticalDistributeStart className="hawa-icon" />
-      }
-    ]
-  }
+        icon: <AlignVerticalDistributeStart className="hawa-icon" />,
+      },
+    ],
+  },
 ];
 const items2: MenuItemType[] = [
   {
@@ -189,8 +231,8 @@ const items2: MenuItemType[] = [
           <div className="hawa-text-sm">Subtitle of this menu item here</div>
         </div>
       </div>
-    )
-  }
+    ),
+  },
 ];
 
 export const Default: Story = {
@@ -215,7 +257,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const Direction: Story = {
   render: (args: any, globals: any) => {
@@ -243,7 +285,7 @@ export const Direction: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const Sizes: Story = {
   render: (args: any, globals: any) => {
@@ -279,7 +321,7 @@ export const Sizes: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const WithHeader: Story = {
   render: (args: any, globals: any) => {
@@ -313,7 +355,7 @@ export const WithHeader: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const RadioMenu: Story = {
   render: (args: any, globals: any) => {
@@ -333,7 +375,7 @@ export const RadioMenu: Story = {
         onValueChange={setInputLang}
         options={[
           { label: "Arabic", value: "ar" },
-          { label: "English", value: "en" }
+          { label: "English", value: "en" },
         ]}
         trigger={
           <Button onClick={() => setShowPopup(!showPopup)}>
@@ -342,5 +384,5 @@ export const RadioMenu: Story = {
         }
       />
     );
-  }
+  },
 };

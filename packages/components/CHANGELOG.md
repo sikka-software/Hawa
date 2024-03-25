@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.24
+
+### Patch Changes
+
+- Remove scroll arrow from `Comobox` when no items are in the popover.
+- Ability to use radio groups in `DropdownMenu` via the itemType: radio
+
 ## 0.30.23
 
 ### Patch Changes
