@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.25
+
+### Patch Changes
+
+- Export `BreadcrumbItemProps` to be user as a type by consumers
+- Add size variant for `Breadcrumb` component
+
 ## 0.30.24
 
 ### Patch Changes

@@ -1,5 +1,7 @@
 import React, { FC, ReactNode } from "react";
 
+import { cn } from "@util/index";
+
 export type BreadcrumbItemProps = {
   label: string;
   href: string;
@@ -9,14 +11,26 @@ interface BCTypes {
   breadcrumbLinks: BreadcrumbItemProps[];
   /** The separator between each crumb, can be character or React Node. The default is ">" */
   separator?: string | ReactNode;
+  size?: "normal" | "small" | "xs";
 }
 
 export const Breadcrumb: FC<BCTypes> = ({
   breadcrumbLinks,
   separator = ">",
+  size = "normal",
 }) => {
+  const textStyles = {
+    normal: "",
+    small: "hawa-text-sm",
+    xs: "hawa-text-xs",
+  };
   return (
-    <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm">
+    <div
+      className={cn(
+        "hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-sm",
+        textStyles[size],
+      )}
+    >
       {breadcrumbLinks.map((singleBreadcrumbLink, index) => (
         <div
           key={index}
