@@ -13,7 +13,7 @@ const PopoverContent = React.forwardRef<
 >(
   (
     { className, align = "center", sideOffset = 4, container, ...props },
-    ref
+    ref,
   ) => (
     <PopoverPrimitive.Portal container={container}>
       <PopoverPrimitive.Content
@@ -22,12 +22,12 @@ const PopoverContent = React.forwardRef<
         sideOffset={sideOffset}
         className={cn(
           "dark:dark-shadow hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-          className
+          className,
         )}
         {...props}
       />
     </PopoverPrimitive.Portal>
-  )
+  ),
 );
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
@@ -64,7 +64,7 @@ const Popover: React.FC<HawaPopoverTypes> = ({
 }) => {
   let widthStyles = {
     trigger: "var(--radix-popover-trigger-width)",
-    default: "auto"
+    default: "auto",
   };
 
   return (
@@ -84,7 +84,7 @@ const Popover: React.FC<HawaPopoverTypes> = ({
         style={{
           width: widthStyles[width],
           maxWidth: "var(--radix-popover-content-available-width)",
-          maxHeight: "var(--radix-popover-content-available-height)"
+          maxHeight: "var(--radix-popover-content-available-height)",
         }}
         {...contentProps}
       >
@@ -95,4 +95,6 @@ const Popover: React.FC<HawaPopoverTypes> = ({
 };
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
-export { Popover, PopoverContent, PopoverTrigger };
+const PopoverPortal = PopoverPrimitive.Portal;
+
+export { Popover, PopoverPortal, PopoverContent, PopoverTrigger };

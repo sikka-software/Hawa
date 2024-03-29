@@ -28,13 +28,13 @@
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "react-headless-pagination": "^1.1.5",
-    "react-hook-form": "^7.51.1",
+    "react-hook-form": "^7.51.2",
     "react-select": "^5.8.0",
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.69",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
     "@babel/preset-react": "^7.24.1",
     "@sikka/alam": "^0.0.4",
     "@testing-library/jest-dom": "^6.4.2",
@@ -48,7 +48,7 @@
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "recharts": "^2.12.3",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "tsup": "^8.0.2"
