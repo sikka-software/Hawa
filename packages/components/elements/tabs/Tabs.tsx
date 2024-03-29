@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { useMeasureDirty } from "@hooks/index";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "@util/index";
 import { tv } from "tailwind-variants";
@@ -112,6 +113,7 @@ const TabsList = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => {
   const { orientation, variant } = React.useContext(TabsContext);
+
   return (
     <TabsPrimitive.List
       ref={ref}
@@ -139,9 +141,12 @@ const TabsTrigger = React.forwardRef<
   TabsTriggerProps
 >(({ className, chipProps, ...props }, ref) => {
   const { orientation, variant } = React.useContext(TabsContext);
+  const tabTriggerRef = React.useRef(null);
+  const { width } = useMeasureDirty(tabTriggerRef);
+
   return (
     <TabsPrimitive.Trigger
-      ref={ref}
+      ref={tabTriggerRef}
       className={cn(
         tabsTriggerVariant({ variant, orientation }),
         "hawa-relative",
@@ -152,7 +157,14 @@ const TabsTrigger = React.forwardRef<
       {props.children}
       {chipProps && <Chip {...chipProps} />}
 
-      <FloatBox open={props.showPopover}>{props.popoverContent}</FloatBox>
+      <FloatBox
+        align={orientation === "vertical" ? "start" : "start"}
+        side={orientation === "vertical" ? "right" : "bottom"}
+        sideOffset={orientation === "vertical" ? width + 30 : 45}
+        open={props.showPopover}
+      >
+        {props.popoverContent}
+      </FloatBox>
     </TabsPrimitive.Trigger>
   );
 });

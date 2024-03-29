@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.30.27
+
+### Patch Changes
+
+- Add `useMeasureDirty` hook to be used to measure components by passing its ref.
+- Adjust the positioning of `FloatBox` component
+- Complete the integration of `FloatBox` in `TabsTrigger` component.
+
 ## 0.30.26
 
 ### Patch Changes

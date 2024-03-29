@@ -35,18 +35,25 @@ export const Default: Story = {
         dir={direction}
         onValueChange={() => setTest(false)}
       >
-        <TabsList className="hawa-w-full">
-          <TabsTrigger value="account">{t("account")}</TabsTrigger>
-          <TabsTrigger value="password">{t("password")}</TabsTrigger>
+        <TabsList
+
+        // className="hawa-w-full"
+        >
           <TabsTrigger
-            value="settings"
-            chipProps={{ label: "", color: "red", size: "small" }}
+            value="account"
             showPopover={test}
             popoverContent={
               <div className="hawa-p-4 hawa-w-64 hawa-bg-white hawa-rounded hawa-shadow-lg">
                 <p>Popover content</p>
               </div>
             }
+          >
+            {t("account")}
+          </TabsTrigger>
+          <TabsTrigger value="password">{t("password")}</TabsTrigger>
+          <TabsTrigger
+            value="settings"
+            chipProps={{ label: "", color: "red", size: "small" }}
           >
             {t("settings")}
           </TabsTrigger>
@@ -96,6 +103,7 @@ export const Vertical: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     setLocale(locale);
     const direction = locale === "ar" ? "rtl" : "ltr";
+    const [test, setTest] = useState(false);
 
     return (
       <Tabs
@@ -105,10 +113,20 @@ export const Vertical: Story = {
         dir={direction}
       >
         <TabsList>
-          <TabsTrigger value="account">{t("account")}</TabsTrigger>
+          <TabsTrigger
+            value="account"
+            showPopover={test}
+            popoverContent={
+              <div className="hawa-p-2 hawa-w-64 hawa-bg-white hawa-rounded hawa-shadow-lg">
+                <p>Popover content</p>
+              </div>
+            }
+          >
+            {t("account")}
+          </TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
           <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
-          <TabsTrigger value="display">{t("display")}</TabsTrigger>
+          <TabsTrigger value="display">{t("display thing here as weelll")}</TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <Card>
@@ -126,6 +144,7 @@ export const Vertical: Story = {
           <Card>
             <CardContent headless>
               This is the content of the display tab
+              <Button onClick={() => setTest(!test)}>Show pop</Button>
             </CardContent>
           </Card>
         </TabsContent>
