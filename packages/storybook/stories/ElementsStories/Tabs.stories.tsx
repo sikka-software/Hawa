@@ -43,7 +43,7 @@ export const Default: Story = {
             value="account"
             showPopover={test}
             popoverContent={
-              <div className="hawa-p-4 hawa-w-64 hawa-bg-white hawa-rounded hawa-shadow-lg">
+              <div className="hawa-p-4 hawa-w-64 hawa-rounded hawa-shadow-lg">
                 <p>Popover content</p>
               </div>
             }
@@ -126,7 +126,9 @@ export const Vertical: Story = {
           </TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
           <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
-          <TabsTrigger value="display">{t("display thing here as weelll")}</TabsTrigger>
+          <TabsTrigger value="display">
+            {t("display thing here as weelll")}
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <Card>

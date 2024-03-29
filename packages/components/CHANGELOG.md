@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.28
+
+### Patch Changes
+
+- Add tailwind arrow plugin
+- Display an arrow in `FloatBox`
+
 ## 0.30.27
 
 ### Patch Changes

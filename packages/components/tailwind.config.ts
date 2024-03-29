@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+import arrowPlugin from "./arrow-plugin";
 import glowPlugin from "./glow-plugin";
 
 const config: Config = {
@@ -17,6 +18,16 @@ const config: Config = {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      arrows: {
+        default: {
+          borderColor: "hsl(var(--border))",
+          backgroundColor:  "hsl(var(--popover))",
+          size: 10,
+          offset: 10,
+          borderWidth: 1,
+        },
+        // ...other arrow configurations
+      },
       boxShadow: { neobrutalism: "5px 5px 0px 0px rgba(0,0,0,1);" },
       maxWidth: { "2xs": "250px" },
       screens: { xs: "440px" },
@@ -160,6 +171,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), glowPlugin],
+  plugins: [require("tailwindcss-animate"), glowPlugin, arrowPlugin],
 };
 export default config;
