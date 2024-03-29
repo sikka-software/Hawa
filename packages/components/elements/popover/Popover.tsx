@@ -96,5 +96,6 @@ const Popover: React.FC<HawaPopoverTypes> = ({
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 const PopoverPortal = PopoverPrimitive.Portal;
+const PopoverRoot = PopoverPrimitive.Root;
 
-export { Popover, PopoverPortal, PopoverContent, PopoverTrigger };
+export { Popover, PopoverPortal, PopoverRoot, PopoverContent, PopoverTrigger };

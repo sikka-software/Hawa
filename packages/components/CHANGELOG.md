@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.30.26
+
+### Patch Changes
+
+- Export `PopoverRoot` to be available for consumers
+- `FloatBox`: a new component that's inspired from the `Popover` component but doesn't require a trigger.
+- Use `FloatBox` in `TabsTrigger` to show an optional hint/feedback to users about a tab.
+
 ## 0.30.25
 
 ### Patch Changes

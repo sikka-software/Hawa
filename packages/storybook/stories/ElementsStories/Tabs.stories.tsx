@@ -1,12 +1,15 @@
+import { useState } from "react";
+
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@sikka/hawa/dist/button";
 import { Card, CardContent } from "@sikka/hawa/elements/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger
+  TabsTrigger,
 } from "@sikka/hawa/elements/tabs";
 import { OrientationType } from "@sikka/hawa/types/commonTypes";
 
@@ -24,15 +27,26 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-
+    const [test, setTest] = useState(false);
     return (
-      <Tabs variant={args.variant} defaultValue="account" dir={direction}>
+      <Tabs
+        variant={args.variant}
+        defaultValue="account"
+        dir={direction}
+        onValueChange={() => setTest(false)}
+      >
         <TabsList className="hawa-w-full">
           <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
           <TabsTrigger
             value="settings"
             chipProps={{ label: "", color: "red", size: "small" }}
+            showPopover={test}
+            popoverContent={
+              <div className="hawa-p-4 hawa-w-64 hawa-bg-white hawa-rounded hawa-shadow-lg">
+                <p>Popover content</p>
+              </div>
+            }
           >
             {t("settings")}
           </TabsTrigger>
@@ -59,6 +73,7 @@ export const Default: Story = {
           <Card>
             <CardContent headless>
               This is the content of the display tab
+              <Button onClick={() => setTest(!test)}>Show pop</Button>
             </CardContent>
           </Card>
         </TabsContent>
@@ -73,8 +88,8 @@ export const Default: Story = {
     );
   },
   args: {
-    variant: "default"
-  }
+    variant: "default",
+  },
 };
 export const Vertical: Story = {
   render: (args: any, globals: any) => {
@@ -125,6 +140,6 @@ export const Vertical: Story = {
     );
   },
   args: {
-    variant: "default"
-  }
+    variant: "default",
+  },
 };

@@ -23,6 +23,7 @@ const elements = [
   "dropdownMenu",
   "fileDropzone",
   "fileUploader",
+  "floatBox",
   "glow",
   "input",
   "interfaceSettings",
@@ -56,7 +57,7 @@ const elements = [
   "textarea",
   "toast",
   "toaster",
-  "tooltip"
+  "tooltip",
 ];
 const layouts = [
   "appLayout",
@@ -68,7 +69,7 @@ const layouts = [
   "docsSidebar",
   "navbar",
   "sidebar",
-  "stats"
+  "stats",
 ];
 
 module.exports = { elements, layouts };

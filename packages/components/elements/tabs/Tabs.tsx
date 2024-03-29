@@ -2,12 +2,12 @@ import * as React from "react";
 
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "@util/index";
-import { VariantProps, cva } from "class-variance-authority";
 import { tv } from "tailwind-variants";
 
 import { OrientationType } from "@_types/commonTypes";
 
-import { Chip, ChipTypes } from "../chip/Chip";
+import { Chip, ChipTypes } from "../chip";
+import { FloatBox } from "../floatBox";
 
 const tabsListVariant = tv({
   base: "",
@@ -18,29 +18,23 @@ const tabsListVariant = tv({
       underlined:
         "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-rounded  hawa-p-1 hawa-text-muted-foreground  dark:hawa-border-primary/10",
       underlined_tabs:
-        "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-text-muted-foreground"
+        "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-text-muted-foreground",
     },
-    orientation: {
-      horizontal: "",
-      vertical: ""
-    }
+    orientation: { horizontal: "", vertical: "" },
   },
   compoundVariants: [
     {
       variant: "underlined_tabs",
       orientation: "vertical",
-      class: "hawa-border-e-2 hawa-border-e-primary"
+      class: "hawa-border-e-2 hawa-border-e-primary",
     },
     {
       variant: "underlined_tabs",
       orientation: "horizontal",
-      class: "hawa-border-b-2 hawa-border-b-primary"
-    }
+      class: "hawa-border-b-2 hawa-border-b-primary",
+    },
   ],
-  defaultVariants: {
-    variant: "default",
-    orientation: "horizontal"
-  }
+  defaultVariants: { variant: "default", orientation: "horizontal" },
 });
 
 const tabsTriggerVariant = tv({
@@ -52,41 +46,35 @@ const tabsTriggerVariant = tv({
       underlined:
         "hawa-inline-flex  hawa-w-full hawa-flex-1 hawa-select-none hawa-items-center hawa-justify-center hawa-gap-2 hawa-whitespace-nowrap hawa-rounded hawa-rounded-none hawa-px-3 hawa-py-1.5 hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-all focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
       underlined_tabs:
-        "hawa-inline-flex hawa-w-full hawa-flex-1 hawa-select-none hawa-items-center hawa-justify-center hawa-gap-2 hawa-whitespace-nowrap hawa-rounded   hawa-px-3 hawa-py-1.5 hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-all focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50 hawa-bg-primary/10 data-[state=active]:hawa-bg-primary data-[state=active]:hawa-text-primary-foreground  dark:hawa-border-primary/10"
+        "hawa-inline-flex hawa-w-full hawa-flex-1 hawa-select-none hawa-items-center hawa-justify-center hawa-gap-2 hawa-whitespace-nowrap hawa-rounded   hawa-px-3 hawa-py-1.5 hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-all focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50 hawa-bg-primary/10 data-[state=active]:hawa-bg-primary data-[state=active]:hawa-text-primary-foreground  dark:hawa-border-primary/10",
     },
-    orientation: {
-      horizontal: "",
-      vertical: ""
-    }
+    orientation: { horizontal: "", vertical: "" },
   },
   compoundVariants: [
     {
       variant: "underlined",
       orientation: "horizontal",
       class:
-        "data-[state=active]:hawa-border-b-primary hawa-border-b hawa-border-b-2"
+        "data-[state=active]:hawa-border-b-primary hawa-border-b hawa-border-b-2",
     },
     {
       variant: "underlined",
       orientation: "vertical",
       class:
-        "data-[state=active]:hawa-border-e-primary hawa-border-e hawa-border-e-2"
+        "data-[state=active]:hawa-border-e-primary hawa-border-e hawa-border-e-2",
     },
     {
       variant: "underlined_tabs",
       orientation: "horizontal",
-      class: "hawa-rounded-b-none"
+      class: "hawa-rounded-b-none",
     },
     {
       variant: "underlined_tabs",
       orientation: "vertical",
-      class: "hawa-rounded-e-none"
-    }
+      class: "hawa-rounded-e-none",
+    },
   ],
-  defaultVariants: {
-    variant: "default",
-    orientation: "horizontal"
-  }
+  defaultVariants: { variant: "default", orientation: "horizontal" },
 });
 
 type TabsVariants = "default" | "underlined" | "underlined_tabs";
@@ -98,9 +86,7 @@ const TabsContext = React.createContext<{
 
 type TabsRootProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
-> & {
-  variant?: TabsVariants;
-};
+> & { variant?: TabsVariants };
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
@@ -111,7 +97,7 @@ const Tabs = React.forwardRef<
     className={cn(
       "hawa-flex hawa-gap-2",
       orientation === "vertical" ? "hawa-flex-row" : "hawa-flex-col",
-      className
+      className,
     )}
     {...props}
   >
@@ -120,7 +106,6 @@ const Tabs = React.forwardRef<
     </TabsContext.Provider>
   </TabsPrimitive.Root>
 ));
-Tabs.displayName = TabsPrimitive.Root.displayName;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -133,19 +118,20 @@ const TabsList = React.forwardRef<
       className={cn(
         tabsListVariant({ variant, orientation }),
         orientation === "vertical" ? "hawa-flex-col" : "hawa-flex-row",
-        className
+        className,
       )}
       {...props}
     />
   );
 });
-TabsList.displayName = TabsPrimitive.List.displayName;
 
 type TabsTriggerProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Trigger
 > & {
   chipProps?: ChipTypes;
   className?: string;
+  showPopover?: boolean;
+  popoverContent?: React.ReactNode;
 };
 
 const TabsTrigger = React.forwardRef<
@@ -156,15 +142,20 @@ const TabsTrigger = React.forwardRef<
   return (
     <TabsPrimitive.Trigger
       ref={ref}
-      className={cn(tabsTriggerVariant({ variant, orientation }), className)}
+      className={cn(
+        tabsTriggerVariant({ variant, orientation }),
+        "hawa-relative",
+        className,
+      )}
       {...props}
     >
       {props.children}
       {chipProps && <Chip {...chipProps} />}
+
+      <FloatBox open={props.showPopover}>{props.popoverContent}</FloatBox>
     </TabsPrimitive.Trigger>
   );
 });
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -174,11 +165,15 @@ const TabsContent = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-ring-offset-hawa-background hawa-w-full focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2",
-      className
+      className,
     )}
     {...props}
   />
 ));
+
+Tabs.displayName = TabsPrimitive.Root.displayName;
+TabsList.displayName = TabsPrimitive.List.displayName;
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
 export { Tabs, TabsList, TabsTrigger, TabsContent };
