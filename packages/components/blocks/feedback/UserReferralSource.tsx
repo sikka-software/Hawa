@@ -130,7 +130,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
                       orientation="vertical"
                       options={optionsWithOther}
                       defaultValue={field.value}
-                      onChange={(e: any) => field.onChange(e.value)}
+                      onChange={(e: any) => field.onChange(e)}
                       helperText={formState.errors.source?.message?.toString()}
                     ></Radio>
                   )}

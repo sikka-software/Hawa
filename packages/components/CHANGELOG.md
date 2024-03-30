@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.30.29
+
+### Patch Changes
+
+- Fix not returning value in `onChange` of `Radio` component
+- Make `withArrow` false by default in `FloatBox`
+
 ## 0.30.28
 
 ### Patch Changes

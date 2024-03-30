@@ -9,7 +9,7 @@ import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Layout/Stats",
-  component: Stats
+  component: Stats,
 } satisfies Meta<typeof Stats>;
 
 export default meta;
@@ -22,7 +22,7 @@ let dummyChartData = [
   { count: 48, period: "2023-11-14" },
   { count: 5, period: "2023-11-15" },
   { count: 11, period: "2023-11-16" },
-  { count: 31, period: "2023-11-17" }
+  { count: 31, period: "2023-11-17" },
 ];
 const DummyChart = () => (
   <div className="h-[80px]" style={{ height: 80 }}>
@@ -60,6 +60,7 @@ export const Default: Story = {
           number="+2350"
           label="Subscriptions"
           isLoading
+          clickable={args.clickable}
           helperText="+180.1% from last month"
           icon={<Users2 className="hawa-icon" />}
         />
@@ -105,5 +106,5 @@ export const Default: Story = {
         />
       </div>
     );
-  }
+  },
 };

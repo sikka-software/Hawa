@@ -39,7 +39,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         defaultValue={language}
         onChange={(e: any) => {
           if (handleLanguage) {
-            handleLanguage(e.value);
+            handleLanguage(e);
           }
           setLanguage(e);
         }}
@@ -55,7 +55,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         defaultValue={color}
         onChange={(e: any) => {
           if (handleColorMode) {
-            handleColorMode(e.value);
+            handleColorMode(e);
           }
           setColor(e);
         }}

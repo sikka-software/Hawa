@@ -10,7 +10,7 @@ export type FloatBoxProps = {
   sideOffset?: number;
   align?: "start" | "center" | "end";
   alignOffset?: number;
-  arrow?: boolean;
+  withArrow?: boolean;
 };
 
 const FloatBox: React.FC<FloatBoxProps> = ({
@@ -19,7 +19,7 @@ const FloatBox: React.FC<FloatBoxProps> = ({
   side = "bottom",
   sideOffset = 40,
   align = "center",
-  arrow = true,
+  withArrow = false,
   ...props
 }) => {
   let stylesMap = {
@@ -61,7 +61,9 @@ const FloatBox: React.FC<FloatBoxProps> = ({
       data-side={side}
       data-floatbox-state={open ? "open" : "closed"}
     >
-      {arrow && <div className={cn("hawa-bg-red-500", arrowDirection[side])} />}
+      {withArrow && (
+        <div className={cn("hawa-bg-red-500", arrowDirection[side])} />
+      )}
       <span>{props.children}</span>
     </div>
   );

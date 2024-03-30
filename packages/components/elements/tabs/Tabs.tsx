@@ -158,6 +158,7 @@ const TabsTrigger = React.forwardRef<
       {chipProps && <Chip {...chipProps} />}
 
       <FloatBox
+        withArrow
         align={orientation === "vertical" ? "start" : "start"}
         side={orientation === "vertical" ? "right" : "bottom"}
         sideOffset={orientation === "vertical" ? width + 30 : 45}

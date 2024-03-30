@@ -43,7 +43,7 @@ export const Default: Story = {
             value="account"
             showPopover={test}
             popoverContent={
-              <div className="hawa-p-4 hawa-w-64 hawa-rounded hawa-shadow-lg">
+              <div className="hawa-p-2  hawa-w-fit hawa-rounded hawa-shadow-lg">
                 <p>Popover content</p>
               </div>
             }

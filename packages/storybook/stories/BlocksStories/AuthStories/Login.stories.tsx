@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
 import { LoginForm } from "@sikka/hawa/blocks/auth";
+import { InterfaceSettings } from "@sikka/hawa/elements";
 import { Button } from "@sikka/hawa/elements/button";
 
 import { setLocale, t } from "../../../translations/i18n";
@@ -73,6 +74,14 @@ const Template = (args: any, globals: any) => {
           continueWithTwitter: t("loginViaTwitterLabel"),
         }}
         {...args}
+      />
+      <InterfaceSettings
+        handleColorMode={(e) => {
+          console.log(e);
+        }}
+        handleLanguage={(e) => {
+          console.log(e);
+        }}
       />
     </div>
   );

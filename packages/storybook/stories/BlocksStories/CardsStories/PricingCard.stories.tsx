@@ -35,7 +35,7 @@ export const Default: Story = {
         <Radio
           name="currency"
           key={"currency"}
-          onChange={(e: any) => setCurr(e.value)}
+          onChange={(e: any) => setCurr(e)}
           options={[
             { label: "SAR", value: "sar" },
             { label: "USD", value: "usd" }
@@ -44,7 +44,7 @@ export const Default: Story = {
         <Radio
           name=""
           key={"cycle"}
-          onChange={(e: any) => setCycle(e.value)}
+          onChange={(e: any) => setCycle(e)}
           options={[
             { label: "Monthly", value: "monthly" },
             { label: "Annually", value: "annually" }
