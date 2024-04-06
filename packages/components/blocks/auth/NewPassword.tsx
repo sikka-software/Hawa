@@ -22,6 +22,7 @@ import { NewPasswordTextsTypes } from "@_types/textTypes";
 type NewPasswordTypes = {
   handleNewPassword: (e: any) => void;
   handleRouteToRegister: () => void;
+  isLoading: boolean;
   direction?: DirectionType;
   headless?: boolean;
   allowRegister?: boolean;
@@ -29,7 +30,11 @@ type NewPasswordTypes = {
   texts: NewPasswordTextsTypes;
 };
 
-export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
+export const NewPasswordForm: FC<NewPasswordTypes> = ({
+  texts,
+  isLoading,
+  ...props
+}) => {
   const formSchema = z
     .object({
       password: z
@@ -119,7 +124,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, ...props }) => {
             />
           </CardContent>
           <CardFooter className="hawa-flex hawa-flex-col">
-            <Button className="hawa-w-full" type="submit">
+            <Button className="hawa-w-full" type="submit" isLoading={isLoading}>
               {texts?.updatePassword}
             </Button>
             {props.allowRegister && (

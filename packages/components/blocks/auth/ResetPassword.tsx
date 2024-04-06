@@ -22,6 +22,7 @@ type ResetPasswordType = {
   handleResetPassword: (e: any) => void;
   handleRouteToRegister: () => void;
   sent: any;
+  isLoading: boolean;
   headless?: boolean;
   allowRegister?: boolean;
   direction?: DirectionType;
@@ -30,6 +31,7 @@ type ResetPasswordType = {
 
 export const ResetPasswordForm: FC<ResetPasswordType> = ({
   allowRegister = true,
+  isLoading,
   ...props
 }) => {
   const formSchema = z.object({
@@ -86,7 +88,11 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
               />
             </CardContent>
             <CardFooter className="hawa-flex hawa-flex-col">
-              <Button type="submit" className="hawa-w-full ">
+              <Button
+                type="submit"
+                className="hawa-w-full"
+                isLoading={isLoading}
+              >
                 {props.texts?.resetPassword || "Reset Password"}
               </Button>
               {allowRegister && (

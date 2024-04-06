@@ -136,6 +136,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           .min(1, {
             message: texts?.username?.required || "Username is required",
           })
+          .max(14, {
+            message: texts?.username?.tooLong || "Username is too long",
+          })
           .refine(
             (value) => {
               const isValid = /^[a-zA-Z][a-zA-Z0-9_-]{2,14}$/.test(value);

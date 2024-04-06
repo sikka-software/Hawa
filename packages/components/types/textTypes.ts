@@ -37,6 +37,7 @@ type PasswordInputType = BaseInputType & {
 };
 type UsernameInputType = TextInputType & {
   tooShort?: string;
+  tooLong?: string;
 };
 type ConfirmInputType = BaseInputType & {
   required?: string;

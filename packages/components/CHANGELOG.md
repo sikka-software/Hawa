@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.30.30
+
+### Patch Changes
+
+- `RegisterForm`: Add `tooLong` username validation when username is longer than 12 characters.
+- `ResetPassword`: Add `isLoading` boolean to show spinner during submission
+- `NewPassword`: Add `isLoading` boolean to show spinner during submission
+
 ## 0.30.29
 
 ### Patch Changes
