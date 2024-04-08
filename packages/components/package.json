@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.30.30",
+  "version": "0.31.0",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -90,6 +90,7 @@
     "react-hook-form": "^7.51.2",
     "react-select": "^5.8.0",
     "signature_pad": "^4.2.0",
+    "sonner": "^1.2.3",
     "tailwind-merge": "^2.2.2",
     "tailwind-variants": "^0.2.1",
     "trim-canvas": "^0.1.2",

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.0
+
+### Minor Changes
+
+- New `Sonner` component to replace the `Toaster`
+
 ## 0.30.30
 
 ### Patch Changes

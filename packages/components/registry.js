@@ -51,6 +51,7 @@ const elements = [
   "sortButton",
   "splitButton",
   "stopPropagationWrapper",
+  "sonner",
   "switch",
   "table",
   "tabs",
