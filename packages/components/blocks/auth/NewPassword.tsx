@@ -63,6 +63,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
       {matchError && (
         <Alert text={texts?.confirm?.dontMatch} severity="error" />
       )}
+      
       {props.passwordChanged ? (
         <CardContent headless>
           <div className="hawa-text-center">{texts?.passwordChanged}</div>

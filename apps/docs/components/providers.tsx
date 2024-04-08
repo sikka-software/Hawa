@@ -9,7 +9,7 @@ import { ThemeProviderProps } from "next-themes/dist/types";
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider {...props}>
-      <TooltipProvider>{children}</TooltipProvider>
+      <TooltipProvider>{children as any}</TooltipProvider>
     </NextThemesProvider>
   );
 }

@@ -99,7 +99,7 @@
     "@babel/preset-react": "^7.24.1",
     "@sikka/alam": "^0.0.4",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^14.3.0",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
