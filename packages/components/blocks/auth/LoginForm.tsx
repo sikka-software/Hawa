@@ -340,7 +340,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             "!hawa-border-none !hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none",
         )}
       >
-        <CardContent headless noPadding={props.cardless}>
+        <CardContent headless noPadding={props.cardless} className="hawa-bg-red-400">
           {props.showError && (
             <Alert
               direction={props.direction}

@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
+import { Alert } from "@elements/alert";
 import { Button } from "@elements/button";
 import {
   Card,
@@ -27,6 +28,12 @@ type ResetPasswordType = {
   allowRegister?: boolean;
   direction?: DirectionType;
   texts?: ResetPasswordTextsTypes;
+  /** If true, an error alert is displayed at the top of the form.   */
+  showError?: boolean;
+  /** Title text of error alert.   */
+  errorTitle?: string;
+  /** Description text of error alert.   */
+  errorText?: string;
 };
 
 export const ResetPasswordForm: FC<ResetPasswordType> = ({
@@ -73,6 +80,14 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
             })}
           >
             <CardContent headless={props.headless} className="hawa-pb-4">
+              {props.showError && (
+                <Alert
+                  direction={props.direction}
+                  title={props.errorTitle}
+                  text={props.errorText}
+                  severity="error"
+                />
+              )}
               <Controller
                 control={control}
                 name="email"

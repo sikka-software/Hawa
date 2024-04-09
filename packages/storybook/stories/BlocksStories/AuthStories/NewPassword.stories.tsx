@@ -7,13 +7,13 @@ import { setLocale, t } from "../../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/New Password Form",
-  component: NewPasswordForm
+  component: NewPasswordForm,
 } satisfies Meta<typeof NewPasswordForm>;
 
 export default meta;
 type Story = StoryObj<typeof NewPasswordForm>;
 
-export const Default: Story = {
+const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
@@ -29,21 +29,23 @@ export const Default: Story = {
               label: t("passwordLabel"),
               placeholder: t("passwordPlaceholder"),
               required: t("passwordRequiredText"),
-              tooShort: t("passwordTooShortText")
+              tooShort: t("passwordTooShortText"),
             },
             confirm: {
               label: t("confirmPasswordLabel"),
               placeholder: t("confirmPasswordPlaceholder"),
               required: t("confirmPasswordRequired"),
-              dontMatch: t("passwordsDontMatch")
+              dontMatch: t("passwordsDontMatch"),
             },
             passwordChanged:
-              "Your password has been changed, you'll be redirected to sign in page"
+              "Your password has been changed, you'll be redirected to sign in page",
           }}
         />
       </div>
     );
   },
-  args: { passwordChanged: false },
-  argTypes: { handleNewPassword: { action: "handleNewPassword" } }
+  args: { showSuccess: false },
+  argTypes: { handleNewPassword: { action: "handleNewPassword" } },
 };
+
+export { Default as NewPasswordForm };

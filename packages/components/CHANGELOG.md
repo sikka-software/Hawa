@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.2
+
+### Patch Changes
+
+- Ability to display error in `ResetPasswordForm` and `NewPasswordForm`
+
 ## 0.31.0
 
 ### Minor Changes

@@ -7,7 +7,7 @@ import { setLocale, t } from "../../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/Reset Password Form",
-  component: ResetPasswordForm
+  component: ResetPasswordForm,
 } satisfies Meta<typeof ResetPasswordForm>;
 
 export default meta;
@@ -29,26 +29,22 @@ const Default: Story = {
               label: t("emailLabel"),
               placeholder: t("emailPlaceholder"),
               required: t("emailRequiredText"),
-              invalid: t("emailInvalidText")
+              invalid: t("emailInvalidText"),
             },
             emailSentText: "The reset password link was sent to your email",
             resetPassword: "Reset Password",
             registerText: "Register",
-            dontHaveAccount: "Don't have an account? "
+            dontHaveAccount: "Don't have an account? ",
           }}
         />
       </div>
     );
   },
-  args: {
-    sent: false,
-    headless: true,
-    allowRegister: true
-  },
+  args: { sent: false, headless: true, allowRegister: true },
   argTypes: {
     handleResetPassword: { action: "handleResetPassword" },
-    handleRouteToRegister: { action: "handleRouteToRegister" }
-  }
+    handleRouteToRegister: { action: "handleRouteToRegister" },
+  },
 };
 
 export { Default as ResetPasswordForm };

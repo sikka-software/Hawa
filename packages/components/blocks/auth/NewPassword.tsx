@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,14 +6,7 @@ import * as z from "zod";
 
 import { Alert } from "@elements/alert";
 import { Button } from "@elements/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@elements/card";
+import { Card, CardContent } from "@elements/card";
 import { Input } from "@elements/input";
 
 import { DirectionType } from "@_types/commonTypes";
@@ -24,10 +17,15 @@ type NewPasswordTypes = {
   handleRouteToRegister: () => void;
   isLoading: boolean;
   direction?: DirectionType;
-  headless?: boolean;
   allowRegister?: boolean;
-  passwordChanged: any;
+  showSuccess: boolean;
   texts: NewPasswordTextsTypes;
+  /** If true, an error alert is displayed at the top of the form.   */
+  showError?: boolean;
+  /** Title text of error alert.   */
+  errorTitle?: string;
+  /** Description text of error alert.   */
+  errorText?: string;
 };
 
 export const NewPasswordForm: FC<NewPasswordTypes> = ({
@@ -56,15 +54,9 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
     resolver: zodResolver(formSchema),
   });
 
-  const [matchError, setMatchError] = useState(false);
-
   return (
     <Card dir={props.direction}>
-      {matchError && (
-        <Alert text={texts?.confirm?.dontMatch} severity="error" />
-      )}
-      
-      {props.passwordChanged ? (
+      {props.showSuccess ? (
         <CardContent headless>
           <div className="hawa-text-center">{texts?.passwordChanged}</div>
         </CardContent>
@@ -81,50 +73,47 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
             }
           })}
         >
-          {!props.headless && (
-            <CardHeader>
-              <CardTitle>Create Password</CardTitle>
-              <CardDescription>
-                Set a new password for your account
-              </CardDescription>
-            </CardHeader>
-          )}
-          <CardContent
-            headless={props.headless}
-            className="hawa-flex hawa-flex-col hawa-gap-4"
-          >
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <Input
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  label={texts?.password?.label}
-                  placeholder={texts?.password?.placeholder}
-                  helperText={formState.errors.password?.message}
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="confirm_password"
-              render={({ field }) => (
-                <Input
-                  width="full"
-                  type="password"
-                  autoComplete="new-password"
-                  label={texts?.confirm?.label}
-                  placeholder={texts?.confirm?.placeholder}
-                  helperText={formState.errors.confirm_password?.message}
-                  {...field}
-                />
-              )}
-            />
-          </CardContent>
-          <CardFooter className="hawa-flex hawa-flex-col">
+          <CardContent headless className="hawa-flex hawa-flex-col">
+            {props.showError && (
+              <Alert
+                direction={props.direction}
+                title={props.errorTitle}
+                text={props.errorText}
+                severity="error"
+              />
+            )}
+            <div className="hawa-flex hawa-flex-col hawa-gap-4 hawa-mb-4">
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <Input
+                    width="full"
+                    type="password"
+                    autoComplete="new-password"
+                    label={texts?.password?.label}
+                    placeholder={texts?.password?.placeholder}
+                    helperText={formState.errors.password?.message}
+                    {...field}
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="confirm_password"
+                render={({ field }) => (
+                  <Input
+                    width="full"
+                    type="password"
+                    autoComplete="new-password"
+                    label={texts?.confirm?.label}
+                    placeholder={texts?.confirm?.placeholder}
+                    helperText={formState.errors.confirm_password?.message}
+                    {...field}
+                  />
+                )}
+              />
+            </div>
             <Button className="hawa-w-full" type="submit" isLoading={isLoading}>
               {texts?.updatePassword}
             </Button>
@@ -139,7 +128,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
                 </span>
               </div>
             )}
-          </CardFooter>
+          </CardContent>
         </form>
       )}
     </Card>
