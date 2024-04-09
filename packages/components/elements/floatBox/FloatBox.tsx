@@ -61,9 +61,7 @@ const FloatBox: React.FC<FloatBoxProps> = ({
       data-side={side}
       data-floatbox-state={open ? "open" : "closed"}
     >
-      {withArrow && (
-        <div className={cn("hawa-bg-red-500", arrowDirection[side])} />
-      )}
+      {withArrow && <div className={cn(arrowDirection[side])} />}
       <span>{props.children}</span>
     </div>
   );
