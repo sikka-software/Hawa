@@ -1,5 +1,8 @@
+import React from "react";
+
+import { Toaster as SonnerToaster, toast } from "sonner";
+
 import { DirectionType } from "@_types/commonTypes";
-import { Toaster as SonnerToaster, toast, ToastT } from "sonner";
 
 type SonnerProps = React.ComponentProps<typeof SonnerToaster> & {
   direction?: DirectionType;
