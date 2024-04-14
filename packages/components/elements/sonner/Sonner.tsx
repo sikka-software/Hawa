@@ -11,8 +11,6 @@ type SonnerProps = React.ComponentProps<typeof SonnerToaster> & {
 const Sonner = ({ ...props }: SonnerProps) => {
   return (
     <SonnerToaster
-      // theme={theme as SonnerProps["theme"]}
-
       dir={props.direction}
       position={props.direction === "rtl" ? "bottom-left" : "bottom-right"}
       className="toaster group"
@@ -20,13 +18,15 @@ const Sonner = ({ ...props }: SonnerProps) => {
         classNames: {
           toast:
             "group toast group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
-          description: "group-[.toast]:text-muted-foreground",
+          description: "group-[.toast]:hawa-text-muted-foreground",
           actionButton:
             "group-[.toast]:hawa-bg-primary group-[.toast]:hawa-text-primary-foreground",
           cancelButton:
             "group-[.toast]:hawa-bg-muted group-[.toast]:hawa-text-muted-foreground",
+          title: "!hawa-font-bold",
         },
       }}
+      style={{ fontFamily: "IBM Plex Sans Arabic" }}
       {...props}
     />
   );

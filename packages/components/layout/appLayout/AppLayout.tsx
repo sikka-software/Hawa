@@ -14,6 +14,7 @@ type AppLayoutTypes = {
   /** a custom header to replace the logoLink & logoSymbol */
   header?: React.ReactNode;
   design?: "default";
+  bordered?: boolean;
   /** The pages of the side drawer */
   drawerItems: AppSidebarItemProps[];
   /** The direction of the layout */
@@ -87,6 +88,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   profileMenuWidth = "default",
   DrawerFooterActions,
   classNames,
+  bordered = true,
   design = "default",
   direction = "ltr",
   drawerSize = "md",
@@ -162,6 +164,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           className={cn(
             "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-0 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
             isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row",
+            bordered && "hawa-border-b-[1px]",
           )}
         >
           {/* Nav Side Of Navbar */}
@@ -282,11 +285,17 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex  hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
           isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-14"
             : "hawa-left-0 hawa-top-0 hawa-h-14",
           "hawa-h-[calc(100dvh)]",
+          "hawa-bg-primary-foreground",
+          bordered
+            ? direction === "rtl"
+              ? "hawa-border-s-[1px]"
+              : "hawa-border-e-[1px]"
+            : "",
         )}
         style={{
           width:
@@ -325,7 +334,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           onClick={props.onLogoClick}
           dir={direction}
           className={cn(
-            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-bg-primary-foreground hawa-transition-all",
+            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-transition-all",
             props.onLogoClick && "hawa-cursor-pointer",
             classNames?.logoContainer,
           )}
@@ -382,7 +391,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            "hawa-fixed hawa-bottom-14 hawa-top-14 hawa-bg-primary-foreground hawa-p-0 hawa-py-2 hawa-transition-all",
+            "hawa-fixed hawa-bottom-14 hawa-top-14 hawa-p-0 hawa-py-2 hawa-transition-all",
             openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden",
           )}
           style={{
@@ -424,9 +433,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
          */}
         <div
           className={cn(
-            "hawa-fixed  hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-bg-primary-foreground  hawa-transition-all",
+            "hawa-fixed hawa-bottom-0 hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-transition-all",
             direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
-            "hawa-bottom-0",
           )}
           style={{
             width:

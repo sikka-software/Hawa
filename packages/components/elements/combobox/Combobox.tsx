@@ -179,7 +179,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                 <CommandGroup
                   className={cn(
                     "hawa-max-h-[200px]",
-                    data.length > 0 && "hawa-overflow-y-scroll",
+                    data.length > 0 && "hawa-overflow-y-auto",
                   )}
                 >
                   {data.map((item: any, i) => (

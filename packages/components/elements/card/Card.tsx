@@ -5,6 +5,7 @@ import { cn } from "@util/index";
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   clickable?: boolean;
   variant?: "default" | "neoBrutalism";
+  asContainer?: boolean;
 }
 
 type CardContentProps = {
@@ -13,7 +14,16 @@ type CardContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = "default", clickable = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant = "default",
+      clickable = false,
+      asContainer = false,
+      ...props
+    },
+    ref,
+  ) => {
     let variantStyles = {
       default: cn(
         "hawa-rounded-lg hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
@@ -30,7 +40,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={cn(className, variantStyles[variant])}
+        className={cn(className, !asContainer && variantStyles[variant])}
         {...props}
       />
     );

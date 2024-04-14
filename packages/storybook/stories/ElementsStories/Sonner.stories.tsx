@@ -41,8 +41,9 @@ export const Default: Story = {
                 label: "Info",
                 value: "info",
                 action: () => {
-                  createSonner.error("Event has been created", {
+                  createSonner.error(t("are-you-sure-description"), {
                     description: "Sunday, December 03, 2023 at 9:00 AM",
+                    duration: 50000,
                     action: {
                       label: "Undo",
                       onClick: () => console.log("Undo"),

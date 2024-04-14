@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.31.4
+
+### Patch Changes
+
+- `Sonner`: use IBM Plex Sans font and make the title bold
+- `Combobox`: remove unneeded scrollbar
+- `Card`: add `asContainer` prop to remove card styles
+- `AppLayout`: add `bordered` prop to add a border
+
 ## 0.31.2
 
 ### Patch Changes
