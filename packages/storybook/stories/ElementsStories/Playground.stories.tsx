@@ -218,18 +218,77 @@ export const SelectAndInput: Story = {
                 }}
               />
             </div>
-
-            <Input
-              preview={preview}
-              isLoading={loading}
-              type={"text"}
-              defaultValue={"Random text"}
-              label={t("Input")}
-              // helperText={"Testing helperText"}
-            />
-            <Select isLoading={loading} label={t("role")}>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2 hawa-w-full">
+              <Input
+                // preview={preview}
+                isLoading={loading}
+                type={"text"}
+                defaultValue={"Random text"}
+                label={t("Input")}
+                // helperText={"Testing helperText"}
+              />
+              {/* <Select isLoading={loading} label={t("role")}>
               <option></option>
-            </Select>
+            </Select> */}
+
+              <Select
+                label={"Select Input"}
+                placeholder={"Choose something"}
+                isCreatable={false}
+                isClearable={false}
+                isSearchable={true}
+                defaultValue={{ label: "Chocolate" }}
+                helperText="Helper text here"
+                options={[
+                  { value: "chocolate", label: "Chocolate" },
+                  { value: "strawberry", label: "Strawberry" },
+                  { value: "vanilla", label: "Vanilla" },
+
+                  { value: "banana", label: "Banana" },
+                  { value: "mango", label: "Mango" },
+                  { value: "apple", label: "Apple" },
+
+                  { value: "kiwi", label: "Kiwi" },
+                  { value: "grape", label: "Grape" },
+                  { value: "orange", label: "Orange" },
+
+                  { value: "pear", label: "Pear" },
+                  { value: "peach", label: "Peach" },
+                  { value: "plum", label: "Plum" },
+                ]}
+                onChange={(e: any) => console.log("onchange triggered", e)}
+                // {...args}
+              />
+              <Select
+                label={"Select Input"}
+                placeholder={"Choose something"}
+                isCreatable={false}
+                isMulti={true}
+                isClearable={false}
+                isSearchable={true}
+                defaultValue={{ label: "Chocolate" }}
+                helperText="Helper text here"
+                options={[
+                  { value: "chocolate", label: "Chocolate" },
+                  { value: "strawberry", label: "Strawberry" },
+                  { value: "vanilla", label: "Vanilla" },
+
+                  { value: "banana", label: "Banana" },
+                  { value: "mango", label: "Mango" },
+                  { value: "apple", label: "Apple" },
+
+                  { value: "kiwi", label: "Kiwi" },
+                  { value: "grape", label: "Grape" },
+                  { value: "orange", label: "Orange" },
+
+                  { value: "pear", label: "Pear" },
+                  { value: "peach", label: "Peach" },
+                  { value: "plum", label: "Plum" },
+                ]}
+                onChange={(e: any) => console.log("onchange triggered", e)}
+                // {...args}
+              />
+            </div>
           </div>
           <div className="hawa-mb-4 hawa-flex hawa-flex-row  hawa-gap-2 hawa-py-2">
             <Input

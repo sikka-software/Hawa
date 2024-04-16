@@ -52,7 +52,7 @@ type SelectTypes = {
   isSearchable?: boolean;
   controlClassNames?: string;
   containerClassNames?: string;
-  onChange?: any;
+  onChange: any;
   helperText?: string;
   onInputChange?: any;
   native?: any;
@@ -155,22 +155,25 @@ export const Select: FC<SelectTypes> = ({
               ),
             container: () =>
               cn(
-                "hawa-rounded",
+                "hawa-rounded ",
                 props.phoneCode &&
-                  "hawa-w-fit hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px] ",
+                  "hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px] ",
 
                 "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm",
                 props.disabled
                   ? "hawa-cursor-not-allowed"
                   : "hawa-cursor-pointer",
+
+                props.isMulti && "hawa-ps-0 ",
               ),
+
             placeholder: () =>
               "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1",
             valueContainer: () => "hawa-text-foreground hawa-px-1 ",
             singleValue: () => "hawa-text-foreground",
             indicatorsContainer: () =>
               cn(
-                "hawa-cursor-pointer hawa-text-muted-foreground",
+                "hawa-cursor-pointer hawa-text-muted-foreground hawa-absolute hawa-end-0 hawa-top-[50%] hawa-bottom-[50%] ",
                 props.hideIndicator ? "hawa-invisible" : "hawa-px-1",
               ),
           }}
@@ -178,8 +181,40 @@ export const Select: FC<SelectTypes> = ({
           autoFocus
           components={
             props.hideIndicator
-              ? { Option, Menu, IndicatorsContainer: () => null }
-              : { Option, Menu }
+              ? {
+                  Option,
+                  Menu,
+                  IndicatorsContainer: () => null,
+                }
+              : {
+                  Option,
+                  Menu,
+                  // Control: (e) => (
+                  //   <div
+                  //     className={cn(e.className, "hawa-flex hawa-flex-row")}
+                  //     {...e}
+                  //   />
+                  // ),
+
+                  ValueContainer: (e) => (
+                    <div
+                      className={cn(
+                        e.className,
+                        "hawa-gap-1 hawa-flex hawa-flex-row hawa-flex-wrap hawa-p-1",
+                      )}
+                      {...e}
+                    />
+                  ),
+                  MultiValueContainer: (e) => (
+                    <div
+                      className={cn(
+                        // e.className,
+                        "hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-flex hawa-flex-row",
+                      )}
+                      {...e}
+                    />
+                  ),
+                }
           }
           onChange={(newValue: any, action) => props.onChange(newValue, action)}
           options={props.options}

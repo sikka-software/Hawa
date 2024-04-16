@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.6
+
+### Patch Changes
+
+- `Select`: fix styling of when `isMulti` prop is true
+
 ## 0.31.5
 
 ### Patch Changes

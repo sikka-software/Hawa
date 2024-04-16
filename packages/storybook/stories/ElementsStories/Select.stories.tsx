@@ -8,7 +8,7 @@ import { setLocale, t } from "../../translations/i18n";
 const meta = {
   title: "Elements/Select",
   component: Select,
-  parameters: { layout: "fullscreen" }
+  parameters: { layout: "fullscreen" },
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -35,7 +35,7 @@ export const Default: Story = {
             options={[
               { value: "chocolate", label: "Chocolate" },
               { value: "strawberry", label: "Strawberry" },
-              { value: "vanilla", label: "Vanilla" }
+              { value: "vanilla", label: "Vanilla" },
             ]}
             {...args}
           />
@@ -45,8 +45,8 @@ export const Default: Story = {
   },
   argTypes: {
     onChange: { action: "onChange" },
-    onInputChange: { action: "onInputChange" }
-  }
+    onInputChange: { action: "onInputChange" },
+  },
 };
 export const Creatable: Story = {
   render: (args) => (
@@ -66,12 +66,47 @@ export const Creatable: Story = {
     options: [
       { value: "chocolate", label: "Chocolate" },
       { value: "strawberry", label: "Strawberry" },
-      { value: "vanilla", label: "Vanilla" }
-    ]
+      { value: "vanilla", label: "Vanilla" },
+    ],
   },
   argTypes: {
     handleCreateOption: { actions: "handleCreateOption" },
     onChange: { action: "onChange" },
-    onInputChange: { action: "onInputChange" }
-  }
+    onInputChange: { action: "onInputChange" },
+  },
+};
+
+export const Multiselect: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    setLocale(locale);
+    return (
+      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+        <div className="hawa-w-full hawa-max-w-md" dir={direction}>
+          <Select
+            label={"Select Input"}
+            placeholder={"Choose something"}
+            isCreatable={false}
+            isMulti={true}
+            isClearable={false}
+            isSearchable={true}
+            defaultValue={{ label: "Chocolate" }}
+            helperText="Helper text here"
+            options={[
+              { value: "chocolate", label: "Chocolate" },
+              { value: "strawberry", label: "Strawberry" },
+              { value: "vanilla", label: "Vanilla" },
+            ]}
+            {...args}
+          />
+        </div>
+      </div>
+    );
+  },
+  argTypes: {
+    onChange: { action: "onChange" },
+    onInputChange: { action: "onInputChange" },
+  },
 };
