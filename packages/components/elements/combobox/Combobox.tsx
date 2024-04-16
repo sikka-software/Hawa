@@ -45,6 +45,7 @@ type ComboboxTypes<T> = {
   isRequired?: boolean;
   onChange?: (e: any) => void;
   renderOption?: (item: T) => React.ReactNode;
+  renderSelected?: (item: T) => React.ReactNode;
 };
 export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
   (
@@ -58,6 +59,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
       inputProps,
       data,
       renderOption,
+      renderSelected,
       ...props
     },
     ref,
@@ -68,6 +70,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
     // function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
     //   return key.split(".").reduce((o, k) => (o || {})[k], obj);
     // }
+
     function getProperty<T>(obj: T, key: string): any {
       return key.split(".").reduce((o: any, k: string) => (o || {})[k], obj);
     }
@@ -77,6 +80,9 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
         setOpen(open);
       }
     };
+    const selectedItem = data.find(
+      (item) => getProperty(item, valueKey) === value,
+    );
 
     return (
       <div
@@ -113,13 +119,18 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       : "hawa-bg-background hawa-px-3 ",
                   )}
                 >
-                  {value
+                  {selectedItem
+                    ? renderSelected
+                      ? renderSelected(selectedItem)
+                      : getProperty(selectedItem, labelKey)
+                    : props.texts?.placeholder || ". . ."}
+                  {/* {value
                     ? getProperty(
                         data.find((item: any) => item[valueKey] === value) ||
                           {},
                         labelKey,
                       )
-                    : props.texts?.placeholder || ". . ."}
+                    : props.texts?.placeholder || ". . ."} */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={cn(

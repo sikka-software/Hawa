@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.5
+
+### Patch Changes
+
+- `Combobox`: ability to pass custom element as the selected option via `renderSelected` prop
+
 ## 0.31.4
 
 ### Patch Changes

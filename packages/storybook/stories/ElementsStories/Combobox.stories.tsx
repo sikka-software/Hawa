@@ -73,6 +73,11 @@ export const Default: Story = {
             valueKey={"_id"}
             label="No Search"
             direction={direction}
+            renderSelected={(item) => (
+              <div className="hawa-flex hawa-flex-col hawa-text-start hawa-gap-0">
+                <span className="hawa-text-xs">Custom:{item._id}</span>
+              </div>
+            )}
             texts={{ placeholder: "Select Role" }}
           />
           <Combobox
