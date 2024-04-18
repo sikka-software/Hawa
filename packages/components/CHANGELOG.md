@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.7
+
+### Patch Changes
+
+- `PhoneInput`: ability to pass input props via `inputProps`
+
 ## 0.31.6
 
 ### Patch Changes

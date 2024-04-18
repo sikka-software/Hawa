@@ -7,7 +7,7 @@ import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Inputs/Phone Input",
-  component: PhoneInput
+  component: PhoneInput,
 } satisfies Meta<typeof PhoneInput>;
 
 export default meta;
@@ -21,7 +21,13 @@ export const Default: Story = {
     return (
       <div className="hawa-w-full hawa-max-w-sm hawa-p-2">
         <PhoneInput label="Testing" placeholder="531045453" />
+        <PhoneInput
+          preferredCountry={{ label: "+966" }}
+          inputProps={{ value: "531045453" }}
+          label="With Default Value"
+          placeholder="531045453"
+        />
       </div>
     );
-  }
+  },
 };
