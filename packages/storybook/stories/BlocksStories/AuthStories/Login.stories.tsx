@@ -32,7 +32,7 @@ const Template = (args: any, globals: any) => {
   const [isLoading, setIsLoading] = useState(false);
   let d = useDarkMode();
   return (
-    <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
+    <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col hawa-gap-4">
       <LoginForm
         direction={direction}
         currentColorMode={d ? "dark" : "light"}
