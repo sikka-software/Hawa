@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.31.9",
+  "version": "0.31.10",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -54,6 +54,10 @@
     "pub:next": "npm publish --tag next",
     "pub": "npm publish"
   },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-accordion": "^1.1.2",
@@ -83,8 +87,6 @@
     "libphonenumber-js": "^1.10.61",
     "prism-react-renderer": "^2.3.1",
     "prismjs": "^1.29.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
     "react-dropzone": "^14.2.3",
     "react-headless-pagination": "^1.1.5",
     "react-hook-form": "^7.51.3",
