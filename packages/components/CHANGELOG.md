@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.31.11
+
+### Patch Changes
+
+- Fix clicking outside the drawer of `AppLayout`
+- Add `useOutsideClick` hook
+
 ## 0.31.7
 
 ### Patch Changes

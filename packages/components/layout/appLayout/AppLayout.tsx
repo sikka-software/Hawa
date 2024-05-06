@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import useOutsideClick from "@hooks/useOutsideClick";
 import { cn } from "@util/index";
 
 import { Button } from "@elements/button";
@@ -111,11 +112,16 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     },
   };
 
-  const ref = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [size, setSize] = useState(1200);
   const [openSideMenu, setOpenSideMenu] = useState(true);
+  const handleClickOutside = () => {
+    setOpenSideMenu(false);
+  };
+  const ref = useOutsideClick(handleClickOutside);
+
   const drawerSizeCondition =
     size > 600
       ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
@@ -133,6 +139,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       };
     }
   }, []);
+
   useEffect(() => {
     if (size > 600) {
       setOpenSideMenu(keepOpen);
@@ -140,17 +147,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       setOpenSideMenu(false);
     }
   }, [size]);
-  useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (ref.current && !ref.current.contains(event.target) && !keepOpen) {
-        setOpenSideMenu(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  }, [keepOpen]);
 
   return (
     <div className="hawa-fixed hawa-left-0">
@@ -285,7 +281,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all",
+          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-bg-blue-500",
           isRTL
             ? "hawa-right-0 hawa-top-0 hawa-h-14"
             : "hawa-left-0 hawa-top-0 hawa-h-14",
@@ -321,9 +317,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           } else {
             setOpenSideMenu(false);
           }
-          // keepOpen ? setOpenSideMenu(true) : setOpenSideMenu(false)
         }}
         ref={ref}
+        // ref={drawerRef}
       >
         {/*
          * ----------------------------------------------------------------------------------------------------
