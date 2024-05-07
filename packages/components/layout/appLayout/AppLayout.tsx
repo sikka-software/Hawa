@@ -49,6 +49,7 @@ type AppLayoutTypes = {
   drawerSize?: "sm" | "md" | "large";
   /** Specifies the menu items for the profile menu. */
   profileMenuItems?: MenuItemType[];
+  onAvatarClick?: () => void;
   /**
    * Specifies the width of the profile menu.
    * - 'default': Default width.
@@ -99,6 +100,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   keepOpen,
   DrawerLinkComponent,
   MenuLinkComponent,
+  onAvatarClick,
   ...props
 }) => {
   let closeDrawerWidth = 56;
@@ -251,7 +253,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               items={props.profileMenuItems || []}
               onItemSelect={(e: any) => console.log("selecting item ", e)}
               trigger={
-                <div className="hawa-relative hawa-h-8 hawa-w-8  hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600">
+                <div
+                  onClick={onAvatarClick}
+                  className="hawa-relative hawa-h-8 hawa-w-8  hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600"
+                >
                   {props.avatarImage ? (
                     <img src={props.avatarImage} alt="User Avatar" />
                   ) : (
