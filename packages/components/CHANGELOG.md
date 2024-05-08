@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.12
+
+### Patch Changes
+
+-  `AppLayout`: Disallow collapsing side drawer on click outside when screen larger than 600px
+
 ## 0.31.11
 
 ### Patch Changes
