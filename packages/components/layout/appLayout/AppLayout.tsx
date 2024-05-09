@@ -116,25 +116,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
-  const [size, setSize] = useState(1200);
+  const [size, setSize] = useState(
+    (typeof window !== "undefined" && window.innerWidth) || 1200,
+  );
   const [openSideMenu, setOpenSideMenu] = useState(true);
-
-  const handleClickOutside = () => {
-    setOpenSideMenu(false);
-  };
-  const doNothing = () => {};
-
-  const ref = useOutsideClick(size > 600 ? doNothing : handleClickOutside);
-
-  const drawerSizeCondition =
-    size > 600
-      ? drawerSizeStyle[keepOpen ? "opened" : "closed"][drawerSize]
-      : 0;
-
+  const [keepDrawerOpen, setKeepDrawerOpen] = useState(keepOpen);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const resize = () => {
         setSize(window.innerWidth);
+        if (window.innerWidth > 600) {
+          setKeepDrawerOpen(false);
+        }
       };
       resize();
       window.addEventListener("resize", resize);
@@ -145,8 +138,29 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   }, []);
 
   useEffect(() => {
+    setKeepDrawerOpen(keepOpen);
+  }, [setKeepOpen]);
+
+  const handleClickOutside = () => {
+    if (typeof window !== "undefined") {
+      if (keepDrawerOpen) return;
+      if (window.innerWidth < 600) {
+        setKeepDrawerOpen(false);
+        setOpenSideMenu(false);
+      }
+    }
+  };
+
+  const ref = useOutsideClick(handleClickOutside);
+
+  const drawerSizeCondition =
+    size > 600
+      ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize]
+      : 0;
+
+  useEffect(() => {
     if (size > 600) {
-      setOpenSideMenu(keepOpen);
+      setOpenSideMenu(keepDrawerOpen);
     } else {
       setOpenSideMenu(false);
     }
@@ -175,25 +189,25 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 isRTL
                   ? [
                       size > 600 ? "hawa-mr-14" : "hawa-mr-2",
-                      keepOpen ? "hawa-mr-40" : "",
+                      keepDrawerOpen ? "hawa-mr-40" : "",
                     ]
                   : [
                       size > 600 ? "hawa-ml-14" : "hawa-ml-2",
-                      keepOpen ? "hawa-ml-40" : "",
+                      keepDrawerOpen ? "hawa-ml-40" : "",
                     ],
               )}
               style={
                 isRTL
                   ? {
                       marginRight: `${
-                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                        drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
                           drawerSize
                         ]
                       }px`,
                     }
                   : {
                       marginLeft: `${
-                        drawerSizeStyle[keepOpen ? "opened" : "closed"][
+                        drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
                           drawerSize
                         ]
                       }px`,
@@ -315,7 +329,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         }}
         onMouseLeave={() => {
           if (size > 600) {
-            if (keepOpen) {
+            if (keepDrawerOpen) {
               setOpenSideMenu(true);
             } else {
               setOpenedSidebarItem("");
@@ -424,7 +438,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             selectedItem={currentPage}
             openedItem={openedSidebarItem}
             setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
-            isOpen={keepOpen || openSideMenu}
+            isOpen={keepDrawerOpen || openSideMenu}
             items={props.drawerItems}
             LinkComponent={DrawerLinkComponent}
           />
@@ -456,7 +470,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               side={"left"}
               delayDuration={500}
               content={
-                keepOpen
+                keepDrawerOpen
                   ? props.texts?.collapseSidebar || "Collapse Sidebar"
                   : props.texts?.expandSidebar || "Expand Sidebar"
               }
@@ -465,18 +479,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               <Button
                 variant="outline"
                 onClick={() => {
-                  const newKeepOpenState = !keepOpen;
+                  const newKeepOpenState = !keepDrawerOpen;
                   if (props.onDrawerExpand) {
                     props.onDrawerExpand(newKeepOpenState);
                   }
-                  setKeepOpen(newKeepOpenState);
+                  setKeepDrawerOpen(newKeepOpenState);
                 }}
                 size="smallIcon"
               >
                 <svg
                   className={cn(
                     "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all  disabled:hawa-bg-gray-200 ",
-                    keepOpen
+                    keepDrawerOpen
                       ? isRTL
                         ? "hawa--rotate-90"
                         : "hawa-rotate-90"

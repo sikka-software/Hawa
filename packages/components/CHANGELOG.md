@@ -1,10 +1,16 @@
 # @sikka/hawa
 
+## 0.31.16
+
+### Patch Changes
+
+- `AppLayout`: improve drawer UX in mobile
+
 ## 0.31.12
 
 ### Patch Changes
 
--  `AppLayout`: Disallow collapsing side drawer on click outside when screen larger than 600px
+- `AppLayout`: Disallow collapsing side drawer on click outside when screen larger than 600px
 
 ## 0.31.11
 
