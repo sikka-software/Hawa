@@ -118,13 +118,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [size, setSize] = useState(1200);
   const [openSideMenu, setOpenSideMenu] = useState(true);
+
   const handleClickOutside = () => {
-    //if the size is less than 600px, close the drawer
-    if (size < 600 && keepOpen === false) {
-      setOpenSideMenu(false);
-    }
+    setOpenSideMenu(false);
   };
-  const ref = useOutsideClick(handleClickOutside);
+  const doNothing = () => {};
+
+  const ref = useOutsideClick(size > 600 ? doNothing : handleClickOutside);
 
   const drawerSizeCondition =
     size > 600
