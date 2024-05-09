@@ -114,14 +114,13 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     },
   };
 
-  const drawerRef = useRef<HTMLDivElement>(null);
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
   const [size, setSize] = useState(1200);
   const [openSideMenu, setOpenSideMenu] = useState(true);
   const handleClickOutside = () => {
     //if the size is less than 600px, close the drawer
-    if (size < 600) {
+    if (size < 600 && keepOpen === false) {
       setOpenSideMenu(false);
     }
   };
