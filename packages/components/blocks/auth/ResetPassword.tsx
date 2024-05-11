@@ -98,6 +98,9 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
                     helperText={formState.errors.email?.message}
                     placeholder={props.texts?.email?.placeholder}
                     {...field}
+                    onChange={(e) => {
+                      field.onChange(e.target.value.toLowerCase().trim());
+                    }}
                   />
                 )}
               />

@@ -278,6 +278,11 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                 texts?.email?.placeholder || "Enter your email"
                               }
                               {...field}
+                              onChange={(e) => {
+                                field.onChange(
+                                  e.target.value.toLowerCase().trim(),
+                                );
+                              }}
                             />
                           )}
                         />

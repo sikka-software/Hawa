@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.31.17
+
+### Patch Changes
+
+- `RegisterForm`, `LoginForm`, `ResetPassword`: Trim email fields to ignore whitespace and make it lowercase.
+
 ## 0.31.16
 
 ### Patch Changes

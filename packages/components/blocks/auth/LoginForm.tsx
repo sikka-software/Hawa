@@ -185,6 +185,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   helperText={formState.errors.email?.message}
                   placeholder={texts?.email?.placeholder || "contact@sikka.io"}
                   {...field}
+                  onChange={(e) => {
+                    field.onChange(e.target.value.toLowerCase().trim());
+                  }}
                 />
               )}
             />
@@ -322,6 +325,9 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   helperText={formState.errors.email?.message}
                   placeholder={texts?.email?.placeholder || "contact@sikka.io"}
                   {...field}
+                  onChange={(e) => {
+                    field.onChange(e.target.value.toLowerCase().trim());
+                  }}
                 />
               )}
             />
