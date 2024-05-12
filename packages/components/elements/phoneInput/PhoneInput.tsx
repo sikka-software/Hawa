@@ -1,4 +1,4 @@
-import React, { useState, FC, useRef, useEffect } from "react";
+import React, { useState, FC, useRef, useEffect, ChangeEvent } from "react";
 
 import { cn } from "@util/index";
 
@@ -6,7 +6,7 @@ import Countries from "../../countries";
 import { Label, LabelProps } from "../label/Label";
 import { Select } from "../select/Select";
 
-type PhoneInputTypes = {
+export type PhoneInputProps = {
   preferredCountry?: { label: string };
   helperText?: any;
   label?: string;
@@ -14,23 +14,20 @@ type PhoneInputTypes = {
   placeholder?: string;
   handleChange?: (value: string) => void;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  countryCodes?: { label: string }[];
 };
-export const PhoneInput: FC<PhoneInputTypes> = ({
+export const PhoneInput: FC<PhoneInputProps> = ({
   labelProps,
   inputProps,
+  countryCodes,
   ...props
 }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState(props.preferredCountry);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // useEffect(() => {
-  //   if (inputRef.current) {
-  //     inputRef.current?.focus(); //Set focus on the <input/> element
-  //   }
-  // }, []);
-
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log("test e ", e.target.value);
     const validChars = /^[0-9-()]+$/;
     const input = e.target.value;
 
@@ -39,6 +36,7 @@ export const PhoneInput: FC<PhoneInputTypes> = ({
       setPhoneNumber(input);
     }
     if (props.handleChange) {
+      // console.log("label is", countryCode?.label);
       props.handleChange(`${countryCode?.label}-${e.target.value}`);
     } else {
       console.log("handleChange prop was not provided in <PhoneInput/>");
@@ -58,7 +56,7 @@ export const PhoneInput: FC<PhoneInputTypes> = ({
           isSearchable={true}
           isClearable={false}
           placeholder="Code"
-          options={Countries}
+          options={countryCodes || Countries}
           onChange={setCountryCode}
           value={countryCode?.label}
           defaultValue={props.preferredCountry}

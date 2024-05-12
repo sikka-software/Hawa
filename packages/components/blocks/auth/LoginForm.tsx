@@ -4,14 +4,19 @@ import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@util/index";
-import { parsePhoneNumber } from "libphonenumber-js";
+import {
+  isPossiblePhoneNumber,
+  isValidPhoneNumber,
+  parsePhoneNumber,
+  validatePhoneNumberLength,
+} from "libphonenumber-js";
 import * as z from "zod";
 
 import { Alert } from "@elements/alert";
 import { Button } from "@elements/button";
 import { Card, CardContent, CardFooter } from "@elements/card";
 import { Input } from "@elements/input";
-import { PhoneInput } from "@elements/phoneInput";
+import { PhoneInput, PhoneInputProps } from "@elements/phoneInput";
 
 import {
   DirectionType,
@@ -73,6 +78,8 @@ type LoginFormTypes = {
   passwordLength?: number;
   /** If true, the form is displayed without a card container styling.*/
   cardless?: boolean;
+  /** Props to pass to the PhoneInput component */
+  phoneInputProps: PhoneInputProps;
 };
 
 export const LoginForm: FC<LoginFormTypes> = ({
@@ -141,8 +148,12 @@ export const LoginForm: FC<LoginFormTypes> = ({
         })
         .refine(
           (value) => {
-            let phoneNumber = parsePhoneNumber(value);
-            return phoneNumber.isValid();
+            let isPhoneValid =
+              isPossiblePhoneNumber(value) &&
+              isValidPhoneNumber(value) &&
+              validatePhoneNumberLength(value) === undefined;
+
+            return isPhoneValid;
           },
           { message: texts?.phone?.invalid || "Phone Number Invalid" },
         ),
@@ -303,9 +314,19 @@ export const LoginForm: FC<LoginFormTypes> = ({
                   label={texts?.phone?.label || "Phone Number"}
                   helperText={formState.errors.phone?.message}
                   preferredCountry={{ label: "+966" }}
-                  handleChange={(e) =>
-                    field.onChange(parsePhoneNumber(e).number)
-                  }
+                  {...props.phoneInputProps}
+                  handleChange={(e) => {
+                    if (
+                      isValidPhoneNumber(e) &&
+                      isPossiblePhoneNumber(e) &&
+                      validatePhoneNumberLength(e) === undefined
+                    ) {
+                      let parsed = parsePhoneNumber(e);
+                      field.onChange(parsed.number);
+                    } else {
+                      field.onChange(e);
+                    }
+                  }}
                 />
               )}
             />

@@ -26,6 +26,7 @@ export const Default: Story = {
           inputProps={{ value: "531045453" }}
           label="With Default Value"
           placeholder="531045453"
+          countryCodes={[{ label: "+966" }, { label: "+967" }]}
         />
       </div>
     );

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@sikka/hawa/dist/button";
+import { Button } from "@sikka/hawa/elements/button";
 import { Card, CardContent } from "@sikka/hawa/elements/card";
 import {
   Tabs,
