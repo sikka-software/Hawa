@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.32.0
+
+### Minor Changes
+
+- Fix phone validation in `LoginForm`
+- Ability to pass custom list of `countryCodes` in `PhoneInput`
+
 ## 0.31.17
 
 ### Patch Changes
