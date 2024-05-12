@@ -79,7 +79,7 @@ type LoginFormTypes = {
   /** If true, the form is displayed without a card container styling.*/
   cardless?: boolean;
   /** Props to pass to the PhoneInput component */
-  phoneInputProps: PhoneInputProps;
+  phoneInputProps?: PhoneInputProps;
 };
 
 export const LoginForm: FC<LoginFormTypes> = ({
