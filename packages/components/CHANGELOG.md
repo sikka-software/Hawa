@@ -219,8 +219,7 @@
 
 ### Patch Changes
 
-d60e897: - Add `headerless` option to `SimpleTable` to hide the table header
-
+- Add `headerless` option to `SimpleTable` to hide the table header
 - Add `extra` prop to `SimpleTable` to allow the consumer to append extra JSX at the end of the table
 
 ## 0.30.4
