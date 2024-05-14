@@ -72,6 +72,7 @@ declare module "@tanstack/table-core" {
     padding?: "condensed" | "default" | "noPadding";
     sortable?: boolean;
     hidden?: boolean;
+    i18nKey?: string;
   }
 }
 
@@ -195,7 +196,11 @@ export const DataTable = <DataProps extends {}>({
                           column.toggleVisibility(!!value)
                         }
                       >
-                        {translateFn ? translateFn(column.id) : column.id}
+                        {column.columnDef.meta?.i18nKey
+                          ? column.columnDef.meta?.i18nKey
+                          : translateFn
+                            ? translateFn(column.id)
+                            : column.id}
                       </DropdownMenuCheckboxItem>
                     );
                   })}

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.32.2
+
+### Patch Changes
+
+- `DataTable` add `i18nKey` meta property in the `ColumnDef` to allow consumer to pass custom text for the column hiding list
+
 ## 0.32.1
 
 ### Patch Changes
