@@ -1,10 +1,16 @@
 # @sikka/hawa
 
+## 0.32.3
+
+### Patch Changes
+
+- `DataTable` fix `i18nKey` to use existing `translateFn`
+
 ## 0.32.2
 
 ### Patch Changes
 
-- `DataTable` add `i18nKey` meta property in the `ColumnDef` to allow consumer to pass custom text for the column hiding list
+- `DataTable`: add `i18nKey` meta property in the `ColumnDef` to allow consumer to pass custom text for the column hiding list
 
 ## 0.32.1
 

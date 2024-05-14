@@ -196,11 +196,13 @@ export const DataTable = <DataProps extends {}>({
                           column.toggleVisibility(!!value)
                         }
                       >
-                        {column.columnDef.meta?.i18nKey
-                          ? column.columnDef.meta?.i18nKey
-                          : translateFn
-                            ? translateFn(column.id)
-                            : column.id}
+                        {translateFn
+                          ? translateFn(
+                              column.columnDef.meta?.i18nKey
+                                ? column.columnDef.meta?.i18nKey
+                                : column.id,
+                            )
+                          : column.id}
                       </DropdownMenuCheckboxItem>
                     );
                   })}
