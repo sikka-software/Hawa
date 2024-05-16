@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.34.0
+
+### Minor Changes
+
+- `ContactForm` add `showSuccess` prop with ablility to customize success message
+- New component: `ImageCard`
+
 ## 0.33.0
 
 ### Minor Changes
