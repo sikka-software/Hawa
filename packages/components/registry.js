@@ -17,6 +17,8 @@ const elements = [
   "combobox",
   "command",
   "count",
+  "calendar",
+  "datePicker",
   "dataTable",
   "destroyableCard",
   "dialog",
