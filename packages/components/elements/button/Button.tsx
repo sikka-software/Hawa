@@ -3,6 +3,7 @@ import * as React from "react";
 import { cn } from "@util/index";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { Label } from "../label";
 import { Loading } from "../loading/Loading";
 
 const buttonVariants = cva(
@@ -49,12 +50,14 @@ export interface ButtonProps
   asChild?: boolean;
   centered?: boolean;
   isLoading?: boolean;
+  label?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
+      label,
       variant,
       size,
       asChild = false,
@@ -74,27 +77,32 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         : "hawa-bg-primary-foreground";
 
     return (
-      <Comp
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          centered && "hawa-justify-center",
-        )}
-        ref={ref}
-        {...props}
-      >
-        {isLoading ? (
-          <Loading
-            design={
-              size === "icon" || size === "smallIcon" ? "spinner" : "dots-pulse"
-            }
-            themeMode={variant === "outline" ? "light" : "dark"}
-            color={loadingColor}
-            size={size === "sm" || size === "xs" ? "xs" : "button"}
-          />
-        ) : (
-          children
-        )}
-      </Comp>
+      <div className="flex flex-col">
+        {label && <Label className="hawa-mb-2">{label}</Label>}
+        <Comp
+          className={cn(
+            buttonVariants({ variant, size, className }),
+            centered && "hawa-justify-center",
+          )}
+          ref={ref}
+          {...props}
+        >
+          {isLoading ? (
+            <Loading
+              design={
+                size === "icon" || size === "smallIcon"
+                  ? "spinner"
+                  : "dots-pulse"
+              }
+              themeMode={variant === "outline" ? "light" : "dark"}
+              color={loadingColor}
+              size={size === "sm" || size === "xs" ? "xs" : "button"}
+            />
+          ) : (
+            children
+          )}
+        </Comp>
+      </div>
     );
   },
 );

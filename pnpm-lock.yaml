@@ -348,6 +348,9 @@ importers:
       cmdk:
         specifier: ^1.0.0
         version: 1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       embla-carousel-auto-height:
         specifier: ^8.0.4
         version: 8.0.4(embla-carousel@8.0.4)
@@ -372,6 +375,9 @@ importers:
       react:
         specifier: 18.3.1
         version: 18.3.1
+      react-day-picker:
+        specifier: ^8.10.1
+        version: 8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
@@ -578,6 +584,9 @@ importers:
       css-loader:
         specifier: ^7.1.1
         version: 7.1.1(webpack@5.89.0(esbuild@0.19.11))
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       eslint-plugin-storybook:
         specifier: ^0.8.0
         version: 0.8.0(eslint@9.2.0)(typescript@5.4.5)

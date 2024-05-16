@@ -69,6 +69,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "date-fns": "^3.6.0"
   }
 }
