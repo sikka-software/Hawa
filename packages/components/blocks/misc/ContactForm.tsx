@@ -6,7 +6,13 @@ import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Button } from "@elements/button";
-import { Card, CardContent } from "@elements/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@elements/card";
 import { Input } from "@elements/input";
 import { Select } from "@elements/select";
 import { Textarea } from "@elements/textarea";
@@ -32,11 +38,16 @@ type ContactFormProps = {
   size?: "sm" | "default";
   onSubmit: (e: ContactFormData) => void;
   customFields?: CustomField[];
+  showSuccess?: boolean;
   texts?: {
     submit: string;
     name: TextInputType;
     email: TextInputType;
     message: TextInputType;
+    success?: {
+      title?: string;
+      description?: string;
+    };
   };
 };
 export const ContactForm: React.FC<ContactFormProps> = ({
@@ -47,6 +58,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   formAutoComplete = "off",
   onSubmit,
   customFields,
+  ...props
 }) => {
   const customFieldsSchema = z.object({
     ...customFields?.reduce(
@@ -130,111 +142,121 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       style={cardless ? { boxShadow: "none" } : undefined}
     >
       <CardContent headless className={cardless ? "!hawa-p-0" : ""}>
-        <form
-          noValidate
-          onSubmit={handleSubmit(handleFormSubmit)}
-          className="hawa-space-y-2"
-          id={formId}
-          autoComplete={formAutoComplete}
-        >
-          <div
-            className={cn(
-              "hawa-flex hawa-items-start hawa-justify-start hawa-gap-2",
-              {
-                "hawa-flex-row": size === "default",
-                "hawa-flex-col": size === "sm",
-              },
-            )}
+        {props.showSuccess ? (
+          <CardHeader>
+            <CardTitle>{texts?.success?.title || "Message Sent! 🎉"}</CardTitle>
+            <CardDescription>
+              {texts?.success?.description ||
+                "Thank you for your submission, we will get back to you as soon as possible."}
+            </CardDescription>
+          </CardHeader>
+        ) : (
+          <form
+            noValidate
+            onSubmit={handleSubmit(handleFormSubmit)}
+            className="hawa-space-y-2"
+            id={formId}
+            autoComplete={formAutoComplete}
           >
-            <Controller
-              control={control}
-              name="name"
-              render={({ field }) => (
-                <Input
-                  label={texts?.name.label || "Name"}
-                  id={texts?.name.label}
-                  {...field}
-                  placeholder={texts?.name.placeholder}
-                  helperText={errors.name?.message}
-                />
+            <div
+              className={cn(
+                "hawa-flex hawa-items-start hawa-justify-start hawa-gap-2",
+                {
+                  "hawa-flex-row": size === "default",
+                  "hawa-flex-col": size === "sm",
+                },
               )}
-            />
-            <Controller
-              control={control}
-              name="email"
-              render={({ field }) => (
-                <Input
-                  label={texts?.email.label || "Email"}
-                  id={texts?.email.label}
-                  {...field}
-                  placeholder={texts?.email.placeholder}
-                  helperText={errors.email?.message}
-                />
-              )}
-            />
-          </div>
-          {customFields &&
-            customFields.map((customField: CustomField) => {
-              console.log("custom", customField);
-              return (
-                <Controller
-                  control={control}
-                  name={customField.name}
-                  render={({ field }) => {
-                    const { type, label, placeholder } = customField;
-
-                    switch (type) {
-                      case "text":
-                      case "number":
-                        return (
-                          <Input
-                            id={customField.name}
-                            type={type}
-                            label={label}
-                            placeholder={placeholder}
-                            {...field}
-                          />
-                        );
-                      case "select":
-                        return (
-                          <Select
-                            label={label}
-                            options={customField.options || []}
-                            value={field.value}
-                            onChange={(option: any) =>
-                              field.onChange(option.value)
-                            }
-                          />
-                        );
-                      default:
-                        return <div>Unknown type</div>;
-                    }
-                  }}
-                />
-              );
-            })}
-          <Controller
-            control={control}
-            name="message"
-            render={({ field }) => (
-              <Textarea
-                label={texts?.message.label || "Message"}
-                id={texts?.message.label}
-                textareaProps={{
-                  placeholder: texts?.message.placeholder,
-                  className: "hawa-min-h-20",
-                  ...field,
-                }}
-                classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
-                helperText={errors.message?.message}
+            >
+              <Controller
+                control={control}
+                name="name"
+                render={({ field }) => (
+                  <Input
+                    label={texts?.name.label || "Name"}
+                    id={texts?.name.label}
+                    {...field}
+                    placeholder={texts?.name.placeholder}
+                    helperText={errors.name?.message}
+                  />
+                )}
               />
-            )}
-          />
+              <Controller
+                control={control}
+                name="email"
+                render={({ field }) => (
+                  <Input
+                    label={texts?.email.label || "Email"}
+                    id={texts?.email.label}
+                    {...field}
+                    placeholder={texts?.email.placeholder}
+                    helperText={errors.email?.message}
+                  />
+                )}
+              />
+            </div>
+            {customFields &&
+              customFields.map((customField: CustomField) => {
+                console.log("custom", customField);
+                return (
+                  <Controller
+                    control={control}
+                    name={customField.name}
+                    render={({ field }) => {
+                      const { type, label, placeholder } = customField;
 
-          <Button type="submit" className="hawa-w-full">
-            {texts?.submit || "Submit"}
-          </Button>
-        </form>
+                      switch (type) {
+                        case "text":
+                        case "number":
+                          return (
+                            <Input
+                              id={customField.name}
+                              type={type}
+                              label={label}
+                              placeholder={placeholder}
+                              {...field}
+                            />
+                          );
+                        case "select":
+                          return (
+                            <Select
+                              label={label}
+                              options={customField.options || []}
+                              value={field.value}
+                              onChange={(option: any) =>
+                                field.onChange(option.value)
+                              }
+                            />
+                          );
+                        default:
+                          return <div>Unknown type</div>;
+                      }
+                    }}
+                  />
+                );
+              })}
+            <Controller
+              control={control}
+              name="message"
+              render={({ field }) => (
+                <Textarea
+                  label={texts?.message.label || "Message"}
+                  id={texts?.message.label}
+                  textareaProps={{
+                    placeholder: texts?.message.placeholder,
+                    className: "hawa-min-h-20",
+                    ...field,
+                  }}
+                  classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
+                  helperText={errors.message?.message}
+                />
+              )}
+            />
+
+            <Button type="submit" className="hawa-w-full">
+              {texts?.submit || "Submit"}
+            </Button>
+          </form>
+        )}
       </CardContent>
     </Card>
   );
