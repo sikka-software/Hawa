@@ -68,20 +68,20 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
     };
     let colorStyles: any = {
       green:
-        "hawa-bg-green-100 hawa-text-green-500 dark:hawa-bg-green-400 dark:hawa-text-green-800",
-      blue: "hawa-bg-blue-100 hawa-text-blue-500 dark:hawa-bg-blue-400 dark:hawa-text-blue-100",
-      red: "hawa-bg-red-100 hawa-text-red-500 dark:hawa-bg-red-400 dark:hawa-text-red-100",
+        "hawa-bg-green-200 hawa-text-green-700 dark:hawa-bg-green-700 dark:hawa-text-green-200",
+      blue: "hawa-bg-blue-200 hawa-text-blue-700 dark:hawa-bg-blue-700 dark:hawa-text-blue-100",
+      red: "hawa-bg-red-200 hawa-text-red-700 dark:hawa-bg-red-700 dark:hawa-text-red-100",
       yellow:
-        "hawa-bg-yellow-100 hawa-text-yellow-600 dark:hawa-bg-yellow-400 dark:hawa-text-yellow-800",
+        "hawa-bg-yellow-200 hawa-text-yellow-700 dark:hawa-bg-yellow-600 dark:hawa-text-black",
       orange:
-        "hawa-bg-orange-100 hawa-text-orange-500 dark:hawa-bg-orange-400 dark:hawa-text-orange-100",
+        "hawa-bg-orange-200 hawa-text-orange-700 dark:hawa-bg-orange-700 dark:hawa-text-orange-100",
       purple:
-        "hawa-bg-purple-100 hawa-text-purple-500 dark:hawa-bg-purple-400 dark:hawa-text-purple-100",
-      cyan: "hawa-bg-cyan-100 hawa-text-cyan-800 dark:hawa-bg-cyan-400 dark:hawa-text-cyan-800",
+        "hawa-bg-purple-200 hawa-text-purple-700 dark:hawa-bg-purple-700 dark:hawa-text-purple-100",
+      cyan: "hawa-bg-cyan-200 hawa-text-cyan-700 dark:hawa-bg-cyan-700 dark:hawa-text-cyan-100",
       hyper:
-        "hawa-text-white hawa-bg-gradient-to-tl hawa-from-pink-500 hawa-via-red-500 hawa-to-yellow-500 ",
+        "hawa-text-white dark:hawa-text-black hawa-bg-gradient-to-tl hawa-from-pink-500 hawa-via-red-500 hawa-to-yellow-500 ",
       oceanic:
-        "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-300 hawa-via-blue-500 hawa-to-purple-600"
+        "hawa-text-white dark:hawa-text-black hawa-bg-gradient-to-bl hawa-from-green-300 hawa-via-blue-500 hawa-to-purple-600"
     };
     if (label) {
       return (

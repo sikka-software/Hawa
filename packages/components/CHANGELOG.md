@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.34.1
+
+### Patch Changes
+
+- Improve `Chip` colors in dark mode
+
 ## 0.34.0
 
 ### Minor Changes
