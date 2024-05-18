@@ -31,7 +31,5 @@ export const Default: Story = {
       </div>
     );
   },
-  args: {
-    size: "normal",
-  },
+  args: { size: "normal" },
 };

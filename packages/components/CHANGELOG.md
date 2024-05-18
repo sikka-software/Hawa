@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.34.2
+
+### Patch Changes
+
+- `AppLayout`: minor UI fixes + cleanup
+
 ## 0.34.1
 
 ### Patch Changes

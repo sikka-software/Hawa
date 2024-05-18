@@ -167,7 +167,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   }, [size]);
 
   return (
-    <div className="hawa-fixed hawa-left-0">
+    <div className="hawa-fixed hawa-start-0">
       {/*
        * ----------------------------------------------------------------------------------------------------
        * Top Bar
@@ -175,9 +175,9 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       {props.topBar && (
         <div
+          dir={direction}
           className={cn(
-            "hawa-fixed hawa-left-0 hawa-right-0 hawa-top-0 hawa-z-0 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
-            isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row",
+            "hawa-fixed hawa-end-0 hawa-start-0 hawa-top-0 hawa-z-0 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
             bordered && "hawa-border-b-[1px]",
           )}
         >
@@ -186,33 +186,15 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             <div
               className={cn(
                 "dark:hawa-text-white",
-                isRTL
-                  ? [
-                      size > 600 ? "hawa-mr-14" : "hawa-mr-2",
-                      keepDrawerOpen ? "hawa-mr-40" : "",
-                    ]
-                  : [
-                      size > 600 ? "hawa-ml-14" : "hawa-ml-2",
-                      keepDrawerOpen ? "hawa-ml-40" : "",
-                    ],
+                size > 600 ? "hawa-ms-14" : "hawa-ms-2",
               )}
-              style={
-                isRTL
-                  ? {
-                      marginRight: `${
-                        drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
-                          drawerSize
-                        ]
-                      }px`,
-                    }
-                  : {
-                      marginLeft: `${
-                        drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
-                          drawerSize
-                        ]
-                      }px`,
-                    }
-              }
+              style={{
+                marginInlineStart: `${
+                  drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
+                    drawerSize
+                  ] + 10
+                }px`,
+              }}
             >
               {props.pageTitle}
             </div>
@@ -228,6 +210,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               >
                 <MenuIcon />
               </div>
+
               {/* Mobile Page Title */}
               {props.pageTitle ? (
                 <div className="hawa-text-sm">{props.pageTitle}</div>
@@ -237,21 +220,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             </div>
           )}
 
-          <div
-            className={cn(
-              "hawa-flex hawa-gap-2 dark:hawa-text-white",
-              isRTL ? "hawa-flex-row-reverse" : "hawa-flex-row",
-            )}
-          >
+          <div className={cn("hawa-flex hawa-gap-2 dark:hawa-text-white")}>
             {/* User Info */}
             {size > 600 ? (
-              <div
-                className={
-                  isRTL
-                    ? "hawa-text-left hawa-text-xs"
-                    : "hawa-text-right hawa-text-xs"
-                }
-              >
+              <div className={"hawa-text-end hawa-text-xs"}>
                 <div className="hawa-font-bold">{props.username}</div>{" "}
                 <div>{props.email}</div>
               </div>
@@ -265,7 +237,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               side={"bottom"}
               sideOffset={5}
               width={profileMenuWidth}
-              direction={isRTL ? "rtl" : "ltr"}
+              direction={direction}
               items={props.profileMenuItems || []}
               onItemSelect={(e: any) => console.log("selecting item ", e)}
               trigger={
@@ -278,7 +250,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   ) : (
                     <svg
                       aria-label="Avatar Icon"
-                      className="hawa-absolute hawa--left-1 hawa-h-10 hawa-w-10 hawa-text-gray-400"
+                      className="hawa-absolute hawa--start-1 hawa-h-10 hawa-w-10 hawa-text-gray-400"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -302,12 +274,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-bg-blue-500",
-          isRTL
-            ? "hawa-right-0 hawa-top-0 hawa-h-14"
-            : "hawa-left-0 hawa-top-0 hawa-h-14",
-          "hawa-h-[calc(100dvh)]",
-          "hawa-bg-primary-foreground",
+          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-primary-foreground",
+          isRTL ? "hawa-right-0" : "hawa-left-0",
           bordered
             ? direction === "rtl"
               ? "hawa-border-s-[1px]"
@@ -340,7 +308,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           }
         }}
         ref={ref}
-        // ref={drawerRef}
       >
         {/*
          * ----------------------------------------------------------------------------------------------------
@@ -371,7 +338,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {!props.header && (
             <img
               className={cn(
-                "hawa-h-9  hawa-opacity-0 hawa-transition-all",
+                "hawa-h-9 hawa-opacity-0 hawa-transition-all",
                 !openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
                   : "hawa-visible hawa-opacity-100",
@@ -388,10 +355,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {size > 600 ? (
             <img
               className={cn(
-                "hawa-fixed  hawa-h-9  hawa-transition-all",
-                isRTL
-                  ? "hawa-right-2.5 hawa-top-2.5"
-                  : "hawa-left-2.5 hawa-top-2.5",
+                "hawa-fixed hawa-h-9 hawa-transition-all hawa-start-2.5 hawa-top-2.5",
                 openSideMenu
                   ? "hawa-invisible hawa-opacity-0"
                   : "hawa-visible hawa-opacity-100",
@@ -469,15 +433,16 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             <Tooltip
               side={"left"}
               delayDuration={500}
+              triggerProps={{ asChild: true }}
               content={
                 keepDrawerOpen
                   ? props.texts?.collapseSidebar || "Collapse Sidebar"
                   : props.texts?.expandSidebar || "Expand Sidebar"
               }
-              triggerProps={{ asChild: true }}
             >
               <Button
                 variant="outline"
+                size="smallIcon"
                 onClick={() => {
                   const newKeepOpenState = !keepDrawerOpen;
                   if (props.onDrawerExpand) {
@@ -485,7 +450,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   }
                   setKeepDrawerOpen(newKeepOpenState);
                 }}
-                size="smallIcon"
               >
                 <svg
                   className={cn(
@@ -522,16 +486,16 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         style={
           isRTL
             ? {
-                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
-                width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: "0px",
                 top: props.topBar ? "56px" : "0px",
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
               }
             : {
-                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
-                width: `calc(100% - ${drawerSizeCondition}px)`,
                 left: `${drawerSizeCondition}px`,
                 top: props.topBar ? "56px" : "0px",
+                width: `calc(100% - ${drawerSizeCondition}px)`,
+                height: `calc(100% - ${props.topBar ? "56" : "0"}px)`,
               }
         }
       >
