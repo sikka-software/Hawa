@@ -1,5 +1,19 @@
 # @sikka/hawa
 
+## 0.35.0
+
+### Minor Changes
+
+- `CodeConfirmation` fix cancel button variant
+- `Button`: ability to pass `labelProps`
+- `Button`: adds `HelperText` and the ability to show/hide it with `showHelperText` prop
+- `DataTable` an X button in the search input to clear search
+- `DatePicker`: ability to pass `popoverContentProps`
+- `DatePickerButton`: additional customization with `buttonClassNames`
+- New component: `HerlperText`
+- `Input`: fix width issues
+- `Radio`: ability to pass `tooltip` and `tooltipContentProps` to a radio option
+
 ## 0.34.2
 
 ### Patch Changes

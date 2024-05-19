@@ -3,11 +3,12 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { format, addDays } from "date-fns";
 import { arSA } from "date-fns/locale";
-import { Calendar as CalendarIcon } from "lucide-react";
 
-import { Button, Input, Label } from "@sikka/hawa/elements";
 import { CalendarValueType } from "@sikka/hawa/elements/calendar";
 import { DatePicker, DatePickerButton } from "@sikka/hawa/elements/datePicker";
+import { Input } from "@sikka/hawa/elements/input";
+
+import { setLocale } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/DatePicker",
@@ -19,24 +20,40 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = {
   name: "Single Date",
-  render: (args: any) => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
     const [date, setDate] = React.useState<CalendarValueType["single"]>();
 
     return (
-      <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
+      <div
+        dir={direction}
+        className="hawa-flex  hawa-max-w-md hawa-flex-row hawa-gap-2"
+      >
         <DatePicker
           initialFocus
           mode="single"
           selected={date}
           onSelect={setDate}
-          locale={arSA}
+          required={true}
+          // locale={arSA}
+          dir={direction}
           numberOfMonths={1}
           trigger={
             <DatePickerButton
+              helperText="Helper text here"
+              showHelperText={false}
               value={date ? format(date, "PPP") : <span>Pick a date</span>}
               label="Date Picker"
+              buttonClassNames="hawa-bg-red-400 hawa-min-w-[200px]"
             />
           }
+        />
+        <Input
+          label={"First Name"}
+          placeholder={"Fulan"}
+          helperText="Helper text here"
         />
       </div>
     );

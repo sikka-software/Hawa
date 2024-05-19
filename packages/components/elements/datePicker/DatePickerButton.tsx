@@ -1,28 +1,40 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 import { cn } from "@util/index";
 
 import { Button } from "../button";
+import { LabelProps } from "../label";
 
 type DatePickerButtonProps = {
   label?: string;
   value?: string | React.ReactNode;
   multiple?: boolean;
+  labelProps?: LabelProps;
+  /** The small red text under the input field to show validation.   */
+  helperText?: any;
+  showHelperText?: boolean;
+  buttonClassNames?: string;
 };
 export const DatePickerButton: FC<DatePickerButtonProps> = ({
   label,
   value,
   multiple,
+  buttonClassNames,
+  ...props
 }) => {
   return (
     <Button
       label={label}
+      labelProps={props.labelProps}
+      helperText={props.helperText}
+      showHelperText={props.showHelperText}
       variant={"outline"}
+      title={value as string}
       className={cn(
         "!hawa-w-full hawa-flex hawa-flex-row",
         multiple && "hawa-flex-row",
+        buttonClassNames,
       )}
-      title={value as string}
     >
       <span
         className={cn(

@@ -115,7 +115,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
             </span>
           )}
           {props.isLoading ? (
-            <div className="hawa-pb-2">
+            <div className="hawa-pb-2 hawa-w-full">
               <Skeleton className="hawa-h-[40px] hawa-w-full" />
             </div>
           ) : (

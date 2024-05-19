@@ -139,7 +139,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           )}
 
           <div className="hawa-mt-4 hawa-grid hawa-grid-cols-2 hawa-gap-2">
-            <Button variant="secondary">
+            <Button variant="outline">
               {props.texts?.cancel || "Cancel"}
             </Button>
             <Button isLoading={props.confirmLoading}>

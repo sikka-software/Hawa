@@ -1,9 +1,12 @@
 import React, { useState, FC, useRef, useEffect, forwardRef } from "react";
 
+import { PopoverContentProps } from "@radix-ui/react-popover";
 import { cn } from "@util/index";
 
 import { DirectionType, OrientationType } from "../../types/commonTypes";
 import { Label, LabelProps } from "../label/Label";
+import { PopoverContent, PopoverRoot, PopoverTrigger } from "../popover";
+import { Tooltip } from "../tooltip";
 
 export type RadioOptionsTypes = {
   value: any;
@@ -11,6 +14,8 @@ export type RadioOptionsTypes = {
   disabled?: any;
   sublabel?: any;
   icon?: any;
+  tooltip?: string;
+  tooltipContentProps?: PopoverContentProps;
 };
 
 type RadioTypes = {
@@ -49,9 +54,6 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
     },
     ref,
   ) => {
-    const [selectedOption, setSelectedOption] = useState(
-      props.defaultValue || props.value,
-    );
     let activeTabStyle =
       "hawa-inline-block hawa-w-full hawa-text-primary-foreground hawa-bg-primary  hawa-active dark:hawa-bg-primary";
     let inactiveTabStyle = `hawa-inline-block hawa-w-full hawa-transition-all  hawa-bg-primary-foreground dark:hover:hawa-text-white
@@ -75,6 +77,11 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
     const [parentDirection, setParentDirection] = React.useState<string | null>(
       null,
     );
+    const [selectedOption, setSelectedOption] = useState(
+      props.defaultValue || props.value,
+    );
+    const [openTooltip, setOpenTooltip] = useState<number | null>(null);
+
     const parentRef = useRef<HTMLUListElement>(null);
 
     useEffect(() => {
@@ -94,6 +101,21 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
         console.log("onChange was not provided");
       }
     };
+
+    const radio_option_tabs_styling = [
+      "hawa-w-full hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
+      !props.disabled && "hawa-cursor-pointer",
+      orientation === "horizontal" &&
+        parentDirection === "ltr" &&
+        "hawa-rounded-none first:hawa-rounded-l last:hawa-rounded-r",
+      orientation === "horizontal" &&
+        parentDirection === "rtl" &&
+        "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
+      orientation === "vertical" &&
+        "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
+      tabSizeStyle[size],
+    ];
+
     switch (design) {
       case "tabs":
         return (
@@ -112,35 +134,59 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                 tabsContainerClassName,
               )}
             >
-              {props.options?.map((opt: any, o) => (
-                <li
-                  aria-current="page"
-                  onClick={() => {
-                    if (props.disabled) return;
-                    handleChange(opt);
-                  }}
-                  className={cn(
-                    "hawa-w-full hawa-last hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 ",
-                    !props.disabled && "hawa-cursor-pointer",
-                    orientation === "horizontal" &&
-                      parentDirection === "ltr" &&
-                      "hawa-rounded-none first:hawa-rounded-l last:hawa-rounded-r",
-                    orientation === "horizontal" &&
-                      parentDirection === "rtl" &&
-                      "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
-                    orientation === "vertical" &&
-                      "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
-                    tabSizeStyle[size],
-                    selectedOption === opt.value
-                      ? activeTabStyle
-                      : inactiveTabStyle,
-                  )}
-                  key={o}
-                >
-                  {opt.icon && opt.icon}
-                  {opt.label}
-                </li>
-              ))}
+              {props.options?.map((opt, o) => {
+                return opt.tooltip ? (
+                  <PopoverRoot
+                    key={o}
+                    open={o === openTooltip}
+                    onOpenChange={(bool) => setOpenTooltip(bool ? o : null)}
+                  >
+                    <PopoverTrigger
+                      onMouseEnter={() => setOpenTooltip(o)}
+                      onMouseLeave={() => setOpenTooltip(null)}
+                      asChild
+                    >
+                      <li
+                        aria-current="page"
+                        onClick={() => {
+                          if (props.disabled || opt.disabled) return;
+                          handleChange(opt);
+                        }}
+                        className={cn(
+                          ...radio_option_tabs_styling,
+                          selectedOption === opt.value
+                            ? activeTabStyle
+                            : inactiveTabStyle,
+                        )}
+                      >
+                        {opt.icon && opt.icon}
+                        {opt.label}
+                      </li>
+                    </PopoverTrigger>
+                    <PopoverContent {...opt.tooltipContentProps}>
+                      {opt.tooltip}
+                    </PopoverContent>
+                  </PopoverRoot>
+                ) : (
+                  <li
+                    key={o}
+                    aria-current="page"
+                    onClick={() => {
+                      if (props.disabled || opt.disabled) return;
+                      handleChange(opt);
+                    }}
+                    className={cn(
+                      ...radio_option_tabs_styling,
+                      selectedOption === opt.value
+                        ? activeTabStyle
+                        : inactiveTabStyle,
+                    )}
+                  >
+                    {opt.icon && opt.icon}
+                    {opt.label}
+                  </li>
+                );
+              })}
             </ul>
             {!forceHideHelperText && (
               <p

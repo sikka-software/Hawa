@@ -3,7 +3,8 @@ import * as React from "react";
 import { cn } from "@util/index";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { Label } from "../label";
+import { HelperText } from "../helperText";
+import { Label, LabelProps } from "../label";
 import { Loading } from "../loading/Loading";
 
 const buttonVariants = cva(
@@ -37,10 +38,7 @@ const buttonVariants = cva(
         smallIcon: "hawa-h-7 hawa-w-7",
       },
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
+    defaultVariants: { variant: "default", size: "default" },
   },
 );
 
@@ -51,6 +49,10 @@ export interface ButtonProps
   centered?: boolean;
   isLoading?: boolean;
   label?: string;
+  labelProps?: LabelProps;
+  /** The small red text under the input field to show validation.   */
+  helperText?: any;
+  showHelperText?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -64,21 +66,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       centered = true,
       isLoading,
       children,
+      labelProps,
+      showHelperText = false,
       ...props
     },
     ref,
   ) => {
     const Comp = "button";
 
-    // Determine the color for the HawaLoading component based on the variant
+    // Determine the color for the Loading component based on the variant
     const loadingColor =
       variant === "outline" || variant === "ghost" || variant === "neoBrutalism"
         ? "hawa-bg-primary"
         : "hawa-bg-primary-foreground";
 
     return (
-      <div className="flex flex-col">
-        {label && <Label className="hawa-mb-2">{label}</Label>}
+      <div className="hawa-flex hawa-flex-col hawa-gap-2">
+        {label && <Label {...labelProps}>{label}</Label>}
         <Comp
           className={cn(
             buttonVariants({ variant, size, className }),
@@ -102,6 +106,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             children
           )}
         </Comp>
+        {showHelperText && <HelperText helperText={props.helperText} />}
       </div>
     );
   },

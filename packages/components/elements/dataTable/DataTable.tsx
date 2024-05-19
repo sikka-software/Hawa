@@ -148,12 +148,40 @@ export const DataTable = <DataProps extends {}>({
         <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-4">
           {enableSearch && (
             <Input
+              inputProps={{ title: "" }}
               forceHideHelperText
               placeholder={props.texts?.searchPlaceholder}
               value={globalFilter ?? ""}
               onChange={(event: any) => setGlobalFilter(event.target.value)}
               margin="none"
               className="hawa-w-full md:hawa-max-w-sm"
+              endIconProps={{ className: "!hawa-end-2" }}
+              endIcon={
+                globalFilter ? (
+                  <Button
+                    onClick={() => setGlobalFilter("")}
+                    variant={"ghost"}
+                    size={"smallIcon"}
+                    aria-label="Clear Search"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="hawa-icon hawa-text-muted-foreground"
+                    >
+                      <path d="M18 6 6 18" />
+                      <path d="m6 6 12 12" />
+                    </svg>
+                  </Button>
+                ) : null
+              }
             />
           )}
           {enableHideColumns && (

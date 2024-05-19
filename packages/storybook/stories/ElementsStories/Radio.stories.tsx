@@ -88,8 +88,27 @@ export const Tabs: Story = {
                 defaultValue="option2"
                 options={[
                   { label: `Option 1`, value: `option1` },
-                  { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` },
+                  {
+                    label: `Option 2`,
+                    value: `option2`,
+                    disabled: true,
+                    tooltip: "I'm disabled",
+                    tooltipContentProps: {
+                      side: "bottom",
+                      className: "hawa-p-2 hawa-text-[9px]",
+                    },
+                  },
+                  {
+                    label: `Option 5`,
+                    value: `option5`,
+                    disabled: true,
+                    tooltip: "I'm disabled",
+                  },
+                  {
+                    label: `Option 3`,
+                    value: `option3`,
+                    tooltip: "Hello World",
+                  },
                 ]}
                 {...args}
               />
@@ -107,7 +126,11 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 4`, value: `option4` },
                   { label: `Option 5`, value: `option5`, disabled: true },
-                  { label: `Option 6`, value: `option6` },
+                  {
+                    label: `Option 6`,
+                    value: `option6`,
+                    tooltip: "Hello World",
+                  },
                 ]}
                 {...args}
               />
@@ -178,7 +201,11 @@ export const Tabs: Story = {
                 options={[
                   { label: `Option 1`, value: `option1` },
                   { label: `Option 2`, value: `option2`, disabled: true },
-                  { label: `Option 3`, value: `option3` },
+                  {
+                    label: `Option 3`,
+                    value: `option3`,
+                    tooltip: "Hello World",
+                  },
                 ]}
                 {...args}
               />
@@ -249,7 +276,7 @@ export const Tabs: Story = {
         </div>
       </div>
 
-      <div className="hawa-max-w-xs">
+      <div className="hawa-max-w-xs hawa-mt-20">
         <div className="hawa-pb-4 hawa-text-center hawa-text-2xl hawa-font-bold">
           Disabled
         </div>
