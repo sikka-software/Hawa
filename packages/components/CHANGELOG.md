@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.35.2
+
+### Patch Changes
+
+- `HelperText`: fix missing React import
+
 ## 0.35.1
 
 ### Patch Changes
