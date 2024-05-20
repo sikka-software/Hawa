@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.35.1
+
+### Patch Changes
+
+- `DatePickerButton`: ablility to pass `buttonProps`
+
 ## 0.35.0
 
 ### Minor Changes

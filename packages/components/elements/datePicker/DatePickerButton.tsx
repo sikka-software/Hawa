@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { cn } from "@util/index";
 
-import { Button } from "../button";
+import { Button, ButtonProps } from "../button";
 import { LabelProps } from "../label";
 
 type DatePickerButtonProps = {
@@ -14,12 +14,14 @@ type DatePickerButtonProps = {
   helperText?: any;
   showHelperText?: boolean;
   buttonClassNames?: string;
+  buttonProps?: ButtonProps;
 };
 export const DatePickerButton: FC<DatePickerButtonProps> = ({
   label,
   value,
   multiple,
   buttonClassNames,
+  buttonProps,
   ...props
 }) => {
   return (
@@ -35,6 +37,8 @@ export const DatePickerButton: FC<DatePickerButtonProps> = ({
         multiple && "hawa-flex-row",
         buttonClassNames,
       )}
+      type="button"
+      {...buttonProps}
     >
       <span
         className={cn(
