@@ -233,13 +233,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               LinkComponent={MenuLinkComponent}
               triggerClassname="hawa-mx-2"
               align="end"
-              // alignOffset={8}
+              alignOffset={8}
               side={"bottom"}
-              sideOffset={10}
+              sideOffset={5}
               width={profileMenuWidth}
               direction={direction}
               items={props.profileMenuItems || []}
               onItemSelect={(e: any) => console.log("selecting item ", e)}
+              triggerProps={{ asChild: true }}
               trigger={
                 <div
                   onClick={onAvatarClick}

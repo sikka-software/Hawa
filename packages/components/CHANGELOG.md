@@ -35,7 +35,7 @@
 - `DataTable` an X button in the search input to clear search
 - `DatePicker`: ability to pass `popoverContentProps`
 - `DatePickerButton`: additional customization with `buttonClassNames`
-- New component: `HerlperText`
+- New component: `HelperText`
 - `Input`: fix width issues
 - `Radio`: ability to pass `tooltip` and `tooltipContentProps` to a radio option
 
