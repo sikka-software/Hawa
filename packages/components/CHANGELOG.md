@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.35.3
+
+### Patch Changes
+
+- Ability to pass `triggerProps` to `DropdownMenu` components
+- Make dropdown menu trigger `asChild: true` by default in `AppLayout`
+
 ## 0.35.2
 
 ### Patch Changes

@@ -295,6 +295,7 @@ interface DropdownMenuProps {
   direction?: DirectionType;
   className?: ExtendedDropdownMenuContentProps["className"];
   triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
+  triggerProps?: DropdownMenuPrimitive.DropdownMenuTriggerProps;
   sideOffset?: ExtendedDropdownMenuContentProps["sideOffset"];
   side?: ExtendedDropdownMenuContentProps["side"];
   align?: ExtendedDropdownMenuContentProps["align"];
@@ -315,6 +316,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   side,
   className,
   triggerClassname,
+  triggerProps,
   align,
   alignOffset,
   onItemSelect,
@@ -346,7 +348,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       modal={false}
       dir={direction}
     >
-      <DropdownMenuTrigger asChild className={triggerClassname}>
+      <DropdownMenuTrigger
+        asChild
+        className={triggerClassname}
+        {...triggerProps}
+      >
         {trigger}
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
