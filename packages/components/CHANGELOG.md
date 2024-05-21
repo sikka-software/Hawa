@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.35.4
+
+### Patch Changes
+
+- Use the `Portal` component from `@headlessui/react` in `DropdownMenu`
+
 ## 0.35.3
 
 ### Patch Changes

@@ -1,9 +1,12 @@
 import * as React from "react";
 
+import { Portal } from "@headlessui/react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "@util/index";
 
 import { DirectionType, RadioOptionType } from "../../types/commonTypes";
+
+// New import
 
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -70,7 +73,7 @@ const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
-  <DropdownMenuPrimitive.Portal>
+  <Portal>
     <DropdownMenuPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
@@ -80,7 +83,7 @@ const DropdownMenuContent = React.forwardRef<
       )}
       {...props}
     />
-  </DropdownMenuPrimitive.Portal>
+  </Portal>
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
@@ -355,7 +358,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       >
         {trigger}
       </DropdownMenuTrigger>
-      <DropdownMenuPortal>
+      <Portal>
         <DropdownMenuContent
           side={side}
           sideOffset={sideOffset}
@@ -427,7 +430,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       {item.icon && item.icon}
                       {item.label && item.label}
                     </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
+                    <Portal>
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => {
                           const SubitemLinkComponent = subitem.slug
@@ -469,7 +472,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                           );
                         })}
                       </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
+                    </Portal>
                   </DropdownMenuSub>
                 ) : (
                   <DropdownMenuItem
@@ -526,7 +529,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
               }
             })}
         </DropdownMenuContent>
-      </DropdownMenuPortal>
+      </Portal>
     </DropdownMenuRoot>
   );
 };

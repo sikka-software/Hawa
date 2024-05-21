@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.35.3",
+  "version": "0.35.4",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -57,6 +57,7 @@
     "react-dom": "18.3.1"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.3",
     "@hookform/resolvers": "^3.4.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
