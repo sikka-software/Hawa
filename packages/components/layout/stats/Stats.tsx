@@ -45,7 +45,7 @@ export const Stats: FC<StatTypes> = ({
   };
   return (
     <Card {...props} clickable={clickable}>
-      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-between hawa-p-4">
+      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-between hawa-p-4 hawa-px-6">
         <CardTitle className="hawa-text-sm hawa-font-medium">{label}</CardTitle>
         {icon && <span>{icon}</span>}
       </div>
