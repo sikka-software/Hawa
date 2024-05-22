@@ -1,5 +1,20 @@
 # @sikka/hawa
 
+## 0.36.0
+
+### Minor Changes
+
+- `Select`: Remove autofocus
+- `Input`, `PinInput`, `PhoneInput`, and `ColorPicker`: standardize placeholder text color
+  `DatePickerButton`
+- ability to customize placeholder text
+- fix wrong icon position when in RTL
+  `Input`
+- add `isLoadingError` boolean to replace input with error skeleton
+- ability to set `loadingErrorMessage` for when `isLoadingError` is true
+  `DataTable`
+- resolve issue with column visibility not persistant on page refresh
+
 ## 0.35.6
 
 ### Patch Changes

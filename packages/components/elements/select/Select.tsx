@@ -178,7 +178,7 @@ export const Select: FC<SelectTypes> = ({
               ),
           }}
           unstyled
-          autoFocus
+          // autoFocus
           components={
             props.hideIndicator
               ? {

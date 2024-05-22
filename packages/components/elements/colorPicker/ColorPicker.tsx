@@ -107,7 +107,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
               value={selectedColor}
               className={cn(
                 "hawa-block hawa-h-[40px] hawa-w-24 hawa-rounded hawa-rounded-l-none hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
-                "hawa-border hawa-border-l-0 hawa-border-l-transparent",
+                "hawa-border hawa-border-l-0 hawa-border-l-transparent placeholder:hawa-text-muted-foreground",
                 // "hawa-border hawa-border-x-0 hawa-border-x-transparent hawa-border-b-0 hawa-rounded-tr-none"
               )}
               style={{

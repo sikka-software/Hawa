@@ -12,6 +12,7 @@ type DatePickerButtonProps = {
   labelProps?: LabelProps;
   /** The small red text under the input field to show validation.   */
   helperText?: any;
+  placeholder?: string;
   showHelperText?: boolean;
   buttonClassNames?: string;
   buttonProps?: ButtonProps;
@@ -19,6 +20,7 @@ type DatePickerButtonProps = {
 export const DatePickerButton: FC<DatePickerButtonProps> = ({
   label,
   value,
+  placeholder,
   multiple,
   buttonClassNames,
   buttonProps,
@@ -46,9 +48,13 @@ export const DatePickerButton: FC<DatePickerButtonProps> = ({
           multiple ? "hawa-flex-wrap" : "hawa-overflow-hidden",
         )}
       >
-        {value}
+        {value || (
+          <span className="hawa-text-muted-foreground hawa-font-normal">
+            {placeholder}
+          </span>
+        )}
       </span>
-      <div className="hawa-ml-auto hawa-opacity-50">
+      <div className="hawa-ms-auto hawa-opacity-50">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

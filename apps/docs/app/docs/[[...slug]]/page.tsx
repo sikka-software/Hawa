@@ -8,7 +8,7 @@ import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn } from "@/lib/utils";
 import { badgeVariants } from "@/registry/default/ui/badge";
 import "@/styles/mdx.css";
-import { allDocs } from "contentlayer/generated";
+import { allDocs } from "contentlayer2/generated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";

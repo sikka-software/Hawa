@@ -71,7 +71,7 @@ export const PhoneInput: FC<PhoneInputProps> = ({
             onChange={handleInputChange}
             placeholder={props.placeholder}
             className={cn(
-              "hawa-block hawa-h-[40px] hawa-w-full hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
+              "placeholder:hawa-text-muted-foreground hawa-block hawa-h-[40px] hawa-w-full hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
             )}
             {...inputProps}
           />

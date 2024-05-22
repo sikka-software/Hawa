@@ -7,6 +7,7 @@ import { Skeleton } from "../skeleton/Skeleton";
 
 export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
+  isLoadingError?: boolean;
   containerClassName?: string;
   margin?: "none" | "normal" | "large";
   width?: "small" | "normal" | "full" | "auto";
@@ -16,6 +17,7 @@ export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   hideSeparator?: boolean;
   /** The small red text under the input field to show validation.   */
   helperText?: any;
+  prefixText?: any;
   forceHideHelperText?: boolean;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   /** The icon inside the input field */
@@ -34,7 +36,7 @@ export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   popup?: boolean;
   popupContent?: React.ReactNode;
   outsidePrefix?: any;
-  prefixText?: any;
+  loadingErrorMesssage?: string;
 };
 export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
   (
@@ -67,7 +69,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
     let defaultStyle =
       "hawa-flex hawa-max-h-fit hawa-h-fit hawa-relative hawa-flex-col hawa-justify-center hawa-gap-0";
     let defaultInputStyle =
-      "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-3 hawa-text-sm ";
+      "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background hawa-p-3 hawa-text-sm placeholder:hawa-text-muted-foreground";
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let newValue = e.target.value;
@@ -117,6 +119,38 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
           {props.isLoading ? (
             <div className="hawa-pb-2 hawa-w-full">
               <Skeleton className="hawa-h-[40px] hawa-w-full" />
+            </div>
+          ) : props.isLoadingError ? (
+            <div className="hawa-pb-2 hawa-w-full">
+              <Skeleton
+                animation="none"
+                className="hawa-h-[40px] hawa-w-full !hawa-bg-destructive/[0.3]"
+                content={
+                  <div className="hawa-flex hawa-flex-row hawa-gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="hawa-text-destructive"
+                    >
+                      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+                      <path d="M12 9v4" />
+                      <path d="M12 17h.01" />
+                    </svg>
+                    <span>
+                      <span className="hawa-text-destructive">
+                        {props.loadingErrorMesssage || "Error loading data"}
+                      </span>
+                    </span>
+                  </div>
+                }
+              />
             </div>
           ) : (
             <>

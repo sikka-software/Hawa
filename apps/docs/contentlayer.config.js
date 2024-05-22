@@ -1,27 +1,27 @@
 import {
   defineDocumentType,
   defineNestedType,
-  makeSource
-} from "contentlayer/source-files";
+  makeSource,
+} from "contentlayer2/source-files";
 import path from "path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { codeImport } from "remark-code-import";
 import remarkGfm from "remark-gfm";
-import { getHighlighter, loadTheme } from "shiki";
+import { getHighlighter } from "shiki";
 import { visit } from "unist-util-visit";
 
 import { rehypeComponent } from "./lib/rehype-component";
 import { rehypeNpmCommand } from "./lib/rehype-npm-command";
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
+/** @type {import('contentlayer2/source-files').ComputedFields} */
 const computedFields = {
   slug: { type: "string", resolve: (doc) => `/${doc._raw.flattenedPath}` },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/")
-  }
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
 };
 
 const LinksProperties = defineNestedType(() => ({
@@ -29,8 +29,8 @@ const LinksProperties = defineNestedType(() => ({
   fields: {
     doc: { type: "string" },
     api: { type: "string" },
-    storybook: { type: "string" }
-  }
+    storybook: { type: "string" },
+  },
 }));
 
 export const Doc = defineDocumentType(() => ({
@@ -44,9 +44,9 @@ export const Doc = defineDocumentType(() => ({
     links: { type: "nested", of: LinksProperties },
     featured: { type: "boolean", default: false, required: false },
     component: { type: "boolean", default: false, required: false },
-    toc: { type: "boolean", default: true, required: false }
+    toc: { type: "boolean", default: true, required: false },
   },
-  computedFields
+  computedFields,
 }));
 
 export default makeSource({
@@ -86,10 +86,12 @@ export default makeSource({
         rehypePrettyCode,
         {
           getHighlighter: async () => {
-            const theme = await loadTheme(
-              path.join(process.cwd(), "/lib/themes/dark.json")
+            // const theme = await loadTheme(
+            //   path.join(process.cwd(), "/lib/themes/dark.json"),
+            // );
+            return (await getHighlighter({ theme })).loadTheme(
+              path.join(process.cwd(), "/lib/themes/dark.json"),
             );
-            return await getHighlighter({ theme });
           },
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
@@ -103,8 +105,8 @@ export default makeSource({
           },
           onVisitHighlightedWord(node) {
             node.properties.className = ["word--highlighted"];
-          }
-        }
+          },
+        },
       ],
       () => (tree) => {
         visit(tree, (node) => {
@@ -143,10 +145,10 @@ export default makeSource({
         {
           properties: {
             className: ["subheading-anchor"],
-            ariaLabel: "Link to section"
-          }
-        }
-      ]
-    ]
-  }
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
+    ],
+  },
 });

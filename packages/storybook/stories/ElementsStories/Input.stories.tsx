@@ -15,7 +15,7 @@ import { setLocale, t } from "../../translations/i18n";
 
 const meta = {
   title: "Elements/Inputs/Input",
-  component: Input
+  component: Input,
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -32,7 +32,7 @@ export const Default: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const PreviewMode: Story = {
   render: (args: any, globals: any) => {
@@ -72,7 +72,7 @@ export const PreviewMode: Story = {
         />
       </div>
     );
-  }
+  },
 };
 export const LoadingMode: Story = {
   render: () => {
@@ -96,7 +96,39 @@ export const LoadingMode: Story = {
         <Input label={"Username"} isLoading={loading} placeholder={"fulan"} />
       </div>
     );
-  }
+  },
+};
+export const ErrorMode: Story = {
+  render: () => {
+    const [error, setError] = useState(true);
+    return (
+      <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4">
+        <Button onClick={() => setError(!error)}>
+          {error ? "Disable" : "Enable"} Error
+        </Button>
+        <Input
+          label={"First Name"}
+          isLoadingError={error}
+          placeholder={"Fulan"}
+        />
+        <Input
+          label={"Middle Name"}
+          isLoadingError={error}
+          placeholder={"Fulani"}
+        />
+        <Input
+          label={"Last Name"}
+          isLoadingError={error}
+          placeholder={"Al-Fulani"}
+        />
+        <Input
+          label={"Username"}
+          isLoadingError={error}
+          placeholder={"fulan"}
+        />
+      </div>
+    );
+  },
 };
 export const HelperText: Story = {
   render: () => {
@@ -116,7 +148,7 @@ export const HelperText: Story = {
         />
       </div>
     );
-  }
+  },
 };
 export const WithIcons: Story = {
   render: (args: any, globals: any) => {
@@ -156,7 +188,7 @@ export const WithIcons: Story = {
         />
       </div>
     );
-  }
+  },
 };
 export const WithCount: Story = {
   render: () => {
@@ -193,7 +225,7 @@ export const WithCount: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const WithPrefix: Story = {
   render: (args: any, globals: any) => {
@@ -221,7 +253,7 @@ export const WithPrefix: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 export const Examples: Story = {
   render: (args: any, globals: any) => {
@@ -246,7 +278,7 @@ export const Examples: Story = {
           label={t("username")}
           labelProps={{
             hint: "Only underscore and dash are acccepted",
-            required: true
+            required: true,
           }}
         />
 
@@ -262,7 +294,7 @@ export const Examples: Story = {
               onValueChange={setInputLang}
               options={[
                 { label: "Arabic", value: "ar" },
-                { label: "English", value: "en" }
+                { label: "English", value: "en" },
               ]}
               trigger={
                 <div onClick={() => setShowPopup(!showPopup)}>
@@ -274,5 +306,5 @@ export const Examples: Story = {
         />
       </div>
     );
-  }
+  },
 };

@@ -80,7 +80,7 @@ export const PinInput: FC<PinInputTypes> = ({
             id={`input-${index}`}
             pattern="[0-9]*"
             className={cn(
-              "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center",
+              "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center placeholder:hawa-text-muted-foreground",
               width === "full" ? "hawa-w-full" : "hawa-w-10"
             )}
             onChange={(e) => handleChange(e, index)}

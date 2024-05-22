@@ -6,6 +6,6 @@
     "module": "ESNext",
     "esModuleInterop": true,
   },
-  "include": [".contentlayer/generated", "scripts/**/*.ts"],
+  "include": [".contentlayer2/generated", "scripts/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -72,13 +72,7 @@ export const AsStatus: Story = {
           dotStatus="available"
           color="green"
         />
-        <Chip
-          dir={direction}
-          dot
-          size="normal"
-          label={t("Dot Only")}
-          // color=""
-        />
+        <Chip dir={direction} dot size="normal" label={t("Dot Only")} />
       </div>
     );
   },

@@ -7,7 +7,7 @@ import { CodeBlockWrapper } from "@/components/code-block-wrapper";
 import { ComponentExample } from "@/components/component-example";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
-import { FrameworkDocs } from "@/components/framework-docs";
+// import { FrameworkDocs } from "@/components/framework-docs";
 import { InlinePreview } from "@/components/inline-preview";
 import { useConfig } from "@/hooks/use-config";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ import {
   AlertTitle
 } from "@/registry/default/ui/alert";
 import { AspectRatio } from "@/registry/default/ui/aspect-ratio";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { useMDXComponent } from "next-contentlayer2/hooks";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -269,12 +269,12 @@ const components = {
       {...props}
     />
   ),
-  FrameworkDocs: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof FrameworkDocs>) => (
-    <FrameworkDocs className={cn(className)} {...props} />
-  ),
+  // FrameworkDocs: ({
+  //   className,
+  //   ...props
+  // }: React.ComponentProps<typeof FrameworkDocs>) => (
+  //   <FrameworkDocs className={cn(className)} {...props} />
+  // ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn("font-medium underline underline-offset-4", className)}

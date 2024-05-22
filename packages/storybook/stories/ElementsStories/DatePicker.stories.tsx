@@ -29,7 +29,7 @@ export const Default: Story = {
     return (
       <div
         dir={direction}
-        className="hawa-flex  hawa-max-w-md hawa-flex-row hawa-gap-2"
+        className="hawa-flex hawa-items-start hawa-max-w-md hawa-flex-row hawa-gap-2"
       >
         <DatePicker
           initialFocus
@@ -37,14 +37,14 @@ export const Default: Story = {
           selected={date}
           onSelect={setDate}
           required={true}
-          // locale={arSA}
           dir={direction}
           numberOfMonths={1}
           trigger={
             <DatePickerButton
               helperText="Helper text here"
               showHelperText={false}
-              value={date ? format(date, "PPP") : <span>Pick a date</span>}
+              placeholder={"Pick a date"}
+              value={date && format(date, "PPP")}
               label="Date Picker"
               buttonClassNames="hawa-bg-red-400 hawa-min-w-[200px]"
             />
@@ -62,13 +62,13 @@ export const Default: Story = {
 
 export const Range: Story = {
   name: "Date Range",
-  render: (args: any) => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
     const [date, setDate] = React.useState<
       CalendarValueType["range"] | undefined
-    >({
-      from: new Date(2022, 0, 20),
-      to: addDays(new Date(2022, 0, 20), 20),
-    });
+    >({ from: undefined, to: undefined });
 
     return (
       <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
@@ -81,6 +81,8 @@ export const Range: Story = {
           numberOfMonths={2}
           trigger={
             <DatePickerButton
+              placeholder="Pick a date range"
+              label="Date Picker"
               value={
                 date?.from ? (
                   date.to ? (
@@ -91,11 +93,8 @@ export const Range: Story = {
                   ) : (
                     format(date.from, "LLL dd, y")
                   )
-                ) : (
-                  <span>Pick a date</span>
-                )
+                ) : null
               }
-              label="Date Picker"
             />
           }
         />
@@ -105,7 +104,10 @@ export const Range: Story = {
 };
 export const Multiple: Story = {
   name: "Multiple Dates",
-  render: (args: any) => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    setLocale(locale);
+    const direction = locale === "ar" ? "rtl" : "ltr";
     const [dates, setDates] = React.useState<CalendarValueType["multiple"]>();
     const [dateRange, setDateRange] =
       React.useState<CalendarValueType["range"]>();
@@ -121,13 +123,8 @@ export const Multiple: Story = {
           trigger={
             <DatePickerButton
               multiple
-              value={
-                dates ? (
-                  dates.map((date) => format(date, "PPP") + " + ")
-                ) : (
-                  <span>Pick a date</span>
-                )
-              }
+              value={dates && dates.map((date) => format(date, "PPP") + " + ")}
+              placeholder="Pick multiple dates"
               label="Date Picker"
             />
           }

@@ -76,6 +76,8 @@ declare module "@tanstack/table-core" {
   }
 }
 
+const LOCAL_STORAGE_KEY = "datatable-column-visibility";
+
 export const DataTable = <DataProps extends {}>({
   columns,
   data,
@@ -96,12 +98,12 @@ export const DataTable = <DataProps extends {}>({
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
+    React.useState<VisibilityState>(() => {
+      const savedVisibility = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return savedVisibility ? JSON.parse(savedVisibility) : {};
+    });
 
-  // const visibleColumns = columns.filter(
-  //   (column) => column.meta?.hidden !== true,
-  // );
+  const [rowSelection, setRowSelection] = React.useState({});
 
   const table = useReactTable({
     data,
@@ -133,10 +135,19 @@ export const DataTable = <DataProps extends {}>({
   }));
 
   React.useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(columnVisibility));
+  }, [columnVisibility]);
+
+  React.useEffect(() => {
     setColumnVisibility((prev) => {
       let newColumnVisibility: VisibilityState = {};
       columns.forEach((column: any) => {
-        newColumnVisibility[column.accessorKey] = !column.meta?.hidden;
+        const savedVisibility = prev[column.accessorKey];
+        if (savedVisibility !== undefined) {
+          newColumnVisibility[column.accessorKey] = savedVisibility;
+        } else {
+          newColumnVisibility[column.accessorKey] = !column.meta?.hidden;
+        }
       });
       return newColumnVisibility;
     });
@@ -359,7 +370,7 @@ export const DataTable = <DataProps extends {}>({
                       }
                       table.setPageIndex(page);
                     }}
-                    className="hawa-w-16 hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-text-sm"
+                    className="hawa-w-16 hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-text-sm placeholder:hawa-text-muted-foreground"
                   />
                 </div>
               )}
