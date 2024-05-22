@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { useClickOutside } from "@hooks/useClickOutside";
 import { cn } from "@util/index";
@@ -61,10 +61,6 @@ type AppLayoutTypes = {
   profileMenuWidth?: "default" | "sm" | "lg" | "parent";
   /** Event handler for drawer expansion. */
   onDrawerExpand?: (e: any) => void;
-  /** Specifies whether to keep the drawer open. */
-  keepOpen: boolean;
-  /** The method used to control whether the drawer is expanded or not. */
-  setKeepOpen: (value: boolean) => void;
   /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
   /** Specifies the item that was clicked. */
@@ -87,6 +83,8 @@ type AppLayoutTypes = {
   MenuLinkComponent?: any;
 };
 
+const LOCAL_STORAGE_KEY = "@sikka/hawa/keep-drawer-open";
+
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   profileMenuWidth = "default",
   DrawerFooterActions,
@@ -97,13 +95,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   drawerSize = "md",
   currentPage,
   clickedItem,
-  setKeepOpen,
-  keepOpen,
   DrawerLinkComponent,
   MenuLinkComponent,
   onAvatarClick,
   ...props
 }) => {
+  useLayoutEffect(() => {
+    let isDrawerOpen = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (isDrawerOpen === null) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(false));
+    }
+  }, []);
+
   let closeDrawerWidth = 56;
   let openDrawerWidth = 200;
   let drawerSizeStyle: any = {
@@ -117,11 +120,19 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
+
   const [size, setSize] = useState(
     (typeof window !== "undefined" && window.innerWidth) || 1200,
   );
-  const [openSideMenu, setOpenSideMenu] = useState(true);
-  const [keepDrawerOpen, setKeepDrawerOpen] = useState(keepOpen);
+  const [openSideMenu, setOpenSideMenu] = useState(() => {
+    const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedState ? JSON.parse(savedState) : false;
+  });
+
+  const [keepDrawerOpen, setKeepDrawerOpen] = useState(() => {
+    const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedState ? JSON.parse(savedState) : false;
+  });
 
   const handleClickOutside = () => {
     if (typeof window !== "undefined") {
@@ -134,7 +145,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     }
   };
 
-  // const ref = useOutsideClick(handleClickOutside);
   const ref = useClickOutside(handleClickOutside);
 
   useEffect(() => {
@@ -154,13 +164,17 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   }, []);
 
   useEffect(() => {
-    setKeepDrawerOpen(keepOpen);
-  }, [setKeepOpen]);
+    setKeepDrawerOpen(() => {
+      const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return savedState ? JSON.parse(savedState) : true;
+    });
+  }, [setKeepDrawerOpen]);
 
   useEffect(() => {
     if (size > 600) {
       setOpenSideMenu(keepDrawerOpen);
     } else {
+      setKeepDrawerOpen(false);
       setOpenSideMenu(false);
     }
   }, [size, keepDrawerOpen]);
@@ -438,9 +452,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 size="smallIcon"
                 onClick={() => {
                   const newKeepOpenState = !keepDrawerOpen;
-                  if (props.onDrawerExpand) {
-                    props.onDrawerExpand(newKeepOpenState);
-                  }
+                  // if (props.onDrawerExpand) {
+                  //   props.onDrawerExpand(newKeepOpenState);
+                  // }
+                  localStorage.setItem(
+                    LOCAL_STORAGE_KEY,
+                    JSON.stringify(newKeepOpenState),
+                  );
+
                   setKeepDrawerOpen(newKeepOpenState);
                 }}
               >

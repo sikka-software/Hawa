@@ -76,7 +76,7 @@ declare module "@tanstack/table-core" {
   }
 }
 
-const LOCAL_STORAGE_KEY = "datatable-column-visibility";
+const LOCAL_STORAGE_KEY = "@sikka/hawa/data-table-columns";
 
 export const DataTable = <DataProps extends {}>({
   columns,

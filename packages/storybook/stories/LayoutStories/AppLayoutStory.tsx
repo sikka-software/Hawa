@@ -7,13 +7,10 @@ import {
   FolderClosed,
   FolderDot,
   FolderOpen,
-  LayoutDashboard
+  LayoutDashboard,
 } from "lucide-react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { ToastAction } from "@sikka/hawa/elements/toast";
-import { Toaster } from "@sikka/hawa/elements/toaster";
-import { useToast } from "@sikka/hawa/hooks";
 import { AppLayout } from "@sikka/hawa/layout";
 
 import { t } from "../../translations/i18n";
@@ -22,10 +19,6 @@ export const AppLayoutStory = (args: any) => {
   const dark = useDarkMode();
   const [selectedPage, setSelectedPage] = useState("/home");
 
-  const [keepOpen, setKeepOpen] = useState(() => {
-    const savedState = localStorage.getItem("keepOpen");
-    return savedState ? JSON.parse(savedState) : true;
-  });
   const logoLink =
     args.direction === "rtl"
       ? dark
@@ -35,23 +28,14 @@ export const AppLayoutStory = (args: any) => {
         ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
         : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
 
-  const handleDrawerExpand = (newKeepOpenState: any) => {
-    setKeepOpen(newKeepOpenState);
-    localStorage.setItem("keepOpen", JSON.stringify(newKeepOpenState));
-  };
-
-  const { toast } = useToast();
   return (
     <AppLayout
       {...args}
       logoLink={logoLink}
-      keepOpen={keepOpen}
       currentPage={selectedPage}
-      setKeepOpen={setKeepOpen}
-      onDrawerExpand={handleDrawerExpand}
       texts={{
         expandSidebar: t("expandSidebar"),
-        collapseSidebar: t("collapseSidebar")
+        collapseSidebar: t("collapseSidebar"),
       }}
       drawerItems={[
         {
@@ -67,7 +51,7 @@ export const AppLayoutStory = (args: any) => {
           onClick: (e) => {
             console.log("e is ", e);
             setSelectedPage("/home");
-          }
+          },
         },
         {
           label: t("items"),
@@ -81,27 +65,27 @@ export const AppLayoutStory = (args: any) => {
               onMouseDown: (e) => {
                 console.log("Mouse Down", e);
               },
-              onClick: () => setSelectedPage("/new-item")
+              onClick: () => setSelectedPage("/new-item"),
             },
             {
               label: t("sub-item") + " 2",
               icon: <FolderCheck className="hawa-icon" />,
               value: "/new-item2",
-              onClick: () => setSelectedPage("/new-item2")
+              onClick: () => setSelectedPage("/new-item2"),
             },
             {
               label: t("sub-item") + " 3",
               icon: <FolderClosed className="hawa-icon" />,
               value: "/new-item3",
-              onClick: () => setSelectedPage("/new-item3")
+              onClick: () => setSelectedPage("/new-item3"),
             },
             {
               label: t("sub-item") + " 4",
               icon: <FolderDot className="hawa-icon" />,
               value: "/file-item",
-              onClick: () => setSelectedPage("/file-item")
-            }
-          ]
+              onClick: () => setSelectedPage("/file-item"),
+            },
+          ],
         },
 
         {
@@ -110,14 +94,14 @@ export const AppLayoutStory = (args: any) => {
           icon: <BarChart2 className="hawa-icon" />,
           onClick: () => setSelectedPage("/analytics"),
 
-          badge: { color: "hyper", label: t("new") }
-        }
+          badge: { color: "hyper", label: t("new") },
+        },
       ]}
       profileMenuItems={[
         { label: "Profile", value: "Dashboard" },
         { value: "Billing", label: "Billing" },
         { value: "عربي", label: "عربي" },
-        { label: "Sign Out", value: "Sign Out", highlighted: true }
+        { label: "Sign Out", value: "Sign Out", highlighted: true },
       ]}
     >
       <div className=" hawa-h-full  hawa-p-4">

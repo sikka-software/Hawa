@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.36.1
+
+### Patch Changes
+
+- `AppLayout`: fix drawer flashes open on mobile for a sec on initial load
+- `DataTable`: update storage item key
+
 ## 0.36.0
 
 ### Minor Changes
