@@ -277,8 +277,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-red-500",
-          // 'hawa-bg-primary-foreground',
+          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-primary-foreground",
           isRTL ? "hawa-right-0" : "hawa-left-0",
           bordered
             ? direction === "rtl"

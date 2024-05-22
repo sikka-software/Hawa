@@ -58,17 +58,26 @@ export const AsStatus: Story = {
       <div className="hawa-flex hawa-flex-row hawa-gap-2">
         <Chip
           dir={direction}
+          dot
           size="normal"
           label={t("unavailable")}
-          dotType="unavailable"
+          dotStatus="unavailable"
           color="red"
         />
         <Chip
           dir={direction}
+          dot
           size="normal"
           label={t("available")}
-          dotType="available"
+          dotStatus="available"
           color="green"
+        />
+        <Chip
+          dir={direction}
+          dot
+          size="normal"
+          label={t("Dot Only")}
+          // color=""
         />
       </div>
     );
