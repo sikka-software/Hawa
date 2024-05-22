@@ -18,6 +18,7 @@ import { t } from "../../translations/i18n";
 export const AppLayoutStory = (args: any) => {
   const dark = useDarkMode();
   const [selectedPage, setSelectedPage] = useState("/home");
+  const [count, updateCount] = useState(0);
 
   const logoLink =
     args.direction === "rtl"
@@ -104,11 +105,15 @@ export const AppLayoutStory = (args: any) => {
         { label: "Sign Out", value: "Sign Out", highlighted: true },
       ]}
     >
-      <div className=" hawa-h-full  hawa-p-4">
-        <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-row-reverse hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
+      <div
+        className=" hawa-h-full  hawa-p-4"
+        onClick={() => updateCount(count + 1)}
+      >
+        <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
           <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
             App Content
           </span>
+          <span className="hawa-font-bold hawa-text-[20rem]">{count}</span>
         </div>
       </div>
     </AppLayout>

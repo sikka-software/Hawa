@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { useClickOutside } from "@hooks/useClickOutside";
+import * as Dialog from "@radix-ui/react-dialog";
 import { cn } from "@util/index";
 
 import { Button } from "@elements/button";
@@ -98,7 +99,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   onAvatarClick,
   ...props
 }) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     let isDrawerOpen = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (isDrawerOpen === null) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(false));
@@ -126,6 +127,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
     return savedState ? JSON.parse(savedState) : false;
   });
+  const [container, setContainer] = React.useState<any>(null);
 
   const [keepDrawerOpen, setKeepDrawerOpen] = useState(() => {
     const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -151,6 +153,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         setSize(window.innerWidth);
         if (window.innerWidth > 600) {
           setKeepDrawerOpen(false);
+        } else {
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(false));
         }
       };
       resize();
@@ -193,7 +197,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         <div
           dir={direction}
           className={cn(
-            "hawa-fixed hawa-end-0 hawa-start-0 hawa-top-0 hawa-z-0 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
+            "hawa-fixed hawa-end-0 hawa-start-0 hawa-top-0 hawa-z-10 hawa-flex hawa-h-14 hawa-w-full hawa-items-center hawa-justify-between hawa-bg-primary-foreground hawa-p-2",
             bordered && "hawa-border-b-[1px]",
           )}
         >
@@ -222,7 +226,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             >
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer  hawa-rounded hawa-p-2  hawa-transition-all hover:hawa-bg-gray-100"
+                className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer hawa-rounded hawa-p-2  hawa-transition-all "
               >
                 <MenuIcon />
               </div>
@@ -287,200 +291,205 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * Drawer Container
        * ----------------------------------------------------------------------------------------------------
        */}
-      <div
-        className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-primary-foreground",
-          isRTL ? "hawa-right-0" : "hawa-left-0",
-          bordered
-            ? direction === "rtl"
-              ? "hawa-border-s-[1px]"
-              : "hawa-border-e-[1px]"
-            : "",
-        )}
-        style={{
-          width:
-            size > 600
-              ? openSideMenu
-                ? `${drawerSizeStyle["opened"][drawerSize]}px`
-                : `${drawerSizeStyle["closed"][drawerSize]}px`
-              : openSideMenu
-                ? `${drawerSizeStyle["opened"][drawerSize]}px`
-                : "0px",
-        }}
-        onMouseEnter={() => setOpenSideMenu(true)}
-        onMouseLeave={() => {
-          if (size > 600) {
-            if (keepDrawerOpen) {
-              setOpenSideMenu(true);
+
+      <div ref={setContainer}>
+        <div
+          className={cn(
+            "hawa-fixed hawa-z-40 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-primary-foreground",
+            isRTL ? "hawa-right-0" : "hawa-left-0",
+            bordered
+              ? size > 600
+                ? direction === "rtl"
+                  ? "hawa-border-s-[1px]"
+                  : "hawa-border-e-[1px]"
+                : ""
+              : "",
+          )}
+          style={{
+            width:
+              size > 600
+                ? openSideMenu
+                  ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                  : `${drawerSizeStyle["closed"][drawerSize]}px`
+                : openSideMenu
+                  ? `${drawerSizeStyle["opened"][drawerSize]}px`
+                  : "0px",
+          }}
+          onMouseEnter={() => setOpenSideMenu(true)}
+          onMouseLeave={() => {
+            if (size > 600) {
+              if (keepDrawerOpen) {
+                setOpenSideMenu(true);
+              } else {
+                setOpenedSidebarItem("");
+                setOpenSideMenu(false);
+              }
             } else {
-              setOpenedSidebarItem("");
               setOpenSideMenu(false);
             }
-          } else {
-            setOpenSideMenu(false);
-          }
-        }}
-        ref={ref}
-      >
-        {/*
-         * ----------------------------------------------------------------------------------------------------
-         * Drawer Header
-         * ----------------------------------------------------------------------------------------------------
-         */}
-        <div
-          onClick={props.onLogoClick}
-          dir={direction}
-          className={cn(
-            "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-transition-all",
-            props.onLogoClick && "hawa-cursor-pointer",
-            classNames?.logoContainer,
-          )}
-          style={{
-            width:
-              size > 600
-                ? `${openSideMenu ? openDrawerWidth : 56}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
           }}
+          ref={ref}
         >
           {/*
            * ----------------------------------------------------------------------------------------------------
-           * Full Logo
+           * Drawer Header
            * ----------------------------------------------------------------------------------------------------
            */}
-          {openSideMenu && props.header && props.header}
-          {!props.header && (
-            <img
-              src={props.logoLink}
-              className={cn(
-                "hawa-h-9 hawa-opacity-0 hawa-transition-all",
-                !openSideMenu
-                  ? "hawa-invisible hawa-opacity-0"
-                  : "hawa-visible hawa-opacity-100",
-                classNames?.fullLogoImg,
-              )}
+          <div
+            onClick={props.onLogoClick}
+            dir={direction}
+            className={cn(
+              "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-transition-all",
+              props.onLogoClick && "hawa-cursor-pointer",
+              classNames?.logoContainer,
+            )}
+            style={{
+              width:
+                size > 600
+                  ? `${openSideMenu ? openDrawerWidth : 56}px`
+                  : `${openSideMenu ? openDrawerWidth : 0}px`,
+            }}
+          >
+            {/*
+             * ----------------------------------------------------------------------------------------------------
+             * Full Logo
+             * ----------------------------------------------------------------------------------------------------
+             */}
+            {openSideMenu && props.header && props.header}
+            {!props.header && (
+              <img
+                src={props.logoLink}
+                className={cn(
+                  "hawa-h-9 hawa-opacity-0 hawa-transition-all",
+                  !openSideMenu
+                    ? "hawa-invisible hawa-opacity-0"
+                    : "hawa-visible hawa-opacity-100",
+                  classNames?.fullLogoImg,
+                )}
+              />
+            )}
+            {/*
+             * ----------------------------------------------------------------------------------------------------
+             * Logo Symbol
+             * ----------------------------------------------------------------------------------------------------
+             */}
+            {size > 600 ? (
+              <img
+                src={props.logoSymbol}
+                className={cn(
+                  "hawa-fixed hawa-h-9 hawa-transition-all hawa-start-2.5 hawa-top-2.5",
+                  openSideMenu
+                    ? "hawa-invisible hawa-opacity-0"
+                    : "hawa-visible hawa-opacity-100",
+                  classNames?.symbolLogoImg,
+                )}
+              />
+            ) : null}
+          </div>
+          {/*
+           * ----------------------------------------------------------------------------------------------------
+           * Drawer Content Container
+           * ----------------------------------------------------------------------------------------------------
+           */}
+          <div
+            className={cn(
+              "hawa-fixed hawa-bottom-14 hawa-top-14 hawa-p-0 hawa-py-2 hawa-transition-all",
+              openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden",
+            )}
+            style={{
+              width:
+                size > 600
+                  ? `${openSideMenu ? openDrawerWidth : drawerSizeCondition}px`
+                  : `${openSideMenu ? openDrawerWidth : 0}px`,
+            }}
+          >
+            {/*
+             * ----------------------------------------------------------------------------------------------------
+             * Drawer Items
+             * ----------------------------------------------------------------------------------------------------
+             */}
+            <SidebarGroup
+              direction={direction}
+              selectedItem={currentPage}
+              openedItem={openedSidebarItem}
+              setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
+              isOpen={keepDrawerOpen || openSideMenu}
+              items={props.drawerItems}
+              LinkComponent={DrawerLinkComponent}
+              onItemClick={(values) => clickedItem && clickedItem(values)}
+              onSubItemClick={(values) => clickedItem && clickedItem(values)}
             />
-          )}
+          </div>
           {/*
            * ----------------------------------------------------------------------------------------------------
-           * Logo Symbol
+           * Drawer Footer
            * ----------------------------------------------------------------------------------------------------
            */}
-          {size > 600 ? (
-            <img
-              src={props.logoSymbol}
-              className={cn(
-                "hawa-fixed hawa-h-9 hawa-transition-all hawa-start-2.5 hawa-top-2.5",
-                openSideMenu
-                  ? "hawa-invisible hawa-opacity-0"
-                  : "hawa-visible hawa-opacity-100",
-                classNames?.symbolLogoImg,
-              )}
-            />
-          ) : null}
-        </div>
-        {/*
-         * ----------------------------------------------------------------------------------------------------
-         * Drawer Content Container
-         * ----------------------------------------------------------------------------------------------------
-         */}
-        <div
-          className={cn(
-            "hawa-fixed hawa-bottom-14 hawa-top-14 hawa-p-0 hawa-py-2 hawa-transition-all",
-            openSideMenu ? "hawa-overflow-auto" : "hawa-overflow-hidden",
-          )}
-          style={{
-            width:
-              size > 600
-                ? `${openSideMenu ? openDrawerWidth : drawerSizeCondition}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
-          }}
-        >
-          {/*
-           * ----------------------------------------------------------------------------------------------------
-           * Drawer Items
-           * ----------------------------------------------------------------------------------------------------
-           */}
-          <SidebarGroup
-            direction={direction}
-            selectedItem={currentPage}
-            openedItem={openedSidebarItem}
-            setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
-            isOpen={keepDrawerOpen || openSideMenu}
-            items={props.drawerItems}
-            LinkComponent={DrawerLinkComponent}
-            onItemClick={(values) => clickedItem && clickedItem(values)}
-            onSubItemClick={(values) => clickedItem && clickedItem(values)}
-          />
-        </div>
-        {/*
-         * ----------------------------------------------------------------------------------------------------
-         * Drawer Footer
-         * ----------------------------------------------------------------------------------------------------
-         */}
-        <div
-          className={cn(
-            "hawa-fixed hawa-bottom-0 hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-transition-all",
-            direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
-          )}
-          style={{
-            width:
-              size > 600
-                ? `${openSideMenu ? openDrawerWidth : 56}px`
-                : `${openSideMenu ? openDrawerWidth : 0}px`,
-          }}
-        >
-          {DrawerFooterActions && openSideMenu ? (
-            <>{DrawerFooterActions}</>
-          ) : null}
+          <div
+            className={cn(
+              "hawa-fixed hawa-bottom-0 hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-transition-all",
+              direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
+            )}
+            style={{
+              width:
+                size > 600
+                  ? `${openSideMenu ? openDrawerWidth : 56}px`
+                  : `${openSideMenu ? openDrawerWidth : 0}px`,
+            }}
+          >
+            {DrawerFooterActions && openSideMenu ? (
+              <>{DrawerFooterActions}</>
+            ) : null}
 
-          {/* Expand Button */}
-          {size > 600 && openSideMenu ? (
-            <Tooltip
-              side={"left"}
-              delayDuration={500}
-              triggerProps={{ asChild: true }}
-              content={
-                keepDrawerOpen
-                  ? props.texts?.collapseSidebar || "Collapse Sidebar"
-                  : props.texts?.expandSidebar || "Expand Sidebar"
-              }
-            >
-              <Button
-                variant="outline"
-                size="smallIcon"
-                onClick={() => {
-                  const newKeepOpenState = !keepDrawerOpen;
-                  localStorage.setItem(
-                    LOCAL_STORAGE_KEY,
-                    JSON.stringify(newKeepOpenState),
-                  );
-
-                  setKeepDrawerOpen(newKeepOpenState);
-                }}
+            {/* Expand Button */}
+            {size > 600 && openSideMenu ? (
+              <Tooltip
+                side={"left"}
+                delayDuration={500}
+                triggerProps={{ asChild: true }}
+                content={
+                  keepDrawerOpen
+                    ? props.texts?.collapseSidebar || "Collapse Sidebar"
+                    : props.texts?.expandSidebar || "Expand Sidebar"
+                }
               >
-                <svg
-                  className={cn(
-                    "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all  disabled:hawa-bg-gray-200 ",
-                    keepDrawerOpen
-                      ? isRTL
-                        ? "hawa--rotate-90"
-                        : "hawa-rotate-90"
-                      : isRTL
-                        ? "hawa-rotate-90"
-                        : "hawa--rotate-90",
-                  )}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                <Button
+                  variant="outline"
+                  size="smallIcon"
+                  onClick={() => {
+                    const newKeepOpenState = !keepDrawerOpen;
+                    localStorage.setItem(
+                      LOCAL_STORAGE_KEY,
+                      JSON.stringify(newKeepOpenState),
+                    );
+
+                    setKeepDrawerOpen(newKeepOpenState);
+                  }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </Button>
-            </Tooltip>
-          ) : null}
+                  <svg
+                    className={cn(
+                      "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all  disabled:hawa-bg-gray-200 ",
+                      keepDrawerOpen
+                        ? isRTL
+                          ? "hawa--rotate-90"
+                          : "hawa-rotate-90"
+                        : isRTL
+                          ? "hawa-rotate-90"
+                          : "hawa--rotate-90",
+                    )}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </Button>
+              </Tooltip>
+            ) : null}
+          </div>
         </div>
       </div>
       {/*
@@ -488,8 +497,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * Children Container
        * ----------------------------------------------------------------------------------------------------
        */}
+
+      <Dialog.Root
+        open={size < 600 && openSideMenu}
+        onOpenChange={setOpenSideMenu}
+      >
+        <Dialog.Portal container={container}>
+          <Dialog.Overlay className="hawa-fixed hawa-inset-0  hawa-bg-foreground/80 hawa-backdrop-blur-sm data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10  data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
+        </Dialog.Portal>
+      </Dialog.Root>
+
       <div
-        className="hawa-fixed -hawa-z-10 hawa-overflow-y-auto hawa-transition-all"
+        className="hawa-fixed hawa-overflow-y-auto  hawa-transition-all hawa-z-0"
         style={
           isRTL
             ? {
