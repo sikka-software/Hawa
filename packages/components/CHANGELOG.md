@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.36.2
+
+### Patch Changes
+
+- `AppLayout`: add layout when side drawer is open while on mobile
+- `Dialog`: fix width on mobile
+
 ## 0.36.1
 
 ### Patch Changes
