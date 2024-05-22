@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.35.6
+
+### Patch Changes
+
+- `AppLayout` final fix for click outside on mobile
+- Improve `useClickOutside` hook
+
 ## 0.35.4
 
 ### Patch Changes

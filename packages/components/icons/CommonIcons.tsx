@@ -5,7 +5,7 @@ import { cn } from "@util/index";
 export const CheckMark = ({ size = "default", className }: any) => {
   let sizeStyles: any = {
     default: "hawa-h-5 hawa-w-5",
-    sm: "hawa-h-3 hawa-w-3"
+    sm: "hawa-h-3 hawa-w-3",
   };
   return (
     <svg
@@ -26,7 +26,7 @@ export const CheckMark = ({ size = "default", className }: any) => {
 export const UncheckMark = ({ size = "default", className }: any) => {
   let sizeStyles: any = {
     default: "hawa-h-5 hawa-w-5",
-    sm: "hawa-h-3 hawa-w-3"
+    sm: "hawa-h-3 hawa-w-3",
   };
 
   return (
@@ -44,3 +44,21 @@ export const UncheckMark = ({ size = "default", className }: any) => {
     </svg>
   );
 };
+export const MenuIcon = () => (
+  <svg
+    aria-label="Menu Button"
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth={0}
+    viewBox="0 0 20 20"
+    aria-hidden="true"
+    height="1.6em"
+    width="1.6em"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+    ></path>
+  </svg>
+);

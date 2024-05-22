@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import useOutsideClick from "@hooks/useOutsideClick";
+import useOutsideClick from "@/hooks/useClickOutside";
 import { cn } from "@util/index";
 
 import { Button } from "@elements/button";
@@ -9,6 +9,7 @@ import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 
+import { MenuIcon } from "../../icons";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {
@@ -505,22 +506,3 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     </div>
   );
 };
-
-const MenuIcon = () => (
-  <svg
-    aria-label="Menu Button"
-    stroke="currentColor"
-    fill="currentColor"
-    strokeWidth={0}
-    viewBox="0 0 20 20"
-    aria-hidden="true"
-    height="1.6em"
-    width="1.6em"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-    ></path>
-  </svg>
-);

@@ -15,4 +15,4 @@ export * from "./useScrollPosition";
 export * from "./useTable";
 export * from "./useTabs";
 export * from "./useMeasureDirty";
-export * from "./useOutsideClick";
+export * from "./useClickOutside";

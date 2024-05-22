@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import useOutsideClick from "@hooks/useOutsideClick";
+import { useClickOutside } from "@hooks/useClickOutside";
 import { cn } from "@util/index";
 
 import { Button } from "@elements/button";
@@ -9,6 +9,7 @@ import { Tooltip } from "@elements/tooltip";
 
 import { DirectionType } from "@_types/commonTypes";
 
+import { MenuIcon } from "../../icons";
 import { AppSidebarItemProps, SidebarGroup } from "../sidebar/Sidebar";
 
 type AppLayoutTypes = {
@@ -121,6 +122,21 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   );
   const [openSideMenu, setOpenSideMenu] = useState(true);
   const [keepDrawerOpen, setKeepDrawerOpen] = useState(keepOpen);
+
+  const handleClickOutside = () => {
+    if (typeof window !== "undefined") {
+      //   console.log("Clicked outside, closing drawer");
+      //   if (keepDrawerOpen) return;
+      if (window.innerWidth < 600) {
+        setKeepDrawerOpen(false);
+        setOpenSideMenu(false);
+      }
+    }
+  };
+
+  // const ref = useOutsideClick(handleClickOutside);
+  const ref = useClickOutside(handleClickOutside);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const resize = () => {
@@ -141,30 +157,18 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     setKeepDrawerOpen(keepOpen);
   }, [setKeepOpen]);
 
-  const handleClickOutside = () => {
-    if (typeof window !== "undefined") {
-      if (keepDrawerOpen) return;
-      if (window.innerWidth < 600) {
-        setKeepDrawerOpen(false);
-        setOpenSideMenu(false);
-      }
-    }
-  };
-
-  const ref = useOutsideClick(handleClickOutside);
-
-  const drawerSizeCondition =
-    size > 600
-      ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize]
-      : 0;
-
   useEffect(() => {
     if (size > 600) {
       setOpenSideMenu(keepDrawerOpen);
     } else {
       setOpenSideMenu(false);
     }
-  }, [size]);
+  }, [size, keepDrawerOpen]);
+
+  const drawerSizeCondition =
+    size > 600
+      ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize]
+      : 0;
 
   return (
     <div className="hawa-fixed hawa-start-0">
@@ -233,7 +237,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               LinkComponent={MenuLinkComponent}
               triggerClassname="hawa-mx-2"
               align="end"
-              // alignOffset={8}
               side={"bottom"}
               sideOffset={10}
               width={profileMenuWidth}
@@ -274,7 +277,8 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        */}
       <div
         className={cn(
-          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-primary-foreground",
+          "hawa-fixed hawa-z-0 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-transition-all hawa-top-0 hawa-h-[calc(100dvh)] hawa-bg-red-500",
+          // 'hawa-bg-primary-foreground',
           isRTL ? "hawa-right-0" : "hawa-left-0",
           bordered
             ? direction === "rtl"
@@ -292,9 +296,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 ? `${drawerSizeStyle["opened"][drawerSize]}px`
                 : "0px",
         }}
-        onMouseEnter={() => {
-          setOpenSideMenu(true);
-        }}
+        onMouseEnter={() => setOpenSideMenu(true)}
         onMouseLeave={() => {
           if (size > 600) {
             if (keepDrawerOpen) {
@@ -337,6 +339,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {openSideMenu && props.header && props.header}
           {!props.header && (
             <img
+              src={props.logoLink}
               className={cn(
                 "hawa-h-9 hawa-opacity-0 hawa-transition-all",
                 !openSideMenu
@@ -344,7 +347,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   : "hawa-visible hawa-opacity-100",
                 classNames?.fullLogoImg,
               )}
-              src={props.logoLink}
             />
           )}
           {/*
@@ -354,6 +356,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            */}
           {size > 600 ? (
             <img
+              src={props.logoSymbol}
               className={cn(
                 "hawa-fixed hawa-h-9 hawa-transition-all hawa-start-2.5 hawa-top-2.5",
                 openSideMenu
@@ -361,7 +364,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   : "hawa-visible hawa-opacity-100",
                 classNames?.symbolLogoImg,
               )}
-              src={props.logoSymbol}
             />
           ) : null}
         </div>
@@ -389,22 +391,14 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            */}
           <SidebarGroup
             direction={direction}
-            onItemClick={(values) => {
-              if (clickedItem) {
-                clickedItem(values);
-              }
-            }}
-            onSubItemClick={(values) => {
-              if (clickedItem) {
-                clickedItem(values);
-              }
-            }}
             selectedItem={currentPage}
             openedItem={openedSidebarItem}
             setOpenedItem={(e: any) => setOpenedSidebarItem(e)}
             isOpen={keepDrawerOpen || openSideMenu}
             items={props.drawerItems}
             LinkComponent={DrawerLinkComponent}
+            onItemClick={(values) => clickedItem && clickedItem(values)}
+            onSubItemClick={(values) => clickedItem && clickedItem(values)}
           />
         </div>
         {/*
@@ -504,22 +498,3 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
     </div>
   );
 };
-
-const MenuIcon = () => (
-  <svg
-    aria-label="Menu Button"
-    stroke="currentColor"
-    fill="currentColor"
-    strokeWidth={0}
-    viewBox="0 0 20 20"
-    aria-hidden="true"
-    height="1.6em"
-    width="1.6em"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-    ></path>
-  </svg>
-);
