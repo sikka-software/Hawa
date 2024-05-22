@@ -48,17 +48,13 @@
 
 **Note:** Current npm tags 👇
 
-`@beta` is archived.
-
-`@next` only points to pre-releases.
+`@next` for the pre-releases (can be unstable).
 
 `@latest` for the latest stable release.
 
 ```bash
 npm install @sikka/hawa
 ```
-
-</br>
 
 ## Contributing
 

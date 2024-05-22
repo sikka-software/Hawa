@@ -158,7 +158,6 @@ const Template = (args: any, globals: any) => {
     },
   ];
   const [isLoading, setIsLoading] = useState(true);
-  const { toast } = useToast();
 
   useEffect(() => {
     // Set a timeout to change isLoading to true after 2 seconds
@@ -174,19 +173,6 @@ const Template = (args: any, globals: any) => {
 
   return (
     <div dir={direction} className="hawa-w-full ">
-      <Button
-        className="hawa-mb-4"
-        onClick={() =>
-          toast({
-            title: "test",
-            description: "Description",
-            severity: "success",
-            duration: 5000,
-          })
-        }
-      >
-        Toast
-      </Button>
       <DataTable<Company>
         {...args}
         translateFn={t}
@@ -196,6 +182,8 @@ const Template = (args: any, globals: any) => {
         showCount
         // data={[]}
         // data={companiesData}
+        filters={[".com", ".sa", ".ae"]}
+        paginationPosition="top"
         data={generatedData}
         // itemsPerPage={[10, 50, 100, 150, 200, 500]}
         condensed

@@ -59,8 +59,6 @@ type AppLayoutTypes = {
    * - 'parent': Inherits width from parent element.
    */
   profileMenuWidth?: "default" | "sm" | "lg" | "parent";
-  /** Event handler for drawer expansion. */
-  onDrawerExpand?: (e: any) => void;
   /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
   /** Specifies the item that was clicked. */
@@ -452,9 +450,6 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 size="smallIcon"
                 onClick={() => {
                   const newKeepOpenState = !keepDrawerOpen;
-                  // if (props.onDrawerExpand) {
-                  //   props.onDrawerExpand(newKeepOpenState);
-                  // }
                   localStorage.setItem(
                     LOCAL_STORAGE_KEY,
                     JSON.stringify(newKeepOpenState),
