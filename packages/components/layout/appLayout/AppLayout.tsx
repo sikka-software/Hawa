@@ -503,7 +503,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         onOpenChange={setOpenSideMenu}
       >
         <Dialog.Portal container={container}>
-          <Dialog.Overlay className="hawa-fixed hawa-inset-0  hawa-bg-foreground/80 hawa-backdrop-blur-sm data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10  data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
+          <Dialog.Overlay className="hawa-fixed hawa-inset-0 hawa-bg-foreground/20 hawa-backdrop-blur-[2px] data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10  data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
         </Dialog.Portal>
       </Dialog.Root>
 
