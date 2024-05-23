@@ -1,4 +1,13 @@
 {
+  "view": "عرض",
+  "create": "إنشاء",
+  "products": "المنتجات",
+  "new_invoice": "فاتورة جديدة",
+  "new_client": "عميل جديد",
+  "new_product": "منتج جديد",
+  "billing": "المدفوعات",
+  "command_searchPlaceholder": "اكتب أمرًا أو ابحث...",
+  "command_emptyText": "لم يتم العثور على نتائج.",
   "Red": "أحمر",
   "Green": "أخضر",
   "Blue": "أزرق",

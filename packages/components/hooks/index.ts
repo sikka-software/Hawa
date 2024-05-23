@@ -16,3 +16,4 @@ export * from "./useTable";
 export * from "./useTabs";
 export * from "./useMeasureDirty";
 export * from "./useClickOutside";
+export * from "./useShortcuts";

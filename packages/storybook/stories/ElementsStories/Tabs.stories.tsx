@@ -30,14 +30,15 @@ export const Default: Story = {
     const [test, setTest] = useState(false);
     return (
       <Tabs
+        orientation="horizontal"
         variant={args.variant}
         defaultValue="account"
         dir={direction}
         onValueChange={() => setTest(false)}
       >
         <TabsList
-
-        // className="hawa-w-full"
+          scrollable
+          className="hawa-w-full"
         >
           <TabsTrigger
             value="account"
@@ -51,6 +52,13 @@ export const Default: Story = {
             {t("account")}
           </TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password1">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password2">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password3">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password4">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password5">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password6">{t("password")}</TabsTrigger>
+          <TabsTrigger value="password7">{t("password")}</TabsTrigger>
           <TabsTrigger
             value="settings"
             chipProps={{ label: "", color: "red", size: "small" }}

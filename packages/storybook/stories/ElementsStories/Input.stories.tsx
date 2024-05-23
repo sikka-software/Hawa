@@ -52,6 +52,7 @@ export const PreviewMode: Story = {
           label={t("first-name")}
           preview={preview}
           placeholder={"Fulan"}
+          value={'Zakher Masri'}
         />
         <Input
           label={t("last-name")}

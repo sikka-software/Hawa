@@ -1,10 +1,12 @@
 import * as React from "react";
 
-import { DialogProps } from "@radix-ui/react-dialog";
+import { DialogProps, DialogPortal, Dialog } from "@radix-ui/react-dialog";
 import { cn } from "@util/index";
 import { Command as CommandPrimitive } from "cmdk";
 
-import { Dialog, DialogContent } from "../dialog";
+import { DirectionType } from "@_types/commonTypes";
+
+import { DialogContent } from "../dialog";
 
 interface CommandProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive> {
@@ -165,11 +167,83 @@ const CommandShortcut = ({
   return (
     <span
       className={cn(
-        "hawa-ml-auto hawa-text-xs hawa-tracking-widest hawa-text-muted-foreground",
+        "hawa-ms-auto hawa-text-xs hawa-tracking-widest hawa-text-muted-foreground",
         className,
       )}
       {...props}
     />
+  );
+};
+
+type FullCommandItem = {
+  type: "group" | "separator";
+  heading?: string;
+  items?: {
+    icon: React.ElementType;
+    text: string;
+    action: () => void;
+    shortcut?: string;
+  }[];
+};
+type FullCommandProps = {
+  items: FullCommandItem[];
+  direction?: DirectionType;
+  texts?: {
+    searchPlaceholder?: string;
+    emptyText?: string;
+  };
+};
+
+const FullCommand = ({ items, direction = "ltr", texts }: FullCommandProps) => {
+  return (
+    <Command
+      dir={direction}
+      className="hawa-rounded-lg hawa-border hawa-shadow-md !hawa-h-full"
+    >
+      <CommandInput
+        placeholder={texts?.searchPlaceholder || "Type a command or search..."}
+      />
+      <CommandList>
+        <CommandEmpty>{texts?.emptyText || "No results found."}</CommandEmpty>
+        {items.map((item, index) => {
+          if (item.type === "group") {
+            return (
+              <CommandGroup heading={item.heading} key={index}>
+                {item.items?.map((subItem, subIndex) => (
+                  <CommandItem key={subIndex} onSelect={subItem.action}>
+                    <subItem.icon className="hawa-icon hawa-me-2" />
+                    <span>{subItem.text}</span>
+                    {subItem.shortcut && (
+                      <CommandShortcut>{subItem.shortcut}</CommandShortcut>
+                    )}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            );
+          } else if (item.type === "separator") {
+            return <CommandSeparator key={index} />;
+          }
+          return null;
+        })}
+      </CommandList>
+    </Command>
+  );
+};
+
+type AppCommandProps = {
+  commandProps: FullCommandProps;
+  dialogProps: DialogProps;
+};
+const AppCommand = ({ commandProps, dialogProps }: AppCommandProps) => {
+  return (
+    <Dialog {...dialogProps}>
+      <DialogContent
+        hideCloseButton
+        className="hawa-overflow-hidden !hawa-p-0 hawa-shadow-lg !hawa-min-h-[50%]"
+      >
+        <FullCommand {...commandProps} />
+      </DialogContent>
+    </Dialog>
   );
 };
 
@@ -183,6 +257,8 @@ Command.displayName = CommandPrimitive.displayName;
 CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 export {
+  AppCommand,
+  FullCommand,
   Command,
   CommandDialog,
   CommandInput,

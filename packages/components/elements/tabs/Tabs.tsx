@@ -9,17 +9,18 @@ import { OrientationType } from "@_types/commonTypes";
 
 import { Chip, ChipTypes } from "../chip";
 import { FloatBox } from "../floatBox";
+import { ScrollArea } from "../scrollArea";
 
 const tabsListVariant = tv({
   base: "",
   variants: {
     variant: {
       default:
-        "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-rounded hawa-border hawa-bg-muted hawa-p-1 hawa-text-muted-foreground  dark:hawa-border-primary/10",
+        "hawa-flex hawa-w-fit hawa-items-center hawa-justify-start hawa-gap-1 hawa-rounded hawa-border hawa-bg-muted hawa-p-1 hawa-text-muted-foreground  dark:hawa-border-primary/10",
       underlined:
-        "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-rounded  hawa-p-1 hawa-text-muted-foreground  dark:hawa-border-primary/10",
+        "hawa-flex hawa-w-fit hawa-items-center hawa-justify-start hawa-gap-1 hawa-rounded  hawa-p-1 hawa-text-muted-foreground  dark:hawa-border-primary/10",
       underlined_tabs:
-        "hawa-flex hawa-w-fit hawa-flex-wrap hawa-items-center hawa-justify-start hawa-gap-1 hawa-text-muted-foreground",
+        "hawa-flex hawa-w-fit hawa-items-center hawa-justify-start hawa-gap-1 hawa-text-muted-foreground",
     },
     orientation: { horizontal: "", vertical: "" },
   },
@@ -108,23 +109,59 @@ const Tabs = React.forwardRef<
   </TabsPrimitive.Root>
 ));
 
+type TabsListProps = React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.List
+> & { scrollable?: boolean };
+
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+  TabsListProps
 >(({ className, ...props }, ref) => {
   const { orientation, variant } = React.useContext(TabsContext);
-
-  return (
-    <TabsPrimitive.List
-      ref={ref}
-      className={cn(
-        tabsListVariant({ variant, orientation }),
-        orientation === "vertical" ? "hawa-flex-col" : "hawa-flex-row",
-        className,
-      )}
-      {...props}
-    />
+  const [size, setSize] = React.useState(
+    (typeof window !== "undefined" && window.innerWidth) || 1200,
   );
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const resize = () => {
+        setSize(window.innerWidth);
+      };
+      resize();
+      window.addEventListener("resize", resize);
+      return () => {
+        window.removeEventListener("resize", resize);
+      };
+    }
+  }, []);
+
+  if ((props.scrollable || size < 768) && orientation === "horizontal") {
+    return (
+      <ScrollArea orientation="horizontal">
+        <TabsPrimitive.List
+          ref={ref}
+          className={cn(
+            tabsListVariant({ variant, orientation }),
+            "hawa-flex-row hawa-flex-nowrap",
+            className,
+          )}
+          {...props}
+        />
+      </ScrollArea>
+    );
+  } else {
+    return (
+      <TabsPrimitive.List
+        ref={ref}
+        className={cn(
+          tabsListVariant({ variant, orientation }),
+          orientation === "vertical" ? "hawa-flex-col" : "hawa-flex-row",
+          "hawa-flex-wrap",
+          className,
+        )}
+        {...props}
+      />
+    );
+  }
 });
 
 type TabsTriggerProps = React.ComponentPropsWithoutRef<
