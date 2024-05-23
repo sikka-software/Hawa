@@ -1,5 +1,16 @@
 # @sikka/hawa
 
+## 0.37.0
+
+### Minor Changes
+
+- `Tabs`: add a new property `scrollable` to cancel wrapping and make it horizontally scrollable (and draggable!). And forces scrollabilities on screens smaller than 768px
+- Adds fade on right/left when the tabs are dragged/scrolled horizontally
+- `useShortcuts`: a new hook to handle shortcuts on windows and mac.
+- `ScrollArea` add ability to make it draggable on non-mobile
+- `FullCommand` a single component to construct a command using the `Command` pieces
+- `AppCommand` a `FullCommand` within a controllable `Dialog` which can be triggered with a shortcut using `useShortcuts`
+
 ## 0.36.2
 
 ### Patch Changes
