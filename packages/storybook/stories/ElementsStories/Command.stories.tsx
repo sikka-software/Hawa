@@ -55,17 +55,17 @@ export const Default: Story = {
             items: [
               {
                 icon: Calendar,
-                text: t("invoices"),
+                label: t("invoices"),
                 action: () => console.log(""),
               },
               {
                 icon: Smile,
-                text: t("clients"),
+                label: t("clients"),
                 action: () => console.log(""),
               },
               {
                 icon: Calculator,
-                text: t("products"),
+                label: t("products"),
                 action: () => console.log(""),
               },
             ],
@@ -76,17 +76,17 @@ export const Default: Story = {
             items: [
               {
                 icon: Plus,
-                text: t("new_invoice"),
+                label: t("new_invoice"),
                 action: () => console.log(""),
               },
               {
                 icon: Plus,
-                text: t("new_client"),
+                label: t("new_client"),
                 action: () => console.log(""),
               },
               {
                 icon: Plus,
-                text: t("new_product"),
+                label: t("new_product"),
                 action: () => console.log(""),
               },
             ],
@@ -98,19 +98,19 @@ export const Default: Story = {
             items: [
               {
                 icon: User,
-                text: t("account"),
+                label: t("account"),
                 shortcut: "⌘P",
                 action: () => console.log(""),
               },
               {
                 icon: CreditCard,
-                text: t("billing"),
+                label: t("billing"),
                 shortcut: "⌘B",
                 action: () => console.log(""),
               },
               {
                 icon: Settings,
-                text: t("settings"),
+                label: t("settings"),
                 shortcut: "⌘S",
                 action: () => console.log(""),
               },
@@ -135,6 +135,7 @@ export const AppCommand: Story = {
           test
         </div>
         <ACommand
+          onActionClick={() => setOpen(false)}
           dialogProps={{
             open,
             onOpenChange: setOpen,
@@ -152,63 +153,63 @@ export const AppCommand: Story = {
                 items: [
                   {
                     icon: Calendar,
-                    text: t("invoices"),
+                    label: t("invoices"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Smile,
-                    text: t("clients"),
+                    label: t("clients"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("products"),
+                    label: t("products"),
                     action: () => console.log(""),
                   },
 
                   {
                     icon: Calculator,
-                    text: t("products1"),
+                    label: t("products1"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product2s"),
+                    label: t("product2s"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product3s"),
+                    label: t("product3s"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product4s"),
+                    label: t("product4s"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product5s1"),
+                    label: t("product5s1"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product6s"),
+                    label: t("product6s"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("produc7ts"),
+                    label: t("produc7ts"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("produc8ts"),
+                    label: t("produc8ts"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Calculator,
-                    text: t("product9s"),
+                    label: t("product9s"),
                     action: () => console.log(""),
                   },
                 ],
@@ -219,17 +220,17 @@ export const AppCommand: Story = {
                 items: [
                   {
                     icon: Plus,
-                    text: t("new_invoice"),
+                    label: t("new_invoice"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Plus,
-                    text: t("new_client"),
+                    label: t("new_client"),
                     action: () => console.log(""),
                   },
                   {
                     icon: Plus,
-                    text: t("new_product"),
+                    label: t("new_product"),
                     action: () => console.log(""),
                   },
                 ],
@@ -241,19 +242,19 @@ export const AppCommand: Story = {
                 items: [
                   {
                     icon: User,
-                    text: t("account"),
+                    label: t("account"),
                     shortcut: "⌘P",
                     action: () => console.log(""),
                   },
                   {
                     icon: CreditCard,
-                    text: t("billing"),
+                    label: t("billing"),
                     shortcut: "⌘B",
                     action: () => console.log(""),
                   },
                   {
                     icon: Settings,
-                    text: t("settings"),
+                    label: t("settings"),
                     shortcut: "⌘S",
                     action: () => console.log(""),
                   },

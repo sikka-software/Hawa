@@ -180,7 +180,7 @@ export type FullCommandItem = {
   heading?: string;
   items?: {
     icon: React.ElementType;
-    text: string;
+    label: string | React.ReactNode;
     action: () => void;
     shortcut?: string;
   }[];
@@ -188,13 +188,19 @@ export type FullCommandItem = {
 type FullCommandProps = {
   items: FullCommandItem[];
   direction?: DirectionType;
+  onActionClick?: () => void;
   texts?: {
     searchPlaceholder?: string;
     emptyText?: string;
   };
 };
 
-const FullCommand = ({ items, direction = "ltr", texts }: FullCommandProps) => {
+const FullCommand = ({
+  items,
+  direction = "ltr",
+  texts,
+  onActionClick,
+}: FullCommandProps) => {
   return (
     <Command
       dir={direction}
@@ -210,9 +216,15 @@ const FullCommand = ({ items, direction = "ltr", texts }: FullCommandProps) => {
             return (
               <CommandGroup heading={item.heading} key={index}>
                 {item.items?.map((subItem, subIndex) => (
-                  <CommandItem key={subIndex} onSelect={subItem.action}>
+                  <CommandItem
+                    key={subIndex}
+                    onSelect={() => {
+                      if (onActionClick) onActionClick();
+                      subItem.action();
+                    }}
+                  >
                     <subItem.icon className="hawa-icon hawa-me-2" />
-                    <span>{subItem.text}</span>
+                    <span>{subItem.label}</span>
                     {subItem.shortcut && (
                       <CommandShortcut>{subItem.shortcut}</CommandShortcut>
                     )}
@@ -231,10 +243,15 @@ const FullCommand = ({ items, direction = "ltr", texts }: FullCommandProps) => {
 };
 
 type AppCommandProps = {
-  commandProps: FullCommandProps;
+  commandProps: Omit<FullCommandProps, "onActionClick">;
   dialogProps: DialogProps;
+  onActionClick?: () => void;
 };
-const AppCommand = ({ commandProps, dialogProps }: AppCommandProps) => {
+const AppCommand = ({
+  commandProps,
+  dialogProps,
+  onActionClick,
+}: AppCommandProps) => {
   return (
     <Dialog {...dialogProps}>
       <DialogContent
@@ -242,7 +259,7 @@ const AppCommand = ({ commandProps, dialogProps }: AppCommandProps) => {
         className="hawa-overflow-hidden !hawa-p-0 hawa-shadow-l "
         // !hawa-min-h-[50%]
       >
-        <FullCommand {...commandProps} />
+        <FullCommand {...commandProps} onActionClick={onActionClick} />
       </DialogContent>
     </Dialog>
   );

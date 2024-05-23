@@ -1,5 +1,14 @@
 # @sikka/hawa
 
+## 0.37.2
+
+### Patch Changes
+
+`AppCommand`:
+
+- change text prop to `label`
+- add callback to be triggerd with subitem.action is triggered
+
 ## 0.37.1
 
 ### Patch Changes
