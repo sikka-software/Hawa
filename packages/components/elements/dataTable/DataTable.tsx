@@ -14,12 +14,14 @@ import {
   useReactTable,
   RowData,
   ExpandedState,
+  FilterFn,
 } from "@tanstack/react-table";
 import { cn } from "@util/index";
 
 import { DirectionType } from "@_types/commonTypes";
 
 import { Button } from "../button";
+import { Chip } from "../chip";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -50,6 +52,7 @@ type DataTableProps<DataProps = {}> = {
   itemsPerPage?: any[];
   showCount?: boolean;
   paginationPosition?: "top" | "bottom";
+  filters?: any[];
   condensed?: boolean;
   isLoading?: boolean;
   defaultSort?: string;
@@ -74,6 +77,9 @@ declare module "@tanstack/table-core" {
     hidden?: boolean;
     i18nKey?: string;
   }
+  // interface FilterFns {
+  //   myCustomFilter: FilterFn<unknown>;
+  // }
 }
 
 const LOCAL_STORAGE_KEY = "@sikka/hawa/data-table-columns";
@@ -95,6 +101,8 @@ export const DataTable = <DataProps extends {}>({
     [],
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
+  const [chipFilters, setChipFilters] = React.useState<string[]>([]);
+
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
   const [columnVisibility, setColumnVisibility] =
@@ -119,6 +127,24 @@ export const DataTable = <DataProps extends {}>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    enableGlobalFilter: true,
+    globalFilterFn: (rows, filterValue) => {
+      return rows.filter((row) => {
+        return Object.values(row.values).some((value) => {
+          if (typeof value === "string") {
+            return value.toLowerCase().includes(filterValue.toLowerCase());
+          }
+          return false;
+        });
+      });
+    },
+    // filterFns: {
+    //   myCustomFilter: (rows, columnIds, filterValue) => {
+    //     // return the filtered rows
+    //     console.log("test", rows);
+    //     return false;
+    //   },
+    // },
     state: {
       sorting,
       columnFilters,
@@ -152,6 +178,16 @@ export const DataTable = <DataProps extends {}>({
       return newColumnVisibility;
     });
   }, [columns]);
+
+  const handleChipClick = (filter: string) => {
+    setChipFilters((prev) => {
+      if (prev.includes(filter)) {
+        return prev.filter((f) => f !== filter);
+      } else {
+        return [...prev, filter];
+      }
+    });
+  };
 
   return (
     <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4">
@@ -248,6 +284,18 @@ export const DataTable = <DataProps extends {}>({
               </DropdownMenuContent>
             </DropdownMenuRoot>
           )}
+        </div>
+      )}
+      {props.filters && (
+        <div className="hawa-flex hawa-flex-row hawa-gap-2">
+          {props.filters.map((f) => (
+            <Chip
+              label={f}
+              onClick={() => handleChipClick(f)}
+              key={f}
+              // selected={chipFilters.includes(f)}
+            />
+          ))}
         </div>
       )}
       {props.isLoading ? (

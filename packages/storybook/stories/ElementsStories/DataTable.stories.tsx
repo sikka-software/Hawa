@@ -60,6 +60,7 @@ const Template = (args: any, globals: any) => {
     {
       accessorKey: "website",
       meta: { sortable: true },
+      filterFn: "myCustomFilter",
       header: ({ column }) => (
         <SortButton
           condensed
