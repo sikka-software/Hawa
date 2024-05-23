@@ -133,6 +133,14 @@ export const Select: FC<SelectTypes> = ({
     );
   };
 
+  let phoneCodeStyles =
+    "hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px]";
+  let selectContainerStyles =
+    "hawa-rounded hawa-block hawa-w-full hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm";
+  let selectPlaceholderStyles =
+    "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1";
+  let selectIndicatorContainerStyles =
+    "hawa-cursor-pointer hawa-text-muted-foreground hawa-absolute hawa-end-0 hawa-top-[50%] hawa-bottom-[50%] ";
   return (
     <div
       className={cn(
@@ -155,37 +163,27 @@ export const Select: FC<SelectTypes> = ({
               ),
             container: () =>
               cn(
-                "hawa-rounded ",
-                props.phoneCode &&
-                  "hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px] ",
-
-                "hawa-block hawa-w-full hawa-rounded hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm",
+                selectContainerStyles,
+                props.phoneCode && phoneCodeStyles,
                 props.disabled
                   ? "hawa-cursor-not-allowed"
                   : "hawa-cursor-pointer",
-
                 props.isMulti && "hawa-ps-0 ",
               ),
-
-            placeholder: () =>
-              "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1",
+            placeholder: () => selectPlaceholderStyles,
             valueContainer: () => "hawa-text-foreground hawa-px-1 ",
             singleValue: () => "hawa-text-foreground",
             indicatorsContainer: () =>
               cn(
-                "hawa-cursor-pointer hawa-text-muted-foreground hawa-absolute hawa-end-0 hawa-top-[50%] hawa-bottom-[50%] ",
+                selectIndicatorContainerStyles,
                 props.hideIndicator ? "hawa-invisible" : "hawa-px-1",
               ),
           }}
           unstyled
-          // autoFocus
+          autoFocus={false}
           components={
             props.hideIndicator
-              ? {
-                  Option,
-                  Menu,
-                  IndicatorsContainer: () => null,
-                }
+              ? { Option, Menu, IndicatorsContainer: () => null }
               : {
                   Option,
                   Menu,
@@ -207,10 +205,7 @@ export const Select: FC<SelectTypes> = ({
                   ),
                   MultiValueContainer: (e) => (
                     <div
-                      className={cn(
-                        // e.className,
-                        "hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-flex hawa-flex-row",
-                      )}
+                      className="hawa-rounded hawa-border hawa-p-1 hawa-px-2 hawa-flex hawa-flex-row"
                       {...e}
                     />
                   ),
