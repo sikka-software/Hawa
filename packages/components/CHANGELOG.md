@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.37.1
+
+### Patch Changes
+
+- Fix wrong height in `AppCommand`
+- Add `actions` in `CardHeader`
+
 ## 0.37.0
 
 ### Minor Changes

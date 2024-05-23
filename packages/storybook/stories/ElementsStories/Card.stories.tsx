@@ -6,12 +6,12 @@ import {
   CardTitle,
   CardDescription,
   CardFooter,
-  CardContent
+  CardContent,
 } from "@sikka/hawa/elements/card";
 
 const meta = {
   title: "Elements/Card",
-  component: Card
+  component: Card,
 } satisfies Meta<typeof Card>;
 
 export default meta;
@@ -21,7 +21,9 @@ export const Default: Story = {
   render: (args: any) => (
     <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
       <Card {...args}>
-        <CardHeader>
+        <CardHeader
+        // actions={<div>Header Actions</div>}
+        >
           Header
           <CardTitle>Title here</CardTitle>
           <CardDescription>Description here</CardDescription>
@@ -30,7 +32,7 @@ export const Default: Story = {
         <CardFooter>Footer here</CardFooter>
       </Card>
     </div>
-  )
+  ),
 };
 
 export const Variants: Story = {
@@ -55,5 +57,5 @@ export const Variants: Story = {
         <CardFooter>Footer here</CardFooter>
       </Card>
     </div>
-  )
+  ),
 };

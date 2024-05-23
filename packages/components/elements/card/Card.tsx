@@ -46,19 +46,25 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     );
   },
 );
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-p-6",
-      className,
-    )}
-    {...props}
-  />
-));
+
+type CardHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
+  actions?: React.ReactNode;
+};
+const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
+  ({ className, ...props }, ref) => (
+    <div className="hawa-flex hawa-flex-row hawa-justify-between">
+      <div
+        ref={ref}
+        className={cn(
+          "hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-p-6",
+          className,
+        )}
+        {...props}
+      />
+      {props.actions && <div className="hawa-p-6">{props.actions}</div>}
+    </div>
+  ),
+);
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
