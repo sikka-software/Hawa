@@ -19,7 +19,7 @@ type ColorPickerTypes = {
   id?: string;
   isLoading?: boolean;
   labelProps?: LabelProps;
-  helperText?: string;
+  helperText?: any;
   forceHideHelperText?: boolean;
   /** Boolean to enable/disable editing the input field and using it as a text field   */
   preview?: boolean;

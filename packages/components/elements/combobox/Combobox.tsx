@@ -30,7 +30,7 @@ type ComboboxTypes<T> = {
     searchPlaceholder?: string;
   };
   isLoading?: boolean;
-  helperText?: string;
+  helperText?: any;
   popoverClassName?: string;
   /** This the same value as the one with the key valueKey */
   defaultValue?: string;

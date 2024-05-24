@@ -2,7 +2,7 @@ import React from "react";
 
 import { cn } from "@util/index";
 
-export const HelperText = ({ helperText }: { helperText?: string }) => (
+export const HelperText = ({ helperText }: { helperText?: any }) => (
   <p
     className={cn(
       "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",

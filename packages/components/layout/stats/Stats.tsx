@@ -9,7 +9,7 @@ interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
   color?: string;
   number?: string;
-  helperText?: string;
+  helperText?: any;
   helperTextColor?: "default" | "positive" | "negative" | "muted";
   chart?: any;
   icon?: React.ReactNode;

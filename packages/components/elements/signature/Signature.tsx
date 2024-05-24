@@ -12,7 +12,7 @@ export interface SignatureCanvasProps extends SignaturePadOptions {
   canvasProps?: React.CanvasHTMLAttributes<HTMLCanvasElement>;
   clearOnResize?: boolean;
   onGetImage?: any;
-  helperText?: React.ReactNode;
+  helperText?: any;
   texts?: { clear?: string };
   labelProps?: LabelProps;
   label?: any;
@@ -116,23 +116,23 @@ export const Signature: FC<SignatureCanvasProps> = ({
         {...canvasProps}
         className={cn(
           "hawa-rounded hawa-border hawa-bg-[hsl(var(--constant-background))]",
-          canvasProps?.className
+          canvasProps?.className,
         )}
       />
 
       <div className="hawa-flex hawa-flex-row hawa-justify-between">
         {/* Regular helper text */}
         {/* {helperText && ( */}
-          <p
-            className={cn(
-              "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-              helperText
-                ? "hawa-h-4 hawa-opacity-100"
-                : "hawa-h-0 hawa-opacity-0"
-            )}
-          >
-            {helperText}
-          </p>
+        <p
+          className={cn(
+            "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
+            helperText
+              ? "hawa-h-4 hawa-opacity-100"
+              : "hawa-h-0 hawa-opacity-0",
+          )}
+        >
+          {helperText}
+        </p>
         {/* )} */}
         <div className="clickable-link hawa-w-fit" onClick={() => clear()}>
           {texts?.clear || "Clear"}

@@ -10,7 +10,7 @@ type CheckBoxTypes = {
   id: string;
   label?: React.ReactNode;
   sublabel?: React.ReactNode;
-  helperText?: string;
+  helperText?: any;
   size?: "xs" | "sm" | "default" | "md" | "lg" | "xl";
   radius?: RadiusType;
 };

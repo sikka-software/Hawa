@@ -32,7 +32,7 @@ type RadioTypes = {
   defaultValue?: any;
   value?: any;
   direction?: DirectionType;
-  helperText?: string;
+  helperText?: any;
   labelProps?: LabelProps;
   label?: string;
   tabsContainerClassName?: string;

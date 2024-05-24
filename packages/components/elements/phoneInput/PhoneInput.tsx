@@ -9,7 +9,7 @@ import { Select } from "../select/Select";
 
 export type PhoneInputProps = {
   preferredCountry?: { label: string };
-  helperText?: string;
+  helperText?: any;
   label?: string;
   labelProps?: LabelProps;
   placeholder?: string;

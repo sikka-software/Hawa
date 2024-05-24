@@ -23,12 +23,14 @@
     "build:docs": "pnpm --filter hawa-docs build",
     "build:storybook": "pnpm --filter hawa-storybook build-storybook",
     "build:docs+lib": "pnpm build:lib && pnpm build:docs",
-    "build:all": "pnpm run build:lib && pnpm run build:storybook && pnpm run build:docs"
+    "build:all": "pnpm run build:lib && pnpm run build:storybook && pnpm run build:docs",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.12.12",
     "concurrently": "^8.2.2",
+    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "typescript": "^5.4.5"

@@ -79,7 +79,7 @@ type PinInputProps = Omit<OTPInputProps, "render"> & {
    * @default 3
    */
   separatorPosition?: number;
-  helperText?: string;
+  helperText?: any;
 };
 
 const PinInput: React.FC<PinInputProps> = ({

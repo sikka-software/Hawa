@@ -54,7 +54,7 @@ type SelectTypes = {
   controlClassNames?: string;
   containerClassNames?: string;
   onChange: any;
-  helperText?: string;
+  helperText?: any;
   onInputChange?: any;
   native?: any;
   width?: "full" | "small" | "fit";

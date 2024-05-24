@@ -9,7 +9,7 @@ import { Label, LabelProps } from "../label";
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  helperText?: string;
+  helperText?: any;
   isLoading?: boolean;
   /** The label of the input field   */
   label?: any;
