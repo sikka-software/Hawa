@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get the last commit message
+last_commit_message=$(git log -1 --pretty=%B)
+
+# Check if the commit message contains #skip_publish
+if echo "$last_commit_message" | grep -q "#skip_publish"; then
+    echo "Skipping version check due to #skip_publish in the commit message."
+    exit 0
+else
+    node .husky/scripts/check-version.js
+fi
