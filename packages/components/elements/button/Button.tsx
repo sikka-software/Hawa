@@ -53,6 +53,10 @@ export interface ButtonProps
   /** The small red text under the input field to show validation.   */
   helperText?: any;
   showHelperText?: boolean;
+  /**
+   * If true, the button will include a label and helper text. This is useful for forms where the button is part of the form.
+   */
+  inForm?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -68,6 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       labelProps,
       showHelperText = false,
+      inForm = false,
       ...props
     },
     ref,
@@ -80,9 +85,38 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ? "hawa-bg-primary"
         : "hawa-bg-primary-foreground";
 
-    return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-2">
-        {label && <Label {...labelProps}>{label}</Label>}
+    if (inForm) {
+      return (
+        <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          {label && <Label {...labelProps}>{label}</Label>}
+          <Comp
+            className={cn(
+              buttonVariants({ variant, size, className }),
+              centered && "hawa-justify-center",
+            )}
+            ref={ref}
+            {...props}
+          >
+            {isLoading ? (
+              <Loading
+                design={
+                  size === "icon" || size === "smallIcon"
+                    ? "spinner"
+                    : "dots-pulse"
+                }
+                themeMode={variant === "outline" ? "light" : "dark"}
+                color={loadingColor}
+                size={size === "sm" || size === "xs" ? "xs" : "button"}
+              />
+            ) : (
+              children
+            )}
+          </Comp>
+          {showHelperText && <HelperText helperText={props.helperText} />}
+        </div>
+      );
+    } else {
+      return (
         <Comp
           className={cn(
             buttonVariants({ variant, size, className }),
@@ -106,9 +140,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             children
           )}
         </Comp>
-        {showHelperText && <HelperText helperText={props.helperText} />}
-      </div>
-    );
+      );
+    }
   },
 );
 

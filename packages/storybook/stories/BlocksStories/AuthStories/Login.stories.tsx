@@ -224,3 +224,83 @@ export const MagicLink: Story = {
     onForgotPassword: { action: "onForgotPassword" },
   },
 };
+export const Advanced: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+
+    setLocale(locale);
+    const [isError, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [loginType, setLoginType] = useState<"email" | "phone" | "link">(
+      "email",
+    );
+    let d = useDarkMode();
+    return (
+      <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
+        <LoginForm
+          direction={direction}
+          loginType={loginType}
+          currentColorMode={d ? "dark" : "light"}
+          currentLanguage={globals.globals.locale}
+          showError={isError}
+          allowRegister={true}
+          texts={{
+            emailLabel: t("emailLabel"),
+            emailPlaceholder: t("emailPlaceholder"),
+            emailRequiredText: t("emailRequiredText"),
+            emailInvalidText: t("emailInvalidText"),
+            usernameLabel: t("usernameLabel"),
+            usernamePlaceholder: t("usernamePlaceholder"),
+            usernameRequired: t("usernameRequired"),
+            usernameInvalid: t("usernameInvalid"),
+            phoneRequiredText: t("phoneRequiredText"),
+            passwordLabel: t("passwordLabel"),
+            passwordPlaceholder: t("passwordPlaceholder"),
+            passwordRequiredText: t("passwordRequiredText"),
+            passwordTooShort: t("passwordTooShort"),
+            forgotPasswordText: t("forgotPasswordText"),
+            newUserText: t("newUserText"),
+            createAccount: t("createAccount"),
+            loginText:
+              loginType === "link" ? t("send-email-to-login") : t("continue"),
+            loginViaGoogleLabel: t("loginViaGoogleLabel"),
+            loginViaGithubLabel: t("loginViaGithubLabel"),
+            loginViaTwitterLabel: t("loginViaTwitterLabel"),
+          }}
+          additionalButtons={
+            <div className="hawa-gap-2 hawa-flex hawa-w-full ">
+              <Button
+                type="button"
+                variant="outline"
+                className="hawa-w-full"
+                onClick={() =>
+                  setLoginType(loginType === "link" ? "email" : "link")
+                }
+              >
+                {loginType === "link" ? t("use_password") : t("use_login_link")}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="hawa-w-full"
+                onClick={() =>
+                  setLoginType(loginType === "link" ? "email" : "link")
+                }
+              >
+                {loginType === "link" ? t("use_password") : t("use_login_link")}
+              </Button>
+            </div>
+          }
+          {...args}
+        />
+      </div>
+    );
+  },
+
+  argTypes: {
+    onLogin: { action: "onLogin" },
+    onRouteToRegister: { action: "onRouteToRegister" },
+    onForgotPassword: { action: "onForgotPassword" },
+  },
+};

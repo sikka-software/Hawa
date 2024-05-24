@@ -28,6 +28,7 @@ export const DatePickerButton: FC<DatePickerButtonProps> = ({
 }) => {
   return (
     <Button
+      inForm
       label={label}
       labelProps={props.labelProps}
       helperText={props.helperText}

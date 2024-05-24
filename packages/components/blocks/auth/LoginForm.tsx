@@ -397,7 +397,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             >
               {texts?.loginText || "Login"}
             </Button>
-            {props.additionalButtons}
+            {props.additionalButtons && props.additionalButtons}
             {props.allowRegister && (
               <div className="hawa-select-none hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
                 {texts?.newUserText || "New user?"}{" "}

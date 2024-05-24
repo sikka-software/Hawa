@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.1
+
+### Patch Changes
+
+- `Button`: add `inForm` prop to include a label above the button and a helper text under it.
+
 ## 0.38.0
 
 ### Minor Changes
