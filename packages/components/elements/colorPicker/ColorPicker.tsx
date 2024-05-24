@@ -11,6 +11,7 @@ import { calculateLuminance, cn, getTextColor } from "@util/index";
 
 import { Skeleton } from "@elements/skeleton";
 
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label";
 
 type ColorPickerTypes = {
@@ -127,18 +128,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
         </div>
       )}
 
-      {!forceHideHelperText && (
-        <p
-          className={cn(
-            "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-            props.helperText
-              ? "hawa-h-4 hawa-opacity-100"
-              : "hawa-h-0 hawa-opacity-0",
-          )}
-        >
-          {props.helperText}
-        </p>
-      )}
+      {!forceHideHelperText && <HelperText helperText={props.helperText} />}
     </div>
   );
 };

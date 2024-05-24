@@ -14,6 +14,7 @@ import {
   CommandItem,
   CommandList,
 } from "../command";
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label";
 import { PopoverContent, PopoverTrigger } from "../popover";
 import { Skeleton } from "../skeleton";
@@ -150,16 +151,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </button>
-                <p
-                  className={cn(
-                    "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                    props.helperText
-                      ? "hawa-h-4 hawa-opacity-100"
-                      : "hawa-h-0 hawa-opacity-0",
-                  )}
-                >
-                  {props.helperText}
-                </p>
+                <HelperText helperText={props.helperText} />
               </div>
             )}
           </PopoverTrigger>

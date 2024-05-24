@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 
 import { cn } from "@util/index";
 
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { Skeleton } from "../skeleton/Skeleton";
 
@@ -208,16 +209,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
 
                 {/* Regular helper text */}
                 {!forceHideHelperText && (
-                  <p
-                    className={cn(
-                      "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                      props.helperText
-                        ? "hawa-h-4 hawa-opacity-100"
-                        : "hawa-h-0 hawa-opacity-0",
-                    )}
-                  >
-                    {props.helperText}
-                  </p>
+                  <HelperText helperText={props.helperText} />
                 )}
                 {/* Popover helper text */}
                 {!props.disabled && forceHideHelperText && (

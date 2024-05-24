@@ -3,12 +3,13 @@ import React, { useState, FC, useRef, useEffect, ChangeEvent } from "react";
 import { cn } from "@util/index";
 
 import Countries from "../../countries";
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { Select } from "../select/Select";
 
 export type PhoneInputProps = {
   preferredCountry?: { label: string };
-  helperText?: any;
+  helperText?: string;
   label?: string;
   labelProps?: LabelProps;
   placeholder?: string;
@@ -78,16 +79,7 @@ export const PhoneInput: FC<PhoneInputProps> = ({
         </div>
       </div>
 
-      <p
-        className={cn(
-          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-          props.helperText
-            ? "hawa-h-4 hawa-opacity-100"
-            : "hawa-h-0 hawa-opacity-0",
-        )}
-      >
-        {props.helperText}
-      </p>
+      <HelperText helperText={props.helperText} />
     </div>
   );
 };

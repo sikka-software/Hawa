@@ -84,13 +84,13 @@ const ScrollArea = React.forwardRef<
     >
       <div
         className={cn(
-          "hawa-pointer-events-none hawa-absolute hawa-bg-background/  hawa-h-full hawa-w-[50px] hawa-z-10 hawa-start-0  hawa-mask-fade-right",
+          "hawa-pointer-events-none hawa-absolute hawa-bg-background  hawa-h-full hawa-w-[50px] hawa-z-10 hawa-start-0  hawa-mask-fade-right",
           showLeftFade ? "hawa-block" : "hawa-hidden",
         )}
       />
       <div
         className={cn(
-          "hawa-pointer-events-none hawa-absolute hawa-bg-background/ hawa-mask-fade-left hawa-end-0 hawa-h-full hawa-w-[50px] hawa-z-10 ",
+          "hawa-pointer-events-none hawa-absolute hawa-bg-background hawa-mask-fade-left hawa-end-0 hawa-h-full hawa-w-[50px] hawa-z-10 ",
           showRightFade ? "hawa-block" : "hawa-hidden",
         )}
       />

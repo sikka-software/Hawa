@@ -29,13 +29,17 @@ type TConfirmation = {
   confirmLoading?: boolean;
   handleConfirm?: any;
   handleResend?: any;
+  codeLength?: number;
 };
 
-export const CodeConfirmation: FC<TConfirmation> = (props) => {
+export const CodeConfirmation: FC<TConfirmation> = ({
+  codeLength = 6,
+  ...props
+}) => {
   const formSchema = z.object({
     otp_code: z
       .string({ required_error: props.texts?.codeRequiredText })
-      .min(6, { message: props.texts?.codeTooShort }),
+      .min(codeLength, { message: props.texts?.codeTooShort }),
   });
 
   const { handleSubmit, control, formState, setValue } = useForm({
@@ -111,10 +115,9 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
             name="otp_code"
             render={({ field }) => (
               <PinInput
-                width="full"
-                digits={6}
-                getPins={(e: any) => setValue("otp_code", e.join(""))}
-                helperText={formState.errors.otp_code?.message}
+                maxLength={codeLength}
+                helperText={formState.errors.otp_code?.message as string}
+                {...field}
               />
             )}
           />
@@ -139,9 +142,7 @@ export const CodeConfirmation: FC<TConfirmation> = (props) => {
           )}
 
           <div className="hawa-mt-4 hawa-grid hawa-grid-cols-2 hawa-gap-2">
-            <Button variant="outline">
-              {props.texts?.cancel || "Cancel"}
-            </Button>
+            <Button variant="outline">{props.texts?.cancel || "Cancel"}</Button>
             <Button isLoading={props.confirmLoading}>
               {props.texts?.confirm || "Confirm"}
             </Button>

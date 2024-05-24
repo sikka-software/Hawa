@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.38.0
+
+### Minor Changes
+
+- `PinInput` revamped entierly to use `input-otp` package
+- `CodeConfirmation` ability to control the code length
+- Use `HelperText` component in all places it should be used
+
 ## 0.37.2
 
 ### Patch Changes

@@ -1,106 +1,132 @@
-import React, { useEffect, useState, FC } from "react";
+import * as React from "react";
 
 import { cn } from "@util/index";
+import { OTPInput, OTPInputContext, OTPInputProps } from "input-otp";
+import { Dot } from "lucide-react";
 
-type PinInputTypes = {
-  /** Label text to display for the Pin Input */
-  label?: string;
-  /** Icon element to be displayed next to the Pin Input */
-  icon?: JSX.Element;
-  /** Number of digits in the Pin Input */
-  digits: number;
-  /** Width of the Pin Input - either 'normal' or 'full' */
-  width?: "normal" | "full";
-  /** Function to get the value of pins */
-  getPins?: (pins: string[]) => void;
-  /** The small red text under the input field to show validation or a hint.   */
-  helperText?: any;
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+import { HelperText } from "../helperText";
+
+const PinInputRoot = React.forwardRef<
+  React.ElementRef<typeof OTPInput>,
+  React.ComponentPropsWithoutRef<typeof OTPInput>
+>(({ className, containerClassName, ...props }, ref) => (
+  <OTPInput
+    ref={ref}
+    containerClassName={cn(
+      "hawa-flex hawa-items-center hawa-gap-2 has-[:disabled]:hawa-opacity-50",
+      containerClassName,
+    )}
+    className={cn("disabled:hawa-cursor-not-allowed", className)}
+    {...props}
+  />
+));
+PinInputRoot.displayName = "PinInputRoot";
+
+const PinInputGroup = React.forwardRef<
+  React.ElementRef<"div">,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("hawa-flex hawa-items-center", className)}
+    {...props}
+  />
+));
+PinInputGroup.displayName = "PinInputGroup";
+
+const PinInputSlot = React.forwardRef<
+  React.ElementRef<"div">,
+  React.ComponentPropsWithoutRef<"div"> & { index: number }
+>(({ index, className, ...props }, ref) => {
+  const pinInputContext = React.useContext(OTPInputContext);
+  const { char, hasFakeCaret, isActive } = pinInputContext.slots[index];
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "hawa-border-input hawa-relative hawa-flex hawa-h-10 hawa-w-10 hawa-items-center hawa-justify-center hawa-border-y hawa-border-r hawa-text-sm hawa-transition-all first:hawa-rounded-l-md first:hawa-border-l last:hawa-rounded-r-md",
+        isActive &&
+          "hawa-ring-ring hawa-ring-offset-background hawa-z-10 hawa-ring-2",
+        className,
+      )}
+      {...props}
+    >
+      {char}
+      {hasFakeCaret && (
+        <div className="hawa-pointer-events-none hawa-absolute hawa-inset-0 hawa-flex hawa-items-center hawa-justify-center">
+          <div className="hawa-animate-caret-blink hawa-bg-foreground hawa-h-4 hawa-w-px hawa-duration-1000" />
+        </div>
+      )}
+    </div>
+  );
+});
+PinInputSlot.displayName = "PinInputSlot";
+
+const PinInputSeperator = React.forwardRef<
+  React.ElementRef<"div">,
+  React.ComponentPropsWithoutRef<"div">
+>(({ ...props }, ref) => (
+  <div ref={ref} role="separator" {...props}>
+    <Dot />
+  </div>
+));
+PinInputSeperator.displayName = "PinInputSeperator";
+
+type PinInputProps = Omit<OTPInputProps, "render"> & {
+  /*
+   * The position of the separator in the pin input
+   * @default 3
+   */
+  separatorPosition?: number;
+  helperText?: string;
 };
 
-export const PinInput: FC<PinInputTypes> = ({
-  label,
-  icon,
-  digits,
-  width = "normal",
-  getPins,
-  inputProps,
+const PinInput: React.FC<PinInputProps> = ({
+  separatorPosition = 0,
   ...props
 }) => {
-  const [pin, setPin] = useState(Array.from(Array(digits)));
+  const maxLength = props.maxLength || 6; // Assuming a default maxLength of 6 if not provided
+  const clampedSeparatorPosition = Math.min(separatorPosition, maxLength);
 
-  const handleKeyDown = (e: any, index: any) => {
-    let backTo = 0;
-    if (e.key === "Backspace") {
-      e.target.value.length === 0 ? (backTo = index - 1) : (backTo = index);
-      const previousInput = document.getElementById(`input-${backTo}`);
-      previousInput?.focus();
-    }
-  };
-  useEffect(() => {
-    let unfilled = pin.includes(undefined);
-    if (!unfilled && getPins) {
-      getPins(pin);
-    }
-  });
-  const handleChange = (e: any, index: any) => {
-    if (!/^\d*$/.test(e.target.value)) {
-      const newPin = [...pin];
-      newPin[index] = "";
-      setPin(newPin);
-      return;
-    } else {
-      const newPin = [...pin];
-      newPin[index] = e.target.value;
-      setPin(newPin);
-
-      if (e.target.value.length === 1) {
-        const nextInput = document.getElementById(`input-${index + 1}`);
-        nextInput?.focus();
-      } else if (e.target.value.length === 0) {
-        const previousInput = document.getElementById(`input-${index - 1}`);
-        previousInput?.focus();
-      }
-    }
-  };
+  const firstGroupLength =
+    clampedSeparatorPosition > 0 ? clampedSeparatorPosition : 0;
+  const secondGroupLength = maxLength - firstGroupLength;
 
   return (
     <div className="hawa-flex hawa-flex-col hawa-gap-2">
-      <div
-        className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-center hawa-gap-2"
-        dir="ltr"
-      >
-        {pin.map((value, index) => (
-          <input
-            key={index}
-            type="text"
-            maxLength={1}
-            value={value}
-            inputMode="numeric"
-            id={`input-${index}`}
-            pattern="[0-9]*"
-            className={cn(
-              "hawa-h-10 hawa-rounded hawa-border hawa-bg-background hawa-text-center placeholder:hawa-text-muted-foreground",
-              width === "full" ? "hawa-w-full" : "hawa-w-10"
-            )}
-            onChange={(e) => handleChange(e, index)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            onFocus={(e) => e.target.select()}
-            {...inputProps}
-          />
-        ))}
-      </div>
-
-      <p
-        className={cn(
-          "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-          props.helperText
-            ? "hawa-h-4 hawa-opacity-100"
-            : "hawa-h-0 hawa-opacity-0"
+      <PinInputRoot {...props}>
+        {firstGroupLength > 0 && (
+          <PinInputGroup className="hawa-w-full">
+            {[...Array(firstGroupLength)].map((_, index) => (
+              <PinInputSlot key={index} index={index} className="hawa-w-full" />
+            ))}
+          </PinInputGroup>
         )}
-      >
-        {props.helperText}
-      </p>
+        {separatorPosition > 0 && separatorPosition < props.maxLength && (
+          <PinInputSeperator />
+        )}
+        {secondGroupLength > 0 && (
+          <PinInputGroup className="hawa-w-full">
+            {[...Array(secondGroupLength)].map((_, index) => (
+              <PinInputSlot
+                key={index + firstGroupLength}
+                index={index + firstGroupLength}
+                className="hawa-w-full"
+              />
+            ))}
+          </PinInputGroup>
+        )}
+      </PinInputRoot>
+      <HelperText helperText={props.helperText} />
     </div>
   );
+};
+
+export {
+  PinInput,
+  PinInputRoot,
+  PinInputGroup,
+  PinInputSlot,
+  PinInputSeperator,
 };

@@ -4,6 +4,7 @@ import { PopoverContentProps } from "@radix-ui/react-popover";
 import { cn } from "@util/index";
 
 import { DirectionType, OrientationType } from "../../types/commonTypes";
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { PopoverContent, PopoverRoot, PopoverTrigger } from "../popover";
 import { Tooltip } from "../tooltip";
@@ -189,16 +190,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
               })}
             </ul>
             {!forceHideHelperText && (
-              <p
-                className={cn(
-                  "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                  props.helperText
-                    ? "hawa-h-4 hawa-opacity-100"
-                    : "hawa-h-0 hawa-opacity-0",
-                )}
-              >
-                {props.helperText}
-              </p>
+              <HelperText helperText={props.helperText} />
             )}
           </div>
         );
@@ -315,16 +307,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                   </div>
                 ))}
             </div>
-            <p
-              className={cn(
-                "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-                props.helperText
-                  ? "hawa-h-4 hawa-opacity-100"
-                  : "hawa-h-0 hawa-opacity-0",
-              )}
-            >
-              {props.helperText}
-            </p>
+            <HelperText helperText={props.helperText} />
           </div>
         );
     }

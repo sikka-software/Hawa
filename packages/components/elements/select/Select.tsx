@@ -5,6 +5,7 @@ import CreatableSelect from "react-select/creatable";
 import { cn } from "@util/index";
 import clsx from "clsx";
 
+import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label";
 import { Skeleton } from "../skeleton";
 
@@ -256,18 +257,7 @@ export const Select: FC<SelectTypes> = ({
           }
         />
       )}
-      {!props.hideHelperText && (
-        <p
-          className={cn(
-            "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-            props.helperText
-              ? "hawa-h-4 hawa-opacity-100"
-              : "hawa-h-0 hawa-opacity-0",
-          )}
-        >
-          {props.helperText}
-        </p>
-      )}
+      {!props.hideHelperText && <HelperText helperText={props.helperText} />}
     </div>
   );
 };
