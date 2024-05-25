@@ -6,12 +6,9 @@ import { cn } from "@util/index";
 
 import { DirectionType, RadioOptionType } from "../../types/commonTypes";
 
-// New import
-
 const DropdownMenuRoot = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
@@ -97,7 +94,7 @@ const DropdownMenuItem = React.forwardRef<
     slug?: string;
     LinkComponent?: any;
   }
->(({ className, inset, badged, slug, LinkComponent, ...props }, ref) => {
+>(({ className, inset, badged, slug, LinkComponent = "a", ...props }, ref) => {
   return (
     <LinkComponent href={slug}>
       <DropdownMenuPrimitive.Item
@@ -578,6 +575,7 @@ const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
   );
 };
 
+const DropdownMenuPortal = Portal;
 export {
   DropdownMenu,
   DropdownMenuRoot,
