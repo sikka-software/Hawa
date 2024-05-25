@@ -11,6 +11,9 @@ const config: Config = {
   ],
   prefix: "hawa-",
   darkMode: ["class"],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     container: {
       center: true,
@@ -21,7 +24,7 @@ const config: Config = {
       arrows: {
         default: {
           borderColor: "hsl(var(--border))",
-          backgroundColor:  "hsl(var(--popover))",
+          backgroundColor: "hsl(var(--popover))",
           size: 10,
           offset: 10,
           borderWidth: 1,
