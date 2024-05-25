@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.6
+
+### Patch Changes
+
+- Ability to stylize `DialogOverlay` and the Dialog close button using `classNames` object
+
 ## 0.38.5
 
 ### Patch Changes
