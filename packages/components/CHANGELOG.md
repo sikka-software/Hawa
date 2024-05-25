@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.7
+
+### Patch Changes
+
+- Add ability to pass custom id's to Dialog components
+
 ## 0.38.6
 
 ### Patch Changes

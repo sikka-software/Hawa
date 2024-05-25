@@ -36,14 +36,27 @@ const DialogContent = React.forwardRef<
       overlay?: string;
       closeButton?: string;
     };
+    ids?: {
+      overlay?: string;
+      closeButton?: string;
+      closeIcon?: string;
+    };
   }
 >(
   (
-    { className, classNames, children, persist, hideCloseButton, ...props },
+    {
+      ids,
+      className,
+      classNames,
+      children,
+      persist,
+      hideCloseButton,
+      ...props
+    },
     ref,
   ) => (
     <DialogPortal container={props.container}>
-      <DialogOverlay className={classNames?.overlay} />
+      <DialogOverlay className={classNames?.overlay} id={ids?.overlay} />
       <DialogPrimitive.Content
         onPointerDownOutside={(e) => {
           if (persist) {
@@ -65,8 +78,10 @@ const DialogContent = React.forwardRef<
               props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4",
               classNames?.closeButton,
             )}
+            id={ids?.closeButton}
           >
             <svg
+              id={ids?.closeIcon}
               aria-label="Close Icon"
               aria-hidden="true"
               className="hawa-h-5 hawa-w-5"
