@@ -297,6 +297,7 @@ interface DropdownMenuProps {
     trigger?: string;
     content?: string;
     item?: string;
+    separator?: string;
   };
   className?: ExtendedDropdownMenuContentProps["className"];
   triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
@@ -382,7 +383,12 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             items.map((item, index) => {
               const ItemLinkComponent = item.slug ? LinkComponent : "a";
               if (item.itemType === "separator") {
-                return <DropdownMenuSeparator key={index} />;
+                return (
+                  <DropdownMenuSeparator
+                    key={index}
+                    className={classNames?.separator}
+                  />
+                );
               } else if (item.itemType === "label") {
                 return (
                   <DropdownMenuLabel key={index}>

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.5
+
+### Patch Changes
+
+- Ability to stylize `DropdownMenuSeparator`
+
 ## 0.38.1
 
 ### Patch Changes
