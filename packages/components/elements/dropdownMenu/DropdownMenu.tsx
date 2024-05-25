@@ -575,7 +575,6 @@ const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
   );
 };
 
-const DropdownMenuPortal = Portal;
 export {
   DropdownMenu,
   DropdownMenuRoot,
@@ -589,9 +588,9 @@ export {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuGroup,
-  DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
+  Portal as DropdownMenuPortal,
 };
