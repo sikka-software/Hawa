@@ -296,6 +296,11 @@ interface DropdownMenuProps {
   trigger?: any;
   items: MenuItemType[];
   direction?: DirectionType;
+  classNames?: {
+    trigger?: string;
+    content?: string;
+    item?: string;
+  };
   className?: ExtendedDropdownMenuContentProps["className"];
   triggerClassname?: ExtendedDropdownMenuTriggerProps["className"];
   triggerProps?: DropdownMenuPrimitive.DropdownMenuTriggerProps;
@@ -318,6 +323,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   sideOffset,
   side,
   className,
+  classNames,
   triggerClassname,
   triggerProps,
   align,
@@ -353,7 +359,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     >
       <DropdownMenuTrigger
         asChild
-        className={triggerClassname}
+        className={cn(classNames?.trigger, triggerClassname)}
         {...triggerProps}
       >
         {trigger}
@@ -366,6 +372,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           alignOffset={alignOffset}
           className={cn(
             className,
+            classNames?.content,
             widthStyles[width],
             "hawa-flex hawa-flex-col hawa-gap-1 hawa-overflow-y-auto",
           )}
@@ -520,6 +527,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         ? "hawa-px-0 hawa-py-0 focus:hawa-bg-transparent "
                         : "focus:hawa-bg-accent ",
                       item.presist && "focus:hawa-bg-transparent",
+                      classNames?.item,
                     )}
                   >
                     {item.icon && item.icon}
