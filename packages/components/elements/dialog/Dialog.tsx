@@ -31,6 +31,7 @@ const DialogContent = React.forwardRef<
     persist?: boolean;
     hideCloseButton?: boolean;
     container?: HTMLElement;
+    overlayProps?: React.ComponentPropsWithoutRef<typeof DialogOverlay>;
     classNames?: {
       content?: string;
       overlay?: string;
@@ -51,12 +52,17 @@ const DialogContent = React.forwardRef<
       children,
       persist,
       hideCloseButton,
+      overlayProps,
       ...props
     },
     ref,
   ) => (
     <DialogPortal container={props.container}>
-      <DialogOverlay className={classNames?.overlay} id={ids?.overlay} />
+      <DialogOverlay
+        className={classNames?.overlay}
+        id={ids?.overlay}
+        {...overlayProps}
+      />
       <DialogPrimitive.Content
         onPointerDownOutside={(e) => {
           if (persist) {

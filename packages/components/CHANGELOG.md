@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.9
+
+### Patch Changes
+
+- Add ability to pass `overlayProps` to `DialogContent`
+
 ## 0.38.7
 
 ### Patch Changes
