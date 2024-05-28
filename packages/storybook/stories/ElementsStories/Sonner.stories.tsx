@@ -68,14 +68,46 @@ export const Default: Story = {
                 },
               },
               {
+                label: "Custom Action",
+                value: "success",
+                action: () => {
+                  createSonner.error("error", {
+                    description: "Invoice creattion error",
+
+                    action: <Button>Preview</Button>,
+                  });
+                },
+              },
+              {
+                label: "Error With Action",
+                value: "success",
+                action: () => {
+                  createSonner.error("error", {
+                    description: "Invoice creattion error",
+                    action: {
+                      // label: <Button>Preview</Button>,
+                      label: "Preview",
+                      onClick: () => console.log("Preview"),
+                      children: <Button>Preview</Button>,
+                    },
+                  });
+                },
+              },
+              {
+                label: "Error",
+                value: "success",
+                action: () => {
+                  createSonner.error("error", {
+                    description: "Invoice creattion error",
+                  });
+                },
+              },
+              {
                 label: "Success",
                 value: "success",
                 action: () => {
-                  toast({
-                    title:
-                      "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                    description: "Friday, February 10, 2023 at 5:57 PM",
-                    severity: "success",
+                  createSonner.error("error", {
+                    description: "Invoice creattion error",
                   });
                 },
               },
