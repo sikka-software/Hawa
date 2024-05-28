@@ -83,13 +83,27 @@ export const Default: Story = {
                 label: "Error",
                 value: "error",
                 action: () => {
-                  toast({
-                    title:
-                      "Scheduled: Catch up " + Math.floor(Math.random() * 100),
-                    description: "Friday, February 10, 2023 at 5:57 PM",
-                    severity: "error",
+                  createSonner.error(
+                    "Scheduled: Catch up " + Math.floor(Math.random() * 100),
+                    {
+                      description: "Friday, February 10, 2023 at 5:57 PM",
+                      action: (
+                        <ToastAction altText="Try again">Try again</ToastAction>
+                      ),
+                    },
+                  );
+                },
+              },
+              {
+                label: "Test",
+                value: "test",
+                action: () => {
+                  createSonner.success("Success", {
+                    description: "Invoice created successfully",
                     action: (
-                      <ToastAction altText="Try again">Try again</ToastAction>
+                      <div>
+                        <Button>Preview</Button>
+                      </div>
                     ),
                   });
                 },

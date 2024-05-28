@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.38.11
+
+### Patch Changes
+
+- Fix spacing style in `Sonner`
+
 ## 0.38.9
 
 ### Patch Changes
