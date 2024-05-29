@@ -134,7 +134,7 @@ const TabsList = React.forwardRef<
     }
   }, []);
 
-  if ((props.scrollable || size < 768) && orientation === "horizontal") {
+  if ((props.scrollable && size < 768) && orientation === "horizontal") {
     return (
       <ScrollArea orientation="horizontal">
         <TabsPrimitive.List
