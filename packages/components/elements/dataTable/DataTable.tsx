@@ -46,6 +46,7 @@ type DataTableProps<DataProps = {}> = {
   enableSearch?: boolean;
   enableHideColumns?: boolean;
   enableGoTo?: boolean;
+  hideHeader?: boolean;
   data: DataProps[];
   itemsPerPage?: any[];
   showCount?: boolean;
@@ -263,7 +264,7 @@ export const DataTable = <DataProps extends {}>({
         >
           <div className="hawa-rounded-md">
             <Table>
-              {table.getAllColumns().length > 0 && (
+              {!props.hideHeader && table.getAllColumns().length > 0 && (
                 <TableHeader>
                   {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
