@@ -31,12 +31,16 @@ const Template = (args: any, globals: any) => {
       <Logo name="Phone" />
       <Logo name="Mail" />
       <Logo name="Apple" />
+      <Logo name="AppleStore" />
+      <Logo name="Google" />
+      <Logo name="GooglePlay" />
       <Logo name="Whatsapp" />
       <Logo name="Microsoft" />
       <Logo name="Paypal" />
       <Logo name="Github" />
       <Logo name="Instagram" />
       <Logo name="Twitter" />
+      <Logo name="X" />
       <Logo name="Tailwind" />
       <Logo name="Radix" />
       <Logo name="npm" />
@@ -46,6 +50,8 @@ const Template = (args: any, globals: any) => {
       <Logo name="Aria" />
       <Logo name="Sikka" />
       <Logo name="Hawa" />
+      <Logo name="Visa" />
+      <Logo name="MasterCard" />
     </div>
   );
 };
