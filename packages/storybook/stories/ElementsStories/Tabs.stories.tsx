@@ -36,10 +36,7 @@ export const Default: Story = {
         dir={direction}
         onValueChange={() => setTest(false)}
       >
-        <TabsList
-          scrollable
-          className="hawa-w-full"
-        >
+        <TabsList scrollable className="hawa-w-full">
           <TabsTrigger
             value="account"
             showPopover={test}
@@ -53,13 +50,13 @@ export const Default: Story = {
           </TabsTrigger>
           <TabsTrigger value="password">{t("password")}</TabsTrigger>
           <TabsTrigger value="password1">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password2">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password3">{t("password")}</TabsTrigger>
+          {/* <TabsTrigger value="password2">{t("password")}</TabsTrigger> */}
+          {/* <TabsTrigger value="password3">{t("password")}</TabsTrigger>
           <TabsTrigger value="password4">{t("password")}</TabsTrigger>
           <TabsTrigger value="password5">{t("password")}</TabsTrigger>
           <TabsTrigger value="password6">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password7">{t("password")}</TabsTrigger>
-          <TabsTrigger
+          <TabsTrigger value="password7">{t("password")}</TabsTrigger> */}
+          {/* <TabsTrigger
             value="settings"
             chipProps={{ label: "", color: "red", size: "small" }}
           >
@@ -70,7 +67,7 @@ export const Default: Story = {
             chipProps={{ label: t("new"), color: "red", size: "small" }}
           >
             {t("display")}
-          </TabsTrigger>
+          </TabsTrigger> */}
         </TabsList>
         <TabsContent value="account">
           <Card>

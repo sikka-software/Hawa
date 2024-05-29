@@ -111,12 +111,17 @@ const Tabs = React.forwardRef<
 
 type TabsListProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.List
-> & { scrollable?: boolean };
+> & {
+  scrollable?: boolean;
+  classNames?: {
+    scrollArea?: string;
+  };
+};
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
->(({ className, ...props }, ref) => {
+>(({ className, classNames, ...props }, ref) => {
   const { orientation, variant } = React.useContext(TabsContext);
   const [size, setSize] = React.useState(
     (typeof window !== "undefined" && window.innerWidth) || 1200,
@@ -134,9 +139,9 @@ const TabsList = React.forwardRef<
     }
   }, []);
 
-  if ((props.scrollable && size < 768) && orientation === "horizontal") {
+  if (props.scrollable && size < 768 && orientation === "horizontal") {
     return (
-      <ScrollArea orientation="horizontal">
+      <ScrollArea orientation="horizontal" className={classNames?.scrollArea}>
         <TabsPrimitive.List
           ref={ref}
           className={cn(
