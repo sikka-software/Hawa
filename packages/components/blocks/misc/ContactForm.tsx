@@ -39,6 +39,9 @@ type ContactFormProps = {
   onSubmit: (e: ContactFormData) => void;
   customFields?: CustomField[];
   showSuccess?: boolean;
+  classNames?: {
+    submitButton?: string;
+  };
   texts?: {
     submit: string;
     name: TextInputType;
@@ -58,6 +61,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   formAutoComplete = "off",
   onSubmit,
   customFields,
+  classNames,
   ...props
 }) => {
   const customFieldsSchema = z.object({
@@ -123,6 +127,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       ...customFieldsDefaultValues,
     },
   });
+
   const handleFormSubmit = (data: ContactFormData) => {
     if (onSubmit) {
       onSubmit(data);
@@ -252,7 +257,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               )}
             />
 
-            <Button type="submit" className="hawa-w-full">
+            <Button
+              type="submit"
+              className={cn("hawa-w-full", classNames?.submitButton)}
+            >
               {texts?.submit || "Submit"}
             </Button>
           </form>
