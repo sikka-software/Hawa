@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.39.0
+
+### Minor Changes
+
+- `ContactForm`: ability to customize submit button
+- `DataTable`: ability to hide header with `hideHeader` prop
+- `Logos`: adds `X`, `AppleStore`, `GooglePlay`, `Visa, and `MasterCard` logos
+
 ## 0.38.11
 
 ### Patch Changes
