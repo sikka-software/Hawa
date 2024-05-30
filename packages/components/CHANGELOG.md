@@ -1,5 +1,19 @@
 # @sikka/hawa
 
+## 0.40.0
+
+### Minor Changes
+
+- Remove `Floatbox` in favor of a radix-ui `Popover` within the `Tab` trigger
+- Fix missing gap in `DialogFooter`
+- Rename `inForm` to `asInput` prop in `Button` component.
+- Add `userViewportSize` hook
+- Add `useWindowEvent` hook
+- Add `onDrawerExpanded` prop in `AppLayout` to allow consumer to trigger their custom functions when drawer state changes
+- Add aria props to `DropdownMenuRadio`
+- Allow consumer to pass all default props to `DropdownMenuRadioGroup` and `DropdownMenuRadioItem`
+- Allow consumer to pass `containerClassNames` to `Radio`
+
 ## 0.39.0
 
 ### Minor Changes
