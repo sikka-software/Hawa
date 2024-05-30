@@ -25,7 +25,6 @@ const elements = [
   "dropdownMenu",
   "fileDropzone",
   "fileUploader",
-  "floatBox",
   "glow",
   "input",
   "interfaceSettings",

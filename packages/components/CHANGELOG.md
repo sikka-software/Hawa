@@ -42,7 +42,7 @@
 
 ### Patch Changes
 
-- `Button`: add `inForm` prop to include a label above the button and a helper text under it.
+- `Button`: add `asInput` prop to include a label above the button and a helper text under it.
 
 ## 0.38.0
 

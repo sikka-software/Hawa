@@ -37,6 +37,12 @@ type RadioTypes = {
   label?: string;
   tabsContainerClassName?: string;
   forceHideHelperText?: boolean;
+  containerClassNames?: {
+    bordered?: string;
+    tabs?: string;
+    cards?: string;
+    default?: string;
+  };
 };
 
 export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
@@ -51,6 +57,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
       tabsContainerClassName,
       forceHideHelperText = false,
       onChange,
+      containerClassNames,
       ...props
     },
     ref,
@@ -120,7 +127,12 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
     switch (design) {
       case "tabs":
         return (
-          <div className="hawa-gap-2 hawa-flex hawa-flex-col">
+          <div
+            className={cn(
+              "hawa-gap-2 hawa-flex hawa-flex-col",
+              containerClassNames?.tabs,
+            )}
+          >
             {props.label && <Label {...labelProps}>{props.label}</Label>}
 
             <ul
@@ -196,7 +208,13 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
         );
       case "bordered":
         return (
-          <div className={cn(orientationStyle[orientation], "hawa-gap-4")}>
+          <div
+            className={cn(
+              orientationStyle[orientation],
+              "hawa-gap-4",
+              containerClassNames?.bordered,
+            )}
+          >
             {props.options &&
               props.options.map((opt, i) => (
                 <div key={i} className="hawa-w-full hawa-rounded hawa-border">
@@ -235,7 +253,13 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
         );
       case "cards":
         return (
-          <ul className={cn(orientationStyle[orientation], "hawa-gap-4")}>
+          <ul
+            className={cn(
+              orientationStyle[orientation],
+              "hawa-gap-4",
+              containerClassNames?.cards,
+            )}
+          >
             {props.options?.map((opt: any, o) => (
               <li key={o} onClick={() => handleChange(opt)}>
                 <input
@@ -270,7 +294,12 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
 
       default:
         return (
-          <div className="hawa-flex hawa-flex-col hawa-gap-2">
+          <div
+            className={cn(
+              "hawa-flex hawa-flex-col hawa-gap-2",
+              containerClassNames?.default,
+            )}
+          >
             {props.label && <Label {...labelProps}>{props.label}</Label>}
             <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
               {props.options &&

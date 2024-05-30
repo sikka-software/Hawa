@@ -544,37 +544,61 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     </DropdownMenuRoot>
   );
 };
+
+interface DropdownMenuRadioOptionType extends RadioOptionType {
+  props?: Omit<DropdownMenuPrimitive.DropdownMenuItemProps, "value" | "label">;
+}
+
 interface DropdownMenuRadioProps {
   trigger?: React.ReactNode;
   side?: ExtendedDropdownMenuContentProps["side"];
   align?: ExtendedDropdownMenuContentProps["align"];
-  options: RadioOptionType[];
+  options: DropdownMenuRadioOptionType[];
   value: string;
   onValueChange: any;
   label?: string;
+  contentProps?: ExtendedDropdownMenuContentProps;
+  radioGroupProps?: React.ComponentPropsWithoutRef<
+    typeof DropdownMenuPrimitive.RadioGroup
+  >;
 }
 const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
+  const ariaLabel = props.label ? `${props.label} radio group` : undefined;
+  const ariaLabelledby = props.label ? `${props.label}-label` : undefined;
+
   return (
     <DropdownMenuRoot>
       <DropdownMenuTrigger asChild>{props.trigger}</DropdownMenuTrigger>
-      <DropdownMenuContent align={props.align} side={props.side}>
+      <DropdownMenuContent
+        align={props.align}
+        side={props.side}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
+        {...props.contentProps}
+      >
         {props.label && (
           <>
-            <DropdownMenuLabel>{props.label}</DropdownMenuLabel>
+            <DropdownMenuLabel id={`${props.label}-label`}>
+              {props.label}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
           </>
         )}
         <DropdownMenuRadioGroup
           value={props.value}
           onValueChange={props.onValueChange}
+          {...props.radioGroupProps}
         >
           {props.options.map((opt, i) => (
-            <DropdownMenuRadioItem key={i} value={opt.value}>
+            <DropdownMenuRadioItem
+              key={i}
+              {...opt.props}
+              value={opt.value}
+              aria-checked={props.value === opt.value}
+            >
               {opt.label}
             </DropdownMenuRadioItem>
           ))}
-          {/* 
-          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem> */}
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenuRoot>

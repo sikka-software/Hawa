@@ -17,3 +17,6 @@ export * from "./useTabs";
 export * from "./useMeasureDirty";
 export * from "./useClickOutside";
 export * from "./useShortcuts";
+
+export * from "./useWindowEvent";
+export * from "./useViewportSize";

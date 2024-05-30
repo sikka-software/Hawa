@@ -56,7 +56,7 @@ export interface ButtonProps
   /**
    * If true, the button will include a label and helper text. This is useful for forms where the button is part of the form.
    */
-  inForm?: boolean;
+  asInput?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -72,7 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       labelProps,
       showHelperText = false,
-      inForm = false,
+      asInput = false,
       ...props
     },
     ref,
@@ -85,7 +85,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ? "hawa-bg-primary"
         : "hawa-bg-primary-foreground";
 
-    if (inForm) {
+    if (asInput) {
       return (
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           {label && <Label {...labelProps}>{label}</Label>}

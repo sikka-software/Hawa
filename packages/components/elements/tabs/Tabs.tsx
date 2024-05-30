@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { useMeasureDirty } from "@hooks/index";
+import { useMeasureDirty, useViewportSize } from "@hooks/index";
+import * as Popover from "@radix-ui/react-popover";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "@util/index";
 import { tv } from "tailwind-variants";
@@ -8,7 +9,6 @@ import { tv } from "tailwind-variants";
 import { OrientationType } from "@_types/commonTypes";
 
 import { Chip, ChipTypes } from "../chip";
-import { FloatBox } from "../floatBox";
 import { ScrollArea } from "../scrollArea";
 
 const tabsListVariant = tv({
@@ -84,35 +84,40 @@ type TabsVariants = "default" | "underlined" | "underlined_tabs";
 const TabsContext = React.createContext<{
   orientation?: OrientationType;
   variant?: TabsVariants;
-}>({ orientation: "horizontal", variant: "default" });
+  scrollable?: boolean;
+}>({ orientation: "horizontal", variant: "default", scrollable: false });
 
 type TabsRootProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
-> & { variant?: TabsVariants };
+> & { variant?: TabsVariants; scrollable?: boolean };
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   TabsRootProps
->(({ className, orientation, variant = "default", ...props }, ref) => (
-  <TabsPrimitive.Root
-    ref={ref}
-    className={cn(
-      "hawa-flex hawa-gap-2",
-      orientation === "vertical" ? "hawa-flex-row" : "hawa-flex-col",
-      className,
-    )}
-    {...props}
-  >
-    <TabsContext.Provider value={{ orientation, variant }}>
-      {props.children}
-    </TabsContext.Provider>
-  </TabsPrimitive.Root>
-));
+>(
+  (
+    { className, orientation, scrollable, variant = "default", ...props },
+    ref,
+  ) => (
+    <TabsPrimitive.Root
+      ref={ref}
+      className={cn(
+        "hawa-flex hawa-gap-2",
+        orientation === "vertical" ? "hawa-flex-row" : "hawa-flex-col",
+        className,
+      )}
+      {...props}
+    >
+      <TabsContext.Provider value={{ orientation, variant, scrollable }}>
+        {props.children}
+      </TabsContext.Provider>
+    </TabsPrimitive.Root>
+  ),
+);
 
 type TabsListProps = React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.List
 > & {
-  scrollable?: boolean;
   classNames?: {
     scrollArea?: string;
   };
@@ -122,24 +127,10 @@ const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
 >(({ className, classNames, ...props }, ref) => {
-  const { orientation, variant } = React.useContext(TabsContext);
-  const [size, setSize] = React.useState(
-    (typeof window !== "undefined" && window.innerWidth) || 1200,
-  );
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      const resize = () => {
-        setSize(window.innerWidth);
-      };
-      resize();
-      window.addEventListener("resize", resize);
-      return () => {
-        window.removeEventListener("resize", resize);
-      };
-    }
-  }, []);
+  const { orientation, variant, scrollable } = React.useContext(TabsContext);
+  const { width } = useViewportSize();
 
-  if (props.scrollable && size < 768 && orientation === "horizontal") {
+  if (scrollable && width < 768 && orientation === "horizontal") {
     return (
       <ScrollArea orientation="horizontal" className={classNames?.scrollArea}>
         <TabsPrimitive.List
@@ -176,41 +167,65 @@ type TabsTriggerProps = React.ComponentPropsWithoutRef<
   className?: string;
   showPopover?: boolean;
   popoverContent?: React.ReactNode;
+  withPopover?: boolean;
+  onPopoverClick?: () => void;
 };
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
->(({ className, chipProps, ...props }, ref) => {
-  const { orientation, variant } = React.useContext(TabsContext);
-  const tabTriggerRef = React.useRef(null);
-  const { width } = useMeasureDirty(tabTriggerRef);
+>(
+  (
+    { className, chipProps, withPopover = false, onPopoverClick, ...props },
+    ref,
+  ) => {
+    const { orientation, variant } = React.useContext(TabsContext);
 
-  return (
-    <TabsPrimitive.Trigger
-      ref={tabTriggerRef}
-      className={cn(
-        tabsTriggerVariant({ variant, orientation }),
-        "hawa-relative",
-        className,
-      )}
-      {...props}
-    >
-      {props.children}
-      {chipProps && <Chip {...chipProps} />}
-
-      <FloatBox
-        withArrow
-        align={orientation === "vertical" ? "start" : "start"}
-        side={orientation === "vertical" ? "right" : "bottom"}
-        sideOffset={orientation === "vertical" ? width + 30 : 45}
-        open={props.showPopover}
-      >
-        {props.popoverContent}
-      </FloatBox>
-    </TabsPrimitive.Trigger>
-  );
-});
+    if (withPopover) {
+      return (
+        <Popover.Root open={props.showPopover}>
+          <Popover.Anchor asChild>
+            <TabsPrimitive.Trigger
+              className={cn(
+                tabsTriggerVariant({ variant, orientation }),
+                "hawa-relative",
+                className,
+              )}
+              {...props}
+            >
+              {props.children}
+              {chipProps && <Chip {...chipProps} />}
+            </TabsPrimitive.Trigger>
+          </Popover.Anchor>
+          <Popover.Content
+            onClick={onPopoverClick}
+            asChild
+            className={cn(
+              "dark:dark-shadow hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
+              "hawa-arrow-default-top hawa-mt-2",
+            )}
+          >
+            <div className="hawa-p-2"> {props.popoverContent}</div>
+          </Popover.Content>
+        </Popover.Root>
+      );
+    } else {
+      return (
+        <TabsPrimitive.Trigger
+          className={cn(
+            tabsTriggerVariant({ variant, orientation }),
+            "hawa-relative",
+            className,
+          )}
+          {...props}
+        >
+          {props.children}
+          {chipProps && <Chip {...chipProps} />}
+        </TabsPrimitive.Trigger>
+      );
+    }
+  },
+);
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,

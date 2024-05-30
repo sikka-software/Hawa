@@ -62,10 +62,16 @@ type AppLayoutTypes = {
   profileMenuWidth?: "default" | "sm" | "lg" | "parent";
   /** Specifies additional actions for the drawer footer. */
   DrawerFooterActions?: any;
+
   /** Specifies the item that was clicked. */
   clickedItem?: any;
+
   /** Event handler for logo button click. */
   onLogoClick?: () => void;
+
+  /** Event handler for drawer expanded. */
+  onDrawerExpanded?: (isExpanded: boolean) => void;
+
   /** Text labels for various UI elements. */
   texts?: {
     /** Label for expand sidebar button. */
@@ -96,6 +102,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   clickedItem,
   DrawerLinkComponent,
   MenuLinkComponent,
+  onDrawerExpanded,
   onAvatarClick,
   ...props
 }) => {
@@ -141,6 +148,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
       if (window.innerWidth < 600) {
         setKeepDrawerOpen(false);
         setOpenSideMenu(false);
+        onDrawerExpanded && onDrawerExpanded(false);
       }
     }
   };
@@ -156,6 +164,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         } else {
           localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(false));
         }
+        onDrawerExpanded && onDrawerExpanded(keepDrawerOpen);
       };
       resize();
       window.addEventListener("resize", resize);
@@ -175,9 +184,11 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   useEffect(() => {
     if (size > 600) {
       setOpenSideMenu(keepDrawerOpen);
+      onDrawerExpanded && onDrawerExpanded(keepDrawerOpen);
     } else {
       setKeepDrawerOpen(false);
       setOpenSideMenu(false);
+      onDrawerExpanded && onDrawerExpanded(false);
     }
   }, [size, keepDrawerOpen]);
 
@@ -315,17 +326,23 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   ? `${drawerSizeStyle["opened"][drawerSize]}px`
                   : "0px",
           }}
-          onMouseEnter={() => setOpenSideMenu(true)}
+          onMouseEnter={() => {
+            setOpenSideMenu(true);
+            onDrawerExpanded && onDrawerExpanded(true);
+          }}
           onMouseLeave={() => {
             if (size > 600) {
               if (keepDrawerOpen) {
                 setOpenSideMenu(true);
+                onDrawerExpanded && onDrawerExpanded(true);
               } else {
                 setOpenedSidebarItem("");
                 setOpenSideMenu(false);
+                onDrawerExpanded && onDrawerExpanded(false);
               }
             } else {
               setOpenSideMenu(false);
+              onDrawerExpanded && onDrawerExpanded(false);
             }
           }}
           ref={ref}

@@ -19,7 +19,7 @@ export const AppLayoutStory = (args: any) => {
   const dark = useDarkMode();
   const [selectedPage, setSelectedPage] = useState("/home");
   const [count, updateCount] = useState(0);
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const logoLink =
     args.direction === "rtl"
       ? dark
@@ -34,6 +34,7 @@ export const AppLayoutStory = (args: any) => {
       {...args}
       logoLink={logoLink}
       currentPage={selectedPage}
+      onDrawerExpanded={(expanded) => setIsDrawerOpen(expanded)}
       texts={{
         expandSidebar: t("expandSidebar"),
         collapseSidebar: t("collapseSidebar"),
@@ -113,7 +114,10 @@ export const AppLayoutStory = (args: any) => {
           <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
             App Content
           </span>
-          <span className="hawa-font-bold hawa-text-[20rem]">{count}</span>
+          <span className="hawa-font-bold hawa-text-[20rem] hawa-select-none">
+            {count}
+          </span>
+          <span> is drawer open? {String(isDrawerOpen)}</span>
         </div>
       </div>
     </AppLayout>

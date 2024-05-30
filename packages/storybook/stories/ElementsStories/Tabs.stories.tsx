@@ -27,52 +27,88 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    const [test, setTest] = useState(false);
+    const [test, setTest] = useState(true);
+    const [tab, selectTab] = useState("account");
     return (
       <Tabs
         orientation="horizontal"
         variant={args.variant}
         defaultValue="account"
         dir={direction}
-        onValueChange={() => setTest(false)}
+        onValueChange={(e) => {
+          // setTest(false);
+          selectTab(e);
+        }}
+        scrollable
+        value={tab}
       >
-        <TabsList scrollable className="hawa-w-full">
+        <TabsList className="hawa-w-full">
+          <TabsTrigger value="account">{t("account")}</TabsTrigger>
           <TabsTrigger
-            value="account"
-            showPopover={test}
+            showPopover={false}
             popoverContent={
-              <div className="hawa-p-2  hawa-w-fit hawa-rounded hawa-shadow-lg">
-                <p>Popover content</p>
+              <div className="hawa-p-2 hawa-bg-red-500">
+                You need to add at least 1 product
               </div>
             }
+            value="password"
           >
-            {t("account")}
-          </TabsTrigger>
-          <TabsTrigger value="password">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password1">{t("password")}</TabsTrigger>
-          {/* <TabsTrigger value="password2">{t("password")}</TabsTrigger> */}
-          {/* <TabsTrigger value="password3">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password4">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password5">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password6">{t("password")}</TabsTrigger>
-          <TabsTrigger value="password7">{t("password")}</TabsTrigger> */}
-          {/* <TabsTrigger
-            value="settings"
-            chipProps={{ label: "", color: "red", size: "small" }}
-          >
-            {t("settings")}
+            {t("password")}
           </TabsTrigger>
           <TabsTrigger
-            value="display"
-            chipProps={{ label: t("new"), color: "red", size: "small" }}
+            showPopover={false}
+            popoverContent={
+              <div className="hawa-p-2">You need to add at least 1 product</div>
+            }
+            value="password1"
           >
-            {t("display")}
-          </TabsTrigger> */}
+            {t("password")}
+          </TabsTrigger>
+          <TabsTrigger
+            showPopover={false}
+            popoverContent={
+              <div className="hawa-p-2">You need to add at least 1 product</div>
+            }
+            value="password2"
+          >
+            {t("password")}
+          </TabsTrigger>
+          <TabsTrigger
+            withPopover
+            showPopover={test}
+            onPopoverClick={() => {
+              setTest(false);
+              selectTab("password3");
+            }}
+            popoverContent={<div className="hawa-p-2">This is Password 3 </div>}
+            value="password3"
+          >
+            {t("password_3")}
+          </TabsTrigger>
+          <TabsTrigger
+            showPopover={false}
+            popoverContent={
+              <div className="hawa-p-2">You need to add at least 1 product</div>
+            }
+            value="password4"
+          >
+            {t("password")}
+          </TabsTrigger>
+          <TabsTrigger
+            showPopover={false}
+            popoverContent={
+              <div className="hawa-p-2">You need to add at least 1 product</div>
+            }
+            value="password5"
+          >
+            {t("password")}
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <Card>
             <CardContent headless>
               Make changes to your account here.
+              <Button onClick={() => setTest(true)}>Open Popover</Button>
             </CardContent>
           </Card>
         </TabsContent>
