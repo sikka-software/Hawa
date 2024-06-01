@@ -12,6 +12,12 @@ const config: Config = {
   prefix: "hawa-",
   darkMode: ["class"],
   theme: {
+    screens: {
+      mobile: "430px",
+      tablet: "640px",
+      laptop: "1024px",
+      desktop: "1280px",
+    },
     container: {
       center: true,
       padding: "2rem",

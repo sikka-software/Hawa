@@ -40,6 +40,7 @@ const Template = (args: any, globals: any) => {
 
   const companiesColumns: ColumnDef<Company>[] = [
     {
+      maxSize: 20,
       accessorKey: "name",
       enableHiding: false,
       meta: { sortable: true },
@@ -119,7 +120,7 @@ const Template = (args: any, globals: any) => {
       id: "actions",
       header: t("actions"),
       enableHiding: false,
-
+      enableResizing: false,
       cell: ({ row }) => {
         return (
           <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
@@ -172,7 +173,7 @@ const Template = (args: any, globals: any) => {
   }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <div dir={direction} className="hawa-w-full ">
+    <div dir={direction} className="hawa-w-full">
       <DataTable<Company>
         {...args}
         translateFn={t}
@@ -185,7 +186,17 @@ const Template = (args: any, globals: any) => {
         filters={[".com", ".sa", ".ae"]}
         paginationPosition="top"
         data={generatedData}
+        
         // itemsPerPage={[10, 50, 100, 150, 200, 500]}
+        bulkActions={[
+          {
+            label: "Copy",
+            value: "copy",
+            action: (rows: any) => {
+              console.log("rows are ", rows);
+            },
+          },
+        ]}
         condensed
         direction={direction}
         texts={{
@@ -197,6 +208,7 @@ const Template = (args: any, globals: any) => {
           noData: t("no-data"),
           goTo: t("go-to"),
           searchPlaceholder: t("search-items"),
+          selectedRows: t("selected-rows"),
         }}
       />
       <Toaster />
@@ -217,6 +229,15 @@ export const WithHideColumns: Story = {
   args: {
     enableHideColumns: true,
     enableSearch: true,
+  },
+};
+export const WithSelection: Story = {
+  render: Template.bind({}),
+  args: {
+    enableHideColumns: true,
+    enableSearch: true,
+    enableSelection: true,
+    showSelectionCount: true,
   },
 };
 export const WithoutHeader: Story = {
@@ -302,7 +323,7 @@ export const WithoutHeader: Story = {
     return (
       <div
         dir={direction}
-        className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4 "
+        className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4"
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <div className="hawa-text-2xl hawa-font-bold">Default Size</div>
@@ -498,7 +519,7 @@ export const Sizes: Story = {
     return (
       <div
         dir={direction}
-        className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4 "
+        className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-4"
       >
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
           <div className="hawa-text-2xl hawa-font-bold">Default Size</div>
@@ -716,9 +737,7 @@ export const InCard: Story = {
     return (
       <Card className="hawa-max-h-[400px] hawa-w-full">
         <CardHeader>
-          <div
-            className={" hawa-flex hawa-w-full hawa-items-center hawa-gap-2"}
-          >
+          <div className={"hawa-flex hawa-w-full hawa-items-center hawa-gap-2"}>
             <div className="hawa-flex hawa-w-full hawa-flex-row hawa-justify-between">
               <h1 className={"hawa-text-xl hawa-font-semibold"}>Title</h1>
               <div className="hawa-flex hawa-flex-row hawa-gap-2">
@@ -730,7 +749,7 @@ export const InCard: Story = {
           </div>
         </CardHeader>
         <CardContent>
-          <div dir={direction} className="hawa-w-full ">
+          <div dir={direction} className="hawa-w-full">
             <DataTable<Company>
               {...args}
               translateFn={t}

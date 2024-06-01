@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.41.0
+
+### Minor Changes
+
+- Add `Behance`, `Linkedin`, `Telegram`, `Youtube`, and `Tiktok` logos to the `Logo` component
+- `DataTable`: add ability to select rows and trigger bulk actions on them
+
 ## 0.40.0
 
 ### Minor Changes

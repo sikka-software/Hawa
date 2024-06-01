@@ -16,7 +16,7 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="hawa-relative hawa-w-full  hawa-overflow-auto hawa-rounded hawa-border">
+  <div className="hawa-relative hawa-w-full hawa-overflow-auto hawa-rounded hawa-border">
     <table
       ref={ref}
       className={cn("hawa-w-full hawa-caption-bottom hawa-text-sm", className)}
@@ -41,20 +41,20 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     <th
       ref={ref}
       className={cn(
-        "hawa-bg-muted/60 hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground dark:hawa-bg-muted/40 [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
+        "hawa-bg-muted/60 hawa-text-nowrap hawa-text-start hawa-align-middle hawa-font-medium hawa-text-muted-foreground dark:hawa-bg-muted/40 [&:has([role=checkbox])]:hawa-pr-0 [&:not(:last-child)&:not(:first-child)]:hawa-border-x",
         dir === "rtl"
           ? "[&:not(:last-child)]:hawa-border-l"
           : "[&:not(:last-child)]:hawa-border-r",
         condensed ? "hawa-h-8" : "hawa-h-12",
         clickable ? "hawa-px-1" : "hawa-px-4", //First and last columns
         clickable
-          ? " [&:not(:last-child)&:not(:first-child)]:hawa-p-1"
+          ? "[&:not(:last-child)&:not(:first-child)]:hawa-p-1"
           : "hawa-px-4", //Columns in between
-        className
+        className,
       )}
       {...props}
     />
-  )
+  ),
 );
 
 const TableBody = React.forwardRef<
@@ -72,7 +72,7 @@ const TableFooter = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-bg-primary hawa-font-medium hawa-text-primary-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -89,7 +89,7 @@ const TableRow = React.forwardRef<
       "[&:not(:last-child)&:not(:first-child)]:hawa-border-y",
       "[&:not(:last-child)]:hawa-border-b",
 
-      className
+      className,
     )}
     {...props}
   />
@@ -100,7 +100,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
     let paddingStyles = {
       condensed: "hawa-p-0 hawa-px-4",
       default: "hawa-p-4",
-      noPadding: "hawa-p-0"
+      noPadding: "hawa-p-0",
     };
 
     return (
@@ -112,18 +112,18 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
           // enablePadding ? "hawa-p-4" : "hawa-p-0",
           // props.disablePadding ? "hawa-p-0" : "hawa-p-4",
           // props.condensed ? "hawa-p-0 hawa-px-4" : "hawa-p-4",
-          "hawa-align-middle [&:has([role=checkbox])]:hawa-pr-0 ",
+          "hawa-align-middle [&:has([role=checkbox])]:hawa-pr-0",
           "[&:not(:last-child)&:not(:first-child)]:hawa-border-x",
           // "[&:not(:last-child)]:hawa-border-r",
           props.dir === "rtl"
             ? "[&:not(:last-child)]:hawa-border-l"
             : "[&:not(:last-child)]:hawa-border-r",
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 
 const TableCaption = React.forwardRef<
@@ -134,7 +134,7 @@ const TableCaption = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-mt-4 hawa-text-sm hawa-text-muted-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -157,5 +157,5 @@ export {
   TableFooter,
   TableRow,
   TableCell,
-  TableCaption
+  TableCaption,
 };

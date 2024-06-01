@@ -82,9 +82,8 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
                 console.log("Form is submitted but onSubmit prop is missing");
               }
             })}
-            className="hawa-flex hawa-flex-col hawa-gap-2"
+            className="hawa-flex hawa-flex-col hawa-gap-4"
           >
-            <Label></Label>
             <Controller
               name="requestType"
               control={control}

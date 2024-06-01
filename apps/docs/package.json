@@ -1,6 +1,6 @@
 {
   "name": "hawa-docs",
-  "version": "0.0.84",
+  "version": "0.0.85",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -83,12 +83,12 @@
   },
   "devDependencies": {
     "@types/lodash.template": "^4.5.3",
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.13.0",
     "@types/react": "^18.3.3",
     "@types/react-color": "^3.0.12",
     "@types/react-dom": "^18.3.0",
     "esbuild": "^0.21.4",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "mdast-util-toc": "^7.0.1",
     "postcss": "^8.4.38",
     "rehype": "^13.0.1",
