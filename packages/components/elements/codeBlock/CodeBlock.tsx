@@ -126,7 +126,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       {tabs && (
         <div
           className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t  hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
+            "hawa-flex hawa-flex-row hawa-gap-2 hawa-rounded-t hawa-p-1 hawa-bg-primary/15 hawa-pb-0 hawa-font-mono hawa-text-foreground",
             tabs && fileName && "hawa-rounded-t-none",
             classNames?.tabs,
           )}
@@ -136,7 +136,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               key={i}
               className={cn(
                 selectedTab === i
-                  ? " hawa-border-b-2 hawa-border-primary"
+                  ? "hawa-border-b-2 hawa-border-primary"
                   : "hawa-bg-transparent",
                 classNames?.tab,
               )}
@@ -144,7 +144,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
               <div
                 onClick={() => setSelectedTab(i)}
                 className={cn(
-                  "hawa-mb-0.5 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-0.5 hawa-text-center hawa-text-[0.7rem]  hawa-transition-all hover:hawa-bg-muted-foreground/20",
+                  "hawa-mb-0.5 hawa-w-full hawa-max-w-[52px] hawa-cursor-pointer hawa-rounded-inner hawa-p-2 hawa-py-0.5 hawa-text-center hawa-text-[0.7rem] hawa-transition-all hover:hawa-bg-muted-foreground/20",
                 )}
               >
                 {tab.title}
@@ -166,7 +166,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       >
         <div
           className={cn(
-            "hawa-flex hawa-absolute  hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50  hawa-right-3 hawa-top-3",
+            "hawa-flex hawa-absolute hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2 hawa-z-50 hawa-right-3 hawa-top-3",
           )}
         >
           <Tooltip
@@ -196,7 +196,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             <pre
               className={cn(
                 // !hawa-pe-12
-                "hawa-min-h-[37.75px]  hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
+                "hawa-min-h-[37.75px] hawa-w-full hawa-p-4 hawa-font-mono hawa-text-foreground",
                 classNames?.code,
                 wrapText && "hawa-text-wrap",
               )}

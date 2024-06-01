@@ -1,10 +1,11 @@
 import * as React from "react";
 
+import { cn } from "@util/index";
+
 import { DirectionType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
-import { DropdownMenu, MenuItemType } from "../dropdownMenu/DropdownMenu";
 import { Button, ButtonProps } from "../button/index";
+import { DropdownMenu, MenuItemType } from "../dropdownMenu/DropdownMenu";
 
 interface SplitButtonProps extends ButtonProps {
   direction?: DirectionType;
@@ -19,7 +20,7 @@ const SplitButton: React.FC<SplitButtonProps> = ({
   ...props
 }) => (
   <div
-    dir={"ltr"}
+    dir="ltr"
     className={cn("hawa-row hawa-flex hawa-h-fit hawa-justify-center")}
   >
     <Button
@@ -42,7 +43,7 @@ const SplitButton: React.FC<SplitButtonProps> = ({
           size={"icon"}
           className={cn(
             "hawa-h-10 hawa-w-fit hawa-rounded-l-none hawa-border-l-0 hawa-px-1",
-            props.className
+            props.className,
           )}
         >
           <svg

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
+import { cn } from "@util/index";
+
 import {
   CollapsibleTrigger,
   CollapsibleContent,
-  Collapsible
+  Collapsible,
 } from "@elements/collapsible";
-
-import { cn } from "@util/index";
 
 type NavigationMenuItem = {
   label: string;
@@ -30,12 +30,12 @@ export const Navbar: React.FC<NavbarType> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className=" hawa-sticky hawa-top-2 hawa-transition-all">
+    <nav className="hawa-sticky hawa-top-2 hawa-transition-all">
       <Collapsible
-        className={"hawa-relative hawa-m-2 hawa-rounded  hawa-p-2"}
+        className={"hawa-relative hawa-m-2 hawa-rounded hawa-p-2"}
         style={{ backgroundColor: backgroundColor || "#1f2937" }}
       >
-        <div className="hawa-flex hawa-items-center hawa-justify-between hawa-px-3 ">
+        <div className="hawa-flex hawa-items-center hawa-justify-between hawa-px-3">
           <div className="hawa-flex hawa-items-center">
             <div
               className="hawa-p-1.5 hawa-text-xl hawa-font-bold hawa-text-white"
@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarType> = ({
             </div>
           </div>
 
-          <div className="hawa-hidden md:hawa-flex ">
+          <div className="hawa-hidden md:hawa-flex">
             {props.menuItems?.map((item, i) => (
               <div
                 key={i}
@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarType> = ({
           <div className="hawa-m-0 hawa-flex hawa-h-fit hawa-p-0 md:hawa-hidden">
             <CollapsibleTrigger
               onClick={() => setIsOpen(!isOpen)}
-              className="hawa-h-full hawa-text-white selection:hawa-p-0 "
+              className="hawa-h-full hawa-text-white selection:hawa-p-0"
               aria-label="Toggle menu"
             >
               <svg
@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarType> = ({
                 strokeLinejoin="round"
                 className={cn(
                   "hawa-fixed hawa-h-6 hawa-w-6",
-                  isOpen ? "hawa-invisible" : "hawa-visible"
+                  isOpen ? "hawa-invisible" : "hawa-visible",
                 )}
               >
                 <line x1="4" x2="20" y1="12" y2="12" />
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarType> = ({
                 strokeLinejoin="round"
                 className={cn(
                   "hawa-h-6 hawa-w-6",
-                  !isOpen ? "hawa-invisible" : "hawa-visible"
+                  !isOpen ? "hawa-invisible" : "hawa-visible",
                 )}
               >
                 <path d="M18 6 6 18" />
@@ -113,12 +113,12 @@ export const Navbar: React.FC<NavbarType> = ({
             "data-[state=closed]:hawa-opacity-0",
             "data-[state=open]:hawa-animate-in",
             "data-[state=open]:hawa-fade-in-90",
-            "hawa-absolute hawa-left-0 hawa-top-[60px] hawa-flex hawa-flex-col  hawa-rounded hawa-border  hawa-bg-gray-200 hawa-p-1 hawa-transition-all"
+            "hawa-absolute hawa-left-0 hawa-top-[60px] hawa-flex hawa-flex-col hawa-rounded hawa-border hawa-bg-gray-200 hawa-p-1 hawa-transition-all",
             // "hawa-transition-all hawa-bg-gray-400 hawa-fixed hawa-left-0 hawa-top-[72px] hawa-w-full hawa-flex hawa-flex-col"
           )}
           style={{
             width: "calc(100%)",
-            zIndex: -100
+            zIndex: -100,
           }}
         >
           {props.menuItems?.map((item, i) => (

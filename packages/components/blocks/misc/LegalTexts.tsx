@@ -1,9 +1,9 @@
 import React from "react";
 
+import { cn } from "@util/index";
+
 import { ScrollArea } from "@elements/scrollArea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@elements/tabs";
-
-import { cn } from "@util/index";
 
 type TabType = {
   title: string;
@@ -39,8 +39,8 @@ export const LegalTexts: React.FC<LegalTextsType> = ({ tabs, ...props }) => {
         <TabsContent key={index} value={tab.value}>
           <ScrollArea
             className={cn(
-              "hawa-rounded  hawa-border hawa-bg-muted hawa-p-4",
-              props.scrollAreaClassName
+              "hawa-rounded hawa-border hawa-bg-muted hawa-p-4",
+              props.scrollAreaClassName,
             )}
           >
             {tab.content}

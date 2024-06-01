@@ -16,7 +16,7 @@ export const CheckEmail: FC<CheckEmailBlocks> = ({ texts, handleResend }) => {
     <Card>
       <CardContent headless>
         <div className="hawa-flex hawa-flex-col hawa-items-center hawa-justify-center hawa-text-center">
-          <div className="hawa-flex hawa-h-16 hawa-w-16 hawa-flex-col hawa-items-center hawa-justify-center hawa-rounded-3xl hawa-bg-primary hawa-text-6xl hawa-font-bold  hawa-text-primary-foreground">
+          <div className="hawa-flex hawa-h-16 hawa-w-16 hawa-flex-col hawa-items-center hawa-justify-center hawa-rounded-3xl hawa-bg-primary hawa-text-6xl hawa-font-bold hawa-text-primary-foreground">
             <svg
               stroke="currentColor"
               fill="none"
@@ -42,7 +42,7 @@ export const CheckEmail: FC<CheckEmailBlocks> = ({ texts, handleResend }) => {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="hawa-flex hawa-flex-col hawa-justify-center ">
+      <CardFooter className="hawa-flex hawa-flex-col hawa-justify-center">
         <span className="clickable-link hawa-text-sm" onClick={handleResend}>
           {texts?.resendEmail || "Resend Email"}
         </span>

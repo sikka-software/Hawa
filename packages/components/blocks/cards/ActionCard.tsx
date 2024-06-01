@@ -24,7 +24,7 @@ export const ActionCard: FC<ImageCardTypes> = (props) => {
         onMouseLeave={() => setHovered(false)}
       >
         {props.blank ? (
-          <div className="hawa-flex hawa-h-full hawa-flex-col hawa-items-center hawa-justify-center ">
+          <div className="hawa-flex hawa-h-full hawa-flex-col hawa-items-center hawa-justify-center">
             <svg
               className="hawa-h-10 hawa-w-10 hawa-text-foreground"
               stroke="currentColor"

@@ -235,7 +235,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               {props.withResetPassword && (
                 <div
                   onClick={props.onForgotPassword}
-                  className="hawa-mb-3  hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
+                  className="hawa-mb-3 hawa-mt-2 hawa-w-fit hawa-cursor-pointer hawa-select-none hawa-text-xs dark:hawa-text-gray-300"
                 >
                   {texts?.forgotPassword || "Forgot Password?"}
                 </div>

@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
-
 import { cn } from "@util/index";
 
 const MenubarMenu = MenubarPrimitive.Menu;
@@ -18,7 +17,7 @@ const Menubar = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-flex hawa-h-10 hawa-items-center hawa-space-x-1 hawa-rounded-md hawa-border hawa-bg-background hawa-p-1",
-      className
+      className,
     )}
     {...props}
   />
@@ -33,7 +32,7 @@ const MenubarTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-px-3 hawa-py-1.5 hawa-text-sm hawa-font-medium hawa-outline-none focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-accent-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -51,7 +50,7 @@ const MenubarSubTrigger = React.forwardRef<
     className={cn(
       "hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-px-2 hawa-py-1.5 hawa-text-sm hawa-outline-none focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-accent-foreground",
       inset && "pl-8",
-      className
+      className,
     )}
     {...props}
   >
@@ -84,7 +83,7 @@ const MenubarSubContent = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-z-50 hawa-min-w-[8rem] hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-      className
+      className,
     )}
     {...props}
   />
@@ -97,7 +96,7 @@ const MenubarContent = React.forwardRef<
 >(
   (
     { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
-    ref
+    ref,
   ) => (
     <MenubarPrimitive.Portal>
       <MenubarPrimitive.Content
@@ -107,12 +106,12 @@ const MenubarContent = React.forwardRef<
         sideOffset={sideOffset}
         className={cn(
           "hawa-z-50 hawa-min-w-[12rem] hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-md data-[state=open]:hawa-animate-in data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-          className
+          className,
         )}
         {...props}
       />
     </MenubarPrimitive.Portal>
-  )
+  ),
 );
 MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
@@ -127,7 +126,7 @@ const MenubarItem = React.forwardRef<
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-px-2 hawa-py-1.5 hawa-text-sm hawa-outline-none focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
       inset && "pl-8",
-      className
+      className,
     )}
     {...props}
   />
@@ -142,7 +141,7 @@ const MenubarCheckboxItem = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-      className
+      className,
     )}
     checked={checked}
     {...props}
@@ -178,7 +177,7 @@ const MenubarRadioItem = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-cursor-default hawa-select-none hawa-items-center hawa-rounded-sm hawa-py-1.5 hawa-pl-8 hawa-pr-2 hawa-text-sm hawa-outline-none focus:hawa-bg-accent focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
-      className
+      className,
     )}
     {...props}
   >
@@ -216,7 +215,7 @@ const MenubarLabel = React.forwardRef<
     className={cn(
       "hawa-px-2 hawa-py-1.5 hawa-text-sm hawa-font-semibold",
       inset && "hawa-pl-8",
-      className
+      className,
     )}
     {...props}
   />
@@ -243,7 +242,7 @@ const MenubarShortcut = ({
     <span
       className={cn(
         "hawa-ml-auto hawa-text-xs hawa-tracking-widest hawa-text-muted-foreground",
-        className
+        className,
       )}
       {...props}
     />
@@ -267,5 +266,5 @@ export {
   MenubarSubTrigger,
   MenubarGroup,
   MenubarSub,
-  MenubarShortcut
+  MenubarShortcut,
 };

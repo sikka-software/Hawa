@@ -11,7 +11,7 @@ import {
   PlanFeature,
   PricingPlanTexts,
   DirectionType,
-  RadioOptionType
+  RadioOptionType,
 } from "@_types/index";
 
 import { Chip } from "../../elements/chip";
@@ -42,9 +42,9 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   const uniqueFeatures = Array.from(
     new Set(
       props.plans.flatMap((plan) =>
-        plan.features.map((feature) => feature.text)
-      )
-    )
+        plan.features.map((feature) => feature.text),
+      ),
+    ),
   );
 
   return (
@@ -80,10 +80,10 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       <div
         className={cn(
           "hawa-sticky hawa-z-10 hawa-grid hawa-grid-cols-4 hawa-gap-x-2 hawa-rounded-t hawa-border hawa-p-4 hawa-text-sm hawa-font-medium",
-          "hawa-bg-primary-foreground"
+          "hawa-bg-primary-foreground",
         )}
         style={{
-          top: props.topPosition || 0
+          top: props.topPosition || 0,
         }}
       >
         <div className="hawa-flex hawa-items-center"></div>
@@ -95,16 +95,16 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div className="hawa-flex hawa-flex-col hawa-gap-2">
               <div className="hawa-flex hawa-flex-col">
                 {/* hawa-text-gray-500 dark:hawa-text-gray-400 */}
-                <span className="hawa-text-md hawa-font-bold ">
+                <span className="hawa-text-md hawa-font-bold">
                   {plan.texts.title}
                 </span>
 
-                <span className="hawa-text-md  hawa-font-normal hawa-text-muted-foreground ">
+                <span className="hawa-text-md hawa-font-normal hawa-text-muted-foreground">
                   {plan.texts.subtitle}
                 </span>
               </div>
               {/* hawa-text-gray-900 dark:hawa-text-white */}
-              <div className=" hawa-flex hawa-items-baseline  ">
+              <div className="hawa-flex hawa-items-baseline">
                 <>
                   <span className="hawa-text-5xl hawa-font-extrabold hawa-tracking-tight">
                     {plan.price}
@@ -113,7 +113,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                     {plan.texts.currencyText}
                   </span>
                 </>
-                <span className="hawa-ml-1 hawa-text-xl hawa-font-normal ">
+                <span className="hawa-ml-1 hawa-text-xl hawa-font-normal">
                   / {plan.texts.cycleText}
                 </span>
               </div>
@@ -131,16 +131,16 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div
               key={featureIndex}
               className={cn(
-                "hawa-border-foreground-muted  hawa-grid hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))]  hawa-gap-x-16 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white",
-                featureIndex === 0 ? "" : "hawa-border-t"
+                "hawa-border-foreground-muted hawa-grid hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-px-4 hawa-py-5 hawa-text-sm hawa-text-gray-700 dark:text-white",
+                featureIndex === 0 ? "" : "hawa-border-t",
               )}
             >
               <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-foreground">
                 {featureText}
                 {props.plans.some((plan) =>
                   plan.features.some(
-                    (feature) => feature.text === featureText && feature.hint
-                  )
+                    (feature) => feature.text === featureText && feature.hint,
+                  ),
                 ) && (
                   <Tooltip
                     side="right"
@@ -149,11 +149,11 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                         .find(
                           (plan) =>
                             plan.features.find(
-                              (feature) => feature.text === featureText
-                            )?.hint
+                              (feature) => feature.text === featureText,
+                            )?.hint,
                         )
                         ?.features.find(
-                          (feature) => feature.text === featureText
+                          (feature) => feature.text === featureText,
                         )?.hint
                     }
                   >
@@ -171,16 +171,16 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 )}
                 {props.plans.some((plan) =>
                   plan.features.some(
-                    (feature) => feature.text === featureText && feature.soon
-                  )
+                    (feature) => feature.text === featureText && feature.soon,
+                  ),
                 ) && (
                   <Chip
                     label={
                       props.plans.find((plan) =>
                         plan.features.some(
                           (feature) =>
-                            feature.text === featureText && feature.soon
-                        )
+                            feature.text === featureText && feature.soon,
+                        ),
                       )?.texts?.soon || "Soon"
                     }
                   />
@@ -188,7 +188,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
               </div>
               {props.plans.map((plan, planIndex) => {
                 const feature = plan.features.find(
-                  (f) => f.text === featureText
+                  (f) => f.text === featureText,
                 );
                 return (
                   <div
@@ -209,7 +209,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
       </ScrollArea>
       {/* Footer with Buttons */}
       {props.showButtons && (
-        <div className="hawa-grid  hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16  hawa-px-4 hawa-py-5">
+        <div className="hawa-grid hawa-grid-cols-[1fr_repeat(3,_minmax(0,_1fr))] hawa-gap-x-16 hawa-px-4 hawa-py-5">
           <div className="hawa-flex hawa-items-center"></div>
 
           {props.plans.map((plan, i) => (
@@ -226,7 +226,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                       // plan: plan.id,
                       currency: props.currentCurrency?.value,
                       cycle: props.currentCycle?.value,
-                      ...plan
+                      ...plan,
                     };
                     props.onPlanClicked(clickedData);
                   }

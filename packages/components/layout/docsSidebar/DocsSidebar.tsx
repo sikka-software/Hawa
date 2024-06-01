@@ -1,8 +1,8 @@
 import React from "react";
 
-import { DirectionType } from "@_types/commonTypes";
-
 import { cn } from "@util/index";
+
+import { DirectionType } from "@_types/commonTypes";
 
 type DocsSidebarType = {
   pages: any[];
@@ -14,7 +14,7 @@ export const DocsSidebar: React.FC<DocsSidebarType> = ({
   currentPage: propCurrentPage,
 
   pages,
-  direction
+  direction,
 }) => {
   const [activePage, setActivePage] = React.useState(pages[0]);
 
@@ -53,7 +53,7 @@ export const DocsSidebar: React.FC<DocsSidebarType> = ({
 
   let selectedStyles = {
     rtl: "hawa-border-r-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200",
-    ltr: "hawa-border-l-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200"
+    ltr: "hawa-border-l-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200",
   };
   return (
     <div
@@ -64,10 +64,10 @@ export const DocsSidebar: React.FC<DocsSidebarType> = ({
         <div
           key={index}
           className={cn(
-            "hawa-cursor-pointer hawa-whitespace-nowrap hawa-px-3  hawa-py-1 hawa-text-xs hawa-transition-all hover:hawa-bg-gray-100",
+            "hawa-cursor-pointer hawa-whitespace-nowrap hawa-px-3 hawa-py-1 hawa-text-xs hawa-transition-all hover:hawa-bg-gray-100",
             (propCurrentPage || activePage) === page
               ? selectedStyles[direction || "rtl"]
-              : ""
+              : "",
           )}
           onClick={(event) => handlePageClick(page, event)}
         >

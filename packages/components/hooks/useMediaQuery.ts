@@ -12,7 +12,7 @@ type MediaQueryCallback = (event: { matches: boolean; media: string }) => void;
  * */
 function attachMediaListener(
   query: MediaQueryList,
-  callback: MediaQueryCallback
+  callback: MediaQueryCallback,
 ) {
   try {
     query.addEventListener("change", callback);
@@ -39,13 +39,13 @@ export function useMediaQuery(
   query: string,
   initialValue?: boolean,
   { getInitialValueInEffect }: UseMediaQueryOptions = {
-    getInitialValueInEffect: true
-  }
+    getInitialValueInEffect: true,
+  },
 ) {
   const [matches, setMatches] = useState(
     getInitialValueInEffect
       ? initialValue
-      : getInitialValue(query, initialValue)
+      : getInitialValue(query, initialValue),
   );
   const queryRef = useRef<MediaQueryList>();
 
@@ -54,7 +54,7 @@ export function useMediaQuery(
       queryRef.current = window.matchMedia(query);
       setMatches(queryRef.current.matches);
       return attachMediaListener(queryRef.current, (event) =>
-        setMatches(event.matches)
+        setMatches(event.matches),
       );
     }
 

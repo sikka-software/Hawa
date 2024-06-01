@@ -58,13 +58,13 @@ export const FeedbackRating: FC<ComponentTypes> = ({
       className={cn(
         props.banner
           ? "hawa-fixed hawa-bottom-0 hawa-left-0 hawa-w-full hawa-px-0 md:hawa-px-4"
-          : "hawa-fixed hawa-bottom-4 ",
+          : "hawa-fixed hawa-bottom-4",
         boxPosition[position],
       )}
     >
       <div
         className={cn(
-          "hawa-relative hawa-flex hawa-w-full   hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
+          "hawa-relative hawa-flex hawa-w-full hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
           props.banner &&
             "hawa-rounded-none hawa-px-4 md:hawa-rounded-t md:hawa-px-64",
@@ -116,7 +116,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
                   }, 5300);
                 }}
                 className={cn(
-                  "hawa-w-full hawa-cursor-pointer hawa-rounded hawa-border  hawa-p-4 hawa-text-center hawa-transition-all ",
+                  "hawa-w-full hawa-cursor-pointer hawa-rounded hawa-border hawa-p-4 hawa-text-center hawa-transition-all",
                   clickedOption === op
                     ? "hawa-bg-gray-500 hawa-text-white"
                     : "hawa-border hawa-bg-background hover:hawa-bg-gray-300 dark:hover:hawa-bg-gray-700",
@@ -127,7 +127,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
             ))}
         </div>
         {props.texts && (
-          <div className=" hawa-flex hawa-flex-row hawa-justify-between hawa-text-xs">
+          <div className="hawa-flex hawa-flex-row hawa-justify-between hawa-text-xs">
             <span>{props.texts.least}</span>
             <span>{props.texts.most}</span>
           </div>

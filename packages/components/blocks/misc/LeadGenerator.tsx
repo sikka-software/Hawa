@@ -7,7 +7,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@elements/card";
 import { Input } from "@elements/input";
 
@@ -50,8 +50,8 @@ export const LeadGenerator: FC<LGProps> = ({ texts, submitHandler }) => {
               required: true,
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: texts?.invalidEmail || "Invalid email address"
-              }
+                message: texts?.invalidEmail || "Invalid email address",
+              },
             }}
             defaultValue=""
             render={({ field }) => (

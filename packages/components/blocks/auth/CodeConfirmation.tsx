@@ -122,12 +122,12 @@ export const CodeConfirmation: FC<TConfirmation> = ({
             )}
           />
           {showResendTimer ? (
-            <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
+            <div className="hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
               {props.texts?.resendCodeTimer} <strong>{remainingTime}</strong>{" "}
               {props.texts?.seconds}
             </div>
           ) : (
-            <div className=" hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
+            <div className="hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
               <span>{props.texts?.didntGetCode ?? "Didn't get the code?"}</span>{" "}
               <span
                 className="clickable-link"

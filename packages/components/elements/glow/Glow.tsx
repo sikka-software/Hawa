@@ -35,7 +35,7 @@ export const GlowCapture = ({ className = "", size = 400, ...rest }) => {
       style={
         {
           position: "relative",
-          "--glow-size": `${size}px`
+          "--glow-size": `${size}px`,
         } as CSSProperties
       }
       {...rest}
@@ -61,11 +61,11 @@ export const Glow = ({
   useEffect(() => {
     element.current?.style.setProperty(
       "--glow-top",
-      `${element.current?.offsetTop}px`
+      `${element.current?.offsetTop}px`,
     );
     element.current?.style.setProperty(
       "--glow-left",
-      `${element.current?.offsetLeft}px`
+      `${element.current?.offsetLeft}px`,
     );
   });
 
@@ -74,11 +74,11 @@ export const Glow = ({
       requestAnimationFrame(() => {
         element.current?.style.setProperty(
           "--glow-top",
-          `${element.current?.offsetTop}px`
+          `${element.current?.offsetTop}px`,
         );
         element.current?.style.setProperty(
           "--glow-left",
-          `${element.current?.offsetLeft}px`
+          `${element.current?.offsetLeft}px`,
         );
       });
     });
@@ -95,7 +95,7 @@ export const Glow = ({
         className={className}
         style={{
           ...style,
-          gridArea: "1/1/1/1"
+          gridArea: "1/1/1/1",
         }}
         {...rest}
       >
@@ -112,7 +112,7 @@ export const Glow = ({
             gridArea: "1/1/1/1",
             pointerEvents: "none",
             mask: debug ? undefined : mask,
-            WebkitMask: debug ? undefined : mask
+            WebkitMask: debug ? undefined : mask,
           } as CSSProperties
         }
         {...rest}

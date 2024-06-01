@@ -18,7 +18,7 @@ const Progress = React.forwardRef<
       ref={ref}
       className={cn(
         "hawa-relative hawa-h-4 hawa-w-full hawa-overflow-hidden hawa-rounded hawa-bg-secondary",
-        className
+        className,
       )}
       {...props}
     >

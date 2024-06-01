@@ -45,7 +45,7 @@ const useTable = (
   page: any,
   rowsPerPage: any,
   sortColumn: any,
-  sortDirection: any
+  sortDirection: any,
 ) => {
   const [tableRange, setTableRange] = useState<any>([]);
   const [slice, setSlice] = useState<any>([]);

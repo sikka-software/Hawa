@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { OrientationType } from "@_types/commonTypes";
-
 import { cn } from "@util/index";
+
+import { OrientationType } from "@_types/commonTypes";
 
 type SeparatorProps = {
   className?: string;
@@ -20,7 +20,7 @@ const Separator: React.FC<SeparatorProps> = ({
       orientation === "horizontal"
         ? "hawa-h-[1px] hawa-w-full"
         : "hawa-h-full hawa-w-[1px]",
-      className
+      className,
     )}
     {...props}
   />

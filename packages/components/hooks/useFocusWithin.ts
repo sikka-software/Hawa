@@ -22,7 +22,7 @@ function containsRelatedTarget(event: FocusEvent) {
 // Custom React hook for handling focus events within an element.
 export function useFocusWithin<T extends HTMLElement = any>({
   onBlur,
-  onFocus
+  onFocus,
 }: UseFocusWithinOptions = {}): {
   ref: React.MutableRefObject<T>;
   focused: boolean;

@@ -15,7 +15,7 @@ const AccordionContent = React.forwardRef<
       !props.unstyled
         ? cn(
             "hawa-overflow-hidden hawa-text-sm hawa-transition-all data-[state=closed]:hawa-animate-accordion-up data-[state=open]:hawa-animate-accordion-down",
-            className
+            className,
           )
         : className
     }

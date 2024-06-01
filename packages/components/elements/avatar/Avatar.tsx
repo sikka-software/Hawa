@@ -49,20 +49,20 @@ export const Avatar: React.FC<AvatarProps> = ({
     "3xl": "hawa-h-[72px] hawa-w-[72px]",
     "4xl": "hawa-h-20 hawa-w-20",
     "5xl": "hawa-h-[88px] hawa-w-[88px]",
-    "6xl": "hawa-h-24 hawa-w-24"
+    "6xl": "hawa-h-24 hawa-w-24",
   };
   let radiusStyles = {
     full: "hawa-rounded-full",
     inherit: "hawa-rounded",
-    none: "hawa-rounded-none"
+    none: "hawa-rounded-none",
   };
   return (
     <div
       className={cn(
-        "hawa-relative  hawa-bg-card hawa-p-0",
+        "hawa-relative hawa-bg-card hawa-p-0",
         sizeStyles[size],
         radiusStyles[radius],
-        className
+        className,
       )}
     >
       <FileUploader
@@ -70,7 +70,7 @@ export const Avatar: React.FC<AvatarProps> = ({
           "hawa-absolute hawa-left-0 hawa-top-0 hawa-w-full hawa-cursor-pointer hawa-bg-red-400 hawa-opacity-0",
           sizeStyles[size],
           radiusStyles[radius],
-          (!isUploadable || !!src) && "hawa-hidden"
+          (!isUploadable || !!src) && "hawa-hidden",
         )}
       />
 
@@ -79,7 +79,7 @@ export const Avatar: React.FC<AvatarProps> = ({
           "hawa-blue-400 hawa-object-cover",
           sizeStyles[size],
           radiusStyles[radius],
-          !src && "hawa-hidden"
+          !src && "hawa-hidden",
         )}
         src={src}
         alt={alt}
@@ -88,7 +88,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         <div
           className={cn(
             sizeStyles[size],
-            "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center"
+            "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
           )}
         >
           {icon ? (

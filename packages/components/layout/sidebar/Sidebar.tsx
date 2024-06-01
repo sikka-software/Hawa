@@ -62,7 +62,7 @@ const AccordionContent = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-overflow-hidden hawa-text-sm hawa-transition-all data-[state=closed]:hawa-animate-accordion-up data-[state=open]:hawa-animate-accordion-down",
-      className
+      className,
     )}
     {...props}
   >
@@ -172,34 +172,34 @@ const SidebarItem: React.FC<{
     return (
       <AccordionItem
         value={item.value}
-        className="hawa-overflow-x-clip "
+        className="hawa-overflow-x-clip"
         dir={direction}
       >
         <AccordionTrigger
           className={cn(
             "hawa-w-full hawa-overflow-x-clip",
             props.selectedItem === item.value
-              ? "hawa-cursor-default hawa-bg-primary  hawa-text-primary-foreground"
+              ? "hawa-cursor-default hawa-bg-primary hawa-text-primary-foreground"
               : "hawa-h-10 hover:hawa-bg-primary/10",
             item.subitems &&
               item.subitems.some(
-                (subitem) => props.selectedItem === subitem.value
+                (subitem) => props.selectedItem === subitem.value,
               )
               ? "hawa-bg-primary/80 hawa-text-primary-foreground hover:hawa-bg-primary/80"
-              : ""
+              : "",
           )}
           showArrow={isOpen}
         >
           <div
             className={cn(
-              "hawa-flex hawa-h-fit hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2"
+              "hawa-flex hawa-h-fit hawa-w-fit hawa-flex-row hawa-items-center hawa-gap-2",
             )}
           >
             {item.icon && item.icon}
             <span
               className={cn(
-                "hawa-transition-all ",
-                isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
+                "hawa-transition-all",
+                isOpen ? "hawa-opacity-100" : "hawa-opacity-0",
               )}
             >
               {item.label}
@@ -210,7 +210,7 @@ const SidebarItem: React.FC<{
           <AccordionContent className="hawa-mt-1 hawa-h-full hawa-rounded">
             <div
               className={cn(
-                "hawa-flex hawa-h-full hawa-flex-col hawa-gap-2 hawa-bg-foreground/5 hawa-p-1"
+                "hawa-flex hawa-h-full hawa-flex-col hawa-gap-2 hawa-bg-foreground/5 hawa-p-1",
               )}
             >
               {item.subitems.map((subitem, idx) => (
@@ -232,9 +232,9 @@ const SidebarItem: React.FC<{
                     }
                   }}
                   className={cn(
-                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-overflow-x-clip  hawa-whitespace-nowrap hawa-rounded hawa-p-2 hawa-transition-all",
+                    "hawa-flex hawa-h-full hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-2 hawa-overflow-x-clip hawa-whitespace-nowrap hawa-rounded hawa-p-2 hawa-transition-all",
                     // bg-foreground/10
-                    getSelectedStyle(subitem.value)
+                    getSelectedStyle(subitem.value),
                   )}
                 >
                   {subitem.icon && subitem.icon}
@@ -267,7 +267,7 @@ const SidebarItem: React.FC<{
         className={cn(
           triggerStyles,
           getSelectedStyle(item.value),
-          "hawa-overflow-x-clip "
+          "hawa-overflow-x-clip",
         )}
       >
         <div className={"hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"}>
@@ -275,7 +275,7 @@ const SidebarItem: React.FC<{
           <span
             className={cn(
               "hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-transition-all",
-              isOpen ? "hawa-opacity-100" : "hawa-opacity-0"
+              isOpen ? "hawa-opacity-100" : "hawa-opacity-0",
             )}
           >
             {item.label}{" "}

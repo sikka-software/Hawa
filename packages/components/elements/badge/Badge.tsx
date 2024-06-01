@@ -15,14 +15,14 @@ export const Badge: FC<BadgeTypes> = ({
   position = "right",
   size = "default",
   text,
-  className
+  className,
 }) => {
   const [badgePosition, setBadgePosition] = useState<any>(null);
   const indicatorRef = useRef(null);
   const sizeStyles = {
     small: { top: 4, left: 6, right: 7, classes: "hawa-w-3 hawa-h-3" },
     default: { top: 4, left: 7, right: 5, classes: "hawa-w-3 hawa-h-3" },
-    large: { top: 6, left: 12, right: 7, classes: "hawa-w-6 hawa-h-6" }
+    large: { top: 6, left: 12, right: 7, classes: "hawa-w-6 hawa-h-6" },
   };
   useEffect(() => {
     const handlePositioning = () => {
@@ -45,7 +45,7 @@ export const Badge: FC<BadgeTypes> = ({
                   parentRect.left -
                   parentRect.width -
                   marginRight -
-                  sizeStyles[size].right
+                  sizeStyles[size].right,
           });
         }
       }
@@ -65,12 +65,12 @@ export const Badge: FC<BadgeTypes> = ({
           style={{
             position: "absolute",
             top: badgePosition?.top,
-            left: badgePosition?.left
+            left: badgePosition?.left,
           }}
           className={cn(
-            "hawa-origin-center hawa-rounded-full  hawa-bg-red-500 ",
+            "hawa-origin-center hawa-rounded-full hawa-bg-red-500",
             sizeStyles[size].classes,
-            "hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-text-[9px] hawa-text-white"
+            "hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-text-[9px] hawa-text-white",
           )}
         >
           {size === "large" && text && text}
@@ -86,7 +86,7 @@ export const BadgedComponent = ({
   hideBadge,
   position,
   size,
-  text
+  text,
 }: any) => {
   const ref = useRef(null);
 

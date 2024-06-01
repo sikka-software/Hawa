@@ -14,7 +14,7 @@ type DialogCarouselType = {
 export const useDialogCarousel = (options?: any): DialogCarouselType => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: false, watchDrag: false, startIndex: 0, ...options },
-    [AutoHeight({ destroyHeight: "fit", active: true })]
+    [AutoHeight({ destroyHeight: "fit", active: true })],
   );
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const checkCanScrollPrev = () => {
@@ -48,6 +48,6 @@ export const useDialogCarousel = (options?: any): DialogCarouselType => {
     emblaApi,
     nextStep,
     prevStep,
-    canScrollPrev
+    canScrollPrev,
   };
 };

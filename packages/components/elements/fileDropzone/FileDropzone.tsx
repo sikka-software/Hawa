@@ -55,7 +55,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
   maxSize,
   label,
   termsLink,
-  privacyLink
+  privacyLink,
 }) => {
   const [cmp, setCmp] = useState(0);
   const [max, setMax] = useState<any>(0);
@@ -65,7 +65,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
     getInputProps,
     fileRejections,
     acceptedFiles,
-    isDragActive
+    isDragActive,
   } = useDropzone({
     multiple: true,
     accept: accept,
@@ -75,11 +75,11 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       setFiles(
         acceptedFiles.map((file: any, index: any) =>
           Object.assign(file, {
-            preview: URL.createObjectURL(file)
-          })
-        )
+            preview: URL.createObjectURL(file),
+          }),
+        ),
       );
-    }
+    },
   });
   useEffect(
     () => () => {
@@ -87,7 +87,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
         URL.revokeObjectURL(file.preview);
       });
     },
-    [files]
+    [files],
   );
   useEffect(() => {
     setFiles(acceptedFiles);
@@ -110,7 +110,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       const i = Math.floor(Math.log(maxSize) / Math.log(1024));
 
       setMax(
-        parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i]
+        parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i],
       );
     }
   }, [maxSize]);
@@ -194,7 +194,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
           backgroundImage: `url(${file.preview})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          border: "1px solid black"
+          border: "1px solid black",
         }}
         className="hawa-rounded"
         key={file.name}
@@ -211,10 +211,10 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       )}
       <div
         className={clsx(
-          "hawa-flex hawa-flex-col hawa-justify-center hawa-rounded hawa-border hawa-border-dashed  hawa-p-6 hawa-transition-all  ",
+          "hawa-flex hawa-flex-col hawa-justify-center hawa-rounded hawa-border hawa-border-dashed hawa-p-6 hawa-transition-all",
           isDragActive
             ? "hawa-bg-muted"
-            : "hawa-bg-muted/20 hover:hawa-bg-muted/50 "
+            : "hawa-bg-muted/20 hover:hawa-bg-muted/50",
         )}
       >
         <div {...getRootProps({})}>
@@ -253,12 +253,12 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
           </div>
         </div>
         {acceptedFiles.length > 0 && (
-          <div className="hawa-flex hawa-justify-center hawa-rounded-lg  hawa-p-2 ">
+          <div className="hawa-flex hawa-justify-center hawa-rounded-lg hawa-p-2">
             <Button onClick={clearAllFiles}>Clear All</Button>
           </div>
         )}
         {acceptedFiles.length > 0 && thumbs && showPreview ? (
-          <aside className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-justify-center  hawa-gap-2 hawa-rounded-lg  hawa-p-2">
+          <aside className="hawa-flex hawa-flex-row hawa-flex-wrap hawa-justify-center hawa-gap-2 hawa-rounded-lg hawa-p-2">
             {thumbs}
           </aside>
         ) : null}

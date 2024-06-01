@@ -22,11 +22,11 @@ export const PricingCard: FC<PricingCardProps> = ({
 }) => {
   let cardSizes = {
     small:
-      "hawa-w-full hawa-max-w-sm hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
+      "hawa-w-full hawa-max-w-sm hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background",
     medium:
-      "hawa-w-full hawa-rounded hawa-min-w-fit hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
+      "hawa-w-full hawa-rounded hawa-min-w-fit hawa-border dark:hawa-border-gray-700 hawa-bg-background",
     large:
-      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background ",
+      "hawa-w-full hawa-max-w-lg hawa-rounded hawa-border dark:hawa-border-gray-700 hawa-bg-background",
   };
   return (
     <>
@@ -40,16 +40,16 @@ export const PricingCard: FC<PricingCardProps> = ({
           dir={direction}
           className={cn(
             currentPlan
-              ? "hawa-border-2 hawa-border-primary dark:hawa-border-primary/70 "
+              ? "hawa-border-2 hawa-border-primary dark:hawa-border-primary/70"
               : "hawa-border",
             cardSizes[size],
-            "hawa-relative hawa-flex  hawa-flex-col hawa-justify-between hawa-gap-4 hawa-p-4",
+            "hawa-relative hawa-flex hawa-flex-col hawa-justify-between hawa-gap-4 hawa-p-4",
             recommended ? "hawa-rounded hawa-rounded-t-none" : "hawa-rounded",
           )}
         >
           {recommended && (
             <div
-              className="hawa-absolute -hawa-left-[1px] hawa-top-0 -hawa-translate-y-full hawa-rounded-t hawa-border hawa-bg-primary hawa-p-2  hawa-text-center hawa-text-primary-foreground"
+              className="hawa-absolute -hawa-left-[1px] hawa-top-0 -hawa-translate-y-full hawa-rounded-t hawa-border hawa-bg-primary hawa-p-2 hawa-text-center hawa-text-primary-foreground"
               style={{ width: "calc(100% + 2px)" }}
             >
               {props.texts?.recommended || "RECOMMENDED"}
@@ -59,7 +59,7 @@ export const PricingCard: FC<PricingCardProps> = ({
           <div className="hawa-flex hawa-h-full hawa-flex-col hawa-gap-4">
             <div className="hawa-text-md hawa-relative hawa-flex hawa-flex-col hawa-justify-between hawa-font-bold hawa-text-primary/70">
               <span>{props.texts?.title}</span>
-              <h5 className="hawa-text-sm  hawa-font-normal hawa-text-primary/70">
+              <h5 className="hawa-text-sm hawa-font-normal hawa-text-primary/70">
                 {props.texts?.subtitle}
               </h5>
               {props.discount && (
@@ -68,9 +68,9 @@ export const PricingCard: FC<PricingCardProps> = ({
                 </span>
               )}
             </div>
-            <div className=" hawa-flex hawa-items-baseline  hawa-text-primary">
+            <div className="hawa-flex hawa-items-baseline hawa-text-primary">
               {props.isLoadingPrice ? (
-                <Skeleton className="hawa-h-[48px] hawa-w-full hawa-max-w-[200px] hawa-p-0 " />
+                <Skeleton className="hawa-h-[48px] hawa-w-full hawa-max-w-[200px] hawa-p-0" />
               ) : (
                 <>
                   {props.noPrice ? (
@@ -80,7 +80,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                   ) : (
                     <>
                       <>
-                        <div className="hawa-flex hawa-flex-row hawa-items-end   hawa-gap-2">
+                        <div className="hawa-flex hawa-flex-row hawa-items-end hawa-gap-2">
                           {props.oldPrice && props.oldPrice > 0 && (
                             <span className="hawa-line-through hawa-opacity-70">
                               {props.oldPrice + " " + props.texts?.currencyText}
@@ -140,7 +140,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                             <div className="hawa-m-2 hawa-mx-2.5 hawa-h-4 hawa-w-4 hawa-rounded-full hawa-bg-primary/10"></div>
                           )}
 
-                          <span className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-text-start hawa-font-normal hawa-leading-tight hawa-text-primary/70 ">
+                          <span className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-text-start hawa-font-normal hawa-leading-tight hawa-text-primary/70">
                             {feature.text}{" "}
                             {feature.soon && feature.included && (
                               <Chip

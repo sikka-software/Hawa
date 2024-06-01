@@ -14,7 +14,7 @@ export interface DirectionContextValue {
 export const DirectionContext = createContext<DirectionContextValue>({
   dir: "ltr",
   toggleDirection: () => {},
-  setDirection: () => {}
+  setDirection: () => {},
 });
 
 export function useDirection() {
@@ -35,7 +35,7 @@ export interface DirectionProviderProps {
 export function DirectionProvider({
   children,
   initialDirection = "ltr",
-  detectDirection = true
+  detectDirection = true,
 }: DirectionProviderProps) {
   const [dir, setDir] = useState<Direction>(initialDirection);
 

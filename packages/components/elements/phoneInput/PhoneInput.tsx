@@ -63,7 +63,7 @@ export const PhoneInput: FC<PhoneInputProps> = ({
           defaultValue={props.preferredCountry}
         />
 
-        <div className="hawa-relative hawa-flex hawa-h-fit hawa-w-full  hawa-flex-col hawa-justify-center hawa-gap-0">
+        <div className="hawa-relative hawa-flex hawa-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">
           <input
             type="tel"
             ref={inputRef}
@@ -72,7 +72,7 @@ export const PhoneInput: FC<PhoneInputProps> = ({
             onChange={handleInputChange}
             placeholder={props.placeholder}
             className={cn(
-              "placeholder:hawa-text-muted-foreground hawa-block hawa-h-[40px] hawa-w-full hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent  hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
+              "placeholder:hawa-text-muted-foreground hawa-block hawa-h-[40px] hawa-w-full hawa-rounded hawa-rounded-l-none hawa-border hawa-border-l-0 hawa-border-l-transparent hawa-bg-background hawa-p-2 hawa-text-sm hawa-transition-all",
             )}
             {...inputProps}
           />

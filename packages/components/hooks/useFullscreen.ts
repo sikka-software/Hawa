@@ -45,8 +45,8 @@ function addEvents(
   element: HTMLElement,
   {
     onFullScreen,
-    onError
-  }: { onFullScreen: (event: Event) => void; onError: (event: Event) => void }
+    onError,
+  }: { onFullScreen: (event: Event) => void; onError: (event: Event) => void },
 ) {
   prefixes.forEach((prefix) => {
     element.addEventListener(`${prefix}fullscreenchange`, onFullScreen);
@@ -70,7 +70,7 @@ export function useFullscreen<T extends HTMLElement = any>() {
     (event: Event) => {
       setFullscreen(event.target === getFullscreenElement());
     },
-    [setFullscreen]
+    [setFullscreen],
   );
 
   const handleFullscreenError = useCallback(
@@ -78,10 +78,10 @@ export function useFullscreen<T extends HTMLElement = any>() {
       setFullscreen(false);
       // eslint-disable-next-line no-console
       console.error(
-        `[@sikka/hawa/hooks] useFullscreen: Error attempting full-screen mode method: ${event} (${event.target})`
+        `[@sikka/hawa/hooks] useFullscreen: Error attempting full-screen mode method: ${event} (${event.target})`,
       );
     },
-    [setFullscreen]
+    [setFullscreen],
   );
 
   const toggle = useCallback(async () => {
@@ -105,14 +105,14 @@ export function useFullscreen<T extends HTMLElement = any>() {
       _ref.current = window.document.documentElement as T;
       return addEvents(_ref.current, {
         onFullScreen: handleFullscreenChange,
-        onError: handleFullscreenError
+        onError: handleFullscreenError,
       });
     }
 
     if (_ref.current) {
       return addEvents(_ref.current, {
         onFullScreen: handleFullscreenChange,
-        onError: handleFullscreenError
+        onError: handleFullscreenError,
       });
     }
 

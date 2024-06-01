@@ -1,6 +1,7 @@
 import React, { FC, RefObject, useState, useEffect, useRef } from "react";
 
 import { cn } from "@util/index";
+
 import { Button } from "../button";
 
 type BackToTopTypes = {
@@ -97,7 +98,7 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
       left:
         anchorRect.x +
         width +
-        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25)
+        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25),
     };
 
     return style;
@@ -109,19 +110,19 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
         "hawa-fixed hawa-cursor-pointer hawa-rounded hawa-transition-all",
         visible
           ? "hawa-pointer-events-all hawa-opacity-100"
-          : "hawa-pointer-events-none hawa-opacity-0"
+          : "hawa-pointer-events-none hawa-opacity-0",
       )}
       onClick={backToTop}
       style={{
         ...getStyles(),
-        transitionProperty: "opacity, background-color"
+        transitionProperty: "opacity, background-color",
       }}
       ref={self}
       size="icon"
     >
       <svg
         className={cn(
-          "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-rotate-180 hawa-transition-all  disabled:hawa-bg-gray-200"
+          "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-rotate-180 hawa-transition-all disabled:hawa-bg-gray-200",
         )}
         aria-label="Arrow Icon"
         viewBox="0 0 20 20"

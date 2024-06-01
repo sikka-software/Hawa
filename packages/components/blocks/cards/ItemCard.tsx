@@ -94,7 +94,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
     <div
       className={cn(
         defaultStyle,
-        props.onCardClick && " hawa-cursor-pointer hover:hawa-shadow-lg",
+        props.onCardClick && "hawa-cursor-pointer hover:hawa-shadow-lg",
         orientationStyles[orientation],
         props.className,
       )}
@@ -119,7 +119,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
           />
           {clickableImage && (
             <StopPropagationWrapper>
-              <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-flex hawa-h-full hawa-w-full hawa-items-center hawa-justify-center hawa-opacity-0 hawa-transition-all group-hover:hawa-opacity-100 ">
+              <div className="hawa-absolute hawa-left-0 hawa-top-0 hawa-flex hawa-h-full hawa-w-full hawa-items-center hawa-justify-center hawa-opacity-0 hawa-transition-all group-hover:hawa-opacity-100">
                 <Button
                   variant="secondary"
                   onClick={onImageClick}
@@ -161,14 +161,14 @@ export const ItemCard: FC<ItemCardTypes> = ({
           </div>
         )}
 
-        <div className=" hawa-mx-2">
+        <div className="hawa-mx-2">
           {header && (
-            <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight ">
+            <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight">
               {header}
             </h5>
           )}
           {content && (
-            <span className="hawa-w-full hawa-font-normal ">{content}</span>
+            <span className="hawa-w-full hawa-font-normal">{content}</span>
           )}
         </div>
         {actions || counts ? (

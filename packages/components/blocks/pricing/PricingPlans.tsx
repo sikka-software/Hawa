@@ -69,7 +69,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
                     // plan: plan.id,
                     currency: props.currentCurrency?.value,
                     cycle: props.currentCycle?.value,
-                    ...plan
+                    ...plan,
                   };
                   props.onPlanClicked(clickedData);
                 }
@@ -80,7 +80,7 @@ export const PricingPlans: FC<PricingPlansTypes> = ({
               texts={{
                 ...plan.texts,
                 currencyText: props.currentCurrency?.label,
-                cycleText: props.currentCycle?.label
+                cycleText: props.currentCycle?.label,
               }}
             />
           );

@@ -256,7 +256,7 @@ const AppCommand = ({
     <Dialog {...dialogProps}>
       <DialogContent
         hideCloseButton
-        className="hawa-overflow-hidden !hawa-p-0 hawa-shadow-l "
+        className="hawa-overflow-hidden !hawa-p-0 hawa-shadow-l"
         // !hawa-min-h-[50%]
       >
         <FullCommand {...commandProps} onActionClick={onActionClick} />

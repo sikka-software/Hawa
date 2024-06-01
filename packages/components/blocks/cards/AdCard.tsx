@@ -63,7 +63,7 @@ export const AdCard: FC<AdCardTypes> = ({
         className={cn(cardStyles[orientation], props.className)}
         onClick={props.handleClick}
       >
-        <div className="hawa-flex hawa-aspect-square hawa-w-full  hawa-max-w-fit  hawa-items-start ">
+        <div className="hawa-flex hawa-aspect-square hawa-w-full hawa-max-w-fit hawa-items-start">
           <img
             src={
               props.imageURL ? props.imageURL : "https://via.placeholder.com/50"

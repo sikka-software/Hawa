@@ -16,7 +16,7 @@ export const PasswordStrengthIndicator: React.FC<
     "weak",
     "medium",
     "strong",
-    "very-strong"
+    "very-strong",
   ];
   const strengthColors: any = {
     none: "hawa-bg-red-700",
@@ -24,7 +24,7 @@ export const PasswordStrengthIndicator: React.FC<
     weak: "hawa-bg-red-500",
     medium: "hawa-bg-yellow-500",
     strong: "hawa-bg-green-400",
-    "very-strong": "hawa-bg-green-600"
+    "very-strong": "hawa-bg-green-600",
   };
   const currentStrengthLevel = strengthLevels[strength];
   const width = {
@@ -33,7 +33,7 @@ export const PasswordStrengthIndicator: React.FC<
     weak: "40%",
     medium: "60%",
     strong: "80%",
-    "very-strong": "100%"
+    "very-strong": "100%",
   }[currentStrengthLevel];
 
   return (

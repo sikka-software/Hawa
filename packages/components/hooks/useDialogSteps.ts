@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 export const useMultiStepDialog = (
   initialStep: any,
   stepIds: any[],
-  setOpenDialog: any
+  setOpenDialog: any,
 ) => {
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [dialogHeight, setDialogHeight] = useState(null);
@@ -37,6 +37,6 @@ export const useMultiStepDialog = (
     dialogHeight,
     visibleStepRef,
     handleNext,
-    handleBack
+    handleBack,
   };
 };

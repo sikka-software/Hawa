@@ -20,7 +20,7 @@ const size2config: Record<Size, { strokeWidth: number; radius: number }> = {
   sm: { radius: 19, strokeWidth: 4 },
   md: { radius: 32, strokeWidth: 6 },
   lg: { radius: 52, strokeWidth: 8 },
-  xl: { radius: 80, strokeWidth: 10 }
+  xl: { radius: 80, strokeWidth: 10 },
 };
 
 function getLimitedValue(input: number | undefined) {
@@ -63,7 +63,7 @@ export const ProgressCircle = React.forwardRef<
         ref={ref}
         className={cn(
           "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
-          className
+          className,
         )}
       >
         <svg
@@ -82,7 +82,7 @@ export const ProgressCircle = React.forwardRef<
             strokeLinecap="round"
             className={cn(
               "hawa-transition-colors hawa-ease-linear",
-              " hawa-stroke-primary/20"
+              "hawa-stroke-primary/20",
             )}
           />
           {value > 0 ? (
@@ -101,7 +101,7 @@ export const ProgressCircle = React.forwardRef<
                 "hawa-stroke-primary",
                 showAnimation
                   ? "hawa-transition-all hawa-duration-300 hawa-ease-in-out"
-                  : ""
+                  : "",
               )}
             />
           ) : null}

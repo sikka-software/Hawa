@@ -13,7 +13,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
   upperOverlayGradiant,
   lowerOverlayGradiant,
   phone,
-  hideButtons
+  hideButtons,
 }: any) => (
   <div className="hawa-relative hawa-mx-auto hawa-h-[600px] hawa-w-[300px] hawa-rounded-[2.5rem] hawa-border-[14px] hawa-border-gray-800 hawa-bg-gray-800 hawa-dark:border-gray-800">
     {!hideButtons && (

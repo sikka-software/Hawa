@@ -39,13 +39,13 @@ const Accordion = React.forwardRef<
       className,
       ...props
     },
-    ref
+    ref,
   ) => (
     <AccordionPrimitive.Root type={props.type} collapsible>
       <div
         className={cn("hawa-flex hawa-flex-col", {
           "hawa-gap-4": design === "separated",
-          "hawa-gap-0": design === "default"
+          "hawa-gap-0": design === "default",
         })}
       >
         {items.map((item, index) => (
@@ -64,15 +64,15 @@ const Accordion = React.forwardRef<
                   : {
                       "hawa-rounded-t": index === 0,
                       "data-[state=closed]:hawa-rounded-b":
-                        index === items.length - 1
+                        index === items.length - 1,
                     },
-                triggerclassNames
+                triggerclassNames,
               )}
             >
               <span
                 className={cn(
                   "hawa-flex hawa-flex-row",
-                  item.chip && "hawa-gap-2"
+                  item.chip && "hawa-gap-2",
                 )}
               >
                 {item.trigger} {item.chip && <Chip {...item.chip} />}
@@ -86,9 +86,9 @@ const Accordion = React.forwardRef<
                   ? "hawa-rounded data-[state=open]:hawa-rounded-t-none"
                   : {
                       "data-[state=open]:hawa-rounded-b":
-                        index === items.length - 1
+                        index === items.length - 1,
                     },
-                contentclassNames
+                contentclassNames,
               )}
             >
               {item.content}
@@ -97,7 +97,7 @@ const Accordion = React.forwardRef<
         ))}
       </div>
     </AccordionPrimitive.Root>
-  )
+  ),
 );
 
 Accordion.displayName = "Accordion";

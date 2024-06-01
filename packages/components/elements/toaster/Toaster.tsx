@@ -11,7 +11,7 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-  ToasterToastProps
+  ToasterToastProps,
 } from "../toast";
 
 type ToasterProps = {
@@ -36,7 +36,7 @@ export function Toaster(props: ToasterProps) {
             <div
               className={cn(
                 "hawa-flex hawa-w-full hawa-flex-row hawa-gap-2",
-                action && "hawa-justify-between"
+                action && "hawa-justify-between",
               )}
             >
               <div className="hawa-flex hawa-h-full hawa-flex-col hawa-p-2 hawa-pe-0">
@@ -46,7 +46,7 @@ export function Toaster(props: ToasterProps) {
               <div
                 className={cn(
                   "hawa-flex hawa-w-full hawa-flex-row hawa-justify-between hawa-gap-2",
-                  { "hawa-p-4": size === "default", "hawa-p-2": size === "sm" }
+                  { "hawa-p-4": size === "default", "hawa-p-2": size === "sm" },
                 )}
               >
                 <div className={"hawa-grid hawa-gap-1 hawa-text-start"}>
@@ -58,7 +58,7 @@ export function Toaster(props: ToasterProps) {
                   )}
                 </div>
                 {action && (
-                  <div className="hawa-flex  hawa-flex-col hawa-justify-center">
+                  <div className="hawa-flex hawa-flex-col hawa-justify-center">
                     {action}
                   </div>
                 )}

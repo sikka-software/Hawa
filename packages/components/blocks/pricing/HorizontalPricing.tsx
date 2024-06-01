@@ -33,11 +33,11 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
   let data = [
     { title: "basic", price: "$49", cycle: "/mo" },
     { title: "business", price: "$99", cycle: "/mo" },
-    { title: "enterprise", price: "$149", cycle: "/mo" }
+    { title: "enterprise", price: "$149", cycle: "/mo" },
   ];
   return (
     <div className="hawa-z-10 hawa-w-full hawa-max-w-screen-sm">
-      <div className="hawa-max-w-2xl ">
+      <div className="hawa-max-w-2xl">
         <div className="hawa-flex hawa-flex-row hawa-justify-between">
           <Radio
             name="currency"
@@ -68,9 +68,9 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             <div
               className={cn(
                 selectedCard === d.title
-                  ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-4 peer-checked:hawa-ring-primary/20 "
+                  ? "peer-checked:hawa-border-primary peer-checked:hawa-ring-4 peer-checked:hawa-ring-primary/20"
                   : "",
-                "hawa-peer hawa-flex hawa-cursor-pointer hawa-items-center hawa-justify-between  hawa-rounded-xl hawa-border hawa-bg-background hawa-px-5   hawa-py-4 hawa-shadow dark:hawa-text-white  peer-checked:[&_.active]:hawa-block peer-checked:[&_.default]:hawa-hidden"
+                "hawa-peer hawa-flex hawa-cursor-pointer hawa-items-center hawa-justify-between hawa-rounded-xl hawa-border hawa-bg-background hawa-px-5 hawa-py-4 hawa-shadow dark:hawa-text-white peer-checked:[&_.active]:hawa-block peer-checked:[&_.default]:hawa-hidden",
               )}
             >
               <div className="hawa-peer hawa-flex hawa-items-center hawa-gap-4">
@@ -119,7 +119,7 @@ const CheckIcons = () => (
   </>
 );
 const CardText = (props: any) => (
-  <div className="hawa-peer hawa-flex hawa-flex-col hawa-items-start ">
+  <div className="hawa-peer hawa-flex hawa-flex-col hawa-items-start">
     <h2 className="hawa-font-medium hawa-text-primary/90 sm:hawa-text-xl">
       {props.title}
     </h2>

@@ -237,7 +237,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             >
               <div
                 onClick={() => setOpenSideMenu(true)}
-                className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer hawa-rounded hawa-p-2  hawa-transition-all "
+                className="hawa-z-40 hawa-mx-1 hawa-cursor-pointer hawa-rounded hawa-p-2 hawa-transition-all"
               >
                 <MenuIcon />
               </div>
@@ -273,7 +273,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               trigger={
                 <div
                   onClick={onAvatarClick}
-                  className="hawa-relative hawa-h-8 hawa-w-8  hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600"
+                  className="hawa-relative hawa-h-8 hawa-w-8 hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600"
                 >
                   {props.avatarImage ? (
                     <img src={props.avatarImage} alt="User Avatar" />
@@ -356,7 +356,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             onClick={props.onLogoClick}
             dir={direction}
             className={cn(
-              "hawa-fixed hawa-z-50  hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-transition-all",
+              "hawa-fixed hawa-z-50 hawa-mb-2 hawa-flex hawa-h-14 hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-transition-all",
               props.onLogoClick && "hawa-cursor-pointer",
               classNames?.logoContainer,
             )}
@@ -444,7 +444,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
            */}
           <div
             className={cn(
-              "hawa-fixed hawa-bottom-0 hawa-flex hawa-h-14  hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-transition-all",
+              "hawa-fixed hawa-bottom-0 hawa-flex hawa-h-14 hawa-items-center hawa-justify-center hawa-gap-2 hawa-overflow-clip hawa-transition-all",
               direction === "rtl" ? "hawa-flex-row-reverse" : "hawa-flex-row",
             )}
             style={{
@@ -485,7 +485,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 >
                   <svg
                     className={cn(
-                      "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all  disabled:hawa-bg-gray-200 ",
+                      "hawa-h-6 hawa-w-6 hawa-shrink-0 hawa-text-primary hawa-transition-all disabled:hawa-bg-gray-200",
                       keepDrawerOpen
                         ? isRTL
                           ? "hawa--rotate-90"
@@ -520,12 +520,12 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
         onOpenChange={setOpenSideMenu}
       >
         <Dialog.Portal container={container}>
-          <Dialog.Overlay className="hawa-fixed hawa-inset-0 hawa-bg-foreground/20 hawa-backdrop-blur-[2px] data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10  data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
+          <Dialog.Overlay className="hawa-fixed hawa-inset-0 hawa-bg-foreground/20 hawa-backdrop-blur-[2px] data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10 data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
         </Dialog.Portal>
       </Dialog.Root>
 
       <div
-        className="hawa-fixed hawa-overflow-y-auto  hawa-transition-all hawa-z-0"
+        className="hawa-fixed hawa-overflow-y-auto hawa-transition-all hawa-z-0"
         style={
           isRTL
             ? {

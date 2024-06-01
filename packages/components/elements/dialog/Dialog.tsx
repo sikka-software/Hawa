@@ -81,7 +81,7 @@ const DialogContent = React.forwardRef<
           <DialogPrimitive.Close
             className={cn(
               "hawa-absolute hawa-top-4 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
-              props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4",
+              props.dir === "rtl" ? "hawa-left-4" : "hawa-right-4",
               classNames?.closeButton,
             )}
             id={ids?.closeButton}
@@ -180,8 +180,8 @@ const DialogCarouselContent = React.forwardRef<
           {!hideCloseButton && (
             <DialogPrimitive.Close
               className={cn(
-                "hawa-end-0 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground ",
-                props.dir === "rtl" ? " hawa-left-4" : " hawa-right-4",
+                "hawa-end-0 hawa-rounded hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-accent data-[state=open]:hawa-text-muted-foreground",
+                props.dir === "rtl" ? "hawa-left-4" : "hawa-right-4",
               )}
             >
               <svg
@@ -355,7 +355,7 @@ const DialogStep: React.FC<DialogStepProps> = ({
     <div
       id={id}
       ref={stepRef}
-      className={cn("hawa-w-full  hawa-px-1", className)}
+      className={cn("hawa-w-full hawa-px-1", className)}
     >
       {children}
     </div>

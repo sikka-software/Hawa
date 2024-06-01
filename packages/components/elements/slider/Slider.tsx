@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import * as SliderPrimitive from "@radix-ui/react-slider";
-
 import { cn } from "@util/index";
 
 const Slider = React.forwardRef<
@@ -12,7 +11,7 @@ const Slider = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-relative hawa-flex hawa-w-full hawa-touch-none hawa-select-none hawa-items-center",
-      className
+      className,
     )}
     {...props}
   >

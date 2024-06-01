@@ -18,9 +18,9 @@ const TooltipContent = React.forwardRef<
       "hawa-z-50 hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-px-3 hawa-py-1.5 hawa-text-sm hawa-text-popover-foreground hawa-shadow-md hawa-animate-in hawa-fade-in-0 hawa-zoom-in-95 data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=closed]:hawa-zoom-out-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
       {
         "hawa-text-xs": size === "small",
-        "hawa-text-xl": size === "large"
+        "hawa-text-xl": size === "large",
       },
-      className
+      className,
     )}
     {...props}
   />
@@ -96,7 +96,7 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
           style={{
             ...contentProps?.style,
             maxWidth: "var(--radix-tooltip-content-available-width)",
-            maxHeight: "var(--radix-tooltip-content-available-height)"
+            maxHeight: "var(--radix-tooltip-content-available-height)",
           }}
         >
           {content}

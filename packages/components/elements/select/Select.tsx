@@ -121,9 +121,9 @@ export const Select: FC<SelectTypes> = ({
     return (
       <div
         className={cn(
-          "dark:dark-shadow  hawa-absolute hawa-z-10 -hawa-mx-1 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start  hawa-rounded  hawa-border hawa-bg-background hawa-shadow-md",
+          "dark:dark-shadow hawa-absolute hawa-z-10 -hawa-mx-1 hawa-mt-1 hawa-flex hawa-flex-col hawa-justify-start hawa-rounded hawa-border hawa-bg-background hawa-shadow-md",
           props.phoneCode ? "hawa-p-1.5" : "hawa-w-full hawa-p-1.5",
-          menuOpen && "hawa-animate-in hawa-fade-in-0 hawa-zoom-in-95 ",
+          menuOpen && "hawa-animate-in hawa-fade-in-0 hawa-zoom-in-95",
         )}
         ref={innerRef}
         {...innerProps}

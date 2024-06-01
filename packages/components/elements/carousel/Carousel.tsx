@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import { DirectionType } from "@_types/commonTypes";
-// import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { cn } from "@util/index";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
+
+import { DirectionType } from "@_types/commonTypes";
 
 type CarouselProps = {
   items: React.ReactNode[];
@@ -39,7 +39,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   const [emblaRef, emblaApi] = useEmblaCarousel({
     ...options,
     direction,
-    loop: autoplay ? true : options?.loop || false
+    loop: autoplay ? true : options?.loop || false,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -72,14 +72,14 @@ export const Carousel: React.FC<CarouselProps> = ({
   const canScrollNext = !!emblaApi?.canScrollNext();
   const canScrollPrev = !!emblaApi?.canScrollPrev();
   return (
-    <div className=" hawa-relative hawa-h-full">
+    <div className="hawa-relative hawa-h-full">
       <div className="hawa-h-full hawa-overflow-hidden">
         <div className="hawa-h-full" ref={emblaRef}>
           <div className="hawa-flex hawa-h-full">
             {items?.map((item: any, i: any) => (
               <div
                 key={i}
-                className="hawa-flex hawa-h-full hawa-min-w-0  hawa-flex-[0_0_100%]  hawa-items-center hawa-justify-center"
+                className="hawa-flex hawa-h-full hawa-min-w-0 hawa-flex-[0_0_100%] hawa-items-center hawa-justify-center"
               >
                 {item}
               </div>
@@ -111,7 +111,7 @@ const Dots = ({
   onDotClick,
   itemsLength,
   selectedIndex,
-  direction
+  direction,
 }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
@@ -129,7 +129,7 @@ const Dots = ({
               "hawa-h-2 hawa-rounded-full hawa-bg-primary hawa-transition-all hawa-duration-300 hover:hawa-cursor-pointer",
               !selected
                 ? "hawa-w-2 hawa-opacity-50"
-                : "hawa-w-6 hawa-opacity-100"
+                : "hawa-w-6 hawa-opacity-100",
             )}
           ></div>
         );
@@ -140,14 +140,14 @@ const Dots = ({
 
 const CarouselControls = (props: ControlsProps) => {
   return (
-    <div className="hawa-flex hawa-justify-end hawa-gap-2 ">
+    <div className="hawa-flex hawa-justify-end hawa-gap-2">
       <button
         onClick={() => props.canScrollPrev && props.onPrev()}
         disabled={!props.canScrollPrev}
         className={cn(
-          "hawa-absolute hawa-start-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",
+          "hawa-absolute hawa-start-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white",
           !props.canScrollPrev && "hawa-bg-primary/50",
-          props.canScrollPrev && "hawa-bg-primary"
+          props.canScrollPrev && "hawa-bg-primary",
         )}
       >
         <svg
@@ -155,7 +155,7 @@ const CarouselControls = (props: ControlsProps) => {
           stroke="currentColor"
           fill="currentColor"
           viewBox="0 0 16 16"
-          className="hawa-h-2 hawa-w-2 hawa-shrink-0 hawa-rotate-180 hawa-transition-transform hawa-duration-200 "
+          className="hawa-h-2 hawa-w-2 hawa-shrink-0 hawa-rotate-180 hawa-transition-transform hawa-duration-200"
         >
           <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
         </svg>
@@ -164,9 +164,9 @@ const CarouselControls = (props: ControlsProps) => {
         onClick={() => props.canScrollNext && props.onNext()}
         disabled={!props.canScrollNext}
         className={cn(
-          "hawa-absolute hawa-end-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white ",
+          "hawa-absolute hawa-end-0 hawa-top-1/2 -hawa-translate-y-2 hawa-rounded-full hawa-p-2 hawa-text-white",
           !props.canScrollNext && "hawa-bg-primary/50",
-          props.canScrollNext && "hawa-bg-primary"
+          props.canScrollNext && "hawa-bg-primary",
         )}
       >
         <svg
@@ -174,7 +174,7 @@ const CarouselControls = (props: ControlsProps) => {
           stroke="currentColor"
           fill="currentColor"
           viewBox="0 0 16 16"
-          className="hawa-h-2 hawa-w-2  hawa-shrink-0 hawa-transition-transform hawa-duration-200 "
+          className="hawa-h-2 hawa-w-2 hawa-shrink-0 hawa-transition-transform hawa-duration-200"
         >
           <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
         </svg>

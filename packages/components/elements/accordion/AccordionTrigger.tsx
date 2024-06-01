@@ -20,7 +20,7 @@ const AccordionTrigger = React.forwardRef<
               props.disabled
                 ? "hawa-bg-muted/30 hawa-text-muted-foreground/50"
                 : "hover:hawa-bg-muted",
-              className
+              className,
             )
           : className
       }

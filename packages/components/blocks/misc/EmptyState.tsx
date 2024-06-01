@@ -15,7 +15,7 @@ export const EmptyState: FC<EmptyStateProps> = ({ texts, onActionClick }) => {
   return (
     <Card>
       <CardContent headless>
-        <div className="hawa-flex hawa-flex-col hawa-items-center hawa-justify-center hawa-text-center ">
+        <div className="hawa-flex hawa-flex-col hawa-items-center hawa-justify-center hawa-text-center">
           <div className="hawa-flex hawa-h-10 hawa-w-10 hawa-flex-col hawa-items-center hawa-justify-center hawa-rounded-3xl hawa-bg-primary hawa-text-6xl hawa-font-bold hawa-text-primary-foreground">
             <svg
               stroke="currentColor"

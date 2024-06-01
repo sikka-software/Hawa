@@ -274,13 +274,13 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                 <label
                   htmlFor={opt.value.toString()}
                   className={cn(
-                    "hawa-inline-flex hawa-h-full hawa-w-full hawa-transition-all  hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-foreground/10 hawa-bg-background hawa-p-5 hawa-text-gray-500  peer-checked:hawa-border-primary peer-checked:hawa-text-primary dark:hawa-border-foreground/10 dark:hawa-bg-foreground/5 dark:hawa-text-gray-400  dark:peer-checked:hawa-text-primary",
+                    "hawa-inline-flex hawa-h-full hawa-w-full hawa-transition-all hawa-items-center hawa-justify-between hawa-rounded-lg hawa-border hawa-border-foreground/10 hawa-bg-background hawa-p-5 hawa-text-gray-500 peer-checked:hawa-border-primary peer-checked:hawa-text-primary dark:hawa-border-foreground/10 dark:hawa-bg-foreground/5 dark:hawa-text-gray-400 dark:peer-checked:hawa-text-primary",
                     opt.disabled
                       ? "hawa-opacity-50"
                       : "hawa-cursor-pointer hover:hawa-bg-foreground/10 hover:hawa-text-gray-600 dark:hover:hawa-bg-foreground/20 dark:hover:hawa-text-gray-300",
                   )}
                 >
-                  <div className="hawa-block  hawa-h-full hawa-w-full">
+                  <div className="hawa-block hawa-h-full hawa-w-full">
                     <div className="hawa-w-full hawa-text-lg hawa-font-semibold">
                       {opt.label}
                     </div>
@@ -325,7 +325,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                     <label
                       htmlFor={opt.value.toString()}
                       className={cn(
-                        "hawa-text-sm hawa-font-medium  dark:hawa-text-white",
+                        "hawa-text-sm hawa-font-medium dark:hawa-text-white",
                         opt.disabled
                           ? "hawa-text-gray-400"
                           : "hawa-cursor-pointer hawa-text-gray-900",

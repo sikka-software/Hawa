@@ -5,7 +5,7 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  RowData
+  RowData,
 } from "@tanstack/react-table";
 import { cn } from "@util/index";
 
@@ -18,7 +18,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from "../table";
 
 type SimpleTableProps<DataProps = {}> = {
@@ -58,13 +58,13 @@ export const SimpleTable = <DataProps extends {}>({
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel()
+    getCoreRowModel: getCoreRowModel(),
   });
   return (
     <div
       className={cn(
-        "hawa-flex  hawa-w-full hawa-flex-col hawa-gap-4",
-        classNames
+        "hawa-flex hawa-w-full hawa-flex-col hawa-gap-4",
+        classNames,
       )}
     >
       {props.isLoading ? (
@@ -83,14 +83,14 @@ export const SimpleTable = <DataProps extends {}>({
                           dir={props.direction}
                           key={header.id}
                           style={{
-                            maxWidth: header.column.columnDef.maxSize
+                            maxWidth: header.column.columnDef.maxSize,
                           }}
                         >
                           {header.isPlaceholder
                             ? null
                             : flexRender(
                                 header.column.columnDef.header,
-                                header.getContext()
+                                header.getContext(),
                               )}
                         </TableHead>
                       );
@@ -116,13 +116,13 @@ export const SimpleTable = <DataProps extends {}>({
                             : cell.column.columnDef.meta?.padding
                         }
                         style={{
-                          maxWidth: cell.column.columnDef.maxSize
+                          maxWidth: cell.column.columnDef.maxSize,
                         }}
                         key={cell.id}
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext()
+                          cell.getContext(),
                         )}
                       </TableCell>
                     ))}

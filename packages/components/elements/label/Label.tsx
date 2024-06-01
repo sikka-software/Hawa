@@ -1,8 +1,9 @@
 import * as React from "react";
 
+import { cn } from "@util/index";
+
 import { PositionType } from "@_types/commonTypes";
 
-import { cn } from "@util/index";
 import { Tooltip } from "../tooltip";
 
 export type LabelProps = {
@@ -21,7 +22,7 @@ const Label = React.forwardRef<
       ref={ref}
       className={cn(
         "hawa-text-sm hawa-font-medium hawa-leading-none peer-disabled:hawa-cursor-not-allowed peer-disabled:hawa-opacity-70",
-        className
+        className,
       )}
       {...props}
     >
@@ -34,7 +35,7 @@ const Label = React.forwardRef<
         side={hintSide}
         triggerProps={{
           tabIndex: -1,
-          onClick: (event) => event.preventDefault()
+          onClick: (event) => event.preventDefault(),
         }}
       >
         <div>

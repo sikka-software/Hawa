@@ -46,12 +46,12 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
   return (
     <div
       className={cn(
-        "hawa-flex  hawa-flex-col hawa-rounded hawa-border  hawa-p-2 hawa-transition-all",
-        selectedEmoji ? "hawa-h-[189px]  hawa-min-w-fit" : "hawa-h-[44px] ",
+        "hawa-flex hawa-flex-col hawa-rounded hawa-border hawa-p-2 hawa-transition-all",
+        selectedEmoji ? "hawa-h-[189px] hawa-min-w-fit" : "hawa-h-[44px]",
       )}
     >
-      <div className="hawa-flex hawa-flex-row   hawa-items-center hawa-justify-center hawa-gap-2 ">
-        <div className="hawa-flex hawa-flex-row hawa-justify-center  hawa-gap-0.5 ">
+      <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2">
+        <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-gap-0.5">
           {emojis.map((emoji, i) => (
             <Button
               key={i}
@@ -66,7 +66,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
               size="smallIcon"
               className={cn(
                 selectedEmoji === emoji.value
-                  ? "hawa-bg-primary/10 hover:hawa-bg-primary/10 "
+                  ? "hawa-bg-primary/10 hover:hawa-bg-primary/10"
                   : "hawa-text-[#666666]",
               )}
             >
@@ -77,14 +77,14 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
       </div>
       <div
         className={cn(
-          "hawa-flex hawa-flex-col hawa-overflow-clip  hawa-transition-all hawa-duration-500 hawa-ease-in-out ",
+          "hawa-flex hawa-flex-col hawa-overflow-clip hawa-transition-all hawa-duration-500 hawa-ease-in-out",
           selectedEmoji
             ? "hawa-visible hawa-opacity-100"
-            : "hawa-invisible hawa-opacity-0 ",
+            : "hawa-invisible hawa-opacity-0",
         )}
       >
         {props.showSuccess ? (
-          <div className="hawa-flex hawa-h-full hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-2  hawa-pt-4">
+          <div className="hawa-flex hawa-h-full hawa-flex-col hawa-items-center hawa-justify-center hawa-gap-2 hawa-pt-4">
             <div className="hawa-rounded hawa-bg-primary hawa-p-2 hawa-text-primary-foreground">
               <svg
                 stroke="currentColor"
@@ -105,7 +105,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
         ) : (
           <div className="hawa-flex hawa-flex-col hawa-gap-1 hawa-p-1">
             <Popover
-              className="hawa-select-none hawa-p-1 hawa-text-xs "
+              className="hawa-select-none hawa-p-1 hawa-text-xs"
               open={helperText}
               trigger={
                 <Textarea

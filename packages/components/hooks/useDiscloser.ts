@@ -14,7 +14,7 @@ const useDiscloser = (value: boolean = false): TUseDiscloser => {
   return {
     isOpen: open,
     onOpen: onOpen,
-    onClose: onClose
+    onClose: onClose,
   };
 };
 

@@ -29,7 +29,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
   const [language, setLanguage] = useState(props.currentLanguage);
   let orientationStyle = {
     horizontal: "hawa-flex hawa-flex-row hawa-justify-between",
-    vertical: "hawa-flex hawa-flex-col hawa-items-center hawa-gap-2"
+    vertical: "hawa-flex hawa-flex-col hawa-items-center hawa-gap-2",
   };
   return (
     <div className={cn(orientationStyle[orientation])}>
@@ -46,7 +46,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
         design="tabs"
         options={[
           { value: "ar", label: "عربي" },
-          { value: "en", label: "English" }
+          { value: "en", label: "English" },
         ]}
       />
       <Radio
@@ -77,7 +77,7 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
                   fill="currentColor"
                 ></path>
               </svg>
-            )
+            ),
           },
           {
             value: "dark",
@@ -89,12 +89,12 @@ export const InterfaceSettings: FC<TypographyTypes> = ({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                className="hawa-h-[1.2rem] hawa-w-[1.2rem]  hawa-transition-all dark:hawa-rotate-0 dark:hawa-scale-100"
+                className="hawa-h-[1.2rem] hawa-w-[1.2rem] hawa-transition-all dark:hawa-rotate-0 dark:hawa-scale-100"
               >
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
-            )
-          }
+            ),
+          },
         ]}
       />
     </div>

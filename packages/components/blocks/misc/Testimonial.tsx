@@ -29,7 +29,7 @@ export const Testimonial: FC<TestimonialProps> = () => {
               fill="#FFFFFF"
             ></path>
           </svg>
-          <span className="border border-l "></span>{" "}
+          <span className="border border-l"></span>{" "}
           <div>
             <strong>Brent Lassi</strong>
             <div> Chief Information Security Officer</div>

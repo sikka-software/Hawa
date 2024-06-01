@@ -26,7 +26,7 @@ type AlertTypes = {
         | "destructive"
         | "secondary"
         | "ghost";
-    }
+    },
   ];
   /** Removes the close button */
   persistent?: boolean;
@@ -75,7 +75,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     error: "",
     success: "",
     hyper: "",
-    oceanic: ""
+    oceanic: "",
   };
   let styleVariant = {
     none: "hawa-bg-background hawa-border",
@@ -86,7 +86,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
     hyper:
       "hawa-text-white hawa-bg-gradient-to-tl hawa-from-pink-700 hawa-via-red-500 hawa-to-yellow-600 ",
     oceanic:
-      "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500"
+      "hawa-text-white hawa-bg-gradient-to-bl hawa-from-green-500 hawa-via-blue-700 hawa-to-purple-500",
   };
 
   return (
@@ -100,7 +100,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           "hawa-relative hawa-mb-4 hawa-flex hawa-flex-col hawa-rounded hawa-p-4 hawa-text-sm hawa-transition-all",
           styleVariant[severity],
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
-          className
+          className,
         )}
       >
         <div className="hawa-flex hawa-flex-row">
@@ -119,7 +119,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             <span
               className={cn(
                 "hawa-font-bold",
-                direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8"
+                direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
               )}
             >
               {props.title}
@@ -127,7 +127,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             <span
               className={cn(
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
-                props.persistent ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]"
+                props.persistent ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]",
               )}
             >
               {props.text}
@@ -153,9 +153,9 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             data-dismiss-target="#alert-default"
             aria-label="Close"
             className={cn(
-              "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all  hover:hawa-text-gray-900",
+              "hawa-absolute hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all hover:hawa-text-gray-900",
               closeButtonStyle[severity],
-              direction === "rtl" ? "hawa-left-2" : "hawa-right-2"
+              direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
             )}
             onClick={() => {
               if (props.onAlertClosed) {
@@ -166,7 +166,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
                 setTimeout(() => {
                   if (alertRef?.current) {
                     alertRef?.current.removeChild(
-                      alertRef?.current.children[0]
+                      alertRef?.current.children[0],
                     );
                   }
                 }, 200);

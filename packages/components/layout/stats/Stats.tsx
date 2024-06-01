@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
+import { cn } from "@util/index";
+
 import { Card, CardContent, CardTitle } from "@elements/card";
 import { Skeleton } from "@elements/skeleton";
-
-import { cn } from "@util/index";
 
 interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
@@ -41,7 +41,7 @@ export const Stats: FC<StatTypes> = ({
     default: "",
     positive: "hawa-text-green-600 dark:hawa-text-green-500",
     negative: "hawa-text-red-600 dark:hawa-text-red-500",
-    muted: "hawa-text-muted-foreground"
+    muted: "hawa-text-muted-foreground",
   };
   return (
     <Card {...props} clickable={clickable}>
@@ -58,11 +58,11 @@ export const Stats: FC<StatTypes> = ({
         {helperText && (
           <div
             className={cn(
-              "hawa-my-0 hawa-text-start  hawa-text-xs hawa-transition-all",
+              "hawa-my-0 hawa-text-start hawa-text-xs hawa-transition-all",
               helperTextColorStyles[helperTextColor],
               helperText
                 ? "hawa-h-4 hawa-opacity-100"
-                : "hawa-h-0 hawa-opacity-0"
+                : "hawa-h-0 hawa-opacity-0",
             )}
           >
             {isLoading ? (

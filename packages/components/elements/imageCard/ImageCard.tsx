@@ -21,16 +21,16 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   return (
     <div
       className={cn(
-        "hawa-relative hawa-transition-all hawa-rounded hawa-overflow-hidden  hawa-group",
+        "hawa-relative hawa-transition-all hawa-rounded hawa-overflow-hidden hawa-group",
         className,
       )}
     >
-      <div className="hawa-w-full hawa-relative hawa-mx-auto  hawa-overflow-hidden hawa-rounded ">
+      <div className="hawa-w-full hawa-relative hawa-mx-auto hawa-overflow-hidden hawa-rounded">
         <img
           src={imageUrl}
           alt="image"
           className={cn(
-            "hawa-relative hawa-z-0  hawa-w-full  hawa-rounded hawa-transition-all hawa-duration-300",
+            "hawa-relative hawa-z-0 hawa-w-full hawa-rounded hawa-transition-all hawa-duration-300",
             imageClassName,
           )}
         />

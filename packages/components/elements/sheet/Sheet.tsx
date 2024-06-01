@@ -1,9 +1,8 @@
 import * as React from "react";
 
 import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { cva, type VariantProps } from "class-variance-authority";
-
 import { cn } from "@util/index";
+import { cva, type VariantProps } from "class-variance-authority";
 
 const Sheet = SheetPrimitive.Root;
 const SheetTrigger = SheetPrimitive.Trigger;
@@ -16,7 +15,7 @@ const SheetOverlay = React.forwardRef<
   <SheetPrimitive.Overlay
     className={cn(
       "hawa-fixed hawa-inset-0 hawa-z-50 hawa-bg-background/80 hawa-backdrop-blur-sm data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0",
-      className
+      className,
     )}
     {...props}
     ref={ref}
@@ -33,13 +32,13 @@ const sheetVariants = cva(
           "hawa-inset-x-0 hawa-bottom-0 hawa-border-t data-[state=closed]:hawa-slide-out-to-bottom data-[state=open]:hawa-slide-in-from-bottom",
         left: "hawa-inset-y-0 hawa-left-0 hawa-h-full hawa-w-3/4 hawa-border-r data-[state=closed]:hawa-slide-out-to-left data-[state=open]:hawa-slide-in-from-left sm:hawa-max-w-sm",
         right:
-          "hawa-inset-y-0 hawa-right-0 hawa-h-full hawa-w-3/4  hawa-border-l data-[state=closed]:hawa-slide-out-to-right data-[state=open]:hawa-slide-in-from-right sm:hawa-max-w-sm"
-      }
+          "hawa-inset-y-0 hawa-right-0 hawa-h-full hawa-w-3/4  hawa-border-l data-[state=closed]:hawa-slide-out-to-right data-[state=open]:hawa-slide-in-from-right sm:hawa-max-w-sm",
+      },
     },
     defaultVariants: {
-      side: "right"
-    }
-  }
+      side: "right",
+    },
+  },
 );
 
 interface SheetContentProps
@@ -55,7 +54,7 @@ const SheetContent = React.forwardRef<
 >(
   (
     { side = "right", className, children, persist, hideCloseButton, ...props },
-    ref
+    ref,
   ) => (
     <SheetPortal>
       <SheetOverlay />
@@ -77,8 +76,8 @@ const SheetContent = React.forwardRef<
               {
                 "hawa-right-4 hawa-top-4": side === "left" || side === "bottom",
                 "hawa-left-4 hawa-top-4": side === "right",
-                "hawa-bottom-4 hawa-right-4": side === "top"
-              }
+                "hawa-bottom-4 hawa-right-4": side === "top",
+              },
             )}
           >
             <svg
@@ -99,7 +98,7 @@ const SheetContent = React.forwardRef<
         )}
       </SheetPrimitive.Content>
     </SheetPortal>
-  )
+  ),
 );
 
 const SheetHeader = ({
@@ -109,7 +108,7 @@ const SheetHeader = ({
   <div
     className={cn(
       "hawa-flex hawa-flex-col hawa-space-y-2 hawa-text-center sm:hawa-text-left",
-      className
+      className,
     )}
     {...props}
   />
@@ -122,7 +121,7 @@ const SheetFooter = ({
   <div
     className={cn(
       "hawa-flex hawa-flex-col-reverse sm:hawa-flex-row sm:hawa-justify-end sm:hawa-space-x-2",
-      className
+      className,
     )}
     {...props}
   />
@@ -136,7 +135,7 @@ const SheetTitle = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-text-lg hawa-font-semibold hawa-text-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -170,5 +169,5 @@ export {
   SheetHeader,
   SheetFooter,
   SheetTitle,
-  SheetDescription
+  SheetDescription,
 };

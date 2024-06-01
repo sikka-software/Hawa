@@ -40,7 +40,7 @@ export const Loading: FC<LoadingTypes> = ({
     sm: "hawa-h-6 hawa-w-6",
     normal: "hawa-h-8 hawa-w-8",
     lg: "hawa-h-14 hawa-w-14",
-    xl: "hawa-h-24 hawa-w-24"
+    xl: "hawa-h-24 hawa-w-24",
   };
   let progressSizes = {
     button: "hawa-h-1",
@@ -48,12 +48,12 @@ export const Loading: FC<LoadingTypes> = ({
     sm: "hawa-h-6 hawa-w-6",
     normal: "",
     lg: "hawa-h-6",
-    xl: "hawa-h-10 hawa-w-64"
+    xl: "hawa-h-10 hawa-w-64",
   };
 
   let animationStyles: any = {
     pulse: "hawa-animate-in hawa-fade-in hawa-duration-1000",
-    bounce: "hawa-animate-bounce"
+    bounce: "hawa-animate-bounce",
   };
   switch (design.split("-")[0]) {
     case "dots":
@@ -61,7 +61,7 @@ export const Loading: FC<LoadingTypes> = ({
         <div
           className={cn(
             "hawa-flex hawa-flex-row hawa-gap-2",
-            classNames?.container
+            classNames?.container,
           )}
         >
           <div
@@ -69,7 +69,7 @@ export const Loading: FC<LoadingTypes> = ({
               "hawa-animate-bounce hawa-rounded-full hawa-delay-100 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
-              color ? color : "hawa-bg-primary"
+              color ? color : "hawa-bg-primary",
             )}
           ></div>
           <div
@@ -77,7 +77,7 @@ export const Loading: FC<LoadingTypes> = ({
               "hawa-animate-bounce hawa-rounded-full hawa-delay-200 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
-              color ? color : "hawa-bg-primary"
+              color ? color : "hawa-bg-primary",
             )}
           ></div>
           <div
@@ -85,7 +85,7 @@ export const Loading: FC<LoadingTypes> = ({
               "hawa-animate-bounce hawa-rounded-full hawa-delay-300 hawa-repeat-infinite",
               size === "button" ? "hawa-h-2 hawa-w-2" : sizeStyles[size],
               animationStyles[design.split("-")[1]],
-              color ? color : "hawa-bg-primary"
+              color ? color : "hawa-bg-primary",
             )}
           ></div>
         </div>
@@ -96,7 +96,7 @@ export const Loading: FC<LoadingTypes> = ({
           className={cn(
             "squircle-container",
             sizeStyles[size],
-            classNames?.container
+            classNames?.container,
           )}
           viewBox="0 0 35 35"
           height="35"
@@ -135,7 +135,7 @@ export const Loading: FC<LoadingTypes> = ({
           className={cn(
             "squircle-container",
             sizeStyles[size],
-            classNames?.container
+            classNames?.container,
           )}
         >
           <path
@@ -160,7 +160,7 @@ export const Loading: FC<LoadingTypes> = ({
           className={cn(
             "progress-loading after:hawa-rounded hawa-rounded",
             progressSizes[size],
-            classNames?.container
+            classNames?.container,
           )}
         ></div>
       );
@@ -178,7 +178,7 @@ export const Loading: FC<LoadingTypes> = ({
           className={cn(
             "circle-container",
             sizeStyles[size],
-            classNames?.container
+            classNames?.container,
           )}
         >
           <circle
@@ -186,9 +186,9 @@ export const Loading: FC<LoadingTypes> = ({
               "circle-track",
               {
                 "hawa-stroke-primary-foreground": themeMode === "dark",
-                "hawa-stroke-primary": themeMode === "light"
+                "hawa-stroke-primary": themeMode === "light",
               },
-              classNames?.track
+              classNames?.track,
             )}
             cx="20"
             cy="20"
@@ -202,9 +202,9 @@ export const Loading: FC<LoadingTypes> = ({
               "circle-car",
               {
                 "hawa-stroke-primary-foreground": themeMode === "dark",
-                "hawa-stroke-primary": themeMode === "light"
+                "hawa-stroke-primary": themeMode === "light",
               },
-              classNames?.car
+              classNames?.car,
             )}
             cx="20"
             cy="20"

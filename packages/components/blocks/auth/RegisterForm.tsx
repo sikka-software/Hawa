@@ -447,7 +447,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   </div>
                 ) : null}
                 <Button
-                  className=" hawa-w-full"
+                  className="hawa-w-full"
                   type="submit"
                   isLoading={props.isLoading}
                   disabled={props.isLoading}
@@ -458,7 +458,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
               </form>
             </FormProvider>
             {props.onRouteToLogin && (
-              <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center  hawa-text-sm hawa-font-normal dark:hawa-text-white">
+              <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-white">
                 <span>
                   {texts?.existingUserText || "Already have an account?"}
                 </span>

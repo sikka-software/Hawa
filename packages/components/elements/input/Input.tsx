@@ -106,7 +106,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
         )}
       >
         {props.label && <Label {...labelProps}>{props.label}</Label>}
-        <div className="hawa-flex hawa-flex-row hawa-w-full hawa-items-center ">
+        <div className="hawa-flex hawa-flex-row hawa-w-full hawa-items-center">
           {props.outsidePrefix && (
             <span
               className={cn(
@@ -194,7 +194,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     {...inputProps}
                     className={cn(
                       defaultInputStyle,
-                      " focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
+                      "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
                       {
                         "hawa-pe-9": props.endIcon,
                         "hawa-ps-9": props.startIcon,
@@ -215,7 +215,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                 {!props.disabled && forceHideHelperText && (
                   <div
                     className={cn(
-                      "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start  hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
+                      "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
                       props.helperText
                         ? "hawa-border hawa-p-1"
                         : "hawa-border-none hawa-p-0",
