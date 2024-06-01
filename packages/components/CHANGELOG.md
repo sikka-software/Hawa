@@ -1254,3 +1254,382 @@
 ### Patch Changes
 
 - ComparingPlans: added background to scroll area
+
+## < 0.19.38
+
+- [131524b4](https://github.com/sikka-software/Hawa/commit/131524b4) - 2023-11-29 - fix(build): ts error in build-lib
+- [3bc735c1](https://github.com/sikka-software/Hawa/commit/3bc735c1) - 2023-11-29 - Fix(Icons): sizes and classname application
+- [a5202ed2](https://github.com/sikka-software/Hawa/commit/a5202ed2) - 2023-11-28 - Minor UI fixes + translations
+- [6debb019](https://github.com/sikka-software/Hawa/commit/6debb019) - 2023-11-28 - Minor UI fixes
+- [8f9ca773](https://github.com/sikka-software/Hawa/commit/8f9ca773) - 2023-11-28 - Updated types + cleanup
+- [8dc417ae](https://github.com/sikka-software/Hawa/commit/8dc417ae) - 2023-11-28 - SIKKA-5814[closed]
+- [aee69b50](https://github.com/sikka-software/Hawa/commit/aee69b50) - 2023-11-28 - added topPosition prop to ComparingPlans
+- [d585d00d](https://github.com/sikka-software/Hawa/commit/d585d00d) - 2023-11-28 - Fixing comparingplans
+- [6381b6e3](https://github.com/sikka-software/Hawa/commit/6381b6e3) - 2023-11-28 - #86bwjjtzf[closed]
+- [64d269c0](https://github.com/sikka-software/Hawa/commit/64d269c0) - 2023-11-27 - #86bwjju5g[closed]
+- [d36e0431](https://github.com/sikka-software/Hawa/commit/d36e0431) - 2023-11-27 - fix(ComparingPlans): fixed colors
+- [42122b03](https://github.com/sikka-software/Hawa/commit/42122b03) - 2023-11-27 - fix(ComparingPlans): fixing white and black hex
+- [5ec2a907](https://github.com/sikka-software/Hawa/commit/5ec2a907) - 2023-11-27 - fix(ComparingPlans) : updated colors in darkmode
+- [62e7d03f](https://github.com/sikka-software/Hawa/commit/62e7d03f) - 2023-11-27 - Update package.json
+- [5f5211fc](https://github.com/sikka-software/Hawa/commit/5f5211fc) - 2023-11-27 - SIKKA-5803[closed]
+- [56296df9](https://github.com/sikka-software/Hawa/commit/56296df9) - 2023-11-27 - updating comparing plans component
+- [7ff3491a](https://github.com/sikka-software/Hawa/commit/7ff3491a) - 2023-11-27 - fix(ComparingPlans): table works fine now
+- [9148fade](https://github.com/sikka-software/Hawa/commit/9148fade) - 2023-11-27 - Fix(Icons): fixed missing React import
+- [d60bc215](https://github.com/sikka-software/Hawa/commit/d60bc215) - 2023-11-26 - fix(PricingPlans): fixed price issue
+- [11dc1b21](https://github.com/sikka-software/Hawa/commit/11dc1b21) - 2023-11-26 - fix(PricingPlans): value of currentCycle
+- [46e8d30d](https://github.com/sikka-software/Hawa/commit/46e8d30d) - 2023-11-25 - SIKKA-5798[closed]
+- [13aaadc2](https://github.com/sikka-software/Hawa/commit/13aaadc2) - 2023-11-25 - #86bwhxwva[closed] - #86bwhxwu5[closed]
+- [4665124c](https://github.com/sikka-software/Hawa/commit/4665124c) - 2023-11-25 - SIKKA-5794[closed]
+- [b9ce2ad4](https://github.com/sikka-software/Hawa/commit/b9ce2ad4) - 2023-11-24 - SIKKA-5792[closed]
+- [68152931](https://github.com/sikka-software/Hawa/commit/68152931) - 2023-11-24 - SIKKA-5793[closed]
+- [3a9d1a09](https://github.com/sikka-software/Hawa/commit/3a9d1a09) - 2023-11-24 - SIKKA-5791[closed]
+- [a68ddfd2](https://github.com/sikka-software/Hawa/commit/a68ddfd2) - 2023-11-24 - chore: fixed Radio return value
+- [7913b860](https://github.com/sikka-software/Hawa/commit/7913b860) - 2023-11-24 - SIKKA-5789[closed]
+- [6b2c8bc4](https://github.com/sikka-software/Hawa/commit/6b2c8bc4) - 2023-11-24 - SIKKA-5787[closed]
+- [98b853c5](https://github.com/sikka-software/Hawa/commit/98b853c5) - 2023-11-24 - SIKKA-5781[closed]
+- [2c41f35d](https://github.com/sikka-software/Hawa/commit/2c41f35d) - 2023-11-24 - SIKKA-5775[closed]
+- [09142ceb](https://github.com/sikka-software/Hawa/commit/09142ceb) - 2023-11-23 - fix: pricing plans currency/cycle
+- [6d4efe28](https://github.com/sikka-software/Hawa/commit/6d4efe28) - 2023-11-23 - chore: fixed `PricingPlans`
+- [b7b0d756](https://github.com/sikka-software/Hawa/commit/b7b0d756) - 2023-11-22 - Fixed many warnings
+- [03809097](https://github.com/sikka-software/Hawa/commit/03809097) - 2023-11-21 - SIKKA-5751[closed]
+- [6c116e15](https://github.com/sikka-software/Hawa/commit/6c116e15) - 2023-11-21 - #86bwgg6h0[closed]
+- [239ae456](https://github.com/sikka-software/Hawa/commit/239ae456) - 2023-11-21 - #86bwgf2gc[closed]
+- [c035750c](https://github.com/sikka-software/Hawa/commit/c035750c) - 2023-11-21 - SIKKA-5748[closed] - #86bwgfpyc[closed]
+- [f1e53de5](https://github.com/sikka-software/Hawa/commit/f1e53de5) - 2023-11-21 - SIKKA-5746[closed]
+- [55d22998](https://github.com/sikka-software/Hawa/commit/55d22998) - 2023-11-20 - Minor fixes
+- [619ed569](https://github.com/sikka-software/Hawa/commit/619ed569) - 2023-11-20 - SIKKA-5735[closed]
+- [65cfb4ae](https://github.com/sikka-software/Hawa/commit/65cfb4ae) - 2023-11-20 - SIKKA-5734[closed]
+- [0ecf5175](https://github.com/sikka-software/Hawa/commit/0ecf5175) - 2023-11-20 - SIKKA-5731[closed]
+- [9a175c07](https://github.com/sikka-software/Hawa/commit/9a175c07) - 2023-11-20 - Testing out multilang input
+- [d5feda28](https://github.com/sikka-software/Hawa/commit/d5feda28) - 2023-11-18 - SIKKA-5722[closed]
+- [eb446f77](https://github.com/sikka-software/Hawa/commit/eb446f77) - 2023-11-18 - SIKKA-5718[closed] - SIKKA-5717[closed]
+- [a5869dd7](https://github.com/sikka-software/Hawa/commit/a5869dd7) - 2023-11-18 - SIKKA-5707[closed]
+- [9c7793bc](https://github.com/sikka-software/Hawa/commit/9c7793bc) - 2023-11-18 - SIKKA-5705[closed]
+- [96e1b9a2](https://github.com/sikka-software/Hawa/commit/96e1b9a2) - 2023-11-17 - #86bwfe5pd[closed] - #86bwfe5pm[closed]
+- [22180fc2](https://github.com/sikka-software/Hawa/commit/22180fc2) - 2023-11-16 - #86bwf2uua[closed]
+- [8715cf21](https://github.com/sikka-software/Hawa/commit/8715cf21) - 2023-11-15 - SIKKA-5699[closed]
+- [39ca8b7f](https://github.com/sikka-software/Hawa/commit/39ca8b7f) - 2023-11-15 - SIKKA-5702[closed]
+- [4e59e039](https://github.com/sikka-software/Hawa/commit/4e59e039) - 2023-11-15 - SIKKA-5700[closed] - #86bweb77f[closed] - #86bwebavm[closed]
+- [1473a200](https://github.com/sikka-software/Hawa/commit/1473a200) - 2023-11-15 - attempting to fix classe for switch
+- [b8663c77](https://github.com/sikka-software/Hawa/commit/b8663c77) - 2023-11-15 - attempting to fix color of Switch
+- [500c5c74](https://github.com/sikka-software/Hawa/commit/500c5c74) - 2023-11-15 - #86bweb77f[in progress]
+- [05f6dd73](https://github.com/sikka-software/Hawa/commit/05f6dd73) - 2023-11-15 - SIKKA-5689[closed]
+- [6516b4d7](https://github.com/sikka-software/Hawa/commit/6516b4d7) - 2023-11-15 - #86bweadfg[closed]
+- [a4484493](https://github.com/sikka-software/Hawa/commit/a4484493) - 2023-11-13 - SIKKA-5685[closed]
+- [f90cfd42](https://github.com/sikka-software/Hawa/commit/f90cfd42) - 2023-11-13 - SIKKA-5641[closed]
+- [3bac7277](https://github.com/sikka-software/Hawa/commit/3bac7277) - 2023-11-12 - Update package.json
+- [e29c1661](https://github.com/sikka-software/Hawa/commit/e29c1661) - 2023-11-12 - SIKKA-5660[closed]
+- [63595b34](https://github.com/sikka-software/Hawa/commit/63595b34) - 2023-11-12 - SIKKA-5671[closed]
+- [e447bbf6](https://github.com/sikka-software/Hawa/commit/e447bbf6) - 2023-11-12 - Fixing DropdownMenu anchor href
+- [9a5b8dcb](https://github.com/sikka-software/Hawa/commit/9a5b8dcb) - 2023-11-12 - SIKKA-5670[closed]
+- [55b4afc2](https://github.com/sikka-software/Hawa/commit/55b4afc2) - 2023-11-12 - SIKKA-5650[closed]
+- [75e765d2](https://github.com/sikka-software/Hawa/commit/75e765d2) - 2023-11-12 - SIKKA-5654[closed]
+- [7e4247d7](https://github.com/sikka-software/Hawa/commit/7e4247d7) - 2023-11-12 - SIKKA-5659[closed]
+- [dd52d912](https://github.com/sikka-software/Hawa/commit/dd52d912) - 2023-11-12 - SIKKA-5665[closed]
+- [ef483914](https://github.com/sikka-software/Hawa/commit/ef483914) - 2023-11-12 - SIKKA-5669[closed]
+- [20bad6fc](https://github.com/sikka-software/Hawa/commit/20bad6fc) - 2023-11-12 - Fixed chart issue in stats + other fixes
+- [8a90bfe3](https://github.com/sikka-software/Hawa/commit/8a90bfe3) - 2023-11-10 - Update package.json
+- [800e14b4](https://github.com/sikka-software/Hawa/commit/800e14b4) - 2023-11-08 - Updated TS props for Auth blocks
+- [e38a7964](https://github.com/sikka-software/Hawa/commit/e38a7964) - 2023-11-08 - Moved `InterfaceSettings` outside Auth blocks
+- [731abfa1](https://github.com/sikka-software/Hawa/commit/731abfa1) - 2023-11-08 - Fixed `AppLayout` props
+- [12fd89bd](https://github.com/sikka-software/Hawa/commit/12fd89bd) - 2023-11-08 - SIKKA-5614[completed]
+- [9689b0d1](https://github.com/sikka-software/Hawa/commit/9689b0d1) - 2023-11-08 - SIKKA-5615[completed]
+- [2e3cb12c](https://github.com/sikka-software/Hawa/commit/2e3cb12c) - 2023-11-08 - Updated packages
+- [c3953bae](https://github.com/sikka-software/Hawa/commit/c3953bae) - 2023-11-08 - SIKKA-5621[completed] SIKKA-5620[completed]
+- [7faf6e96](https://github.com/sikka-software/Hawa/commit/7faf6e96) - 2023-11-08 - #86bwcdn04[completed]
+- [a629fc20](https://github.com/sikka-software/Hawa/commit/a629fc20) - 2023-11-08 - Moved typescript to devDependency
+- [d9043d76](https://github.com/sikka-software/Hawa/commit/d9043d76) - 2023-11-07 - SIKKA-5589[completed] + updated package.json
+- [216a9d88](https://github.com/sikka-software/Hawa/commit/216a9d88) - 2023-11-07 - SIKKA-5612[completed]
+- [83607ef1](https://github.com/sikka-software/Hawa/commit/83607ef1) - 2023-11-07 - SIKKA-5598[completed]
+- [4780dba4](https://github.com/sikka-software/Hawa/commit/4780dba4) - 2023-11-07 - Added tsup config file
+- [93b97d1b](https://github.com/sikka-software/Hawa/commit/93b97d1b) - 2023-11-06 - changed label hint icon to question mark
+- [249bb142](https://github.com/sikka-software/Hawa/commit/249bb142) - 2023-11-06 - Fixed Table warnings
+- [8f18fa1c](https://github.com/sikka-software/Hawa/commit/8f18fa1c) - 2023-11-06 - Added forwardRef for Input component
+- [012ad7e6](https://github.com/sikka-software/Hawa/commit/012ad7e6) - 2023-11-06 - Updated onMiddleClick in DropDownMenu
+- [9bb5acbb](https://github.com/sikka-software/Hawa/commit/9bb5acbb) - 2023-11-06 - added middle click to dropdown menu items/subitems
+- [d8be282b](https://github.com/sikka-software/Hawa/commit/d8be282b) - 2023-11-06 - Fixed onMouseDown in drawer subitem
+- [f3195e9a](https://github.com/sikka-software/Hawa/commit/f3195e9a) - 2023-11-06 - Added onMouseDown for item.subitems in AppLayout
+- [181eaf76](https://github.com/sikka-software/Hawa/commit/181eaf76) - 2023-11-06 - Added onMouseDown to drawer items in AppLayout
+- [60f70b6f](https://github.com/sikka-software/Hawa/commit/60f70b6f) - 2023-11-06 - Fixed Stats helperText & props
+- [76f36ab6](https://github.com/sikka-software/Hawa/commit/76f36ab6) - 2023-11-06 - Changed onClick to onMouseDown in AppLayout + Stats
+- [a05a98d6](https://github.com/sikka-software/Hawa/commit/a05a98d6) - 2023-11-06 - SIKKA-5605[completed]
+- [1cc814cc](https://github.com/sikka-software/Hawa/commit/1cc814cc) - 2023-11-05 - Update package.json
+- [2c3b4d3a](https://github.com/sikka-software/Hawa/commit/2c3b4d3a) - 2023-11-05 - SIKKA-5597
+- [4ac9b65d](https://github.com/sikka-software/Hawa/commit/4ac9b65d) - 2023-11-05 - SIKKA-5596[completed]
+- [d80dbc4e](https://github.com/sikka-software/Hawa/commit/d80dbc4e) - 2023-11-05 - Finished regular DialogSteps
+- [a9151406](https://github.com/sikka-software/Hawa/commit/a9151406) - 2023-11-05 - SIKKA-5594[completed] - #86bwbedtf[completed] - SIKKA-5587[completed]
+- [4f0f98f1](https://github.com/sikka-software/Hawa/commit/4f0f98f1) - 2023-11-05 - SIKKA-5593[completed]
+- [76b08c58](https://github.com/sikka-software/Hawa/commit/76b08c58) - 2023-11-04 - added FileUploader story
+- [1b8cdb59](https://github.com/sikka-software/Hawa/commit/1b8cdb59) - 2023-11-04 - SIKKA-5580[completed]
+- [8179378b](https://github.com/sikka-software/Hawa/commit/8179378b) - 2023-11-04 - SIKKA-5579[completed]
+- [ac004313](https://github.com/sikka-software/Hawa/commit/ac004313) - 2023-11-04 - Fixed Email input when RTL
+- [d746d587](https://github.com/sikka-software/Hawa/commit/d746d587) - 2023-11-04 - Added Auth booleans for loading status
+- [62523890](https://github.com/sikka-software/Hawa/commit/62523890) - 2023-11-04 - Fixed stroke-width warning
+- [f2d47053](https://github.com/sikka-software/Hawa/commit/f2d47053) - 2023-11-04 - Minor warning fixes
+- [0b833f40](https://github.com/sikka-software/Hawa/commit/0b833f40) - 2023-11-03 - Fixed build
+- [689dfd91](https://github.com/sikka-software/Hawa/commit/689dfd91) - 2023-11-03 - SIKKA-5572[completed]
+- [e34ba17b](https://github.com/sikka-software/Hawa/commit/e34ba17b) - 2023-11-03 - Updated table stories
+- [92cd33be](https://github.com/sikka-software/Hawa/commit/92cd33be) - 2023-11-03 - Minor Table update
+- [89ebb984](https://github.com/sikka-software/Hawa/commit/89ebb984) - 2023-11-03 - Updated SimpleTable
+- [67fde529](https://github.com/sikka-software/Hawa/commit/67fde529) - 2023-11-03 - SIKKA-5571[completed]
+- [f4572deb](https://github.com/sikka-software/Hawa/commit/f4572deb) - 2023-11-03 - Updated Radio to avoid throwing error
+- [d7f7cb69](https://github.com/sikka-software/Hawa/commit/d7f7cb69) - 2023-11-03 - Attempting to fix AppLayout zIndex
+- [2580c5eb](https://github.com/sikka-software/Hawa/commit/2580c5eb) - 2023-11-03 - Minor fixes
+- [9b591b52](https://github.com/sikka-software/Hawa/commit/9b591b52) - 2023-11-03 - incremented version
+- [a5afc727](https://github.com/sikka-software/Hawa/commit/a5afc727) - 2023-11-03 - SIKKA-5560[completed]
+- [df232a76](https://github.com/sikka-software/Hawa/commit/df232a76) - 2023-11-03 - SIKKA-5553[completed]
+- [dd19e011](https://github.com/sikka-software/Hawa/commit/dd19e011) - 2023-11-03 - SIKKA-5557[completed]
+- [c467aad8](https://github.com/sikka-software/Hawa/commit/c467aad8) - 2023-11-03 - SIKKA-5562[completed]
+- [877ea111](https://github.com/sikka-software/Hawa/commit/877ea111) - 2023-11-02 - Updated `Badge` component
+- [77746126](https://github.com/sikka-software/Hawa/commit/77746126) - 2023-11-02 - Finished fixing `PricingCard`
+- [264e66c6](https://github.com/sikka-software/Hawa/commit/264e66c6) - 2023-11-02 - Added `onAlertClosed` prop to `Alert`
+- [5da285ec](https://github.com/sikka-software/Hawa/commit/5da285ec) - 2023-11-02 - Minor fixes + story updates
+- [0440441d](https://github.com/sikka-software/Hawa/commit/0440441d) - 2023-11-02 - Major cleanup
+- [6022a5cb](https://github.com/sikka-software/Hawa/commit/6022a5cb) - 2023-11-02 - Minor updates + cleanup
+- [96d6fe43](https://github.com/sikka-software/Hawa/commit/96d6fe43) - 2023-11-02 - #SIKKA-5510[completed]
+- [05ec2876](https://github.com/sikka-software/Hawa/commit/05ec2876) - 2023-11-02 - #SIKKA-4903[completed] - added AppTabs
+- [24f02821](https://github.com/sikka-software/Hawa/commit/24f02821) - 2023-11-02 - #SIKKA-5507[completed]
+- [047fa68a](https://github.com/sikka-software/Hawa/commit/047fa68a) - 2023-11-02 - #SIKKA-5355[completed]
+- [fdec760f](https://github.com/sikka-software/Hawa/commit/fdec760f) - 2023-11-02 - #SIKKA-5533[completed]
+- [07dcee57](https://github.com/sikka-software/Hawa/commit/07dcee57) - 2023-11-02 - #SIKKA-5541[completed] - added autoplay to carousel
+- [5de1feee](https://github.com/sikka-software/Hawa/commit/5de1feee) - 2023-11-02 - #SIKKA-5542[completed] - Fixed AppStore badge
+- [ab206eea](https://github.com/sikka-software/Hawa/commit/ab206eea) - 2023-11-01 - #SIKKA-5543[completed] - Fixed phone input
+- [c80ed658](https://github.com/sikka-software/Hawa/commit/c80ed658) - 2023-11-01 - #SIKKA-5544[completed]
+- [495c1690](https://github.com/sikka-software/Hawa/commit/495c1690) - 2023-11-01 - #SIKKA-5545[completed]
+- [88e109ce](https://github.com/sikka-software/Hawa/commit/88e109ce) - 2023-11-01 - Fixed `PhoneInput` + Standardized Icon size
+- [f74fb5a9](https://github.com/sikka-software/Hawa/commit/f74fb5a9) - 2023-11-01 - Minor UI Fix in `AppLayout`
+- [6501048e](https://github.com/sikka-software/Hawa/commit/6501048e) - 2023-11-01 - Fixed Dropdownmenu alignment in DataTable
+- [30a3b6a9](https://github.com/sikka-software/Hawa/commit/30a3b6a9) - 2023-11-01 - Fixed condition in DataTable
+- [d103a3a3](https://github.com/sikka-software/Hawa/commit/d103a3a3) - 2023-11-01 - Updated DataTable
+- [3b639a48](https://github.com/sikka-software/Hawa/commit/3b639a48) - 2023-11-01 - #SIKKA-5208[completed]
+- [15cf3a8f](https://github.com/sikka-software/Hawa/commit/15cf3a8f) - 2023-11-01 - Cleanup
+- [f4478c27](https://github.com/sikka-software/Hawa/commit/f4478c27) - 2023-11-01 - #SIKKA-5527[completed] AppLayout header + cleanup
+- [e9b66cbf](https://github.com/sikka-software/Hawa/commit/e9b66cbf) - 2023-11-01 - #SIKKA-5539[completed]
+- [7df33658](https://github.com/sikka-software/Hawa/commit/7df33658) - 2023-11-01 - #SIKKA-5057[completed]
+- [81ba6c2c](https://github.com/sikka-software/Hawa/commit/81ba6c2c) - 2023-11-01 - #SIKKA-5528[completed]
+- [08e2e1cd](https://github.com/sikka-software/Hawa/commit/08e2e1cd) - 2023-11-01 - Fixed helpertexts
+- [2324d312](https://github.com/sikka-software/Hawa/commit/2324d312) - 2023-11-01 - #SIKKA-5538[completed] fixed helperText in Combobox
+- [fb29db14](https://github.com/sikka-software/Hawa/commit/fb29db14) - 2023-11-01 - Fixed alert tests
+- [0f3c4b43](https://github.com/sikka-software/Hawa/commit/0f3c4b43) - 2023-11-01 - #SIKKA-5526[completed]
+- [2593d7e9](https://github.com/sikka-software/Hawa/commit/2593d7e9) - 2023-11-01 - Added Jest testing
+- [f397c017](https://github.com/sikka-software/Hawa/commit/f397c017) - 2023-10-31 - #SIKKA-5537[completed] - Updated Alert
+- [8930cf31](https://github.com/sikka-software/Hawa/commit/8930cf31) - 2023-10-31 - #SIKKA-5536[completed]
+- [4640aba5](https://github.com/sikka-software/Hawa/commit/4640aba5) - 2023-10-31 - Fixed missing react from icons file
+- [f1bb0a7f](https://github.com/sikka-software/Hawa/commit/f1bb0a7f) - 2023-10-31 - #SIKKA-4661[completed]
+- [0f855ddc](https://github.com/sikka-software/Hawa/commit/0f855ddc) - 2023-10-30 - #SIKKA-5519[in progress]
+- [66315b16](https://github.com/sikka-software/Hawa/commit/66315b16) - 2023-10-30 - #SIKKA-5505[completed] - updated to next@14
+- [b490c2b2](https://github.com/sikka-software/Hawa/commit/b490c2b2) - 2023-10-30 - #SIKKA-5517[completed]
+- [8939f56d](https://github.com/sikka-software/Hawa/commit/8939f56d) - 2023-10-30 - #SIKKA-5531[completed]
+- [6b6fce03](https://github.com/sikka-software/Hawa/commit/6b6fce03) - 2023-10-30 - #SIKKA-5524[completed]
+- [3129353d](https://github.com/sikka-software/Hawa/commit/3129353d) - 2023-10-30 - #SIKKA-5529[completed]
+- [3eff4052](https://github.com/sikka-software/Hawa/commit/3eff4052) - 2023-10-30 - #SIKKA-5530[completed]
+- [3a9c3905](https://github.com/sikka-software/Hawa/commit/3a9c3905) - 2023-10-30 - #SIKKA-4949[completed]
+- [ac39b49a](https://github.com/sikka-software/Hawa/commit/ac39b49a) - 2023-10-30 - #SIKKA-5131[completed]
+- [70f38ef5](https://github.com/sikka-software/Hawa/commit/70f38ef5) - 2023-10-30 - #SIKKA-5523[completed] + cleanup
+- [805d546f](https://github.com/sikka-software/Hawa/commit/805d546f) - 2023-10-29 - Added common types + other improvements
+- [b87d3d90](https://github.com/sikka-software/Hawa/commit/b87d3d90) - 2023-10-29 - finished fixing AppLayout component
+- [5e4deb79](https://github.com/sikka-software/Hawa/commit/5e4deb79) - 2023-10-29 - #SIKKA-5275[completed]
+- [dc23cd3f](https://github.com/sikka-software/Hawa/commit/dc23cd3f) - 2023-10-29 - Updating AppLayout + added AppTopbar + AppMenubar
+- [535d9d17](https://github.com/sikka-software/Hawa/commit/535d9d17) - 2023-10-29 - Attempting to fix AppLayout
+- [de323978](https://github.com/sikka-software/Hawa/commit/de323978) - 2023-10-29 - another attempt fixing useBreakpoint
+- [02899f58](https://github.com/sikka-software/Hawa/commit/02899f58) - 2023-10-29 - attempting to fix useBreakpoint
+- [157ca409](https://github.com/sikka-software/Hawa/commit/157ca409) - 2023-10-29 - Minor fixes and updated docs
+- [1482f71d](https://github.com/sikka-software/Hawa/commit/1482f71d) - 2023-10-28 - #SIKKA-5282[completed]
+- [cd11f8f6](https://github.com/sikka-software/Hawa/commit/cd11f8f6) - 2023-10-28 - #SIKKA-4769[completed] - finished ScrollIndicator
+- [1bd9de57](https://github.com/sikka-software/Hawa/commit/1bd9de57) - 2023-10-28 - #SIKKA-4769[completed] - Added ScrollIndicator
+- [8415a5ee](https://github.com/sikka-software/Hawa/commit/8415a5ee) - 2023-10-28 - #SIKKA-5185[completed] - DataTable: added go to page
+- [2393b0c6](https://github.com/sikka-software/Hawa/commit/2393b0c6) - 2023-10-28 - #SIKKA-5183[completed] - Updated DataTable
+- [3c93fbf8](https://github.com/sikka-software/Hawa/commit/3c93fbf8) - 2023-10-28 - Added SplitButton component
+- [d68d2f82](https://github.com/sikka-software/Hawa/commit/d68d2f82) - 2023-10-28 - #SIKKA-5513[completed] - Added SplitButton
+- [261ef275](https://github.com/sikka-software/Hawa/commit/261ef275) - 2023-10-28 - #SIKKA-5514[completed] - added instagram icon to Logos
+- [b1f58396](https://github.com/sikka-software/Hawa/commit/b1f58396) - 2023-10-28 - #SIKKA-5131[in progress] added gauge and other components
+- [a543e891](https://github.com/sikka-software/Hawa/commit/a543e891) - 2023-10-27 - #SIKKA-4867[completed]
+- [ee50cd88](https://github.com/sikka-software/Hawa/commit/ee50cd88) - 2023-10-27 - #SIKKA-5327[completed]
+- [7f96cb89](https://github.com/sikka-software/Hawa/commit/7f96cb89) - 2023-10-27 - #SIKKA-5470[completed]
+- [dc86d32e](https://github.com/sikka-software/Hawa/commit/dc86d32e) - 2023-10-27 - Added AccordionRoot component
+- [5c439118](https://github.com/sikka-software/Hawa/commit/5c439118) - 2023-10-27 - Updated dependencies
+- [aefa92ff](https://github.com/sikka-software/Hawa/commit/aefa92ff) - 2023-10-27 - #SIKKA-5340[completed]
+- [64fe29ee](https://github.com/sikka-software/Hawa/commit/64fe29ee) - 2023-10-27 - Perventing default form validation skip_publish
+- [d2d9ae79](https://github.com/sikka-software/Hawa/commit/d2d9ae79) - 2023-10-27 - #SIKKA-5340[in progress] - skip_publish skip_storybook
+- [c55046bb](https://github.com/sikka-software/Hawa/commit/c55046bb) - 2023-10-27 - #SIKKA-5508[completed] - added DocsLayout
+- [2e790335](https://github.com/sikka-software/Hawa/commit/2e790335) - 2023-10-27 - Updated DocsLayout
+- [b6aaeb04](https://github.com/sikka-software/Hawa/commit/b6aaeb04) - 2023-10-27 - #SIKKA-5508[in progress] - working on DocsLayout
+- [100c10b5](https://github.com/sikka-software/Hawa/commit/100c10b5) - 2023-10-26 - Restored next.js to 13.5.6 to fix build issue
+- [15e1408a](https://github.com/sikka-software/Hawa/commit/15e1408a) - 2023-10-26 - #SIKKA-4649[in progress]
+- [51d2ceb7](https://github.com/sikka-software/Hawa/commit/51d2ceb7) - 2023-10-26 - #SIKKA-5505[completed]
+- [4f06e439](https://github.com/sikka-software/Hawa/commit/4f06e439) - 2023-10-26 - Updated some types
+- [8ff1e01c](https://github.com/sikka-software/Hawa/commit/8ff1e01c) - 2023-10-26 - #SIKKA-5504[completed]
+- [7a6faaf4](https://github.com/sikka-software/Hawa/commit/7a6faaf4) - 2023-10-26 - #SIKKA-5498[completed]
+- [94fce808](https://github.com/sikka-software/Hawa/commit/94fce808) - 2023-10-26 - #SIKKA-5502[completed]
+- [08eb61bd](https://github.com/sikka-software/Hawa/commit/08eb61bd) - 2023-10-26 - #SIKKA-5268[completed]
+- [cbec93f7](https://github.com/sikka-software/Hawa/commit/cbec93f7) - 2023-10-26 - Updated packages using npm-check
+- [eead31d2](https://github.com/sikka-software/Hawa/commit/eead31d2) - 2023-10-26 - #SIKKA-5493[completed]
+- [52506908](https://github.com/sikka-software/Hawa/commit/52506908) - 2023-10-25 - #SIKKA-5497[completed]
+- [fc878710](https://github.com/sikka-software/Hawa/commit/fc878710) - 2023-10-25 - #SIKKA-5270[completed]
+- [9416b6ff](https://github.com/sikka-software/Hawa/commit/9416b6ff) - 2023-10-25 - #SIKKA-5494[completed] - hidden direction prop from story
+- [6aa0073a](https://github.com/sikka-software/Hawa/commit/6aa0073a) - 2023-10-25 - #SIKKA-5492[completed] - Updated <Label/> component
+- [9a161590](https://github.com/sikka-software/Hawa/commit/9a161590) - 2023-10-25 - #SIKKA-4867 - Removed "What's New" from Storybook
+- [f48f581f](https://github.com/sikka-software/Hawa/commit/f48f581f) - 2023-10-25 - Minor Fixes
+- [e4bc857c](https://github.com/sikka-software/Hawa/commit/e4bc857c) - 2023-10-25 - #SIKKA-5393 - added neobrutalism to card and button
+- [b038209c](https://github.com/sikka-software/Hawa/commit/b038209c) - 2023-10-25 - #SIKKA-5447[completed] - Updated Storybook
+- [36eeb4e8](https://github.com/sikka-software/Hawa/commit/36eeb4e8) - 2023-10-25 - #SIKKA-5482[completed] fixed Alert
+- [730830de](https://github.com/sikka-software/Hawa/commit/730830de) - 2023-10-25 - Added more texts and other improvments to authblocks
+- [6a15cac9](https://github.com/sikka-software/Hawa/commit/6a15cac9) - 2023-10-25 - Fixed texts object keys for RegisterForm
+- [547f1b88](https://github.com/sikka-software/Hawa/commit/547f1b88) - 2023-10-25 - skip_publish
+- [9fb7ebeb](https://github.com/sikka-software/Hawa/commit/9fb7ebeb) - 2023-10-23 - Working on make AppLayout state persistant on refresh
+- [945ceb91](https://github.com/sikka-software/Hawa/commit/945ceb91) - 2023-10-23 - fixing app layout expansion default status
+- [cba67d2f](https://github.com/sikka-software/Hawa/commit/cba67d2f) - 2023-10-23 - #SIKKA-5061[completed] - updated AppLayout
+- [e5d6f032](https://github.com/sikka-software/Hawa/commit/e5d6f032) - 2023-10-23 - Fixed password length in LoginForm
+- [607b965e](https://github.com/sikka-software/Hawa/commit/607b965e) - 2023-10-23 - Updated Navbar + LoginForm prop
+- [1f0eb234](https://github.com/sikka-software/Hawa/commit/1f0eb234) - 2023-10-23 - #SIKKA-4661 - Created Navbar component
+- [ce27a209](https://github.com/sikka-software/Hawa/commit/ce27a209) - 2023-10-23 - #SIKKA-5472[completed]
+- [a79cbbd0](https://github.com/sikka-software/Hawa/commit/a79cbbd0) - 2023-10-23 - #SIKKA-5469[completed]
+- [4cd4584e](https://github.com/sikka-software/Hawa/commit/4cd4584e) - 2023-10-23 - Fixed username validation in LoginForm & RegisterForm
+- [44876c49](https://github.com/sikka-software/Hawa/commit/44876c49) - 2023-10-23 - #SIKKA-5407[completed]
+- [9ceeab17](https://github.com/sikka-software/Hawa/commit/9ceeab17) - 2023-10-23 - Standardized px in Input & Combobox
+- [36a43401](https://github.com/sikka-software/Hawa/commit/36a43401) - 2023-10-23 - Fixed background color of Combobox
+- [04073990](https://github.com/sikka-software/Hawa/commit/04073990) - 2023-10-23 - #SIKKA-5474[completed] - Added preview mode to Combobox
+- [74d6b69e](https://github.com/sikka-software/Hawa/commit/74d6b69e) - 2023-10-23 - #SIKKA-5473[completed] enabled isLoading for Combobox
+- [b9b53caa](https://github.com/sikka-software/Hawa/commit/b9b53caa) - 2023-10-22 - Fixed hardcoded hint in RegisterForm
+- [ec029aee](https://github.com/sikka-software/Hawa/commit/ec029aee) - 2023-10-22 - #SIKKA-5468[completed] - added hintSide prop to Label and Input
+- [ae3908e9](https://github.com/sikka-software/Hawa/commit/ae3908e9) - 2023-10-22 - #SIKKA-5463[completed] added hint prop to Input
+- [c9367371](https://github.com/sikka-software/Hawa/commit/c9367371) - 2023-10-22 - deploy_landing - updated ItemCard
+- [c4788792](https://github.com/sikka-software/Hawa/commit/c4788792) - 2023-10-22 - #SIKKA-5461[completed]
+- [a7335ecf](https://github.com/sikka-software/Hawa/commit/a7335ecf) - 2023-10-22 - Updated version number
+- [74a12014](https://github.com/sikka-software/Hawa/commit/74a12014) - 2023-10-22 - #SIKKA-5462[completed]
+- [7de2d05f](https://github.com/sikka-software/Hawa/commit/7de2d05f) - 2023-10-22 - Updated the types of <Input/> + Cleanup
+- [2215f29c](https://github.com/sikka-software/Hawa/commit/2215f29c) - 2023-10-22 - #SIKKA-5403[completed]
+- [2543e4cd](https://github.com/sikka-software/Hawa/commit/2543e4cd) - 2023-10-22 - #SIKKA-5362[completed]
+- [f2b3f2db](https://github.com/sikka-software/Hawa/commit/f2b3f2db) - 2023-10-22 - #SIKKA-5459[completed]
+- [54ead92f](https://github.com/sikka-software/Hawa/commit/54ead92f) - 2023-10-22 - Finalized Combobox [deploy_landing]
+- [905d63c3](https://github.com/sikka-software/Hawa/commit/905d63c3) - 2023-10-22 - #SIKKA-5458[completed] - deploy_landing - skip_publish
+- [b11756e1](https://github.com/sikka-software/Hawa/commit/b11756e1) - 2023-10-22 - deploy_landing restored navigation icons
+- [f37965e3](https://github.com/sikka-software/Hawa/commit/f37965e3) - 2023-10-22 - deploy_landing attempting to fix darkmode
+- [d7f58a0f](https://github.com/sikka-software/Hawa/commit/d7f58a0f) - 2023-10-22 - Added Combobox component
+- [428d7c91](https://github.com/sikka-software/Hawa/commit/428d7c91) - 2023-10-21 - #SIKKA-5451[completed] Fixed PhontInput width
+- [c08c8e74](https://github.com/sikka-software/Hawa/commit/c08c8e74) - 2023-10-20 - Fixed skeleton height
+- [b881d943](https://github.com/sikka-software/Hawa/commit/b881d943) - 2023-10-20 - Fixed Input height
+- [2bb3a84b](https://github.com/sikka-software/Hawa/commit/2bb3a84b) - 2023-10-20 - Fixed non-existant arrow in Select
+- [8d8c06a3](https://github.com/sikka-software/Hawa/commit/8d8c06a3) - 2023-10-20 - Fixed build issue
+- [8f93f07d](https://github.com/sikka-software/Hawa/commit/8f93f07d) - 2023-10-20 - #SIKKA-5442[completed] Minor fixes
+- [f5617aaf](https://github.com/sikka-software/Hawa/commit/f5617aaf) - 2023-10-20 - Fixed ItemCard
+- [86503a89](https://github.com/sikka-software/Hawa/commit/86503a89) - 2023-10-20 - #SIKKA-5431[completed]
+- [f0df0d72](https://github.com/sikka-software/Hawa/commit/f0df0d72) - 2023-10-20 - #SIKKA-5436[completed]
+- [5dd0dad3](https://github.com/sikka-software/Hawa/commit/5dd0dad3) - 2023-10-20 - #SIKKA-5420[completed] - skip_publish
+- [3e31e6f5](https://github.com/sikka-software/Hawa/commit/3e31e6f5) - 2023-10-20 - #SIKKA-5421[completed]
+- [a24ef62d](https://github.com/sikka-software/Hawa/commit/a24ef62d) - 2023-10-18 - Fixed NavigationMenu trigger hover color
+- [35e326e6](https://github.com/sikka-software/Hawa/commit/35e326e6) - 2023-10-18 - Added action to `NavigationMenu`
+- [d559b642](https://github.com/sikka-software/Hawa/commit/d559b642) - 2023-10-17 - skip_publish
+- [0befc11b](https://github.com/sikka-software/Hawa/commit/0befc11b) - 2023-10-17 - #SIKKA-5410[completed]
+- [fda5ea67](https://github.com/sikka-software/Hawa/commit/fda5ea67) - 2023-10-17 - #SIKKA-5358[completed]
+- [fe501304](https://github.com/sikka-software/Hawa/commit/fe501304) - 2023-10-17 - #SIKKA-5370[completed]
+- [dd500cf6](https://github.com/sikka-software/Hawa/commit/dd500cf6) - 2023-10-17 - #SIKKA-5367[completed]
+- [807c24a6](https://github.com/sikka-software/Hawa/commit/807c24a6) - 2023-10-17 - [deploy_landing, skip_publish] fixed build issue
+- [41dc4420](https://github.com/sikka-software/Hawa/commit/41dc4420) - 2023-10-17 - [deploy_landing] Organize landing + other minor fixes
+- [e1f4c0dc](https://github.com/sikka-software/Hawa/commit/e1f4c0dc) - 2023-10-17 - [deploy_landing] added /theme page + minor ui fixes
+- [b106f0d6](https://github.com/sikka-software/Hawa/commit/b106f0d6) - 2023-10-17 - Minor UI fixes + /theme page added
+- [b9e6d865](https://github.com/sikka-software/Hawa/commit/b9e6d865) - 2023-10-16 - #SIKKA-5059[completed]
+- [6801be7b](https://github.com/sikka-software/Hawa/commit/6801be7b) - 2023-10-16 - ##85zu4pk1a[completed]
+- [4061cde5](https://github.com/sikka-software/Hawa/commit/4061cde5) - 2023-10-16 - #SIKKA-5351[completed]
+- [df88042a](https://github.com/sikka-software/Hawa/commit/df88042a) - 2023-10-16 - Fixed Select + PhoneInput + Cleanup
+- [3faa7f7a](https://github.com/sikka-software/Hawa/commit/3faa7f7a) - 2023-10-16 - Added direction to NavigationMenu
+- [eb3d1dfe](https://github.com/sikka-software/Hawa/commit/eb3d1dfe) - 2023-10-16 - Fixed width inside NavigationMenu
+- [f1a1bee7](https://github.com/sikka-software/Hawa/commit/f1a1bee7) - 2023-10-15 - Updatd NavigationMenu component
+- [8379a455](https://github.com/sikka-software/Hawa/commit/8379a455) - 2023-10-15 - Added NavigationMenu component
+- [425eb434](https://github.com/sikka-software/Hawa/commit/425eb434) - 2023-10-14 - #SIKKA-5384[completed]
+- [081e0365](https://github.com/sikka-software/Hawa/commit/081e0365) - 2023-10-14 - #SIKKA-5356[completed]
+- [f691916b](https://github.com/sikka-software/Hawa/commit/f691916b) - 2023-10-14 - #SIKKA-5385[completed]
+- [37d58d4b](https://github.com/sikka-software/Hawa/commit/37d58d4b) - 2023-10-13 - Removed unneeded comments
+- [527a2193](https://github.com/sikka-software/Hawa/commit/527a2193) - 2023-10-13 - added useWindowSize
+- [6b76fb52](https://github.com/sikka-software/Hawa/commit/6b76fb52) - 2023-10-13 - fixed importing useBreakpoint
+- [eb3d3c1e](https://github.com/sikka-software/Hawa/commit/eb3d3c1e) - 2023-10-13 - Fixed exporting useBreakpoint hook
+- [84dce108](https://github.com/sikka-software/Hawa/commit/84dce108) - 2023-10-13 - Fixed & tested PricingPlans block
+- [f0ca4673](https://github.com/sikka-software/Hawa/commit/f0ca4673) - 2023-10-13 - Fixed extra border in DataTable + cleanup
+- [1aabb8a5](https://github.com/sikka-software/Hawa/commit/1aabb8a5) - 2023-10-12 - Fixed missing key in DDM
+- [2b4bc0f4](https://github.com/sikka-software/Hawa/commit/2b4bc0f4) - 2023-10-12 - Multiple DDMs can be switched between now
+- [47362ef2](https://github.com/sikka-software/Hawa/commit/47362ef2) - 2023-10-12 - Added NavMenu + Customizable DDM items
+- [df1fa65e](https://github.com/sikka-software/Hawa/commit/df1fa65e) - 2023-10-11 - Storybook cleanup
+- [1f98df04](https://github.com/sikka-software/Hawa/commit/1f98df04) - 2023-10-11 - Incremented verion
+- [4b416587](https://github.com/sikka-software/Hawa/commit/4b416587) - 2023-10-11 - Updated @types + added SB favicon
+- [a36079fb](https://github.com/sikka-software/Hawa/commit/a36079fb) - 2023-10-11 - Attempting to fix tsconfig + README updated + cleanup
+- [f915db41](https://github.com/sikka-software/Hawa/commit/f915db41) - 2023-10-11 - deploy_landing fixed build warnings
+- [6998bcad](https://github.com/sikka-software/Hawa/commit/6998bcad) - 2023-10-11 - skip_publish deploy_landing skip_storybook
+- [7ffde9be](https://github.com/sikka-software/Hawa/commit/7ffde9be) - 2023-10-11 - #SIKKA-5334[completed]
+- [ce555dbf](https://github.com/sikka-software/Hawa/commit/ce555dbf) - 2023-10-11 - #SIKKA-5249[completed] Finished <Chip/>
+- [f5e7cb99](https://github.com/sikka-software/Hawa/commit/f5e7cb99) - 2023-10-11 - Attempting to fix text color in Input in dark mode
+- [2b32acb1](https://github.com/sikka-software/Hawa/commit/2b32acb1) - 2023-10-11 - #SIKKA-5273[completed]
+- [8bee103e](https://github.com/sikka-software/Hawa/commit/8bee103e) - 2023-10-11 - #SIKKA-5246[completed]
+- [202a1705](https://github.com/sikka-software/Hawa/commit/202a1705) - 2023-10-11 - #SIKKA-5250[completed] No animation skeleton
+- [63c36599](https://github.com/sikka-software/Hawa/commit/63c36599) - 2023-10-11 - Cleanup and performance update
+- [e29a09a3](https://github.com/sikka-software/Hawa/commit/e29a09a3) - 2023-10-11 - #SIKKA-4634[completed] Added syntax highlight to codeblock
+- [aa484361](https://github.com/sikka-software/Hawa/commit/aa484361) - 2023-10-10 - Updated RegisterForm docs
+- [f03e8b6a](https://github.com/sikka-software/Hawa/commit/f03e8b6a) - 2023-10-10 - Updated Docs + cleanup
+- [a0a98b34](https://github.com/sikka-software/Hawa/commit/a0a98b34) - 2023-10-10 - #SIKKA-5287[completed]
+- [6ccbb966](https://github.com/sikka-software/Hawa/commit/6ccbb966) - 2023-10-10 - #SIKKA-5341[completed]
+- [049d365e](https://github.com/sikka-software/Hawa/commit/049d365e) - 2023-10-10 - #SIKKA-5346[completed]
+- [d9fc8c4c](https://github.com/sikka-software/Hawa/commit/d9fc8c4c) - 2023-10-10 - #SIKKA-5336[completed]
+- [418f8d9c](https://github.com/sikka-software/Hawa/commit/418f8d9c) - 2023-10-10 - Verified Auth blocks working fine + cleanup
+- [0196cb69](https://github.com/sikka-software/Hawa/commit/0196cb69) - 2023-10-09 - 85zu3x5rd[completed]
+- [4ffdaba9](https://github.com/sikka-software/Hawa/commit/4ffdaba9) - 2023-10-08 - Another attempt at fixing hawa prefix in tayar
+- [7926bcc3](https://github.com/sikka-software/Hawa/commit/7926bcc3) - 2023-10-08 - fixed preflight issue
+- [152264a0](https://github.com/sikka-software/Hawa/commit/152264a0) - 2023-10-08 - testing no prefix
+- [d5e74b52](https://github.com/sikka-software/Hawa/commit/d5e74b52) - 2023-10-08 - attempting to fix prefix in tayar
+- [efa7e52e](https://github.com/sikka-software/Hawa/commit/efa7e52e) - 2023-10-08 - Attempting to fix no prefix in tayar
+- [0e259b79](https://github.com/sikka-software/Hawa/commit/0e259b79) - 2023-10-08 - Fixed Hawa issue in Tayar (inshallah)
+- [a11673f1](https://github.com/sikka-software/Hawa/commit/a11673f1) - 2023-10-08 - Fixed version number
+- [5665fb29](https://github.com/sikka-software/Hawa/commit/5665fb29) - 2023-10-08 - Attempting to fix tailwind classes in Tayar
+- [d5bec454](https://github.com/sikka-software/Hawa/commit/d5bec454) - 2023-10-08 - Fixed table background color
+- [6bcf9d94](https://github.com/sikka-software/Hawa/commit/6bcf9d94) - 2023-10-08 - Fixed Input width
+- [78558eb0](https://github.com/sikka-software/Hawa/commit/78558eb0) - 2023-10-08 - Fixed type warnings in hooks
+- [aa9e4ed5](https://github.com/sikka-software/Hawa/commit/aa9e4ed5) - 2023-10-08 - Exported hooks
+- [d249a681](https://github.com/sikka-software/Hawa/commit/d249a681) - 2023-10-08 - Fixed auth blocks submission
+- [c02784e3](https://github.com/sikka-software/Hawa/commit/c02784e3) - 2023-10-08 - another attempt fixing tailwind in tayar
+- [8d42b5ef](https://github.com/sikka-software/Hawa/commit/8d42b5ef) - 2023-10-08 - Attempting to fix tailwind while in tayar
+- [00592efa](https://github.com/sikka-software/Hawa/commit/00592efa) - 2023-10-08 - Finished Pricing blocks
+- [a7bd5bcb](https://github.com/sikka-software/Hawa/commit/a7bd5bcb) - 2023-10-08 - Finished HorizontalPricing Block
+- [f6ab0842](https://github.com/sikka-software/Hawa/commit/f6ab0842) - 2023-10-08 - Added pricing cards & stories
+- [9fe987d9](https://github.com/sikka-software/Hawa/commit/9fe987d9) - 2023-10-08 - Finished AdCard & organized stories
+- [be2c6168](https://github.com/sikka-software/Hawa/commit/be2c6168) - 2023-10-07 - SIKKA-5324[completed] fixed Radio issue
+- [65d816de](https://github.com/sikka-software/Hawa/commit/65d816de) - 2023-10-07 - Added Copyrights component
+- [b41776f1](https://github.com/sikka-software/Hawa/commit/b41776f1) - 2023-10-07 - Finished manual mdx files
+- [8b34805d](https://github.com/sikka-software/Hawa/commit/8b34805d) - 2023-10-07 - Finished AppLayout and Sidebar
+- [bdaf43c2](https://github.com/sikka-software/Hawa/commit/bdaf43c2) - 2023-10-07 - Added Layout components
+- [8be4c1e2](https://github.com/sikka-software/Hawa/commit/8be4c1e2) - 2023-10-06 - Added validation to auth forms
+- [bb19c464](https://github.com/sikka-software/Hawa/commit/bb19c464) - 2023-10-06 - Fixed build issue
+- [3b5fdf39](https://github.com/sikka-software/Hawa/commit/3b5fdf39) - 2023-10-06 - Added Misc Blocks
+- [45bcf4f1](https://github.com/sikka-software/Hawa/commit/45bcf4f1) - 2023-10-05 - Added all auth blocks
+- [f2e271e8](https://github.com/sikka-software/Hawa/commit/f2e271e8) - 2023-10-05 - Added type checking in DataTable columns & rows
+- [16daad4d](https://github.com/sikka-software/Hawa/commit/16daad4d) - 2023-10-05 - #SIKKA-5286[completed]
+- [0c6c4a64](https://github.com/sikka-software/Hawa/commit/0c6c4a64) - 2023-10-05 - Updated LoginForm docs
+- [d5e532e0](https://github.com/sikka-software/Hawa/commit/d5e532e0) - 2023-10-05 - fixed docs link + incremented to v0.3.0
+- [3010bea4](https://github.com/sikka-software/Hawa/commit/3010bea4) - 2023-10-05 - Finished LoginForm
+- [2da927f0](https://github.com/sikka-software/Hawa/commit/2da927f0) - 2023-10-04 - Finished PhoneInput + cleanup
+- [a39bd847](https://github.com/sikka-software/Hawa/commit/a39bd847) - 2023-10-04 - Added additional components
+- [12e0e771](https://github.com/sikka-software/Hawa/commit/12e0e771) - 2023-10-04 - Added 2 Feedback components & stories
+- [71d64283](https://github.com/sikka-software/Hawa/commit/71d64283) - 2023-10-04 - Minor updates
+- [3996b355](https://github.com/sikka-software/Hawa/commit/3996b355) - 2023-10-03 - Added <Command/> component
+- [34fb4508](https://github.com/sikka-software/Hawa/commit/34fb4508) - 2023-10-03 - incremented version
+- [58033a56](https://github.com/sikka-software/Hawa/commit/58033a56) - 2023-10-03 - Added ScrollArea component
+- [0ee19dde](https://github.com/sikka-software/Hawa/commit/0ee19dde) - 2023-10-03 - Added Tabs component + Organized stories
+- [4870f05b](https://github.com/sikka-software/Hawa/commit/4870f05b) - 2023-10-02 - Added more components
+- [26aa493d](https://github.com/sikka-software/Hawa/commit/26aa493d) - 2023-10-02 - incremented version
+- [12342b4b](https://github.com/sikka-software/Hawa/commit/12342b4b) - 2023-10-02 - Added more components
+- [49b3245e](https://github.com/sikka-software/Hawa/commit/49b3245e) - 2023-10-02 - Added PinInput & Label & Alert components
+- [b3d8564f](https://github.com/sikka-software/Hawa/commit/b3d8564f) - 2023-10-02 - Added Chip Component
+- [182b74d1](https://github.com/sikka-software/Hawa/commit/182b74d1) - 2023-10-02 - Skeleton & Switch Components added
+- [83d3c5aa](https://github.com/sikka-software/Hawa/commit/83d3c5aa) - 2023-10-02 - Added more components and stories
+- [4d8eca48](https://github.com/sikka-software/Hawa/commit/4d8eca48) - 2023-10-02 - Added Hooks and more components
+- [901c8587](https://github.com/sikka-software/Hawa/commit/901c8587) - 2023-10-01 - Added stories
+- [bc17c3d3](https://github.com/sikka-software/Hawa/commit/bc17c3d3) - 2023-10-01 - fixed path in workflow deploy_landing
+- [c728c989](https://github.com/sikka-software/Hawa/commit/c728c989) - 2023-10-01 - trying all three deploy_landing
+- [12353ac3](https://github.com/sikka-software/Hawa/commit/12353ac3) - 2023-10-01 - skip_publish skip_storybook build_landing
+- [23b620a9](https://github.com/sikka-software/Hawa/commit/23b620a9) - 2023-10-01 - skip_publish build_landing updated readme
+- [cf41ba3c](https://github.com/sikka-software/Hawa/commit/cf41ba3c) - 2023-10-01 - skip_publish updated next.js port
+- [5e0e9fc2](https://github.com/sikka-software/Hawa/commit/5e0e9fc2) - 2023-10-01 - fixed deployment workflow
+- [1b12f6e3](https://github.com/sikka-software/Hawa/commit/1b12f6e3) - 2023-10-01 - bismillah trying to make a test deployment
+- [f4f032e1](https://github.com/sikka-software/Hawa/commit/f4f032e1) - 2023-10-01 - added darkmode to storybook
+- [c94babdb](https://github.com/sikka-software/Hawa/commit/c94babdb) - 2023-10-01 - finished landing page
+- [9aebe3b0](https://github.com/sikka-software/Hawa/commit/9aebe3b0) - 2023-10-01 - fixed global css
+- [a67d70f6](https://github.com/sikka-software/Hawa/commit/a67d70f6) - 2023-09-30 - made it all work alhamdulellah
+- [501b4c71](https://github.com/sikka-software/Hawa/commit/501b4c71) - 2023-09-30 - attempting to do a build
+- [a1e03ec2](https://github.com/sikka-software/Hawa/commit/a1e03ec2) - 2023-09-30 - first commit

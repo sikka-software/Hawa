@@ -13,7 +13,7 @@ const toastVariants = cva(
       variant: {
         default: "hawa-border hawa-bg-background hawa-text-foreground",
         destructive:
-          "hawa-destructive hawa-group hawa-border-destructive hawa-bg-destructive hawa-text-destructive-foreground"
+          "hawa-destructive hawa-group hawa-border-destructive hawa-bg-destructive hawa-text-destructive-foreground",
       },
       severity: {
         info: "hawa-info hawa-group hawa-text-info-foreground hawa-bg-info",
@@ -23,17 +23,17 @@ const toastVariants = cva(
           "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-white",
         success:
           "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
-        none: ""
-      }
+        none: "",
+      },
     },
 
-    defaultVariants: { variant: "default" }
-  }
+    defaultVariants: { variant: "default" },
+  },
 );
 
 let sizeStyles = {
   default: "hawa-text-sm", // Update this based on the desired padding for rtl
-  sm: "hawa-text-xs"
+  sm: "hawa-text-xs",
 };
 const ToastProvider = ToastPrimitives.Provider;
 
@@ -45,7 +45,7 @@ const ToastViewport = React.forwardRef<
     ref={ref}
     className={cn(
       "hawa-fixed hawa-top-0 hawa-z-[100] hawa-flex hawa-max-h-screen hawa-w-full hawa-flex-col-reverse hawa-p-4 sm:hawa-bottom-0 sm:hawa-right-0 sm:hawa-top-auto sm:hawa-flex-col md:hawa-max-w-[420px]",
-      className
+      className,
     )}
     {...props}
   />
@@ -67,7 +67,7 @@ const Toast = React.forwardRef<
         className,
         direction === "rtl"
           ? "data-[state=closed]:hawa-slide-out-to-left-full"
-          : "data-[state=closed]:hawa-slide-out-to-right-full"
+          : "data-[state=closed]:hawa-slide-out-to-right-full",
       )}
       dir={direction}
       {...props}
@@ -90,7 +90,7 @@ const ToastAction = React.forwardRef<
         "group-[.success]:hawa-border-muted/40 group-[.success]:hover:hawa-border-success/30 group-[.success]:hover:hawa-bg-success group-[.success]:hover:hawa-text-success-foreground group-[.success]:focus:hawa-ring-success",
         "group-[.warning]:hawa-border-muted/40 group-[.warning]:hover:hawa-border-warning/30 group-[.warning]:hover:hawa-bg-warning group-[.warning]:hover:hawa-text-warning-foreground group-[.warning]:focus:hawa-ring-warning",
         "hawa-whitespace-nowrap",
-        className
+        className,
       )}
       {...props}
     />
@@ -108,8 +108,8 @@ const ToastClose = React.forwardRef<
       // "hawa-absolute hawa-start-2 hawa-top-2",
       // "group-hover:hawa-opacity-100",
       "hawa-opacity-100",
-      "hawa-rounded-md hawa-p-1 hawa-text-foreground/50 hawa-transition-opacity hover:hawa-text-foreground focus:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2  group-[.destructive]:hawa-text-red-300 group-[.destructive]:hover:hawa-text-red-50 group-[.destructive]:focus:hawa-ring-red-400 group-[.destructive]:focus:hawa-ring-offset-red-600",
-      className
+      "hawa-rounded-md hawa-p-1 hawa-text-foreground/50 hawa-transition-opacity hover:hawa-text-foreground focus:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 group-[.destructive]:hawa-text-red-300 group-[.destructive]:hover:hawa-text-red-50 group-[.destructive]:focus:hawa-ring-red-400 group-[.destructive]:focus:hawa-ring-offset-red-600",
+      className,
     )}
     toast-close=""
     {...props}
@@ -142,7 +142,7 @@ const ToastTitle = React.forwardRef<
     className={cn(
       "hawa-select-text hawa-text-sm hawa-font-semibold",
       sizeStyles[size],
-      className
+      className,
     )}
     {...props}
   />
@@ -160,7 +160,7 @@ const ToastDescription = React.forwardRef<
     className={cn(
       "hawa-select-text hawa-opacity-90",
       sizeStyles[size],
-      className
+      className,
     )}
     {...props}
   />
@@ -186,5 +186,5 @@ export {
   ToastTitle,
   ToastDescription,
   ToastClose,
-  ToastAction
+  ToastAction,
 };
