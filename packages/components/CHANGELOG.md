@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.0
+
+### Minor Changes
+
+- `DataTable`: add ability to set quick filters and apply them.
+
 ## 0.41.0
 
 ### Minor Changes

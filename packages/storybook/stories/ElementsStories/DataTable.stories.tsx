@@ -175,7 +175,6 @@ const Template = (args: any, globals: any) => {
   return (
     <div dir={direction} className="hawa-w-full">
       <DataTable<Company>
-        {...args}
         translateFn={t}
         // isLoading={isLoading}
         // defaultSort="share_price"
@@ -186,7 +185,6 @@ const Template = (args: any, globals: any) => {
         filters={[".com", ".sa", ".ae"]}
         paginationPosition="top"
         data={generatedData}
-        
         // itemsPerPage={[10, 50, 100, 150, 200, 500]}
         bulkActions={[
           {
@@ -210,6 +208,7 @@ const Template = (args: any, globals: any) => {
           searchPlaceholder: t("search-items"),
           selectedRows: t("selected-rows"),
         }}
+        {...args}
       />
       <Toaster />
     </div>
@@ -222,6 +221,19 @@ export const WithSearch: Story = {
   render: Template.bind({}),
   args: {
     enableSearch: true,
+  },
+};
+export const WithFilters: Story = {
+  render: Template.bind({}),
+  args: {
+    enableFiltering: true,
+    paginationPosition: "bottom",
+    filters: [
+      { accessorKey: "website", label: ".com", value: ".com" },
+      { accessorKey: "website", label: ".sa", value: ".sa" },
+      { accessorKey: "website", label: ".ae", value: ".ae" },
+      { accessorKey: "location", label: "Los Angeles", value: "Los Angeles" },
+    ],
   },
 };
 export const WithHideColumns: Story = {
