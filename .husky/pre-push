@@ -16,7 +16,6 @@ echo "Last commit message: $last_commit_message"
 # Check if the commit message contains #skip_publish
 if echo "$last_commit_message" | grep -q "#skip_publish"; then
     echo "Skipping version check due to #skip_publish in the commit message."
-    exit 0
 else
     echo "Running version check..."
     if ! node .husky/scripts/check-version.js; then
@@ -25,6 +24,11 @@ else
     fi
     echo "check-version.js ran successfully."
 fi
+
+# Always exit with an error code for debugging
+exit 1
+
+
 
 # #!/bin/sh
 # . "$(dirname "$0")/_/husky.sh"
