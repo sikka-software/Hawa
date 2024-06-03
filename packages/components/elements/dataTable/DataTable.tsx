@@ -312,7 +312,7 @@ export const DataTable = <DataProps extends {}>({
         </div>
       )}
 
-      {enableFiltering && (
+      {enableFiltering && props.filters?.length && (
         <div className="hawa-flex-row hawa-gap-2 hawa-flex">
           {props.filters?.map((filter) => {
             return (

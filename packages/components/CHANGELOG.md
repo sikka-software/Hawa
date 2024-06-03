@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.3
+
+### Patch Changes
+
+- Fix extra space when no filters are provided to `DataTable`
+
 ## 0.42.2
 
 ### Patch Changes
