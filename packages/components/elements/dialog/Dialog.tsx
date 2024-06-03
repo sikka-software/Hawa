@@ -250,7 +250,7 @@ const DialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "hawa-flex hawa-flex-col-reverse sm:hawa-flex-row sm:hawa-justify-end hawa-gap-2",
+      "hawa-flex hawa-flex-col xs:hawa-flex-row sm:hawa-justify-end hawa-gap-2",
       className,
     )}
     {...props}

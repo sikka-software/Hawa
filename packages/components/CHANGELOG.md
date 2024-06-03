@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.2
+
+### Patch Changes
+
+- Fix `DialogFooter` flex issue on mobile screens
+
 ## 0.42.1
 
 ### Patch Changes

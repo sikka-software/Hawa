@@ -12,18 +12,19 @@ const config: Config = {
   prefix: "hawa-",
   darkMode: ["class"],
   theme: {
-    screens: {
-      mobile: "430px",
-      tablet: "640px",
-      laptop: "1024px",
-      desktop: "1280px",
-    },
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: { "2xl": "1400px" },
-    },
     extend: {
+      screens: {
+        xs: "440px",
+        mobile: "430px",
+        tablet: "640px",
+        laptop: "1024px",
+        desktop: "1280px",
+      },
+      container: {
+        center: true,
+        padding: "2rem",
+        screens: { "2xl": "1400px" },
+      },
       arrows: {
         default: {
           borderColor: "hsl(var(--border))",
@@ -36,7 +37,6 @@ const config: Config = {
       },
       boxShadow: { neobrutalism: "5px 5px 0px 0px rgba(0,0,0,1);" },
       maxWidth: { "2xs": "250px" },
-      screens: { xs: "440px" },
       transitionProperty: { height: "height" },
       borderRadius: {
         inner: "var(--radius-inner)",

@@ -6,6 +6,6 @@ declare COMPONENTS_CHANGED=$(git diff --cached --name-only | grep 'packages/comp
 
 # Run `tsc` if changes are detected in the respective directories
 if [[ $COMPONENTS_CHANGED ]]; then
-    pushd packages/components && tsc --noEmit || exit 1
+    pushd packages/components && "$NVM_SYMLINK/tsc.cmd" --noEmit || exit 1
     popd
 fi
