@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.1
+
+### Patch Changes
+
+- Allow conumer to pass `contentProps` to `DropdownMenu` component
+
 ## 0.42.0
 
 ### Minor Changes

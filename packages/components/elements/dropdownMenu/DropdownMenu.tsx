@@ -306,6 +306,7 @@ interface DropdownMenuProps {
   side?: ExtendedDropdownMenuContentProps["side"];
   align?: ExtendedDropdownMenuContentProps["align"];
   alignOffset?: ExtendedDropdownMenuContentProps["alignOffset"];
+  contentProps?: ExtendedDropdownMenuContentProps;
   width?: "default" | "sm" | "lg" | "parent";
   size?: "default" | "sm";
   onItemSelect?: any;
@@ -322,6 +323,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   side,
   className,
   classNames,
+  contentProps,
   triggerClassname,
   triggerProps,
   align,
@@ -377,6 +379,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           style={{
             maxHeight: "var(--radix-dropdown-menu-content-available-height)",
           }}
+          {...contentProps}
         >
           {header && header}
           {items &&
