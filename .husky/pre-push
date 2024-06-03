@@ -19,18 +19,17 @@ if echo "$last_commit_message" | grep -q "#skip_publish"; then
     exit 0
 else
     echo "Running version check..."
-    node .husky/scripts/check-version.js
-    # Debug: Check the exit status of the node command
-    echo "check-version.js exit status: $?"
+    if ! node .husky/scripts/check-version.js; then
+        echo "check-version.js failed to run."
+        exit 1
+    fi
+    echo "check-version.js ran successfully."
 fi
-
-
-
 
 # #!/bin/sh
 # . "$(dirname "$0")/_/husky.sh"
 
-# export PATH="/c/Program Files/nodejs:$NVM_HOME:$PATH" 
+# export PATH="/c/Program Files/nodejs:$NVM_HOME:$PATH"
 
 # # Get the last commit message
 # last_commit_message=$(git log -1 --pretty=%B)
