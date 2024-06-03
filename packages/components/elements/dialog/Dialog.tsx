@@ -245,7 +245,7 @@ const DialogDescription = React.forwardRef<
   />
 ));
 const DialogFooter = ({
-  className,
+  className, 
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
