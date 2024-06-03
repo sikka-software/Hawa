@@ -1,47 +1,15 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Ensure Node.js is in the PATH
-export PATH="/c/Program Files/nodejs:$NVM_HOME:$NVM_SYMLINK:$PATH"
-
-# Debug: Print updated PATH
-echo "Updated PATH: $PATH"
+export PATH="/c/Program Files/nodejs:$NVM_HOME:$PATH" 
 
 # Get the last commit message
 last_commit_message=$(git log -1 --pretty=%B)
 
-# Debug: Print the last commit message
-echo "Last commit message: $last_commit_message"
-
 # Check if the commit message contains #skip_publish
 if echo "$last_commit_message" | grep -q "#skip_publish"; then
     echo "Skipping version check due to #skip_publish in the commit message."
+    exit 0
 else
-    echo "Running version check..."
-    if ! node .husky/scripts/check-version.js; then
-        echo "check-version.js failed to run."
-        exit 1
-    fi
-    echo "check-version.js ran successfully."
+    node .husky/scripts/check-version.js
 fi
-
-# Always exit with an error code for debugging
-exit 1
-
-
-
-# #!/bin/sh
-# . "$(dirname "$0")/_/husky.sh"
-
-# export PATH="/c/Program Files/nodejs:$NVM_HOME:$PATH"
-
-# # Get the last commit message
-# last_commit_message=$(git log -1 --pretty=%B)
-
-# # Check if the commit message contains #skip_publish
-# if echo "$last_commit_message" | grep -q "#skip_publish"; then
-#     echo "Skipping version check due to #skip_publish in the commit message."
-#     exit 0
-# else
-#     node .husky/scripts/check-version.js
-# fi
