@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.5
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.42.4
 
 ### Patch Changes

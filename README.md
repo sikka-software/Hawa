@@ -36,12 +36,13 @@
 ### Tools used
 
 - Styling: [Tailwind](https://tailwindcss.com/)
-- Headless UI: [Radix-UI](https://www.radix-ui.com/)
+- Headless UI: [Radix-UI](https://www.radix-ui.com/) & [Headless UI](https://headlessui.dev/)
 - Forms: [react-hook-form](https://react-hook-form.com/)
 - Tables: [@tanstack/react-table](https://tanstack.com/table/v8)
 - Form Validation: [zod](https://zod.dev/)
 - Phone Validation: [libphonenumber-js](https://gitlab.com/catamphetamine/libphonenumber-js)
 - Carousel: [embla-carousel-react](https://www.embla-carousel.com/)
+- Toast: [sonner](https://github.com/emilkowalski/sonner)
 - Combobox: [cmdk](https://github.com/pacocoursey/cmdk)
 
 ## Install
