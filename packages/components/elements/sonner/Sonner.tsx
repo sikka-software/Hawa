@@ -1,5 +1,6 @@
 import React from "react";
 
+import { cn } from "@util/index";
 import { Toaster as SonnerToaster, toast } from "sonner";
 
 import { DirectionType } from "@_types/commonTypes";
@@ -16,8 +17,11 @@ const Sonner = ({ ...props }: SonnerProps) => {
       className="toaster group"
       toastOptions={{
         classNames: {
-          toast:
-            "group toast group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
+          toast: cn(
+            "group  toast group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
+            props.direction === "rtl" &&
+              "!hawa-start-[32px] md:!hawa-start-auto", //To fix on mobile
+          ),
           description: "group-[.toast]:hawa-text-muted-foreground",
           actionButton:
             "group-[.toast]:hawa-bg-primary group-[.toast]:hawa-text-primary-foreground",

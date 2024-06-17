@@ -1,5 +1,12 @@
 # hawa-storybook
 
+## 0.26.111
+
+### Patch Changes
+
+- Updated dependencies
+  - @sikka/hawa@0.42.4
+
 ## 0.26.110
 
 ### Patch Changes

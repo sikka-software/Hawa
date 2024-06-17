@@ -35,7 +35,10 @@ export const Default: Story = {
             richColors
           />
           <DropdownMenu
-            trigger={<Button>Add Toaster</Button>}
+            triggerProps={{
+              asChild: true,
+            }}
+            trigger={<Button asChild>Add Toaster</Button>}
             items={[
               {
                 label: "Info",

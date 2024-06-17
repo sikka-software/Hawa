@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.4
+
+### Patch Changes
+
+- Sonner: fix wrong position on mobile when direction is `rtl`
+
 ## 0.42.3
 
 ### Patch Changes
