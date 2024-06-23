@@ -3,11 +3,21 @@ import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "@util/index";
 
-const MenubarMenu = MenubarPrimitive.Menu;
-const MenubarGroup = MenubarPrimitive.Group;
-const MenubarPortal = MenubarPrimitive.Portal;
-const MenubarSub = MenubarPrimitive.Sub;
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
+const MenubarMenu: React.FC<
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Menu>
+> = MenubarPrimitive.Menu;
+const MenubarGroup: React.FC<
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Group>
+> = MenubarPrimitive.Group;
+const MenubarPortal: React.FC<
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Portal>
+> = MenubarPrimitive.Portal;
+const MenubarSub: React.FC<
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Sub>
+> = MenubarPrimitive.Sub;
+const MenubarRadioGroup: React.FC<
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioGroup>
+> = MenubarPrimitive.RadioGroup;
 
 const Menubar = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Root>,
