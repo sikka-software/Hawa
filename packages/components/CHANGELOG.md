@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.42.6
+
+### Patch Changes
+
+- Fix Sika logo in `Logos` component
+- Update dependencies
+
 ## 0.42.5
 
 ### Patch Changes

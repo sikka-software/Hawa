@@ -56,7 +56,7 @@ type TooltipTypes = {
   disabled?: boolean;
   triggerProps?: TooltipPrimitive.TooltipTriggerProps;
   contentProps?: TooltipPrimitive.TooltipContentProps;
-  providerProps?: TooltipPrimitive.TooltipProviderProps;
+  providerProps?: TooltipPrimitive.TooltipProps;
 };
 
 const Tooltip: React.FunctionComponent<TooltipTypes> = ({
