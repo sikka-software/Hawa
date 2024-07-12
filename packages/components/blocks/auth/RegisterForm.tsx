@@ -89,6 +89,9 @@ type RegisterFormTypes = {
     form?: string;
     card?: string;
   };
+
+  /** The minimum length of the password input field */
+  minPasswordLength?: number;
   /** If true, the form is displayed without a card container styling.*/
   cardless?: boolean;
 };
@@ -96,6 +99,7 @@ type RegisterFormTypes = {
 export const RegisterForm: FC<RegisterFormTypes> = ({
   texts,
   registerFields = ["email"],
+  minPasswordLength = 8,
   showTermsOption = false,
   showNewsletterOption = false,
   ...props
@@ -157,7 +161,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         .string({
           required_error: texts?.password?.required || "Password is required",
         })
-        .min(5, {
+        .min(minPasswordLength, {
           message: texts?.password?.tooShort || "Password is too short",
         })
         .refine((value) => value !== "", {
@@ -167,6 +171,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         .string({
           required_error:
             texts?.confirm?.required || "Confirm password required",
+        })
+        .min(minPasswordLength, {
+          message: texts?.password?.tooShort || "Password is too short",
         })
         .refine((value) => value !== "", {
           message: texts?.password?.required || "Confirm password is required",

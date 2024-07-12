@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.42.7
+
+### Patch Changes
+
+- Change `passwordLength` prop to `minPasswordLength`
+- Apply `minPasswordLength` to `RegisterForm`
+
 ## 0.42.6
 
 ### Patch Changes

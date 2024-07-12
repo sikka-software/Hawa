@@ -74,8 +74,8 @@ type LoginFormTypes = {
   onTwitterLogin?: () => void;
   /** Additional buttons to add under the login button */
   additionalButtons?: any;
-  /** The allowed length of the password input field */
-  passwordLength?: number;
+  /** The minimum length of the password input field */
+  minPasswordLength?: number;
   /** If true, the form is displayed without a card container styling.*/
   cardless?: boolean;
   /** Props to pass to the PhoneInput component */
@@ -84,7 +84,7 @@ type LoginFormTypes = {
 
 export const LoginForm: FC<LoginFormTypes> = ({
   loginType = "email",
-  passwordLength = 8,
+  minPasswordLength = 8,
   texts,
   ...props
 }) => {
@@ -113,7 +113,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
           required_error: texts?.password?.required || "Password Required",
         })
         .min(1, { message: texts?.password?.required || "Password Required" })
-        .min(passwordLength, {
+        .min(minPasswordLength, {
           message: texts?.password?.tooShort || "Password too short",
         }),
     });
@@ -136,7 +136,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
           required_error: texts?.password?.required || "Password Required",
         })
         .min(1, { message: texts?.password?.required || "Password Required" })
-        .min(passwordLength, {
+        .min(minPasswordLength, {
           message: texts?.password?.tooShort || "Password too short",
         }),
     });
