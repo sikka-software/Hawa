@@ -1,9 +1,8 @@
-import { useDarkMode } from "storybook-dark-mode";
+import React from "react";
 
 import { CodeBlock } from "../../components/elements";
 
 export const WrappedCodeBlock = (props: any) => {
-  const isDark = useDarkMode();
   return (
     <CodeBlock
       language={props.lang}
