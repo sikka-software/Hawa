@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -244,7 +244,198 @@ export const WithHideColumns: Story = {
   },
 };
 export const WithSelection: Story = {
-  render: Template.bind({}),
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    const companiesColumns: ColumnDef<Company>[] = [
+      {
+        maxSize: 20,
+        accessorKey: "name",
+        enableHiding: false,
+        meta: { sortable: true },
+        header: ({ column }) => (
+          <SortButton
+            condensed
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            label={t("company")}
+          />
+        ),
+      },
+      {
+        accessorKey: "location",
+        header: t("location"),
+        maxSize: 200,
+        meta: { hidden: true },
+      },
+      {
+        accessorKey: "website",
+        meta: { sortable: true },
+        header: ({ column }) => (
+          <SortButton
+            condensed
+            onSort={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            label={t("website")}
+          />
+        ),
+        cell: ({ row }) => (
+          <a href={row.getValue("website")} className="clickable-link">
+            {row.getValue("website")}
+          </a>
+        ),
+      },
+
+      {
+        accessorKey: "employees",
+        meta: { sortable: true, hidden: true },
+        header: ({ column }) => {
+          return (
+            <SortButton
+              condensed
+              label={t("employees")}
+              onSort={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            />
+          );
+        },
+        cell: (d) => (
+          <div className="hawa-font-medium">
+            {d.row.getValue("employees")?.toLocaleString()}
+          </div>
+        ),
+      },
+      {
+        accessorKey: "share_price",
+        meta: { sortable: true },
+        header: ({ column }) => {
+          return (
+            <SortButton
+              condensed
+              label={t("share_price")}
+              onSort={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            />
+          );
+        },
+        cell: ({ row }) => {
+          const amount = parseFloat(row.getValue("share_price"));
+          const formatted = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(amount);
+
+          return <div className="hawa-font-medium">{formatted}</div>;
+        },
+      },
+
+      {
+        id: "actions",
+        header: t("actions"),
+        enableHiding: false,
+        enableResizing: false,
+        cell: ({ row }) => {
+          return (
+            <span className="hawa-flex hawa-flex-col hawa-items-start hawa-justify-center hawa-p-2 hawa-px-0">
+              <DropdownMenu
+                trigger={
+                  <Button className="hawa-m-0 hawa-h-6" variant="ghost">
+                    <span className="hawa-sr-only">Open menu</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="1" />
+                      <circle cx="19" cy="12" r="1" />
+                      <circle cx="5" cy="12" r="1" />
+                    </svg>
+                  </Button>
+                }
+                items={[
+                  {
+                    label: "copy",
+                    value: "copy",
+                    // action: () => navigator.clipboard.writeText(payment.id),
+                  },
+                ]}
+              />
+            </span>
+          );
+        },
+      },
+    ];
+    const [isLoading, setIsLoading] = useState(true);
+    const [isRowsSelected, setIsRowsSelected] = useState(true);
+
+    useEffect(() => {
+      // Set a timeout to change isLoading to true after 2 seconds
+      const timeoutId = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      // Clear the timeout if the component unmounts before the timeout is reached
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []); // Empty dependency array ensures this effect runs only once
+
+    const handleResetSelection = () => {
+      setIsRowsSelected(!isRowsSelected);
+    };
+
+    return (
+      <div dir={direction} className="hawa-w-full">
+        <Button className="hawa-mb-4" onClick={handleResetSelection}>Reset Selection</Button>
+        <DataTable<Company>
+          resetSelection={isRowsSelected}
+          translateFn={t}
+          // isLoading={isLoading}
+          // defaultSort="share_price"
+          columns={companiesColumns}
+          showCount
+          // data={[]}
+          // data={companiesData}
+          filters={[".com", ".sa", ".ae"]}
+          paginationPosition="top"
+          data={generatedData}
+          // itemsPerPage={[10, 50, 100, 150, 200, 500]}
+          bulkActions={[
+            {
+              label: "Copy",
+              value: "copy",
+              action: (rows: any) => {
+                console.log("rows are ", rows);
+              },
+            },
+          ]}
+          condensed
+          direction={direction}
+          texts={{
+            columns: t("columns"),
+            of: t("of"),
+            item: "عناصر",
+            total: t("total"),
+            page: t("page"),
+            noData: t("no-data"),
+            goTo: t("go-to"),
+            searchPlaceholder: t("search-items"),
+            selectedRows: t("selected-rows"),
+          }}
+          {...args}
+        />
+        <Toaster />
+      </div>
+    );
+  },
   args: {
     enableHideColumns: true,
     enableSearch: true,

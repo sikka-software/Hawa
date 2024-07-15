@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.8
+
+### Patch Changes
+
+- `DataTable`: add `resetSelection` prop to be used to reset selection by passing in a changing value.
+
 ## 0.42.7
 
 ### Patch Changes

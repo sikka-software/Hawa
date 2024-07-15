@@ -49,6 +49,7 @@ type DataTableProps<DataProps = {}> = {
   enableGoTo?: boolean;
   enableSelection?: boolean;
   enableFiltering?: boolean;
+  resetSelection?: boolean;
   filters?: { accessorKey: string; value: string; label: string }[];
   hideHeader?: boolean;
   data: DataProps[];
@@ -92,6 +93,7 @@ export const DataTable = <DataProps extends {}>({
   data,
   paginationPosition = "bottom",
   translateFn,
+  resetSelection,
   enableHideColumns,
   enableSelection,
   enableFiltering,
@@ -188,6 +190,10 @@ export const DataTable = <DataProps extends {}>({
   React.useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(columnVisibility));
   }, [columnVisibility]);
+
+  React.useEffect(() => {
+    setRowSelection({});
+  }, [resetSelection]);
 
   React.useEffect(() => {
     setColumnVisibility((prev) => {
