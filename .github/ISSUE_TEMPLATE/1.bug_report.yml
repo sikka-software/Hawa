@@ -14,8 +14,6 @@ body:
         - "Build and Deployment"
         - "Examples"
         - "Other"
-    # validations:
-      # required: true
   - type: dropdown
     attributes:
       label: Which component group is your issue related to?
@@ -26,7 +24,7 @@ body:
         - "Elements"
         - "Other"
     validations:
-    required: false
+      required: false
   - type: markdown
     attributes:
       value: |
