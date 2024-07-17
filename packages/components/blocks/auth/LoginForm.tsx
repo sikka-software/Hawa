@@ -38,7 +38,7 @@ type LoginFormTypes = {
   showError?: boolean;
   /** Callback function triggered when the error alert is dismissed. */
   onErrorDismissed?: () => void;
-  /** Title text of error alert.   */
+  /** Title text of error alert.*/
   errorTitle?: string;
   /** Description text of error alert.   */
   errorText?: string;
