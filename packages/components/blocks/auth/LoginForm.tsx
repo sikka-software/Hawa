@@ -36,6 +36,8 @@ type LoginFormTypes = {
   direction?: DirectionType;
   /** If true, an error alert is displayed at the top of the form.   */
   showError?: boolean;
+  /** Callback function triggered when the error alert is dismissed. */
+  onErrorDismissed?: () => void;
   /** Title text of error alert.   */
   errorTitle?: string;
   /** Description text of error alert.   */
@@ -375,6 +377,11 @@ export const LoginForm: FC<LoginFormTypes> = ({
               title={props.errorTitle}
               text={props.errorText}
               severity="error"
+              onAlertClosed={() => {
+                if (props.onErrorDismissed) {
+                  props.onErrorDismissed();
+                }
+              }}
             />
           )}
           <form

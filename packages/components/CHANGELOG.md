@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.9
+
+### Patch Changes
+
+- Add `onErrorDismissed` to `LoginForm` to allow extra customization of alert dismissal
+
 ## 0.42.8
 
 ### Patch Changes
