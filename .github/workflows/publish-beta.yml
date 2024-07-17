@@ -70,7 +70,8 @@ jobs:
 
       - name: Install Dependencies and Build ${{env.STORYBOOK_PM2}}
         run: |
-          pnpm install --filter hawa-storybook
+          pnpm install
+          pnpm build:lib
           cd packages/storybook
           npm run build-storybook
 

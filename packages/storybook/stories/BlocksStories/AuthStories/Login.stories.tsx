@@ -269,7 +269,7 @@ export const Advanced: Story = {
             loginViaTwitterLabel: t("loginViaTwitterLabel"),
           }}
           additionalButtons={
-            <div className="hawa-gap-2 hawa-flex hawa-w-full ">
+            <div className="hawa-gap-2 hawa-flex hawa-w-full">
               <Button
                 type="button"
                 variant="outline"
