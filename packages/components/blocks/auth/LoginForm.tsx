@@ -30,7 +30,7 @@ import { AuthButtons } from "./AuthButtons";
 type LoginFormTypes = {
   /** Object containing text labels used throughout the form. */
   texts?: LoginFormTextsTypes;
-  /** If true, only logos are displayed in third-party auth buttons.   */
+  /** If true, only logos are displayed in third-party auth buttons.*/
   logosOnly?: boolean;
   /** Direction of text and UI elements, either left-to-right or right-to-left.   */
   direction?: DirectionType;
