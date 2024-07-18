@@ -44,6 +44,9 @@ export const AppLayoutStory = (args: any) => {
         {
           label: t("dashboard"),
           value: "/home",
+          badge: {
+            label: "Soon?",
+          },
           icon: <LayoutDashboard className="hawa-icon" />,
           onMouseDown: (e) => {
             if (e.button == 1) {
@@ -60,6 +63,9 @@ export const AppLayoutStory = (args: any) => {
           label: t("items"),
           icon: <FolderOpen className="hawa-icon" />,
           value: "/items",
+          badge: {
+            label: "Soon?",
+          },
           subitems: [
             {
               label: t("sub-item") + " 1",

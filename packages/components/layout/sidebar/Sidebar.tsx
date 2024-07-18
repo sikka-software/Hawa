@@ -75,7 +75,7 @@ export type AppSidebarItemProps = {
   value: string;
   slug?: string;
   label: string;
-  badge?: { label: string; color: ChipColors };
+  badge?: { label: string; color?: ChipColors };
   icon?: any;
   subitems?: SubItem[];
   onClick?: (e: React.MouseEvent) => void;
@@ -85,7 +85,7 @@ type SubItem = {
   value: string;
   label: string;
   slug?: string;
-  badge?: { label: string; color: ChipColors };
+  badge?: { label: string; color?: ChipColors };
   icon?: any;
   onMouseDown?: (e: React.MouseEvent) => void;
   onClick?: (e: React.MouseEvent) => void;
@@ -199,13 +199,17 @@ const SidebarItem: React.FC<{
             {item.icon && item.icon}
             <span
               className={cn(
-                "hawa-transition-all",
+                "hawa-transition-all hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap",
                 isOpen ? "hawa-opacity-100" : "hawa-opacity-0",
               )}
             >
               {item.label}
               {item.badge && (
-                <Chip label={item.badge.label} color="hyper" size="small" />
+                <Chip
+                  label={item.badge.label}
+                  color={item.badge.color}
+                  size="small"
+                />
               )}
             </span>
           </div>
@@ -246,7 +250,7 @@ const SidebarItem: React.FC<{
                   {subitem.badge && (
                     <Chip
                       label={subitem.badge.label}
-                      color="hyper"
+                      color={subitem.badge.color}
                       size="small"
                     />
                   )}
@@ -291,7 +295,11 @@ const SidebarItem: React.FC<{
           >
             {item.label}{" "}
             {item.badge && (
-              <Chip label={item.badge.label} color="hyper" size="small" />
+              <Chip
+                label={item.badge.label}
+                color={item.badge.color}
+                size="small"
+              />
             )}
           </span>
         </div>

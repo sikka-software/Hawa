@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.11
+
+### Patch Changes
+
+- Make badge color optional in the sidebar of `AppLayout`
+
 ## 0.42.10
 
 ### Patch Changes
