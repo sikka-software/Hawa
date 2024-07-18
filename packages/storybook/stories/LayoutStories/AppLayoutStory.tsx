@@ -16,16 +16,17 @@ import { AppLayout } from "@sikka/hawa/layout";
 import { t } from "../../translations/i18n";
 
 export const AppLayoutStory = (args: any) => {
-  const dark = useDarkMode();
+  // const dark = useDarkMode();
   const [selectedPage, setSelectedPage] = useState("/home");
   const [count, updateCount] = useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   const logoLink =
     args.direction === "rtl"
-      ? dark
+      ? args.isDark
         ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl-white.png"
         : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-rtl.png"
-      : dark
+      : args.isDark
         ? "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr-white.png"
         : "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-bilingual-wordmark-ltr.png";
 
@@ -82,6 +83,9 @@ export const AppLayoutStory = (args: any) => {
               onClick: () => setSelectedPage("/new-item3"),
             },
             {
+              badge: {
+                label: "Soon?",
+              },
               label: t("sub-item") + " 4",
               icon: <FolderDot className="hawa-icon" />,
               value: "/file-item",
@@ -107,11 +111,11 @@ export const AppLayoutStory = (args: any) => {
       ]}
     >
       <div
-        className=" hawa-h-full  hawa-p-4"
+        className="hawa-h-full hawa-p-4"
         onClick={() => updateCount(count + 1)}
       >
-        <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50">
-          <span className=" hawa-font-bold hawa-capitalize hawa-text-gray-400">
+        <div className="hawa-m-0 hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center hawa-overflow-auto hawa-rounded-lg hawa-border-2 hawa-border-dashed hawa-border-black hawa-bg-blue-50 dark:hawa-bg-blue-950">
+          <span className="hawa-font-bold hawa-capitalize hawa-text-gray-400">
             App Content
           </span>
           <span className="hawa-font-bold hawa-text-[20rem] hawa-select-none">

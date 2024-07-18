@@ -1,5 +1,18 @@
 # hawa-storybook
 
+## 0.26.117
+
+### Patch Changes
+
+- Fix broken `useDarkMode` hook in `AppLayout` story
+
+## 0.26.116
+
+### Patch Changes
+
+- Updated dependencies
+  - @sikka/hawa@0.42.10
+
 ## 0.26.115
 
 ### Patch Changes

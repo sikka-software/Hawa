@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.10
+
+### Patch Changes
+
+- `Sidebar`: Allow adding badge to menu items that have subitems and subitems directly.
+
 ## 0.42.9
 
 ### Patch Changes

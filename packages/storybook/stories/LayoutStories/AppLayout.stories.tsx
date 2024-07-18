@@ -11,7 +11,7 @@ import { AppLayoutStory } from "./AppLayoutStory";
 
 const meta = {
   title: "Layout/App Layout",
-  component: AppLayout
+  component: AppLayout,
 } satisfies Meta<typeof AppLayout>;
 
 export default meta;
@@ -23,7 +23,9 @@ export const Default: Story = {
     const locale = globals.globals?.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
-    return <AppLayoutStory {...args} direction={direction} />;
+
+    console.log("dark sis ", dark);
+    return <AppLayoutStory {...args} direction={direction} isDark={dark} />;
   },
   args: {
     topBar: true,
@@ -37,9 +39,9 @@ export const Default: Story = {
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />
       </Button>
-    )
+    ),
   },
-  argTypes: { onLogoClick: { action: "onLogoClick" } }
+  argTypes: { onLogoClick: { action: "onLogoClick" } },
 };
 export const CustomHeader: Story = {
   render: (args: any, globals: any) => {
@@ -51,7 +53,7 @@ export const CustomHeader: Story = {
   },
   args: {
     header: (
-      <div className=" hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center">
+      <div className="hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-items-center hawa-justify-center">
         <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-start hawa-gap-2">
           <div className="hawa-flex hawa-h-8 hawa-w-8 hawa-items-center hawa-justify-center hawa-rounded-full hawa-bg-gray-200">
             <User2 className="hawa-icon" />
@@ -74,7 +76,7 @@ export const CustomHeader: Story = {
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />
       </Button>
-    )
+    ),
   },
-  argTypes: { onLogoClick: { action: "onLogoClick" } }
+  argTypes: { onLogoClick: { action: "onLogoClick" } },
 };
