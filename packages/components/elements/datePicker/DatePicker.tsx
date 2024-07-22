@@ -18,7 +18,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   trigger,
   popoverTriggerProps,
   popoverContentProps,
-  required,
+  // required,
   ...props
 }) => {
   return (
@@ -26,7 +26,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       <PopoverTrigger {...popoverTriggerProps}>{trigger}</PopoverTrigger>
       <PopoverContent
         align={props.dir === "rtl" ? "end" : "start"}
-        sideOffset={required ? -16 : -4}
+        // sideOffset={required ? -16 : -4}
         {...popoverContentProps}
       >
         <Calendar {...props} />
