@@ -95,6 +95,7 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
             sizeStyles[size],
             radiusStyles[radius],
             color ? colorStyles[color] : "hawa-border hawa-bg-none",
+            rest.className,
           )}
         >
           {dot && (

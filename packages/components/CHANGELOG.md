@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.42.12
+
+### Patch Changes
+
+- `Chip`: allow consumer to pass custom classNames
+
 ## 0.42.11
 
 ### Patch Changes

@@ -8,7 +8,7 @@ import { Label, LabelProps } from "../label";
 import { Loading } from "../loading/Loading";
 
 const buttonVariants = cva(
-  "hawa-inline-flex hawa-items-center  hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
+  "hawa-inline-flex hawa-items-center hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50",
   {
     variants: {
       variant: {

@@ -1,6 +1,6 @@
 {
   "name": "hawa-docs",
-  "version": "0.0.96",
+  "version": "0.0.97",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -69,7 +69,7 @@
     "next-themes": "^0.3.0",
     "nextjs-progressloader": "^1.2.0",
     "react": "^18.3.1",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.0.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.1",
     "react-resizable-panels": "^2.0.20",
