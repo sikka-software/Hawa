@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 # Change to use `git diff --cached --name-only` to only check staged changes.
 declare COMPONENTS_CHANGED=$(git diff --cached --name-only | grep 'packages/components')
