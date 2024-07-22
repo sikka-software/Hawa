@@ -3,7 +3,7 @@ import { DateRange, DayPicker, type DayPickerProps } from "react-day-picker";
 
 import { cn } from "@util/index";
 
-import { buttonVariants } from "../button";
+import { Button, buttonVariants } from "../button";
 
 export type CalendarProps = DayPickerProps;
 export type CalendarValueType = {
@@ -48,12 +48,6 @@ function Calendar({
         weekday:
           "hawa-text-muted-foreground hawa-rounded-md hawa-w-9 hawa-font-normal hawa-text-[0.8rem]",
         week: "hawa-flex hawa-w-full hawa-mt-2",
-        day: "hawa-h-9 hawa-w-9 hawa-text-center hawa-text-sm hawa-p-0 hawa-relative [&:has([aria-selected].range-end)]:hawa-rounded-r-md [&:has([aria-selected].outside)]:hawa-bg-accent/50 [&:has([aria-selected])]:hawa-bg-accent first:[&:has([aria-selected])]:hawa-rounded-l-md last:[&:has([aria-selected])]:hawa-rounded-r-md focus-within:hawa-relative focus-within:hawa-z-20",
-        day_button:
-          "hawa-inline-flex hawa-items-center hawa-select-none hawa-rounded-md hawa-text-sm hawa-font-medium hawa-ring-offset-background hawa-transition-colors focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-2 disabled:hawa-pointer-events-none disabled:hawa-opacity-50 hover:hawa-bg-accent hover:hawa-text-accent-foreground hawa-h-9 hawa-w-9 hawa-justify-center !hawa-p-0 aria-selected:hawa-opacity-100 hover:[&:has([aria-selected])]:hawa-bg-red-500",
-
-        selected:
-          "hawa-bg-primary hawa-rounded hawa-text-primary-foreground hover:hawa-bg-primary hover:hawa-text-primary-foreground focus:hawa-bg-primary focus:hawa-text-primary-foreground",
 
         range_end: "day-range-end",
 
@@ -67,6 +61,16 @@ function Calendar({
         ...classNames,
       }}
       components={{
+        DayButton: (props) => (
+          <Button
+            {...props}
+            variant={props.modifiers.selected ? "default" : "ghost"}
+            className="hawa-h-9 hawa-w-9 hawa-text-center hawa-text-sm hawa-p-0 hawa-relative [&:has([aria-selected].range-end)]:hawa-rounded-r-md [&:has([aria-selected].outside)]:hawa-bg-accent/50 [&:has([aria-selected])]:hawa-bg-accent first:[&:has([aria-selected])]:hawa-rounded-l-md last:[&:has([aria-selected])]:hawa-rounded-r-md focus-within:hawa-relative focus-within:hawa-z-20"
+          >
+            {props.children}
+          </Button>
+        ),
+
         Chevron: (props) => (
           <svg
             xmlns="http://www.w3.org/2000/svg"
