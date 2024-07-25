@@ -38,17 +38,22 @@ function createConfigForGroup(entries, name) {
     banner: { js: '"use client";' },
     entry: entries,
     tsconfig: "./tsconfig.json",
-    external: ["react", "react-dom", "@radix-ui/react-toast"]
+    external: [
+      "react",
+      "react-dom",
+      "@radix-ui/react-toast",
+      "react-day-picker",
+    ],
   });
 }
 const groupedElementEntries = chunkEntries(elementEntries, 3);
 const groupedLayoutEntries = chunkEntries(layoutEntries, 3);
 
 const groupedElements = groupedElementEntries.map((group, i) =>
-  createConfigForGroup(group, `Build Elements Group - ${i}`)
+  createConfigForGroup(group, `Build Elements Group - ${i}`),
 );
 const groupedLayout = groupedLayoutEntries.map((group, i) =>
-  createConfigForGroup(group, `Build Layout Group - ${i}`)
+  createConfigForGroup(group, `Build Layout Group - ${i}`),
 );
 
 const buildAllConfig = defineConfig({
@@ -58,7 +63,7 @@ const buildAllConfig = defineConfig({
   target: "es2019",
   entry: { index: "index.ts" },
   format: ["cjs", "esm"],
-  banner: { js: '"use client";' }
+  banner: { js: '"use client";' },
 });
 const buildCoreConfig = defineConfig({
   name: "Build Core",
@@ -73,8 +78,8 @@ const buildCoreConfig = defineConfig({
     "hooks/index": "hooks/index.ts",
     "blocks/index": "blocks/index.ts",
     "layout/index": "layout/index.ts",
-    "elements/index": "elements/index.ts"
-  }
+    "elements/index": "elements/index.ts",
+  },
 });
 const buildBlocksConfig = defineConfig({
   name: "Build Blocks",
@@ -88,13 +93,13 @@ const buildBlocksConfig = defineConfig({
     "blocks/misc/index": "blocks/misc/index.ts",
     "blocks/auth/index": "blocks/auth/index.ts",
     "blocks/pricing/index": "blocks/pricing/index.ts",
-    "blocks/feedback/index": "blocks/feedback/index.ts"
-  }
+    "blocks/feedback/index": "blocks/feedback/index.ts",
+  },
 });
 module.exports = {
   groupedElements,
   groupedLayout,
   buildAllConfig,
   buildCoreConfig,
-  buildBlocksConfig
+  buildBlocksConfig,
 };
