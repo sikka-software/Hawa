@@ -34,7 +34,7 @@ function createConfigForGroup(entries, name) {
     treeshake: false,
     minify: false,
     target: "es2019",
-    format: ["cjs", "esm"],
+    format: ["esm", "cjs"],
     banner: { js: '"use client";' },
     entry: entries,
     tsconfig: "./tsconfig.json",
