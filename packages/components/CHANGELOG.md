@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.43.0
+
+### Minor Changes
+
+- `Calendar`: downgrade `react-day-picker` to v8.10.1
+
 ## 0.42.12
 
 ### Patch Changes
