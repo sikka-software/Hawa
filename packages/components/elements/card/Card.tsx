@@ -26,7 +26,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ) => {
     let variantStyles = {
       default: cn(
-        "hawa-rounded-lg hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
+        "hawa-rounded hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
         clickable &&
           "hawa-cursor-pointer hawa-transition-all hover:hawa-drop-shadow-md dark:hover:dark-shadow",
       ),
@@ -40,7 +40,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={cn(className, !asContainer && variantStyles[variant])}
+        className={cn(!asContainer && variantStyles[variant], className)}
         {...props}
       />
     );

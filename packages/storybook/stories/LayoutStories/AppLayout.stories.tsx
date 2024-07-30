@@ -29,7 +29,6 @@ export const Default: Story = {
   },
   args: {
     topBar: true,
-    pageTitle: "Dashboard Page",
     username: "Zakher Masri",
     avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
     email: "zakher@sikka.io",

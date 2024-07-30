@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.43.1
+
+### Patch Changes
+
+- `AppLayout`: allow `pageTitle` prop to accept a React node
+
 ## 0.43.0
 
 ### Minor Changes

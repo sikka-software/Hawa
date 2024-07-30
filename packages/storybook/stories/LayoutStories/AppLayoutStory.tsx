@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import {
   BarChart2,
+  ChevronRight,
   FolderArchive,
   FolderCheck,
   FolderClosed,
@@ -33,6 +34,11 @@ export const AppLayoutStory = (args: any) => {
   return (
     <AppLayout
       {...args}
+      pageTitle={
+        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-4">
+          <span>Dashboard Pages</span> <ChevronRight className="hawa-size-5" />
+        </div>
+      }
       logoLink={logoLink}
       currentPage={selectedPage}
       onDrawerExpanded={(expanded) => setIsDrawerOpen(expanded)}

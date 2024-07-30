@@ -25,7 +25,7 @@ type AppLayoutTypes = {
   /** The title of the current selected page, make sure it's the same as the drawerItem slug */
   currentPage: string;
   /** Specifies the title of the page. */
-  pageTitle?: string;
+  pageTitle?: string | React.ReactNode;
   /** Specifies the symbol for the logo. */
   logoSymbol?: any;
   /** Specifies the link for the logo. */
