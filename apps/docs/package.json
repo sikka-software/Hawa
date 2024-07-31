@@ -1,6 +1,6 @@
 {
   "name": "hawa-docs",
-  "version": "0.0.103",
+  "version": "0.0.104",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",

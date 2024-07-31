@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.43.6
+
+### Patch Changes
+
+- `Alert`: allow extra customization by consumer
+- `HelperText`: fix issue with fixed height
+
 ## 0.43.5
 
 ### Patch Changes
