@@ -1,6 +1,6 @@
 {
   "name": "@sikka/hawa",
-  "version": "0.43.1",
+  "version": "0.43.2",
   "description": "Modern UI Kit made with Tailwind",
   "author": {
     "name": "Sikka Software",
@@ -87,7 +87,7 @@
     "libphonenumber-js": "^1.11.5",
     "prism-react-renderer": "^2.3.1",
     "prismjs": "^1.29.0",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.0.6",
     "react-dropzone": "^14.2.3",
     "react-headless-pagination": "^1.1.6",
     "react-hook-form": "^7.52.1",

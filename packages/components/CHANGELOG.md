@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.43.2
+
+### Patch Changes
+
+- Update `react-day-picker` to 9.0.6
+
 ## 0.43.1
 
 ### Patch Changes
