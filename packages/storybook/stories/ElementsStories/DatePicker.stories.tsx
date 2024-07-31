@@ -32,9 +32,10 @@ export const Default: Story = {
         className="hawa-flex hawa-items-start hawa-max-w-md hawa-flex-row hawa-gap-2"
       >
         <DatePicker
-          initialFocus
+          // initialFocus
           mode="single"
-          selected={date}
+          // selected={date}
+          selected={date || new Date()}
           onSelect={setDate}
           required={true}
           dir={direction}
@@ -73,7 +74,7 @@ export const Range: Story = {
     return (
       <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
         <DatePicker
-          initialFocus
+          // initialFocus
           mode="range"
           defaultMonth={date?.from}
           selected={date}
@@ -115,7 +116,7 @@ export const Multiple: Story = {
     return (
       <div className="hawa-flex hawa-h-64 hawa-max-w-md hawa-flex-col hawa-gap-2">
         <DatePicker
-          initialFocus
+          // initialFocus
           mode="multiple"
           selected={dates}
           onSelect={setDates}

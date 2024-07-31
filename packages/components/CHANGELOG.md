@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.43.4
+
+### Patch Changes
+
+- `Calendar`: add `allowPastDates` prop to disable/enable selecting a date from the past
+
 ## 0.43.3
 
 ### Patch Changes

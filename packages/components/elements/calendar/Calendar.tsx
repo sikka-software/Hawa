@@ -5,7 +5,7 @@ import { cn } from "@util/index";
 
 import { Button, buttonVariants } from "../button";
 
-export type CalendarProps = DayPickerProps;
+export type CalendarProps = DayPickerProps & { allowPastDates?: boolean };
 export type CalendarValueType = {
   single: Date;
   multiple: Date[];
@@ -17,6 +17,7 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   dir = "ltr",
+  allowPastDates = false,
   ...props
 }: CalendarProps) {
   return (
@@ -64,15 +65,28 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        DayButton: (props) => (
-          <Button
-            {...props}
-            variant={props.modifiers.selected ? "default" : "ghost"}
-            className="hawa-h-9 hawa-w-9 hawa-text-center hawa-text-sm hawa-p-0 hawa-relative [&:has([aria-selected].range-end)]:hawa-rounded-r-md [&:has([aria-selected].outside)]:hawa-bg-accent/50 [&:has([aria-selected])]:hawa-bg-accent first:[&:has([aria-selected])]:hawa-rounded-l-md last:[&:has([aria-selected])]:hawa-rounded-r-md focus-within:hawa-relative focus-within:hawa-z-20"
-          >
-            {props.children}
-          </Button>
-        ),
+        DayButton: (props) => {
+          let selectedDate = new Date(props.day.date);
+          return (
+            <Button
+              {...props}
+              onClick={(e) => {
+                if (
+                  (allowPastDates ||
+                    selectedDate >= new Date() ||
+                    props.modifiers.today) &&
+                  props.onClick
+                ) {
+                  props.onClick(e);
+                }
+              }}
+              variant={props.modifiers.selected ? "default" : "ghost"}
+              className="hawa-h-9 hawa-w-9 hawa-text-center hawa-text-sm hawa-p-0 hawa-relative [&:has([aria-selected].range-end)]:hawa-rounded-r-md [&:has([aria-selected].outside)]:hawa-bg-accent/50 [&:has([aria-selected])]:hawa-bg-accent first:[&:has([aria-selected])]:hawa-rounded-l-md last:[&:has([aria-selected])]:hawa-rounded-r-md focus-within:hawa-relative focus-within:hawa-z-20"
+            >
+              {props.children}
+            </Button>
+          );
+        },
 
         Chevron: (props) => (
           <svg
