@@ -36,7 +36,8 @@ export const Default: Story = {
           mode="single"
           // selected={date}
           selected={date || new Date()}
-          onSelect={setDate}
+          // onSelect={setDate}
+          onSelect={(e) => console.log("gggggggggggggggg", e)}
           required={true}
           dir={direction}
           numberOfMonths={1}
