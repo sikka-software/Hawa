@@ -31,7 +31,15 @@ type AlertTypes = {
   /** Removes the close button */
   persistent?: boolean;
   icon?: any;
-  className?: string;
+  classNames?: {
+    root?: string;
+    content?: string;
+    title?: string;
+    text?: string;
+    actions?: string;
+    icon?: string;
+    closeButton?: string;
+  };
   onAlertClosed?: () => void;
   noDestroy?: boolean;
 };
@@ -41,7 +49,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
   severity = "none",
   duration,
   icon,
-  className,
+  classNames,
   ...props
 }) => {
   const alertRef = useRef<HTMLDivElement>(null);
@@ -100,26 +108,28 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           "hawa-relative hawa-mb-4 hawa-flex hawa-flex-col hawa-rounded hawa-p-4 hawa-text-sm hawa-transition-all",
           styleVariant[severity],
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
-          className,
+          classNames?.root,
         )}
       >
         <div className="hawa-flex hawa-flex-row">
           {icon && (
             <div
-              className={
+              className={cn(
                 direction === "rtl"
                   ? "hawa-pl-2 hawa-pt-1"
-                  : "hawa-pr-2 hawa-pt-1"
-              }
+                  : "hawa-pr-2 hawa-pt-1",
+                classNames?.icon,
+              )}
             >
               {icon}
             </div>
           )}
-          <div className="hawa-flex hawa-flex-col">
+          <div className={cn("hawa-flex hawa-flex-col", classNames?.content)}>
             <span
               className={cn(
                 "hawa-font-bold",
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
+                classNames?.title,
               )}
             >
               {props.title}
@@ -128,12 +138,18 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               className={cn(
                 direction === "rtl" ? "hawa-ml-8" : "hawa-mr-8",
                 props.persistent ? "hawa-w-full" : "hawa-w-[calc(100% - 40px)]",
+                classNames?.text,
               )}
             >
               {props.text}
             </span>
             {props.actions && (
-              <div className="hawa-mt-2 hawa-flex hawa-flex-row hawa-gap-2">
+              <div
+                className={cn(
+                  "hawa-mt-2 hawa-flex hawa-flex-row hawa-gap-2",
+                  classNames?.actions,
+                )}
+              >
                 {props.actions.map((act, index) => (
                   <Button
                     key={index}
@@ -156,6 +172,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
               "hawa-absolute hawa-top-2 hawa-inline-flex hawa-h-9 hawa-w-9 hawa-items-center hawa-justify-center hawa-rounded-inner hawa-p-1.5 hawa-transition-all hover:hawa-text-gray-900",
               closeButtonStyle[severity],
               direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
+              classNames?.closeButton,
             )}
             onClick={() => {
               if (props.onAlertClosed) {

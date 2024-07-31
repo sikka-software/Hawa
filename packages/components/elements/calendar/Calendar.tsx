@@ -128,7 +128,7 @@ function Calendar({
       />
       {restProps.helperText && (
         <div className="hawa-py-0 hawa-flex hawa-flex-col hawa-justify-center hawa-items-center">
-          <HelperText helperText={restProps.helperText} size="md" />
+          <HelperText helperText={restProps.helperText} />
         </div>
       )}
     </div>
