@@ -16,6 +16,7 @@ function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  dir = "ltr",
   ...props
 }: CalendarProps) {
   return (
@@ -33,14 +34,16 @@ function Calendar({
 
         button_previous: buttonVariants({
           variant: "outline",
-          className:
+          className: cn(
             "hawa-absolute hawa-start-3 hawa-flex hawa-items-center !hawa-size-7 !hawa-p-0 hawa-justify-center",
+          ),
         }),
 
         button_next: buttonVariants({
           variant: "outline",
-          className:
+          className: cn(
             "hawa-absolute hawa-end-3 !hawa-size-7 !hawa-p-0 hawa-justify-center hawa-flex hawa-items-center",
+          ),
         }),
 
         month_grid: "hawa-w-full hawa-border-collapse hawa-space-y-1 ",
@@ -76,18 +79,26 @@ function Calendar({
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
-            aria-label="Next Month"
+            aria-label={
+              props.orientation === "left" ? "Previous Month" : "Next Month"
+            }
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={
-              props.orientation === "right"
-                ? "hawa-rotate-180 hawa-opacity-80"
-                : "hawa-opacity-80"
-            }
+            className={cn("hawa-opacity-80", {
+              "ltr:hawa-rotate-180":
+                (dir === "ltr" && props.orientation === "right") ||
+                (dir === "rtl" && props.orientation === "right"),
+              "rtl:hawa-rotate-180":
+                (dir === "rtl" && props.orientation === "left") ||
+                (dir === "ltr" && props.orientation === "left"),
+              "hawa-rotate-180 rtl:hawa-rotate-0":
+                props.orientation === "right",
+              "hawa-rotate-0": props.orientation === "left",
+            })}
           >
             <path d="m15 18-6-6 6-6" />
           </svg>

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.43.3
+
+### Patch Changes
+
+- `Calendar`: fix chevron direction
+
 ## 0.43.2
 
 ### Patch Changes
