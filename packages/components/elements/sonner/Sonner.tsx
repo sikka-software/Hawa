@@ -18,7 +18,7 @@ const Sonner = ({ ...props }: SonnerProps) => {
       toastOptions={{
         classNames: {
           toast: cn(
-            "group  toast group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
+            "group toast hawa-rounded group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
             props.direction === "rtl" &&
               "!hawa-start-[32px] md:!hawa-start-auto", //To fix on mobile
           ),
