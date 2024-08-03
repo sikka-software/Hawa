@@ -91,8 +91,8 @@ export const Tabs: Story = {
                   {
                     label: `Option 2`,
                     value: `option2`,
-                    disabled: true,
-                    tooltip: "I'm disabled",
+                    // disabled: true,
+                    tooltip: "I'm a tooltip",
                     tooltipContentProps: {
                       side: "bottom",
                       className: "hawa-p-2 hawa-text-[9px]",
@@ -101,8 +101,8 @@ export const Tabs: Story = {
                   {
                     label: `Option 5`,
                     value: `option5`,
-                    disabled: true,
-                    tooltip: "I'm disabled",
+                    // disabled: true,
+                    tooltip: "I'm another tooltip",
                   },
                   {
                     label: `Option 3`,
@@ -125,7 +125,11 @@ export const Tabs: Story = {
                 orientation="vertical"
                 options={[
                   { label: `Option 4`, value: `option4` },
-                  { label: `Option 5`, value: `option5`, disabled: true },
+                  {
+                    label: `Option 5`,
+                    value: `option5`,
+                    //  disabled: true
+                  },
                   {
                     label: `Option 6`,
                     value: `option6`,
@@ -156,7 +160,11 @@ export const Tabs: Story = {
                 defaultValue="option2"
                 options={[
                   { label: `Option 1`, value: `option1` },
-                  { label: `Option 2`, value: `option2`, disabled: true },
+                  {
+                    label: `Option 2`,
+                    value: `option2`,
+                    //  disabled: true
+                  },
                   { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
@@ -174,7 +182,11 @@ export const Tabs: Story = {
                 orientation="vertical"
                 options={[
                   { label: `Option 4`, value: `option4` },
-                  { label: `Option 5`, value: `option5`, disabled: true },
+                  {
+                    label: `Option 5`,
+                    value: `option5`,
+                    //  disabled: true
+                  },
                   { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
@@ -200,7 +212,11 @@ export const Tabs: Story = {
                 defaultValue="option2"
                 options={[
                   { label: `Option 1`, value: `option1` },
-                  { label: `Option 2`, value: `option2`, disabled: true },
+                  {
+                    label: `Option 2`,
+                    value: `option2`,
+                    //  disabled: true
+                  },
                   {
                     label: `Option 3`,
                     value: `option3`,
@@ -221,7 +237,11 @@ export const Tabs: Story = {
                 orientation="vertical"
                 options={[
                   { label: `Option 4`, value: `option4` },
-                  { label: `Option 5`, value: `option5`, disabled: true },
+                  {
+                    label: `Option 5`,
+                    value: `option5`,
+                    // disabled: true
+                  },
                   { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}
@@ -248,7 +268,11 @@ export const Tabs: Story = {
                 defaultValue="option2"
                 options={[
                   { label: `Option 1`, value: `option1` },
-                  { label: `Option 2`, value: `option2`, disabled: true },
+                  {
+                    label: `Option 2`,
+                    value: `option2`,
+                    //  disabled: true
+                  },
                   { label: `Option 3`, value: `option3` },
                 ]}
                 {...args}
@@ -266,7 +290,11 @@ export const Tabs: Story = {
                 orientation="vertical"
                 options={[
                   { label: `Option 4`, value: `option4` },
-                  { label: `Option 5`, value: `option5`, disabled: true },
+                  {
+                    label: `Option 5`,
+                    value: `option5`,
+                    // disabled: true
+                  },
                   { label: `Option 6`, value: `option6` },
                 ]}
                 {...args}

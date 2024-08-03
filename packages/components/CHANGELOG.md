@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.44.0
+
+### Minor Changes
+
+- Update `Radio` tabs to use radix tabs, which makes it accessable.
+- Update `DatePicker` trigger not to focus on the label
+
 ## 0.43.6
 
 ### Patch Changes

@@ -1,13 +1,13 @@
 import React, { useState, FC, useRef, useEffect, forwardRef } from "react";
 
 import { PopoverContentProps } from "@radix-ui/react-popover";
+import { TabsList, TabsTrigger, Tabs } from "@radix-ui/react-tabs";
 import { cn } from "@util/index";
 
 import { DirectionType, OrientationType } from "../../types/commonTypes";
 import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { PopoverContent, PopoverRoot, PopoverTrigger } from "../popover";
-import { Tooltip } from "../tooltip";
 
 export type RadioOptionsTypes = {
   value: any;
@@ -90,7 +90,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
     );
     const [openTooltip, setOpenTooltip] = useState<number | null>(null);
 
-    const parentRef = useRef<HTMLUListElement>(null);
+    const parentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
       const parentNode = parentRef.current?.parentNode as HTMLElement | null;
@@ -134,73 +134,85 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
             )}
           >
             {props.label && <Label {...labelProps}>{props.label}</Label>}
-
-            <ul
-              ref={parentRef}
-              className={cn(
-                props.options && props.options?.length > 2
-                  ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
-                  : "",
-                "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium hawa-h-[40px]",
-                orientationStyle[orientation],
-                widthStyle[width],
-                tabsContainerClassName,
-              )}
-            >
-              {props.options?.map((opt, o) => {
-                return opt.tooltip ? (
-                  <PopoverRoot
-                    key={o}
-                    open={o === openTooltip}
-                    onOpenChange={(bool) => setOpenTooltip(bool ? o : null)}
-                  >
-                    <PopoverTrigger
-                      onMouseEnter={() => setOpenTooltip(o)}
-                      onMouseLeave={() => setOpenTooltip(null)}
-                      asChild
+            <Tabs>
+              <TabsList
+                role="tablist"
+                ref={parentRef}
+                className={cn(
+                  props.options && props.options?.length > 2
+                    ? "hawa-flex-wrap xs:hawa-max-w-full xs:hawa-flex-nowrap"
+                    : "",
+                  "hawa-select-none hawa-whitespace-nowrap hawa-rounded hawa-border hawa-text-center hawa-font-medium hawa-h-[40px]",
+                  orientationStyle[orientation],
+                  widthStyle[width],
+                  tabsContainerClassName,
+                )}
+              >
+                {props.options?.map((opt, o) => {
+                  return opt.tooltip ? (
+                    <PopoverRoot
+                      key={o}
+                      open={o === openTooltip}
+                      onOpenChange={(bool) => setOpenTooltip(bool ? o : null)}
                     >
-                      <li
-                        aria-current="page"
-                        onClick={() => {
-                          if (props.disabled || opt.disabled) return;
-                          handleChange(opt);
-                        }}
-                        className={cn(
-                          ...radio_option_tabs_styling,
-                          selectedOption === opt.value
-                            ? activeTabStyle
-                            : inactiveTabStyle,
-                        )}
+                      <PopoverTrigger
+                        onMouseEnter={() => setOpenTooltip(o)}
+                        onMouseLeave={() => setOpenTooltip(null)}
+                        asChild
                       >
-                        {opt.icon && opt.icon}
-                        {opt.label}
-                      </li>
-                    </PopoverTrigger>
-                    <PopoverContent {...opt.tooltipContentProps}>
-                      {opt.tooltip}
-                    </PopoverContent>
-                  </PopoverRoot>
-                ) : (
-                  <li
-                    key={o}
-                    aria-current="page"
-                    onClick={() => {
-                      if (props.disabled || opt.disabled) return;
-                      handleChange(opt);
-                    }}
-                    className={cn(
-                      ...radio_option_tabs_styling,
-                      selectedOption === opt.value
-                        ? activeTabStyle
-                        : inactiveTabStyle,
-                    )}
-                  >
-                    {opt.icon && opt.icon}
-                    {opt.label}
-                  </li>
-                );
-              })}
-            </ul>
+                        <TabsTrigger
+                          aria-current={
+                            selectedOption === opt.value ? "page" : undefined
+                          }
+                          value={opt.value}
+                          role="tab"
+                          tabIndex={0}
+                          onClick={() => {
+                            if (props.disabled || opt.disabled) return;
+                            handleChange(opt);
+                          }}
+                          className={cn(
+                            ...radio_option_tabs_styling,
+                            selectedOption === opt.value
+                              ? activeTabStyle
+                              : inactiveTabStyle,
+                          )}
+                        >
+                          {opt.icon && opt.icon}
+                          {opt.label}
+                        </TabsTrigger>
+                      </PopoverTrigger>
+                      <PopoverContent {...opt.tooltipContentProps}>
+                        {opt.tooltip}
+                      </PopoverContent>
+                    </PopoverRoot>
+                  ) : (
+                    <TabsTrigger
+                      key={o}
+                      role="tab"
+                      tabIndex={0}
+                      aria-current={
+                        selectedOption === opt.value ? "page" : undefined
+                      }
+                      onClick={() => {
+                        if (props.disabled || opt.disabled) return;
+                        handleChange(opt);
+                      }}
+                      className={cn(
+                        ...radio_option_tabs_styling,
+                        selectedOption === opt.value
+                          ? activeTabStyle
+                          : inactiveTabStyle,
+                      )}
+                      value={opt.value}
+                    >
+                      {opt.icon && opt.icon}
+                      {opt.label}
+                    </TabsTrigger>
+                  );
+                })}
+              </TabsList>
+            </Tabs>
             {!forceHideHelperText && (
               <HelperText helperText={props.helperText} />
             )}

@@ -113,7 +113,7 @@ export const WifiIcon: Story = {
       // class="lucide lucide-wifi"
     >
       <path
-        className=" hawa-animate-pulse hawa-delay-500 hawa-duration-1000"
+        className="hawa-animate-pulse hawa-delay-500 hawa-duration-1000"
         d="M5 13a10 10 0 0 1 14 0"
       />
       <path
@@ -169,7 +169,7 @@ export const SelectAndInput: Story = {
           <Button onClick={() => setLoading(!loading)}>Loading</Button>
         </div>{" "}
         <div className="hawa-flex hawa-flex-col hawa-gap-2">
-          <div className="hawa-mb-4 hawa-flex hawa-flex-col hawa-items-start  hawa-gap-2 hawa-py-2">
+          <div className="hawa-mb-4 hawa-flex hawa-flex-col hawa-items-start hawa-gap-2 hawa-py-2">
             <Input
               isLoading={loading}
               preview={preview}
@@ -290,7 +290,7 @@ export const SelectAndInput: Story = {
               />
             </div>
           </div>
-          <div className="hawa-mb-4 hawa-flex hawa-flex-row  hawa-gap-2 hawa-py-2">
+          <div className="hawa-mb-4 hawa-flex hawa-flex-row hawa-gap-2 hawa-py-2">
             <Input
               isLoading={loading}
               type={"password"}
@@ -310,7 +310,7 @@ export const SelectAndInput: Story = {
 };
 
 const WidgetCard = (props: any) => (
-  <div className="hawa-relative  hawa-mx-4 hawa-flex hawa-w-64 hawa-flex-col hawa-space-y-4 hawa-rounded-xl hawa-bg-white hawa-p-6 hawa-shadow-md">
+  <div className="hawa-relative hawa-mx-4 hawa-flex hawa-w-64 hawa-flex-col hawa-space-y-4 hawa-rounded-xl hawa-bg-white hawa-p-6 hawa-shadow-md">
     {props.isNew && (
       <span className="hawa-absolute hawa-right-4 hawa-top-4 hawa-rounded-full hawa-bg-green-500 hawa-px-2 hawa-py-1 hawa-text-xs hawa-text-white">
         New
@@ -403,12 +403,12 @@ const ShopNavBar = () => {
 };
 // style={{ paddingLeft: props.preview ? 0 : 16, paddingRight: 0 }}
 
-export const ToScreenshot: Story = {
+export const FormPlayground: Story = {
   render: () => {
     const [loading, setLoading] = useState(false);
     const [preview, setPreview] = useState(true);
     return (
-      <div className="hawa-flex hawa-h-[calc(60vh)] hawa-flex-col hawa-justify-center ">
+      <div className="hawa-flex hawa-h-[calc(60vh)] hawa-flex-col hawa-justify-center">
         <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2 hawa-drop-shadow-xl">
           <div
             className="hawa-flex hawa-flex-col hawa-flex-wrap hawa-gap-2"
@@ -429,7 +429,93 @@ export const ToScreenshot: Story = {
               </TabsList>
             </Tabs>
             <div className="hawa-flex hawa-flex-row hawa-gap-2">
-              <Button variant={"outline"} className="hawa-bg-white ">
+              <Button variant={"outline"} className="hawa-bg-white">
+                إلغاء
+              </Button>
+              <Button className="hawa-w-full hawa-max-w-[90px]">حفظ</Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="hawa-bg-white"
+              >
+                <Logos.github className="hawa-icon hawa-text-gray-500" />
+              </Button>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                className="hawa-bg-white"
+              >
+                <Logos.sikka className="hawa-icon hawa-text-gray-500" />
+              </Button>
+              <SplitButton
+                className="hawa-bg-white"
+                variant={"outline"}
+                menuItems={[
+                  {
+                    label: `Discard changes`,
+                    value: 10,
+                    action: () => console.log("discarding changes"),
+                  },
+                  { label: `Save as draft`, value: 10 },
+                  { label: `Send for review`, value: 10 },
+                ]}
+              >
+                نشر
+              </SplitButton>
+            </div>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <Switch />
+              <Slider />
+            </div>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <Radio
+                name="default"
+                design="tabs"
+                defaultValue="option2"
+                labelProps={{ htmlFor: "horizontal" }}
+                label="Horizontal orientation"
+                helperText="Please pick an option"
+                options={[
+                  { label: `Option 1`, value: `option1` },
+                  { label: `Option 2`, value: `option2`, disabled: true },
+                  { label: `Option 3`, value: `option3` },
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const ToScreenshot: Story = {
+  render: () => {
+    const [loading, setLoading] = useState(false);
+    const [preview, setPreview] = useState(true);
+    return (
+      <div className="hawa-flex hawa-h-[calc(60vh)] hawa-flex-col hawa-justify-center">
+        <div className="hawa-flex hawa-flex-row hawa-justify-center hawa-gap-2 hawa-drop-shadow-xl">
+          <div
+            className="hawa-flex hawa-flex-col hawa-flex-wrap hawa-gap-2"
+            dir="rtl"
+          >
+            <Input
+              isLoading={loading}
+              type={"password"}
+              label={"إسم الخانة"}
+              dir="rtl"
+            />
+            <Tabs defaultValue="account" dir={"rtl"}>
+              <TabsList className="hawa-w-full">
+                <TabsTrigger value="account">{t("account")}</TabsTrigger>
+                <TabsTrigger value="password">{t("password")}</TabsTrigger>
+                <TabsTrigger value="settings">{t("settings")}</TabsTrigger>
+                <TabsTrigger value="display">{t("display")}</TabsTrigger>
+              </TabsList>
+            </Tabs>
+            <div className="hawa-flex hawa-flex-row hawa-gap-2">
+              <Button variant={"outline"} className="hawa-bg-white">
                 إلغاء
               </Button>
               <Button className="hawa-w-full hawa-max-w-[90px]">حفظ</Button>

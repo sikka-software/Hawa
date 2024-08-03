@@ -22,7 +22,14 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 }) => {
   return (
     <PopoverRoot>
-      <PopoverTrigger {...popoverTriggerProps}>{trigger}</PopoverTrigger>
+      <PopoverTrigger
+        {...popoverTriggerProps}
+        tabIndex={-1}
+        autoFocus={false}
+        className="focus:hawa-outline-none"
+      >
+        {trigger}
+      </PopoverTrigger>
       <PopoverContent
         align={props.dir === "rtl" ? "end" : "start"}
         {...popoverContentProps}
