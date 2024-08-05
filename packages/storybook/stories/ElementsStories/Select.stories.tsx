@@ -1,6 +1,7 @@
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Input } from "@sikka/hawa/elements";
 import { Select } from "@sikka/hawa/elements/select";
 
 import { setLocale, t } from "../../translations/i18n";
@@ -21,7 +22,7 @@ export const Default: Story = {
 
     setLocale(locale);
     return (
-      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row hawa-items-start hawa-justify-center hawa-gap-2 hawa-p-10">
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Select
             label={"Select Input"}
@@ -30,7 +31,7 @@ export const Default: Story = {
             isMulti={false}
             isClearable={false}
             isSearchable={true}
-            defaultValue={{ label: "Chocolate" }}
+            defaultValue={{ label: "Chocolate", value: "chocolate" }}
             helperText="Helper text here"
             options={[
               { value: "chocolate", label: "Chocolate" },
@@ -38,6 +39,32 @@ export const Default: Story = {
               { value: "vanilla", label: "Vanilla" },
             ]}
             {...args}
+          />
+        </div>
+        <div className="hawa-w-full hawa-max-w-md" dir={direction}>
+          <Select
+            label={"Disabled Select"}
+            placeholder={"Choose something"}
+            isCreatable={false}
+            disabled
+            isMulti={false}
+            isClearable={false}
+            isSearchable={true}
+            defaultValue={{ label: "Chocolate", value: "chocolate" }}
+            helperText="Helper text here"
+            options={[
+              { value: "chocolate", label: "Chocolate" },
+              { value: "strawberry", label: "Strawberry" },
+              { value: "vanilla", label: "Vanilla" },
+            ]}
+            {...args}
+          />
+        </div>
+        <div className="hawa-w-full hawa-max-w-md" dir={direction}>
+          <Input
+            label="Input for comparison"
+            placeholder="Input"
+            helperText={""}
           />
         </div>
       </div>
@@ -50,8 +77,8 @@ export const Default: Story = {
 };
 export const Creatable: Story = {
   render: (args) => (
-    <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
-      <div className="hawa-w-full hawa-max-w-md ">
+    <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+      <div className="hawa-w-full hawa-max-w-md">
         <Select {...args} />
       </div>
     </div>
@@ -83,7 +110,7 @@ export const Multiselect: Story = {
 
     setLocale(locale);
     return (
-      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row  hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
+      <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-2 hawa-p-2">
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Select
             label={"Select Input"}

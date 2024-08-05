@@ -20,6 +20,8 @@ import { Textarea } from "@elements/textarea";
 import { RadioOptionType } from "@_types/commonTypes";
 import { TextInputType } from "@_types/textTypes";
 
+import { getHotkeyHandler } from "../../hooks/useShortcuts";
+
 type ContactFormData = { name: string; email: string; message: string } & {
   [key: string]: string;
 };
@@ -35,12 +37,15 @@ type ContactFormProps = {
   cardless?: boolean;
   formId?: string;
   formAutoComplete?: "on" | "off";
+  clearOnSubmit?: boolean;
   size?: "sm" | "default";
   onSubmit: (e: ContactFormData) => void;
   customFields?: CustomField[];
   showSuccess?: boolean;
   classNames?: {
     submitButton?: string;
+    container?: string;
+    
   };
   texts?: {
     submit: string;
@@ -62,6 +67,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   onSubmit,
   customFields,
   classNames,
+  clearOnSubmit = true,
   ...props
 }) => {
   const customFieldsSchema = z.object({
@@ -118,7 +124,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
+    trigger,
   } = useForm<ContactFormData>({
+    mode: "all",
     resolver: zodResolver(MainSchema),
     defaultValues: {
       name: "",
@@ -128,10 +137,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     },
   });
 
-  const handleFormSubmit = (data: ContactFormData) => {
+  const SubmitForm = async (data: ContactFormData) => {
+    const isValid = await trigger();
+    if (!isValid) {
+      return;
+    }
     if (onSubmit) {
       onSubmit(data);
-      reset();
+      if (clearOnSubmit) {
+        reset();
+      }
     } else {
       console.log("Form is submitted but onSubmit prop is missing");
     }
@@ -143,6 +158,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         "hawa-w-full",
         cardless &&
           "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none",
+        classNames?.container,
       )}
       style={cardless ? { boxShadow: "none" } : undefined}
     >
@@ -158,7 +174,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         ) : (
           <form
             noValidate
-            onSubmit={handleSubmit(handleFormSubmit)}
+            onSubmit={handleSubmit(SubmitForm)}
             className="hawa-space-y-2"
             id={formId}
             autoComplete={formAutoComplete}
@@ -250,6 +266,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     placeholder: texts?.message.placeholder,
                     className: "hawa-min-h-20",
                     ...field,
+                    onKeyDown: getHotkeyHandler([
+                      ["mod+enter", () => SubmitForm(getValues())],
+                    ]),
                   }}
                   classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
                   helperText={errors.message?.message}

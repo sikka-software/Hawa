@@ -23,6 +23,7 @@ export const Default: Story = {
       <div dir={direction} className="hawa-max-w-lg">
         <ContactForm
           {...args}
+          clearOnSubmit={false}
           texts={{
             email: {
               invalid: t("emailInvalidText"),

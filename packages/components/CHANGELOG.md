@@ -1,5 +1,17 @@
 # @sikka/hawa
 
+## 0.45.0
+
+### Minor Changes
+
+- `CodeConfirmation`: Add `onCancel` prop
+- `CodeConfirmation`: Rename `handleConfirm` and `handleResend` to `onConfirm` and `onResend`
+- `PinInput`: fix border issue in PinInput in RTL
+- `Select`: Improve accessiblilty
+- `Select`: Improved hover and selection UI
+- `ContactForm`: Allow submission with mod+enter
+- `ContactForm`: Allow consumer to pass their custom classnames
+
 ## 0.44.0
 
 ### Minor Changes

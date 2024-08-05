@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import ReactSelect, { MenuProps } from "react-select";
+import ReactSelect, { MenuProps, OptionProps } from "react-select";
 import CreatableSelect from "react-select/creatable";
 
 import { cn } from "@util/index";
@@ -28,12 +28,14 @@ type MenuTypes = MenuProps & {
 };
 
 // The single options
-type OptionTypes = {
+type OptionTypes = OptionProps & {
   cx: any;
   children: any;
   getStyles: any;
   innerProps: any;
   innerRef: any;
+  isFocused: boolean;
+  isSelected: boolean;
   size?: "small" | "normal" | "large";
 };
 
@@ -96,12 +98,22 @@ export const Select: FC<SelectTypes> = ({
       </div>
     );
   };
-  const Option: FC<OptionTypes> = ({ children, innerProps, innerRef }) => {
+  const Option: FC<OptionTypes> = ({
+    children,
+    innerProps,
+    innerRef,
+    isFocused,
+    isSelected,
+  }) => {
     return (
       <div
         ref={innerRef}
         className={cn(
-          "hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hawa-transition-all hover:hawa-bg-primary hover:hawa-text-primary-foreground",
+          "hawa-flex hawa-cursor-pointer hawa-select-none hawa-flex-row hawa-items-center hawa-justify-between hawa-rounded-inner hawa-p-1 hawa-px-2 hawa-transition-all",
+          isFocused
+            ? "hawa-bg-accent hawa-text-bg-accent-foreground"
+            : "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
+          isSelected && "hawa-bg-primary hawa-text-primary-foreground",
         )}
         {...innerProps}
       >
@@ -166,18 +178,26 @@ export const Select: FC<SelectTypes> = ({
               cn(
                 selectContainerStyles,
                 props.phoneCode && phoneCodeStyles,
-                props.disabled
-                  ? "hawa-cursor-not-allowed"
-                  : "hawa-cursor-pointer",
+
                 props.isMulti && "hawa-ps-0 ",
               ),
-            placeholder: () => selectPlaceholderStyles,
+            placeholder: () =>
+              cn(
+                selectPlaceholderStyles,
+                props.disabled && "hawa-text-muted-foreground",
+              ),
             valueContainer: () => "hawa-text-foreground hawa-px-1 ",
-            singleValue: () => "hawa-text-foreground",
+            singleValue: () =>
+              cn(
+                props.disabled
+                  ? "hawa-text-muted-foreground hawa-opacity-30"
+                  : "hawa-text-foreground",
+              ),
             indicatorsContainer: () =>
               cn(
                 selectIndicatorContainerStyles,
                 props.hideIndicator ? "hawa-invisible" : "hawa-px-1",
+                props.disabled && "hawa-opacity-30",
               ),
           }}
           unstyled
@@ -188,13 +208,6 @@ export const Select: FC<SelectTypes> = ({
               : {
                   Option,
                   Menu,
-                  // Control: (e) => (
-                  //   <div
-                  //     className={cn(e.className, "hawa-flex hawa-flex-row")}
-                  //     {...e}
-                  //   />
-                  // ),
-
                   ValueContainer: (e) => (
                     <div
                       className={cn(

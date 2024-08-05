@@ -97,9 +97,13 @@ const PinInput: React.FC<PinInputProps> = ({
     <div className="hawa-flex hawa-flex-col hawa-gap-2">
       <PinInputRoot {...props}>
         {firstGroupLength > 0 && (
-          <PinInputGroup className="hawa-w-full">
+          <PinInputGroup className="hawa-w-full hawa-gap-2">
             {[...Array(firstGroupLength)].map((_, index) => (
-              <PinInputSlot key={index} index={index} className="hawa-w-full" />
+              <PinInputSlot
+                key={index}
+                index={index}
+                className="hawa-w-full hawa-border"
+              />
             ))}
           </PinInputGroup>
         )}
@@ -107,12 +111,12 @@ const PinInput: React.FC<PinInputProps> = ({
           <PinInputSeperator />
         )}
         {secondGroupLength > 0 && (
-          <PinInputGroup className="hawa-w-full">
+          <PinInputGroup className="hawa-w-full hawa-gap-2">
             {[...Array(secondGroupLength)].map((_, index) => (
               <PinInputSlot
                 key={index + firstGroupLength}
                 index={index + firstGroupLength}
-                className="hawa-w-full"
+                className="hawa-w-full hawa-border"
               />
             ))}
           </PinInputGroup>

@@ -7,7 +7,7 @@ import { setLocale, t } from "../../../translations/i18n";
 
 const meta = {
   title: "Blocks/User Auth/CodeConfirmation",
-  component: CodeConfirmation
+  component: CodeConfirmation,
 } satisfies Meta<typeof CodeConfirmation>;
 
 export default meta;
@@ -35,12 +35,16 @@ export const Default: Story = {
             codeTooShort: t("codeTooShort"),
             cancel: t("cancel"),
             confirm: t("confirm"),
-            seconds: t("seconds")
+            seconds: t("seconds"),
           }}
         />
       </div>
     );
   },
   args: {},
-  argTypes: { handleConfirm: { action: "handleConfirm" } }
+  argTypes: {
+    onConfirm: { action: "onConfirm" },
+    onCancel: { action: "onCancel" },
+    onResend: { action: "onResend" },
+  },
 };

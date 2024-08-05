@@ -27,8 +27,10 @@ type TConfirmation = {
   errorText?: any;
   phoneNumber?: string;
   confirmLoading?: boolean;
-  handleConfirm?: any;
-  handleResend?: any;
+  onConfirm?: any;
+  onResend?: any;
+  onCancel?: any;
+
   codeLength?: number;
 };
 
@@ -101,12 +103,10 @@ export const CodeConfirmation: FC<TConfirmation> = ({
         <form
           noValidate
           onSubmit={handleSubmit((e) => {
-            if (props.handleConfirm) {
-              return props.handleConfirm(e);
+            if (props.onConfirm) {
+              return props.onConfirm(e);
             } else {
-              console.log(
-                "Form is submitted but handleConfirm prop is missing",
-              );
+              console.log("Form is submitted but onConfirm prop is missing");
             }
           })}
         >
@@ -133,7 +133,7 @@ export const CodeConfirmation: FC<TConfirmation> = ({
                 className="clickable-link"
                 onClick={() => {
                   startResendTimer();
-                  props.handleResend();
+                  props.onResend();
                 }}
               >
                 {props.texts?.resendCode || "Click to resend"}
@@ -142,7 +142,21 @@ export const CodeConfirmation: FC<TConfirmation> = ({
           )}
 
           <div className="hawa-mt-4 hawa-grid hawa-grid-cols-2 hawa-gap-2">
-            <Button variant="outline">{props.texts?.cancel || "Cancel"}</Button>
+            <Button
+              type="button"
+              onClick={() => {
+                if (props.onCancel) {
+                  return props.onCancel();
+                } else {
+                  console.log(
+                    "Cancel button clicked but onCancel prop is missing",
+                  );
+                }
+              }}
+              variant="outline"
+            >
+              {props.texts?.cancel || "Cancel"}
+            </Button>
             <Button isLoading={props.confirmLoading}>
               {props.texts?.confirm || "Confirm"}
             </Button>
