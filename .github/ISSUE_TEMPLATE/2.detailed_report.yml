@@ -34,12 +34,11 @@ body:
 
         For general help and support, you can:
         - Start a discussion in the ["Help" section](https://github.com/sikka-software/Hawa/discussions/categories/help)
-        - Join our community [Discord server](https://discord.com/invite/your-discord-link-here) (replace with your actual Discord link)
   - type: input
     attributes:
       label: Link to the code that reproduces this issue or a replay of the bug
       description: |
-        Please provide a link to a **public** [GitHub repository](https://github.com/sikka-software/Hawa/tree/main/examples/reproduction-template) or a minimal reproduction created from our [bug report template](https://github.com/sikka-software/Hawa/tree/main/examples/reproduction-template). Include only changes that contribute to the issue.
+        Please provide a link to a **public** GitHub repository or a minimal reproduction created in Stackblitz using https://stackblitz.com/edit/hawa. Include only changes that contribute to the issue.
 
         If a minimal reproduction can't be created, please share a clip or a gif of the bug which doesn't require sharing a private repo.
 

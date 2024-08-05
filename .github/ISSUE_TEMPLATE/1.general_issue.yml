@@ -1,0 +1,12 @@
+name: 🐛 General Bug
+description: Report an issue or a possible bug
+title: ""
+labels: ["template: bug"]
+body:
+  - type: markdown
+    attributes:
+      value: You can use this stackblitz template https://stackblitz.com/edit/hawa to reproduce your issue.
+  - type: textarea
+    attributes:
+      label: Add a description
+      description: A clear and concise description of what the bug is.
