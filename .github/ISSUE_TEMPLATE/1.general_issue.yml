@@ -1,6 +1,6 @@
 name: 🐛 General Bug
 description: Report an issue or a possible bug
-title: ""
+title: "Bug Report"
 labels: ["template: bug"]
 body:
   - type: markdown
