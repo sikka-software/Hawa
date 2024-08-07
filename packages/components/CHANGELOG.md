@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.45.1
+
+### Patch Changes
+
+- `Select`: allow consumer to pass `value` prop
+- `Radio`: reverse the options order when `direction` prop is RTL, while design is `tabs`
+
 ## 0.45.0
 
 ### Minor Changes

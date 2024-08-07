@@ -229,6 +229,7 @@ export const Select: FC<SelectTypes> = ({
           options={props.options}
           getOptionLabel={props.getOptionLabel}
           defaultValue={props.defaultValue}
+          value={props.value}
           placeholder={props.placeholder}
           isDisabled={props.disabled}
           isClearable={props.isClearable}

@@ -146,6 +146,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                   orientationStyle[orientation],
                   widthStyle[width],
                   tabsContainerClassName,
+                  props.direction === "rtl" ? "hawa-flex-row-reverse" : "",
                 )}
               >
                 {props.options?.map((opt, o) => {
