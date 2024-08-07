@@ -31,7 +31,7 @@ export const Default: Story = {
             isMulti={false}
             isClearable={false}
             isSearchable={true}
-            defaultValue={{ label: "Chocolate", value: "chocolate" }}
+            value={{ label: "Vanilla", value: "vanilla" }}
             helperText="Helper text here"
             options={[
               { value: "chocolate", label: "Chocolate" },
