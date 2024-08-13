@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.46.0
+
+### Minor Changes
+
+- Adds `VisuallyHidden` to be used for better accessibility
+
 ## 0.45.1
 
 ### Patch Changes
