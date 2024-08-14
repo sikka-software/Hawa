@@ -7,6 +7,7 @@ interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   animation?: "none" | "pulse" | "shimmer";
   content?: any;
   fade?: "top" | "bottom" | "left" | "right";
+  as?: "div" | "input";
 }
 
 function Skeleton({
@@ -14,6 +15,7 @@ function Skeleton({
   content,
   animation = "pulse",
   fade,
+  as = "div",
   ...props
 }: SkeletonProps) {
   const animationStyles = {
@@ -29,6 +31,11 @@ function Skeleton({
     left: "hawa-mask-fade-left ",
   };
 
+  const styledAs = {
+    div: "",
+    input: "!h-[38px] !w-full",
+  };
+
   return (
     <div
       className={cn(
@@ -36,6 +43,7 @@ function Skeleton({
         content &&
           "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
         fade && fadeStyle[fade],
+        styledAs[as],
         className,
       )}
       {...props}
