@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.46.1
+
+### Patch Changes
+
+- Add `cursor-pointer` to `Combobox` items
+- Add `as` prop to skeleton for quick usage
+
 ## 0.46.0
 
 ### Minor Changes
