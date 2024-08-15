@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.46.4
+
+### Patch Changes
+
+- Fix styles for `as` prop in `Skeleton`
+- Remove test console logs from `Input`
+
 ## 0.46.3
 
 ### Patch Changes

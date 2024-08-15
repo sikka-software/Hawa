@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Lock, Search } from "lucide-react";
 
 import { SA, USA } from "@sikka/alam";
+import { Label, Skeleton } from "@sikka/hawa/elements";
 import { Button } from "@sikka/hawa/elements/button";
 import { DropdownMenuRadio } from "@sikka/hawa/elements/dropdownMenu";
 import { Input } from "@sikka/hawa/elements/input";
@@ -36,6 +37,14 @@ export const Default: Story = {
             maxLength={3}
             onChange={(e) => console.log("im outside", e.target.value)}
           />
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Input label="Input Field" placeholder={"Bismillah"} />
+          <Input label="Skeleton" isLoading placeholder={"Bismillah"} />
+          <div className="hawa-flex hawa-w-full hawa-flex-col hawa-gap-2">
+            <Label>Loading Skeleton</Label>
+            <Skeleton as="input" />
+          </div>
         </div>
       </div>
     );

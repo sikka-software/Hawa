@@ -33,15 +33,14 @@ function Skeleton({
 
   const styledAs = {
     div: "",
-    input: "!h-[38px] !w-full",
+    input: "hawa-h-[40px] hawa-w-full",
   };
 
   return (
     <div
       className={cn(
         animationStyles[animation],
-        content &&
-          "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
+        content && "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
         fade && fadeStyle[fade],
         styledAs[as],
         className,

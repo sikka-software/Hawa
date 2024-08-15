@@ -94,14 +94,11 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
 
       if (props.onChange) {
         if (props.type === "number" && props.maxLength) {
-          console.log("type is ", props.type);
-          console.log("max length is ", props.maxLength);
           let v = newValue.replace(/[^0-9]/g, "").slice(0, props.maxLength);
           const newEvent = { ...e, target: { ...e.target, value: v } };
           setValue(v);
           props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
         } else {
-          console.log("NETIHERRRER");
           const newEvent = { ...e, target: { ...e.target, value: newValue } };
           setValue(newValue);
           props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
@@ -135,7 +132,7 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
           )}
           {props.isLoading ? (
             <div className="hawa-pb-2 hawa-w-full">
-              <Skeleton className="hawa-h-[40px] hawa-w-full" />
+              <Skeleton as="input" />
             </div>
           ) : props.isLoadingError ? (
             <div className="hawa-pb-2 hawa-w-full">
