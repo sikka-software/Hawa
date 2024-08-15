@@ -1,4 +1,7 @@
+/** @type {import("prettier").Config} */
+
 module.exports = {
+  printWidth: 100,
   trailingComma: "all",
   importOrderSeparation: true,
   importOrder: [
@@ -9,10 +12,10 @@ module.exports = {
     "^@elements/(.*)$",
     "^@_types/(.*)$",
     "^@sikka/(.*)$",
-    "^[./]"
+    "^[./]",
   ],
   plugins: [
     "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss"
-  ]
+    "prettier-plugin-tailwindcss",
+  ],
 };

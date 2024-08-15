@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { cn } from "@util/index";
 
@@ -6,7 +6,7 @@ import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { Skeleton } from "../skeleton/Skeleton";
 
-export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
+export type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   isLoading?: boolean;
   isLoadingError?: boolean;
   containerClassName?: string;
@@ -39,7 +39,7 @@ export type TextFieldTypes = React.InputHTMLAttributes<HTMLInputElement> & {
   outsidePrefix?: any;
   loadingErrorMesssage?: string;
 };
-export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
+export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
   (
     {
       margin = "none",
@@ -55,6 +55,8 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
     },
     ref,
   ) => {
+    const [value, setValue] = useState(props.value || "");
+
     let marginStyles = {
       none: "hawa-mb-0",
       normal: "hawa-mb-3",
@@ -74,6 +76,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let newValue = e.target.value;
+      setValue(newValue);
 
       if (props.prefixText) {
         // If newValue is shorter than prefixText, set newValue to prefixText
@@ -90,9 +93,27 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
       }
 
       if (props.onChange) {
-        const newEvent = { ...e, target: { ...e.target, value: newValue } };
-        props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
+        if (props.type === "number" && props.maxLength) {
+          console.log("type is ", props.type);
+          console.log("max length is ", props.maxLength);
+          let v = newValue.replace(/[^0-9]/g, "").slice(0, props.maxLength);
+          const newEvent = { ...e, target: { ...e.target, value: v } };
+          setValue(v);
+          props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
+        } else {
+          console.log("NETIHERRRER");
+          const newEvent = { ...e, target: { ...e.target, value: newValue } };
+          setValue(newValue);
+          props.onChange(newEvent as React.ChangeEvent<HTMLInputElement>);
+        }
       }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (props.type === "number" && ["e", "E", "+", "-", "."].includes(e.key)) {
+        e.preventDefault();
+      }
+      props.onKeyDown && props.onKeyDown(e);
     };
 
     return (
@@ -108,12 +129,7 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
         {props.label && <Label {...labelProps}>{props.label}</Label>}
         <div className="hawa-flex hawa-flex-row hawa-w-full hawa-items-center">
           {props.outsidePrefix && (
-            <span
-              className={cn(
-                "hawa-me-2 hawa-opacity-90",
-                !forceHideHelperText && "hawa-mb-2",
-              )}
-            >
+            <span className={cn("hawa-me-2 hawa-opacity-90", !forceHideHelperText && "hawa-mb-2")}>
               {props.outsidePrefix}
             </span>
           )}
@@ -184,13 +200,15 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     required
                     dir={props.dir}
                     type={props.type}
-                    value={props.value}
+                    value={props.value || value}
                     onChange={handleChange}
+                    onKeyDown={handleKeyDown}
                     autoComplete={props.autoComplete}
                     defaultValue={props.defaultValue}
                     placeholder={placeholder}
                     disabled={props.disabled || preview}
                     style={{ height: 40 }}
+                    maxLength={props.maxLength}
                     {...inputProps}
                     className={cn(
                       defaultInputStyle,
@@ -200,25 +218,20 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                         "hawa-ps-9": props.startIcon,
                         "hawa-pe-[60px]": countPosition === "center",
                       },
-                      preview &&
-                        "hawa-border-transparent hawa-bg-transparent hawa-px-0",
+                      preview && "hawa-border-transparent hawa-bg-transparent hawa-px-0",
                       inputProps?.className,
                     )}
                   />
                 </div>
 
                 {/* Regular helper text */}
-                {!forceHideHelperText && (
-                  <HelperText helperText={props.helperText} />
-                )}
+                {!forceHideHelperText && <HelperText helperText={props.helperText} />}
                 {/* Popover helper text */}
                 {!props.disabled && forceHideHelperText && (
                   <div
                     className={cn(
                       "hawa-absolute hawa-end-0 hawa-top-[47px] hawa-z-20 hawa-translate-y-1/2 hawa-rounded hawa-bg-background hawa-text-start hawa-text-xs hawa-text-helper-color hawa-drop-shadow-md hawa-transition-all",
-                      props.helperText
-                        ? "hawa-border hawa-p-1"
-                        : "hawa-border-none hawa-p-0",
+                      props.helperText ? "hawa-border hawa-p-1" : "hawa-border-none hawa-p-0",
                     )}
                   >
                     {props.helperText}
@@ -230,16 +243,13 @@ export const Input = forwardRef<HTMLInputElement, TextFieldTypes>(
                     className={cn(
                       "hawa-absolute hawa-translate-y-1/2 hawa-text-start hawa-text-xs hawa-transition-all",
                       {
-                        "hawa-end-0 hawa-top-[62px]":
-                          countPosition === "bottom",
-                        "hawa-bottom-[62px] hawa-end-0":
-                          countPosition === "top",
+                        "hawa-end-0 hawa-top-[62px]": countPosition === "bottom",
+                        "hawa-bottom-[62px] hawa-end-0": countPosition === "top",
                         "hawa-end-2": countPosition === "center",
                       },
                     )}
                   >
-                    {props.value ? String(props.value).length : 0}/
-                    {props.maxLength}
+                    {props.value ? String(props.value).length : 0}/{props.maxLength}
                   </div>
                 )}
 

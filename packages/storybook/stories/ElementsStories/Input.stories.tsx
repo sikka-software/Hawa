@@ -26,9 +26,16 @@ export const Default: Story = {
     const [text, setText] = useState("");
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
-        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
           <Input label="Input Field" placeholder={"Bismillah"} />
           <Input label="Disabled" disabled placeholder={"Bismillah"} />
+          <Input
+            label="Number"
+            placeholder={"120"}
+            type="number"
+            maxLength={3}
+            onChange={(e) => console.log("im outside", e.target.value)}
+          />
         </div>
       </div>
     );
@@ -52,25 +59,12 @@ export const PreviewMode: Story = {
           label={t("first-name")}
           preview={preview}
           placeholder={"Fulan"}
-          value={'Zakher Masri'}
+          value={"Zakher Masri"}
         />
-        <Input
-          label={t("last-name")}
-          preview={preview}
-          placeholder={"Al-Fulani"}
-        />
-        <Input
-          label={t("email")}
-          preview={preview}
-          placeholder={"contact@sikka.io"}
-        />
+        <Input label={t("last-name")} preview={preview} placeholder={"Al-Fulani"} />
+        <Input label={t("email")} preview={preview} placeholder={"contact@sikka.io"} />
         <Input label={"Username"} preview={preview} placeholder={"fulan"} />
-        <Input
-          label={"Hide Line"}
-          preview={preview}
-          placeholder={"fulan"}
-          hideSeparator
-        />
+        <Input label={"Hide Line"} preview={preview} placeholder={"fulan"} hideSeparator />
       </div>
     );
   },
@@ -84,16 +78,8 @@ export const LoadingMode: Story = {
           {loading ? "Disable" : "Enable"} Loading
         </Button>
         <Input label={"First Name"} isLoading={loading} placeholder={"Fulan"} />
-        <Input
-          label={"Middle Name"}
-          isLoading={loading}
-          placeholder={"Fulani"}
-        />
-        <Input
-          label={"Last Name"}
-          isLoading={loading}
-          placeholder={"Al-Fulani"}
-        />
+        <Input label={"Middle Name"} isLoading={loading} placeholder={"Fulani"} />
+        <Input label={"Last Name"} isLoading={loading} placeholder={"Al-Fulani"} />
         <Input label={"Username"} isLoading={loading} placeholder={"fulan"} />
       </div>
     );
@@ -104,29 +90,11 @@ export const ErrorMode: Story = {
     const [error, setError] = useState(true);
     return (
       <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4">
-        <Button onClick={() => setError(!error)}>
-          {error ? "Disable" : "Enable"} Error
-        </Button>
-        <Input
-          label={"First Name"}
-          isLoadingError={error}
-          placeholder={"Fulan"}
-        />
-        <Input
-          label={"Middle Name"}
-          isLoadingError={error}
-          placeholder={"Fulani"}
-        />
-        <Input
-          label={"Last Name"}
-          isLoadingError={error}
-          placeholder={"Al-Fulani"}
-        />
-        <Input
-          label={"Username"}
-          isLoadingError={error}
-          placeholder={"fulan"}
-        />
+        <Button onClick={() => setError(!error)}>{error ? "Disable" : "Enable"} Error</Button>
+        <Input label={"First Name"} isLoadingError={error} placeholder={"Fulan"} />
+        <Input label={"Middle Name"} isLoadingError={error} placeholder={"Fulani"} />
+        <Input label={"Last Name"} isLoadingError={error} placeholder={"Al-Fulani"} />
+        <Input label={"Username"} isLoadingError={error} placeholder={"fulan"} />
       </div>
     );
   },
@@ -196,7 +164,7 @@ export const WithCount: Story = {
     const [text, setText] = useState("");
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-4">
-        <div className="hawa-flex hawa-flex-row hawa-gap-4 ">
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
           <Input
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -236,7 +204,7 @@ export const WithPrefix: Story = {
     const [text, setText] = useState("");
     return (
       <div className="hawa-flex hawa-flex-col hawa-gap-4" dir={direction}>
-        <div className="hawa-flex hawa-flex-col hawa-gap-4 ">
+        <div className="hawa-flex hawa-flex-col hawa-gap-4">
           <Input
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -264,15 +232,8 @@ export const Examples: Story = {
     const [showPopup, setShowPopup] = useState(false);
     const [inputLang, setInputLang] = useState("en");
     return (
-      <div
-        className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4"
-        dir={direction}
-      >
-        <Input
-          dir={"ltr"}
-          inputProps={{ className: "hawa-text-right" }}
-          label={"Email"}
-        />
+      <div className="hawa-flex hawa-max-w-md hawa-flex-col hawa-gap-4" dir={direction}>
+        <Input dir={"ltr"} inputProps={{ className: "hawa-text-right" }} label={"Email"} />
 
         <Input
           type={"text"}

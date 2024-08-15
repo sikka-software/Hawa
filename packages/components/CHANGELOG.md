@@ -1,5 +1,19 @@
 # @sikka/hawa
 
+## 0.46.3
+
+### Patch Changes
+
+- Disallow the letter "e" when input type is `number`
+
+## 0.46.2
+
+### Patch Changes
+
+- Rename `TextFieldTypes` to `InputFieldProps`
+- Fix `maxLength` not being applied to `Input` when type is `number`
+- Update prettier config to be 100 printWidth
+
 ## 0.46.1
 
 ### Patch Changes
