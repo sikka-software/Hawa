@@ -28,7 +28,6 @@ export const PhoneInput: FC<PhoneInputProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("test e ", e.target.value);
     const validChars = /^[0-9-()]+$/;
     const input = e.target.value;
 

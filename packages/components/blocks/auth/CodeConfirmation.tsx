@@ -11,7 +11,7 @@ import { PinInput } from "@elements/pinInput";
 
 type TConfirmation = {
   texts?: {
-    checkYourPhone?: string;
+    checkYourIdentifier?: string;
     weSentCode?: string;
     didntGetCode?: string;
     resendCode?: string;
@@ -25,7 +25,10 @@ type TConfirmation = {
   showError?: any;
   errorTitle?: any;
   errorText?: any;
-  phoneNumber?: string;
+  /*
+   * The identifier to be shown in the card title. That could be a phone number or an email address of the user.
+   */
+  identifier?: string;
   confirmLoading?: boolean;
   onConfirm?: any;
   onResend?: any;
@@ -34,10 +37,7 @@ type TConfirmation = {
   codeLength?: number;
 };
 
-export const CodeConfirmation: FC<TConfirmation> = ({
-  codeLength = 6,
-  ...props
-}) => {
+export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }) => {
   const formSchema = z.object({
     otp_code: z
       .string({ required_error: props.texts?.codeRequiredText })
@@ -85,19 +85,15 @@ export const CodeConfirmation: FC<TConfirmation> = ({
     <Card>
       <CardContent headless>
         {props.showError && (
-          <Alert
-            title={props.errorTitle}
-            text={props.errorText}
-            severity="error"
-          />
+          <Alert title={props.errorTitle} text={props.errorText} severity="error" />
         )}
         <div className="hawa-mb-4 dark:hawa-text-white">
           <div className="hawa-text-lg hawa-font-bold">
-            {props.texts?.checkYourPhone || "Please check your phone"}
+            {props.texts?.checkYourIdentifier || "Please check your phone"}
           </div>
           <div className="hawa-text-muted-foreground">
             <span>{props.texts?.weSentCode || "We've sent a code to "}</span>
-            <span>{props.phoneNumber}</span>
+            <span>{props.identifier}</span>
           </div>
         </div>
         <form
@@ -123,8 +119,7 @@ export const CodeConfirmation: FC<TConfirmation> = ({
           />
           {showResendTimer ? (
             <div className="hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
-              {props.texts?.resendCodeTimer} <strong>{remainingTime}</strong>{" "}
-              {props.texts?.seconds}
+              {props.texts?.resendCodeTimer} <strong>{remainingTime}</strong> {props.texts?.seconds}
             </div>
           ) : (
             <div className="hawa-py-2 hawa-text-center hawa-text-xs hawa-text-muted-foreground">
@@ -148,18 +143,14 @@ export const CodeConfirmation: FC<TConfirmation> = ({
                 if (props.onCancel) {
                   return props.onCancel();
                 } else {
-                  console.log(
-                    "Cancel button clicked but onCancel prop is missing",
-                  );
+                  console.log("Cancel button clicked but onCancel prop is missing");
                 }
               }}
               variant="outline"
             >
               {props.texts?.cancel || "Cancel"}
             </Button>
-            <Button isLoading={props.confirmLoading}>
-              {props.texts?.confirm || "Confirm"}
-            </Button>
+            <Button isLoading={props.confirmLoading}>{props.texts?.confirm || "Confirm"}</Button>
           </div>
         </form>
       </CardContent>
