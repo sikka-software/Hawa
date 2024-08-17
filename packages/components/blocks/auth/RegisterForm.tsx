@@ -15,10 +15,7 @@ import { Select, SelectOptionProps } from "@elements/select";
 import { StopPropagationWrapper } from "@elements/stopPropagationWrapper";
 
 import { DirectionType } from "@_types/commonTypes";
-import {
-  RegisterFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "@_types/textTypes";
+import { RegisterFormTextsTypes, ThirdPartyAuthTextsTypes } from "@_types/textTypes";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { AuthButtons } from "./AuthButtons";
@@ -169,8 +166,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
         }),
       confirm_password: z
         .string({
-          required_error:
-            texts?.confirm?.required || "Confirm password required",
+          required_error: texts?.confirm?.required || "Confirm password required",
         })
         .min(minPasswordLength, {
           message: texts?.password?.tooShort || "Password is too short",
@@ -197,12 +193,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
   });
 
   return (
-    <div
-      className={cn(
-        "hawa-flex hawa-flex-col hawa-gap-4",
-        props.classNames?.root,
-      )}
-    >
+    <div className={cn("hawa-flex hawa-flex-col hawa-gap-4", props.classNames?.root)}>
       <Card
         dir={props.direction}
         className={cn(
@@ -235,9 +226,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   if (props.onRegister) {
                     return props.onRegister(e);
                   } else {
-                    console.log(
-                      "Form is submitted but onRegister prop is missing",
-                    );
+                    console.log("Form is submitted but onRegister prop is missing");
                   }
                 })}
                 className="hawa-flex hawa-flex-col hawa-gap-4"
@@ -273,22 +262,16 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                               dir={"ltr"}
                               inputProps={{
                                 className:
-                                  props.direction === "rtl"
-                                    ? "hawa-text-right"
-                                    : "hawa-text-left",
+                                  props.direction === "rtl" ? "hawa-text-right" : "hawa-text-left",
                               }}
                               width="full"
                               autoComplete="email"
                               label={texts?.email?.label || "Email"}
                               helperText={formState.errors.email?.message}
-                              placeholder={
-                                texts?.email?.placeholder || "Enter your email"
-                              }
+                              placeholder={texts?.email?.placeholder || "Enter your email"}
                               {...field}
                               onChange={(e) => {
-                                field.onChange(
-                                  e.target.value.toLowerCase().trim(),
-                                );
+                                field.onChange(e.target.value.toLowerCase().trim());
                               }}
                             />
                           )}
@@ -326,6 +309,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     <Input
                       width="full"
                       type={passwordVisible ? "text" : "password"}
+                      autoComplete="new-password"
+                      label={texts?.password?.label || "Password"}
+                      placeholder={texts?.password?.placeholder}
+                      helperText={formState.errors.password?.message}
                       endIcon={
                         <div
                           className="hawa-cursor-pointer"
@@ -338,10 +325,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           )}{" "}
                         </div>
                       }
-                      autoComplete="new-password"
-                      label={texts?.password?.label || "Password"}
-                      placeholder={texts?.password?.placeholder}
-                      helperText={formState.errors.password?.message}
                       {...field}
                     />
                   )}
@@ -352,13 +335,23 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   render={({ field }) => (
                     <Input
                       width="full"
-                      type="password"
+                      type={passwordVisible ? "text" : "password"}
                       autoComplete="new-password"
                       label={texts?.confirm?.label || "Confirm Password"}
-                      placeholder={
-                        texts?.confirm?.placeholder || "Confirm your Password"
-                      }
+                      placeholder={texts?.confirm?.placeholder || "Confirm your Password"}
                       helperText={formState.errors.confirm_password?.message}
+                      endIcon={
+                        <div
+                          className="hawa-cursor-pointer"
+                          onClick={() => setPasswordVisible(!passwordVisible)}
+                        >
+                          {passwordVisible ? (
+                            <EyeIcon className="hawa-text-gray-500" />
+                          ) : (
+                            <HiddenEyeIcon className="hawa-text-gray-500" />
+                          )}{" "}
+                        </div>
+                      }
                       {...field}
                     />
                   )}
@@ -372,9 +365,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       <Input
                         width="full"
                         label={texts?.refCode}
-                        placeholder={
-                          texts?.refCodePlaceholder || "Enter the referral code"
-                        }
+                        placeholder={texts?.refCodePlaceholder || "Enter the referral code"}
                         helperText={formState.errors.refCode?.message}
                         {...field}
                       />
@@ -387,10 +378,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     name="reference"
                     render={({ field }) => (
                       <Select
-                        label={
-                          texts?.userReference?.label ||
-                          "How did you learn about us?"
-                        }
+                        label={texts?.userReference?.label || "How did you learn about us?"}
                         placeholder={texts?.userReference?.placeholder}
                         isCreatable={false}
                         isMulti={false ?? false}
@@ -442,10 +430,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                         render={({ field }) => (
                           <Checkbox
                             id="newsletter_accepted"
-                            label={
-                              texts?.subscribeToNewsletter ||
-                              "Subscribe to our newsletter"
-                            }
+                            label={texts?.subscribeToNewsletter || "Subscribe to our newsletter"}
                             onCheckedChange={field.onChange}
                           />
                         )}
@@ -466,9 +451,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
             </FormProvider>
             {props.onRouteToLogin && (
               <div className="hawa-flex hawa-flex-row hawa-items-center hawa-justify-center hawa-gap-1 hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-white">
-                <span>
-                  {texts?.existingUserText || "Already have an account?"}
-                </span>
+                <span>{texts?.existingUserText || "Already have an account?"}</span>
                 <span onClick={props.onRouteToLogin} className="clickable-link">
                   {texts?.loginText || "Login"}
                 </span>
