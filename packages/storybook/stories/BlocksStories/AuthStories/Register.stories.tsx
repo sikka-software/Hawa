@@ -202,6 +202,7 @@ export const Minimal: Story = {
             { label: t("password"), value: "password" },
             { label: t("phone"), value: "phone" },
           ]}
+          onRegisterTypeChange={(type) => console.log(type)}
         />
       </div>
     );

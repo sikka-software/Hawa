@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.48.1
+
+### Patch Changes
+
+- Fix: add `onRegisterTypeChange` prop to `RegisterForm`
+- Fix: missing space above `Alert` box in `RegisterForm`
+
 ## 0.48.0
 
 ### Minor Changes

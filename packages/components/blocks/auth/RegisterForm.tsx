@@ -69,6 +69,13 @@ type RegisterFormTypes = {
   onRouteToTOS?: () => void;
   /** Callback function triggered when the error alert is dismissed. */
   onErrorDismissed?: () => void;
+
+  /*
+   * Callback function triggered when the register type is changed.
+   * @param e - The new register type.
+   * */
+  onRegisterTypeChange?: (e: string) => void;
+
   /** Determines whether to show an error alert. */
   showError?: boolean;
   /** Title for the error alert. */
@@ -111,6 +118,7 @@ type RegisterFormTypes = {
    * @default "email"
    */
   registerTypes?: { label: string; value: string }[];
+
   /** Props to pass to the PhoneInput component */
   phoneInputProps?: PhoneInputProps;
 };
@@ -316,15 +324,18 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 <Tabs
                   dir={props.direction}
                   value={selectedRegisterType.value}
-                  onValueChange={(e) =>
+                  onValueChange={(e) => {
+                    if (props.onRegisterTypeChange) {
+                      props.onRegisterTypeChange(e);
+                    }
                     setSelectedRegisterType(
                       registerTypes?.find((r) => r.value === e) ||
                         (registerTypes && registerTypes[0]) || {
                           label: "Password",
                           value: "password",
                         },
-                    )
-                  }
+                    );
+                  }}
                 >
                   {registerTypes && registerTypes.length > 1 && (
                     <CardHeader className="hawa-w-full hawa-px-0 hawa-py-0 hawa-mb-4">
