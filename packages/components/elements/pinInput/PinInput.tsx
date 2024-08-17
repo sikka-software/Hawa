@@ -26,11 +26,7 @@ const PinInputGroup = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("hawa-flex hawa-items-center", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("hawa-flex hawa-items-center", className)} {...props} />
 ));
 PinInputGroup.displayName = "PinInputGroup";
 
@@ -46,8 +42,7 @@ const PinInputSlot = React.forwardRef<
       ref={ref}
       className={cn(
         "hawa-border-input hawa-relative hawa-flex hawa-h-10 hawa-w-10 hawa-items-center hawa-justify-center hawa-border-y hawa-border-r hawa-text-sm hawa-transition-all first:hawa-rounded-l-md first:hawa-border-l last:hawa-rounded-r-md",
-        isActive &&
-          "hawa-ring-ring hawa-ring-offset-background hawa-z-10 hawa-ring-2",
+        isActive && "hawa-ring-ring hawa-ring-offset-background hawa-z-10 hawa-ring-2",
         className,
       )}
       {...props}
@@ -82,34 +77,24 @@ type PinInputProps = Omit<OTPInputProps, "render"> & {
   helperText?: any;
 };
 
-const PinInput: React.FC<PinInputProps> = ({
-  separatorPosition = 0,
-  ...props
-}) => {
+const PinInput: React.FC<PinInputProps> = ({ separatorPosition = 0, ...props }) => {
   const maxLength = props.maxLength || 6; // Assuming a default maxLength of 6 if not provided
   const clampedSeparatorPosition = Math.min(separatorPosition, maxLength);
 
-  const firstGroupLength =
-    clampedSeparatorPosition > 0 ? clampedSeparatorPosition : 0;
+  const firstGroupLength = clampedSeparatorPosition > 0 ? clampedSeparatorPosition : 0;
   const secondGroupLength = maxLength - firstGroupLength;
 
   return (
-    <div className="hawa-flex hawa-flex-col hawa-gap-2">
+    <div className="hawa-flex hawa-flex-col hawa-gap-2" dir="ltr">
       <PinInputRoot {...props}>
         {firstGroupLength > 0 && (
           <PinInputGroup className="hawa-w-full hawa-gap-2">
             {[...Array(firstGroupLength)].map((_, index) => (
-              <PinInputSlot
-                key={index}
-                index={index}
-                className="hawa-w-full hawa-border"
-              />
+              <PinInputSlot key={index} index={index} className="hawa-w-full hawa-border" />
             ))}
           </PinInputGroup>
         )}
-        {separatorPosition > 0 && separatorPosition < props.maxLength && (
-          <PinInputSeperator />
-        )}
+        {separatorPosition > 0 && separatorPosition < props.maxLength && <PinInputSeperator />}
         {secondGroupLength > 0 && (
           <PinInputGroup className="hawa-w-full hawa-gap-2">
             {[...Array(secondGroupLength)].map((_, index) => (
@@ -127,10 +112,4 @@ const PinInput: React.FC<PinInputProps> = ({
   );
 };
 
-export {
-  PinInput,
-  PinInputRoot,
-  PinInputGroup,
-  PinInputSlot,
-  PinInputSeperator,
-};
+export { PinInput, PinInputRoot, PinInputGroup, PinInputSlot, PinInputSeperator };
