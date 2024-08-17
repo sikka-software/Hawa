@@ -9,6 +9,8 @@
   "command_searchPlaceholder": "اكتب أمرًا أو ابحث...",
   "command_emptyText": "لم يتم العثور على نتائج.",
   "selected-rows": "سطر محدد",
+  "phone": "رقم الجوال",
+  "email": "البريد الإلكتروني",
   "Red": "أحمر",
   "Green": "أخضر",
   "Blue": "أزرق",

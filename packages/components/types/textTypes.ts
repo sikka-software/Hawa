@@ -57,6 +57,7 @@ export type RegisterFormTextsTypes = ThirdPartyAuthTextsTypes & {
   fullName?: BaseInputType;
   email?: TextInputType;
   username?: UsernameInputType;
+  phone?: TextInputType;
   password?: PasswordInputType;
   confirm?: ConfirmInputType;
   userReference?: BaseInputType;

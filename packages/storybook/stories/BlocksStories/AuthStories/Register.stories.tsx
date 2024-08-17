@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RegisterForm } from "@sikka/hawa/blocks/auth";
+import { LoginForm, RegisterForm } from "@sikka/hawa/blocks/auth";
 import { Button } from "@sikka/hawa/elements/button";
 import { Input } from "@sikka/hawa/elements/input";
 
@@ -41,14 +41,9 @@ export const Default: Story = {
             },
           }}
           additionalInputs={
-            <Input
-              label={"Extra Field"}
-              placeholder={"Added via additionalInput prop"}
-            />
+            <Input label={"Extra Field"} placeholder={"Added via additionalInput prop"} />
           }
-          additionalButtons={
-            <Button variant={"outline"}>{t("Extra Optional Button")}</Button>
-          }
+          additionalButtons={<Button variant={"outline"}>{t("Extra Optional Button")}</Button>}
           texts={{
             continueWithGoogle: t("registerViaGoogleLabel"),
             continueWithGithub: t("registerViaGithubLabel"),
@@ -129,9 +124,8 @@ export const Minimal: Story = {
     const direction = locale === "ar" ? "rtl" : "ltr";
     setLocale(locale);
     const [showError, setShowError] = useState(false);
-
     return (
-      <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
+      <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col hawa-gap-10">
         <RegisterForm
           logosOnly
           direction={direction}
@@ -167,6 +161,12 @@ export const Minimal: Story = {
               required: t("usernameRequired"),
               invalid: t("usernameInvalid"),
             },
+            phone: {
+              required: t("phoneRequiredText"),
+              invalid: t("phoneInvalid"),
+              label: t("phoneLabel"),
+              placeholder: "531045453",
+            },
             password: {
               label: t("passwordLabel"),
               placeholder: t("passwordPlaceholder"),
@@ -194,11 +194,14 @@ export const Minimal: Story = {
             refCodePlaceholder: t("refCodePlaceholder"),
           }}
           {...args}
-          onRegister={() => setShowError(true)}
           onErrorDismissed={() => setShowError(false)}
           showError={showError}
           errorTitle="Error"
           errorText="Something went wrong"
+          registerTypes={[
+            { label: t("password"), value: "password" },
+            { label: t("phone"), value: "phone" },
+          ]}
         />
       </div>
     );
@@ -216,7 +219,7 @@ export const Minimal: Story = {
     registerFields: ["email"],
   },
   argTypes: {
-    // onRegister: { action: "onRegister" },
+    onRegister: { action: "onRegister" },
     onGoogleRegister: { action: "onGoogleRegister" },
     onGithubRegister: { action: "onGithubRegister" },
     onTwitterRegister: { action: "onTwitterRegister" },

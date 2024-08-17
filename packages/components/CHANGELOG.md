@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.48.0
+
+### Minor Changes
+
+- Add `registerTypes` prop to `RegisterForm` to allow mutiple methods of registration
+- Improve types in `RegisterForm`
+- Update registration schema to include phone input in `RegisterForm`
+
 ## 0.47.0
 
 ### Minor Changes
