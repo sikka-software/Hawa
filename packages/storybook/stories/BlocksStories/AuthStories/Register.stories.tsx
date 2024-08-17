@@ -195,7 +195,7 @@ export const Minimal: Story = {
           }}
           {...args}
           onErrorDismissed={() => setShowError(false)}
-          showError={showError}
+          showError={true}
           errorTitle="Error"
           errorText="Something went wrong"
           registerTypes={[

@@ -283,7 +283,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           headless={registerTypes ? registerTypes.length <= 1 : true}
           noPadding={props.cardless}
         >
-          <div>
+          <div
+            className={cn(registerTypes && registerTypes.length > 1 ? "hawa-mt-6 hawa-mb-0" : "")}
+          >
             {props.showError && (
               <Alert
                 direction={props.direction}
@@ -325,7 +327,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   }
                 >
                   {registerTypes && registerTypes.length > 1 && (
-                    <CardHeader className="hawa-w-full hawa-px-0 hawa-py-0 hawa-my-4 hawa-mt-6">
+                    <CardHeader className="hawa-w-full hawa-px-0 hawa-py-0 hawa-mb-4">
                       <TabsList className="hawa-w-full">
                         {registerTypes.map((registerType) => (
                           <TabsTrigger value={registerType.value}>{registerType.label}</TabsTrigger>
