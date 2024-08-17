@@ -1,5 +1,13 @@
 # @sikka/hawa
 
+## 0.47.0
+
+### Minor Changes
+
+- Make `PinInput` only LTR
+- Make the props of `CodeConfirmation` more universal and not just about phone numbers
+- Fix selection in `Select` and `PhoneInput`
+
 ## 0.46.4
 
 ### Patch Changes
