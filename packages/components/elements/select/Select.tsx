@@ -49,6 +49,7 @@ type SelectTypes = {
   hideHelperText?: boolean;
   options: SelectOptionProps[];
   labelKey?: string;
+  valueKey?: string;
   isCreatable?: boolean;
   isClearable?: boolean;
   isMulti?: boolean;
@@ -80,6 +81,7 @@ type SelectTypes = {
 export const Select: FC<SelectTypes> = ({
   labelProps,
   labelKey = "label",
+  valueKey = "value",
   ...props
 }) => {
   const NoOption = () => {
@@ -98,13 +100,7 @@ export const Select: FC<SelectTypes> = ({
       </div>
     );
   };
-  const Option: FC<OptionTypes> = ({
-    children,
-    innerProps,
-    innerRef,
-    isFocused,
-    isSelected,
-  }) => {
+  const Option: FC<OptionTypes> = ({ children, innerProps, innerRef, isFocused, isSelected }) => {
     return (
       <div
         ref={innerRef}
@@ -121,14 +117,7 @@ export const Select: FC<SelectTypes> = ({
       </div>
     );
   };
-  const Menu: FC<MenuTypes> = ({
-    cx,
-    children,
-    getStyles,
-    innerProps,
-    innerRef,
-    ...menuProps
-  }) => {
+  const Menu: FC<MenuTypes> = ({ cx, children, getStyles, innerProps, innerRef, ...menuProps }) => {
     const menuOpen = menuProps.selectProps.menuIsOpen;
     return (
       <div
@@ -150,8 +139,7 @@ export const Select: FC<SelectTypes> = ({
     "hawa-min-w-[65px] hawa-text-right hawa-w-[100px]  hawa-p-0 hawa-rounded-r-none hawa-h-[40px]";
   let selectContainerStyles =
     "hawa-rounded hawa-block hawa-w-full hawa-border hawa-transition-all hawa-bg-background  hawa-p-0 hawa-px-1 hawa-text-sm";
-  let selectPlaceholderStyles =
-    "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1";
+  let selectPlaceholderStyles = "hawa-text-muted-foreground hawa-cursor-pointer hawa-px-1";
   let selectIndicatorContainerStyles =
     "hawa-cursor-pointer hawa-text-muted-foreground hawa-absolute hawa-end-0 hawa-top-[50%] hawa-bottom-[50%] ";
   return (
@@ -165,28 +153,19 @@ export const Select: FC<SelectTypes> = ({
       {props.isLoading ? (
         <Skeleton className="hawa-h-[40px] hawa-w-full" />
       ) : !props.isCreatable ? (
-        //   TODO: enable keyboard to go to the next item in the list
         <ReactSelect
           noOptionsMessage={NoOption}
           classNames={{
-            control: () =>
-              cn(
-                props.phoneCode && "hawa-rounded-r-none",
-                props.controlClassNames,
-              ),
+            control: () => cn(props.phoneCode && "hawa-rounded-r-none", props.controlClassNames),
             container: () =>
               cn(
                 selectContainerStyles,
                 props.phoneCode && phoneCodeStyles,
-
                 props.isMulti && "hawa-ps-0 ",
               ),
             placeholder: () =>
-              cn(
-                selectPlaceholderStyles,
-                props.disabled && "hawa-text-muted-foreground",
-              ),
-            valueContainer: () => "hawa-text-foreground hawa-px-1 ",
+              cn(selectPlaceholderStyles, props.disabled && "hawa-text-muted-foreground"),
+            valueContainer: () => "hawa-text-foreground hawa-px-1",
             singleValue: () =>
               cn(
                 props.disabled
@@ -204,7 +183,16 @@ export const Select: FC<SelectTypes> = ({
           autoFocus={false}
           components={
             props.hideIndicator
-              ? { Option, Menu, IndicatorsContainer: () => null }
+              ? {
+                  Option: (optionProps) => (
+                    <Option
+                      {...optionProps}
+                      isSelected={optionProps.data[valueKey] === props.value[valueKey]}
+                    />
+                  ),
+                  Menu,
+                  IndicatorsContainer: () => null,
+                }
               : {
                   Option,
                   Menu,
@@ -212,7 +200,7 @@ export const Select: FC<SelectTypes> = ({
                     <div
                       className={cn(
                         e.className,
-                        "hawa-gap-1 hawa-flex hawa-flex-row hawa-flex-wrap hawa-p-1",
+                        "hawa-gap-1 hawa-flex hawa-flex-row hawa-flex-wrap hawa-p-2 hawa-w-full hawa-cursor-pointer",
                       )}
                       {...e}
                     />
@@ -245,17 +233,13 @@ export const Select: FC<SelectTypes> = ({
             container: () =>
               cn(
                 "hawa-rounded",
-                props.disabled
-                  ? "hawa-cursor-not-allowed"
-                  : "hawa-cursor-pointer",
+                props.disabled ? "hawa-cursor-not-allowed" : "hawa-cursor-pointer",
               ),
             placeholder: () => "hawa-px-2 hawa-text-muted-foreground",
             input: () => "hawa-text-primary hawa-px-2",
-            valueContainer: () =>
-              "hawa-text-white dark:hawa-text-muted-foreground",
+            valueContainer: () => "hawa-text-white dark:hawa-text-muted-foreground",
             singleValue: () => "hawa-text-black dark:hawa-text-white hawa-px-2",
-            indicatorsContainer: () =>
-              " hawa-px-2 hawa-cursor-pointer hawa-text-muted-foreground",
+            indicatorsContainer: () => " hawa-px-2 hawa-cursor-pointer hawa-text-muted-foreground",
           }}
           unstyled
           options={props.options}
@@ -266,9 +250,7 @@ export const Select: FC<SelectTypes> = ({
           onCreateOption={props.handleCreateOption}
           onChange={(newValue, action) => props.onChange(newValue, action)}
           components={{ Control, Option, Menu }}
-          onInputChange={(newValue, action) =>
-            props.onInputChange(newValue, action)
-          }
+          onInputChange={(newValue, action) => props.onInputChange(newValue, action)}
         />
       )}
       {!props.hideHelperText && <HelperText helperText={props.helperText} />}

@@ -205,9 +205,7 @@ export const MagicLink: Story = {
             loginViaGithubLabel: t("loginViaGithubLabel"),
             loginViaTwitterLabel: t("loginViaTwitterLabel"),
           }}
-          additionalButtons={
-            <Button variant={"outline"}>{t("type-password")}</Button>
-          }
+          additionalButtons={<Button variant={"outline"}>{t("type-password")}</Button>}
           {...args}
         />
       </div>
@@ -232,9 +230,7 @@ export const Advanced: Story = {
     setLocale(locale);
     const [isError, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [loginType, setLoginType] = useState<"email" | "phone" | "link">(
-      "email",
-    );
+    const [loginType, setLoginType] = useState<"email" | "phone" | "link">("email");
     let d = useDarkMode();
     return (
       <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col">
@@ -262,8 +258,7 @@ export const Advanced: Story = {
             forgotPasswordText: t("forgotPasswordText"),
             newUserText: t("newUserText"),
             createAccount: t("createAccount"),
-            loginText:
-              loginType === "link" ? t("send-email-to-login") : t("continue"),
+            loginText: loginType === "link" ? t("send-email-to-login") : t("continue"),
             loginViaGoogleLabel: t("loginViaGoogleLabel"),
             loginViaGithubLabel: t("loginViaGithubLabel"),
             loginViaTwitterLabel: t("loginViaTwitterLabel"),
@@ -274,9 +269,7 @@ export const Advanced: Story = {
                 type="button"
                 variant="outline"
                 className="hawa-w-full"
-                onClick={() =>
-                  setLoginType(loginType === "link" ? "email" : "link")
-                }
+                onClick={() => setLoginType(loginType === "link" ? "email" : "link")}
               >
                 {loginType === "link" ? t("use_password") : t("use_login_link")}
               </Button>
@@ -284,9 +277,7 @@ export const Advanced: Story = {
                 type="button"
                 variant="outline"
                 className="hawa-w-full"
-                onClick={() =>
-                  setLoginType(loginType === "link" ? "email" : "link")
-                }
+                onClick={() => setLoginType(loginType === "link" ? "email" : "link")}
               >
                 {loginType === "link" ? t("use_password") : t("use_login_link")}
               </Button>

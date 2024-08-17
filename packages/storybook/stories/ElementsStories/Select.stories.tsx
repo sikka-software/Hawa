@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -19,26 +21,27 @@ export const Default: Story = {
   render: (args: any, globals: any) => {
     const locale = globals.globals.locale === "ar" ? "ar" : "en";
     const direction = locale === "ar" ? "rtl" : "ltr";
-
+    const [value, setValue] = useState<any>(null);
     setLocale(locale);
     return (
       <div className="hawa-flex hawa-h-screen hawa-w-full hawa-flex-row hawa-items-start hawa-justify-center hawa-gap-2 hawa-p-10">
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
           <Select
-            label={"Select Input"}
-            placeholder={"Choose something"}
+            label="Select Input"
+            placeholder="Choose something"
+            helperText="Helper text here"
             isCreatable={false}
             isMulti={false}
             isClearable={false}
             isSearchable={true}
-            value={{ label: "Vanilla", value: "vanilla" }}
-            helperText="Helper text here"
+            value={value}
             options={[
               { value: "chocolate", label: "Chocolate" },
               { value: "strawberry", label: "Strawberry" },
               { value: "vanilla", label: "Vanilla" },
             ]}
             {...args}
+            onChange={(e: any) => setValue(e)}
           />
         </div>
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
@@ -61,11 +64,7 @@ export const Default: Story = {
           />
         </div>
         <div className="hawa-w-full hawa-max-w-md" dir={direction}>
-          <Input
-            label="Input for comparison"
-            placeholder="Input"
-            helperText={""}
-          />
+          <Input label="Input for comparison" placeholder="Input" helperText={""} />
         </div>
       </div>
     );

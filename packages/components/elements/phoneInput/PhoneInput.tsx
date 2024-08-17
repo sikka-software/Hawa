@@ -7,15 +7,19 @@ import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label/Label";
 import { Select } from "../select/Select";
 
+export type PhoneCodeValue = {
+  label: string;
+  value?: string;
+};
 export type PhoneInputProps = {
-  preferredCountry?: { label: string };
+  preferredCountry?: PhoneCodeValue;
   helperText?: any;
   label?: string;
   labelProps?: LabelProps;
   placeholder?: string;
   handleChange?: (value: string) => void;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
-  countryCodes?: { label: string }[];
+  countryCodes?: PhoneCodeValue[];
 };
 export const PhoneInput: FC<PhoneInputProps> = ({
   labelProps,
@@ -24,7 +28,9 @@ export const PhoneInput: FC<PhoneInputProps> = ({
   ...props
 }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [countryCode, setCountryCode] = useState(props.preferredCountry);
+  const [countryCode, setCountryCode] = useState<PhoneCodeValue>(
+    props.preferredCountry || { label: "+966" },
+  );
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +42,6 @@ export const PhoneInput: FC<PhoneInputProps> = ({
       setPhoneNumber(input);
     }
     if (props.handleChange) {
-      // console.log("label is", countryCode?.label);
       props.handleChange(`${countryCode?.label}-${e.target.value}`);
     } else {
       console.log("handleChange prop was not provided in <PhoneInput/>");
@@ -55,11 +60,13 @@ export const PhoneInput: FC<PhoneInputProps> = ({
           isMulti={false}
           isSearchable={true}
           isClearable={false}
-          placeholder="Code"
+          placeholder={props.preferredCountry?.label}
           options={countryCodes || Countries}
-          onChange={setCountryCode}
-          value={countryCode?.label}
-          defaultValue={props.preferredCountry}
+          onChange={(e: PhoneCodeValue) => setCountryCode({ label: e.label, value: e.label })}
+          valueKey="label"
+          labelKey="label"
+          value={{ label: countryCode?.label, value: countryCode?.label }}
+          defaultValue={{ label: countryCode?.label, value: countryCode?.label }}
         />
 
         <div className="hawa-relative hawa-flex hawa-h-fit hawa-w-full hawa-flex-col hawa-justify-center hawa-gap-0">

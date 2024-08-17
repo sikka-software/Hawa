@@ -18,11 +18,7 @@ import { Card, CardContent, CardFooter } from "@elements/card";
 import { Input } from "@elements/input";
 import { PhoneInput, PhoneInputProps } from "@elements/phoneInput";
 
-import {
-  DirectionType,
-  LoginFormTextsTypes,
-  ThirdPartyAuthTextsTypes,
-} from "@_types/index";
+import { DirectionType, LoginFormTextsTypes, ThirdPartyAuthTextsTypes } from "@_types/index";
 
 import { EyeIcon, HiddenEyeIcon } from "../../icons";
 import { AuthButtons } from "./AuthButtons";
@@ -186,10 +182,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
               render={({ field }) => (
                 <Input
                   inputProps={{
-                    className:
-                      props.direction === "rtl"
-                        ? "hawa-text-right"
-                        : "hawa-text-left",
+                    className: props.direction === "rtl" ? "hawa-text-right" : "hawa-text-left",
                   }}
                   dir={"ltr"}
                   width="full"
@@ -226,9 +219,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                         )}
                       </div>
                     }
-                    placeholder={
-                      texts?.password?.placeholder || "Enter your password"
-                    }
+                    placeholder={texts?.password?.placeholder || "Enter your password"}
                     helperText={formState.errors.password?.message}
                     {...field}
                   />
@@ -286,9 +277,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
                         )}
                       </div>
                     }
-                    placeholder={
-                      texts?.password?.placeholder || "Enter your password"
-                    }
+                    placeholder={texts?.password?.placeholder || "Enter your password"}
                     helperText={formState.errors.password?.message}
                     {...field}
                   />
@@ -408,10 +397,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             {props.allowRegister && (
               <div className="hawa-select-none hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
                 {texts?.newUserText || "New user?"}{" "}
-                <span
-                  onClick={props.onRouteToRegister}
-                  className="clickable-link"
-                >
+                <span onClick={props.onRouteToRegister} className="clickable-link">
                   {texts?.createAccount || "Create Account"}
                 </span>
               </div>
