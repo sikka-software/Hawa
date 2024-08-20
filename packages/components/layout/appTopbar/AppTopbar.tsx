@@ -105,15 +105,8 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
       >
         {/* User Info */}
         {size > 600 ? (
-          <div
-            className={
-              isRTL
-                ? "hawa-text-left hawa-text-xs"
-                : "hawa-text-right hawa-text-xs"
-            }
-          >
-            <div className="hawa-font-bold">{props.username}</div>{" "}
-            <div>{props.email}</div>
+          <div className={isRTL ? "hawa-text-left hawa-text-xs" : "hawa-text-right hawa-text-xs"}>
+            <div className="hawa-font-bold">{props.username}</div> <div>{props.email}</div>
           </div>
         ) : null}
         {/* Profile Icon & Menu */}

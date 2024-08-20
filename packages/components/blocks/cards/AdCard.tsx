@@ -15,10 +15,7 @@ type AdCardTypes = {
   canHide: boolean;
   className?: string;
 };
-export const AdCard: FC<AdCardTypes> = ({
-  orientation = "vertical",
-  ...props
-}) => {
+export const AdCard: FC<AdCardTypes> = ({ orientation = "vertical", ...props }) => {
   const adRef = useRef<HTMLDivElement>(null);
   const [closed, setClosed] = useState(false);
 
@@ -59,15 +56,10 @@ export const AdCard: FC<AdCardTypes> = ({
 
   return (
     <div ref={adRef}>
-      <div
-        className={cn(cardStyles[orientation], props.className)}
-        onClick={props.handleClick}
-      >
+      <div className={cn(cardStyles[orientation], props.className)} onClick={props.handleClick}>
         <div className="hawa-flex hawa-aspect-square hawa-w-full hawa-max-w-fit hawa-items-start">
           <img
-            src={
-              props.imageURL ? props.imageURL : "https://via.placeholder.com/50"
-            }
+            src={props.imageURL ? props.imageURL : "https://via.placeholder.com/50"}
             className={imageStyles[orientation]}
           />
         </div>

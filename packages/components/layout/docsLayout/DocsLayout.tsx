@@ -139,8 +139,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
     };
   }, [props.children]);
 
-  let drawerSizeCondition =
-    drawerSizeStyle[openSideMenu ? "opened" : "closed"][drawerSize];
+  let drawerSizeCondition = drawerSizeStyle[openSideMenu ? "opened" : "closed"][drawerSize];
 
   return (
     <div className="hawa-fixed">
@@ -156,9 +155,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
             <img
               className={cn(
                 "hawa-h-8 hawa-opacity-0 hawa-transition-all",
-                !openSideMenu
-                  ? "hawa-invisible hawa-opacity-0"
-                  : "hawa-visible hawa-opacity-100",
+                !openSideMenu ? "hawa-invisible hawa-opacity-0" : "hawa-visible hawa-opacity-100",
               )}
               src={props.logoLink}
             />
@@ -194,10 +191,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   </svg>
                 </div>
               </SheetTrigger>
-              <SheetContent
-                side={isRTL ? "right" : "left"}
-                className="hawa-pt-10"
-              >
+              <SheetContent side={isRTL ? "right" : "left"} className="hawa-pt-10">
                 <DocsSidebar direction={direction} pages={pages || []} />
               </SheetContent>
             </Sheet>
@@ -219,9 +213,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
       <div
         className={cn(
           "hawa-fixed hawa-z-40 hawa-flex hawa-flex-col hawa-justify-between hawa-overflow-x-clip hawa-bg-primary-foreground hawa-transition-all",
-          isRTL
-            ? "hawa-right-0 hawa-top-0 hawa-h-full"
-            : "hawa-left-0 hawa-top-0 hawa-h-full",
+          isRTL ? "hawa-right-0 hawa-top-0 hawa-h-full" : "hawa-left-0 hawa-top-0 hawa-h-full",
 
           "hawa-fixed hawa-overflow-x-clip hawa-p-0 hawa-py-2 hawa-transition-all",
           "hawa-top-14",
@@ -247,11 +239,7 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
         }}
         ref={ref}
       >
-        <DocsSidebar
-          direction={direction}
-          pages={pages || []}
-          currentPage={currentPage}
-        />
+        <DocsSidebar direction={direction} pages={pages || []} currentPage={currentPage} />
       </div>
       <div
         className="hawa-fixed hawa-overflow-y-auto hawa-transition-all"

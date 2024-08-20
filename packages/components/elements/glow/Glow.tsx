@@ -59,27 +59,15 @@ export const Glow = ({
   const element = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    element.current?.style.setProperty(
-      "--glow-top",
-      `${element.current?.offsetTop}px`,
-    );
-    element.current?.style.setProperty(
-      "--glow-left",
-      `${element.current?.offsetLeft}px`,
-    );
+    element.current?.style.setProperty("--glow-top", `${element.current?.offsetTop}px`);
+    element.current?.style.setProperty("--glow-left", `${element.current?.offsetLeft}px`);
   });
 
   useEffect(() => {
     const observer = new ResizeObserver(() => {
       requestAnimationFrame(() => {
-        element.current?.style.setProperty(
-          "--glow-top",
-          `${element.current?.offsetTop}px`,
-        );
-        element.current?.style.setProperty(
-          "--glow-left",
-          `${element.current?.offsetLeft}px`,
-        );
+        element.current?.style.setProperty("--glow-top", `${element.current?.offsetTop}px`);
+        element.current?.style.setProperty("--glow-left", `${element.current?.offsetLeft}px`);
       });
     });
 

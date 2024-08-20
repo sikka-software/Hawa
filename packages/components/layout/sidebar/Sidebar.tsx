@@ -19,9 +19,7 @@ const AccordionItem = React.forwardRef<
 ));
 AccordionItem.displayName = "AccordionItem";
 
-type AccordionTriggerProps = React.ComponentPropsWithoutRef<
-  typeof AccordionPrimitive.Trigger
-> & {
+type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
   showArrow?: any;
 };
 
@@ -30,11 +28,7 @@ const AccordionTrigger = React.forwardRef<
   AccordionTriggerProps
 >(({ className, showArrow, children, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(triggerStyles, className)}
-      {...props}
-    >
+    <AccordionPrimitive.Trigger ref={ref} className={cn(triggerStyles, className)} {...props}>
       {children}
       {showArrow && (
         <svg
@@ -155,15 +149,7 @@ const SidebarItem: React.FC<{
   onSubItemClick?: (values: string[]) => void;
   isOpen?: boolean;
   LinkComponent?: any;
-}> = ({
-  item,
-  onItemClick,
-  onSubItemClick,
-  direction,
-  isOpen = true,
-  LinkComponent,
-  ...props
-}) => {
+}> = ({ item, onItemClick, onSubItemClick, direction, isOpen = true, LinkComponent, ...props }) => {
   const getSelectedStyle = (value: string) => {
     return props.selectedItem === value
       ? "hawa-bg-primary/90 hawa-text-primary-foreground  hawa-cursor-default"
@@ -171,21 +157,14 @@ const SidebarItem: React.FC<{
   };
   if (item.subitems) {
     return (
-      <AccordionItem
-        value={item.value}
-        className="hawa-overflow-x-clip"
-        dir={direction}
-      >
+      <AccordionItem value={item.value} className="hawa-overflow-x-clip" dir={direction}>
         <AccordionTrigger
           className={cn(
             "hawa-w-full hawa-overflow-x-clip",
             props.selectedItem === item.value
               ? "hawa-cursor-default hawa-bg-primary hawa-text-primary-foreground"
               : "hawa-h-10 hover:hawa-bg-primary/10",
-            item.subitems &&
-              item.subitems.some(
-                (subitem) => props.selectedItem === subitem.value,
-              )
+            item.subitems && item.subitems.some((subitem) => props.selectedItem === subitem.value)
               ? "hawa-bg-primary/80 hawa-text-primary-foreground hover:hawa-bg-primary/80"
               : "",
           )}
@@ -205,11 +184,7 @@ const SidebarItem: React.FC<{
             >
               {item.label}
               {item.badge && (
-                <Chip
-                  label={item.badge.label}
-                  color={item.badge.color}
-                  size="small"
-                />
+                <Chip label={item.badge.label} color={item.badge.color} size="small" />
               )}
             </span>
           </div>
@@ -248,11 +223,7 @@ const SidebarItem: React.FC<{
                   {subitem.icon && subitem.icon}
                   {subitem.label}
                   {subitem.badge && (
-                    <Chip
-                      label={subitem.badge.label}
-                      color={subitem.badge.color}
-                      size="small"
-                    />
+                    <Chip label={subitem.badge.label} color={subitem.badge.color} size="small" />
                   )}
                 </LinkComponent>
               ))}
@@ -279,11 +250,7 @@ const SidebarItem: React.FC<{
             onItemClick([item.value]);
           }
         }}
-        className={cn(
-          triggerStyles,
-          getSelectedStyle(item.value),
-          "hawa-overflow-x-clip",
-        )}
+        className={cn(triggerStyles, getSelectedStyle(item.value), "hawa-overflow-x-clip")}
       >
         <div className={"hawa-flex hawa-flex-row hawa-items-center hawa-gap-2"}>
           {item.icon && item.icon}
@@ -294,13 +261,7 @@ const SidebarItem: React.FC<{
             )}
           >
             {item.label}{" "}
-            {item.badge && (
-              <Chip
-                label={item.badge.label}
-                color={item.badge.color}
-                size="small"
-              />
-            )}
+            {item.badge && <Chip label={item.badge.label} color={item.badge.color} size="small" />}
           </span>
         </div>
       </LinkComponent>

@@ -5,10 +5,7 @@ type ScrollIndicatorProps = {
   inContainer?: boolean;
 };
 
-export const ScrollIndicator: FC<ScrollIndicatorProps> = ({
-  anchor,
-  inContainer = false,
-}) => {
+export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ anchor, inContainer = false }) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
   const onScroll = () => {

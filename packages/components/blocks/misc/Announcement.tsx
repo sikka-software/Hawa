@@ -9,10 +9,7 @@ type AnnouncementTypes = {
   title?: string;
   subtitle?: string;
 };
-export const Announcement: FC<AnnouncementTypes> = ({
-  onActionClick,
-  ...props
-}) => {
+export const Announcement: FC<AnnouncementTypes> = ({ onActionClick, ...props }) => {
   return (
     <Card>
       <CardContent
@@ -23,10 +20,7 @@ export const Announcement: FC<AnnouncementTypes> = ({
           <span className="hawa-text-lg hawa-font-bold">{props.title}</span>
           <span className="hawa-text-sm">{props.subtitle}</span>
         </div>
-        <Button
-          onClick={() => onActionClick()}
-          className="hawa-whitespace-nowrap"
-        >
+        <Button onClick={() => onActionClick()} className="hawa-whitespace-nowrap">
           {props.actionText}
         </Button>
       </CardContent>

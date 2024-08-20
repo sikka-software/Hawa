@@ -10,18 +10,7 @@ interface AvatarProps {
   isUploadable?: boolean;
   src?: string;
   alt?: string;
-  size?:
-    | "2xs"
-    | "xs"
-    | "sm"
-    | "default"
-    | "lg"
-    | "xl"
-    | "2xl"
-    | "3xl"
-    | "4xl"
-    | "5xl"
-    | "6xl";
+  size?: "2xs" | "xs" | "sm" | "default" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl";
   radius?: RadiusType;
   className?: string;
   icon?: React.ReactNode;

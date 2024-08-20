@@ -28,11 +28,7 @@ type NewPasswordTypes = {
   errorText?: string;
 };
 
-export const NewPasswordForm: FC<NewPasswordTypes> = ({
-  texts,
-  isLoading,
-  ...props
-}) => {
+export const NewPasswordForm: FC<NewPasswordTypes> = ({ texts, isLoading, ...props }) => {
   const formSchema = z
     .object({
       password: z
@@ -67,9 +63,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
             if (props.handleNewPassword) {
               return props.handleNewPassword(e);
             } else {
-              console.log(
-                "Form is submitted but handleSubmission prop is missing",
-              );
+              console.log("Form is submitted but handleSubmission prop is missing");
             }
           })}
         >
@@ -120,10 +114,7 @@ export const NewPasswordForm: FC<NewPasswordTypes> = ({
             {props.allowRegister && (
               <div className="hawa-mt-4 hawa-pb-0 hawa-text-center hawa-text-sm dark:hawa-text-gray-300">
                 {texts?.dontHaveAccount ?? "Don't have an account? "}
-                <span
-                  className="clickable-link"
-                  onClick={props.handleRouteToRegister}
-                >
+                <span className="clickable-link" onClick={props.handleRouteToRegister}>
                   {texts?.registerText ?? "Register"}
                 </span>
               </div>

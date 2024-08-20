@@ -127,9 +127,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const isRTL = direction === "rtl";
   const [openedSidebarItem, setOpenedSidebarItem] = useState("");
 
-  const [size, setSize] = useState(
-    (typeof window !== "undefined" && window.innerWidth) || 1200,
-  );
+  const [size, setSize] = useState((typeof window !== "undefined" && window.innerWidth) || 1200);
   const [openSideMenu, setOpenSideMenu] = useState(() => {
     const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
     return savedState ? JSON.parse(savedState) : false;
@@ -193,9 +191,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   }, [size, keepDrawerOpen]);
 
   const drawerSizeCondition =
-    size > 600
-      ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize]
-      : 0;
+    size > 600 ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize] : 0;
 
   return (
     <div className="hawa-fixed hawa-start-0">
@@ -215,15 +211,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
           {/* Nav Side Of Navbar */}
           {size > 600 ? (
             <div
-              className={cn(
-                "dark:hawa-text-white",
-                size > 600 ? "hawa-ms-14" : "hawa-ms-2",
-              )}
+              className={cn("dark:hawa-text-white", size > 600 ? "hawa-ms-14" : "hawa-ms-2")}
               style={{
                 marginInlineStart: `${
-                  drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][
-                    drawerSize
-                  ] + 10
+                  drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize] + 10
                 }px`,
               }}
             >
@@ -255,8 +246,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
             {/* User Info */}
             {size > 600 ? (
               <div className={"hawa-text-end hawa-text-xs"}>
-                <div className="hawa-font-bold">{props.username}</div>{" "}
-                <div>{props.email}</div>
+                <div className="hawa-font-bold">{props.username}</div> <div>{props.email}</div>
               </div>
             ) : null}
             {/* Profile Icon & Menu */}
@@ -378,9 +368,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 src={props.logoLink}
                 className={cn(
                   "hawa-h-9 hawa-opacity-0 hawa-transition-all",
-                  !openSideMenu
-                    ? "hawa-invisible hawa-opacity-0"
-                    : "hawa-visible hawa-opacity-100",
+                  !openSideMenu ? "hawa-invisible hawa-opacity-0" : "hawa-visible hawa-opacity-100",
                   classNames?.fullLogoImg,
                 )}
               />
@@ -395,9 +383,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                 src={props.logoSymbol}
                 className={cn(
                   "hawa-fixed hawa-h-9 hawa-transition-all hawa-start-2.5 hawa-top-2.5",
-                  openSideMenu
-                    ? "hawa-invisible hawa-opacity-0"
-                    : "hawa-visible hawa-opacity-100",
+                  openSideMenu ? "hawa-invisible hawa-opacity-0" : "hawa-visible hawa-opacity-100",
                   classNames?.symbolLogoImg,
                 )}
               />
@@ -454,9 +440,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   : `${openSideMenu ? openDrawerWidth : 0}px`,
             }}
           >
-            {DrawerFooterActions && openSideMenu ? (
-              <>{DrawerFooterActions}</>
-            ) : null}
+            {DrawerFooterActions && openSideMenu ? <>{DrawerFooterActions}</> : null}
 
             {/* Expand Button */}
             {size > 600 && openSideMenu ? (
@@ -475,10 +459,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
                   size="smallIcon"
                   onClick={() => {
                     const newKeepOpenState = !keepDrawerOpen;
-                    localStorage.setItem(
-                      LOCAL_STORAGE_KEY,
-                      JSON.stringify(newKeepOpenState),
-                    );
+                    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newKeepOpenState));
 
                     setKeepDrawerOpen(newKeepOpenState);
                   }}
@@ -515,10 +496,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
        * ----------------------------------------------------------------------------------------------------
        */}
 
-      <Dialog.Root
-        open={size < 600 && openSideMenu}
-        onOpenChange={setOpenSideMenu}
-      >
+      <Dialog.Root open={size < 600 && openSideMenu} onOpenChange={setOpenSideMenu}>
         <Dialog.Portal container={container}>
           <Dialog.Overlay className="hawa-fixed hawa-inset-0 hawa-bg-foreground/20 hawa-backdrop-blur-[2px] data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out hawa-z-10 data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0" />
         </Dialog.Portal>

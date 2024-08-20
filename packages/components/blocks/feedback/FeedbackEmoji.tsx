@@ -78,9 +78,7 @@ export const FeedbackEmoji: FC<ComponentTypes> = (props) => {
       <div
         className={cn(
           "hawa-flex hawa-flex-col hawa-overflow-clip hawa-transition-all hawa-duration-500 hawa-ease-in-out",
-          selectedEmoji
-            ? "hawa-visible hawa-opacity-100"
-            : "hawa-invisible hawa-opacity-0",
+          selectedEmoji ? "hawa-visible hawa-opacity-100" : "hawa-invisible hawa-opacity-0",
         )}
       >
         {props.showSuccess ? (

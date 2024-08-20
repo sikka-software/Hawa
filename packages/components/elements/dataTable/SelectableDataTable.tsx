@@ -30,14 +30,7 @@ import {
 } from "../dropdownMenu";
 import { Input } from "../input";
 import { Skeleton } from "../skeleton";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../table";
 
 export type { ColumnDef } from "@tanstack/react-table";
 
@@ -98,19 +91,16 @@ export const DataTable = <DataProps extends {}>({
   const [sorting, setSorting] = React.useState<SortingState>(
     props.defaultSort ? [{ id: props.defaultSort, desc: false }] : [],
   );
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [chipFilters, setChipFilters] = React.useState<string[]>([]);
 
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>(() => {
-      const savedVisibility = localStorage.getItem(LOCAL_STORAGE_KEY);
-      return savedVisibility ? JSON.parse(savedVisibility) : {};
-    });
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(() => {
+    const savedVisibility = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedVisibility ? JSON.parse(savedVisibility) : {};
+  });
 
   const [rowSelection, setRowSelection] = React.useState({});
   const [selectedFilters, setSelectedFilters] = React.useState<string[]>([]);
@@ -221,10 +211,7 @@ export const DataTable = <DataProps extends {}>({
           {enableHideColumns && (
             <DropdownMenuRoot>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="hawa-flex hawa-flex-row hawa-gap-2"
-                >
+                <Button variant="outline" className="hawa-flex hawa-flex-row hawa-gap-2">
                   {props.texts?.columns || "Columns"}
                   <svg
                     aria-label="Chevron Down Icon"
@@ -243,9 +230,7 @@ export const DataTable = <DataProps extends {}>({
                   </svg>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align={props.direction === "rtl" ? "start" : "end"}
-              >
+              <DropdownMenuContent align={props.direction === "rtl" ? "start" : "end"}>
                 {table
                   .getAllColumns()
                   .filter((column) => column.getCanHide())
@@ -254,9 +239,7 @@ export const DataTable = <DataProps extends {}>({
                       <DropdownMenuCheckboxItem
                         key={column.id}
                         checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
+                        onCheckedChange={(value) => column.toggleVisibility(!!value)}
                       >
                         {translateFn
                           ? translateFn(
@@ -288,15 +271,13 @@ export const DataTable = <DataProps extends {}>({
                 onClick={() => {
                   let newSelectedFilters = selectedFilters.filter(
                     (item) =>
-                      props.filters?.find((f) => f.value === item)
-                        ?.accessorKey !== filter.accessorKey,
+                      props.filters?.find((f) => f.value === item)?.accessorKey !==
+                      filter.accessorKey,
                   );
 
                   if (!selectedFilters.includes(filter.value)) {
                     newSelectedFilters.push(filter.value);
-                    table
-                      .getColumn(filter.accessorKey)
-                      ?.setFilterValue(filter.value);
+                    table.getColumn(filter.accessorKey)?.setFilterValue(filter.value);
                   } else {
                     table.getColumn(filter.accessorKey)?.setFilterValue("");
                   }
@@ -315,9 +296,7 @@ export const DataTable = <DataProps extends {}>({
         <div
           className={cn(
             "hawa-flex hawa-w-full hawa-gap-4",
-            paginationPosition === "top"
-              ? "hawa-flex-col-reverse"
-              : "hawa-flex-col",
+            paginationPosition === "top" ? "hawa-flex-col-reverse" : "hawa-flex-col",
           )}
         >
           <div className="hawa-rounded-md">
@@ -340,10 +319,7 @@ export const DataTable = <DataProps extends {}>({
                           >
                             {header.isPlaceholder
                               ? null
-                              : flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
+                              : flexRender(header.column.columnDef.header, header.getContext())}
                           </TableHead>
                         );
                       })}
@@ -354,10 +330,7 @@ export const DataTable = <DataProps extends {}>({
               <TableBody>
                 {table.getRowModel().rows?.length ? (
                   table.getRowModel().rows.map((row) => (
-                    <TableRow
-                      key={row.id}
-                      data-state={row.getIsSelected() && "selected"}
-                    >
+                    <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                       {row.getVisibleCells().map((cell) => (
                         <TableCell
                           style={{
@@ -365,26 +338,18 @@ export const DataTable = <DataProps extends {}>({
                           }}
                           dir={props.direction}
                           padding={
-                            props.condensed
-                              ? "condensed"
-                              : cell.column.columnDef.meta?.padding
+                            props.condensed ? "condensed" : cell.column.columnDef.meta?.padding
                           }
                           key={cell.id}
                         >
-                          {flexRender(
-                            cell.column.columnDef.cell,
-                            cell.getContext(),
-                          )}
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
                         </TableCell>
                       ))}
                     </TableRow>
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell
-                      colSpan={columns.length}
-                      className="hawa-h-24 hawa-text-center"
-                    >
+                    <TableCell colSpan={columns.length} className="hawa-h-24 hawa-text-center">
                       {props.texts?.noData}
                     </TableCell>
                   </TableRow>
@@ -399,14 +364,9 @@ export const DataTable = <DataProps extends {}>({
 
             {/* CAPTION FOR CURRENT SELECTED ROWS */}
             {props.showCount && (
-              <div
-                className="text-muted-foreground text-sm"
-                dir={props.direction}
-              >
+              <div className="text-muted-foreground text-sm" dir={props.direction}>
                 <span>{props.texts?.total}</span>{" "}
-                <span>
-                  {table.getFilteredRowModel().rows.length.toLocaleString()}
-                </span>
+                <span>{table.getFilteredRowModel().rows.length.toLocaleString()}</span>
               </div>
             )}
 
@@ -452,9 +412,7 @@ export const DataTable = <DataProps extends {}>({
                     size="icon"
                     className="hawa-h-fit hawa-w-fit hawa-p-0 hawa-px-2 hawa-py-1"
                   >
-                    {`${table.getState().pagination.pageSize} / ${
-                      props.texts?.page
-                    }`}
+                    {`${table.getState().pagination.pageSize} / ${props.texts?.page}`}
                   </Button>
                 }
                 onItemSelect={(e: any) => table.setPageSize(Number(e))}
@@ -469,9 +427,7 @@ export const DataTable = <DataProps extends {}>({
                           {table.getState().pagination.pageIndex + 1}
                         </span>
                         <span>{props.texts?.of}</span>
-                        <span className="hawa-font-bold">
-                          {table.getPageCount()}
-                        </span>
+                        <span className="hawa-font-bold">{table.getPageCount()}</span>
                       </div>
                     </span>
                   </div>
@@ -482,9 +438,7 @@ export const DataTable = <DataProps extends {}>({
                     size="smallIcon"
                     onClick={() => table.setPageIndex(0)}
                     disabled={!table.getCanPreviousPage()}
-                    className={cn(
-                      props.direction === "rtl" && "hawa-rotate-180",
-                    )}
+                    className={cn(props.direction === "rtl" && "hawa-rotate-180")}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -508,9 +462,7 @@ export const DataTable = <DataProps extends {}>({
                     size="smallIcon"
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
-                    className={cn(
-                      props.direction === "rtl" && "hawa-rotate-180",
-                    )}
+                    className={cn(props.direction === "rtl" && "hawa-rotate-180")}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -534,9 +486,7 @@ export const DataTable = <DataProps extends {}>({
                     size="smallIcon"
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
-                    className={cn(
-                      props.direction === "ltr" && "hawa-rotate-180",
-                    )}
+                    className={cn(props.direction === "ltr" && "hawa-rotate-180")}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -559,9 +509,7 @@ export const DataTable = <DataProps extends {}>({
                     size="smallIcon"
                     onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                     disabled={!table.getCanNextPage()}
-                    className={cn(
-                      props.direction === "ltr" && "hawa-rotate-180",
-                    )}
+                    className={cn(props.direction === "ltr" && "hawa-rotate-180")}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

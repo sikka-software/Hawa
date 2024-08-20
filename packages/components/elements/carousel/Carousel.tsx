@@ -107,18 +107,10 @@ export const Carousel: React.FC<CarouselProps> = ({
   );
 };
 
-const Dots = ({
-  onDotClick,
-  itemsLength,
-  selectedIndex,
-  direction,
-}: DotsProps) => {
+const Dots = ({ onDotClick, itemsLength, selectedIndex, direction }: DotsProps) => {
   const arr = new Array(itemsLength).fill(0);
   return (
-    <div
-      dir={direction}
-      className="hawa-z-50 hawa-my-2 hawa-flex hawa-justify-center hawa-gap-1"
-    >
+    <div dir={direction} className="hawa-z-50 hawa-my-2 hawa-flex hawa-justify-center hawa-gap-1">
       {arr.map((_, index) => {
         const selected = index === selectedIndex;
         return (
@@ -127,9 +119,7 @@ const Dots = ({
             onClick={() => onDotClick(index)}
             className={cn(
               "hawa-h-2 hawa-rounded-full hawa-bg-primary hawa-transition-all hawa-duration-300 hover:hawa-cursor-pointer",
-              !selected
-                ? "hawa-w-2 hawa-opacity-50"
-                : "hawa-w-6 hawa-opacity-100",
+              !selected ? "hawa-w-2 hawa-opacity-50" : "hawa-w-6 hawa-opacity-100",
             )}
           ></div>
         );

@@ -19,14 +19,12 @@ const Sonner = ({ ...props }: SonnerProps) => {
         classNames: {
           toast: cn(
             "group toast hawa-rounded group-[.toaster]:hawa-bg-background group-[.toaster]:hawa-text-foreground group-[.toaster]:hawa-border-border group-[.toaster]:hawa-shadow-lg",
-            props.direction === "rtl" &&
-              "!hawa-start-[32px] md:!hawa-start-auto", //To fix on mobile
+            props.direction === "rtl" && "!hawa-start-[32px] md:!hawa-start-auto", //To fix on mobile
           ),
           description: "group-[.toast]:hawa-text-muted-foreground",
           actionButton:
             "group-[.toast]:hawa-bg-primary group-[.toast]:hawa-text-primary-foreground",
-          cancelButton:
-            "group-[.toast]:hawa-bg-muted group-[.toast]:hawa-text-muted-foreground",
+          cancelButton: "group-[.toast]:hawa-bg-muted group-[.toast]:hawa-text-muted-foreground",
           title: "!hawa-font-bold",
         },
       }}

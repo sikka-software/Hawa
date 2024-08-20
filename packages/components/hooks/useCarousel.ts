@@ -31,9 +31,7 @@ const useCarousel = (imageWidth: number) => {
 
   const handleDragEnd = () => {
     setIsDragging(false);
-    const closestSnapPoint = findClosestSnapPoint(
-      containerRef.current!.scrollLeft,
-    );
+    const closestSnapPoint = findClosestSnapPoint(containerRef.current!.scrollLeft);
     containerRef.current!.scrollTo({
       left: closestSnapPoint,
       behavior: "smooth",

@@ -2,11 +2,7 @@ import React, { useState } from "react";
 
 import { cn } from "@util/index";
 
-import {
-  CollapsibleTrigger,
-  CollapsibleContent,
-  Collapsible,
-} from "@elements/collapsible";
+import { CollapsibleTrigger, CollapsibleContent, Collapsible } from "@elements/collapsible";
 
 type NavigationMenuItem = {
   label: string;
@@ -96,10 +92,7 @@ export const Navbar: React.FC<NavbarType> = ({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={cn(
-                  "hawa-h-6 hawa-w-6",
-                  !isOpen ? "hawa-invisible" : "hawa-visible",
-                )}
+                className={cn("hawa-h-6 hawa-w-6", !isOpen ? "hawa-invisible" : "hawa-visible")}
               >
                 <path d="M18 6 6 18" />
                 <path d="m6 6 12 12" />

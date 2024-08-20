@@ -5,24 +5,15 @@ import { cn } from "@util/index";
 
 import { RadiusType } from "@_types/commonTypes";
 
-interface SwitchProps
-  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
+interface SwitchProps extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
   size?: "default" | "sm" | "lg";
   label?: string;
   roundedness?: RadiusType;
 }
 
-export const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitives.Root>,
-  SwitchProps
->(
-  (
-    { className, size = "default", roundedness = "inherit", label, ...props },
-    ref,
-  ) => {
-    const [parentDirection, setParentDirection] = React.useState<string | null>(
-      null,
-    );
+export const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitives.Root>, SwitchProps>(
+  ({ className, size = "default", roundedness = "inherit", label, ...props }, ref) => {
+    const [parentDirection, setParentDirection] = React.useState<string | null>(null);
     const parentRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
@@ -55,10 +46,7 @@ export const Switch = React.forwardRef<
     };
 
     return (
-      <div
-        className="hawa-flex hawa-flex-row hawa-items-center"
-        ref={parentRef}
-      >
+      <div className="hawa-flex hawa-flex-row hawa-items-center" ref={parentRef}>
         <SwitchPrimitives.Root
           className={cn(
             "data-[state=unchecked]:hawa-bg-primary/20",

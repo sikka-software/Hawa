@@ -33,8 +33,7 @@ function Calendar({
           root: "hawa-w-fit hawa-relative hawa-p-3 ",
           months: "hawa-flex hawa-flex-col sm:hawa-flex-row sm:hawa-space-y-0",
           month: "hawa-space-y-4",
-          month_caption:
-            "hawa-flex hawa-justify-center hawa-py-1 hawa-relative hawa-items-center",
+          month_caption: "hawa-flex hawa-justify-center hawa-py-1 hawa-relative hawa-items-center",
           caption_label: "hawa-text-sm hawa-font-medium",
           nav: "hawa-z-50 hawa-flex hawa-items-start",
 
@@ -64,8 +63,7 @@ function Calendar({
           outside:
             "day-outside hawa-text-muted-foreground hawa-opacity-50 aria-selected:hawa-bg-accent/50 aria-selected:hawa-text-muted-foreground aria-selected:hawa-opacity-30",
           disabled: "hawa-text-muted-foreground hawa-opacity-50",
-          range_middle:
-            "aria-selected:hawa-bg-accent aria-selected:hawa-text-accent-foreground",
+          range_middle: "aria-selected:hawa-bg-accent aria-selected:hawa-text-accent-foreground",
           hidden: "hawa-invisible",
           ...classNames,
         }}
@@ -77,9 +75,7 @@ function Calendar({
                 {...props}
                 onClick={(e) => {
                   if (
-                    (allowPastDates ||
-                      selectedDate >= new Date() ||
-                      props.modifiers.today) &&
+                    (allowPastDates || selectedDate >= new Date() || props.modifiers.today) &&
                     props.onClick
                   ) {
                     props.onClick(e);
@@ -99,9 +95,7 @@ function Calendar({
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              aria-label={
-                props.orientation === "left" ? "Previous Month" : "Next Month"
-              }
+              aria-label={props.orientation === "left" ? "Previous Month" : "Next Month"}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -115,8 +109,7 @@ function Calendar({
                 "rtl:hawa-rotate-180":
                   (dir === "rtl" && props.orientation === "left") ||
                   (dir === "ltr" && props.orientation === "left"),
-                "hawa-rotate-180 rtl:hawa-rotate-0":
-                  props.orientation === "right",
+                "hawa-rotate-180 rtl:hawa-rotate-0": props.orientation === "right",
                 "hawa-rotate-0": props.orientation === "left",
               })}
             >

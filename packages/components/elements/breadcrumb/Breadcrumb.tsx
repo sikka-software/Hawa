@@ -14,11 +14,7 @@ interface BCTypes {
   size?: "normal" | "small" | "xs";
 }
 
-export const Breadcrumb: FC<BCTypes> = ({
-  breadcrumbLinks,
-  separator = ">",
-  size = "normal",
-}) => {
+export const Breadcrumb: FC<BCTypes> = ({ breadcrumbLinks, separator = ">", size = "normal" }) => {
   const textStyles = {
     normal: "",
     small: "hawa-text-sm",

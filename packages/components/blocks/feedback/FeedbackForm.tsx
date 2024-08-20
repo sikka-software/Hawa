@@ -55,11 +55,7 @@ export const FeedbackForm: React.FC<FeedbackFormType> = (props) => {
 
   return (
     <Card
-      className={cn(
-        props.cardless
-          ? "hawa-border-none hawa-bg-transparent hawa-shadow-none"
-          : "",
-      )}
+      className={cn(props.cardless ? "hawa-border-none hawa-bg-transparent hawa-shadow-none" : "")}
       style={props.cardless ? { boxShadow: "none" } : undefined}
     >
       <CardContent headless className={props.cardless ? "!hawa-p-0" : ""}>

@@ -91,14 +91,8 @@ export const BackToTop: FC<BackToTopTypes> = ({ ...props }) => {
     let height = vertical == "bottom" ? anchorRect.height - selfRect.height : 0;
 
     let style = {
-      top:
-        anchorRect.y +
-        height +
-        (vertical == "bottom" ? -1 : 1) * (props.paddingX || 10),
-      left:
-        anchorRect.x +
-        width +
-        (horizontal == "right" ? -1 : 1) * (props.paddingX || 25),
+      top: anchorRect.y + height + (vertical == "bottom" ? -1 : 1) * (props.paddingX || 10),
+      left: anchorRect.x + width + (horizontal == "right" ? -1 : 1) * (props.paddingX || 25),
     };
 
     return style;

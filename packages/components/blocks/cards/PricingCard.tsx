@@ -31,10 +31,7 @@ export const PricingCard: FC<PricingCardProps> = ({
   return (
     <>
       {props.isLoadingCard ? (
-        <Skeleton
-          className={cn(cardSizes[size], "hawa-h-[200px]")}
-          fade="bottom"
-        />
+        <Skeleton className={cn(cardSizes[size], "hawa-h-[200px]")} fade="bottom" />
       ) : (
         <Card
           dir={direction}
@@ -143,19 +140,12 @@ export const PricingCard: FC<PricingCardProps> = ({
                           <span className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-whitespace-nowrap hawa-text-start hawa-font-normal hawa-leading-tight hawa-text-primary/70">
                             {feature.text}{" "}
                             {feature.soon && feature.included && (
-                              <Chip
-                                label={props.texts?.soon || ""}
-                                color="oceanic"
-                                size="small"
-                              />
+                              <Chip label={props.texts?.soon || ""} color="oceanic" size="small" />
                             )}
                           </span>
                         </div>
                         {feature.hint && (
-                          <Tooltip
-                            content={feature.hint}
-                            side={feature.hintSide}
-                          >
+                          <Tooltip content={feature.hint} side={feature.hintSide}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="hawa-h-[14px] hawa-w-[14px] hawa-cursor-help"
@@ -177,11 +167,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                   })}
                 </ul>
               )}
-              <Button
-                onClick={props.onPlanClicked}
-                disabled={currentPlan}
-                className="hawa-w-full"
-              >
+              <Button onClick={props.onPlanClicked} disabled={currentPlan} className="hawa-w-full">
                 {props.texts?.buttonText}
               </Button>
             </div>

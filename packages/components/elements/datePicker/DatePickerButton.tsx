@@ -50,9 +50,7 @@ export const DatePickerButton: FC<DatePickerButtonProps> = ({
         )}
       >
         {value || (
-          <span className="hawa-text-muted-foreground hawa-font-normal">
-            {placeholder}
-          </span>
+          <span className="hawa-text-muted-foreground hawa-font-normal">{placeholder}</span>
         )}
       </span>
       <div className="hawa-ms-auto hawa-opacity-50">

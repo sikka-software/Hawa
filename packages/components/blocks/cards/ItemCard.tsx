@@ -64,8 +64,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
     horizontal: "hawa-flex hawa-flex-row hawa-w-full",
   };
   let imageStyles = {
-    vertical:
-      "hawa-h-auto hawa-max-h-56 hawa-w-full hawa-rounded-t-lg hawa-object-cover",
+    vertical: "hawa-h-auto hawa-max-h-56 hawa-w-full hawa-rounded-t-lg hawa-object-cover",
     horizontal:
       // "h-auto w-full rounded-l-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
       // "h-full w-full rounded-l-lg object-cover md:w-48 md:rounded-none md:rounded-l-lg",
@@ -140,11 +139,7 @@ export const ItemCard: FC<ItemCardTypes> = ({
               <DropdownMenu
                 items={headerActions}
                 trigger={
-                  <Button
-                    variant={"ghost"}
-                    size={"smallIcon"}
-                    onClick={handleOpenActionHeader}
-                  >
+                  <Button variant={"ghost"} size={"smallIcon"} onClick={handleOpenActionHeader}>
                     <span className="hawa-sr-only">Open dropdown</span>
                     <svg
                       className="hawa-h-5 hawa-w-5"
@@ -163,13 +158,9 @@ export const ItemCard: FC<ItemCardTypes> = ({
 
         <div className="hawa-mx-2">
           {header && (
-            <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight">
-              {header}
-            </h5>
+            <h5 className="hawa-mb-2 hawa-text-2xl hawa-font-bold hawa-tracking-tight">{header}</h5>
           )}
-          {content && (
-            <span className="hawa-w-full hawa-font-normal">{content}</span>
-          )}
+          {content && <span className="hawa-w-full hawa-font-normal">{content}</span>}
         </div>
         {actions || counts ? (
           <div

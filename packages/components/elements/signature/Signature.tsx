@@ -100,8 +100,7 @@ export const Signature: FC<SignatureCanvasProps> = ({
     sigPadRef.current?.fromDataURL(dataURL, options);
   const toDataURL = (type?: string, encoderOptions?: any) =>
     sigPadRef.current?.toDataURL(type, encoderOptions);
-  const fromData = (pointGroups: any[]) =>
-    sigPadRef.current?.fromData(pointGroups);
+  const fromData = (pointGroups: any[]) => sigPadRef.current?.fromData(pointGroups);
   const toData = () => sigPadRef.current?.toData();
 
   return (
@@ -126,9 +125,7 @@ export const Signature: FC<SignatureCanvasProps> = ({
         <p
           className={cn(
             "hawa-my-0 hawa-text-start hawa-text-xs hawa-text-helper-color hawa-transition-all",
-            helperText
-              ? "hawa-h-4 hawa-opacity-100"
-              : "hawa-h-0 hawa-opacity-0",
+            helperText ? "hawa-h-4 hawa-opacity-100" : "hawa-h-0 hawa-opacity-0",
           )}
         >
           {helperText}

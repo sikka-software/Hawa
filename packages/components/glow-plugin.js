@@ -8,9 +8,9 @@ module.exports = plugin(
     theme: {
       extend: {
         colors: {
-          glow: "color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)"
-        }
-      }
-    }
-  }
+          glow: "color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)",
+        },
+      },
+    },
+  },
 );

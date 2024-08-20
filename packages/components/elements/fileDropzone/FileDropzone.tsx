@@ -60,13 +60,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
   const [cmp, setCmp] = useState(0);
   const [max, setMax] = useState<any>(0);
 
-  const {
-    getRootProps,
-    getInputProps,
-    fileRejections,
-    acceptedFiles,
-    isDragActive,
-  } = useDropzone({
+  const { getRootProps, getInputProps, fileRejections, acceptedFiles, isDragActive } = useDropzone({
     multiple: true,
     accept: accept,
     maxSize: maxSize,
@@ -109,50 +103,22 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
       const i = Math.floor(Math.log(maxSize) / Math.log(1024));
 
-      setMax(
-        parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i],
-      );
+      setMax(parseFloat((maxSize / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i]);
     }
   }, [maxSize]);
   const errs = fileRejections.map((rej: any, i: any) => {
     switch (rej.errors[0].code) {
       case "file-too-large":
-        return (
-          <Alert
-            key={i}
-            text={rej.file.name}
-            title={texts.fileTooLarge}
-            severity="error"
-          />
-        );
+        return <Alert key={i} text={rej.file.name} title={texts.fileTooLarge} severity="error" />;
       case "too-many-files":
-        return (
-          <Alert
-            key={i}
-            text={rej.file.name}
-            title={texts.tooManyFiles}
-            severity="error"
-          />
-        );
+        return <Alert key={i} text={rej.file.name} title={texts.tooManyFiles} severity="error" />;
       case "file-invalid-type":
         return (
-          <Alert
-            key={i}
-            text={rej.file.name}
-            title={texts.invalidFileType}
-            severity="error"
-          />
+          <Alert key={i} text={rej.file.name} title={texts.invalidFileType} severity="error" />
         );
 
       default:
-        return (
-          <Alert
-            key={i}
-            text={rej.file.name}
-            title={rej.errors[0].code}
-            severity="error"
-          />
-        );
+        return <Alert key={i} text={rej.file.name} title={rej.errors[0].code} severity="error" />;
     }
   });
   const thumbs = files?.map((file: any, index: any) => (
@@ -212,9 +178,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       <div
         className={clsx(
           "hawa-flex hawa-flex-col hawa-justify-center hawa-rounded hawa-border hawa-border-dashed hawa-p-6 hawa-transition-all",
-          isDragActive
-            ? "hawa-bg-muted"
-            : "hawa-bg-muted/20 hover:hawa-bg-muted/50",
+          isDragActive ? "hawa-bg-muted" : "hawa-bg-muted/20 hover:hawa-bg-muted/50",
         )}
       >
         <div {...getRootProps({})}>
@@ -267,17 +231,11 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       {disclaimer && (
         <div className="hawa-mt-2 hawa-text-sm hawa-text-muted-foreground/50">
           {texts.disclaimer ?? "By uploading a file you agree to our"}{" "}
-          <a
-            href={termsLink}
-            className="clickable-link hawa-text-muted-foreground/50"
-          >
+          <a href={termsLink} className="clickable-link hawa-text-muted-foreground/50">
             {texts.terms ?? "Terms"}
           </a>{" "}
           {texts.and ?? "and"}{" "}
-          <a
-            href={privacyLink}
-            className="clickable-link hawa-text-muted-foreground/50"
-          >
+          <a href={privacyLink} className="clickable-link hawa-text-muted-foreground/50">
             {texts.privacyPolicy ?? "Privacy Policy"}
           </a>
         </div>

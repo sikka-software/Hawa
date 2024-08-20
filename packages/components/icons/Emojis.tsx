@@ -1,13 +1,7 @@
 import React from "react";
 
 export const VeryGoodEmoji = () => (
-  <svg
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_53_166)">
       <path
         clipRule="evenodd"
@@ -25,13 +19,7 @@ export const VeryGoodEmoji = () => (
   </svg>
 );
 export const GoodEmoji = () => (
-  <svg
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_53_167)">
       <path
         clipRule="evenodd"
@@ -43,13 +31,7 @@ export const GoodEmoji = () => (
   </svg>
 );
 export const BadEmoji = () => (
-  <svg
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_53_152)">
       <path
         clipRule="evenodd"
@@ -61,13 +43,7 @@ export const BadEmoji = () => (
   </svg>
 );
 export const VeryBadEmoji = () => (
-  <svg
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_53_151)">
       <path
         d="M11.841 12.0225C12.7197 12.9324 12.7197 14.4077 11.841 15.3176C10.9623 16.2275 9.53769 16.2275 8.65901 15.3176C7.78033 14.4077 7.78033 12.9324 8.65901 12.0225L10.25 10.375L11.841 12.0225Z"

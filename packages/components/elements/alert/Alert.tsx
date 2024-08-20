@@ -19,13 +19,7 @@ type AlertTypes = {
     {
       label: string;
       onClick: any;
-      variant:
-        | "outline"
-        | "link"
-        | "default"
-        | "destructive"
-        | "secondary"
-        | "ghost";
+      variant: "outline" | "link" | "default" | "destructive" | "secondary" | "ghost";
     },
   ];
   /** Removes the close button */
@@ -115,9 +109,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
           {icon && (
             <div
               className={cn(
-                direction === "rtl"
-                  ? "hawa-pl-2 hawa-pt-1"
-                  : "hawa-pr-2 hawa-pt-1",
+                direction === "rtl" ? "hawa-pl-2 hawa-pt-1" : "hawa-pr-2 hawa-pt-1",
                 classNames?.icon,
               )}
             >
@@ -145,17 +137,10 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
             </span>
             {props.actions && (
               <div
-                className={cn(
-                  "hawa-mt-2 hawa-flex hawa-flex-row hawa-gap-2",
-                  classNames?.actions,
-                )}
+                className={cn("hawa-mt-2 hawa-flex hawa-flex-row hawa-gap-2", classNames?.actions)}
               >
                 {props.actions.map((act, index) => (
-                  <Button
-                    key={index}
-                    variant={act.variant}
-                    onClick={act.onClick()}
-                  >
+                  <Button key={index} variant={act.variant} onClick={act.onClick()}>
                     {act.label}
                   </Button>
                 ))}
@@ -182,9 +167,7 @@ export const Alert: React.FunctionComponent<AlertTypes> = ({
                 setClosed(true);
                 setTimeout(() => {
                   if (alertRef?.current) {
-                    alertRef?.current.removeChild(
-                      alertRef?.current.children[0],
-                    );
+                    alertRef?.current.removeChild(alertRef?.current.children[0]);
                   }
                 }, 200);
               }

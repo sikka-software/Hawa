@@ -60,12 +60,9 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
         <>
           {!props.headless && (
             <CardHeader>
-              <CardTitle>
-                {props.texts?.headTitle || "Reset Password"}
-              </CardTitle>
+              <CardTitle>{props.texts?.headTitle || "Reset Password"}</CardTitle>
               <CardDescription>
-                {props.texts?.headDescription ||
-                  "Enter your email to reset your account password"}
+                {props.texts?.headDescription || "Enter your email to reset your account password"}
               </CardDescription>
             </CardHeader>
           )}
@@ -106,20 +103,13 @@ export const ResetPasswordForm: FC<ResetPasswordType> = ({
               />
             </CardContent>
             <CardFooter className="hawa-flex hawa-flex-col">
-              <Button
-                type="submit"
-                className="hawa-w-full"
-                isLoading={isLoading}
-              >
+              <Button type="submit" className="hawa-w-full" isLoading={isLoading}>
                 {props.texts?.resetPassword || "Reset Password"}
               </Button>
               {allowRegister && (
                 <div className="hawa-mt-4 hawa-pb-0 hawa-text-center hawa-text-sm dark:hawa-text-gray-300">
                   {props.texts?.dontHaveAccount ?? "Don't have an account? "}
-                  <span
-                    className="clickable-link"
-                    onClick={props.handleRouteToRegister}
-                  >
+                  <span className="clickable-link" onClick={props.handleRouteToRegister}>
                     {props.texts?.registerText ?? "Register"}
                   </span>
                 </div>

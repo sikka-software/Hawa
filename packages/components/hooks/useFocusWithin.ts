@@ -9,10 +9,7 @@ export interface UseFocusWithinOptions {
 
 // Function to check if the event's related target is contained within the current target.
 function containsRelatedTarget(event: FocusEvent) {
-  if (
-    event.currentTarget instanceof HTMLElement &&
-    event.relatedTarget instanceof HTMLElement
-  ) {
+  if (event.currentTarget instanceof HTMLElement && event.relatedTarget instanceof HTMLElement) {
     return event.currentTarget.contains(event.relatedTarget);
   }
 

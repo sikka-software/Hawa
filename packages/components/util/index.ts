@@ -18,9 +18,7 @@ type Rgb = {
 };
 function hexToRgb(hex: string): Rgb | null {
   const sanitizedHex = hex.replaceAll("##", "#");
-  const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-    sanitizedHex
-  );
+  const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
 
   if (!colorParts) {
     return null;
@@ -31,7 +29,7 @@ function hexToRgb(hex: string): Rgb | null {
   return {
     r: parseInt(r, 16),
     g: parseInt(g, 16),
-    b: parseInt(b, 16)
+    b: parseInt(b, 16),
   } as Rgb;
 }
 
@@ -108,8 +106,8 @@ function getPallette(baseColor: string): Palette {
   const response: Palette = {
     name,
     colors: {
-      500: `#${baseColor}`.replace("##", "#")
-    }
+      500: `#${baseColor}`.replace("##", "#"),
+    },
   };
 
   const intensityMap: {
@@ -123,7 +121,7 @@ function getPallette(baseColor: string): Palette {
     600: 0.9,
     700: 0.75,
     800: 0.6,
-    900: 0.49
+    900: 0.49,
   };
 
   [50, 100, 200, 300, 400].forEach((level) => {

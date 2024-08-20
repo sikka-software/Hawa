@@ -3,18 +3,14 @@ import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "@util/index";
 
-const MenubarMenu: React.FC<
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Menu>
-> = MenubarPrimitive.Menu;
-const MenubarGroup: React.FC<
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Group>
-> = MenubarPrimitive.Group;
-const MenubarPortal: React.FC<
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Portal>
-> = MenubarPrimitive.Portal;
-const MenubarSub: React.FC<
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Sub>
-> = MenubarPrimitive.Sub;
+const MenubarMenu: React.FC<React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Menu>> =
+  MenubarPrimitive.Menu;
+const MenubarGroup: React.FC<React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Group>> =
+  MenubarPrimitive.Group;
+const MenubarPortal: React.FC<React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Portal>> =
+  MenubarPrimitive.Portal;
+const MenubarSub: React.FC<React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Sub>> =
+  MenubarPrimitive.Sub;
 const MenubarRadioGroup: React.FC<
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioGroup>
 > = MenubarPrimitive.RadioGroup;
@@ -103,26 +99,21 @@ MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName;
 const MenubarContent = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
->(
-  (
-    { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
-    ref,
-  ) => (
-    <MenubarPrimitive.Portal>
-      <MenubarPrimitive.Content
-        ref={ref}
-        align={align}
-        alignOffset={alignOffset}
-        sideOffset={sideOffset}
-        className={cn(
-          "hawa-z-50 hawa-min-w-[12rem] hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-md data-[state=open]:hawa-animate-in data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-          className,
-        )}
-        {...props}
-      />
-    </MenubarPrimitive.Portal>
-  ),
-);
+>(({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => (
+  <MenubarPrimitive.Portal>
+    <MenubarPrimitive.Content
+      ref={ref}
+      align={align}
+      alignOffset={alignOffset}
+      sideOffset={sideOffset}
+      className={cn(
+        "hawa-z-50 hawa-min-w-[12rem] hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-p-1 hawa-text-popover-foreground hawa-shadow-md data-[state=open]:hawa-animate-in data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
+        className,
+      )}
+      {...props}
+    />
+  </MenubarPrimitive.Portal>
+));
 MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
 const MenubarItem = React.forwardRef<
@@ -244,10 +235,7 @@ const MenubarSeparator = React.forwardRef<
 ));
 MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName;
 
-const MenubarShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+const MenubarShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
       className={cn(

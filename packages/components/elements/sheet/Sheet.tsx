@@ -51,60 +51,52 @@ interface SheetContentProps
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(
-  (
-    { side = "right", className, children, persist, hideCloseButton, ...props },
-    ref,
-  ) => (
-    <SheetPortal>
-      <SheetOverlay />
-      <SheetPrimitive.Content
-        ref={ref}
-        className={cn(sheetVariants({ side }), className)}
-        onPointerDownOutside={(e) => {
-          if (persist) {
-            e.preventDefault();
-          }
-        }}
-        {...props}
-      >
-        {children}
-        {!hideCloseButton && (
-          <SheetPrimitive.Close
-            className={cn(
-              "hawa-absolute hawa-rounded-sm hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-secondary",
-              {
-                "hawa-right-4 hawa-top-4": side === "left" || side === "bottom",
-                "hawa-left-4 hawa-top-4": side === "right",
-                "hawa-bottom-4 hawa-right-4": side === "top",
-              },
-            )}
+>(({ side = "right", className, children, persist, hideCloseButton, ...props }, ref) => (
+  <SheetPortal>
+    <SheetOverlay />
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn(sheetVariants({ side }), className)}
+      onPointerDownOutside={(e) => {
+        if (persist) {
+          e.preventDefault();
+        }
+      }}
+      {...props}
+    >
+      {children}
+      {!hideCloseButton && (
+        <SheetPrimitive.Close
+          className={cn(
+            "hawa-absolute hawa-rounded-sm hawa-opacity-70 hawa-ring-offset-background hawa-transition-opacity hover:hawa-opacity-100 focus:hawa-outline-none focus:hawa-ring-2 focus:hawa-ring-ring focus:hawa-ring-offset-2 disabled:hawa-pointer-events-none data-[state=open]:hawa-bg-secondary",
+            {
+              "hawa-right-4 hawa-top-4": side === "left" || side === "bottom",
+              "hawa-left-4 hawa-top-4": side === "right",
+              "hawa-bottom-4 hawa-right-4": side === "top",
+            },
+          )}
+        >
+          <svg
+            aria-label="Close Icon"
+            aria-hidden="true"
+            className="hawa-h-5 hawa-w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
-            <svg
-              aria-label="Close Icon"
-              aria-hidden="true"
-              className="hawa-h-5 hawa-w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-            <span className="hawa-sr-only">Close</span>
-          </SheetPrimitive.Close>
-        )}
-      </SheetPrimitive.Content>
-    </SheetPortal>
-  ),
-);
+            <path
+              fillRule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+          <span className="hawa-sr-only">Close</span>
+        </SheetPrimitive.Close>
+      )}
+    </SheetPrimitive.Content>
+  </SheetPortal>
+));
 
-const SheetHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
       "hawa-flex hawa-flex-col hawa-space-y-2 hawa-text-center sm:hawa-text-left",
@@ -114,10 +106,7 @@ const SheetHeader = ({
   />
 );
 
-const SheetFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
       "hawa-flex hawa-flex-col-reverse sm:hawa-flex-row sm:hawa-justify-end sm:hawa-space-x-2",
@@ -133,10 +122,7 @@ const SheetTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
-    className={cn(
-      "hawa-text-lg hawa-font-semibold hawa-text-foreground",
-      className,
-    )}
+    className={cn("hawa-text-lg hawa-font-semibold hawa-text-foreground", className)}
     {...props}
   />
 ));

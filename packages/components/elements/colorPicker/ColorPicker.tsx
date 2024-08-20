@@ -1,11 +1,4 @@
-import React, {
-  useState,
-  FC,
-  ChangeEvent,
-  InputHTMLAttributes,
-  useEffect,
-  FormEvent,
-} from "react";
+import React, { useState, FC, ChangeEvent, InputHTMLAttributes, useEffect, FormEvent } from "react";
 
 import { calculateLuminance, cn, getTextColor } from "@util/index";
 
@@ -92,10 +85,7 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
                   props.handleChange(e); //TODO: perhaps change this to onChange
                 }
               }}
-              className={cn(
-                "hawa-mt-0 hawa-h-[38px] hawa-opacity-0",
-                props.colorPickerClassNames,
-              )}
+              className={cn("hawa-mt-0 hawa-h-[38px] hawa-opacity-0", props.colorPickerClassNames)}
               {...colorPickerProps}
             />
           </div>
@@ -112,14 +102,8 @@ export const ColorPicker: FC<ColorPickerTypes> = ({
                 // "hawa-border hawa-border-x-0 hawa-border-x-transparent hawa-border-b-0 hawa-rounded-tr-none"
               )}
               style={{
-                backgroundColor: preview
-                  ? selectedColor
-                  : "hsl(var(--background))",
-                color: preview
-                  ? calculateLuminance(selectedColor) > 0.5
-                    ? "black"
-                    : "white"
-                  : "",
+                backgroundColor: preview ? selectedColor : "hsl(var(--background))",
+                color: preview ? (calculateLuminance(selectedColor) > 0.5 ? "black" : "white") : "",
               }}
               // 0.179
               {...textInputProps}

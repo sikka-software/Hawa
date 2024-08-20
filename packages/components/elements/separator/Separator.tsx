@@ -17,9 +17,7 @@ const Separator: React.FC<SeparatorProps> = ({
   <div
     className={cn(
       "hawa-shrink-0 hawa-bg-border",
-      orientation === "horizontal"
-        ? "hawa-h-[1px] hawa-w-full"
-        : "hawa-h-full hawa-w-[1px]",
+      orientation === "horizontal" ? "hawa-h-[1px] hawa-w-full" : "hawa-h-full hawa-w-[1px]",
       className,
     )}
     {...props}

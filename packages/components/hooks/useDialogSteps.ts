@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export const useMultiStepDialog = (
-  initialStep: any,
-  stepIds: any[],
-  setOpenDialog: any,
-) => {
+export const useMultiStepDialog = (initialStep: any, stepIds: any[], setOpenDialog: any) => {
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [dialogHeight, setDialogHeight] = useState(null);
   const visibleStepRef = useRef<any>(null);

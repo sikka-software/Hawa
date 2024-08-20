@@ -33,16 +33,7 @@ export type ChipTypes = React.HTMLAttributes<HTMLSpanElement> & {
 
 export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
   (
-    {
-      label,
-      size = "normal",
-      icon,
-      color,
-      radius = "inherit",
-      dot,
-      dotStatus = "none",
-      ...rest
-    },
+    { label, size = "normal", icon, color, radius = "inherit", dot, dotStatus = "none", ...rest },
     ref,
   ) => {
     let defaultStyles =
@@ -53,8 +44,7 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
       none: "hawa-rounded-none",
     };
     let sizeStyles = {
-      small:
-        "hawa-h-[15px] hawa-leading-4 hawa-px-0 hawa-py-0 hawa-text-[9px] hawa-gap-0.5 ",
+      small: "hawa-h-[15px] hawa-leading-4 hawa-px-0 hawa-py-0 hawa-text-[9px] hawa-gap-0.5 ",
       normal: "hawa-h-fit hawa-text-xs",
       large: "hawa-text-base",
     };
@@ -98,11 +88,7 @@ export const Chip = React.forwardRef<HTMLSpanElement, ChipTypes>(
             rest.className,
           )}
         >
-          {dot && (
-            <span
-              className={cn(dotStyles[size], dotStatusStyles[dotStatus])}
-            ></span>
-          )}
+          {dot && <span className={cn(dotStyles[size], dotStatusStyles[dotStatus])}></span>}
           {icon && icon}
           {label}
         </span>

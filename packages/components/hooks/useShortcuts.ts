@@ -98,11 +98,7 @@ export function getHotkeyHandler(hotkeys: HotkeyItem[]) {
   };
 }
 
-export type HotkeyItem = [
-  string,
-  (event: KeyboardEvent) => void,
-  HotkeyItemOptions?,
-];
+export type HotkeyItem = [string, (event: KeyboardEvent) => void, HotkeyItemOptions?];
 
 function shouldFireEvent(
   event: KeyboardEvent,
@@ -114,10 +110,7 @@ function shouldFireEvent(
       return !tagsToIgnore.includes(event.target.tagName);
     }
 
-    return (
-      !event.target.isContentEditable &&
-      !tagsToIgnore.includes(event.target.tagName)
-    );
+    return !event.target.isContentEditable && !tagsToIgnore.includes(event.target.tagName);
   }
 
   return true;
@@ -130,24 +123,21 @@ export function useShortcuts(
 ) {
   useEffect(() => {
     const keydownListener = (event: KeyboardEvent) => {
-      hotkeys.forEach(
-        ([hotkey, handler, options = { preventDefault: true }]) => {
-          if (
-            getHotkeyMatcher(hotkey)(event) &&
-            shouldFireEvent(event, tagsToIgnore, triggerOnContentEditable)
-          ) {
-            if (options.preventDefault) {
-              event.preventDefault();
-            }
-
-            handler(event);
+      hotkeys.forEach(([hotkey, handler, options = { preventDefault: true }]) => {
+        if (
+          getHotkeyMatcher(hotkey)(event) &&
+          shouldFireEvent(event, tagsToIgnore, triggerOnContentEditable)
+        ) {
+          if (options.preventDefault) {
+            event.preventDefault();
           }
-        },
-      );
+
+          handler(event);
+        }
+      });
     };
 
     document.documentElement.addEventListener("keydown", keydownListener);
-    return () =>
-      document.documentElement.removeEventListener("keydown", keydownListener);
+    return () => document.documentElement.removeEventListener("keydown", keydownListener);
   }, [hotkeys]);
 }

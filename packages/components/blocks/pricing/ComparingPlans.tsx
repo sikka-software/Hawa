@@ -7,12 +7,7 @@ import { Radio } from "@elements/radio";
 import { ScrollArea } from "@elements/scrollArea";
 import { Tooltip } from "@elements/tooltip";
 
-import {
-  PlanFeature,
-  PricingPlanTexts,
-  DirectionType,
-  RadioOptionType,
-} from "@_types/index";
+import { PlanFeature, PricingPlanTexts, DirectionType, RadioOptionType } from "@_types/index";
 
 import { Chip } from "../../elements/chip";
 import { CheckMark, UncheckMark } from "../../icons";
@@ -40,11 +35,7 @@ type ComparingPlansTypes = {
 export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
   // Extracting unique features from all plans
   const uniqueFeatures = Array.from(
-    new Set(
-      props.plans.flatMap((plan) =>
-        plan.features.map((feature) => feature.text),
-      ),
-    ),
+    new Set(props.plans.flatMap((plan) => plan.features.map((feature) => feature.text))),
   );
 
   return (
@@ -95,9 +86,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
             <div className="hawa-flex hawa-flex-col hawa-gap-2">
               <div className="hawa-flex hawa-flex-col">
                 {/* hawa-text-gray-500 dark:hawa-text-gray-400 */}
-                <span className="hawa-text-md hawa-font-bold">
-                  {plan.texts.title}
-                </span>
+                <span className="hawa-text-md hawa-font-bold">{plan.texts.title}</span>
 
                 <span className="hawa-text-md hawa-font-normal hawa-text-muted-foreground">
                   {plan.texts.subtitle}
@@ -138,9 +127,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
               <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2 hawa-text-foreground">
                 {featureText}
                 {props.plans.some((plan) =>
-                  plan.features.some(
-                    (feature) => feature.text === featureText && feature.hint,
-                  ),
+                  plan.features.some((feature) => feature.text === featureText && feature.hint),
                 ) && (
                   <Tooltip
                     side="right"
@@ -148,13 +135,9 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                       props.plans
                         .find(
                           (plan) =>
-                            plan.features.find(
-                              (feature) => feature.text === featureText,
-                            )?.hint,
+                            plan.features.find((feature) => feature.text === featureText)?.hint,
                         )
-                        ?.features.find(
-                          (feature) => feature.text === featureText,
-                        )?.hint
+                        ?.features.find((feature) => feature.text === featureText)?.hint
                     }
                   >
                     <svg
@@ -170,16 +153,13 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                   </Tooltip>
                 )}
                 {props.plans.some((plan) =>
-                  plan.features.some(
-                    (feature) => feature.text === featureText && feature.soon,
-                  ),
+                  plan.features.some((feature) => feature.text === featureText && feature.soon),
                 ) && (
                   <Chip
                     label={
                       props.plans.find((plan) =>
                         plan.features.some(
-                          (feature) =>
-                            feature.text === featureText && feature.soon,
+                          (feature) => feature.text === featureText && feature.soon,
                         ),
                       )?.texts?.soon || "Soon"
                     }
@@ -187,9 +167,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
                 )}
               </div>
               {props.plans.map((plan, planIndex) => {
-                const feature = plan.features.find(
-                  (f) => f.text === featureText,
-                );
+                const feature = plan.features.find((f) => f.text === featureText);
                 return (
                   <div
                     key={planIndex}
@@ -213,10 +191,7 @@ export const ComparingPlans: FC<ComparingPlansTypes> = (props) => {
           <div className="hawa-flex hawa-items-center"></div>
 
           {props.plans.map((plan, i) => (
-            <div
-              key={i}
-              className="hawa-flex hawa-items-center hawa-justify-center"
-            >
+            <div key={i} className="hawa-flex hawa-items-center hawa-justify-center">
               {/* Replace with actual button element or component */}
               <Button
                 className="hawa-w-full hawa-max-w-xs"

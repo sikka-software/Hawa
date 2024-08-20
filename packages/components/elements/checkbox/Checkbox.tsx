@@ -14,8 +14,7 @@ type CheckBoxTypes = {
   radius?: RadiusType;
 };
 
-type CheckboxProps = CheckBoxTypes &
-  React.ComponentProps<typeof CheckboxElement>;
+type CheckboxProps = CheckBoxTypes & React.ComponentProps<typeof CheckboxElement>;
 
 export const Checkbox: React.FC<CheckboxProps> = ({
   id,
@@ -42,13 +41,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         size === "default" ? "hawa-items-top" : "hawa-items-center",
       )}
     >
-      <CheckboxElement
-        {...props}
-        size={size}
-        radius={radius}
-        disabled={disabled}
-        id={id}
-      />
+      <CheckboxElement {...props} size={size} radius={radius} disabled={disabled} id={id} />
       {(label || helperText) && (
         <div className={"hawa-grid hawa-gap-1.5"}>
           {label && (
@@ -139,9 +132,7 @@ const CheckboxElement = React.forwardRef<
       {...props}
     >
       <CheckboxPrimitive.Indicator
-        className={cn(
-          "hawa-flex hawa-items-center hawa-justify-center hawa-text-current",
-        )}
+        className={cn("hawa-flex hawa-items-center hawa-justify-center hawa-text-current")}
       >
         <svg
           aria-label="Check Mark"

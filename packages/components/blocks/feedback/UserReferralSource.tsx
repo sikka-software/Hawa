@@ -58,24 +58,18 @@ export const UserReferralSource: FC<ComponentTypes> = ({
   ];
   return (
     <div
-      className={cn(
-        "hawa-transition-all",
-        closed ? "hawa-opacity-0" : "hawa-opacity-100",
-      )}
+      className={cn("hawa-transition-all", closed ? "hawa-opacity-0" : "hawa-opacity-100")}
       ref={popUpRef}
     >
       <Card
-        className={cn(
-          "hawa-fixed hawa-bottom-4 hawa-p-0 ",
-          boxPosition[position],
-        )}
+        className={cn("hawa-fixed hawa-bottom-4 hawa-p-0", boxPosition[position])}
         dir={props.direction}
       >
         <button
           type="button"
           className={cn(
             props.direction === "rtl" ? "hawa-left-2" : "hawa-right-2",
-            "hawa-absolute  hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white",
+            "hawa-absolute hawa-top-2 hawa-inline-flex hawa-h-8 hawa-w-8 hawa-rounded hawa-p-1.5 hawa-text-gray-400 hawa-transition-all hover:hawa-bg-gray-100 hover:hawa-text-gray-900 focus:hawa-ring-2 focus:hawa-ring-gray-300 dark:hawa-bg-gray-800 dark:hawa-text-gray-500 dark:hover:hawa-bg-gray-700 dark:hover:hawa-text-white",
           )}
           data-dismiss-target="#toast-default"
           aria-label="Close"
@@ -119,7 +113,7 @@ export const UserReferralSource: FC<ComponentTypes> = ({
               )}
             >
               <div className="hawa-mt-4 hawa-font-bold">{props.question}</div>
-              <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded ">
+              <div className="hawa-flex hawa-w-full hawa-flex-row hawa-gap-1 hawa-rounded">
                 <Controller
                   control={control}
                   name="source"

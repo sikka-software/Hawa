@@ -7,8 +7,7 @@ import { Skeleton } from "@elements/skeleton";
 import { HelperText } from "../helperText";
 import { Label, LabelProps } from "../label";
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   helperText?: any;
   isLoading?: boolean;
   /** The label of the input field   */
@@ -49,11 +48,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <div className="hawa-flex hawa-flex-row hawa-justify-between">
           {props.label && <Label {...labelProps}>{props.label}</Label>}
           {showCount && countPosition === "top" && (
-            <div
-              className={
-                "hawa-text-start hawa-text-xs hawa-transition-all hawa-leading-none"
-              }
-            >
+            <div className={"hawa-text-start hawa-text-xs hawa-transition-all hawa-leading-none"}>
               {textareaProps?.value ? String(textareaProps?.value).length : 0}/
               {textareaProps?.maxLength}
             </div>

@@ -135,11 +135,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleApple}
         >
-          {props.isAppleLoading ? (
-            <Loading size="button" />
-          ) : (
-            <Logos.apple className="hawa-icon" />
-          )}
+          {props.isAppleLoading ? <Loading size="button" /> : <Logos.apple className="hawa-icon" />}
 
           {props.texts?.continueWithApple ?? "Continue With Apple"}
         </Button>
@@ -170,11 +166,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handleEmail}
         >
-          {props.isEmailLoading ? (
-            <Loading size="button" />
-          ) : (
-            <Logos.mail className="hawa-icon" />
-          )}
+          {props.isEmailLoading ? <Loading size="button" /> : <Logos.mail className="hawa-icon" />}
           {props.texts?.continueWithEmail ?? "Continue With Email"}
         </Button>
       )}
@@ -187,11 +179,7 @@ export const AuthButtons: React.FC<AuthButtonsType> = (props) => {
           variant="outline"
           onClick={props.handlePhone}
         >
-          {props.isPhoneLoading ? (
-            <Loading size="button" />
-          ) : (
-            <Logos.phone className="hawa-icon" />
-          )}
+          {props.isPhoneLoading ? <Loading size="button" /> : <Logos.phone className="hawa-icon" />}
           {props.texts?.continueWithPhone ?? "Continue With Phone"}
         </Button>
       )}

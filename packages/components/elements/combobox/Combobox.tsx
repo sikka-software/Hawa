@@ -81,9 +81,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
         setOpen(open);
       }
     };
-    const selectedItem = data.find(
-      (item) => getProperty(item, valueKey) === value,
-    );
+    const selectedItem = data.find((item) => getProperty(item, valueKey) === value);
 
     return (
       <div
@@ -163,8 +161,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
           >
             <Command
               filter={(value, search) => {
-                if (value.toLowerCase().includes(search.toLowerCase()))
-                  return 1;
+                if (value.toLowerCase().includes(search.toLowerCase())) return 1;
                 return 0;
               }}
             >
@@ -175,28 +172,19 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                   placeholder={props.texts?.searchPlaceholder || "Search"}
                 />
               )}
-              <CommandEmpty>
-                {props.texts?.noItems || "No items found."}
-              </CommandEmpty>
+              <CommandEmpty>{props.texts?.noItems || "No items found."}</CommandEmpty>
               <CommandList>
                 <CommandGroup
-                  className={cn(
-                    "hawa-max-h-[200px]",
-                    data.length > 0 && "hawa-overflow-y-auto",
-                  )}
+                  className={cn("hawa-max-h-[200px]", data.length > 0 && "hawa-overflow-y-auto")}
                 >
                   {data.map((item: any, i) => (
                     <CommandItem
                       key={i}
                       onSelect={() => {
                         const newValue = getProperty(item, valueKey);
-                        setValue(
-                          newValue === value ? "" : (newValue as string),
-                        );
+                        setValue(newValue === value ? "" : (newValue as string));
                         if (props.onChange) {
-                          props.onChange(
-                            newValue === value ? "" : (newValue as string),
-                          );
+                          props.onChange(newValue === value ? "" : (newValue as string));
                         }
                         setOpen(false);
                       }}
@@ -222,9 +210,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxTypes<any>>(
                       >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      {renderOption
-                        ? renderOption(item)
-                        : getProperty(item, labelKey)}
+                      {renderOption ? renderOption(item) : getProperty(item, labelKey)}
                     </CommandItem>
                   ))}
                 </CommandGroup>

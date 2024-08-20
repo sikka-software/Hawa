@@ -14,16 +14,7 @@ type CardContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  (
-    {
-      className,
-      variant = "default",
-      clickable = false,
-      asContainer = false,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, variant = "default", clickable = false, asContainer = false, ...props }, ref) => {
     let variantStyles = {
       default: cn(
         "hawa-rounded hawa-border hawa-bg-card hawa-text-card-foreground hawa-shadow-sm",
@@ -38,11 +29,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       ),
     };
     return (
-      <div
-        ref={ref}
-        className={cn(!asContainer && variantStyles[variant], className)}
-        {...props}
-      />
+      <div ref={ref} className={cn(!asContainer && variantStyles[variant], className)} {...props} />
     );
   },
 );
@@ -55,35 +42,23 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
     <div className="hawa-flex hawa-flex-row hawa-justify-between">
       <div
         ref={ref}
-        className={cn(
-          "hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-p-6",
-          className,
-        )}
+        className={cn("hawa-flex hawa-flex-col hawa-space-y-1.5 hawa-p-6", className)}
         {...props}
       />
       {props.actions && <div className="hawa-p-6">{props.actions}</div>}
     </div>
   ),
 );
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn("hawa-text-2xl hawa-font-semibold", className)}
-    {...props}
-  />
-));
+const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h3 ref={ref} className={cn("hawa-text-2xl hawa-font-semibold", className)} {...props} />
+  ),
+);
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("hawa-text-sm hawa-text-muted-foreground", className)}
-    {...props}
-  />
+  <p ref={ref} className={cn("hawa-text-sm hawa-text-muted-foreground", className)} {...props} />
 ));
 const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ headless, noPadding, className, ...props }, ref) => (
@@ -120,11 +95,4 @@ CardFooter.displayName = "CardFooter";
 CardTitle.displayName = "CardTitle";
 Card.displayName = "Card";
 
-export {
-  CardDescription,
-  CardContent,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  Card,
-};
+export { CardDescription, CardContent, CardHeader, CardFooter, CardTitle, Card };

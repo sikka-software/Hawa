@@ -56,18 +56,13 @@ export const DocsSidebar: React.FC<DocsSidebarType> = ({
     ltr: "hawa-border-l-4  hawa-border-primary hawa-border-collapse hawa-bg-gray-200",
   };
   return (
-    <div
-      className="hawa-flex hawa-flex-col hawa-overflow-x-clip"
-      dir={direction}
-    >
+    <div className="hawa-flex hawa-flex-col hawa-overflow-x-clip" dir={direction}>
       {pages.map((page, index) => (
         <div
           key={index}
           className={cn(
             "hawa-cursor-pointer hawa-whitespace-nowrap hawa-px-3 hawa-py-1 hawa-text-xs hawa-transition-all hover:hawa-bg-gray-100",
-            (propCurrentPage || activePage) === page
-              ? selectedStyles[direction || "rtl"]
-              : "",
+            (propCurrentPage || activePage) === page ? selectedStyles[direction || "rtl"] : "",
           )}
           onClick={(event) => handlePageClick(page, event)}
         >

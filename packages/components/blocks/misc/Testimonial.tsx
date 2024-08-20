@@ -12,9 +12,8 @@ export const Testimonial: FC<TestimonialProps> = () => {
       <CardContent headless>
         <div>
           <p className="mb-4 max-w-sm">
-            The team at Sikka Software is simply amazing. The tech is easy to
-            follow, easy to work with, and infinitely flexible. The solution
-            opportunities created by Tines are endless.
+            The team at Sikka Software is simply amazing. The tech is easy to follow, easy to work
+            with, and infinitely flexible. The solution opportunities created by Tines are endless.
           </p>
         </div>
         <div className="flex flex-row gap-4">

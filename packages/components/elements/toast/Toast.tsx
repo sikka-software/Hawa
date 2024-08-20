@@ -17,12 +17,9 @@ const toastVariants = cva(
       },
       severity: {
         info: "hawa-info hawa-group hawa-text-info-foreground hawa-bg-info",
-        warning:
-          "hawa-warning hawa-group hawa-text-warning-foreground hawa-bg-warning",
-        error:
-          "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-white",
-        success:
-          "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
+        warning: "hawa-warning hawa-group hawa-text-warning-foreground hawa-bg-warning",
+        error: "hawa-error hawa-group hawa-border-error hawa-bg-error hawa-text-white",
+        success: "hawa-success hawa-group hawa-text-success-foreground hawa-bg-success",
         none: "",
       },
     },
@@ -139,11 +136,7 @@ const ToastTitle = React.forwardRef<
 >(({ className, size = "default", ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
-    className={cn(
-      "hawa-select-text hawa-text-sm hawa-font-semibold",
-      sizeStyles[size],
-      className,
-    )}
+    className={cn("hawa-select-text hawa-text-sm hawa-font-semibold", sizeStyles[size], className)}
     {...props}
   />
 ));
@@ -157,11 +150,7 @@ const ToastDescription = React.forwardRef<
 >(({ className, size = "default", ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn(
-      "hawa-select-text hawa-opacity-90",
-      sizeStyles[size],
-      className,
-    )}
+    className={cn("hawa-select-text hawa-opacity-90", sizeStyles[size], className)}
     {...props}
   />
 ));

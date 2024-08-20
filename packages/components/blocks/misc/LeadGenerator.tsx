@@ -2,13 +2,7 @@ import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import { Button } from "@elements/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@elements/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@elements/card";
 import { Input } from "@elements/input";
 
 type LGProps = {
@@ -54,9 +48,7 @@ export const LeadGenerator: FC<LGProps> = ({ texts, submitHandler }) => {
               },
             }}
             defaultValue=""
-            render={({ field }) => (
-              <Input {...field} type="email" placeholder="example@sikka.io" />
-            )}
+            render={({ field }) => <Input {...field} type="email" placeholder="example@sikka.io" />}
           />
           <Button type="submit" disabled={!formState.isValid}>
             {texts?.submit ?? "Submit"}

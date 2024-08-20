@@ -28,10 +28,7 @@ export const DestroyableCard: FC<DestroyableCard> = ({
 
   return (
     <div
-      className={cn(
-        "hawa-transition-all",
-        closed ? "hawa-opacity-0" : "hawa-opacity-100",
-      )}
+      className={cn("hawa-transition-all", closed ? "hawa-opacity-0" : "hawa-opacity-100")}
       ref={popUpRef}
     >
       <Card

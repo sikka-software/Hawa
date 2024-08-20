@@ -7,17 +7,8 @@ import { Popover } from "../popover";
 type PasswordInputIndicatorProps = {
   strength?: any;
 };
-export const PasswordStrengthIndicator: React.FC<
-  PasswordInputIndicatorProps
-> = ({ strength }) => {
-  const strengthLevels = [
-    "none",
-    "very-weak",
-    "weak",
-    "medium",
-    "strong",
-    "very-strong",
-  ];
+export const PasswordStrengthIndicator: React.FC<PasswordInputIndicatorProps> = ({ strength }) => {
+  const strengthLevels = ["none", "very-weak", "weak", "medium", "strong", "very-strong"];
   const strengthColors: any = {
     none: "hawa-bg-red-700",
     "very-weak": "hawa-bg-red-600",
@@ -51,10 +42,7 @@ type PasswordInputType = {
   hidePopover?: boolean;
 };
 
-export const PasswordInput: React.FC<PasswordInputType> = ({
-  hidePopover,
-  ...props
-}) => {
+export const PasswordInput: React.FC<PasswordInputType> = ({ hidePopover, ...props }) => {
   const [inputValue, setInputValue] = useState("");
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [currentStr, setCurrentStr] = useState(0);
@@ -159,43 +147,23 @@ export const PasswordInput: React.FC<PasswordInputType> = ({
         <div className="hawa-rounded hawa-p-2">
           <ul className="hawa-rounded hawa-p-2">
             <li className={getCriteriaClass(lengthCriteriaMet)}>
-              {lengthCriteriaMet ? (
-                <CheckMark size="sm" />
-              ) : (
-                <UncheckMark size="sm" />
-              )}
+              {lengthCriteriaMet ? <CheckMark size="sm" /> : <UncheckMark size="sm" />}
               At least 8 characters long
             </li>
             <li className={getCriteriaClass(numberCriteriaMet)}>
-              {numberCriteriaMet ? (
-                <CheckMark size="sm" />
-              ) : (
-                <UncheckMark size="sm" />
-              )}
+              {numberCriteriaMet ? <CheckMark size="sm" /> : <UncheckMark size="sm" />}
               At least 1 number
             </li>
             <li className={getCriteriaClass(specialCharCriteriaMet)}>
-              {specialCharCriteriaMet ? (
-                <CheckMark size="sm" />
-              ) : (
-                <UncheckMark size="sm" />
-              )}
+              {specialCharCriteriaMet ? <CheckMark size="sm" /> : <UncheckMark size="sm" />}
               At least 1 special character
             </li>
             <li className={getCriteriaClass(lowercaseCriteriaMet)}>
-              {lowercaseCriteriaMet ? (
-                <CheckMark size="sm" />
-              ) : (
-                <UncheckMark size="sm" />
-              )}
+              {lowercaseCriteriaMet ? <CheckMark size="sm" /> : <UncheckMark size="sm" />}
               At least 1 lowercase letter
             </li>
             <li className={getCriteriaClass(uppercaseCriteriaMet)}>
-              {uppercaseCriteriaMet ? (
-                <CheckMark size="sm" />
-              ) : (
-                <UncheckMark size="sm" />
-              )}
+              {uppercaseCriteriaMet ? <CheckMark size="sm" /> : <UncheckMark size="sm" />}
               At least 1 uppercase letter
             </li>
           </ul>

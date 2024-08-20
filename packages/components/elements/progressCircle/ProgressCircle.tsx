@@ -32,84 +32,75 @@ function getLimitedValue(input: number | undefined) {
     return input;
   }
 }
-export const ProgressCircle = React.forwardRef<
-  HTMLDivElement,
-  ProgressCircleProps
->((props, ref) => {
-  const {
-    value: inputValue,
-    size = "md",
-    className,
-    showAnimation = true,
-    color,
-    tooltip,
-    radius: inputRadius,
-    strokeWidth: inputStrokeWidth,
-    children,
-    ...other
-  } = props;
+export const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>(
+  (props, ref) => {
+    const {
+      value: inputValue,
+      size = "md",
+      className,
+      showAnimation = true,
+      color,
+      tooltip,
+      radius: inputRadius,
+      strokeWidth: inputStrokeWidth,
+      children,
+      ...other
+    } = props;
 
-  const value = getLimitedValue(inputValue);
-  const radius = inputRadius ?? size2config[size].radius;
-  const strokeWidth = inputStrokeWidth ?? size2config[size].strokeWidth;
-  const normalizedRadius = radius - strokeWidth / 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const strokeDashoffset = (value / 100) * circumference;
-  const offset = circumference - strokeDashoffset;
+    const value = getLimitedValue(inputValue);
+    const radius = inputRadius ?? size2config[size].radius;
+    const strokeWidth = inputStrokeWidth ?? size2config[size].strokeWidth;
+    const normalizedRadius = radius - strokeWidth / 2;
+    const circumference = normalizedRadius * 2 * Math.PI;
+    const strokeDashoffset = (value / 100) * circumference;
+    const offset = circumference - strokeDashoffset;
 
-  return (
-    <>
-      <div
-        ref={ref}
-        className={cn(
-          "hawa-flex hawa-flex-col hawa-items-center hawa-justify-center",
-          className,
-        )}
-      >
-        <svg
-          width={radius * 2}
-          height={radius * 2}
-          viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-          className="hawa-rotate-180 hawa-transform"
+    return (
+      <>
+        <div
+          ref={ref}
+          className={cn("hawa-flex hawa-flex-col hawa-items-center hawa-justify-center", className)}
         >
-          <circle
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-            strokeWidth={strokeWidth}
-            fill="transparent"
-            stroke=""
-            strokeLinecap="round"
-            className={cn(
-              "hawa-transition-colors hawa-ease-linear",
-              "hawa-stroke-primary/20",
-            )}
-          />
-          {value > 0 ? (
+          <svg
+            width={radius * 2}
+            height={radius * 2}
+            viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+            className="hawa-rotate-180 hawa-transform"
+          >
             <circle
               r={normalizedRadius}
               cx={radius}
               cy={radius}
               strokeWidth={strokeWidth}
-              strokeDasharray={circumference + " " + circumference}
-              strokeDashoffset={offset}
               fill="transparent"
               stroke=""
               strokeLinecap="round"
-              className={cn(
-                "hawa-transition-colors hawa-ease-linear",
-                "hawa-stroke-primary",
-                showAnimation
-                  ? "hawa-transition-all hawa-duration-300 hawa-ease-in-out"
-                  : "",
-              )}
+              className={cn("hawa-transition-colors hawa-ease-linear", "hawa-stroke-primary/20")}
             />
-          ) : null}
-        </svg>
-        <div className={cn("hawa-absolute hawa-flex")}>{children}</div>
-      </div>
-    </>
-  );
-});
+            {value > 0 ? (
+              <circle
+                r={normalizedRadius}
+                cx={radius}
+                cy={radius}
+                strokeWidth={strokeWidth}
+                strokeDasharray={circumference + " " + circumference}
+                strokeDashoffset={offset}
+                fill="transparent"
+                stroke=""
+                strokeLinecap="round"
+                className={cn(
+                  "hawa-transition-colors hawa-ease-linear",
+                  "hawa-stroke-primary",
+                  showAnimation ? "hawa-transition-all hawa-duration-300 hawa-ease-in-out" : "",
+                )}
+              />
+            ) : null}
+          </svg>
+          <div className={cn("hawa-absolute hawa-flex")}>{children}</div>
+        </div>
+      </>
+    );
+  },
+);
 
 ProgressCircle.displayName = "ProgressCircle";

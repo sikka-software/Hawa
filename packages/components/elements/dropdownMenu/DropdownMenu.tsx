@@ -27,9 +27,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     )}
     {...props}
   >
-    <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">
-      {children}
-    </div>{" "}
+    <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">{children}</div>{" "}
     <svg
       aria-label="Chevron Right Icon"
       stroke="currentColor"
@@ -47,8 +45,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     </svg>
   </DropdownMenuPrimitive.SubTrigger>
 ));
-DropdownMenuSubTrigger.displayName =
-  DropdownMenuPrimitive.SubTrigger.displayName;
+DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -63,8 +60,7 @@ const DropdownMenuSubContent = React.forwardRef<
     {...props}
   />
 ));
-DropdownMenuSubContent.displayName =
-  DropdownMenuPrimitive.SubContent.displayName;
+DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
@@ -103,17 +99,12 @@ const DropdownMenuItem = React.forwardRef<
         className={cn(
           "hawa-relative hawa-flex hawa-cursor-pointer hawa-select-none hawa-items-center hawa-justify-between hawa-rounded-sm hawa-text-sm hawa-outline-none hawa-transition-colors focus:hawa-text-accent-foreground data-[disabled]:hawa-pointer-events-none data-[disabled]:hawa-opacity-50",
           inset && "hawa-pl-8",
-          props.end &&
-            Array.isArray(props.children) &&
-            props.children[1] &&
-            "hawa-gap-6",
+          props.end && Array.isArray(props.children) && props.children[1] && "hawa-gap-6",
           className,
         )}
         {...props}
       >
-        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">
-          {props.children}
-        </div>
+        <div className="hawa-flex hawa-flex-row hawa-items-center hawa-gap-2">{props.children}</div>
 
         {props.end && props.end}
         {!props.end && props.shortcut && (
@@ -160,8 +151,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     {children}
   </DropdownMenuPrimitive.CheckboxItem>
 ));
-DropdownMenuCheckboxItem.displayName =
-  DropdownMenuPrimitive.CheckboxItem.displayName;
+DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
 
 const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
@@ -229,16 +219,10 @@ const DropdownMenuSeparator = React.forwardRef<
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-const DropdownMenuShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className={cn(
-        "hawa-text-xs hawa-tracking-widest hawa-opacity-60",
-        className,
-      )}
+      className={cn("hawa-text-xs hawa-tracking-widest hawa-opacity-60", className)}
       {...props}
     />
   );
@@ -346,17 +330,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     default: "hawa-px-2 hawa-py-3 ",
     sm: "hawa-text-xs hawa-px-1.5 hawa-py-1.5 ",
   };
-  let [values, setValues] = React.useState(
-    items.map((item) => item.currentOption),
-  );
+  let [values, setValues] = React.useState(items.map((item) => item.currentOption));
 
   return (
-    <DropdownMenuRoot
-      onOpenChange={onOpenChange}
-      open={open}
-      modal={false}
-      dir={direction}
-    >
+    <DropdownMenuRoot onOpenChange={onOpenChange} open={open} modal={false} dir={direction}>
       <DropdownMenuTrigger
         asChild
         className={cn(classNames?.trigger, triggerClassname)}
@@ -386,26 +363,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             items.map((item, index) => {
               const ItemLinkComponent = item.slug ? LinkComponent : "a";
               if (item.itemType === "separator") {
-                return (
-                  <DropdownMenuSeparator
-                    key={index}
-                    className={classNames?.separator}
-                  />
-                );
+                return <DropdownMenuSeparator key={index} className={classNames?.separator} />;
               } else if (item.itemType === "label") {
-                return (
-                  <DropdownMenuLabel key={index}>
-                    {item.label}
-                  </DropdownMenuLabel>
-                );
+                return <DropdownMenuLabel key={index}>{item.label}</DropdownMenuLabel>;
               } else if (item.itemType === "radio") {
                 let dd = item.currentOption;
                 return (
                   <DropdownMenuSub key={index}>
-                    <DropdownMenuSubTrigger
-                      dir={direction}
-                      className={cn(sizeStyles[size])}
-                    >
+                    <DropdownMenuSubTrigger dir={direction} className={cn(sizeStyles[size])}>
                       {item.icon && item.icon}
                       {item.label && item.label}
                     </DropdownMenuSubTrigger>
@@ -436,19 +401,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
               } else {
                 return item.subitems ? (
                   <DropdownMenuSub key={index}>
-                    <DropdownMenuSubTrigger
-                      dir={direction}
-                      className={cn(sizeStyles[size])}
-                    >
+                    <DropdownMenuSubTrigger dir={direction} className={cn(sizeStyles[size])}>
                       {item.icon && item.icon}
                       {item.label && item.label}
                     </DropdownMenuSubTrigger>
                     <Portal>
                       <DropdownMenuSubContent>
                         {item.subitems.map((subitem, subIndex) => {
-                          const SubitemLinkComponent = subitem.slug
-                            ? LinkComponent
-                            : "a";
+                          const SubitemLinkComponent = subitem.slug ? LinkComponent : "a";
                           return (
                             <DropdownMenuItem
                               key={subIndex}
@@ -462,10 +422,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                                   : "focus:hawa-bg-accent",
                               )}
                               onMouseDown={(event: any) => {
-                                if (
-                                  event.button === 1 ||
-                                  (event.button === 0 && event.ctrlKey)
-                                ) {
+                                if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
                                   event.preventDefault(); // This line prevents the default behavior of the middle button
                                   if (subitem.onMiddleClick) {
                                     subitem.onMiddleClick(item.value);
@@ -494,10 +451,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     key={index}
                     disabled={item.disabled}
                     onMouseDown={(event: any) => {
-                      if (
-                        event.button === 1 ||
-                        (event.button === 0 && event.ctrlKey)
-                      ) {
+                      if (event.button === 1 || (event.button === 0 && event.ctrlKey)) {
                         event.preventDefault(); // This line prevents the default behavior of the middle button
                         if (item.onMiddleClick) {
                           item.onMiddleClick(item.value);
@@ -561,9 +515,7 @@ interface DropdownMenuRadioProps {
   onValueChange: any;
   label?: string;
   contentProps?: ExtendedDropdownMenuContentProps;
-  radioGroupProps?: React.ComponentPropsWithoutRef<
-    typeof DropdownMenuPrimitive.RadioGroup
-  >;
+  radioGroupProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioGroup>;
 }
 const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
   const ariaLabel = props.label ? `${props.label} radio group` : undefined;
@@ -581,9 +533,7 @@ const DropdownMenuRadio: React.FC<DropdownMenuRadioProps> = (props) => {
       >
         {props.label && (
           <>
-            <DropdownMenuLabel id={`${props.label}-label`}>
-              {props.label}
-            </DropdownMenuLabel>
+            <DropdownMenuLabel id={`${props.label}-label`}>{props.label}</DropdownMenuLabel>
             <DropdownMenuSeparator />
           </>
         )}

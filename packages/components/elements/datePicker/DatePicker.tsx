@@ -30,10 +30,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       >
         {trigger}
       </PopoverTrigger>
-      <PopoverContent
-        align={props.dir === "rtl" ? "end" : "start"}
-        {...popoverContentProps}
-      >
+      <PopoverContent align={props.dir === "rtl" ? "end" : "start"} {...popoverContentProps}>
         <Calendar {...props} />
       </PopoverContent>
     </PopoverRoot>

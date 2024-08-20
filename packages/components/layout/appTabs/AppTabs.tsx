@@ -20,12 +20,7 @@ export const AppTabs: React.FC<AppTabsType> = ({ tabs, className }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <div
-      className={cn(
-        "hawa-w-full hawa-border-b hawa-bg-card hawa-p-6 hawa-pb-0",
-        className,
-      )}
-    >
+    <div className={cn("hawa-w-full hawa-border-b hawa-bg-card hawa-p-6 hawa-pb-0", className)}>
       <div className="hawa-flex hawa-flex-row hawa-justify-center">
         {tabs.map((tab: SingleAppTab, index: number) => {
           const selected = index === selectedIndex;

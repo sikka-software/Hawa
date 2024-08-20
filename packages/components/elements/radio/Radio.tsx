@@ -82,12 +82,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
       default: "hawa-max-w-fit",
       full: "hawa-w-full",
     };
-    const [parentDirection, setParentDirection] = React.useState<string | null>(
-      null,
-    );
-    const [selectedOption, setSelectedOption] = useState(
-      props.defaultValue || props.value,
-    );
+    const [parentDirection, setParentDirection] = React.useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState(props.defaultValue || props.value);
     const [openTooltip, setOpenTooltip] = useState<number | null>(null);
 
     const parentRef = useRef<HTMLDivElement>(null);
@@ -119,20 +115,14 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
       orientation === "horizontal" &&
         parentDirection === "rtl" &&
         "hawa-rounded-none first:hawa-rounded-r last:hawa-rounded-l",
-      orientation === "vertical" &&
-        "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
+      orientation === "vertical" && "hawa-rounded-none first:hawa-rounded-t last:hawa-rounded-b",
       tabSizeStyle[size],
     ];
 
     switch (design) {
       case "tabs":
         return (
-          <div
-            className={cn(
-              "hawa-gap-2 hawa-flex hawa-flex-col",
-              containerClassNames?.tabs,
-            )}
-          >
+          <div className={cn("hawa-gap-2 hawa-flex hawa-flex-col", containerClassNames?.tabs)}>
             {props.label && <Label {...labelProps}>{props.label}</Label>}
             <Tabs>
               <TabsList
@@ -162,9 +152,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                         asChild
                       >
                         <TabsTrigger
-                          aria-current={
-                            selectedOption === opt.value ? "page" : undefined
-                          }
+                          aria-current={selectedOption === opt.value ? "page" : undefined}
                           value={opt.value}
                           role="tab"
                           tabIndex={0}
@@ -174,36 +162,28 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                           }}
                           className={cn(
                             ...radio_option_tabs_styling,
-                            selectedOption === opt.value
-                              ? activeTabStyle
-                              : inactiveTabStyle,
+                            selectedOption === opt.value ? activeTabStyle : inactiveTabStyle,
                           )}
                         >
                           {opt.icon && opt.icon}
                           {opt.label}
                         </TabsTrigger>
                       </PopoverTrigger>
-                      <PopoverContent {...opt.tooltipContentProps}>
-                        {opt.tooltip}
-                      </PopoverContent>
+                      <PopoverContent {...opt.tooltipContentProps}>{opt.tooltip}</PopoverContent>
                     </PopoverRoot>
                   ) : (
                     <TabsTrigger
                       key={o}
                       role="tab"
                       tabIndex={0}
-                      aria-current={
-                        selectedOption === opt.value ? "page" : undefined
-                      }
+                      aria-current={selectedOption === opt.value ? "page" : undefined}
                       onClick={() => {
                         if (props.disabled || opt.disabled) return;
                         handleChange(opt);
                       }}
                       className={cn(
                         ...radio_option_tabs_styling,
-                        selectedOption === opt.value
-                          ? activeTabStyle
-                          : inactiveTabStyle,
+                        selectedOption === opt.value ? activeTabStyle : inactiveTabStyle,
                       )}
                       value={opt.value}
                     >
@@ -214,9 +194,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                 })}
               </TabsList>
             </Tabs>
-            {!forceHideHelperText && (
-              <HelperText helperText={props.helperText} />
-            )}
+            {!forceHideHelperText && <HelperText helperText={props.helperText} />}
           </div>
         );
       case "bordered":
@@ -252,9 +230,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                       htmlFor={opt.value.toString()}
                       className={cn(
                         "hawa-ml-2 hawa-w-full hawa-select-none hawa-p-4 hawa-pl-3 hawa-text-sm hawa-font-medium hawa-text-black dark:hawa-text-white",
-                        opt.disabled
-                          ? "hawa-opacity-50"
-                          : "hawa-cursor-pointer hawa-text-gray-900",
+                        opt.disabled ? "hawa-opacity-50" : "hawa-cursor-pointer hawa-text-gray-900",
                       )}
                     >
                       {opt.label}
@@ -267,11 +243,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
       case "cards":
         return (
           <ul
-            className={cn(
-              orientationStyle[orientation],
-              "hawa-gap-4",
-              containerClassNames?.cards,
-            )}
+            className={cn(orientationStyle[orientation], "hawa-gap-4", containerClassNames?.cards)}
           >
             {props.options?.map((opt: any, o) => (
               <li key={o} onClick={() => handleChange(opt)}>
@@ -294,9 +266,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                   )}
                 >
                   <div className="hawa-block hawa-h-full hawa-w-full">
-                    <div className="hawa-w-full hawa-text-lg hawa-font-semibold">
-                      {opt.label}
-                    </div>
+                    <div className="hawa-w-full hawa-text-lg hawa-font-semibold">{opt.label}</div>
                     <div className="hawa-w-full">{opt.sublabel}</div>
                   </div>
                 </label>
@@ -307,12 +277,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
 
       default:
         return (
-          <div
-            className={cn(
-              "hawa-flex hawa-flex-col hawa-gap-2",
-              containerClassNames?.default,
-            )}
-          >
+          <div className={cn("hawa-flex hawa-flex-col hawa-gap-2", containerClassNames?.default)}>
             {props.label && <Label {...labelProps}>{props.label}</Label>}
             <div className={cn(orientationStyle[orientation], "hawa-gap-2")}>
               {props.options &&
@@ -320,9 +285,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioTypes>(
                   <div
                     className={cn(
                       "radio-item radio-item-default hawa-flex hawa-items-center hawa-transition-all",
-                      props.direction === "rtl"
-                        ? "margin-left right-3px"
-                        : "margin-right left-3px",
+                      props.direction === "rtl" ? "margin-left right-3px" : "margin-right left-3px",
                     )}
                     key={i + 1}
                   >

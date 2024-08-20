@@ -12,14 +12,7 @@ import { cn } from "@util/index";
 import { DirectionType } from "@_types/commonTypes";
 
 import { Skeleton } from "../skeleton";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../table";
 
 type SimpleTableProps<DataProps = {}> = {
   direction?: DirectionType;
@@ -61,12 +54,7 @@ export const SimpleTable = <DataProps extends {}>({
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div
-      className={cn(
-        "hawa-flex hawa-w-full hawa-flex-col hawa-gap-4",
-        classNames,
-      )}
-    >
+    <div className={cn("hawa-flex hawa-w-full hawa-flex-col hawa-gap-4", classNames)}>
       {props.isLoading ? (
         <Skeleton className="h-[130px] w-full" />
       ) : (
@@ -88,10 +76,7 @@ export const SimpleTable = <DataProps extends {}>({
                         >
                           {header.isPlaceholder
                             ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext(),
-                              )}
+                            : flexRender(header.column.columnDef.header, header.getContext())}
                         </TableHead>
                       );
                     })}
@@ -103,37 +88,26 @@ export const SimpleTable = <DataProps extends {}>({
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                  >
+                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
                         dir={props.direction}
                         padding={
-                          props.condensed
-                            ? "condensed"
-                            : cell.column.columnDef.meta?.padding
+                          props.condensed ? "condensed" : cell.column.columnDef.meta?.padding
                         }
                         style={{
                           maxWidth: cell.column.columnDef.maxSize,
                         }}
                         key={cell.id}
                       >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))}
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
-                  <TableCell
-                    colSpan={columns.length}
-                    className="hawa-h-24 hawa-text-center"
-                  >
+                  <TableCell colSpan={columns.length} className="hawa-h-24 hawa-text-center">
                     {props.texts?.noData}
                   </TableCell>
                 </TableRow>

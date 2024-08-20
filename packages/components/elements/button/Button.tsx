@@ -12,15 +12,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "hawa-bg-primary hawa-text-primary-foreground hover:hawa-bg-primary/90",
+        default: "hawa-bg-primary hawa-text-primary-foreground hover:hawa-bg-primary/90",
         light: "hawa-bg-primary/20 hawa-text-primary hover:hawa-bg-primary/40",
         destructive:
           "hawa-bg-destructive hawa-text-destructive-foreground hover:hawa-bg-destructive/90",
         outline:
           "hawa-border hawa-border-input hawa-bg-transparent hover:hawa-bg-accent hover:hawa-text-accent-foreground",
-        secondary:
-          "hawa-bg-secondary hawa-text-secondary-foreground hover:hawa-bg-secondary/80",
+        secondary: "hawa-bg-secondary hawa-text-secondary-foreground hover:hawa-bg-secondary/80",
         ghost: "hover:hawa-bg-accent hover:hawa-text-accent-foreground",
         link: "hawa-text-primary hawa-underline-offset-4 hover:hawa-underline",
         combobox: "hawa-bg-background hawa-border",
@@ -99,11 +97,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           >
             {isLoading ? (
               <Loading
-                design={
-                  size === "icon" || size === "smallIcon"
-                    ? "spinner"
-                    : "dots-pulse"
-                }
+                design={size === "icon" || size === "smallIcon" ? "spinner" : "dots-pulse"}
                 themeMode={variant === "outline" ? "light" : "dark"}
                 color={loadingColor}
                 size={size === "sm" || size === "xs" ? "xs" : "button"}
@@ -127,11 +121,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         >
           {isLoading ? (
             <Loading
-              design={
-                size === "icon" || size === "smallIcon"
-                  ? "spinner"
-                  : "dots-pulse"
-              }
+              design={size === "icon" || size === "smallIcon" ? "spinner" : "dots-pulse"}
               themeMode={variant === "outline" ? "light" : "dark"}
               color={loadingColor}
               size={size === "sm" || size === "xs" ? "xs" : "button"}

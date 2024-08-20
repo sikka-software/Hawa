@@ -53,12 +53,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
           />
         </div>
         {data.map((d, i) => (
-          <label
-            key={i}
-            htmlFor={d.title}
-            className=""
-            onClick={() => setSelectedCard(d.title)}
-          >
+          <label key={i} htmlFor={d.title} className="" onClick={() => setSelectedCard(d.title)}>
             <input
               type="radio"
               name="radio"
@@ -75,10 +70,7 @@ export const HorizontalPricing: FC<HorizontalPricingTypes> = (props) => {
             >
               <div className="hawa-peer hawa-flex hawa-items-center hawa-gap-4">
                 <CheckIcons />
-                <CardText
-                  title="Enterprise"
-                  subtitle="For startups and new businesses"
-                />
+                <CardText title="Enterprise" subtitle="For startups and new businesses" />
               </div>
 
               <CardPrice amount={d.price} cycle={d.cycle} />
@@ -120,17 +112,13 @@ const CheckIcons = () => (
 );
 const CardText = (props: any) => (
   <div className="hawa-peer hawa-flex hawa-flex-col hawa-items-start">
-    <h2 className="hawa-font-medium hawa-text-primary/90 sm:hawa-text-xl">
-      {props.title}
-    </h2>
+    <h2 className="hawa-font-medium hawa-text-primary/90 sm:hawa-text-xl">{props.title}</h2>
     <p className="hawa-text-sm hawa-text-primary/60">{props.subtitle} </p>
   </div>
 );
 const CardPrice = (props: any) => (
   <h2 className="hawa-peer hawa-text-xl hawa-font-semibold hawa-text-primary sm:hawa-text-2xl">
     {props.amount}
-    <span className="hawa-text-base hawa-font-medium hawa-text-neutral-400">
-      {props.cycle}
-    </span>
+    <span className="hawa-text-base hawa-font-medium hawa-text-neutral-400">{props.cycle}</span>
   </h2>
 );

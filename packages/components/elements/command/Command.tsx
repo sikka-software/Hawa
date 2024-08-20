@@ -8,8 +8,7 @@ import { DirectionType } from "@_types/commonTypes";
 
 import { DialogContent } from "../dialog";
 
-interface CommandProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive> {
+interface CommandProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive> {
   // Include additional props if necessary
 }
 
@@ -18,36 +17,31 @@ interface CommandDialogProps extends DialogProps {}
 export interface CommandInputProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
 
-interface CommandListProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> {}
+interface CommandListProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> {}
 
-interface CommandEmptyProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> {}
+interface CommandEmptyProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> {}
 
-interface CommandGroupProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> {}
+interface CommandGroupProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> {}
 
 interface CommandSeparatorProps
   extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator> {}
 
-interface CommandItemProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {}
+interface CommandItemProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {}
 
 interface CommandShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {}
 
-const Command = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
-  CommandProps
->(({ className, ...props }, ref) => (
-  <CommandPrimitive
-    ref={ref}
-    className={cn(
-      "hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-overflow-hidden hawa-rounded-md hawa-bg-popover hawa-text-popover-foreground",
-      className,
-    )}
-    {...props}
-  />
-));
+const Command = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, CommandProps>(
+  ({ className, ...props }, ref) => (
+    <CommandPrimitive
+      ref={ref}
+      className={cn(
+        "hawa-flex hawa-h-full hawa-w-full hawa-flex-col hawa-overflow-hidden hawa-rounded-md hawa-bg-popover hawa-text-popover-foreground",
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   return (
@@ -65,10 +59,7 @@ const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   CommandInputProps
 >(({ className, ...props }, ref) => (
-  <div
-    className="hawa-flex hawa-items-center hawa-border-b hawa-px-3"
-    cmdk-input-wrapper=""
-  >
+  <div className="hawa-flex hawa-items-center hawa-border-b hawa-px-3" cmdk-input-wrapper="">
     <svg
       aria-label="Search Icon"
       xmlns="http://www.w3.org/2000/svg"
@@ -102,10 +93,7 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn(
-      "hawa-max-h-[300px] hawa-overflow-y-auto hawa-overflow-x-hidden",
-      className,
-    )}
+    className={cn("hawa-max-h-[300px] hawa-overflow-y-auto hawa-overflow-x-hidden", className)}
     {...props}
   />
 ));
@@ -196,20 +184,10 @@ type FullCommandProps = {
   };
 };
 
-const FullCommand = ({
-  items,
-  direction = "ltr",
-  texts,
-  onActionClick,
-}: FullCommandProps) => {
+const FullCommand = ({ items, direction = "ltr", texts, onActionClick }: FullCommandProps) => {
   return (
-    <Command
-      dir={direction}
-      className="hawa-rounded-lg hawa-border hawa-shadow-md !hawa-h-full"
-    >
-      <CommandInput
-        placeholder={texts?.searchPlaceholder || "Type a command or search..."}
-      />
+    <Command dir={direction} className="hawa-rounded-lg hawa-border hawa-shadow-md !hawa-h-full">
+      <CommandInput placeholder={texts?.searchPlaceholder || "Type a command or search..."} />
       <CommandList>
         <CommandEmpty>{texts?.emptyText || "No results found."}</CommandEmpty>
         {items.map((item, index) => {
@@ -226,9 +204,7 @@ const FullCommand = ({
                   >
                     <subItem.icon className="hawa-icon hawa-me-2" />
                     <span>{subItem.label}</span>
-                    {subItem.shortcut && (
-                      <CommandShortcut>{subItem.shortcut}</CommandShortcut>
-                    )}
+                    {subItem.shortcut && <CommandShortcut>{subItem.shortcut}</CommandShortcut>}
                   </CommandItem>
                 ))}
               </CommandGroup>
@@ -248,11 +224,7 @@ type AppCommandProps = {
   dialogProps: DialogProps;
   onActionClick?: () => void;
 };
-const AppCommand = ({
-  commandProps,
-  dialogProps,
-  onActionClick,
-}: AppCommandProps) => {
+const AppCommand = ({ commandProps, dialogProps, onActionClick }: AppCommandProps) => {
   return (
     <Dialog {...dialogProps}>
       <DialogContent

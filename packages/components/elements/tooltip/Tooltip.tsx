@@ -75,19 +75,14 @@ const Tooltip: React.FunctionComponent<TooltipTypes> = ({
   ...props
 }) => {
   return (
-    <TooltipPrimitive.TooltipProvider
-      delayDuration={delayDuration}
-      {...providerProps}
-    >
+    <TooltipPrimitive.TooltipProvider delayDuration={delayDuration} {...providerProps}>
       <TooltipPrimitive.Root
         open={!disabled && open}
         defaultOpen={defaultOpen}
         onOpenChange={onOpenChange}
         {...props}
       >
-        <TooltipPrimitive.Trigger {...triggerProps}>
-          {children}
-        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger {...triggerProps}>{children}</TooltipPrimitive.Trigger>
         <TooltipContent
           size={size}
           side={side}

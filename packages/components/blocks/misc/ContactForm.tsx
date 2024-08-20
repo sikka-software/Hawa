@@ -6,13 +6,7 @@ import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Button } from "@elements/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@elements/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@elements/card";
 import { Input } from "@elements/input";
 import { Select } from "@elements/select";
 import { Textarea } from "@elements/textarea";
@@ -45,7 +39,6 @@ type ContactFormProps = {
   classNames?: {
     submitButton?: string;
     container?: string;
-    
   };
   texts?: {
     submit: string;
@@ -71,25 +64,22 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   ...props
 }) => {
   const customFieldsSchema = z.object({
-    ...customFields?.reduce(
-      (acc: { [key: string]: z.ZodType<any, any> }, curr: CustomField) => {
-        switch (curr.type) {
-          case "text":
-            acc[curr.name] = z.string().optional().default("");
-            break;
-          case "number":
-            acc[curr.name] = z.string().optional().default("");
-            break;
-          case "select":
-            acc[curr.name] = z.string().optional().default("");
-            break;
-          default:
-            break;
-        }
-        return acc;
-      },
-      {},
-    ),
+    ...customFields?.reduce((acc: { [key: string]: z.ZodType<any, any> }, curr: CustomField) => {
+      switch (curr.type) {
+        case "text":
+          acc[curr.name] = z.string().optional().default("");
+          break;
+        case "number":
+          acc[curr.name] = z.string().optional().default("");
+          break;
+        case "select":
+          acc[curr.name] = z.string().optional().default("");
+          break;
+        default:
+          break;
+      }
+      return acc;
+    }, {}),
   });
 
   const contactFormSchema = z.object({
@@ -156,8 +146,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     <Card
       className={cn(
         "hawa-w-full",
-        cardless &&
-          "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none",
+        cardless && "hawa-border-none hawa-bg-transparent hawa-shadow-none hawa-drop-shadow-none",
         classNames?.container,
       )}
       style={cardless ? { boxShadow: "none" } : undefined}
@@ -180,13 +169,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             autoComplete={formAutoComplete}
           >
             <div
-              className={cn(
-                "hawa-flex hawa-items-start hawa-justify-start hawa-gap-2",
-                {
-                  "hawa-flex-row": size === "default",
-                  "hawa-flex-col": size === "sm",
-                },
-              )}
+              className={cn("hawa-flex hawa-items-start hawa-justify-start hawa-gap-2", {
+                "hawa-flex-row": size === "default",
+                "hawa-flex-col": size === "sm",
+              })}
             >
               <Controller
                 control={control}
@@ -243,9 +229,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                               label={label}
                               options={customField.options || []}
                               value={field.value}
-                              onChange={(option: any) =>
-                                field.onChange(option.value)
-                              }
+                              onChange={(option: any) => field.onChange(option.value)}
                             />
                           );
                         default:
@@ -266,9 +250,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     placeholder: texts?.message.placeholder,
                     className: "hawa-min-h-20",
                     ...field,
-                    onKeyDown: getHotkeyHandler([
-                      ["mod+enter", () => SubmitForm(getValues())],
-                    ]),
+                    onKeyDown: getHotkeyHandler([["mod+enter", () => SubmitForm(getValues())]]),
                   }}
                   classNames={{ textarea: "hawa-min-h-40 hawa-h-full" }}
                   helperText={errors.message?.message}
@@ -276,10 +258,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               )}
             />
 
-            <Button
-              type="submit"
-              className={cn("hawa-w-full", classNames?.submitButton)}
-            >
+            <Button type="submit" className={cn("hawa-w-full", classNames?.submitButton)}>
               {texts?.submit || "Submit"}
             </Button>
           </form>

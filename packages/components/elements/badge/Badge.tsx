@@ -80,26 +80,13 @@ export const Badge: FC<BadgeTypes> = ({
   );
 };
 
-export const BadgedComponent = ({
-  children,
-  className,
-  hideBadge,
-  position,
-  size,
-  text,
-}: any) => {
+export const BadgedComponent = ({ children, className, hideBadge, position, size, text }: any) => {
   const ref = useRef(null);
 
   return (
     <div className={cn("hawa-relative hawa-w-fit", className)} ref={ref}>
       {!hideBadge && (
-        <Badge
-          size={size}
-          text={text}
-          position={position}
-          anchor={ref}
-          className="hawa-z-10"
-        />
+        <Badge size={size} text={text} position={position} anchor={ref} className="hawa-z-10" />
       )}
       {children}
     </div>

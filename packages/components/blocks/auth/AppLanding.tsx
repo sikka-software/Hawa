@@ -69,10 +69,7 @@ export const AppLanding: FC<AppLandingTypes> = ({ texts, ...props }) => {
           {props.allowRegister && (
             <div className="hawa-p-3 hawa-text-center hawa-text-sm hawa-font-normal dark:hawa-text-gray-300">
               {texts?.newUserText}{" "}
-              <span
-                onClick={props.handleRouteToRegister}
-                className="clickable-link"
-              >
+              <span onClick={props.handleRouteToRegister} className="clickable-link">
                 {texts?.createAccount}
               </span>
             </div>

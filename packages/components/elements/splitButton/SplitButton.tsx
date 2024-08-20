@@ -19,10 +19,7 @@ const SplitButton: React.FC<SplitButtonProps> = ({
   children,
   ...props
 }) => (
-  <div
-    dir="ltr"
-    className={cn("hawa-row hawa-flex hawa-h-fit hawa-justify-center")}
-  >
+  <div dir="ltr" className={cn("hawa-row hawa-flex hawa-h-fit hawa-justify-center")}>
     <Button
       variant={variant}
       onClick={props.onClick}

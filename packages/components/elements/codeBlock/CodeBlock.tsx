@@ -135,9 +135,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             <div
               key={i}
               className={cn(
-                selectedTab === i
-                  ? "hawa-border-b-2 hawa-border-primary"
-                  : "hawa-bg-transparent",
+                selectedTab === i ? "hawa-border-b-2 hawa-border-primary" : "hawa-bg-transparent",
                 classNames?.tab,
               )}
             >
@@ -157,9 +155,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
       <div
         className={cn(
           "hawa-flex hawa-w-full hawa-relative hawa-flex-row hawa-items-start hawa-justify-between hawa-border hawa-bg-gray-800 hawa-p-0 hawa-text-left hawa-text-sm sm:hawa-text-base",
-          tabs || fileName
-            ? "hawa-rounded-b hawa-rounded-t-none"
-            : "hawa-rounded",
+          tabs || fileName ? "hawa-rounded-b hawa-rounded-t-none" : "hawa-rounded",
           classNames?.codeBlockContainer,
           "hawa-overflow-y-auto",
         )}
@@ -177,9 +173,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
           >
             <Button
               size="smallIcon"
-              onClick={() =>
-                clipboard.copy(tabs ? tabs[selectedTab].code : code)
-              }
+              onClick={() => clipboard.copy(tabs ? tabs[selectedTab].code : code)}
               variant="outline"
               className="hawa-text-gray-200 hawa-opacity-50 dark:hawa-border-gray-200 dark:hover:hawa-border-gray-400"
             >
@@ -203,9 +197,7 @@ export const CodeBlock: FC<CodeBlockTypes> = ({
             >
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
-                  {props.lineNumbers && (
-                    <span className="hawa-mr-4">{i + 1}</span>
-                  )}
+                  {props.lineNumbers && <span className="hawa-mr-4">{i + 1}</span>}
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token })} />
                   ))}

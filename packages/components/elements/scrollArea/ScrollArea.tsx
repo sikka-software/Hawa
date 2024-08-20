@@ -5,9 +5,7 @@ import { cn } from "@util/index";
 
 import { OrientationType } from "@_types/commonTypes";
 
-type ScrollAreaProps = React.ComponentPropsWithoutRef<
-  typeof ScrollAreaPrimitive.Root
-> & {
+type ScrollAreaProps = React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {
   orientation?: OrientationType;
 };
 

@@ -56,14 +56,12 @@ const tabsTriggerVariant = tv({
     {
       variant: "underlined",
       orientation: "horizontal",
-      class:
-        "data-[state=active]:hawa-border-b-primary hawa-border-b hawa-border-b-2",
+      class: "data-[state=active]:hawa-border-b-primary hawa-border-b hawa-border-b-2",
     },
     {
       variant: "underlined",
       orientation: "vertical",
-      class:
-        "data-[state=active]:hawa-border-e-primary hawa-border-e hawa-border-e-2",
+      class: "data-[state=active]:hawa-border-e-primary hawa-border-e hawa-border-e-2",
     },
     {
       variant: "underlined_tabs",
@@ -87,18 +85,13 @@ const TabsContext = React.createContext<{
   scrollable?: boolean;
 }>({ orientation: "horizontal", variant: "default", scrollable: false });
 
-type TabsRootProps = React.ComponentPropsWithoutRef<
-  typeof TabsPrimitive.Root
-> & { variant?: TabsVariants; scrollable?: boolean };
+type TabsRootProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> & {
+  variant?: TabsVariants;
+  scrollable?: boolean;
+};
 
-const Tabs = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Root>,
-  TabsRootProps
->(
-  (
-    { className, orientation, scrollable, variant = "default", ...props },
-    ref,
-  ) => (
+const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsRootProps>(
+  ({ className, orientation, scrollable, variant = "default", ...props }, ref) => (
     <TabsPrimitive.Root
       ref={ref}
       className={cn(
@@ -115,54 +108,49 @@ const Tabs = React.forwardRef<
   ),
 );
 
-type TabsListProps = React.ComponentPropsWithoutRef<
-  typeof TabsPrimitive.List
-> & {
+type TabsListProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> & {
   classNames?: {
     scrollArea?: string;
   };
 };
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  TabsListProps
->(({ className, classNames, ...props }, ref) => {
-  const { orientation, variant, scrollable } = React.useContext(TabsContext);
-  const { width } = useViewportSize();
+const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, TabsListProps>(
+  ({ className, classNames, ...props }, ref) => {
+    const { orientation, variant, scrollable } = React.useContext(TabsContext);
+    const { width } = useViewportSize();
 
-  if (scrollable && width < 768 && orientation === "horizontal") {
-    return (
-      <ScrollArea orientation="horizontal" className={classNames?.scrollArea}>
+    if (scrollable && width < 768 && orientation === "horizontal") {
+      return (
+        <ScrollArea orientation="horizontal" className={classNames?.scrollArea}>
+          <TabsPrimitive.List
+            ref={ref}
+            className={cn(
+              tabsListVariant({ variant, orientation }),
+              "hawa-flex-row hawa-flex-nowrap",
+              className,
+            )}
+            {...props}
+          />
+        </ScrollArea>
+      );
+    } else {
+      return (
         <TabsPrimitive.List
           ref={ref}
           className={cn(
             tabsListVariant({ variant, orientation }),
-            "hawa-flex-row hawa-flex-nowrap",
+            orientation === "vertical" ? "hawa-flex-col" : "hawa-flex-row",
+            "hawa-flex-wrap",
             className,
           )}
           {...props}
         />
-      </ScrollArea>
-    );
-  } else {
-    return (
-      <TabsPrimitive.List
-        ref={ref}
-        className={cn(
-          tabsListVariant({ variant, orientation }),
-          orientation === "vertical" ? "hawa-flex-col" : "hawa-flex-row",
-          "hawa-flex-wrap",
-          className,
-        )}
-        {...props}
-      />
-    );
-  }
-});
+      );
+    }
+  },
+);
 
-type TabsTriggerProps = React.ComponentPropsWithoutRef<
-  typeof TabsPrimitive.Trigger
-> & {
+type TabsTriggerProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
   chipProps?: ChipTypes;
   className?: string;
   showPopover?: boolean;
@@ -174,58 +162,45 @@ type TabsTriggerProps = React.ComponentPropsWithoutRef<
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
->(
-  (
-    { className, chipProps, withPopover = false, onPopoverClick, ...props },
-    ref,
-  ) => {
-    const { orientation, variant } = React.useContext(TabsContext);
+>(({ className, chipProps, withPopover = false, onPopoverClick, ...props }, ref) => {
+  const { orientation, variant } = React.useContext(TabsContext);
 
-    if (withPopover) {
-      return (
-        <Popover.Root open={props.showPopover}>
-          <Popover.Anchor asChild>
-            <TabsPrimitive.Trigger
-              className={cn(
-                tabsTriggerVariant({ variant, orientation }),
-                "hawa-relative",
-                className,
-              )}
-              {...props}
-            >
-              {props.children}
-              {chipProps && <Chip {...chipProps} />}
-            </TabsPrimitive.Trigger>
-          </Popover.Anchor>
-          <Popover.Content
-            onClick={onPopoverClick}
-            asChild
-            className={cn(
-              "dark:dark-shadow hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
-              "hawa-arrow-default-top hawa-mt-2",
-            )}
+  if (withPopover) {
+    return (
+      <Popover.Root open={props.showPopover}>
+        <Popover.Anchor asChild>
+          <TabsPrimitive.Trigger
+            className={cn(tabsTriggerVariant({ variant, orientation }), "hawa-relative", className)}
+            {...props}
           >
-            <div className="hawa-p-2"> {props.popoverContent}</div>
-          </Popover.Content>
-        </Popover.Root>
-      );
-    } else {
-      return (
-        <TabsPrimitive.Trigger
+            {props.children}
+            {chipProps && <Chip {...chipProps} />}
+          </TabsPrimitive.Trigger>
+        </Popover.Anchor>
+        <Popover.Content
+          onClick={onPopoverClick}
+          asChild
           className={cn(
-            tabsTriggerVariant({ variant, orientation }),
-            "hawa-relative",
-            className,
+            "dark:dark-shadow hawa-z-50 hawa-rounded hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-md hawa-outline-none data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-fade-out-0 data-[state=open]:hawa-fade-in-0 data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-95 data-[side=bottom]:hawa-slide-in-from-top-2 data-[side=left]:hawa-slide-in-from-right-2 data-[side=right]:hawa-slide-in-from-left-2 data-[side=top]:hawa-slide-in-from-bottom-2",
+            "hawa-arrow-default-top hawa-mt-2",
           )}
-          {...props}
         >
-          {props.children}
-          {chipProps && <Chip {...chipProps} />}
-        </TabsPrimitive.Trigger>
-      );
-    }
-  },
-);
+          <div className="hawa-p-2"> {props.popoverContent}</div>
+        </Popover.Content>
+      </Popover.Root>
+    );
+  } else {
+    return (
+      <TabsPrimitive.Trigger
+        className={cn(tabsTriggerVariant({ variant, orientation }), "hawa-relative", className)}
+        {...props}
+      >
+        {props.children}
+        {chipProps && <Chip {...chipProps} />}
+      </TabsPrimitive.Trigger>
+    );
+  }
+});
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,

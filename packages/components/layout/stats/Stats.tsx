@@ -13,13 +13,7 @@ interface StatTypes extends React.HTMLAttributes<HTMLDivElement> {
   helperTextColor?: "default" | "positive" | "negative" | "muted";
   chart?: any;
   icon?: React.ReactNode;
-  variant?:
-    | "default"
-    | "plain"
-    | "contained"
-    | "outlined"
-    | "brutalist"
-    | "dropshadow";
+  variant?: "default" | "plain" | "contained" | "outlined" | "brutalist" | "dropshadow";
   width?: "full" | "min" | "normal";
   isLoading?: boolean;
   className?: string;
@@ -60,24 +54,13 @@ export const Stats: FC<StatTypes> = ({
             className={cn(
               "hawa-my-0 hawa-text-start hawa-text-xs hawa-transition-all",
               helperTextColorStyles[helperTextColor],
-              helperText
-                ? "hawa-h-4 hawa-opacity-100"
-                : "hawa-h-0 hawa-opacity-0",
+              helperText ? "hawa-h-4 hawa-opacity-100" : "hawa-h-0 hawa-opacity-0",
             )}
           >
-            {isLoading ? (
-              <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
-            ) : (
-              helperText
-            )}
+            {isLoading ? <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" /> : helperText}
           </div>
         )}
-        {chart &&
-          (isLoading ? (
-            <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" />
-          ) : (
-            chart
-          ))}
+        {chart && (isLoading ? <Skeleton className="hawa-mt-2 hawa-h-4 hawa-w-1/2" /> : chart)}
       </CardContent>
     </Card>
   );

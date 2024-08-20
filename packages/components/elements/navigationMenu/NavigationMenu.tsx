@@ -110,8 +110,7 @@ const NavigationMenuContent = React.forwardRef<
   />
 ));
 const StandardNavigationMenuItem: React.FC<
-  StandardNavigationMenuItemProps &
-    React.ComponentProps<typeof NavigationMenuPrimitive.Link>
+  StandardNavigationMenuItemProps & React.ComponentProps<typeof NavigationMenuPrimitive.Link>
 > = ({ icon, title, subtitle, ...linkProps }) => (
   <NavigationMenuLink {...linkProps}>
     <div className="hawa-flex hawa-max-w-md hawa-cursor-pointer hawa-flex-row hawa-items-center hawa-gap-4 hawa-rounded-inner hawa-p-4 hawa-py-2 hawa-transition-all hover:hawa-bg-muted">
@@ -127,11 +126,7 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div
-    className={cn(
-      "hawa-absolute hawa-top-full hawa-flex hawa-w-full hawa-justify-center",
-    )}
-  >
+  <div className={cn("hawa-absolute hawa-top-full hawa-flex hawa-w-full hawa-justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
         "hawa-origin-top-center hawa-relative hawa-mt-1.5 hawa-w-full hawa-overflow-hidden hawa-rounded-md hawa-border hawa-bg-popover hawa-text-popover-foreground hawa-shadow-lg data-[state=open]:hawa-animate-in data-[state=closed]:hawa-animate-out data-[state=closed]:hawa-zoom-out-95 data-[state=open]:hawa-zoom-in-90",
@@ -218,10 +213,8 @@ NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName;
-NavigationMenuIndicator.displayName =
-  NavigationMenuPrimitive.Indicator.displayName;
-NavigationMenuViewport.displayName =
-  NavigationMenuPrimitive.Viewport.displayName;
+NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
 
 export {
   NavigationMenuLink,

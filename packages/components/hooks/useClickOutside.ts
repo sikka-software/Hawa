@@ -16,23 +16,17 @@ export function useClickOutside<T extends HTMLElement = any>(
         const shouldIgnore =
           target?.hasAttribute("data-ignore-outside-clicks") ||
           (!document.body.contains(target) && target.tagName !== "HTML");
-        const shouldTrigger = nodes.every(
-          (node) => !!node && !event.composedPath().includes(node),
-        );
+        const shouldTrigger = nodes.every((node) => !!node && !event.composedPath().includes(node));
         shouldTrigger && !shouldIgnore && handler();
       } else if (ref.current && !ref.current.contains(target)) {
         handler();
       }
     };
 
-    (events || DEFAULT_EVENTS).forEach((fn) =>
-      document.addEventListener(fn, listener),
-    );
+    (events || DEFAULT_EVENTS).forEach((fn) => document.addEventListener(fn, listener));
 
     return () => {
-      (events || DEFAULT_EVENTS).forEach((fn) =>
-        document.removeEventListener(fn, listener),
-      );
+      (events || DEFAULT_EVENTS).forEach((fn) => document.removeEventListener(fn, listener));
     };
   }, [ref, handler, nodes]);
 

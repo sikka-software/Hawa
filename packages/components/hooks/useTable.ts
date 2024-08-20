@@ -40,13 +40,7 @@ const sortData = (data: any, sortColumn: any, sortDirection: any) => {
   return data;
 };
 
-const useTable = (
-  data: any,
-  page: any,
-  rowsPerPage: any,
-  sortColumn: any,
-  sortDirection: any,
-) => {
+const useTable = (data: any, page: any, rowsPerPage: any, sortColumn: any, sortDirection: any) => {
   const [tableRange, setTableRange] = useState<any>([]);
   const [slice, setSlice] = useState<any>([]);
 

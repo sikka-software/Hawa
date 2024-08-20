@@ -17,10 +17,7 @@ type ComponentTypes = {
   };
 };
 
-export const FeedbackRating: FC<ComponentTypes> = ({
-  position = "bottom-right",
-  ...props
-}) => {
+export const FeedbackRating: FC<ComponentTypes> = ({ position = "bottom-right", ...props }) => {
   const [closed, setClosed] = useState(false);
   const [answered, setAnswered] = useState(false);
   const [clickedOption, setClickedOption] = useState(null);
@@ -66,8 +63,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
         className={cn(
           "hawa-relative hawa-flex hawa-w-full hawa-flex-col hawa-gap-2 hawa-rounded hawa-border hawa-bg-background hawa-p-4 hawa-shadow-md hawa-transition-all",
           closed ? "hawa-opacity-0" : "hawa-opacity-100",
-          props.banner &&
-            "hawa-rounded-none hawa-px-4 md:hawa-rounded-t md:hawa-px-64",
+          props.banner && "hawa-rounded-none hawa-px-4 md:hawa-rounded-t md:hawa-px-64",
         )}
       >
         <div className="hawa-absolute hawa-left-2 hawa-top-2 hawa-p-1.5 hawa-text-sm">
@@ -109,9 +105,7 @@ export const FeedbackRating: FC<ComponentTypes> = ({
                     setClosed(true);
                   }, 4800);
                   setTimeout(() => {
-                    popUpRef.current?.removeChild(
-                      popUpRef.current?.children[0],
-                    );
+                    popUpRef.current?.removeChild(popUpRef.current?.children[0]);
                     clearTimeout(timeoutDestroy);
                   }, 5300);
                 }}

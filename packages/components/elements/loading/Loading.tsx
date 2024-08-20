@@ -58,12 +58,7 @@ export const Loading: FC<LoadingTypes> = ({
   switch (design.split("-")[0]) {
     case "dots":
       return (
-        <div
-          className={cn(
-            "hawa-flex hawa-flex-row hawa-gap-2",
-            classNames?.container,
-          )}
-        >
+        <div className={cn("hawa-flex hawa-flex-row hawa-gap-2", classNames?.container)}>
           <div
             className={cn(
               "hawa-animate-bounce hawa-rounded-full hawa-delay-100 hawa-repeat-infinite",
@@ -93,11 +88,7 @@ export const Loading: FC<LoadingTypes> = ({
     case "square":
       return (
         <svg
-          className={cn(
-            "squircle-container",
-            sizeStyles[size],
-            classNames?.container,
-          )}
+          className={cn("squircle-container", sizeStyles[size], classNames?.container)}
           viewBox="0 0 35 35"
           height="35"
           width="35"
@@ -132,11 +123,7 @@ export const Loading: FC<LoadingTypes> = ({
           height="37"
           width="37"
           preserveAspectRatio="xMidYMid meet"
-          className={cn(
-            "squircle-container",
-            sizeStyles[size],
-            classNames?.container,
-          )}
+          className={cn("squircle-container", sizeStyles[size], classNames?.container)}
         >
           <path
             className={cn("squircle-track", classNames?.track)}
@@ -165,9 +152,7 @@ export const Loading: FC<LoadingTypes> = ({
         ></div>
       );
     case "orbit":
-      return (
-        <div className={cn("orbit-container", classNames?.container)}></div>
-      );
+      return <div className={cn("orbit-container", classNames?.container)}></div>;
 
     default:
       return (
@@ -175,11 +160,7 @@ export const Loading: FC<LoadingTypes> = ({
           viewBox="0 0 40 40"
           height="40"
           width="40"
-          className={cn(
-            "circle-container",
-            sizeStyles[size],
-            classNames?.container,
-          )}
+          className={cn("circle-container", sizeStyles[size], classNames?.container)}
         >
           <circle
             className={cn(

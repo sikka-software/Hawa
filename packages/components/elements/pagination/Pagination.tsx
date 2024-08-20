@@ -11,11 +11,7 @@ type PaginationProps = {
   currentPage?: number;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({
-  direction,
-  totalPages,
-  currentPage,
-}) => {
+export const Pagination: React.FC<PaginationProps> = ({ direction, totalPages, currentPage }) => {
   const [page, setPage] = React.useState<number>(currentPage || 0);
   const handlePageChange = (page: number) => {
     setPage(page);

@@ -63,18 +63,12 @@ const Accordion = React.forwardRef<
                   ? "hawa-rounded data-[state=open]:hawa-rounded-b-none"
                   : {
                       "hawa-rounded-t": index === 0,
-                      "data-[state=closed]:hawa-rounded-b":
-                        index === items.length - 1,
+                      "data-[state=closed]:hawa-rounded-b": index === items.length - 1,
                     },
                 triggerclassNames,
               )}
             >
-              <span
-                className={cn(
-                  "hawa-flex hawa-flex-row",
-                  item.chip && "hawa-gap-2",
-                )}
-              >
+              <span className={cn("hawa-flex hawa-flex-row", item.chip && "hawa-gap-2")}>
                 {item.trigger} {item.chip && <Chip {...item.chip} />}
               </span>
             </AccordionTrigger>
@@ -85,8 +79,7 @@ const Accordion = React.forwardRef<
                 design === "separated"
                   ? "hawa-rounded data-[state=open]:hawa-rounded-t-none"
                   : {
-                      "data-[state=open]:hawa-rounded-b":
-                        index === items.length - 1,
+                      "data-[state=open]:hawa-rounded-b": index === items.length - 1,
                     },
                 contentclassNames,
               )}

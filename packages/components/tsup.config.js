@@ -38,12 +38,7 @@ function createConfigForGroup(entries, name) {
     banner: { js: '"use client";' },
     entry: entries,
     tsconfig: "./tsconfig.json",
-    external: [
-      "react",
-      "react-dom",
-      "@radix-ui/react-toast",
-      "react-day-picker",
-    ],
+    external: ["react", "react-dom", "@radix-ui/react-toast", "react-day-picker"],
   });
 }
 const groupedElementEntries = chunkEntries(elementEntries, 3);

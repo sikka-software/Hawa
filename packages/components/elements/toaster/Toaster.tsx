@@ -51,25 +51,17 @@ export function Toaster(props: ToasterProps) {
               >
                 <div className={"hawa-grid hawa-gap-1 hawa-text-start"}>
                   {title && <ToastTitle size={size}>{title}</ToastTitle>}
-                  {description && (
-                    <ToastDescription size={size}>
-                      {description}
-                    </ToastDescription>
-                  )}
+                  {description && <ToastDescription size={size}>{description}</ToastDescription>}
                 </div>
                 {action && (
-                  <div className="hawa-flex hawa-flex-col hawa-justify-center">
-                    {action}
-                  </div>
+                  <div className="hawa-flex hawa-flex-col hawa-justify-center">{action}</div>
                 )}
               </div>
             </div>
           </Toast>
         );
       })}
-      <ToastViewport
-        className={cn("hawa-gap-2", isRTL && "hawa-fixed hawa-left-0")}
-      />
+      <ToastViewport className={cn("hawa-gap-2", isRTL && "hawa-fixed hawa-left-0")} />
     </ToastProvider>
   );
 }
