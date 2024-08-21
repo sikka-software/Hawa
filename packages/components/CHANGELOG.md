@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.48.2
+
+### Patch Changes
+
+- Add space before identifier in `CodeConfirmation`
+
 ## 0.48.1
 
 ### Patch Changes

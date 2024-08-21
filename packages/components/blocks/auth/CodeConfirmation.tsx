@@ -91,9 +91,11 @@ export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }
           <div className="hawa-text-lg hawa-font-bold">
             {props.texts?.checkYourIdentifier || "Please check your phone"}
           </div>
-          <div className="hawa-text-muted-foreground">
-            <span>{props.texts?.weSentCode || "We've sent a code to "}</span>
-            <span>{props.identifier}</span>
+          <div className="hawa-text-muted-foreground hawa-flex hawa-flex-row">
+            <span>
+              {`${props.texts?.weSentCode} ` || `We've sent a code to `}
+              <span dir="ltr">{props.identifier}</span>
+            </span>
           </div>
         </div>
         <form

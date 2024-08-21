@@ -25,7 +25,7 @@ export const Default: Story = {
           showError={args.showError}
           {...args}
           texts={{
-            checkYourPhone: t("checkYourPhone"),
+            checkYourIdentifier: t("checkYourPhone"),
             weSentCode: t("weSentCode"),
             didntGetCode: t("didntGetCode"),
             resendCode: t("resendCode"),
@@ -37,11 +37,14 @@ export const Default: Story = {
             confirm: t("confirm"),
             seconds: t("seconds"),
           }}
+        
         />
       </div>
     );
   },
-  args: {},
+  args: {
+    identifier:"+966531045453"
+  },
   argTypes: {
     onConfirm: { action: "onConfirm" },
     onCancel: { action: "onCancel" },
