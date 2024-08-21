@@ -340,8 +340,10 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                   {registerTypes && registerTypes.length > 1 && (
                     <CardHeader className="hawa-w-full hawa-px-0 hawa-py-0 hawa-mb-4">
                       <TabsList className="hawa-w-full">
-                        {registerTypes.map((registerType) => (
-                          <TabsTrigger value={registerType.value}>{registerType.label}</TabsTrigger>
+                        {registerTypes.map((registerType, k) => (
+                          <TabsTrigger key={k} value={registerType.value}>
+                            {registerType.label}
+                          </TabsTrigger>
                         ))}
                       </TabsList>
                     </CardHeader>
