@@ -56,7 +56,7 @@ jobs:
   storybook:
     needs: check_changes
     name: "Deploy Storybook"
-    if: needs.check_changes.outputs.storybook_changed == 'true'
+    if: ${{!contains(github.event.head_commit.message, 'skip_storybook')}} && needs.check_changes.outputs.storybook_changed == 'true'
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v4
@@ -92,39 +92,39 @@ jobs:
   # ============================= HAWA DOCS =============================================
   # =====================================================================================
 
-  # docs:
-  #   needs: check_changes
-  #   name: "Deploy Docs"
-  #   if: needs.check_changes.outputs.docs_changed == 'true'
-  #   runs-on: [self-hosted, linux, x64, A01]
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       with:
-  #         clean: false
-  #     - name: Use Node.js ${{ env.NODE_VERSION }}
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
+  docs:
+    if: ${{contains(github.event.head_commit.message, 'deploy_docs')}} && needs.check_changes.outputs.docs_changed == 'true'
+    needs: check_changes
+    name: "Deploy Docs"
+    runs-on: [self-hosted, linux, x64, A01]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
-  #     - name: Install Dependencies and Build beta-user-portal
-  #       run: |
-  #         pnpm install --filter hawa-docs
-  #         cd apps/docs
-  #         npm run sync:changelog
-  #         npm run build
+      - name: Install Dependencies and Build beta-user-portal
+        run: |
+          pnpm install --filter hawa-docs
+          cd apps/docs
+          npm run sync:changelog
+          npm run build
 
-  #     - name: Link to Production and Restart with PM2
-  #       run: |
-  #         cd apps/docs
-  #         if pm2 list | grep -q ${{env.DOCS_PM2}}; then
-  #           pm2 restart ${{env.DOCS_PM2}}
-  #         else
-  #           pm2 start npm --name ${{env.DOCS_PM2}} -- run start
-  #         fi
-  #         pm2 save
+      - name: Link to Production and Restart with PM2
+        run: |
+          cd apps/docs
+          if pm2 list | grep -q ${{env.DOCS_PM2}}; then
+            pm2 restart ${{env.DOCS_PM2}}
+          else
+            pm2 start npm --name ${{env.DOCS_PM2}} -- run start
+          fi
+          pm2 save
 
-  #     - name: Display Deployment URL
-  #       run: echo "Hawa docs deployed successfully at https://${{ env.DOCS_DOMAIN }}"
+      - name: Display Deployment URL
+        run: echo "Hawa docs deployed successfully at https://${{ env.DOCS_DOMAIN }}"
 
 
 
