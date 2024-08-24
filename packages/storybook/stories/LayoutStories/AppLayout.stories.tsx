@@ -30,10 +30,10 @@ export const Default: Story = {
   args: {
     topBar: true,
     username: "Zakher Masri",
-    avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
     email: "zakher@sikka.io",
-    logoSymbol:
-      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
+    userInfoPosition: "in_dropdown",
+    avatarImage: "https://api.dicebear.com/9.x/thumbs/svg",
+    logoSymbol: "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
     DrawerFooterActions: (
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />
@@ -69,8 +69,7 @@ export const CustomHeader: Story = {
     username: "Zakher Masri",
     avatarImage: "https://source.unsplash.com/tVqQSfXQ_SI",
     email: "zakher@sikka.io",
-    logoSymbol:
-      "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
+    logoSymbol: "https://sikka-images.s3.ap-southeast-1.amazonaws.com/hawa/hawa-symbol.png",
     DrawerFooterActions: (
       <Button size="smallIcon" variant={"light"}>
         <Settings className="hawa-icon" />

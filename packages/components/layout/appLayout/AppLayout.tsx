@@ -42,6 +42,8 @@ type AppLayoutTypes = {
   email?: string;
   /** Specifies the image for the avatar. */
   avatarImage?: any;
+  /** Specifies the position of the user information.*/
+  userInfoPosition?: "next_to_avatar" | "in_dropdown" | "hidden";
   /**
    * Specifies the size of the drawer.
    * - 'sm': Small.
@@ -92,7 +94,9 @@ const LOCAL_STORAGE_KEY = "@sikka/hawa/keep-drawer-open";
 
 export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   profileMenuWidth = "default",
+  userInfoPosition = "next_to_avatar",
   DrawerFooterActions,
+  profileMenuItems,
   classNames,
   bordered = true,
   design = "default",
@@ -193,6 +197,26 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
   const drawerSizeCondition =
     size > 600 ? drawerSizeStyle[keepDrawerOpen ? "opened" : "closed"][drawerSize] : 0;
 
+  // Set the user email and username as the first item of the profile menu if userInfoPosition is in_dropdown
+  let finalProfileMenuItems = profileMenuItems;
+  if (userInfoPosition === "in_dropdown") {
+    if (profileMenuItems && profileMenuItems.length > 0) {
+      finalProfileMenuItems = [
+        {
+          content: (
+            <div className="hawa-text-end hawa-p-2 hawa-text-xs hawa-flex hawa-flex-col hawa-justify-center hawa-items-start">
+              <div className="hawa-font-bold">{props.username}</div>
+              <div>{props.email}</div>
+            </div>
+          ),
+          itemType: "custom",
+        },
+
+        ...profileMenuItems,
+      ];
+    }
+  }
+
   return (
     <div className="hawa-fixed hawa-start-0">
       {/*
@@ -244,9 +268,10 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
 
           <div className={cn("hawa-flex hawa-gap-2 dark:hawa-text-white")}>
             {/* User Info */}
-            {size > 600 ? (
-              <div className={"hawa-text-end hawa-text-xs"}>
-                <div className="hawa-font-bold">{props.username}</div> <div>{props.email}</div>
+            {size > 600 && userInfoPosition === "next_to_avatar" ? (
+              <div className="hawa-text-end hawa-text-xs hawa-flex hawa-flex-col hawa-justify-center">
+                <div className="hawa-font-bold">{props.username}</div>
+                <div>{props.email}</div>
               </div>
             ) : null}
             {/* Profile Icon & Menu */}
@@ -258,7 +283,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               sideOffset={10}
               width={profileMenuWidth}
               direction={direction}
-              items={props.profileMenuItems || []}
+              items={finalProfileMenuItems || []}
               onItemSelect={(e: any) => console.log("selecting item ", e)}
               trigger={
                 <div
