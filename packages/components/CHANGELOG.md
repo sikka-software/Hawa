@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.49.0
+
+### Minor Changes
+
+- Center the user info if no username or no email was provided
+- Add `userInfoPosition` to allow consumer to choose if they want the user info to be `next_to_avatar` or `in_dropdown`
+
 ## 0.48.2
 
 ### Patch Changes
