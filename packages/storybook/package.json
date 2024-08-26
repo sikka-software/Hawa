@@ -55,7 +55,7 @@
     "date-fns": "^3.6.0",
     "eslint-plugin-storybook": "^0.8.0",
     "jest": "^29.7.0",
-    "lucide-react": "^0.435.0",
+    "lucide-react": "^0.436.0",
     "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
