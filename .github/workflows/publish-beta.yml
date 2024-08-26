@@ -29,7 +29,6 @@ jobs:
   check_changes:
     runs-on: [self-hosted, linux, x64, A01]
     name: "Detecting Changes"
-    if: ${{ contains(github.event.head_commit.message, 'skip_storybook') && !contains(github.event.head_commit.message, 'deploy_docs') }}
     outputs:
       storybook_changed: ${{ steps.filter.outputs.storybook }}
       docs_changed: ${{ steps.filter.outputs.docs }}
