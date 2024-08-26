@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.1
+
+### Patch Changes
+
+- Minor fixes
+
 ## 0.49.0
 
 ### Minor Changes

@@ -56,7 +56,7 @@ jobs:
   storybook:
     needs: check_changes
     name: "Deploy Storybook"
-    if: ${{!contains(github.event.head_commit.message, 'skip_storybook')}} && needs.check_changes.outputs.storybook_changed == 'true'
+    if: ${{ !contains(github.event.head_commit.message, 'skip_storybook') && needs.check_changes.outputs.storybook_changed == 'true' }}
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v4
@@ -93,7 +93,7 @@ jobs:
   # =====================================================================================
 
   docs:
-    if: ${{contains(github.event.head_commit.message, 'deploy_docs')}} && needs.check_changes.outputs.docs_changed == 'true'
+    if: ${{ contains(github.event.head_commit.message, 'deploy_docs') && needs.check_changes.outputs.docs_changed == 'true' }}
     needs: check_changes
     name: "Deploy Docs"
     runs-on: [self-hosted, linux, x64, A01]
@@ -126,11 +126,12 @@ jobs:
       - name: Display Deployment URL
         run: echo "Hawa docs deployed successfully at https://${{ env.DOCS_DOMAIN }}"
 
-
-
+  # =====================================================================================
+  # ============================= HAWA NPM ==============================================
+  # =====================================================================================
 
   publish-package:
-    if: ${{!contains(github.event.head_commit.message, 'skip_publish')}} && needs.check_changes.outputs.package_changed == 'true'
+    if: ${{ !contains(github.event.head_commit.message, 'skip_publish')  }}
     runs-on: [self-hosted, linux, x64, A01]
     steps:
       - uses: actions/checkout@v4
