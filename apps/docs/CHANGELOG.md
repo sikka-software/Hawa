@@ -1,5 +1,13 @@
 # hawa-docs
 
+## 0.0.119
+
+### Patch Changes
+
+- Fix workflow conditions
+- Updated dependencies
+  - @sikka/hawa@0.49.2
+
 ## 0.0.118
 
 ### Patch Changes

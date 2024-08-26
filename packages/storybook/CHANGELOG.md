@@ -1,5 +1,13 @@
 # hawa-storybook
 
+## 0.26.141
+
+### Patch Changes
+
+- Fix workflow conditions
+- Updated dependencies
+  - @sikka/hawa@0.49.2
+
 ## 0.26.140
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.2
+
+### Patch Changes
+
+- Fix workflow conditions
+
 ## 0.49.1
 
 ### Patch Changes
