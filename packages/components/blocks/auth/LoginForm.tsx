@@ -156,7 +156,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
           { message: texts?.phone?.invalid || "Phone Number Invalid" },
         ),
     });
-  } else if (loginType === "email_link") {
+  } else if (loginType === "email_link" || loginType === "email_code") {
     formSchema = z.object({
       email: z
         .string({ required_error: texts?.email?.required || "Email Required" })
@@ -323,7 +323,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             />
           </>
         );
-      case "email_link":
+      case "email_link" || "email_code":
         return (
           <>
             <Controller

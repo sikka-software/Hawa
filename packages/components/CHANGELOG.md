@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.4
+
+### Patch Changes
+
+- Display email field in `LoginForm` when logintype is `email_code`
+
 ## 0.49.3
 
 ### Patch Changes
