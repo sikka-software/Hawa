@@ -39,7 +39,7 @@ type LoginFormTypes = {
   /** Description text of error alert.   */
   errorText?: string;
   /** Login identifier type user will use to log in.   */
-  loginType?: "email" | "username" | "phone" | "link";
+  loginType?: "email" | "username" | "phone" | "email_link" | "email_code";
   /** If true, the reset password option is hidden.   */
   withResetPassword?: boolean;
   /** If true, the register option is hidden.   */
@@ -156,7 +156,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
           { message: texts?.phone?.invalid || "Phone Number Invalid" },
         ),
     });
-  } else if (loginType === "link") {
+  } else if (loginType === "email_link") {
     formSchema = z.object({
       email: z
         .string({ required_error: texts?.email?.required || "Email Required" })
@@ -323,7 +323,7 @@ export const LoginForm: FC<LoginFormTypes> = ({
             />
           </>
         );
-      case "link":
+      case "email_link":
         return (
           <>
             <Controller

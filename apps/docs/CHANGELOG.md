@@ -1,5 +1,12 @@
 # hawa-docs
 
+## 0.0.120
+
+### Patch Changes
+
+- Updated dependencies
+  - @sikka/hawa@0.49.3
+
 ## 0.0.119
 
 ### Patch Changes

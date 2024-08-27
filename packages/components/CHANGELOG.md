@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.3
+
+### Patch Changes
+
+- Update `loginTypes` in `LoginForm` to use `email_code`
+
 ## 0.49.2
 
 ### Patch Changes
