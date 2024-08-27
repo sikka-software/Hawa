@@ -323,7 +323,8 @@ export const LoginForm: FC<LoginFormTypes> = ({
             />
           </>
         );
-      case "email_link" || "email_code":
+      case "email_link":
+      case "email_code":
         return (
           <>
             <Controller

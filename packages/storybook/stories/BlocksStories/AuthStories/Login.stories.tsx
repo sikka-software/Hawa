@@ -213,7 +213,7 @@ export const MagicLink: Story = {
   },
 
   args: {
-    loginType: "link",
+    loginType: "email_link",
   },
 
   argTypes: {

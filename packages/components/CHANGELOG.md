@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.5
+
+### Patch Changes
+
+- Fix `email_code` in switch case of `LoginForm`
+
 ## 0.49.4
 
 ### Patch Changes
