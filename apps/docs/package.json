@@ -1,6 +1,6 @@
 {
   "name": "hawa-docs",
-  "version": "0.0.123",
+  "version": "0.0.124",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -64,7 +64,7 @@
     "lodash.template": "^4.5.0",
     "lucide-react": "0.436.0",
     "markdown-wasm": "^1.2.0",
-    "next": "14.2.6",
+    "next": "14.2.7",
     "next-contentlayer2": "^0.5.0",
     "next-themes": "^0.3.0",
     "nextjs-progressloader": "^1.2.0",
@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@types/lodash.template": "^4.5.3",
-    "@types/node": "^22.5.0",
+    "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "@types/react-color": "^3.0.12",
     "@types/react-dom": "^18.3.0",
@@ -93,7 +93,7 @@
     "postcss": "^8.4.41",
     "rehype": "^13.0.1",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-pretty-code": "^0.13.2",
+    "rehype-pretty-code": "^0.14.0",
     "rehype-slug": "^6.0.0",
     "remark": "^15.0.1",
     "remark-code-import": "^1.2.0",
