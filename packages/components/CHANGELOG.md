@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.9
+
+### Patch Changes
+
+- Add `cardless` prop to `CodeConfirmation`
+
 ## 0.49.8
 
 ### Patch Changes

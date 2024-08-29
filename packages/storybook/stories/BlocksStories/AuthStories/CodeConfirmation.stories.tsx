@@ -37,13 +37,50 @@ export const Default: Story = {
             confirm: t("confirm"),
             seconds: t("seconds"),
           }}
-        
         />
       </div>
     );
   },
   args: {
-    identifier:"+966531045453"
+    identifier: "+966531045453",
+  },
+  argTypes: {
+    onConfirm: { action: "onConfirm" },
+    onCancel: { action: "onCancel" },
+    onResend: { action: "onResend" },
+  },
+};
+export const Cardless: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+
+    return (
+      <div className="hawa-max-w-md" dir={direction}>
+        <CodeConfirmation
+          showError={args.showError}
+          {...args}
+          cardless
+          texts={{
+            checkYourIdentifier: t("checkYourPhone"),
+            weSentCode: t("weSentCode"),
+            didntGetCode: t("didntGetCode"),
+            resendCode: t("resendCode"),
+            resendCodeTimer: t("resendCodeTimer"),
+            codeLabel: "Code",
+            codeRequiredText: t("codeRequiredText"),
+            codeTooShort: t("codeTooShort"),
+            cancel: t("cancel"),
+            confirm: t("confirm"),
+            seconds: t("seconds"),
+          }}
+        />
+      </div>
+    );
+  },
+  args: {
+    identifier: "+966531045453",
   },
   argTypes: {
     onConfirm: { action: "onConfirm" },

@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@util/index";
 import * as z from "zod";
 
 import { Alert } from "@elements/alert";
@@ -34,6 +35,7 @@ type TConfirmation = {
   onResend?: any;
   onCancel?: any;
 
+  cardless?: boolean;
   codeLength?: number;
 };
 
@@ -82,8 +84,13 @@ export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }
     };
   }, []);
   return (
-    <Card>
-      <CardContent headless>
+    <Card
+      className={cn(
+        props.cardless &&
+          "hawa-border-none hawa-bg-transparent !hawa-shadow-none !hawa-drop-shadow-none",
+      )}
+    >
+      <CardContent headless noPadding={props.cardless}>
         {props.showError && (
           <Alert title={props.errorTitle} text={props.errorText} severity="error" />
         )}
