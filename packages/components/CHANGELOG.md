@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.49.8
+
+### Patch Changes
+
+- Cleanup in `RegisterForm`
+- Resolver issue with terms & conditions validation is required even if `showTermsOption` is false
+
 ## 0.49.7
 
 ## 0.49.6

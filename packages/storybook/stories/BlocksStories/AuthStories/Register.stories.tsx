@@ -237,12 +237,11 @@ export const Cardless: Story = {
     const [errorRegister, setErrorRegister] = useState<any>(undefined);
 
     const handleRegister = (e: any) => {
-      console.log(e);
+      console.log("submitting e", e);
     };
     return (
       <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col hawa-gap-10">
         <RegisterForm
-          logosOnly
           direction={direction}
           texts={{
             continueWithGoogle: t("registerViaGoogleLabel"),
@@ -297,6 +296,7 @@ export const Cardless: Story = {
             refCodePlaceholder: t("refCodePlaceholder"),
           }}
           cardless
+          showTermsOption={false}
           errorText={t(`auth:${errorRegister}`)}
           registerFields={["email"]}
           showError={Boolean(errorRegister)}

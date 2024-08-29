@@ -148,8 +148,20 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
     continueWithPhone: texts?.continueWithPhone,
   };
 
-  const methods = useForm();
   let fieldSchemas: any = {};
+
+  let remainingFieldsSchema = z.object({
+    refCode: z.string().optional(),
+    reference: z.string().optional(),
+    terms_accepted: showTermsOption
+      ? z
+          .boolean({ required_error: texts?.termsRequired || "Terms required" })
+          .refine((value) => value, {
+            message: texts?.termsRequired || "Terms required",
+          })
+      : z.boolean().optional(),
+    newsletter_accepted: z.boolean().optional(),
+  });
 
   const hasPhoneType = registerTypes?.some((type) => type.value === "phone");
   if (hasPhoneType && selectedRegisterType.value === "phone") {
@@ -225,14 +237,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           },
           { message: texts?.phone?.invalid || "Phone Number Invalid" },
         ),
-      refCode: z.string().optional(),
-      reference: z.string().optional(),
-      terms_accepted: z
-        .boolean({ required_error: texts?.termsRequired || "Terms required" })
-        .refine((value) => value, {
-          message: texts?.termsRequired || "Terms required",
-        }),
-      newsletter_accepted: z.boolean().optional(),
     });
   } else {
     formSchema = z
@@ -258,14 +262,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
           .refine((value) => value !== "", {
             message: texts?.password?.required || "Confirm password is required",
           }),
-        refCode: z.string().optional(),
-        reference: z.string().optional(),
-        terms_accepted: z
-          .boolean({ required_error: texts?.termsRequired || "Terms required" })
-          .refine((value) => value, {
-            message: texts?.termsRequired || "Terms required",
-          }),
-        newsletter_accepted: z.boolean().optional(),
       })
       .refine((data) => data.password === data.confirm_password, {
         message: texts?.confirm?.dontMatch || "Passwords don't match",
@@ -273,9 +269,20 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
       });
   }
 
-  const { handleSubmit, control, formState } = useForm({
-    resolver: zodResolver(formSchema),
+  let finalSchema = z.intersection(formSchema, remainingFieldsSchema);
+
+  const methods = useForm({
+    resolver: zodResolver(finalSchema),
   });
+
+  const onSubmit = (data: any) => {
+    console.log("Form submitted with data:", data);
+    if (props.onRegister) {
+      props.onRegister(data);
+    } else {
+      console.log("onRegister prop is missing");
+    }
+  };
 
   return (
     <div className={cn("hawa-flex hawa-flex-col", props.classNames?.root)}>
@@ -307,19 +314,11 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 }}
               />
             )}
-            {/* TODO: is formprovider needed? you got 2 useForm  */}
-
             <FormProvider {...methods}>
               <form
                 id="register_form"
                 noValidate
-                onSubmit={handleSubmit((e) => {
-                  if (props.onRegister) {
-                    return props.onRegister(e);
-                  } else {
-                    console.log("Form is submitted but onRegister prop is missing");
-                  }
-                })}
+                onSubmit={methods.handleSubmit(onSubmit)}
                 className="hawa-flex hawa-flex-col hawa-gap-4"
               >
                 <Tabs
@@ -364,14 +363,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           return (
                             <Controller
                               key={i}
-                              control={control}
+                              control={methods.control}
                               name="fullName"
                               render={({ field }) => (
                                 <Input
                                   width="full"
                                   label={texts?.fullName?.label || "Full Name"}
                                   placeholder={texts?.fullName?.placeholder}
-                                  helperText={formState.errors.fullName?.message}
+                                  helperText={methods.formState.errors.fullName?.message}
                                   {...field}
                                 />
                               )}
@@ -382,7 +381,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           return (
                             <Controller
                               key={i}
-                              control={control}
+                              control={methods.control}
                               name="email"
                               render={({ field }) => (
                                 <Input
@@ -396,7 +395,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                   width="full"
                                   autoComplete="email"
                                   label={texts?.email?.label || "Email"}
-                                  helperText={formState.errors.email?.message}
+                                  helperText={methods.formState.errors.email?.message}
                                   placeholder={texts?.email?.placeholder || "Enter your email"}
                                   {...field}
                                   onChange={(e) => {
@@ -411,7 +410,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           return (
                             <Controller
                               key={i}
-                              control={control}
+                              control={methods.control}
                               name="username"
                               render={({ field }) => (
                                 <Input
@@ -425,7 +424,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                         }
                                       : undefined
                                   }
-                                  helperText={formState.errors.username?.message}
+                                  helperText={methods.formState.errors.username?.message}
                                   placeholder={texts?.username?.placeholder}
                                   {...field}
                                 />
@@ -436,7 +435,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       })}
                     </div>
                     <Controller
-                      control={control}
+                      control={methods.control}
                       name="password"
                       render={({ field }) => (
                         <Input
@@ -445,7 +444,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           autoComplete="new-password"
                           label={texts?.password?.label || "Password"}
                           placeholder={texts?.password?.placeholder}
-                          helperText={formState.errors.password?.message}
+                          helperText={methods.formState.errors.password?.message}
                           endIcon={
                             <div
                               className="hawa-cursor-pointer"
@@ -463,7 +462,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       )}
                     />
                     <Controller
-                      control={control}
+                      control={methods.control}
                       name="confirm_password"
                       render={({ field }) => (
                         <Input
@@ -472,7 +471,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                           autoComplete="new-password"
                           label={texts?.confirm?.label || "Confirm Password"}
                           placeholder={texts?.confirm?.placeholder || "Confirm your Password"}
-                          helperText={formState.errors.confirm_password?.message}
+                          helperText={methods.formState.errors.confirm_password?.message}
                           endIcon={
                             <div
                               className="hawa-cursor-pointer"
@@ -493,14 +492,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     {props.additionalInputs}
                     {props.showRefCode && (
                       <Controller
-                        control={control}
+                        control={methods.control}
                         name="refCode"
                         render={({ field }) => (
                           <Input
                             width="full"
                             label={texts?.refCode}
                             placeholder={texts?.refCodePlaceholder || "Enter the referral code"}
-                            helperText={formState.errors.refCode?.message}
+                            helperText={methods.formState.errors.refCode?.message}
                             {...field}
                           />
                         )}
@@ -508,7 +507,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     )}
                     {props.showUserSource && (
                       <Controller
-                        control={control}
+                        control={methods.control}
                         name="reference"
                         render={({ field }) => (
                           <Select
@@ -535,12 +534,12 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     dir={props.direction}
                   >
                     <Controller
-                      control={control}
+                      control={methods.control}
                       name="phone"
                       render={({ field }) => (
                         <PhoneInput
                           label={texts?.phone?.label || "Phone Number"}
-                          helperText={formState.errors.phone?.message}
+                          helperText={methods.formState.errors.phone?.message}
                           preferredCountry={{ label: "+966" }}
                           {...props.phoneInputProps}
                           handleChange={(e) => {
@@ -562,14 +561,14 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     {props.additionalInputs}
                     {props.showRefCode && (
                       <Controller
-                        control={control}
+                        control={methods.control}
                         name="refCode"
                         render={({ field }) => (
                           <Input
                             width="full"
                             label={texts?.refCode}
                             placeholder={texts?.refCodePlaceholder || "Enter the referral code"}
-                            helperText={formState.errors.refCode?.message}
+                            helperText={methods.formState.errors.refCode?.message}
                             {...field}
                           />
                         )}
@@ -577,7 +576,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     )}
                     {props.showUserSource && (
                       <Controller
-                        control={control}
+                        control={methods.control}
                         name="reference"
                         render={({ field }) => (
                           <Select
@@ -599,12 +598,12 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                     <div className="hawa-flex hawa-flex-col hawa-gap-3 hawa-mb-2">
                       {showTermsOption && (
                         <Controller
-                          control={control}
+                          control={methods.control}
                           name="terms_accepted"
                           render={({ field }) => (
                             <Checkbox
                               id="terms_accepted"
-                              helperText={formState.errors.terms_accepted?.message?.toString()}
+                              helperText={methods.formState.errors.terms_accepted?.message?.toString()}
                               onCheckedChange={(e) => field.onChange(e)}
                               label={
                                 <div className="hawa-flex hawa-flex-row hawa-gap-0.5 hawa-whitespace-nowrap hawa-flex-wrap">
@@ -630,7 +629,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                       )}
                       {showNewsletterOption && (
                         <Controller
-                          control={control}
+                          control={methods.control}
                           name="newsletter_accepted"
                           render={({ field }) => (
                             <Checkbox
