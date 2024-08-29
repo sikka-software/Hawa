@@ -228,3 +228,81 @@ export const Minimal: Story = {
     onRouteToLogin: { action: "onRouteToLogin" },
   },
 };
+
+export const Cardless: Story = {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+    const direction = locale === "ar" ? "rtl" : "ltr";
+    setLocale(locale);
+    const [errorRegister, setErrorRegister] = useState<any>(undefined);
+
+    const handleRegister = (e: any) => {
+      console.log(e);
+    };
+    return (
+      <div className="hawa-flex hawa-w-full hawa-max-w-md hawa-flex-col hawa-gap-10">
+        <RegisterForm
+          logosOnly
+          direction={direction}
+          texts={{
+            continueWithGoogle: t("registerViaGoogleLabel"),
+            continueWithGithub: t("registerViaGithubLabel"),
+            continueWithTwitter: t("registerViaTwitterLabel"),
+            fullName: {
+              label: t("fullNameLabel"),
+              placeholder: t("fullNamePlaceholder"),
+            },
+            email: {
+              label: t("emailLabel"),
+              placeholder: t("emailPlaceholder"),
+              required: t("emailRequiredText"),
+              invalid: t("emailInvalidText"),
+            },
+            username: {
+              label: t("usernameLabel"),
+              placeholder: t("usernamePlaceholder"),
+              required: t("usernameRequired"),
+              invalid: t("usernameInvalid"),
+            },
+            phone: {
+              required: t("phoneRequiredText"),
+              invalid: t("phoneInvalid"),
+              label: t("phoneLabel"),
+              placeholder: "531045453",
+            },
+            password: {
+              label: t("passwordLabel"),
+              placeholder: t("passwordPlaceholder"),
+              required: t("passwordRequiredText"),
+              tooShort: t("passwordTooShortText"),
+            },
+            confirm: {
+              label: t("confirmPasswordLabel"),
+              placeholder: t("confirmPasswordPlaceholder"),
+              required: t("confirmPasswordRequired"),
+              dontMatch: t("passwordsDontMatch"),
+            },
+            userReference: {
+              label: t("userReferenceLabel"),
+              placeholder: t("userReferencePlaceholder"),
+            },
+            subscribeToNewsletter: t("subscribeToNewsletter"),
+            iAcceptText: t("iAcceptText"),
+            termsText: t("termsText"),
+            termsRequired: t("termsRequiredText"),
+            loginText: t("loginText"),
+            existingUserText: t("existingUserText"),
+            registerText: t("registerText"),
+            refCode: t("refCode"),
+            refCodePlaceholder: t("refCodePlaceholder"),
+          }}
+          cardless
+          errorText={t(`auth:${errorRegister}`)}
+          registerFields={["email"]}
+          showError={Boolean(errorRegister)}
+          onRegister={(e) => handleRegister(e)}
+        />
+      </div>
+    );
+  },
+};

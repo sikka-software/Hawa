@@ -311,6 +311,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
 
             <FormProvider {...methods}>
               <form
+                id="register_form"
                 noValidate
                 onSubmit={handleSubmit((e) => {
                   if (props.onRegister) {
@@ -417,9 +418,13 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                                   width="full"
                                   autoComplete="username"
                                   label={texts?.username?.label || "Username"}
-                                  labelProps={{
-                                    ...props.usernameOptions?.label,
-                                  }}
+                                  labelProps={
+                                    props.usernameOptions?.label
+                                      ? {
+                                          ...props.usernameOptions?.label,
+                                        }
+                                      : undefined
+                                  }
                                   helperText={formState.errors.username?.message}
                                   placeholder={texts?.username?.placeholder}
                                   {...field}
@@ -642,6 +647,7 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                 <Button
                   className="hawa-w-full"
                   type="submit"
+                  form="register_form"
                   isLoading={props.isLoading}
                   disabled={props.isLoading}
                 >

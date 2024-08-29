@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.6
+
+### Patch Changes
+
+- Fix inability to submit `RegisterForm` when `usernameOptions` prop is present
+
 ## 0.49.5
 
 ### Patch Changes
