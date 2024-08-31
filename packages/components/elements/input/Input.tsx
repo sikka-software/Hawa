@@ -211,13 +211,20 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
                     className={cn(
                       defaultInputStyle,
                       "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
-                      {
-                        "hawa-pe-9": props.endIcon,
-                        "hawa-ps-9": props.startIcon,
-                        "hawa-pe-[60px]": countPosition === "center",
-                      },
+
+                      props.alwaysLTR
+                        ? {
+                            "hawa-ps-9": props.endIcon,
+                            "hawa-pe-9": props.startIcon,
+                            "hawa-ps-[60px]": countPosition === "center",
+                          }
+                        : {
+                            "hawa-pe-9": props.endIcon,
+                            "hawa-ps-9": props.startIcon,
+                            "hawa-pe-[60px]": countPosition === "center",
+                          },
                       preview && "hawa-border-transparent hawa-bg-transparent hawa-px-0",
-                      props.alwaysLTR && "hawa-text-end",
+                      props.alwaysLTR && props.dir === "rtl" && "hawa-text-end",
                       inputProps?.className,
                     )}
                   />

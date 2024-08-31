@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Story } from "@storybook/blocks";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Lock, Search } from "lucide-react";
+import { EyeOffIcon, Lock, Search } from "lucide-react";
 
 import { SA, USA } from "@sikka/alam";
 import { Label, Skeleton } from "@sikka/hawa/elements";
@@ -49,7 +49,39 @@ export const Default: Story = {
           </div>
         </div>
         <div className="hawa-flex hawa-flex-row hawa-gap-4">
-          <Input label="Always LTR" placeholder={"Bismillah"} alwaysLTR />
+          <Input
+            label="Always LTR"
+            placeholder={"Bismillah"}
+            alwaysLTR
+            dir={locale === "ar" ? "rtl" : "ltr"}
+          />
+          <Input
+            label="Always LTR + End Icon"
+            placeholder={"Bismillah"}
+            alwaysLTR
+            dir={locale === "ar" ? "rtl" : "ltr"}
+            endIcon={<EyeOffIcon className="hawa-icon" />}
+          />
+          <Input
+            label="Always LTR + Start Icon"
+            placeholder={"Bismillah"}
+            alwaysLTR
+            dir={locale === "ar" ? "rtl" : "ltr"}
+            startIcon={<EyeOffIcon className="hawa-icon" />}
+          />
+          <Input
+            label="End Icon"
+            placeholder={"Bismillah"}
+            dir={locale === "ar" ? "rtl" : "ltr"}
+            endIcon={<EyeOffIcon className="hawa-icon" />}
+          />
+          <Input
+            label="Start Icon"
+            placeholder={"Bismillah"}
+            dir={locale === "ar" ? "rtl" : "ltr"}
+            startIcon={<EyeOffIcon className="hawa-icon" />}
+          />
+          {/* <Input label="Default" placeholder={"Bismillah"} /> */}
         </div>
       </div>
     );

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.11
+
+### Patch Changes
+
+- Fix `alwaysLTR` while `endIcon` is present in `Input` component
+
 ## 0.49.10
 
 ### Patch Changes
