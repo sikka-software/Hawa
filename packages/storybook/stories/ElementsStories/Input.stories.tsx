@@ -23,10 +23,12 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
-  render: () => {
+  render: (args: any, globals: any) => {
+    const locale = globals.globals?.locale === "ar" ? "ar" : "en";
+
     const [text, setText] = useState("");
     return (
-      <div className="hawa-flex hawa-flex-col hawa-gap-4">
+      <div dir={locale === "ar" ? "rtl" : "ltr"} className="hawa-flex hawa-flex-col hawa-gap-4">
         <div className="hawa-flex hawa-flex-row hawa-gap-4">
           <Input label="Input Field" placeholder={"Bismillah"} />
           <Input label="Disabled" disabled placeholder={"Bismillah"} />
@@ -45,6 +47,9 @@ export const Default: Story = {
             <Label>Loading Skeleton</Label>
             <Skeleton as="input" />
           </div>
+        </div>
+        <div className="hawa-flex hawa-flex-row hawa-gap-4">
+          <Input label="Always LTR" placeholder={"Bismillah"} alwaysLTR />
         </div>
       </div>
     );

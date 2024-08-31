@@ -7,6 +7,7 @@ import { Label, LabelProps } from "../label/Label";
 import { Skeleton } from "../skeleton/Skeleton";
 
 export type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  alwaysLTR?: boolean;
   isLoading?: boolean;
   isLoadingError?: boolean;
   containerClassName?: string;
@@ -195,7 +196,7 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
                   )}
                   <input
                     required
-                    dir={props.dir}
+                    dir={props.alwaysLTR ? "ltr" : props.dir}
                     type={props.type}
                     value={props.value || value}
                     onChange={handleChange}
@@ -216,6 +217,7 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
                         "hawa-pe-[60px]": countPosition === "center",
                       },
                       preview && "hawa-border-transparent hawa-bg-transparent hawa-px-0",
+                      props.alwaysLTR && "hawa-text-end",
                       inputProps?.className,
                     )}
                   />

@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.10
+
+### Patch Changes
+
+- Add `alwaysLTR` to `Input`
+
 ## 0.49.9
 
 ### Patch Changes
