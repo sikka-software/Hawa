@@ -212,7 +212,7 @@ export const Input = forwardRef<HTMLInputElement, InputFieldProps>(
                       defaultInputStyle,
                       "focus-visible:hawa-outline-none focus-visible:hawa-ring-2 focus-visible:hawa-ring-ring focus-visible:hawa-ring-offset-0 dark:hawa-text-white",
 
-                      props.alwaysLTR
+                      props.alwaysLTR && props.dir === "rtl"
                         ? {
                             "hawa-ps-9": props.endIcon,
                             "hawa-pe-9": props.startIcon,

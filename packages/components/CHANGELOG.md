@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.12
+
+### Patch Changes
+
+- `Input`: fix spacing when `alwaysLTR` is presend in `ltr` direction in
+
 ## 0.49.11
 
 ### Patch Changes
