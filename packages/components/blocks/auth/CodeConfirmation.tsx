@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@util/index";
@@ -26,6 +26,7 @@ type TConfirmation = {
   showError?: any;
   errorTitle?: any;
   errorText?: any;
+  direction?: "ltr" | "rtl";
   /*
    * The identifier to be shown in the card title. That could be a phone number or an email address of the user.
    */
@@ -37,9 +38,17 @@ type TConfirmation = {
 
   cardless?: boolean;
   codeLength?: number;
+  /*
+   * If set to true, the form will be submitted automatically when the code is entered
+   */
+  autoSubmit?: boolean;
 };
 
-export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }) => {
+export const CodeConfirmation: FC<TConfirmation> = ({
+  autoSubmit = false,
+  codeLength = 6,
+  ...props
+}) => {
   const formSchema = z.object({
     otp_code: z
       .string({ required_error: props.texts?.codeRequiredText })
@@ -83,6 +92,21 @@ export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }
       }
     };
   }, []);
+
+  const otpCode = useWatch({ control, name: "otp_code" });
+
+  useEffect(() => {
+    if (autoSubmit && otpCode?.length === codeLength) {
+      handleSubmit((e) => {
+        if (props.onConfirm) {
+          return props.onConfirm(e);
+        } else {
+          console.log("Form is submitted but onConfirm prop is missing");
+        }
+      })();
+    }
+  }, [otpCode, autoSubmit, codeLength]);
+
   return (
     <Card
       className={cn(
@@ -92,7 +116,12 @@ export const CodeConfirmation: FC<TConfirmation> = ({ codeLength = 6, ...props }
     >
       <CardContent headless noPadding={props.cardless}>
         {props.showError && (
-          <Alert title={props.errorTitle} text={props.errorText} severity="error" />
+          <Alert
+            direction={props.direction || "ltr"}
+            title={props.errorTitle}
+            text={props.errorText}
+            severity="error"
+          />
         )}
         <div className="hawa-mb-4 dark:hawa-text-white">
           <div className="hawa-text-lg hawa-font-bold">

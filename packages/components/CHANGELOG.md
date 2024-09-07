@@ -1,5 +1,12 @@
 # @sikka/hawa
 
+## 0.49.13
+
+### Patch Changes
+
+- `CodeConfirmation`: Add direction to alert
+- `CodeConfirmation`: Add `autoSubmit` boolean to submit when code is fully entered
+
 ## 0.49.12
 
 ### Patch Changes

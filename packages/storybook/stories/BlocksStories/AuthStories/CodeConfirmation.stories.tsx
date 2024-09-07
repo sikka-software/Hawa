@@ -24,6 +24,10 @@ export const Default: Story = {
         <CodeConfirmation
           showError={args.showError}
           {...args}
+          autoSubmit
+          direction={direction}
+          errorText={t("codeTooShort")}
+          errorTitle={t("codeRequiredText")}
           texts={{
             checkYourIdentifier: t("checkYourPhone"),
             weSentCode: t("weSentCode"),
