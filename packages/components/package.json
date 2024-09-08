@@ -87,7 +87,7 @@
     "libphonenumber-js": "^1.11.7",
     "prism-react-renderer": "^2.4.0",
     "prismjs": "^1.29.0",
-    "react-day-picker": "^9.0.8",
+    "react-day-picker": "^9.0.9",
     "react-dropzone": "^14.2.3",
     "react-headless-pagination": "^1.1.6",
     "react-hook-form": "^7.53.0",
