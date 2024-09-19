@@ -21,21 +21,21 @@
   },
   "dependencies": {
     "eslint": "^9.10.0",
-    "eslint-config-next": "^14.2.8",
+    "eslint-config-next": "^14.2.12",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
     "@babel/preset-react": "^7.24.7",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.13",
     "autoprefixer": "^10.4.20",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "tsup": "^8.2.4"
+    "tsup": "^8.3.0"
   }
 }
