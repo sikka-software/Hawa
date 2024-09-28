@@ -273,7 +273,6 @@ const DialogSteps: React.FC<DialogStepsProps> = ({ currentStep, visibleStepRef, 
   React.useEffect(() => {
     if (visibleStepRef.current) {
       setDialogHeight(visibleStepRef.current.offsetHeight);
-      console.log("height is ", visibleStepRef.current.offsetHeight);
     }
   }, [currentStep, visibleStepRef]);
 

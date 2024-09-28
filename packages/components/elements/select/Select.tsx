@@ -187,6 +187,7 @@ export const Select: FC<SelectTypes> = ({
                   Option: (optionProps) => (
                     <Option
                       {...optionProps}
+                      // @ts-ignore
                       isSelected={optionProps.data[valueKey] === props.value[valueKey]}
                     />
                   ),

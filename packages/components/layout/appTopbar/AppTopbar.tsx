@@ -119,7 +119,7 @@ export const AppTopbar: React.FC<AppTopbarType> = ({ ...props }) => {
           // width={props.profileMenuWidth}
           direction={isRTL ? "rtl" : "ltr"}
           items={props.profileMenuItems || []}
-          onItemSelect={(e: any) => console.log("selecting item ", e)}
+          // onItemSelect={(e: any) => console.log("selecting item ", e)}
           trigger={
             <div className="hawa-relative hawa-h-8 hawa-w-8 hawa-cursor-pointer hawa-overflow-clip hawa-rounded hawa-ring-1 hawa-ring-primary/30 dark:hawa-bg-gray-600">
               {props.avatarImage ? (

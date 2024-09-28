@@ -203,7 +203,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </div>
             {customFields &&
               customFields.map((customField: CustomField) => {
-                console.log("custom", customField);
                 return (
                   <Controller
                     control={control}

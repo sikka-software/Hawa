@@ -276,7 +276,6 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
   });
 
   const onSubmit = (data: any) => {
-    console.log("Form submitted with data:", data);
     if (props.onRegister) {
       props.onRegister(data);
     } else {
@@ -514,9 +513,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                             label={texts?.userReference?.label || "How did you learn about us?"}
                             placeholder={texts?.userReference?.placeholder}
                             isCreatable={false}
-                            isMulti={false ?? false}
+                            isMulti={false}
                             isSearchable={false}
-                            isClearable={false ?? false}
+                            isClearable={false}
                             options={props.userReferenceOptions || []}
                             onChange={(e: any) => field.onChange(e)}
                           />
@@ -583,9 +582,9 @@ export const RegisterForm: FC<RegisterFormTypes> = ({
                             label={texts?.userReference?.label || "How did you learn about us?"}
                             placeholder={texts?.userReference?.placeholder}
                             isCreatable={false}
-                            isMulti={false ?? false}
+                            isMulti={false}
                             isSearchable={false}
-                            isClearable={false ?? false}
+                            isClearable={false}
                             options={props.userReferenceOptions || []}
                             onChange={(e: any) => field.onChange(e)}
                           />

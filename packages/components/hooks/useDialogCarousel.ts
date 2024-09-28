@@ -24,14 +24,14 @@ export const useDialogCarousel = (options?: any): DialogCarouselType => {
   };
   const nextStep = () => {
     if (emblaApi) {
-      console.log("going to NEXT 👉");
+      // console.log("going to NEXT 👉");
       emblaApi.scrollNext();
     }
   };
 
   const prevStep = () => {
     if (emblaApi) {
-      console.log("going to BACK 👈");
+      // console.log("going to BACK 👈");
       emblaApi.scrollPrev();
     }
   };

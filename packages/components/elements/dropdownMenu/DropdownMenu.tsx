@@ -381,7 +381,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                           let newValues = [...values];
                           newValues[index] = e;
                           setValues(newValues);
-                          console.log("changing to ", e);
                           if (item.onOptionChange) {
                             item.onOptionChange(e);
                           }

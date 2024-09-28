@@ -4,7 +4,20 @@
 declare COMPONENTS_CHANGED=$(git diff --cached --name-only | grep 'packages/components')
 
 # Run `tsc` if changes are detected in the respective directories
-if [[ $COMPONENTS_CHANGED ]]; then
-    pushd packages/components && "$NVM_SYMLINK/tsc.cmd" --noEmit || exit 1
-    popd
+# if [[ $COMPONENTS_CHANGED ]]; then
+#     pushd packages/components && "$NVM_SYMLINK/tsc.cmd" --noEmit || exit 1
+#     popd
+# fi
+
+
+#!/bin/sh
+
+# Get the list of staged files and check if any are in 'packages/components'
+COMPONENTS_CHANGED=$(git diff --cached --name-only | grep 'packages/components')
+
+# Run `tsc` if changes are detected in the respective directories
+if [ -n "$COMPONENTS_CHANGED" ]; then
+    cd packages/components || exit 1
+    npx tsc --noEmit || exit 1
+    cd - || exit 1
 fi

@@ -284,7 +284,7 @@ export const AppLayout: React.FunctionComponent<AppLayoutTypes> = ({
               width={profileMenuWidth}
               direction={direction}
               items={finalProfileMenuItems || []}
-              onItemSelect={(e: any) => console.log("selecting item ", e)}
+              // onItemSelect={(e: any) => console.log("selecting item ", e)}
               trigger={
                 <div
                   onClick={onAvatarClick}
