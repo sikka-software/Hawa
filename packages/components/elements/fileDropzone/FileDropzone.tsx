@@ -59,13 +59,15 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
 }) => {
   const [cmp, setCmp] = useState(0);
   const [max, setMax] = useState<any>(0);
+  const [filesAccepted, setFilesAccepted] = useState<any>([]);
 
   const { getRootProps, getInputProps, fileRejections, acceptedFiles, isDragActive } = useDropzone({
     multiple: true,
     accept: accept,
     maxSize: maxSize,
     maxFiles: maxFiles,
-    onDrop: (acceptedFiles: any) => {
+    useFsAccessApi: true,
+    onDrop: (acceptedFiles) => {
       setFiles(
         acceptedFiles.map((file: any, index: any) =>
           Object.assign(file, {
@@ -86,14 +88,15 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
   useEffect(() => {
     setFiles(acceptedFiles);
   }, [acceptedFiles, cmp, setFiles]);
+
   onClearFiles = () => {
-    acceptedFiles.length = 0;
-    acceptedFiles.splice(0, acceptedFiles.length);
+    setFilesAccepted([]);
+    setFilesAccepted(filesAccepted.splice(0, filesAccepted.length));
     setFiles([]);
   };
 
   const clearAllFiles = () => {
-    acceptedFiles.length = 0;
+    setFilesAccepted([]);
     setFiles([]);
   };
 
@@ -126,7 +129,7 @@ export const FileDropzone: React.FunctionComponent<FileDropzoneTypes> = ({
       <button
         onClick={(e) => {
           e.stopPropagation();
-          acceptedFiles.splice(acceptedFiles.indexOf(file), 1);
+          setFilesAccepted(filesAccepted.splice(filesAccepted.indexOf(file), 1));
           setCmp(Math.random);
           onDeleteFile(file);
         }}
