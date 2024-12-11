@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FC } from "react";
+import React, { useEffect, useState, FC, JSX } from "react";
 
 import { cn } from "@util/index";
 

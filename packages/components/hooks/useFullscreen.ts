@@ -60,7 +60,7 @@ function addEvents(
 export function useFullscreen<T extends HTMLElement = any>() {
   const [fullscreen, setFullscreen] = useState<boolean>(false);
 
-  const _ref = useRef<T>();
+  const _ref = useRef<T>(null);
 
   const handleFullscreenChange = useCallback(
     (event: Event) => {

@@ -19,7 +19,7 @@ export type ChipTypes = React.HTMLAttributes<HTMLSpanElement> & {
   /** The text inside the chip */
   label: string;
   /** The small icon before the chip label  */
-  icon?: JSX.Element;
+  icon?: React.JSX.Element;
   /** The color of the chip, must be a tailwind color */
   color?: ChipColors;
   /** The size of the chip */

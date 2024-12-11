@@ -4,7 +4,7 @@ import { cn } from "@util/index";
 
 type BadgeTypes = {
   position: "right" | "left";
-  anchor: RefObject<HTMLElement>;
+  anchor: RefObject<HTMLDivElement | null>;
   size?: "small" | "default" | "large";
   text?: string | number;
   className?: string;
@@ -26,7 +26,7 @@ export const Badge: FC<BadgeTypes> = ({
   };
   useEffect(() => {
     const handlePositioning = () => {
-      if (anchor.current && indicatorRef.current) {
+      if (anchor && anchor.current && indicatorRef.current) {
         const rect = anchor.current.getBoundingClientRect();
         const parentRect = (
           indicatorRef.current as HTMLElement
@@ -81,12 +81,18 @@ export const Badge: FC<BadgeTypes> = ({
 };
 
 export const BadgedComponent = ({ children, className, hideBadge, position, size, text }: any) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className={cn("hawa-relative hawa-w-fit", className)} ref={ref}>
       {!hideBadge && (
-        <Badge size={size} text={text} position={position} anchor={ref} className="hawa-z-10" />
+        <Badge
+          size={size}
+          text={text}
+          position={position}
+          anchor={ref || null}
+          className="hawa-z-10"
+        />
       )}
       {children}
     </div>

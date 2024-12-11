@@ -1,5 +1,11 @@
 # @sikka/hawa
 
+## 0.49.15
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.49.13
 
 ### Patch Changes

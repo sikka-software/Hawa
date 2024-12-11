@@ -125,7 +125,10 @@ export const DocsLayout: React.FunctionComponent<AppLayoutTypes> = ({
     });
     // Assuming each child corresponds to a page and has an id attribute
     React.Children.forEach(props.children, (child: React.ReactElement) => {
-      if (child && child.props.id) {
+      //@ts-ignore
+      if (child && child.props && child.props.id) {
+        //@ts-ignore
+
         const element = document.getElementById(child.props.id);
         if (element && observerRef.current) {
           observerRef.current.observe(element);

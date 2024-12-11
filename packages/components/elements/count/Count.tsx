@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 type IconCountTypes = {
   /** The icon of the counter */
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   /** The text next to the icon */
   count?: string;
 };
